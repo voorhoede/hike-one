@@ -1,0 +1,16 @@
+{
+  "name": "hike-one",
+  "version": "1.0.0",
+  "description": "website for Hike One",
+  "main": "src/index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voorhoede/hike-one.git"
+  },
+  "author": "De Voorhoede",
+  "license": "All Rights Reserved",
+  "private": true
+}

@@ -1,5 +1,6 @@
 import { h, render } from 'preact';
 import App from './components/app';
+import './styles';
 
 function init() {
 	render(<App />, document.body);

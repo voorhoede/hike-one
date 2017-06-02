@@ -4,7 +4,9 @@
   "description": "website for Hike One",
   "main": "src/index.js",
   "scripts": {
-    "prebuild": "mkdirp dist",
+    "prestart": "npm run build",
+    "start": "serve dist --single --cache 1",
+    "prebuild": "rimraf dist && mkdirp dist",
     "build": "cross-env NODE_ENV=production webpack -p --progress",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress"
   },
@@ -41,6 +43,8 @@
     "postcss-loader": "2.0.5",
     "raw-loader": "0.5.1",
     "replace-bundle-webpack-plugin": "1.0.0",
+    "rimraf": "2.6.1",
+    "serve": "5.2.0",
     "source-map-loader": "0.2.1",
     "style-loader": "0.18.1",
     "url-loader": "0.5.8",

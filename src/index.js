@@ -5,10 +5,8 @@ function init() {
 	render(<App />, document.body);
 }
 
-// in development, set up Hot Module Reloading:
-if (module.hot) {
+if (process.env.NODE_ENV === 'development') {
 	require('preact/devtools');   // enable React DevTools
-	module.hot.accept('./components/app', () => requestAnimationFrame(init) );
 }
 
 init();

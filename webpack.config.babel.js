@@ -31,17 +31,22 @@ module.exports = {
 	module: {
 		rules: [
 			{
+				test: /\.jsx?$/,
 				exclude: path.resolve(__dirname, "src"),
 				enforce: 'pre',
 				use: 'source-map-loader',
 			},
 			{
+				test: /\.js/,
 				exclude: path.resolve(__dirname, "node_modules"),
 				use: 'babel-loader'
 			},
 			{
 				// Transform our own .(less|css) files with PostCSS and CSS-modules
-				include: path.resolve(__dirname, "components"),
+				test: /\.(less|css)$/,
+				include: [
+					path.resolve(__dirname, "src/components"),
+					path.resolve(__dirname, "src/views")],
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [
@@ -67,7 +72,9 @@ module.exports = {
 			},
 			{
 				test: /\.(less|css)$/,
-				exclude: [path.resolve(__dirname, 'components')],
+				exclude: [
+					path.resolve(__dirname, "src/components"),
+					path.resolve(__dirname, "src/views")],
 				use: ExtractTextPlugin.extract({
 					fallback: 'style-loader',
 					use: [

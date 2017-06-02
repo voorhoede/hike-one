@@ -1,14 +1,17 @@
 import { h, Component } from 'preact';
-import Header from './header/header';
+import { Router } from 'preact-router';
+
+import Home from '../views/home/home';
+import Case from '../views/case/case';
 
 export default class App extends Component {
 
 	render() {
 		return (
-			<div id="app">
-				<Header />
-				<h2>hello world</h2>
-			</div>
+			<Router>
+				<Home path="/" />
+				<Case path="/case"/>
+			</Router>
 		);
 	}
 }

@@ -1,9 +1,18 @@
 @import '../../styles/variables';
+
 .article {
-	margin: 0 auto;
+	margin: 0 @spacing-default;
 	max-width: @container-max-width;
+
+	@media @screen-medium {
+		margin: 0 auto;
+	}
 }
 
 .article section {
 	margin-bottom: 100px;
+
+	@media @screen-medium {
+		margin-bottom: 125px;
+	}
 }

@@ -3,14 +3,30 @@
 
 .intro {
     text-align: center;
+}
 
-    .button{
-        .btn;
-        width: 100%;
-        text-align: center;
+.intro h1 {
+	font-size: 30px;
 
-        @media @screen-medium {
-            width: auto;
-        }
-    }
+	@media @screen-medium {
+		font-size: 36px;
+	}
+}
+
+.intro p {
+	margin-bottom: 32px;
+
+	@media @screen-medium {
+		margin: 0 95px 32px 95px;
+	}
+}
+
+.button {
+	.btn;
+	text-align: center;
+	font-size: 18px;
+
+	@media @screen-medium {
+		width: auto;
+	}
 }

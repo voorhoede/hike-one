@@ -1,18 +1,25 @@
 @import '../../styles/variables';
 
 .header {
-	background: @primary-color;
+	background: @gray;
 	height: @header-height;
 	text-align: center;
-	margin-bottom: 100px;
+	margin-bottom: 30px;
+
+	@media @screen-medium {
+		margin-bottom: 100px;
+	}
 }
 
 .logo {
 	display: inline-block;
-
-	h1 {
-		display: inline-block;
-		margin: 0;
-		line-height: @header-height;
+	&:visited {
+		color: @text-color;
 	}
+}
+
+.logo h1 {
+	display: inline-block;
+	margin: 0;
+	line-height: @header-height;
 }

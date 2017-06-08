@@ -9,12 +9,12 @@ export default class ServicesItem extends Component {
 
         return (
             <li className={styles.li}>
-                <img src={data.image} alt=""/>
-                <div className={data.info}>
-                    <h3>{data.title}</h3>
+                <img className={styles.image} alt=""/>
+                <div className={styles.info}>
+                    <h3 className={styles.heading}>{data.title}</h3>
                     <p className={styles.text}>{data.text}</p>
                     <p className={styles.tags}>AKA: {data.tags}</p>
-                    <Link href={data.linkHref}>{data.linkLabel}</Link>
+                    <Link href={data.linkHref} className={styles.button}>{data.linkLabel}</Link>
                 </div>
             </li>
         );

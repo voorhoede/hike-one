@@ -2,42 +2,70 @@
 @import '../../styles/button';
 
 .li {
-    @media @screen-medium {
-        display: flex;
-        align-items: flex-start;
-    }
-    img {
-        margin-bottom: @spacing-default;
-        @media @screen-medium {
-            display: inline-block;
-            margin-bottom: 0;
-        }
-    }
+	margin-bottom: 75px;
 
-    .info {
-        display: inline-block;
-        width: 100%;
-        @media @screen-medium {
-            vertical-align: top;
-            width: auto;
-            margin-left: @spacing-double;
-            position: relative;
-        }
+	@media @screen-medium {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 100px;
+	}
+}
 
-        .text {
-            @media @screen-medium {
-                padding-bottom: @spacing-default;
-            }
-        }
-    }
+.image {
+	margin-bottom: @spacing-default;
+	width: 75px;
+	height: 75px;
+	background: @gray;
 
-    a {
-        .btn;
+	@media @screen-medium {
+		display: inline-block;
+		margin-bottom: 0;
+		min-width: 100px;
+		height: 100px;
+	}
+}
 
-        @media @screen-medium {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-    }
+.heading {
+	font-size: 30px;
+	margin-bottom: 12px;
+	@media @screen-medium {
+		font-size: 36px;
+	}
+}
+
+
+.info {
+	display: inline-block;
+	width: 100%;
+	@media @screen-medium {
+		vertical-align: top;
+		width: auto;
+		margin-left: 60px;
+		position: relative;
+	}
+}
+
+.text {
+	@media @screen-medium {
+		margin-bottom: @spacing-default;
+	}
+}
+
+.tags {
+	margin-bottom: 40px;
+	@media @screen-medium {
+		margin-bottom: 0;
+	}
+}
+
+.button {
+	.btn;
+	background: @gray;
+	font-size: 20px;
+	padding: 8px 16px;
+	@media @screen-medium {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
 }

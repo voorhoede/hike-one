@@ -1,0 +1,17 @@
+@import './variables';
+
+.container {
+    display: block;
+    width: 100%;
+    max-width: @containerMaxWidth;
+    padding: 0 @spacing-default;
+    margin: @spacing-double 0;
+
+    @media @s {
+        padding: 0 @spacing-double;
+    }
+
+    @media @m {
+        margin: @spacing-double auto;
+    }
+}

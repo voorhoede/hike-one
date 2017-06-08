@@ -1,0 +1,43 @@
+@import '../../styles/button';
+
+
+.li {
+    @media @m {
+        display: flex;
+        align-items: flex-start;
+    }
+    img {
+        margin-bottom: @spacing-default;
+        @media @m {
+            display: inline-block;
+            margin-bottom: 0;
+        }
+    }
+
+    .info {
+        display: inline-block;
+        width: 100%;
+        @media @m {
+            vertical-align: top;
+            width: auto;
+            margin-left: @spacing-double;
+            position: relative;
+        }
+
+        .text {
+            @media @m {
+                padding-bottom: @spacing-default;
+            }
+        }
+    }
+
+    a{
+        .btn;
+
+        @media @m {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}

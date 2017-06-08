@@ -6,7 +6,7 @@ import ServicesItems from '../services-items/services-items';
 export default class ServicesOverview extends Component {
     render() {
         return (
-            <div className={overviewStyles.list}>
+            <section className={overviewStyles.list}>
                 <h2>Our services</h2>
                 <ul>
                     <ServicesItems
@@ -18,7 +18,7 @@ export default class ServicesOverview extends Component {
                     linkDest="#"
                      />
                 </ul>
-            </div>
+            </section>
         )
     }
 }

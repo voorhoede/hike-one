@@ -1,14 +1,14 @@
+@import '../../styles/variables';
 @import '../../styles/button';
 
-
 .li {
-    @media @m {
+    @media @screen-medium {
         display: flex;
         align-items: flex-start;
     }
     img {
         margin-bottom: @spacing-default;
-        @media @m {
+        @media @screen-medium {
             display: inline-block;
             margin-bottom: 0;
         }
@@ -17,7 +17,7 @@
     .info {
         display: inline-block;
         width: 100%;
-        @media @m {
+        @media @screen-medium {
             vertical-align: top;
             width: auto;
             margin-left: @spacing-double;
@@ -25,16 +25,16 @@
         }
 
         .text {
-            @media @m {
+            @media @screen-medium {
                 padding-bottom: @spacing-default;
             }
         }
     }
 
-    a{
+    a {
         .btn;
 
-        @media @m {
+        @media @screen-medium {
             position: absolute;
             bottom: 0;
             right: 0;

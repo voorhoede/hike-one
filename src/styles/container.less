@@ -3,15 +3,15 @@
 .container {
     display: block;
     width: 100%;
-    max-width: @containerMaxWidth;
+    max-width: @container-max-width;
     padding: 0 @spacing-default;
     margin: @spacing-double 0;
 
-    @media @s {
+    @media @screen-small {
         padding: 0 @spacing-double;
     }
 
-    @media @m {
+    @media @screen-small {
         margin: @spacing-double auto;
     }
 }

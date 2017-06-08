@@ -2,4 +2,19 @@
 
 .header {
 	background: @primary-color;
+	height: @headerHeight;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	display: inline-block;
+
+	h1 {
+		display: inline-block;
+		margin: 0;
+		line-height: @headerHeight;
+		color: @text-color;
+	}
 }

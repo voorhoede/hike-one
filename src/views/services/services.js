@@ -19,8 +19,8 @@ export default class Services extends Component {
 					<ServiceApproach/>
 					<ServicesOverview/>
 				</article>
-				<ServicesContact />
-				<Footer />
+				<ServicesContact/>
+				<Footer/>
 			</main>
 		);
 	}

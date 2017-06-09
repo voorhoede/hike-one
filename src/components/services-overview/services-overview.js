@@ -44,9 +44,7 @@ export default class ServicesOverview extends Component {
             <section className={styles.section}>
                 <h2 className="section-header">Our services</h2>
                 <ul>
-					{
-						services.map((service) => <ServicesItem data={service}/>)
-					}
+					{ services.map((service) => <ServicesItem data={service}/>) }
                 </ul>
             </section>
         );

@@ -40,10 +40,10 @@ class ServicesOverview extends React.Component {
 		];
 
         return (
-            <section>
+            <section className="services-overview">
                 <h2 className="section-header">Our services</h2>
                 <ul>
-					{ services.map((service) => <ServicesItem data={service}/>) }
+					{ services.map((service, index) => <ServicesItem key={index} data={service}/>) }
                 </ul>
             </section>
         );

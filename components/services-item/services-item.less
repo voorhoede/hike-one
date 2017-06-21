@@ -1,7 +1,6 @@
-@import '../../styles/variables';
-@import '../../styles/button';
+@import (reference) '../../styles/variables';
 
-.li {
+.services-item {
 	margin-bottom: 75px;
 
 	@media @screen-medium {
@@ -11,7 +10,7 @@
 	}
 }
 
-.image {
+.services-item .img {
 	margin-bottom: @spacing-default;
 	width: 75px;
 	height: 75px;
@@ -25,7 +24,7 @@
 	}
 }
 
-.heading {
+.services-item-heading {
 	font-size: 30px;
 	margin-bottom: 12px;
 	@media @screen-medium {
@@ -33,7 +32,7 @@
 	}
 }
 
-.info {
+.services-item-info {
 	display: inline-block;
 	width: 100%;
 	@media @screen-medium {
@@ -44,21 +43,20 @@
 	}
 }
 
-.text {
+.services-item-text {
 	@media @screen-medium {
 		margin-bottom: @spacing-default;
 	}
 }
 
-.tags {
+.services-item-tags {
 	margin-bottom: 40px;
 	@media @screen-medium {
 		margin-bottom: 0;
 	}
 }
 
-.button {
-	.btn;
+.services-item .btn {
 	background: @gray;
 	font-size: 20px;
 	padding: 8px 16px;

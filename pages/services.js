@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 import ServicesIntro from '../components/services-intro/services-intro';
@@ -10,16 +11,18 @@ import ServicesContact from '../components/services-contact/services-contact';
 class Services extends React.Component {
 	render() {
 		return (
-			<main>
-				<Header/>
-				<article>
-					<ServicesIntro/>
-					<ServiceApproach/>
-					<ServicesOverview/>
-				</article>
-				<ServicesContact/>
-				<Footer/>
-			</main>
+			<Layout title="Hike One - Services">
+				<main>
+					<Header/>
+					<article>
+						<ServicesIntro/>
+						<ServiceApproach/>
+						<ServicesOverview/>
+					</article>
+					<ServicesContact/>
+					<Footer/>
+				</main>
+			</Layout>
 		);
 	}
 }

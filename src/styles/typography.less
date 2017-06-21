@@ -1,0 +1,24 @@
+@import './variables';
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 25px 0;
+}
+
+p {
+    margin:0 0 @spacing-default 0;
+	font-size: 18px;
+
+	@media @screen-medium {
+		font-size: 24px;
+	}
+}
+
+.section-header {
+	font-size: 30px;
+	text-align: center;
+
+	@media @screen-medium {
+		font-size: 36px;
+	}
+}
+

@@ -12,7 +12,7 @@ export default class Home extends Component {
 				<h1>Home</h1>
 				<p>This is the Home component.</p>
 
-				<Link href="/case">Case page</Link>
+				<Link href="/services">Services page</Link>
 			</div>
 		);
 	}

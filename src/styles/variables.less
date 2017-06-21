@@ -1,1 +1,22 @@
-@primary-color: lightcyan;
+@import './fonts';
+
+@gray: #d8d8d8;
+@gray-light: #eeeeee;
+@primary-color: @gray;
+@gray-dark: #262626;
+
+@text-color: #000;
+
+@main-font: 'gilroy', sans-serif;
+
+@header-height: 100px;
+@container-max-width: 980px;
+
+// Spacing
+@spacing-default: 16px;
+@spacing-double: @spacing-default * 2;
+@spacing-half: @spacing-default / 2;
+
+// Media queries
+@screen-medium: ~"only screen and (min-width: 768px)";
+@screen-small: ~"only screen and (min-width: 500px)";

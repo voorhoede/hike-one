@@ -1,5 +1,7 @@
 @import (less) '../vendor/normalize.css';
 
+@import (less) './typography';
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -7,6 +9,14 @@ html, body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-family: @main-font;
+}
+
+body {
+	&.disable-scroll {
+		overflow: hidden;
+    	max-height: 100vh;
+	}
 }
 
 * {

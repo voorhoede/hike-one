@@ -13,7 +13,7 @@ export default class Menu extends Component {
 	render() {
 		return (
 			<div className={styles.menu}>
-				<div ref={ node => this.inner = node } className={styles.inner}>
+				<div className={styles.inner}>
 					<ul className={styles.list}>
 						<li><Link href="/team">Team</Link></li>
 						<li><Link href="/services">Services</Link></li>

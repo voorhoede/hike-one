@@ -4,11 +4,11 @@
   "description": "website for Hike One",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "npm run build",
-    "start": "serve dist --single --cache 1",
-    "prebuild": "rimraf dist && mkdirp dist",
-    "build": "cross-env NODE_ENV=production webpack -p --progress",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress"
+    "prestart": "next build",
+    "start": "NODE_ENV=production node server.js",
+    "build": "next build",
+    "build:css": "lessc styles/index.less static/styles/index.css",
+    "dev": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,10 @@
   "license": "All Rights Reserved",
   "private": true,
   "dependencies": {
-    "preact": "8.1.0",
-    "preact-compat": "3.16.0",
-    "preact-router": "2.5.2"
+    "express": "4.15.3",
+    "next": "2.4.4",
+    "react": "15.6.1",
+    "react-dom": "15.6.1"
   },
   "devDependencies": {
     "autoprefixer": "7.1.1",

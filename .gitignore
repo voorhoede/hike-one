@@ -11,4 +11,7 @@ node_modules
 npm-debug.log
 
 # dist
-dist
+.next
+
+# generated styles
+static/styles

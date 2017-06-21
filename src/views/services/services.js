@@ -12,16 +12,18 @@ import ServicesContact from '../../components/services-contact/services-contact'
 export default class Services extends Component {
 	render() {
 		return (
-			<main>
+			<div>
 				<Header/>
-				<article className={style.article}>
-					<ServicesIntro/>
-					<ServiceApproach/>
-					<ServicesOverview/>
-				</article>
-				<ServicesContact/>
+				<main>
+					<article className={style.article}>
+						<ServicesIntro/>
+						<ServiceApproach/>
+						<ServicesOverview/>
+					</article>
+					<ServicesContact/>
+				</main>
 				<Footer/>
-			</main>
+			</div>
 		);
 	}
 }

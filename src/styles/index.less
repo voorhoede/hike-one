@@ -12,6 +12,13 @@ html, body {
 	font-family: 'Montserrat', sans-serif;
 }
 
+body {
+	&.disable-scroll {
+		overflow: hidden;
+    	max-height: 100vh;
+	}
+}
+
 * {
 	box-sizing: border-box;
 }

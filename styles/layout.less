@@ -1,4 +1,20 @@
-@import 'variables';
+@import (reference) 'variables';
+
+.container {
+	display: block;
+	width: 100%;
+	max-width: @container-max-width;
+	padding: 0 @spacing-default;
+	margin: @spacing-double 0;
+
+	@media @screen-small {
+		padding: 0 @spacing-double;
+	}
+
+	@media @screen-small {
+		margin: @spacing-double auto;
+	}
+}
 
 .article {
 	padding: 0 @spacing-default;

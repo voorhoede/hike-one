@@ -11,18 +11,17 @@
 	}
 }
 
-.open {
-	.logo {
-		z-index: 3;
-		h1 {
-			color: @gray-light;
-		}
+.header.open {
+	h1 {
+		color: @gray-light;
+	}
+
+	.btn svg {
+		fill: @gray-light;
 	}
 }
 
-.container {
-	.container;
-
+.header .container {
 	display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,20 +33,21 @@
 	}
 }
 
-.logo {
+.header-logo {
 	display: inline-block;
+	z-index: 3;
 	&:visited {
 		color: @text-color;
 	}
 }
 
-.logo h1 {
+.header-logo h1 {
 	display: inline-block;
 	margin: 0;
 	line-height: @header-height;
 }
 
-.btn {
+.header .btn {
 	z-index: 3;
 	position: relative;
 	font-size: 0;

@@ -12,7 +12,7 @@ class Home extends React.Component {
 				<h1>Home</h1>
 				<p>This is the Home component.</p>
 
-				<Link href="/services">Services page</Link>
+				<Link href="/services"><a>Services page</a></Link>
 			</Layout>
 		);
 	}

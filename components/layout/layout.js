@@ -18,10 +18,8 @@ export default ({ children, title = 'Hike One' }) => (
 			<link rel="apple-touch-icon" sizes="180x180" href="../static/icons/apple-touch-icon.png" />
 			<link rel="icon" type="image/png" href="/static/icons/favicon-32x32.png" sizes="32x32" />
 			<link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" sizes="16x16" />
-			<link rel="manifest" href="/static/manifest.json" />
 			<link rel="stylesheet" href="/static/styles/index.css" />
 		</Head>
-
 		{ children }
 	</div>
 )

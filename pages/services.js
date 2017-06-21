@@ -14,7 +14,7 @@ class Services extends React.Component {
 			<Layout title="Hike One - Services">
 				<main>
 					<Header/>
-					<article>
+					<article className="article">
 						<ServicesIntro/>
 						<ServiceApproach/>
 						<ServicesOverview/>

@@ -11,8 +11,8 @@ class ServicesItem extends React.Component {
                     <h3 className="services-item-heading">{data.title}</h3>
                     <p className="services-item-text">{data.text}</p>
                     <p className="services-item-tags">AKA: {data.tags}</p>
-					<Link className="btn" href={data.linkHref}>
-						<a href={data.linkHref}>{data.linkLabel}</a>
+					<Link href={data.linkHref}>
+						<a className="btn">{data.linkLabel}</a>
 					</Link>
                 </div>
             </li>

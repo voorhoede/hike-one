@@ -1,10 +1,12 @@
 @import (less) '../vendor/normalize.css';
 
+@import (once) 'fonts';
 @import (once) 'typography';
 @import (once) 'layout';
 
 @import (once) '../components/footer/footer';
 @import (once) '../components/header/header';
+@import (once) '../components/menu/menu';
 @import (once) '../components/services-approach/service-approach';
 @import (once) '../components/services-contact/services-contact';
 @import (once) '../components/services-intro/services-intro';
@@ -18,7 +20,12 @@ html, body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'gilroy', 'sans-serif';
+}
+
+body.disable-scroll {
+	overflow: hidden;
+	max-height: 100vh;
 }
 
 * {

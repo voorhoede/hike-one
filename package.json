@@ -4,11 +4,13 @@
   "description": "website for Hike One",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "next build",
+    "prestart": "npm run build:next",
     "start": "NODE_ENV=production node server.js",
-    "build": "next build",
+    "build": "npm-run-all --serial build:css build:next",
+    "build:next": "next build",
     "build:css": "node tasks/build-css.js",
-    "dev": "node server.js",
+    "dev": "npm-run-all --parallel watch:css serve:dev",
+    "serve:dev": "node server.js",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'"
   },
   "repository": {
@@ -34,6 +36,7 @@
     "gulp-less": "3.3.2",
     "gulp-plumber": "1.1.0",
     "gulp-sourcemaps": "2.6.0",
-    "less": "2.7.2"
+    "less": "2.7.2",
+    "npm-run-all": "4.0.2"
   }
 }

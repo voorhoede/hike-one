@@ -184,6 +184,8 @@ module.exports = {
 		publicPath: '/',
 		contentBase: paths.src,
 		historyApiFallback: true,
-		open: true
+		open: true,
+
+		disableHostCheck: true
 	}
 };

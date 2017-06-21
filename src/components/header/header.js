@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 
 import Menu from '../menu/menu';
+import Hamburger from '../icons/hamburger/hamburger';
 
 import styles from './header.less';
 
@@ -10,21 +11,21 @@ export default class Header extends Component {
 		super();
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.state = {
-			menuIsOpen: false
+			menuIsOpen: false,
+			hamburger: false
 		};
 	}
 
 	toggleMenu() {
 		this.setState({
-			menuIsOpen: !this.state.menuIsOpen
+			menuIsOpen: !this.state.menuIsOpen,
+			hamburger: !this.state.hamburger
 		});
 
 		document.body.classList.toggle('disable-scroll')
 	}
 
 	render() {
-		// { !this.state.menuIsOpen && <span>open</span> }
-		// { this.state.menuIsOpen && <span>close</span> }
 		return (
 			<header className={[styles.header, this.state.menuIsOpen ? styles.open : ''].join(' ')}>
 				<div className={styles.container}>
@@ -36,11 +37,7 @@ export default class Header extends Component {
 				<button
 					className={styles.btn}
 					onClick={this.toggleMenu}>
-					<svg width="35" height="22" viewBox="0 0 35 22" xmlns="http://www.w3.org/2000/svg">
-						<rect x="0" y="0" width="35" height="4"  />
-						<rect x="0" y="9" width="35" height="4" />
-						<rect x="0" y="18" width="35" height="4" />
-					</svg>
+					<Hamburger open={this.state.hamburger} />
 				</button>
 
 				{ this.state.menuIsOpen && <Menu/> }

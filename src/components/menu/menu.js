@@ -3,21 +3,17 @@ import { Link } from 'preact-router';
 
 import styles from './menu.less';
 
+import Facebook  from '../icons/facebook/facebook';
+import Twitter   from '../icons/twitter/twitter';
+import Instagram from '../icons/instagram/instagram';
+import LinkedIn  from '../icons/linkedin/linkedin';
+import Medium    from '../icons/medium/medium';
+
 export default class Menu extends Component {
-	componentDidMount() {
-		console.log(this);
-		console.log(this.inner);
-		TweenLite.to(this.inner, 2, {top: 100, ease:Linear.easeNone, onComplete: this.complete})
-	}
-
-	complete() {
-		console.log("i am done");
-	}
-
 	render() {
 		return (
 			<div className={styles.menu}>
-				<div ref={ i => this.inner = i } className={styles.inner}>
+				<div ref={ node => this.inner = node } className={styles.inner}>
 					<ul className={styles.list}>
 						<li><Link href="/team">Team</Link></li>
 						<li><Link href="/services">Services</Link></li>
@@ -29,11 +25,11 @@ export default class Menu extends Component {
 						<li><Link href="/playground">Playground</Link></li>
 					</ul>
 					<div className={styles.social}>
-						<Link href="#"><img src="assets/icons/facebook.svg" alt="Facebook" /></Link>
-						<Link href="#"><img src="assets/icons/twitter.svg" alt="Twitter" /></Link>
-						<Link href="#"><img src="assets/icons/instagram.svg" alt="Instagram" /></Link>
-						<Link href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></Link>
-						<Link href="#"><img src="assets/icons/medium.svg" alt="Medium" /></Link>
+						<Link href="#"><Facebook  /></Link>
+						<Link href="#"><Twitter   /></Link>
+						<Link href="#"><Instagram /></Link>
+						<Link href="#"><LinkedIn  /></Link>
+						<Link href="#"><Medium    /></Link>
 					</div>
 				</div>
 			</div>

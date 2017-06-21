@@ -11,6 +11,29 @@
 	}
 }
 
+.open {
+	.logo {
+		z-index: 3;
+		h1 {
+			color: @gray-light;
+		}
+	}
+}
+
+.container {
+	.container;
+
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+	margin-top: 0;
+
+	@media @screen-small {
+		margin-top: 0;
+	}
+}
+
 .logo {
 	display: inline-block;
 	&:visited {
@@ -22,4 +45,15 @@
 	display: inline-block;
 	margin: 0;
 	line-height: @header-height;
+}
+
+.btn {
+	z-index: 3;
+	position: relative;
+	font-size: 0;
+	background: transparent;
+	border: none;
+    padding: 7px;
+	margin: 0;
+	cursor: pointer;
 }

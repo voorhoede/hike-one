@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 
-import Hamburger from '../icons/hamburger/hamburger';
-import Cross from '../icons/cross/cross';
+import Logo			from '../logo/logo';
+import Hamburger 	from '../icons/hamburger/hamburger';
+import Cross 		from '../icons/cross/cross';
 
 import Menu from '../menu/menu';
 
@@ -31,8 +32,8 @@ class Header extends React.Component {
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
-							<img src="" alt=""/>
-							<h1>Hike one</h1>
+							<Logo color="black"/>
+							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
 

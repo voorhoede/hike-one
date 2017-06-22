@@ -1,47 +1,17 @@
 import React from 'react';
 
 import ServicesItem from '../services-item/services-item';
+import ServicesData from '../../data/services/items.json';
+import OverviewData from '../../data/services/overview.json';
 
 class ServicesOverview extends React.Component {
     render() {
-		const services = [
-			{
-				image: 'http://via.placeholder.com/75x75',
-				title: 'Design',
-				text:'Two or three sentences about our design services. Keep it general here and focus on the possibilities.',
-				tags: 'wireframing, visual design, animations, …',
-				linkLabel: '...and more',
-				linkHref: '#'
-			},
-			{
-				image: 'http://via.placeholder.com/75x75',
-				title: 'Design',
-				text:'Two or three sentences about our design services. Keep it general here and focus on the possibilities.',
-				tags: 'wireframing, visual design, animations, …',
-				linkLabel: '...and more',
-				linkHref: '#'
-			},
-			{
-				image: 'http://via.placeholder.com/75x75',
-				title: 'Design',
-				text:'Two or three sentences about our design services. Keep it general here and focus on the possibilities.',
-				tags: 'wireframing, visual design, animations, …',
-				linkLabel: '...and more',
-				linkHref: '#'
-			},
-			{
-				image: 'http://via.placeholder.com/75x75',
-				title: 'Design',
-				text:'Two or three sentences about our design services. Keep it general here and focus on the possibilities.',
-				tags: 'wireframing, visual design, animations, …',
-				linkLabel: '...and more',
-				linkHref: '#'
-			}
-		];
+		const services = ServicesData.items;
 
         return (
             <section className="services-overview">
-                <h2 className="section-header">Our services</h2>
+                <h2 className="section-header">{OverviewData.title}</h2>
+
                 <ul>
 					{ services.map((service, index) => <ServicesItem key={index} data={service}/>) }
                 </ul>

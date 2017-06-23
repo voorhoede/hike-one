@@ -16,31 +16,21 @@ class ButtonShowcase extends React.Component {
 
                     <div className="two-column">
                         <div>
-                            <p className="pTitle">Active states</p>
+                            <p className="pTitle">Primary button</p>
                             <PrimaryButton href="#" value="More about our story" />
-                        </div>
-                        <div>
-                            <p className="pTitle">Hover / Press sates</p>
-                            <PrimaryButton href="#" className="hover" value="More about our story" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
-                            <p className="pTitle">Active states</p>
+                            <p className="pTitle">Secondary button</p>
                             <SecondaryButton href="#" value="Learn more about" />
-                        </div>
-                        <div>
-                            <SecondaryButton href="#" className="hover" value="Learn more about" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
                             <MoreUnderButton href="#" value="More about our story" />
-                        </div>
-                        <div>
-                            <MoreUnderButton href="#" className="hover" value="More about our story" />
                         </div>
                     </div>
 

@@ -1,4 +1,4 @@
-@import (less) './variables';
+@import (reference) './variables';
 
 .btn {
     display: inline-block;
@@ -13,8 +13,7 @@
     border-radius: 100px;
     transition: background 0.3s ease, color 0.3s ease;
 
-    &:hover,
-    &.hover {
+    &:hover {
         color: @blue;
         background-color: transparent;
     }
@@ -28,8 +27,7 @@
     border-color: @red;
     color: @red;
 
-    &:hover,
-    &.hover {
+    &:hover {
         color: @white;
         background-color: @red;
 
@@ -56,15 +54,12 @@
     padding: 0;
     color: @red;
 
-    &:hover,
-    &.hover {
-        .more-under--arrow {
-            background: @red;
+    &:hover .more-under--arrow {
+		background: @red;
 
-            path {
-                fill: @white;
-            }
-        }
+		path {
+			fill: @white;
+		}
     }
 
     .more-under--arrow {

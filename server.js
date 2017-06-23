@@ -5,10 +5,15 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const fs = require('fs');
+const rootStaticFiles = fs.readdirSync('./static/root');
+
 app.prepare()
 	.then(() => {
 		const server = express();
 
+		// so we can serve files from the root directory instead of next.js default static folder
+		server.use(express.static('./static/root'));
 		server.get('*', (req, res) => {
 			return handle(req, res);
 		});

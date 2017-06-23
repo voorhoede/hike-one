@@ -15,6 +15,13 @@ class Header extends React.Component {
 			menuIsOpen: false,
 			hamburger: false
 		};
+
+		this.disableScrollClass = 'disable-scroll';
+
+	}
+
+	componentWillUnmount() {
+		document.body.classList.remove(this.disableScrollClass)
 	}
 
 	toggleMenu() {
@@ -23,7 +30,7 @@ class Header extends React.Component {
 			hamburger: !this.state.hamburger
 		});
 
-		document.body.classList.toggle('disable-scroll');
+		document.body.classList.toggle(this.disableScrollClass);
 	}
 
 	render() {

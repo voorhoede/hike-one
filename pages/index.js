@@ -1,18 +1,17 @@
 import React from 'react';
-import Link from 'next/link'
 
 import Header from '../components/header/header';
 import Layout from '../components/layout/layout';
+import ButtonSecondary from '../components/buttons/button-secondary/button-secondary';
 
 class Home extends React.Component {
 	render() {
 		return (
 			<Layout title="Hike One">
 				<Header/>
-				<h1>Home</h1>
-				<p>This is the Home component.</p>
-
-				<Link href="/services"><a>Services page</a></Link>
+				<main className="container">
+					<ButtonSecondary value="StyleGuide" href="/style-guide"/>
+				</main>
 			</Layout>
 		);
 	}

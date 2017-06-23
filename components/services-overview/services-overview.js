@@ -9,7 +9,7 @@ class ServicesOverview extends React.Component {
         return (
             <section className="services-overview">
                 <h2 className="section-header">{props.title}</h2>
-                <ul>
+                <ul className="no-style">
 					{ props.items.map((service, index) => <ServicesItem key={index} data={service}/>) }
                 </ul>
             </section>

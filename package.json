@@ -4,7 +4,6 @@
   "description": "website for Hike One",
   "main": "src/index.js",
   "scripts": {
-    "prestart": "npm run build:next",
     "start": "NODE_ENV=production node server.js",
     "build": "npm-run-all --serial build:dato build:css build:next",
     "build:dato": "dato dump --token=50d4feff177d2302ff0f",

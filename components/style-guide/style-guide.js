@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SimpleHeader     from './simple-header/simple-header';
+import SimpleHeader     from './style-guide-header/style-guide-header';
 import TriangleShowcase from './triangle-showcase/triangle-showcase';
 import ShadowShowcase   from './shadow-showcase/shadow-showcase';
 import Typography       from './typography/typography';

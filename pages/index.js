@@ -9,10 +9,7 @@ class Home extends React.Component {
 		return (
 			<Layout title="Hike One">
 				<Header/>
-				<h1>Home</h1>
-				<p>This is the Home component.</p>
-
-				<Link href="/services"><a>Services page</a></Link>
+				<Link href="/style-guide"><a>Services page</a></Link>
 			</Layout>
 		);
 	}

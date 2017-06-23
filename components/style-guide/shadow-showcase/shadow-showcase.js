@@ -11,7 +11,7 @@ class ShadowShowcase extends React.Component {
                     <div className="three-column">
                         <div><FloatingTriangle color="red" /></div>
                         <div className="two-thirds">
-                            <img className="shadow" src="../../../static/images/image-shadow.jpg" alt="shadow" />
+                            <img className="shadow" src="/static/images/image-shadow.jpg" alt="shadow" />
                         </div>
                     </div>
                 </div>

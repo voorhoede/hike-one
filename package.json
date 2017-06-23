@@ -6,7 +6,8 @@
   "scripts": {
     "prestart": "npm run build:next",
     "start": "NODE_ENV=production node server.js",
-    "build": "npm-run-all --serial build:css build:next",
+    "build": "npm-run-all --serial build:dato build:css build:next",
+    "build:dato": "dato dump --token=50d4feff177d2302ff0f",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
     "dev": "npm-run-all --parallel watch:css serve:dev",
@@ -30,6 +31,7 @@
     "babel-preset-es2015": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
     "chokidar-cli": "1.2.0",
+    "datocms-client": "0.3.25",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "4.0.0",
     "gulp-clean-css": "3.4.2",

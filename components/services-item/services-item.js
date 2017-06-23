@@ -6,13 +6,13 @@ class ServicesItem extends React.Component {
     	const data = this.props.data;
         return (
             <li className="services-item">
-                <img alt=""/>
+                <img alt="" src={data.image.url}/>
                 <div className="services-item-info">
                     <h3 className="services-item-heading">{data.title}</h3>
                     <p className="services-item-text">{data.text}</p>
                     <p className="services-item-tags">AKA: {data.tags}</p>
-					<Link href={data.linkHref}>
-						<a className="btn">{data.linkLabel}</a>
+					<Link href="#">
+						<a className="btn">{data.link}</a>
 					</Link>
                 </div>
             </li>

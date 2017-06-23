@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PrimaryButton   from '../../buttons/primary-button/primary-button';
-import SecondaryButton from '../../buttons/secondary-button/secondary-button';
-import MoreUnderButton from '../../buttons/more-under-button/more-under-button';
+import ButtonPrimary   from '../../buttons/button-primary/button-primary';
+import ButtonSecondary from '../../buttons/button-secondary/button-secondary';
+import ButtonTertiary from '../../buttons/button-tertiery/button-tertiary';
 
 import Hamburger       from '../../icons/hamburger/hamburger';
 import Cross           from '../../icons/cross/cross';
@@ -17,20 +17,21 @@ class ButtonShowcase extends React.Component {
                     <div className="two-column">
                         <div>
                             <p className="pTitle">Primary button</p>
-                            <PrimaryButton href="#" value="More about our story" />
+                            <ButtonPrimary href="#" value="More about our story" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
                             <p className="pTitle">Secondary button</p>
-                            <SecondaryButton href="#" value="Learn more about" />
+                            <ButtonSecondary href="#" value="Learn more about" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
-                            <MoreUnderButton href="#" value="More about our story" />
+							<p className="pTitle">Tertiary button</p>
+                            <ButtonTertiary href="#" value="More about our story" />
                         </div>
                     </div>
 

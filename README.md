@@ -9,7 +9,10 @@ This project requires [NodeJS](http://nodejs.org/) and NPM (comes with NodeJS) t
 Install node packages:  
 `npm install`
 
-Build and serve the website  
+Then build:  
+`npm run build`
+
+Serve the website  
 `npm start`
 
 The site will now be served on   
@@ -17,9 +20,9 @@ The site will now be served on
 
 ## Development
 
-For development instead of `npm start` run:  
+First Build:  
 `npm run build`
-then:  
+Then:  
 `npm run dev`
 
 This will build and then serve the website on:  

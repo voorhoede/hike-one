@@ -5,9 +5,9 @@ import PiramideTriangle from '../../piramide-triangle/piramide-triangle';
 class TriangleShowcase extends React.Component {
     render() {
         return (
-            <div className="color-display container">
+            <div className="color-showcase container">
 
-                <h2 className="title">Colours</h2>
+                <h2 className="title">Colors</h2>
 
                 <div className="color-grid">
 

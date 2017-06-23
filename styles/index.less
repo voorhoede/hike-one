@@ -4,6 +4,7 @@
 @import (once) 'typography';
 @import (once) 'buttons';
 @import (once) 'layout';
+@import (once) 'shadows';
 
 @import (once) '../components/footer/footer';
 @import (once) '../components/header/header';
@@ -13,6 +14,11 @@
 @import (once) '../components/services-intro/services-intro';
 @import (once) '../components/services-item/services-item';
 @import (once) '../components/services-overview/services-overview';
+@import (once) '../components/piramide-triangle/piramide-triangle';
+@import (once) '../components/floating-triangle/floating-triangle';
+@import (once) '../components/style-guide/simple-header/simple-header';
+@import (once) '../components/style-guide/triangle-showcase/triangle-showcase';
+@import (once) '../components/style-guide/button-showcase/button-showcase';
 
 html, body {
 	height: 100%;
@@ -21,7 +27,7 @@ html, body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-family: 'gilroy', 'sans-serif';
+	font-family: @main-font;
 }
 
 body.disable-scroll {

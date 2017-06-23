@@ -12,25 +12,25 @@ class ButtonShowcase extends React.Component {
         return (
             <section className="gray-section button-showcase">
                 <div className="container">
-                    <h2 className="title">Buttons</h2>
+                    <h2 className="style-guide-title">Buttons</h2>
 
                     <div className="two-column">
                         <div>
-                            <p className="pTitle">Primary button</p>
+                            <h3 className="style-guide-sub-title">Primary button</h3>
                             <ButtonPrimary href="#" value="More about our story" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
-                            <p className="pTitle">Secondary button</p>
+                            <h3 className="style-guide-sub-title">Secondary button</h3>
                             <ButtonSecondary href="#" value="Learn more about" />
                         </div>
                     </div>
 
                     <div className="two-column">
                         <div>
-							<p className="pTitle">Tertiary button</p>
+							<h3 className="style-guide-sub-title">Tertiary button</h3>
                             <ButtonTertiary href="#" value="More about our story" />
                         </div>
                     </div>

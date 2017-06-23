@@ -7,7 +7,7 @@ class ShadowShowcase extends React.Component {
         return (
             <section className="gray-section">
                 <div className="container">
-                    <h2 className="title">Shadows</h2>
+                    <h2 className="style-guide-title">Shadows</h2>
                     <div className="three-column">
                         <div><FloatingTriangle color="red" /></div>
                         <div className="two-thirds">

@@ -7,7 +7,7 @@ class TriangleShowcase extends React.Component {
         return (
             <div className="color-showcase container">
 
-                <h2 className="title">Colors</h2>
+                <h2 className="style-guide-title">Colors</h2>
 
                 <div className="color-grid">
 

@@ -1,0 +1,85 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.footer-locations-list {
+	.list-no-style;
+	margin-bottom: 20px;
+
+	@media @screen-medium {
+		white-space: nowrap;
+	}
+}
+
+.footer-locations-list li {
+	position: relative;
+	display: inline-block;
+	margin-left: 30px;
+
+	&::after {
+		content: '/';
+		display: block;
+		position: absolute;
+		top: 5px;
+		left: -20px;
+		font-size: 28px;
+	}
+
+	&:first-child {
+		margin-left: 0;
+
+		&::after{
+			display: none;
+		}
+	}
+
+	@media @screen-medium {
+		min-width: 80px;
+		text-align: center;
+	}
+}
+
+.footer-locations-list button {
+	font-size: 28px;
+	color: @white;
+	text-transform: uppercase;
+	border: none;
+	border-bottom: 1px solid @white;
+	background: transparent;
+	padding: 0;
+	cursor: pointer;
+
+	@media @screen-medium {
+		font-size: 26px;
+		line-height: 50px;
+	}
+
+	&:focus {
+		outline: none;
+	}
+
+	&.is-active {
+		font-weight: 700;
+		border-bottom: none;
+
+		@media @screen-medium {
+			font-size: 34px;
+		}
+	}
+}
+
+.footer-locations-info {
+	margin-bottom: 50px;
+}
+
+.footer-locations-info div {
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+}
+
+.footer-locations-info p {
+	margin-bottom: 0;
+	line-height: 30px;
+}

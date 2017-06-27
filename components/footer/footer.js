@@ -2,19 +2,12 @@ import React 	   from 'react';
 import Link  	   from 'next/link';
 
 import Logo 	   from '../logo/logo';
+import FooterLocations from '../footer-locations/footer-locations';
 import SocialMedia from '../social-media/social-media';
 
 import ArrowRight  from '../icons/arrow-right/arrow-right';
 
 class Footer extends React.Component {
-
-	toggleLocationInfo(target) {
-		document.querySelector('.locations .active').classList.remove('active')
-		document.querySelector(`.locations [data-target='${target}']`).classList.add('active')
-
-		document.querySelector('.locations-info .active').classList.remove('active')
-		document.querySelector(`.locations-info .${target}`).classList.add('active')
-	}
 
 	render() {
 		return (
@@ -30,7 +23,7 @@ class Footer extends React.Component {
 					<div className="footer-main-content">
 						<div className="left">
 							<div className="core-lists">
-								<ul className="no-style core-items">
+								<ul className="list-no-style core-items">
 									<li><Link href="#"><a>Design</a></Link></li>
 									<li><Link href="#"><a>Research</a></Link></li>
 									<li><Link href="#"><a>Strategy</a></Link></li>
@@ -56,32 +49,7 @@ class Footer extends React.Component {
 								<Link href="mailto:hello@hike.one"><a className="email-adress">hello@hike.one</a></Link>
 							</div>
 
-							<div>
-								<ul className="no-style locations">
-									<li><button onClick={this.toggleLocationInfo.bind(this, 'ams')} className="active" data-target="ams">Ams</button></li>
-
-									<li><button onClick={this.toggleLocationInfo.bind(this, 'rtm')} data-target="rtm">Rtm</button></li>
-
-									<li><button onClick={this.toggleLocationInfo.bind(this, 'ein')} data-target="ein">Ein</button></li>
-								</ul>
-
-								<div className="locations-info">
-									<div className="ams active">
-										<p>Rijnsburgstraat 9-11</p>
-										<p>1059AT Amsterdam</p>
-									</div>
-
-									<div className="rtm">
-										<p>Schiedamsedijk 40a</p>
-										<p>3011ED Rotterdam</p>
-									</div>
-
-									<div className="ein">
-										<p>Rijnsburgstraat 9-11</p>
-										<p>1059AT Amsterdam</p>
-									</div>
-								</div>
-							</div>
+							<FooterLocations />
 
 							<SocialMedia />
 						</div>

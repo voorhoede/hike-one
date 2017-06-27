@@ -3,7 +3,7 @@ import Link  from 'next/link';
 
 import ArrowDown from '../../icons/arrow-down/arrow-down';
 
-class MoreUnderButton extends React.Component {
+class ButtonTertiary extends React.Component {
     render() {
         return (
             <Link href={this.props.href}>
@@ -19,4 +19,4 @@ class MoreUnderButton extends React.Component {
     }
 }
 
-export default MoreUnderButton;
+export default ButtonTertiary;

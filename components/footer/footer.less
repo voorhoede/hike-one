@@ -1,4 +1,5 @@
 @import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
 
 .footer {
 	background: @black;
@@ -15,7 +16,7 @@
 	margin: 0 auto;
 }
 
-.footer .footer-main-content {
+.footer-main-content {
 	@media @screen-medium {
 		display: flex;
 
@@ -27,7 +28,7 @@
 	display: block;
 }
 
-.footer .left {
+.footer-left {
 	@media @screen-medium {
 		display: inline-block;
 		vertical-align: top;
@@ -35,7 +36,7 @@
 	}
 }
 
-.footer .right {
+.footer-right {
 	@media @screen-medium {
 		display: inline-block;
 		display: inline-flex;
@@ -49,14 +50,15 @@
 	}
 }
 
-.footer .core-lists {
+.footer-links {
 	@media @screen-medium {
 		display: flex;
 	}
 }
 
-.footer .core-items,
-.footer .sub-core-items {
+.footer-link-list,
+.footer-link-list-sub {
+	.list-no-style;
 	margin-bottom: 25px;
 
 	@media @screen-medium {
@@ -65,13 +67,13 @@
 	}
 }
 
-.footer .core-items {
+.footer-link-list {
 	@media @screen-medium {
 		width: 33.333%;
 	}
 }
 
-.footer .sub-core-items {
+.footer-link-list-sub {
 	@media @screen-medium {
 		width: 66.666%;
 		column-count: 2;
@@ -79,32 +81,32 @@
 	}
 }
 
-.footer .core-items li,
-.footer .sub-core-items li {
+.footer-link-list li,
+.footer-link-list-sub li {
 	display: inline-block;
 	width: 50%;
     line-height: 30px;
 }
 
-.footer .core-items li {
+.footer-link-list li {
 	@media @screen-medium {
 		width: 100%;
 	}
 }
 
-.footer .sub-core-items li {
+.footer-link-list-sub li {
 	@media @screen-medium {
 		width: 100%;
 	}
 }
 
-.footer .core-items a,
-.footer .sub-core-items a {
+.footer-link-list a,
+.footer-link-list-sub a {
 	color: @white;
 	text-decoration: none;
 }
 
-.footer .join-us-button {
+.footer-join-link {
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 36px;
@@ -124,7 +126,7 @@
 	}
 }
 
-.footer .join-us-button svg {
+.footer-join-link svg {
 	width: 11px;
 	height: 11px;
 	padding: 9px;
@@ -144,7 +146,7 @@
 }
 
 
-.phone-and-email {
+.footer-contact {
 	font-size: 24px;
 	font-weight: 700;
 	line-height: 36px;
@@ -156,8 +158,8 @@
 	}
 }
 
-.phone-and-email .phone-number,
-.phone-and-email .email-adress {
+.footer-contact-tel,
+.footer-contact-email {
 	color: @white;
 	text-decoration: none;
 }
@@ -169,7 +171,7 @@
 	margin: 0 auto 20px 0;
 }
 
-.copyright {
+.footer-copyright {
 	color: #717171;
 
 	@media @screen-medium {

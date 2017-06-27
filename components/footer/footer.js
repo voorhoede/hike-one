@@ -21,16 +21,16 @@ class Footer extends React.Component {
 					</Link>
 
 					<div className="footer-main-content">
-						<div className="left">
-							<div className="core-lists">
-								<ul className="list-no-style core-items">
+						<div className="footer-left">
+							<div className="footer-links">
+								<ul className="footer-link-list">
 									<li><Link href="#"><a>Design</a></Link></li>
 									<li><Link href="#"><a>Research</a></Link></li>
 									<li><Link href="#"><a>Strategy</a></Link></li>
 									<li><Link href="#"><a>Training</a></Link></li>
 								</ul>
 
-								<ul className="no-style sub-core-items">
+								<ul className="footer-link-list-sub">
 									<li><Link href="#"><a>Team</a></Link></li>
 									<li><Link href="#"><a>Services</a></Link></li>
 									<li><Link href="#"><a>Work</a></Link></li>
@@ -40,22 +40,21 @@ class Footer extends React.Component {
 								</ul>
 							</div>
 
-							<Link href="#"><a className="join-us-button">Up for a new challenge yourself? Join us! <ArrowRight /> </a></Link>
+							<Link href="#"><a className="footer-join-link">Up for a new challenge yourself? Join us! <ArrowRight /> </a></Link>
 						</div>
 
-						<div className="right">
-							<div className="phone-and-email">
-								<div className="phone-number">+31 20 204 45 77</div>
-								<Link href="mailto:hello@hike.one"><a className="email-adress">hello@hike.one</a></Link>
+						<div className="footer-right">
+							<div className="footer-contact">
+								<div className="footer-contact-tel">+31 20 204 45 77</div>
+								<Link href="mailto:hello@hike.one"><a className="footer-contact-email">hello@hike.one</a></Link>
 							</div>
 
 							<FooterLocations />
-
 							<SocialMedia />
 						</div>
 					</div>
 
-					<p className="copyright">@ Hike One 2017</p>
+					<p className="footer-copyright">@ Hike One 2017</p>
 				</div>
 			</footer>
 		);

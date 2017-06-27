@@ -5,13 +5,14 @@
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
-    "build": "npm-run-all --serial build:dato build:css build:next",
+    "build": "npm-run-all --serial backupdata build:dato build:css build:next",
     "build:dato": "dato dump --token=50d4feff177d2302ff0f",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
     "dev": "npm-run-all --parallel watch:css serve:dev",
     "serve:dev": "node server.js",
-    "watch:css": "chokidar '**/*.less' --command 'npm run build:css'"
+    "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
+    "backupdata": "node tasks/backup-data"
   },
   "repository": {
     "type": "git",
@@ -38,6 +39,7 @@
     "gulp-plumber": "1.1.0",
     "gulp-sourcemaps": "2.6.0",
     "less": "2.7.2",
+    "ncp": "2.0.0",
     "npm-run-all": "4.0.2"
   }
 }

@@ -8,7 +8,7 @@ import ServiceApproach from '../components/services-approach/service-approach';
 import ServicesOverview from '../components/services-overview/services-overview';
 import ServicesContact from '../components/services-contact/services-contact';
 
-import Data from '../data/services/services.json';
+import Data from '../data/current/services/services.json';
 
 class Services extends React.Component {
 	render() {

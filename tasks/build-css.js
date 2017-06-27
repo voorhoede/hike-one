@@ -4,6 +4,7 @@ const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const less = require('gulp-less');
+const pixrem = require('gulp-pxtorem');
 const paths = require('../config').paths;
 
 gulp.src(paths.stylesSrc + 'index.less')
@@ -15,6 +16,7 @@ gulp.src(paths.stylesSrc + 'index.less')
 		this.emit('end');
 	})
 	.pipe(autoprefixer({ browsers: ['> 1%', 'last 2 versions'] }))
+	.pipe(pixrem())
 	.pipe(cleanCss())
 	.pipe(sourcemaps.write('./'))
 	.pipe(gulp.dest(paths.stylesDist));

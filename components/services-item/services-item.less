@@ -2,6 +2,10 @@
 
 .services-item {
 	margin-bottom: 75px;
+	color: @white;
+	background: @blue;
+	padding: 25px;
+	position: relative;
 
 	@media @screen-medium {
 		display: flex;
@@ -10,23 +14,11 @@
 	}
 }
 
-.services-item img {
-	margin-bottom: @spacing-default;
-	width: 75px;
-	height: 75px;
-	background: @gray;
-
-	@media @screen-medium {
-		display: inline-block;
-		margin-bottom: 0;
-		min-width: 100px;
-		height: 100px;
-	}
-}
-
 .services-item-heading {
 	font-size: 30px;
+	line-height: 1.2;
 	margin-bottom: 12px;
+
 	@media @screen-medium {
 		font-size: 36px;
 	}
@@ -35,6 +27,8 @@
 .services-item-info {
 	display: inline-block;
 	width: 100%;
+	margin-bottom: 54px;
+
 	@media @screen-medium {
 		vertical-align: top;
 		width: auto;
@@ -65,4 +59,8 @@
 		bottom: 0;
 		right: 0;
 	}
+}
+
+.service-item-graphics {
+	
 }

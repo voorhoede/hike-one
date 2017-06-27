@@ -2,7 +2,7 @@ import React from 'react';
 
 import ButtonPrimary   from '../../buttons/button-primary/button-primary';
 import ButtonSecondary from '../../buttons/button-secondary/button-secondary';
-import ButtonTertiary from '../../buttons/button-tertiery/button-tertiary';
+import ButtonTertiary from '../../buttons/button-tertiary/button-tertiary';
 
 import Hamburger       from '../../icons/hamburger/hamburger';
 import Cross           from '../../icons/cross/cross';

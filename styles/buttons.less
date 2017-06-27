@@ -54,13 +54,17 @@
 .btn-tertiary {
 	display: inline-block;
 	font-weight: 600;
-	font-size: 20px;
+	font-size: 12px;
     background: none;
 	text-decoration: none;
     border: none;
     padding: 0;
     color: @red;
 	transition: background 0.3s ease, color 0.3s ease;
+
+    @media @screen-small {
+        font-size: 20px;
+    }
 
     &:hover .icon svg {
 		background: @red;
@@ -73,10 +77,18 @@
     .icon svg {
         display: block;
         margin: 20px auto 0;
-        border: 1px solid;
+        border: 2px solid;
         border-radius: 50%;
         background: transparent;
         transition: background 0.3s ease;
+        width: 40px;
+        height: 40px;
+
+        @media @screen-small {
+            width: 52px;
+            height: 52px;
+            border: 1px solid;
+        }
 
         svg path {
             fill: @red;

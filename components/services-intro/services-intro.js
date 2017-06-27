@@ -1,13 +1,14 @@
 import React from 'react';
-import Link from 'next/link';
+
+import MoreUnderButton from '../buttons/button-tertiary/button-tertiary';
 
 class ServicesIntro extends React.Component {
     render() {
     	const props = this.props;
         return (
-            <section className="services-intro">
+            <section className="services-intro inner-container">
                 <h2 className="section-header">{props.title}</h2>
-				<Link href="#"><a className="btn">{props.buttonLabel}</a></Link>
+                <MoreUnderButton href="#" value={props.buttonLabel} />
             </section>
         );
     }

@@ -12,7 +12,7 @@ class Footer extends React.Component {
 	render() {
 		return (
 			<footer className="footer">
-				<div className="container">
+				<div className="container-inner">
 					<Link href="/" >
 						<a className="header-logo">
 							<Logo color="full-white"/>

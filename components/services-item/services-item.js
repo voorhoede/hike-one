@@ -8,11 +8,11 @@ class ServicesItem extends React.Component {
     render() {
     	const data = this.props.data;
         return (
-            <li className="services-item">
+            <li className="services-item clearfix">
                 <div className="services-item-info">
                     <h3 className="services-item-heading">{data.title}</h3>
                     <p className="services-item-text">{data.text}</p>
-					<ul>
+					<ul className="services-item-tags">
 						{ data.tags.map(tag => <li>{ tag.tag }</li>) }
 				   </ul>
                 </div>

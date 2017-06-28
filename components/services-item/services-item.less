@@ -40,6 +40,10 @@
 	@media @screen-medium {
 		font-size: 36px;
 	}
+
+	@media @screen-large {
+		font-size: 66px;
+	}
 }
 
 .services-item-info {
@@ -49,10 +53,25 @@
 
 	@media @screen-medium {
 		vertical-align: top;
-		width: 460px;
+		max-width: 460px;
+		width: 50%;
 		margin: 0;
 		position: relative;
 		padding-right: 20px;
+	}
+
+	@media @screen-large {
+		max-width: 540px;
+		width: 60%;
+	}
+}
+
+.services-item:nth-child(even) .services-item-info {
+	@media @screen-medium {
+		order: 1;
+		padding-right: 0;
+		padding-left: 20px;
+		float: right
 	}
 }
 
@@ -62,18 +81,35 @@
 	}
 }
 
-.services-item-tags {
+.services-item-info .services-item-tags {
 	margin-bottom: 40px;
+    padding-left: 2rem;
+
 	@media @screen-medium {
 		margin-bottom: 0;
+		padding-left: 0;
+	}
+
+	li::before {
+		background-color: @white;
 	}
 }
 
 .service-item-graphics {
 	@media @screen-medium {
-		width: 300px;
+		max-width: 300px;
+		width: 40%;
 		margin-left: auto;
 		position: relative;
+		float: right;
+	}
+}
+
+.services-item:nth-child(even) .service-item-graphics {
+	@media @screen-medium {
+		margin-left: 0;
+		margin-right: auto;
+		float: left;
 	}
 }
 
@@ -90,7 +126,6 @@
 		right: 0;
 		width: 100%;
 		height: auto;
-		// top: calc(~"-96px - 30px");
 	    transform: translateY(calc(~"-96px - 30px")); // 96 from padding parent and 30 as in design
 	}
 }

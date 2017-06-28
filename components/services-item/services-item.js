@@ -12,7 +12,9 @@ class ServicesItem extends React.Component {
                 <div className="services-item-info">
                     <h3 className="services-item-heading">{data.title}</h3>
                     <p className="services-item-text">{data.text}</p>
-                    <p className="services-item-tags">AKA: {data.tags}</p>
+					<ul>
+						{ data.tags.map(tag => <li>{ tag.tag }</li>) }
+				   </ul>
                 </div>
 
                 <div className="service-item-graphics">

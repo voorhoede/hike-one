@@ -17,7 +17,7 @@ class ServicesItem extends React.Component {
 
                 <div className="service-item-graphics">
                     <Diamond shadow="true" />
-                    <ButtonSecondary href="#" value={data.link}/>
+                    <ButtonSecondary classes="white" href="#" value={data.link}/>
                 </div>
             </li>
         );

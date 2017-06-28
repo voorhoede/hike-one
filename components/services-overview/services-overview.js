@@ -7,7 +7,7 @@ class ServicesOverview extends React.Component {
 		const props = this.props;
 
         return (
-            <section className="services-overview">
+            <section className="services-overview container-inner">
                 <h2 className="section-header">{props.title}</h2>
                 <ul className="no-style">
 					{ props.items.map((service, index) => <ServicesItem key={index} data={service}/>) }

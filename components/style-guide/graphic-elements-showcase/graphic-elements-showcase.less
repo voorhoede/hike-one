@@ -1,0 +1,20 @@
+.graphic-elements-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.graphic-elements-container svg {
+    display: inline-block;
+    width: 22%;
+    min-width: 120px;
+    height: auto;
+    margin: 1.5%;
+
+    &:nth-child(1),
+    &:nth-child(2) {
+        text-shadow: 0px 10px 100px fade(@black, 30%);
+        box-shadow: none!important;
+    }
+}

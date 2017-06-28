@@ -5,6 +5,7 @@ import ColorShowcase from './color-showcase/color-showcase';
 import ShadowShowcase from './shadow-showcase/shadow-showcase';
 import Typography from './typography/typography';
 import ButtonShowcase from './button-showcase/button-showcase';
+import GraphicElementsShowcase from './graphic-elements-showcase/graphic-elements-showcase';
 
 class StyleGuide extends React.Component {
     render() {
@@ -15,6 +16,7 @@ class StyleGuide extends React.Component {
                 <ShadowShowcase />
                 <Typography />
                 <ButtonShowcase />
+                <GraphicElementsShowcase />
             </main>
         );
     }

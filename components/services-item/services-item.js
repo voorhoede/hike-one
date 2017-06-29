@@ -27,7 +27,7 @@ class ServicesItem extends React.Component {
 					{ index === 2 && <Cube shadow="true"/> }
 					{ index === 3 && <Circle shadow="true"/> }
 
-                    <ButtonSecondary classes="white" href="#" value={data.link}/>
+                    <ButtonSecondary href="#" value={data.link}/>
                 </div>
             </li>
         );

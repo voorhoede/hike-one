@@ -5,7 +5,7 @@ import FloatingTriangle from '../../floating-triangle/floating-triangle';
 class ShadowShowcase extends React.Component {
     render() {
         return (
-            <section className="gray-section">
+            <section className="style-guide-section">
                 <div className="container">
                     <h2 className="style-guide-title">Shadows</h2>
                     <div className="three-column">

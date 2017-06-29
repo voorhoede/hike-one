@@ -10,7 +10,7 @@ import Cross           from '../../icons/cross/cross';
 class ButtonShowcase extends React.Component {
     render() {
         return (
-            <section className="gray-section button-showcase">
+            <section className="style-guide-section button-showcase">
                 <div className="container">
                     <h2 className="style-guide-title">Buttons</h2>
 

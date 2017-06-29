@@ -14,28 +14,28 @@ class ButtonShowcase extends React.Component {
                 <div className="container">
                     <h2 className="style-guide-title">Buttons</h2>
 
-                    <div className="two-column">
+                    <div className="style-guide-column-two">
                         <div>
                             <h3 className="style-guide-sub-title">Primary button</h3>
                             <ButtonPrimary href="#" value="More about our story" />
                         </div>
                     </div>
 
-                    <div className="two-column">
+                    <div className="style-guide-column-two">
                         <div>
                             <h3 className="style-guide-sub-title">Secondary button</h3>
                             <ButtonSecondary href="#" value="Learn more about" />
                         </div>
                     </div>
 
-                    <div className="two-column">
+                    <div className="style-guide-column-two">
                         <div>
 							<h3 className="style-guide-sub-title">Tertiary button</h3>
                             <ButtonTertiary href="#" value="More about our story" />
                         </div>
                     </div>
 
-                    <div className="two-column">
+                    <div className="style-guide-column-two">
                         <div>
                             <Hamburger />
                         </div>

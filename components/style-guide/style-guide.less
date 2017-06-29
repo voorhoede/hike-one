@@ -14,3 +14,47 @@
 	font-weight: 600;
 	margin: 0;
 }
+
+.style-guide-section {
+	background-color: @light-gray;
+	padding: 83px 0;
+	margin-bottom: @spacing-double;
+
+	@media @screen-small {
+		margin-bottom: @spacing-container;
+	}
+
+	.container {
+		margin-bottom: 0;
+	}
+}
+
+.style-guide-column-two div {
+	width: 80%;
+	display: block;
+	vertical-align: top;
+	margin: 0 auto 20px;
+
+	@media @screen-medium {
+		width: 50%;
+		display: inline-block;
+		margin-bottom: 0;
+	}
+}
+
+.style-guide-column-three div {
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+
+	@media @screen-medium {
+		width: 33.333%;
+	}
+}
+
+.style-guide-column-three .two-thirds {
+	@media @screen-medium {
+		width: 66.666%;
+	}
+}
+

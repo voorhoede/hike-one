@@ -1,45 +1,79 @@
 @import (reference) '../../styles/variables';
 
 .services-item {
-	margin-bottom: 75px;
+	margin-bottom: 80px;
+	font-style: normal;
+	color: @white;
+	padding: 25px;
+	position: relative;
+
+	&::before {
+		display: none;
+	}
 
 	@media @screen-medium {
 		display: flex;
-		align-items: flex-start;
-		margin-bottom: 100px;
+		margin-bottom: 132px;
+		padding: 48px 54px;
 	}
-}
 
-.services-item img {
-	margin-bottom: @spacing-default;
-	width: 75px;
-	height: 75px;
-	background: @gray;
-
-	@media @screen-medium {
-		display: inline-block;
-		margin-bottom: 0;
-		min-width: 100px;
-		height: 100px;
+	@media @screen-large {
+		padding: 96px 109px;
 	}
 }
 
 .services-item-heading {
 	font-size: 30px;
+	line-height: 1.2;
 	margin-bottom: 12px;
+
+	&::before {
+		content: '';
+		display: block;
+		width: 130px;
+		height: 30px;
+		float: right;
+
+		@media @screen-medium {
+			display: none;
+		}
+	}
+
 	@media @screen-medium {
 		font-size: 36px;
+	}
+
+	@media @screen-large {
+		font-size: 66px;
 	}
 }
 
 .services-item-info {
 	display: inline-block;
 	width: 100%;
+	margin-bottom: 54px;
+
 	@media @screen-medium {
 		vertical-align: top;
-		width: auto;
-		margin-left: 60px;
+		max-width: 460px;
+		width: 50%;
+		margin: 0;
 		position: relative;
+		padding-right: 20px;
+	}
+
+	@media @screen-large {
+		max-width: 540px;
+		width: 60%;
+	}
+}
+
+.services-item:nth-child(even) .services-item-info {
+	@media @screen-medium {
+		order: 1;
+		padding-right: 0;
+		padding-left: 20px;
+		float: right
 	}
 }
 
@@ -49,20 +83,69 @@
 	}
 }
 
-.services-item-tags {
+.services-item-info .services-item-tags {
 	margin-bottom: 40px;
+    padding-left: 22px;
+
 	@media @screen-medium {
 		margin-bottom: 0;
 	}
+
+	li::before {
+		background-color: @white;
+	}
 }
 
-.services-item .btn {
-	background: @gray;
-	font-size: 20px;
-	padding: 8px 16px;
+.service-item-graphics {
+	@media @screen-medium {
+		max-width: 300px;
+		width: 40%;
+		margin-left: auto;
+		position: relative;
+		float: right;
+	}
+}
+
+.services-item:nth-child(even) .service-item-graphics {
+	@media @screen-medium {
+		margin-left: 0;
+		margin-right: auto;
+		float: left;
+	}
+}
+
+.service-item-graphics .shape {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	width: 100px;
+	height: 100px;
+	transform: translateY(-40%);
+
+	@media @screen-medium {
+		position: relative;
+		right: 0;
+		width: 100%;
+		height: auto;
+	    transform: translateY(calc(~"-96px - 30px")); // 96 from padding parent and 30 as in design
+	}
+}
+
+.service-item-graphics .btn-secondary {
+	padding: 15px 50px;
+	background: @white;
+	border-color: @white;
+	text-align: center;
+
+	.icon svg path {
+		fill: @white;
+	}
+
 	@media @screen-medium {
 		position: absolute;
 		bottom: 0;
+		left: 0;
+		margin-bottom: 0;
 		right: 0;
 	}
 }

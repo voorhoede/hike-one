@@ -39,10 +39,10 @@ class parallax extends React.Component {
 	render() {
 		return (
 			<div>
-				<div ref={(node) => this.backLayer = node} className="shapes-back" >
+				<div ref={(node) => this.backLayer = node} className="parallax-layer-back" >
 					{ this.props.backLayer }
 				</div>
-				<div ref={(node) => this.frontLayer = node} className="shapes-front">
+				<div ref={(node) => this.frontLayer = node} className="parallax-layer-front">
 					{ this.props.frontLayer }
 				</div>
 			</div>

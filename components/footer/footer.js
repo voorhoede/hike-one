@@ -15,7 +15,7 @@ class Footer extends React.Component {
 				<div className="container-inner">
 					<Link href="/" >
 						<a className="header-logo">
-							<Logo color="full-white"/>
+							<Logo color="white"/>
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
@@ -24,13 +24,6 @@ class Footer extends React.Component {
 						<div className="footer-left">
 							<div className="footer-links">
 								<ul className="footer-link-list">
-									<li><Link href="#"><a>Design</a></Link></li>
-									<li><Link href="#"><a>Research</a></Link></li>
-									<li><Link href="#"><a>Strategy</a></Link></li>
-									<li><Link href="#"><a>Training</a></Link></li>
-								</ul>
-
-								<ul className="footer-link-list-sub">
 									<li><Link href="#"><a>Team</a></Link></li>
 									<li><Link href="#"><a>Services</a></Link></li>
 									<li><Link href="#"><a>Work</a></Link></li>

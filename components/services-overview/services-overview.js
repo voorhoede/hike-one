@@ -5,7 +5,6 @@ import ServicesItem from '../services-item/services-item';
 class ServicesOverview extends React.Component {
     render() {
 		const props = this.props;
-
         return (
             <section className="services-overview container-inner">
                 <h2 className="section-header">{props.title}</h2>

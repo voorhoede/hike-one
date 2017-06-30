@@ -20,7 +20,7 @@ class Services extends React.Component {
 						<ServicesIntro title={Data.introTitle} buttonLabel={Data.introReadMoreCta}/>
 						<ServiceApproach title={Data.approachTitle} text={Data.approachText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
-						<Contact />
+						<Contact title={Data.contactTitle} button={Data.contactButton} />
 					</article>
 					<Footer/>
 				</main>

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import Diamond from '../shapes/diamond/diamond';
-import Circle from '../shapes/circle/circle';
-import Cube from '../shapes/cube/cube';
+import Triangle from '../shapes/triangle/triangle';
 import DoubleDiamond from '../shapes/double-diamond/double-diamond';
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
@@ -24,10 +23,7 @@ class ServicesItem extends React.Component {
                 <div className="service-item-graphics">
 					{ index === 0 && <Diamond shadow="true"/> }
 					{ index === 1 && <DoubleDiamond shadow="true"/> }
-					{ index === 2 && <Cube shadow="true"/> }
-					{ index === 3 && <Circle shadow="true"/> }
-
-                    <ButtonSecondary href="#" value={data.link}/>
+                    { index === 2 && <Triangle shadow="true"/> }
                 </div>
             </li>
         );

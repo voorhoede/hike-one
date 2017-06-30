@@ -4,11 +4,12 @@ import PrimaryButton from '../buttons/button-primary/button-primary';
 
 class GetToKnowUs extends React.Component {
     render() {
+        const props = this.props;
         return (
             <section className="get-to-know-us">
                 <div className="container">
-                    <h2>We make technology work for humans.</h2>
-                    <PrimaryButton href="#" value="Get to know us" />
+                    <h2>{props.title}</h2>
+                    <PrimaryButton href="#" value={props.button} />
                 </div>
             </section>
         );

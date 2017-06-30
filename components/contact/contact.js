@@ -4,11 +4,12 @@ import SecondaryButton from '../buttons/button-secondary/button-secondary';
 
 class Contact extends React.Component {
 	render() {
+		const props = this.props;
 		return (
 			<div className="contact">
-				<h3>Where will your journey  lead us?</h3>
+				<h3>{props.title}</h3>
 
-				<SecondaryButton noArrow href="#" classes="btn-secondary-alt" value="Get in touch" />
+				<SecondaryButton noArrow href="#" classes="btn-secondary-alt" value={props.button} />
 			</div>
 		);
 	}

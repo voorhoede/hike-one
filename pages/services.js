@@ -7,6 +7,7 @@ import ServicesIntro from '../components/services-intro/services-intro';
 import ServiceApproach from '../components/services-approach/service-approach';
 import ServicesOverview from '../components/services-overview/services-overview';
 import ServicesContact from '../components/services-contact/services-contact';
+import GetToKnowUs from '../components/get-to-know-us/get-to-know-us';
 
 import Data from '../data/current/services/services.json';
 
@@ -21,7 +22,8 @@ class Services extends React.Component {
 						<ServiceApproach title={Data.approachTitle} text={Data.approachText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 					</article>
-					<ServicesContact/>
+					<ServicesContact />
+					<GetToKnowUs />
 					<Footer/>
 				</main>
 			</Layout>

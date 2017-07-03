@@ -3,17 +3,21 @@ import React from 'react';
 import Parallax from '../parallax/parallax';
 import CircleBorder from '../shapes/circle-border/circle-border';
 import Triangle from '../shapes/triangle/triangle';
+import DiamondBorder from '../shapes/diamond-border/diamond-border';
 
 class Shapes extends React.Component {
 	backLayer() {
 		return (
-			<CircleBorder classes="services-overview-circle-1" color="blue" />
+			<div>
+				<CircleBorder classes="shape-circle-1" color="blue" />
+				<DiamondBorder classes="shape-diamond-1" color="yellow"/>
+			</div>
 		);
 	}
 
 	frontLayer() {
 		return (
-			<Triangle classes="services-overview-triangle-1" color="red" shadow/>
+			<Triangle classes="shape-triangle-1" color="red" shadow/>
 		);
 	}
 

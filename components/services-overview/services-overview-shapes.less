@@ -1,15 +1,34 @@
 .services-overview-circle-1 {
 	position: absolute;
 	top: 30px;
-	left: 25%;
+	left: 0%;
 	width: auto;
 	height: 20px;
+
+	@media @screen-medium {
+		left: 25%;
+	}
+}
+
+.services-overview-diamond-1 {
+	position: absolute;
+	width: auto;
+	height: 20px;
+	left: 90%;
+
+	@media @screen-medium {
+		display: none;
+	}
 }
 
 .services-overview-triangle-1 {
-	position: absolute;
-	top: 100px;
-	left: -10%;
-	width: auto;
-	height: 233px;
+	display: none;
+
+	@media @screen-medium {
+		position: absolute;
+		top: 100px;
+		left: -10%;
+		width: auto;
+		height: 233px;
+	}
 }

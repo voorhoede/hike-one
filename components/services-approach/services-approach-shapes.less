@@ -1,7 +1,21 @@
+@import '../../styles/variables';
+
 .services-approach-triangle-1 {
 	position: absolute;
-	top: 40px;
-	left: 80%;
+	top: -70px;
+	left: 90%;
 	width: auto;
-	height: 200px;
+	height: 72px;
+
+	@media  @screen-medium {
+		top: -120px;
+		left: 80%;
+		height: 116px;
+	}
+
+	@media  @screen-large {
+		top: 40px;
+		left: 80%;
+		height: 200px;
+	}
 }

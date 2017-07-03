@@ -31,6 +31,41 @@ class Header extends React.Component {
 		});
 
 		document.body.classList.toggle(this.disableScrollClass);
+
+		this.extraPadding(this.state.menuIsOpen) // to prevent content shift with overflow hidden
+	}
+
+	extraPadding(state) {
+		const main = document.querySelector("main")
+		const hamburger = this.refs.hamburger
+		if (state) {
+			main.style.paddingRight = '0px'
+			hamburger.style.marginRight = '0px'
+			return
+		}
+		// https://stackoverflow.com/questions/13382516/getting-scroll-bar-width-using-javascript
+		const outer = document.createElement("div");
+	    outer.style.visibility = "hidden";
+	    outer.style.width = "100px";
+	    outer.style.msOverflowStyle = "scrollbar";
+
+	    document.body.appendChild(outer);
+
+	    const widthNoScroll = outer.offsetWidth;
+	    // force scrollbars
+	    outer.style.overflow = "scroll";
+
+	    // add innerdiv
+	    const inner = document.createElement("div");
+	    inner.style.width = "100%";
+	    outer.appendChild(inner);
+
+	    const widthWithScroll = inner.offsetWidth;
+
+	    outer.parentNode.removeChild(outer);
+
+	    main.style.paddingRight = widthNoScroll - widthWithScroll + 'px'
+		hamburger.style.marginRight = widthNoScroll - widthWithScroll + 'px'
 	}
 
 	render() {
@@ -46,6 +81,7 @@ class Header extends React.Component {
 
 					<button
 						className="btn"
+						ref="hamburger"
 						onClick={this.toggleMenu}>
 						{ !this.state.menuIsOpen && <Hamburger /> }
 						{ this.state.menuIsOpen && <Cross /> }

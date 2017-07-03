@@ -1,0 +1,44 @@
+@import (reference) '../../styles/variables';
+
+.get-to-know-us {
+    padding: 110px 0;
+    background-image: url('/static/images/get-to-know-us.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.get-to-know-us .container {
+    margin-bottom: 0;
+    color: @white;
+    text-align: center;
+}
+
+.get-to-know-us h2 {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 36px;
+
+    @media @screen-medium {
+        font-size: 46px;
+        line-height: 58px;
+        max-width: 550px;
+        margin: 0 auto 36px;
+    }
+
+    @media @screen-large {
+        font-size: 66px;
+        line-height: 80px;
+        max-width: 700px;
+    }
+}
+
+.get-to-know-us .btn-primary {
+    width: 100%;
+    max-width: 300px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    &:hover {
+        background-color: @white;
+    }
+}

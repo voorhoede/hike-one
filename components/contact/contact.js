@@ -9,8 +9,8 @@ class Contact extends React.Component {
 		return (
 			<div className="contact">
 				<div className="container-inner">
-					<h3>{props.title}</h3>
-					<SecondaryButton noArrow href="#" classes="btn-secondary-alt" value={props.button} />
+					<h3 className="content">{props.title}</h3>
+					<SecondaryButton noArrow href="#" classes="btn-secondary-alt content" value={props.button} />
 				</div>
 				<Shapes />
 			</div>

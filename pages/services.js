@@ -14,7 +14,7 @@ class Services extends React.Component {
 	render() {
 		return (
 			<Layout title="Hike One - Services">
-				<main>
+				<main className="main">
 					<Header/>
 					<article className="article">
 						<ServicesIntro title={Data.introTitle} buttonLabel={Data.introReadMoreCta}/>

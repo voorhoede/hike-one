@@ -9,9 +9,11 @@ class ButtonSecondary extends React.Component {
                 <a className={`btn-secondary ${this.props.classes ? this.props.classes : '' }`}>
                     { this.props.value }
 
-                    <span className="icon">
-						<ArrowRight/>
-					</span>
+                    {!this.props.noArrow &&
+                        <span className="icon">
+    						<ArrowRight/>
+    					</span>
+                    }
                 </a>
             </Link>
         );

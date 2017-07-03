@@ -6,7 +6,6 @@ import Shapes from '../services-overview/services-overview-shapes';
 class ServicesOverview extends React.Component {
     render() {
 		const props = this.props;
-
         return (
             <section className="services-overview">
 				<div className="container-inner">

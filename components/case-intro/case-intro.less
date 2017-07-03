@@ -1,0 +1,80 @@
+@import (reference) '../../styles/variables';
+
+.case-intro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 2rem;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
+    }
+}
+
+.case-intro .container {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0;
+}
+
+.case-intro-title {
+    color: @white;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 48px;
+
+    @media @screen-medium {
+        font-size: 70px;
+        line-height: 68px;
+    }
+
+    @media @screen-large {
+        font-size: 100px;
+        line-height: 140px;
+    }
+}
+
+.case-intro-subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    color: @white;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+
+    @media @screen-medium {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    @media @screen-large {
+        font-size: 34px;
+        line-height: 42px;
+    }
+}
+
+.case-intro .icon svg {
+    border-color: @white;
+
+    path {
+        fill: @white;
+    }
+
+    &:hover {
+        background-color: @white;
+
+        path {
+            fill: @red;
+        }
+    }
+}

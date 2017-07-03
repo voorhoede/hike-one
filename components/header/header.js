@@ -35,17 +35,17 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header className={`header ${this.state.menuIsOpen ? 'open' : ''}`}>
+			<header className={`header ${this.state.menuIsOpen ? 'open' : ''} ${this.props.absolute ? 'absolute' : ''}`}>
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
-							<Logo color="black"/>
+							<Logo color={this.props.color ? this.props.color : "black"}/>
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
 
 					<button
-						className="btn"
+						className={`btn ${this.props.color ? this.props.color : ''}`}
 						onClick={this.toggleMenu}>
 						{ !this.state.menuIsOpen && <Hamburger /> }
 						{ this.state.menuIsOpen && <Cross /> }

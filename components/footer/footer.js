@@ -8,11 +8,23 @@ import SocialMedia from '../social-media/social-media';
 import ArrowRight  from '../icons/arrow-right/arrow-right';
 
 class Footer extends React.Component {
+	componentDidMount() {
+		const footerHeight = this.refs.footer.getBoundingClientRect().height;
+
+		if (window.innerHeight > footerHeight) {
+
+			const main = document.querySelector('main');
+
+			this.refs.footer.classList.add('fixed-footer');
+			main.classList.add('fixed-footer');
+
+		}
+	}
 
 	render() {
 		return (
-			<footer className="footer">
-				<div className="container-inner">
+			<footer ref="footer" className="footer">
+				<div ref="footerContainer" className="container-inner">
 					<Link href="/" >
 						<a className="header-logo">
 							<Logo color="white"/>

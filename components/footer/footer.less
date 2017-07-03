@@ -10,6 +10,19 @@
 	@media @screen-medium {
 		padding: 100px 0 25px;
 	}
+
+	&.fixed-footer {
+		@media @screen-medium {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			min-height: 100vh;
+			z-index: -1;
+			display: flex;
+			align-items: center;
+		}
+	}
 }
 
 .footer .container-inner {
@@ -26,6 +39,12 @@
 .footer .header-logo {
 	margin-bottom: 20px;
 	display: block;
+}
+
+.footer.fixed-footer .header-logo {
+	@media only screen and (min-width: 768px) and (min-height: 740px) {
+		margin-bottom: 10vh;
+	}
 }
 
 .footer-left {
@@ -121,6 +140,15 @@
 
 	path {
 		fill: @dark-gray;
+	}
+}
+
+.footer.fixed-footer .footer-join-link {
+	@media only screen and (min-width: 768px) {
+		margin: 10vh 0;
+	}
+	@media only screen and (min-width: 768px) and (min-height: 810px) {
+		margin: 10vh 0 17vh;
 	}
 }
 

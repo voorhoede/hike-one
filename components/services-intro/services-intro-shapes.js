@@ -7,14 +7,10 @@ import RectangleBorder from '../shapes/rectangle-border/rectangle-border';
 import Triangle from '../shapes/triangle/triangle';
 
 class Shapes extends React.Component {
-	constructor() {
-		super();
-	}
-
 	backLayer() {
 		return (
 			<div>
-				<RectangleBorder classes="services-intro-rectangle-1" color="red"/>
+				<RectangleBorder classes="services-intro-rectangle-1" color="purple"/>
 				<DiamondBorder classes="services-intro-diamond-1" color="yellow"/>
 				<CircleBorder classes="services-intro-circle-1" color="green" />
 			</div>

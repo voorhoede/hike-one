@@ -9,15 +9,15 @@ class Shapes extends React.Component {
 	backLayer() {
 		return (
 			<div>
-				<CircleBorder classes="services-overview-circle-1" color="blue" />
-				<DiamondBorder classes="services-overview-diamond-1" color="yellow"/>
+				<CircleBorder classes="shape-circle-1" color="blue" />
+				<DiamondBorder classes="shape-diamond-1" color="yellow"/>
 			</div>
 		);
 	}
 
 	frontLayer() {
 		return (
-			<Triangle classes="services-overview-triangle-1" color="red" shadow/>
+			<Triangle classes="shape-triangle-1" color="red" shadow/>
 		);
 	}
 

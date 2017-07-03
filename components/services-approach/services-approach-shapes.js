@@ -6,7 +6,7 @@ import Triangle from '../shapes/triangle/triangle';
 class Shapes extends React.Component {
 	frontLayer() {
 		return (
-			<Triangle classes="services-approach-triangle-1" color="green" />
+			<Triangle classes="shape-triangle-1" color="green" />
 		);
 	}
 

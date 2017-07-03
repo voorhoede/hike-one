@@ -8,11 +8,11 @@ class ServicesIntro extends React.Component {
     	const props = this.props;
         return (
             <section className="services-intro">
-				<Shapes />
 				<div className="container-inner">
 					<h2 className="section-header content">{props.title}</h2>
 					<ButtonTertiary href="#" classes="content" value={props.buttonLabel} />
 				</div>
+				<Shapes />
             </section>
         );
     }

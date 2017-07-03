@@ -4,6 +4,7 @@ import Diamond from '../../shapes/diamond/diamond';
 import DoubleDiamond from '../../shapes/double-diamond/double-diamond';
 import Cube from '../../shapes/cube/cube';
 import Circle from '../../shapes/circle/circle';
+import Triangle from '../../shapes/triangle/triangle';
 
 class GraphicElementsShowcase extends React.Component {
     render() {
@@ -16,6 +17,7 @@ class GraphicElementsShowcase extends React.Component {
                     <DoubleDiamond shadow="true" />
                     <Cube shadow="true" />
                     <Circle shadow="true" />
+                    <Triangle shadow="true" />
                 </div>
             </div>
         );

@@ -7,7 +7,7 @@ class ServiceApproach extends React.Component {
         return (
             <section className="services-approach">
 				<div className="services-approach-inner">
-					<p>{props.text}</p>
+					<p className="content">{props.text}</p>
 				</div>
 				<Shapes />
             </section>

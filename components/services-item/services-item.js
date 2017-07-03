@@ -12,10 +12,10 @@ class ServicesItem extends React.Component {
         return (
             <li className="services-item clearfix">
                 <div className="services-item-info">
-                    <h3 className="services-item-heading">{data.title}</h3>
-                    <p className="services-item-text">{data.text}</p>
+                    <h3 className="services-item-heading content">{data.title}</h3>
+                    <p className="services-item-text content">{data.text}</p>
 					<ul className="services-item-tags">
-						{ data.tags.map(tag => <li>{ tag.tag }</li>) }
+						{ data.tags.map((tag, index) => <li key={index} className="content">{ tag.tag }</li>) }
 				   </ul>
                 </div>
 

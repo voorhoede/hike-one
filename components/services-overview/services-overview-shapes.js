@@ -5,10 +5,6 @@ import CircleBorder from '../shapes/circle-border/circle-border';
 import Triangle from '../shapes/triangle/triangle';
 
 class Shapes extends React.Component {
-	constructor() {
-		super();
-	}
-
 	backLayer() {
 		return (
 			<CircleBorder classes="services-overview-circle-1" color="blue" />

@@ -11,11 +11,14 @@ class parallax extends React.Component {
 	}
 
 	componentDidMount() {
-		this.body =  document.body;
-		this.rect = this.frontLayer.getBoundingClientRect();
-		// y offset relative from top of document
-		this.elementTop = this.rect.top + window.pageYOffset - this.body.clientTop;
-		window.addEventListener('scroll', this.onScroll);
+		// only add animation when requestAnimationFrame is supported
+		if (typeof window.requestAnimationFrame !== 'undefined') {
+			this.body =  document.body;
+			this.rect = this.frontLayer.getBoundingClientRect();
+			// y offset relative from top of document
+			this.elementTop = this.rect.top + window.pageYOffset - this.body.clientTop;
+			window.addEventListener('scroll', this.onScroll);
+		}
 	}
 
 	componentUnMount() {

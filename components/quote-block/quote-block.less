@@ -1,0 +1,105 @@
+@import (reference) '../../styles/variables';
+
+.quote-block {
+    background-color: @blue;
+    color: @white;
+    margin-left: 1rem;
+    padding: 2rem 1rem 2rem 2rem;
+
+    @media @screen-small {
+        margin-left: 10%;
+    }
+
+    @media @screen-medium {
+        margin-left: 20%;
+        padding: 80px;
+    }
+
+    @media @screen-large {
+        padding: 120px;
+    }
+}
+
+.quote-block.blue {
+    background-color: @blue;
+}
+
+.quote-block.red {
+    background-color: @red;
+}
+
+.quote-block.purple {
+    background-color: @purple;
+}
+
+.quote-block.yellow {
+    background-color: @yellow;
+}
+
+.quote-block.green {
+    background-color: @green;
+}
+
+.quote-block.gray {
+    background-color: @gray;
+}
+
+.quote-block.dark-gray {
+    background-color: @dark-gray;
+}
+
+.quote-block blockquote {
+    font-family: 'playfair';
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 1.5rem;
+
+    @media @screen-medium {
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    @media @screen-large {
+        font-size: 42px;
+        max-width: 900px;
+    }
+}
+
+.quote-block-from {
+    display: flex;
+    align-items: center;
+}
+
+.quote-block-from-text {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(~"100% - (70px + 1rem)");
+
+    @media @screen-medium {
+        width: calc(~"100% - (100px + 2rem)");
+    }
+}
+
+.quote-block-from img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    vertical-align: top;
+
+    @media @screen-medium {
+        width: 100px;
+        height: 100px;
+        margin-right: 2rem;
+    }
+}
+
+.quote-block-from .name {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.quote-block-from .title {
+    font-weight: 500;
+    font-style: italic;
+}

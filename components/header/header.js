@@ -17,11 +17,10 @@ class Header extends React.Component {
 		};
 
 		this.disableScrollClass = 'disable-scroll';
-
 	}
 
 	componentWillUnmount() {
-		document.body.classList.remove(this.disableScrollClass)
+		document.body.classList.remove(this.disableScrollClass);
 	}
 
 	toggleMenu() {

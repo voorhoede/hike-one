@@ -13,10 +13,10 @@ class parallax extends React.Component {
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.body =  document.body;
 			this.rect = this.frontLayer.getBoundingClientRect();
+			const clientTop =  document.body.clientTop || document.documentElement.clientTop || 0;
 			// y offset relative from top of document
-			this.elementTop = this.rect.top + window.pageYOffset - this.body.clientTop;
+			this.elementTop = this.rect.top + window.pageYOffset - clientTop;
 			window.addEventListener('scroll', this.onScroll);
 		}
 	}
@@ -37,8 +37,8 @@ class parallax extends React.Component {
 	}
 
 	animateLayers() {
-		const scrolledHeight =  this.body.scrollTop;
-		const windowHeight = this.body.clientHeight;
+		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
+		const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
 		const bottomScreen = windowHeight + scrolledHeight;
 
 		// if the element is not yet in view then don't add parallax effect

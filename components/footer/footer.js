@@ -52,7 +52,7 @@ class Footer extends React.Component {
 	render() {
 		return (
 			<footer ref={node => this.footer = node} className="footer">
-				<div ref="footerContainer" className="container-inner">
+				<div className="container-inner">
 					<Link href="/" >
 						<a className="header-logo">
 							<Logo color="white"/>

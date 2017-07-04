@@ -9,7 +9,7 @@ class Home extends React.Component {
 		return (
 			<Layout title="Hike One">
 				<Header/>
-				<main className="container">
+				<main className="container main js-main">
 					<ButtonSecondary value="StyleGuide" href="/style-guide"/>
 				</main>
 			</Layout>

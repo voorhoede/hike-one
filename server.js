@@ -6,7 +6,6 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const fs = require('fs');
-const rootStaticFiles = fs.readdirSync('./static/root');
 
 app.prepare()
 	.then(() => {

@@ -10,7 +10,7 @@ class Case extends React.Component {
 	render() {
 		return (
 			<Layout title="Hike One - Case">
-				<main>
+				<main className="main">
 					<Header absolute color="white" />
 
 					<CaseIntro

@@ -10,8 +10,10 @@ class Home extends React.Component {
 			<Layout title="Hike One">
 				<Header/>
 				<main className="container main js-main">
-					<ButtonSecondary value="StyleGuide" href="/style-guide"/>
-					<ButtonSecondary value="Case" href="/case"/>
+					<article className="article article-index">
+						<ButtonSecondary value="StyleGuide" href="/style-guide"/>
+						<ButtonSecondary value="Case" href="/case"/>
+					</article>
 				</main>
 			</Layout>
 		);

@@ -1,12 +1,15 @@
 @import (reference) '../../styles/variables';
 
 .header {
+	position: absolute;
+	top: 0;
+	width: 100%;
 	height: @header-height;
 	text-align: center;
-	margin-bottom: 30px;
+	margin-bottom: @header-margin-sm;
 
 	@media @screen-medium {
-		margin-bottom: 100px;
+		margin-bottom: @header-margin-lg;
 	}
 }
 
@@ -61,4 +64,8 @@
 	@media only screen and (min-width: @container-max-width) {
 		right: calc(~"(100vw - @{container-max-width} + 32px) / 2");
 	}
+}
+
+.header .btn.white svg {
+	fill: @white;
 }

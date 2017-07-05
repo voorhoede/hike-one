@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrimaryButton from '../buttons/button-primary/button-primary';
+import PrimaryButtonLink from '../buttons/button-primary/button-primary-link';
 
 class GetToKnowUs extends React.Component {
     render() {
@@ -9,7 +9,7 @@ class GetToKnowUs extends React.Component {
             <section className="get-to-know-us js-bottom-element" style={{backgroundImage: `url(${props.image})`}}>
                 <div className="container">
                     <h2>{props.title}</h2>
-                    <PrimaryButton href="#" value={props.button} />
+                    <PrimaryButtonLink href="#" value={props.button} />
                 </div>
             </section>
         );

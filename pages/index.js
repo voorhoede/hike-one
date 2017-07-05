@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from '../components/header/header';
 import Layout from '../components/layout/layout';
-import ButtonSecondary from '../components/buttons/button-secondary/button-secondary';
+import ButtonSecondaryLink from '../components/buttons/button-secondary/button-secondary-link';
 
 class Home extends React.Component {
 	render() {
@@ -11,8 +11,8 @@ class Home extends React.Component {
 				<Header/>
 				<main className="container main js-main">
 					<article className="article article-index">
-						<ButtonSecondary value="StyleGuide" href="/style-guide"/>
-						<ButtonSecondary value="Case" href="/case"/>
+						<ButtonSecondaryLink value="StyleGuide" href="/style-guide"/>
+						<ButtonSecondaryLink value="Case" href="/case"/>
 					</article>
 				</main>
 			</Layout>

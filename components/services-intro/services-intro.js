@@ -9,8 +9,8 @@ class ServicesIntro extends React.Component {
         return (
             <section className="services-intro">
 				<div className="container-inner">
-					<h2 className="section-header">{props.title}</h2>
-					<ButtonTertiary href="#" value={props.buttonLabel} />
+					<h2 className="section-header content">{props.title}</h2>
+					<ButtonTertiary href="#" classes="content" value={props.buttonLabel} />
 				</div>
 				<Shapes />
             </section>

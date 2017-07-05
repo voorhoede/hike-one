@@ -19,6 +19,21 @@
 	margin: 0 auto;
 }
 
+.main {
+	overflow: hidden;
+	background: @white;
+
+	&.footer-fixed {
+		margin-bottom: 100vh;
+	}
+}
+
+// makes content (text, buttons, etc) to always be above the front parallax layer
+.content {
+	position: relative;
+	z-index: 1;
+}
+
 .article {
 	padding: 0 @spacing-default;
 	max-width: @container-max-width;

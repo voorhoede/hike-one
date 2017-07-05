@@ -8,10 +8,50 @@ import SocialMedia from '../social-media/social-media';
 import ArrowRight  from '../icons/arrow-right/arrow-right';
 
 class Footer extends React.Component {
+	constructor() {
+		super();
+		this.ticking = false;
+		this.onResize = this.onResize.bind(this);
+		this.setFixedState = this.setFixedState.bind(this);
+	}
+
+	componentDidMount() {
+		if (typeof window.requestAnimationFrame !== 'undefined') {
+			this.footerHeight = this.footer.getBoundingClientRect().height;
+			this.mainContainer = document.querySelector('.js-main');
+			this.setFixedState();
+			window.addEventListener('resize', this.onResize);
+		}
+	}
+
+	componentUnMount() {
+		window.removeEventListener('resize', this.onResize);
+	}
+
+	setFixedState() {
+		if (window.innerHeight > this.footerHeight) {
+			this.footer.classList.add('is-fixed');
+			this.mainContainer.classList.add('footer-fixed');
+		} else {
+			this.footer.classList.remove('is-fixed');
+			this.mainContainer.classList.remove('footer-fixed');
+		}
+	}
+
+	onResize() {
+		if (!this.ticking) {
+			window.requestAnimationFrame(() => {
+				this.setFixedState();
+				this.ticking = false;
+			});
+		}
+
+		this.ticking = true;
+	}
 
 	render() {
 		return (
-			<footer className="footer">
+			<footer ref={node => this.footer = node} className="footer">
 				<div className="container-inner">
 					<Link href="/" >
 						<a className="header-logo">

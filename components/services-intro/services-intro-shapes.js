@@ -10,9 +10,9 @@ class Shapes extends React.Component {
 	backLayer() {
 		return (
 			<div>
-				<RectangleBorder classes="services-intro-rectangle-1" color="purple"/>
-				<DiamondBorder classes="services-intro-diamond-1" color="yellow"/>
-				<CircleBorder classes="services-intro-circle-1" color="green" />
+				<RectangleBorder classes="shape-rectangle-1" color="purple"/>
+				<DiamondBorder classes="shape-diamond-1" color="yellow"/>
+				<CircleBorder classes="shape-circle-1" color="green" />
 			</div>
 		);
 	}
@@ -20,10 +20,10 @@ class Shapes extends React.Component {
 	frontLayer() {
 		return (
 			<div>
-				<Triangle classes="services-intro-triangle-1" color="red" />
-				<Triangle classes="services-intro-triangle-2" color="purple" />
-				<Triangle classes="services-intro-triangle-3" color="blue" shadow/>
-				<Triangle classes="services-intro-triangle-4" color="yellow" />
+				<Triangle classes="shape-triangle-1" color="red" />
+				<Triangle classes="shape-triangle-2" color="purple" />
+				<Triangle classes="shape-triangle-3" color="blue" shadow/>
+				<Triangle classes="shape-triangle-4" color="yellow" />
 			</div>
 		);
 	}

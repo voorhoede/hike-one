@@ -6,7 +6,7 @@ import Footer from '../components/footer/footer';
 import ServicesIntro from '../components/services-intro/services-intro';
 import ServiceApproach from '../components/services-approach/service-approach';
 import ServicesOverview from '../components/services-overview/services-overview';
-import GetToKnowUs from '../components/get-to-know-us/get-to-know-us';
+import CTABlock from '../components/cta-block/cta-block';
 import Contact from '../components/contact/contact';
 
 import Data from '../data/current/services/services.json';
@@ -23,7 +23,7 @@ class Services extends React.Component {
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 						<Contact title={Data.contactTitle} button={Data.contactButton} />
 					</article>
-					<GetToKnowUs title={Data.getToKnowTitle} button={Data.getToKnowButton} image="static/images/img-team.jpg" />
+					<CTABlock title={Data.getToKnowTitle} button={Data.getToKnowButton} image="static/images/img-team.jpg" />
 					<Footer />
 				</main>
 			</Layout>

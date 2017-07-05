@@ -4,18 +4,17 @@ class FiftyFifty extends React.Component {
     render() {
         const props = this.props;
         return (
-            <section className={`fifty-fifty-container clearfix container container-inner ${props.className ? props.className : ''}`}>
-                <div className="fifty-fifty-image">
+            <section className={`fifty-fifty clearfix container ${props.className ? props.className : ''}`}>
+				<div className="container-inner">
+					<div className="fifty-fifty-image">
+						<img className="shadow" src={props.image} alt="" />
 
-                    <img className="shadow" src={props.image} alt="" />
-
-                </div>
-                <div className="fifty-fifty-text">
-
-                    <h2>{props.title}</h2>
-                    <p>{props.text}</p>
-
-                </div>
+					</div>
+					<div className="fifty-fifty-content">
+						<h2 className="fifty-fifty-title">{props.title}</h2>
+						<p className="fifty-fifty-text">{props.text}</p>
+					</div>
+				</div>
             </section>
         );
     }

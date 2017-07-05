@@ -1,6 +1,6 @@
 @import (reference) '../../styles/variables';
 
-.fifty-fifty-container {
+.fifty-fifty {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -10,7 +10,7 @@
     }
 }
 
-.fifty-fifty-text,
+.fifty-fifty-content,
 .fifty-fifty-image {
     display: inline-block;
     width: 100%;
@@ -23,26 +23,21 @@
     }
 }
 
-.fifty-fifty-text h2 {
-    @media @screen-medium {
-        max-width: 80%;
-    }
+.fifty-fifty-title,
+.fifty-fifty-text {
+	@media @screen-medium {
+		max-width: 462px;
+	}
 
-    @media @screen-large {
-        max-width: 50%;
-    }
+	.fifty-fifty-text-small & {
+		@media @screen-medium {
+			max-width: 344px;
+		}
+	}
 }
 
-.fifty-fifty-text p {
-    font-weight: 500;
-
-    @media @screen-medium {
-        max-width: 80%;
-    }
-
-    @media @screen-large {
-        max-width: 50%;
-    }
+.fifty-fifty-text {
+	font-weight: 500;
 }
 
 .fifty-fifty-image img {
@@ -50,23 +45,10 @@
     height: auto;
 }
 
-.desktop-image-last .fifty-fifty-image {
+.fifty-fifty-content-left .fifty-fifty-image {
     @media @screen-medium {
         order: 1;
         float: right;
     }
 }
 
-.text-block-center .fifty-fifty-text {
-    h2 {
-        @media @screen-medium {
-            margin: 0 auto 25px;
-        }
-    }
-
-    p {
-        @media @screen-medium {
-            margin: 0 auto 1rem;
-        }
-    }
-}

@@ -18,7 +18,7 @@ class Footer extends React.Component {
 	componentDidMount() {
 		if (typeof window.requestAnimationFrame !== 'undefined') {
 			this.footerHeight = this.footer.getBoundingClientRect().height;
-			this.mainContainer = document.querySelector('main');
+			this.mainContainer = document.querySelector('.js-main');
 			this.setFixedState();
 			window.addEventListener('resize', this.onResize);
 		}

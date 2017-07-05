@@ -54,6 +54,10 @@
 	margin: 0;
 	cursor: pointer;
 
+	&.white svg {
+		fill: @white;
+	}
+
 	@media only screen and (min-width: @container-max-width) {
 		right: calc(~"(100vw - @{container-max-width} + 32px) / 2");
 	}

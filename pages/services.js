@@ -23,7 +23,7 @@ class Services extends React.Component {
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 						<Contact title={Data.contactTitle} button={Data.contactButton} />
 					</article>
-					<GetToKnowUs title={Data.getToKnowTitle} button={Data.getToKnowButton} />
+					<GetToKnowUs title={Data.getToKnowTitle} button={Data.getToKnowButton} image="static/images/img-team.jpg" />
 					<Footer />
 				</main>
 			</Layout>

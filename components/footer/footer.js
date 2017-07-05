@@ -24,7 +24,7 @@ class Footer extends React.Component {
 		}
 	}
 
-	componentUnMount() {
+	componentWillUnmount() {
 		window.removeEventListener('resize', this.onResize);
 	}
 

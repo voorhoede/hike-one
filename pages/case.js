@@ -11,7 +11,7 @@ class Case extends React.Component {
 	render() {
 		return (
 			<Layout title="Hike One - Case">
-				<main className="main">
+				<main className="main js-main">
 					<Header />
 					<article className="article-full-width">
 						<CaseIntro

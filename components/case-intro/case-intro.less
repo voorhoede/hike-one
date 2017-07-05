@@ -2,29 +2,18 @@
 
 .case-intro {
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
     min-height: 80vh;
     background-size: cover;
     background-position: center;
     padding-bottom: 2rem;
-    position: relative;
+	padding-top: @header-height + @header-margin-sm;
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 80%;
-        background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
-    }
+	@media @screen-medium {
+		padding-top: @header-height + @header-margin-lg
+	}
 }
 
 .case-intro .container {
-    position: relative;
-    z-index: 1;
     margin-bottom: 0;
 }
 

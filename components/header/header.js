@@ -35,7 +35,7 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header className={`header ${this.state.menuIsOpen ? 'open' : ''} ${this.props.absolute ? 'absolute' : ''}`}>
+			<header className={`header ${this.state.menuIsOpen ? 'open' : ''}`}>
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">

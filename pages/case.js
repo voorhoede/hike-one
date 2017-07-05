@@ -11,13 +11,14 @@ class Case extends React.Component {
 		return (
 			<Layout title="Hike One - Case">
 				<main className="main">
-					<Header absolute color="white" />
+					<Header />
+					<article className="article-full-width">
+						<CaseIntro
+							title="Gone in 60 seconds"
+							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within 1 minute."
+							image="http://via.placeholder.com/1000x500" />
 
-					<CaseIntro
-					title="Gone in 60 seconds"
-					subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within 1 minute."
-					image="http://via.placeholder.com/1000x500" />
-
+					</article>
 					<Footer />
 				</main>
 			</Layout>

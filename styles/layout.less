@@ -19,6 +19,14 @@
 	margin: 0 auto;
 }
 
+.container.container-inner {
+    margin: @spacing-double 0;
+    
+    @media @screen-small {
+		margin: 0 auto @spacing-container;
+	}
+}
+
 .main {
 	overflow: hidden;
 	background: @white;

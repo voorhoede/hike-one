@@ -1,0 +1,72 @@
+@import (reference) '../../styles/variables';
+
+.fifty-fifty-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @media @screen-medium {
+        flex-direction: row;
+    }
+}
+
+.fifty-fifty-text,
+.fifty-fifty-image {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 55px;
+    vertical-align: top;
+
+    @media @screen-medium {
+        width: 50%;
+        padding: 20px;
+    }
+}
+
+.fifty-fifty-text h2 {
+    @media @screen-medium {
+        max-width: 80%;
+    }
+
+    @media @screen-large {
+        max-width: 50%;
+    }
+}
+
+.fifty-fifty-text p {
+    font-weight: 500;
+
+    @media @screen-medium {
+        max-width: 80%;
+    }
+
+    @media @screen-large {
+        max-width: 50%;
+    }
+}
+
+.fifty-fifty-image img {
+    width: 100%;
+    height: auto;
+}
+
+.desktop-image-last .fifty-fifty-image {
+    @media @screen-medium {
+        order: 1;
+        float: right;
+    }
+}
+
+.text-block-center .fifty-fifty-text {
+    h2 {
+        @media @screen-medium {
+            margin: 0 auto 25px;
+        }
+    }
+
+    p {
+        @media @screen-medium {
+            margin: 0 auto 1rem;
+        }
+    }
+}

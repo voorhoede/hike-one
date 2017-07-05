@@ -33,7 +33,7 @@ class Header extends React.Component {
 		}
 	}
 
-	componentUnMount() {
+	componentWillUnmount() {
 		document.body.classList.remove(this.disableScrollClass);
 		window.removeEventListener('scroll', this.onScroll);
 	}

@@ -12,6 +12,32 @@
 	}
 }
 
+.footer.is-fixed {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100vh;
+	z-index: -1;
+	display: flex;
+	align-items: center;
+
+	.footer-join-link {
+		@media only screen and (min-width: 768px) {
+			margin: 10vh 0;
+		}
+		@media only screen and (min-width: 768px) and (min-height: 810px) {
+			margin: 10vh 0 17vh;
+		}
+	}
+
+	.header-logo {
+		@media only screen and (min-width: 768px) and (min-height: 740px) {
+			margin-bottom: 10vh;
+		}
+	}
+}
+
 .footer .container-inner {
 	padding: 0 1rem;
 }
@@ -19,7 +45,6 @@
 .footer-main-content {
 	@media @screen-medium {
 		display: flex;
-
 	}
 }
 
@@ -123,7 +148,6 @@
 		fill: @dark-gray;
 	}
 }
-
 
 .footer-contact {
 	font-size: 24px;

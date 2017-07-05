@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PiramideTriangle from '../../piramide-triangle/piramide-triangle';
+import PiramideTriangle from '../piramide-triangle/piramide-triangle';
 
 class TriangleShowcase extends React.Component {
     render() {

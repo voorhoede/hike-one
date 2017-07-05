@@ -25,9 +25,9 @@ class FooterLocations extends React.Component {
 					</li>
 
 					<li>
-						<button onClick={() => this.setState({location:'ein'})}
-								className={this.state.location === 'ein' ? 'is-active' : ''}>
-						Ein </button>
+						<button onClick={() => this.setState({location:'ehv'})}
+								className={this.state.location === 'ehv' ? 'is-active' : ''}>
+						Ehv </button>
 					</li>
 				</ul>
 
@@ -42,7 +42,7 @@ class FooterLocations extends React.Component {
 						<p>3011ED Rotterdam</p>
 					</div>
 
-					<div className={this.state.location === 'ein' ? 'is-active' : ''}>
+					<div className={this.state.location === 'ehv' ? 'is-active' : ''}>
 						<p>Rijnsburgstraat 9-11</p>
 						<p>1059AT Amsterdam</p>
 					</div>

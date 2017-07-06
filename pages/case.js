@@ -10,26 +10,46 @@ import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
 
+import LogoList from '../components/logo-list/logo-list';
+
 class Case extends React.Component {
 	render() {
-        const readMoreBlockImageBlock = {
-            image: "static/images/img-vbh.jpg",
-            title: "VBH Pivot App",
-            buttonValue: "View case",
-            buttonTarget: "#"
-        };
-        const readMoreBlockButtons = [
+        const logos = [
             {
-                link: "#",
-                title: "Your  first Design Sprint: do these 3 things frist",
-                subtext: "24 November 2016 | Matthijs Collard & Martijn Pillich"
+                link: 'https://unitid.nl/',
+                image: 'static/images/hike-one.svg'
             },
             {
-                link: "#",
-                title: "In 5 days from sketch to tested prototype with Design Sprints",
-                subtext: "17 November 2016 | Ingmar Coenen"
+                link: 'https://www.voorhoede.nl/',
+                image: 'static/images/hike-one.svg'
+            },
+            {
+                link: 'http://www.sita.aero/?gclid=EAIaIQobChMI-OPI4ubv1AIVp7vtCh0m6wqhEAAYASAAEgL_MPD_BwE',
+                image: 'static/images/hike-one.svg'
+            },
+            {
+                link: 'https://vanberlo.nl/',
+                image: 'static/images/hike-one.svg'
             }
-        ];
+        ]
+		const readMoreBlockImageBlock = {
+			image: "static/images/img-vbh.jpg",
+			title: "VBH Pivot App",
+			buttonValue: "View case",
+			buttonTarget: "#"
+		};
+		const readMoreBlockButtons = [
+			{
+				link: "#",
+				title: "Your  first Design Sprint: do these 3 things frist",
+				subtext: "24 November 2016 | Matthijs Collard & Martijn Pillich"
+			},
+			{
+				link: "#",
+				title: "In 5 days from sketch to tested prototype with Design Sprints",
+				subtext: "17 November 2016 | Ingmar Coenen"
+			}
+		];
 
 		return (
 			<Layout title="Hike One - Case">
@@ -52,9 +72,10 @@ class Case extends React.Component {
                             citeTitle="Design Director - Hike One"
 							citeImage="static/images/hylke.jpg"
                         />
-                        <ReadMoreBlock
-                            imageBlock={readMoreBlockImageBlock}
-                            buttons={readMoreBlockButtons} />
+						<LogoList logos={logos} />
+						<ReadMoreBlock
+							imageBlock={readMoreBlockImageBlock}
+							buttons={readMoreBlockButtons} />
 					</article>
 					<Footer />
 				</main>

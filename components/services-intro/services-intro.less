@@ -4,6 +4,12 @@
 	position: relative;
     text-align: center;
     margin-bottom: 95px;
+	margin-top: @header-height + @header-margin-sm;
+
+	@media @screen-medium {
+		margin-top: @header-height + @header-margin-lg;
+        margin-bottom: 150px;
+	}
 }
 
 .services-intro .section-header {

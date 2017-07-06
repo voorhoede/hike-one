@@ -4,7 +4,7 @@
 	margin-bottom: 80px;
 	font-style: normal;
 	color: @white;
-	padding: 25px;
+	padding: 40px 25px;
 	position: relative;
 
 	&::before {
@@ -78,13 +78,14 @@
 }
 
 .services-item-text {
+    line-height: 28px;
 	@media @screen-medium {
-		margin-bottom: @spacing-default;
+		margin-bottom: 36px;
 	}
 }
 
 .services-item-info .services-item-tags {
-	margin-bottom: 40px;
+	// margin-bottom: 40px;
     padding-left: 22px;
 
 	@media @screen-medium {
@@ -94,6 +95,11 @@
 	li::before {
 		background-color: @white;
 	}
+}
+
+.services-item-info .services-item-tags .content {
+    font-weight: 700;
+    font-style: italic;
 }
 
 .service-item-graphics {

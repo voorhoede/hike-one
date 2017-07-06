@@ -21,7 +21,7 @@ class parallax extends React.Component {
 		}
 	}
 
-	componentUnMount() {
+	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
 	}
 

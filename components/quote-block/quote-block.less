@@ -1,0 +1,111 @@
+@import (reference) '../../styles/variables';
+
+.quote-block {
+    background-color: @blue;
+    color: @white;
+    padding: 2rem 1rem 2rem 2rem;
+    font-family: 'playfair';
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 60px 1rem;
+
+    @media @screen-small {
+        margin-left: 10%;
+        margin-bottom: 100px;
+    }
+
+    @media @screen-medium {
+        margin-left: 20%;
+        margin-bottom: 160px;
+        padding: 80px;
+        font-size: 35px;
+        line-height: 50px;
+    }
+
+    @media @screen-large {
+        padding: 120px;
+        // Align the content with the container-inner + 50px for extra spacing just after the @screen-large mark
+        padding-right: calc(~'(100vw - @{container-inner-max-width}) / 2 + 50px');
+        margin-left:   calc(~'(100vw - @{container-inner-max-width}) / 2 + 200px');
+        font-size: 42px;
+    }
+}
+
+.quote-block.blue {
+    background-color: @blue;
+}
+
+.quote-block.red {
+    background-color: @red;
+}
+
+.quote-block.purple {
+    background-color: @purple;
+}
+
+.quote-block.yellow {
+    background-color: @yellow;
+}
+
+.quote-block.green {
+    background-color: @green;
+}
+
+.quote-block.gray {
+    background-color: @gray;
+}
+
+.quote-block.dark-gray {
+    background-color: @dark-gray;
+}
+
+.quote-cite {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+
+    @media @screen-medium {
+        margin-top: 40px;
+    }
+
+    @media @screen-large {
+        margin-top: 60px;
+    }
+}
+
+.quote-cite-content {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(~"100% - (70px + 1rem)");
+    font-family: @main-font;
+    font-size: 1rem;
+    line-height: 22px;
+
+    @media @screen-medium {
+        width: calc(~"100% - (100px + 2rem)");
+    }
+}
+
+.quote-cite img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    vertical-align: top;
+
+    @media @screen-medium {
+        width: 100px;
+        height: 100px;
+        margin-right: 2rem;
+    }
+}
+
+.quote-cite-name {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.quote-cite-title {
+    font-weight: 500;
+    font-style: italic;
+}

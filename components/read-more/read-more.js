@@ -2,7 +2,7 @@ import React from 'react';
 import Link  from 'next/link';
 
 import PrimaryButtonLink from  '../buttons/button-primary/button-primary-link';
-import ArrowRight from '../icons/arrow-right/arrow-right';
+import ArrowRightRound from '../icons/arrow-right-round/arrow-right-round';
 
 class ReadMore extends React.Component {
     render() {
@@ -17,7 +17,7 @@ class ReadMore extends React.Component {
                     {props.buttons.map((item, i) => {
                         return (
                             <div key={i}>
-                                <Link href={item.link}><a>{item.title}<ArrowRight /></a></Link>
+                                <Link href={item.link}><a>{item.title} <ArrowRightRound /></a></Link>
                                 <p>{item.subtext}</p>
                             </div>
                         );

@@ -1,0 +1,74 @@
+@import (reference) '../../styles/variables';
+
+.case-intro {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+    text-align: center;
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 2rem;
+	padding-top: @header-height + @header-margin-sm;
+    margin-bottom: 50px;
+
+	@media @screen-medium {
+		padding-top: @header-height + @header-margin-lg;
+        margin-bottom: 100px;
+	}
+}
+
+.case-intro .container {
+    margin-bottom: 0;
+}
+
+.case-intro-title {
+    color: @white;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 48px;
+
+    @media @screen-medium {
+        font-size: 70px;
+        line-height: 68px;
+    }
+
+    @media @screen-large {
+        font-size: 100px;
+        line-height: 140px;
+    }
+}
+
+.case-intro-subtitle {
+    font-weight: 500;
+    font-size: 18px;
+    color: @white;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+
+    @media @screen-medium {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    @media @screen-large {
+        font-size: 34px;
+        line-height: 42px;
+    }
+}
+
+.case-intro .icon svg {
+    border-color: @white;
+
+    path {
+        fill: @white;
+    }
+
+    &:hover {
+        background-color: @white;
+
+        path {
+            fill: @red;
+        }
+    }
+}

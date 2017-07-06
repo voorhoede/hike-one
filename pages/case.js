@@ -18,8 +18,8 @@ class Case extends React.Component {
 					<article className="article-full-width">
 						<CaseIntro
 							title="Gone in 60 seconds"
-							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within 1 minute."
-							image="http://via.placeholder.com/1000x500" />
+							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within  1 minute."
+							image="static/images/drop-fly-header.jpg" />
 						<CaseTextCenter />
 						<FiftyFifty className="fifty-fifty-content-left"
 							title="Truly global"

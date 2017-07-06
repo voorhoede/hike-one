@@ -81,6 +81,16 @@
     display: inline-block;
     margin-bottom: 10px;
 
+    &:hover {
+        svg {
+            background-color: transparent;
+
+            path {
+                fill: @white;
+            }
+        }
+    }
+
     @media @screen-medium {
         font-size: 32px;
         line-height: 36px;

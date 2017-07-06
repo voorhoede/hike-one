@@ -1,0 +1,54 @@
+@import (reference) '../../styles/variables';
+
+.fifty-fifty {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @media @screen-medium {
+        flex-direction: row;
+    }
+}
+
+.fifty-fifty-content,
+.fifty-fifty-image {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 55px;
+    vertical-align: top;
+
+    @media @screen-medium {
+        width: 50%;
+        padding: 20px;
+    }
+}
+
+.fifty-fifty-title,
+.fifty-fifty-text {
+	@media @screen-medium {
+		max-width: 462px;
+	}
+
+	.fifty-fifty-text-small & {
+		@media @screen-medium {
+			max-width: 344px;
+		}
+	}
+}
+
+.fifty-fifty-text {
+	font-weight: 500;
+}
+
+.fifty-fifty-image img {
+    width: 100%;
+    height: auto;
+}
+
+.fifty-fifty-content-left .fifty-fifty-image {
+    @media @screen-medium {
+        order: 1;
+        float: right;
+    }
+}
+

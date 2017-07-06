@@ -3,15 +3,19 @@
 .btn-primary {
     display: inline-block;
     color: @white;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 20px;
     text-decoration: none;
     background-color: @blue;
     border: 1px solid @blue;
-    padding: 20px 50px;
+    padding: 12px 42px;
     margin-bottom: 20px;
     border-radius: 100px;
     transition: background 0.3s ease, color 0.3s ease;
+
+    @media @screen-medium {
+        padding: 19px 50px;
+    }
 
     &:hover {
         color: @blue;
@@ -21,17 +25,20 @@
 
 .btn-secondary {
 	display: inline-block;
-    padding: 16px 42px;
+    padding: 12px 42px;
     font-size: 18px;
     font-weight: 500;
     background-color: transparent;
 	text-decoration: none;
     color: @red;
 	border: 1px solid @red;
-	padding: 20px 50px;
 	margin-bottom: 20px;
 	border-radius: 100px;
 	transition: background 0.3s ease, color 0.3s ease;
+
+    @media @screen-medium {
+        padding: 19px 50px;
+    }
 
     &:hover {
         color: @white;
@@ -64,7 +71,7 @@
 .btn-tertiary {
 	display: inline-block;
 	font-weight: 600;
-	font-size: 12px;
+	font-size: 14px;
     background: none;
 	text-decoration: none;
     border: none;

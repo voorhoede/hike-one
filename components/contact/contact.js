@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SecondaryButton from '../buttons/button-secondary/button-secondary';
+import SecondaryButtonLink from '../buttons/button-secondary/button-secondary-link';
 import Shapes from '../contact/contact-shapes';
 
 class Contact extends React.Component {
@@ -10,7 +10,7 @@ class Contact extends React.Component {
 			<div className="contact">
 				<div className="container-inner">
 					<h3 className="content">{props.title}</h3>
-					<SecondaryButton noArrow href="#" classes="btn-secondary-alt content" value={props.button} />
+					<SecondaryButtonLink noArrow href="#" classes="btn-secondary-alt content" value={props.button} />
 				</div>
 				<Shapes />
 			</div>

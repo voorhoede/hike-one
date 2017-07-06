@@ -19,8 +19,21 @@
 	margin: 0 auto;
 }
 
+.container.container-inner {
+    margin: @spacing-double 0;
+
+    @media @screen-small {
+		margin: 0 auto @spacing-container;
+	}
+}
+
 .main {
 	overflow: hidden;
+	background: @white;
+
+	&.footer-fixed {
+		margin-bottom: 100vh;
+	}
 }
 
 // makes content (text, buttons, etc) to always be above the front parallax layer
@@ -36,4 +49,16 @@
 	@media @screen-medium {
 		margin: 0 auto;
 	}
+}
+
+.article-full-width {
+	max-width: none;
+	@media @screen-medium {
+		margin: 0;
+	}
+}
+
+// temp, because we don't have any home page yet
+.article-index {
+	margin-top: @header-height + @header-margin-lg;
 }

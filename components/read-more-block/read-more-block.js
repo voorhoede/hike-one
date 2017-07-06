@@ -1,7 +1,7 @@
 import React from 'react';
 import Link  from 'next/link';
 
-import PrimaryButton from  '../buttons/button-primary/button-primary';
+import PrimaryButtonLink from  '../buttons/button-primary/button-primary-link';
 import ArrowRight from '../icons/arrow-right/arrow-right';
 
 class ReadMoreBlock extends React.Component {
@@ -11,7 +11,7 @@ class ReadMoreBlock extends React.Component {
             <section className="read-more-block container">
                 <div className="image-block" style={{backgroundImage: `url(${props.imageBlock.image})`}} >
                     <h2>{props.imageBlock.title}</h2>
-                    <PrimaryButton href={props.imageBlock.buttonTarget} value={props.imageBlock.buttonValue} />
+                    <PrimaryButtonLink href={props.imageBlock.buttonTarget} value={props.imageBlock.buttonValue} />
                 </div>
                 <div className="text-block">
                     {props.buttons.map((item, i) => {

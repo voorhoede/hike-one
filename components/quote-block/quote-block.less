@@ -3,8 +3,11 @@
 .quote-block {
     background-color: @blue;
     color: @white;
-    margin-left: 1rem;
     padding: 2rem 1rem 2rem 2rem;
+    font-family: 'playfair';
+    font-size: 26px;
+    line-height: 32px;
+    margin: 0 0 1.5rem 1rem;
 
     @media @screen-small {
         margin-left: 10%;
@@ -13,10 +16,15 @@
     @media @screen-medium {
         margin-left: 20%;
         padding: 80px;
+        font-size: 35px;
+        line-height: 50px;
     }
 
     @media @screen-large {
         padding: 120px;
+        font-size: 42px;
+        max-width: 900px;
+        margin-left: auto;
     }
 }
 
@@ -48,32 +56,27 @@
     background-color: @dark-gray;
 }
 
-.quote-block blockquote {
-    font-family: 'playfair';
-    font-size: 26px;
-    line-height: 32px;
-    margin: 0 0 1.5rem;
-
-    @media @screen-medium {
-        font-size: 35px;
-        line-height: 50px;
-    }
-
-    @media @screen-large {
-        font-size: 42px;
-        max-width: 900px;
-    }
-}
-
 .quote-block-from {
     display: flex;
     align-items: center;
+    margin-top: 20px;
+
+    @media @screen-medium {
+        margin-top: 40px;
+    }
+
+    @media @screen-large {
+        margin-top: 60px;   
+    }
 }
 
 .quote-block-from-text {
     display: inline-block;
     vertical-align: top;
     width: calc(~"100% - (70px + 1rem)");
+    font-family: @main-font;
+    font-size: 1rem;
+    line-height: 22px;
 
     @media @screen-medium {
         width: calc(~"100% - (100px + 2rem)");

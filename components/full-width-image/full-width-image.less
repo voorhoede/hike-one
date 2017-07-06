@@ -2,17 +2,53 @@
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 400px;
+    height: 600px;
+    position: relative;
 
     @media @screen-medium {
-        height: 550px;
+        height: 700px;
+    }
+
+    @media only screen and (min-width: @container-inner-max-width) and (min-height: 900px) {
+        height: 800px;
+    }
+}
+
+.full-width-image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: @white;
+    padding: 0 1rem;
+    width: 100%;
+    max-width: 1170px;
+}
+
+.full-width-image-text h2 {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 48px;
+    margin-bottom: 32px;
+
+    @media @screen-medium {
+        font-size: 70px;
+        line-height: 70px;
     }
 
     @media @screen-large {
-        height: 650px;
+        font-size: 100px;
+        line-height: 100px;
+        margin-bottom: 48px;
     }
+}
 
-    @media only screen and (min-width: 1170px) and (min-height: 900px) {
-        height: 800px;
+.full-width-image-text p {
+    font-size: 18px;
+
+    @media @screen-large {
+        font-size: 34px;
+        line-height: 42px;
     }
 }

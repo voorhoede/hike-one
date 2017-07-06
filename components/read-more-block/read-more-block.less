@@ -1,0 +1,114 @@
+@import (reference) '../../styles/variables.less';
+
+.read-more-block {
+    padding: 0;
+    margin-bottom: 0;
+    
+    @media @screen-medium {
+        display: flex;
+    }
+}
+
+.read-more-block .text-block,
+.read-more-block .image-block {
+    @media @screen-medium {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+    }
+}
+
+.read-more-block .image-block {
+    background-size: cover;
+    background-position: center;
+    padding: 90px 0;
+    text-align: center;
+    color: @white;
+}
+
+.read-more-block .text-block a,
+.read-more-block .image-block h2 {
+    font-size: 30px;
+    line-height: 38px;
+}
+
+.read-more-block .image-block h2 {
+    @media @screen-medium {
+        font-size: 46px;
+        line-height: 58px;
+    }
+
+    @media @screen-large {
+        font-size: 66px;
+        line-height: 62px;
+    }
+}
+
+.read-more-block .image-block .btn-primary {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+
+    &:hover {
+        background-color: @white;
+        border-color: @white;
+    }
+
+    @media @screen-medium {
+        width: 250px;
+    }
+}
+
+.read-more-block .text-block {
+    color: @white;
+    background-color: @blue;
+    padding: 40px 1rem;
+
+    @media @screen-large {
+        padding: 60px 70px 60px 70px;
+    }
+}
+
+.read-more-block .text-block > div:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.read-more-block .text-block a {
+    color: @white;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 10px;
+
+    @media @screen-medium {
+        font-size: 32px;
+        line-height: 36px;
+    }
+}
+
+.read-more-block .text-block a svg {
+    background-color: @white;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 11px;
+    height: 11px;
+    box-sizing: content-box;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.read-more-block .text-block a svg path {
+    fill: @blue;
+}
+
+.read-more-block .text-block p {
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0;
+
+    @media @screen-medium {
+        font-size: 20px;
+    }
+}

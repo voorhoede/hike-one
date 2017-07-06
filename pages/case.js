@@ -9,6 +9,8 @@ import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
+import FullWidthImage from '../components/full-width-image/full-width-image';
+
 import LogoList from '../components/logo-list/logo-list';
 
 class Case extends React.Component {
@@ -52,6 +54,8 @@ class Case extends React.Component {
 
 		return (
 			<Layout title="Hike One - Case">
+
+
 				<main className="main js-main">
 					<Header />
 					<article className="article-full-width">
@@ -64,6 +68,9 @@ class Case extends React.Component {
 							title="Truly global"
 							text="We created a real smart system, that could predict the most used presets in languages at certain times of the day. This helped passengers in quickly selecting a language."
 							image="static/images/drop_fly1.jpg" />
+
+                        <FullWidthImage image="static/images/team-copy-3-2.jpg" />
+
                         <QuoteBlock
                             color="purple"
                             quote="We learned so much from hacking our own prototype, to be able to observe real people checking in with our system… on day 5."

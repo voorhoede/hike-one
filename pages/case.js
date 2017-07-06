@@ -1,9 +1,10 @@
 import React from 'react';
-import Link from 'next/link'
 
 import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
+
+import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
@@ -32,6 +33,25 @@ class Case extends React.Component {
                 image: 'static/images/hike-one.svg'
             }
         ]
+		const readMoreBlockImageBlock = {
+			image: "static/images/img-vbh.jpg",
+			title: "VBH Pivot App",
+			buttonValue: "View case",
+			buttonTarget: "#"
+		};
+		const readMoreBlockButtons = [
+			{
+				link: "#",
+				title: "Your  first Design Sprint: do these 3 things frist",
+				subtext: "24 November 2016 | Matthijs Collard & Martijn Pillich"
+			},
+			{
+				link: "#",
+				title: "In 5 days from sketch to tested prototype with Design Sprints",
+				subtext: "17 November 2016 | Ingmar Coenen"
+			}
+		];
+
 		return (
 			<Layout title="Hike One - Case">
 
@@ -59,6 +79,9 @@ class Case extends React.Component {
 							citeImage="static/images/hylke.jpg"
                         />
 						<LogoList logos={logos} />
+						<ReadMore
+							imageBlock={readMoreBlockImageBlock}
+							buttons={readMoreBlockButtons} />
 					</article>
 					<Footer />
 				</main>

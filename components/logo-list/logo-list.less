@@ -1,0 +1,24 @@
+.logo-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.logo-list li {
+    display: inline-block;
+    width: 45%;
+    max-width: 200px;
+    margin-bottom: 2rem;
+    padding: 0 10px;
+
+    @media @screen-medium {
+        margin: 0 40px 2rem;
+    }
+}
+
+.logo-list li img {
+    width: 100%;
+    height: auto;
+}

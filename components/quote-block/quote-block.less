@@ -7,14 +7,16 @@
     font-family: 'playfair';
     font-size: 26px;
     line-height: 32px;
-    margin: 0 0 1.5rem 1rem;
+    margin: 0 0 60px 1rem;
 
     @media @screen-small {
         margin-left: 10%;
+        margin-bottom: 100px;
     }
 
     @media @screen-medium {
         margin-left: 20%;
+        margin-bottom: 160px;
         padding: 80px;
         font-size: 35px;
         line-height: 50px;
@@ -22,8 +24,10 @@
 
     @media @screen-large {
         padding: 120px;
+        // Align the content with the container-inner + 50px for extra spacing just after the @screen-large mark
+        padding-right: calc(~'(100vw - @{container-inner-max-width}) / 2 + 50px');
         font-size: 42px;
-        max-width: 900px;
+        max-width: 60vw;
         margin-left: auto;
     }
 }
@@ -66,7 +70,7 @@
     }
 
     @media @screen-large {
-        margin-top: 60px;   
+        margin-top: 60px;
     }
 }
 

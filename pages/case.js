@@ -28,9 +28,9 @@ class Case extends React.Component {
                         <QuoteBlock
                             color="purple"
                             quote="We learned so much from hacking our own prototype, to be able to observe real people checking in with our system… on day 5."
-                            fromName="Hylke van Maaren"
-                            fromTitle="Design Director - Hike One"
-                            fromImage="static/images/hylke.jpg"
+							citeName="Hylke van Maaren"
+                            citeTitle="Design Director - Hike One"
+							citeImage="static/images/hylke.jpg"
                         />
 					</article>
 					<Footer />

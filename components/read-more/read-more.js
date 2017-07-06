@@ -4,16 +4,16 @@ import Link  from 'next/link';
 import PrimaryButtonLink from  '../buttons/button-primary/button-primary-link';
 import ArrowRight from '../icons/arrow-right/arrow-right';
 
-class ReadMoreBlock extends React.Component {
+class ReadMore extends React.Component {
     render() {
         const props = this.props;
         return (
-            <section className="read-more-block container">
-                <div className="image-block" style={{backgroundImage: `url(${props.imageBlock.image})`}} >
+            <section className="read-more container">
+                <div className="read-more-highlight" style={{backgroundImage: `url(${props.imageBlock.image})`}} >
                     <h2>{props.imageBlock.title}</h2>
                     <PrimaryButtonLink href={props.imageBlock.buttonTarget} value={props.imageBlock.buttonValue} />
                 </div>
-                <div className="text-block">
+                <div className="read-more-links">
                     {props.buttons.map((item, i) => {
                         return (
                             <div key={i}>
@@ -28,4 +28,4 @@ class ReadMoreBlock extends React.Component {
     }
 }
 
-export default ReadMoreBlock;
+export default ReadMore;

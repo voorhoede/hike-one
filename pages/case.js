@@ -4,12 +4,11 @@ import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
-import ReadMoreBlock from '../components/read-more-block/read-more-block';
+import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
-
 import LogoList from '../components/logo-list/logo-list';
 
 class Case extends React.Component {
@@ -73,7 +72,7 @@ class Case extends React.Component {
 							citeImage="static/images/hylke.jpg"
                         />
 						<LogoList logos={logos} />
-						<ReadMoreBlock
+						<ReadMore
 							imageBlock={readMoreBlockImageBlock}
 							buttons={readMoreBlockButtons} />
 					</article>

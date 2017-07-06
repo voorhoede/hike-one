@@ -1,16 +1,16 @@
 @import (reference) '../../styles/variables.less';
 
-.read-more-block {
+.read-more {
     padding: 0;
     margin-bottom: 0;
-    
+
     @media @screen-medium {
         display: flex;
     }
 }
 
-.read-more-block .text-block,
-.read-more-block .image-block {
+.read-more .text-block,
+.read-more-hightlight {
     @media @screen-medium {
         display: inline-block;
         vertical-align: top;
@@ -18,7 +18,7 @@
     }
 }
 
-.read-more-block .image-block {
+.read-more-hightlight {
     background-size: cover;
     background-position: center;
     padding: 90px 0;
@@ -26,13 +26,13 @@
     color: @white;
 }
 
-.read-more-block .text-block a,
-.read-more-block .image-block h2 {
+.read-more-links a,
+.read-more-hightlight h2 {
     font-size: 30px;
     line-height: 38px;
 }
 
-.read-more-block .image-block h2 {
+.read-more-hightlight h2 {
     @media @screen-medium {
         font-size: 46px;
         line-height: 58px;
@@ -44,7 +44,7 @@
     }
 }
 
-.read-more-block .image-block .btn-primary {
+.read-more-hightlight .btn-primary {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -60,7 +60,7 @@
     }
 }
 
-.read-more-block .text-block {
+.read-more-links {
     color: @white;
     background-color: @blue;
     padding: 40px 1rem;
@@ -70,11 +70,11 @@
     }
 }
 
-.read-more-block .text-block > div:not(:last-child) {
+.read-more-links > div:not(:last-child) {
     margin-bottom: 30px;
 }
 
-.read-more-block .text-block a {
+.read-more-links a {
     color: @white;
     text-decoration: none;
     font-weight: 700;
@@ -87,7 +87,7 @@
     }
 }
 
-.read-more-block .text-block a svg {
+.read-more-links a svg {
     background-color: @white;
     padding: 10px;
     margin-left: 10px;
@@ -99,11 +99,11 @@
     vertical-align: middle;
 }
 
-.read-more-block .text-block a svg path {
+.read-more-links a svg path {
     fill: @blue;
 }
 
-.read-more-block .text-block p {
+.read-more-links p {
     font-weight: 500;
     line-height: 28px;
     margin: 0;

@@ -63,7 +63,11 @@ class Case extends React.Component {
 							title="Gone in 60 seconds"
 							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within  1 minute."
 							image="static/images/drop-fly-header.jpg" />
-						<CaseTextCenter />
+
+						<CaseTextCenter
+                            title="The ultimate nudge"
+                            text="Two or three sentences about the approach that we take in most projects (work together!). It should show that by using this approach, we are able to deliver the right results every time. In the tumultuous business of cutting-in and attending to a whale, there is much running backwards and forwards among the crew. Now hands are wanted here, and then again hands are wanted there. " />
+
 						<FiftyFifty className="fifty-fifty-content-left"
 							title="Truly global"
 							text="We created a real smart system, that could predict the most used presets in languages at certain times of the day. This helped passengers in quickly selecting a language."

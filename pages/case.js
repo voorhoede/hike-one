@@ -89,6 +89,21 @@ class Case extends React.Component {
 							text="Our challenge was to let the passenger finish the drop-off in 60 seconds. And still let the customer feel comfortable during the process, that everything went well. "
 							image="static/images/group-35.jpg" />
 
+                        <FiftyFifty className="fifty-fifty-content-left"
+							title="Got stuck?  Quickly solved"
+							text="To keep the whole process super fast, even when people get stuck, airport staff can quickly access the system and help out."
+							image="static/images/Bitmap.png" />
+
+                        <FullWidthImage image="static/images/Team-Copy-4.jpg" />
+
+                        <QuoteBlock
+                            color="blue"
+                            quote="We wanted to give our passengers a great user experience while checking in their luggage. It’s safe to say we managed to do so, thanks to Hike One."
+							citeName="Reinout van der Meulen"
+                            citeTitle="Senior Portfolio Manager Bag Drop at SITA"
+							citeImage="static/images/reinout.jpg"
+                        />
+
 						<LogoList logos={logos} />
 						<ReadMore
 							imageBlock={readMoreBlockImageBlock}

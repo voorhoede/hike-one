@@ -69,6 +69,11 @@ class Case extends React.Component {
 							text="We created a real smart system, that could predict the most used presets in languages at certain times of the day. This helped passengers in quickly selecting a language."
 							image="static/images/drop_fly1.jpg" />
 
+                        <FiftyFifty className=""
+							title="Customisable  to all clients"
+							text="The system adjusts to the specific style of the airline the customer checks in with, to reassure and confirm."
+							image="static/images/visuele-stijl-flexibel-2-x.jpg" />
+
                         <FullWidthImage image="static/images/team-copy-3-2.jpg" />
 
                         <QuoteBlock
@@ -78,6 +83,12 @@ class Case extends React.Component {
                             citeTitle="Design Director - Hike One"
 							citeImage="static/images/hylke.jpg"
                         />
+
+                        <FiftyFifty className=""
+							title="Finishing under a minute"
+							text="Our challenge was to let the passenger finish the drop-off in 60 seconds. And still let the customer feel comfortable during the process, that everything went well. "
+							image="static/images/group-35.jpg" />
+
 						<LogoList logos={logos} />
 						<ReadMore
 							imageBlock={readMoreBlockImageBlock}

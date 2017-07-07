@@ -10,8 +10,8 @@ import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
-
 import LogoList from '../components/logo-list/logo-list';
+import Contact from '../components/contact/contact';
 
 class Case extends React.Component {
 	render() {
@@ -108,7 +108,21 @@ class Case extends React.Component {
 							citeImage="static/images/reinout.jpg"
                         />
 
+                        <CaseTextCenter
+                            title="Collab with four"
+                            text="We live in a world where we collaborate to establish the product. For Drop & Fly, we joined forces with Van Berlo for the physical product design and De Voorhoede for front-end development. " />
+
 						<LogoList logos={logos} />
+
+                        <FullWidthImage
+                            image="static/images/airport.jpg"
+                            title="60% faster check-in  at Seoul airport"
+                            subtitle="(Incheon International, measured between March 1 and July 1, 2016)" />
+
+                        <Contact 
+                            title="Where will your journey  lead us?"
+                            button="Get in touch" />
+
 						<ReadMore
 							imageBlock={readMoreBlockImageBlock}
 							buttons={readMoreBlockButtons} />

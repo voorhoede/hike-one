@@ -9,83 +9,92 @@ import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
-import LogoList from '../components/logo-list/logo-list';
-import TextCard from '../components/text-card/text-card';
 import FullWidthImage from '../components/full-width-image/full-width-image';
+import LogoList from '../components/logo-list/logo-list';
+import Contact from '../components/contact/contact';
+import TextCard from '../components/text-card/text-card';
 
+import Data from '../dummy-data/case/case.json';
 
 class Case extends React.Component {
 	render() {
-        const logos = [
-            {
-                link: 'https://unitid.nl/',
-                image: 'static/images/hike-one.svg'
-            },
-            {
-                link: 'https://www.voorhoede.nl/',
-                image: 'static/images/hike-one.svg'
-            },
-            {
-                link: 'http://www.sita.aero/?gclid=EAIaIQobChMI-OPI4ubv1AIVp7vtCh0m6wqhEAAYASAAEgL_MPD_BwE',
-                image: 'static/images/hike-one.svg'
-            },
-            {
-                link: 'https://vanberlo.nl/',
-                image: 'static/images/hike-one.svg'
-            }
-        ]
-		const readMoreBlockImageBlock = {
-			image: "static/images/img-vbh.jpg",
-			title: "VBH Pivot App",
-			buttonValue: "View case",
-			buttonTarget: "#"
-		};
-		const readMoreBlockButtons = [
-			{
-				link: "#",
-				title: "Your  first Design Sprint: do these 3 things frist",
-				subtext: "24 November 2016 | Matthijs Collard & Martijn Pillich"
-			},
-			{
-				link: "#",
-				title: "In 5 days from sketch to tested prototype with Design Sprints",
-				subtext: "17 November 2016 | Ingmar Coenen"
-			}
-		];
-
 		return (
 			<Layout title="Hike One - Case">
-
 
 				<main className="main js-main">
 					<Header />
 					<article className="article-full-width">
 						<CaseIntro
-							title="Gone in 60 seconds"
-							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within  1 minute."
-							image="static/images/drop-fly-header.jpg" />
-						<CaseTextCenter />
-						<FiftyFifty className="fifty-fifty-content-left"
-							title="Truly global"
-							text="We created a real smart system, that could predict the most used presets in languages at certain times of the day. This helped passengers in quickly selecting a language."
-							image="static/images/drop_fly1.jpg" />
+							title={Data.introImageTitle}
+							subtitle={Data.introImageSubTitle}
+							image={Data.introImage} />
 
-                        <FullWidthImage image="static/images/team-copy-3-2.jpg" />
+						<CaseTextCenter
+                            title={Data.introTextTitle}
+                            text={Data.introText} />
+
+						<FiftyFifty className="fifty-fifty-content-left"
+							title={Data.fiftyOneTitle}
+							text={Data.fiftyOneText}
+							image={Data.fiftyOneImage} />
+
+                        <FiftyFifty
+							title={Data.fiftyTwoTitle}
+							text={Data.fiftyTwoText}
+							image={Data.fiftyTwoImage} />
+
+                        <FullWidthImage image={Data.firstFullWidth} />
 
                         <QuoteBlock
-                            color="purple"
-                            quote="We learned so much from hacking our own prototype, to be able to observe real people checking in with our system… on day 5."
-							citeName="Hylke van Maaren"
-                            citeTitle="Design Director - Hike One"
-							citeImage="static/images/hylke.jpg"
+                            color={Data.quoteFirstColor}
+                            quote={Data.quoteFirst}
+							citeName={Data.quoteFirstCiteName}
+                            citeTitle={Data.quoteFirstCiteTitle}
+							citeImage={Data.quoteFirstCiteImage}
                         />
-                        <TextCard
-                        title="A design sprint in the rush of an airport"
-                        text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
-						<LogoList logos={logos} />
+
+                        <FiftyFifty
+							title={Data.fiftyThirdTitle}
+							text={Data.fiftyThirdText}
+							image={Data.fiftyThirdImage} />
+
+                        <FiftyFifty className="fifty-fifty-content-left"
+							title={Data.fiftyFourthTitle}
+							text={Data.fiftyFourthText}
+							image={Data.fiftyFourthImage} />
+
+						<TextCard
+							title="A design sprint in the rush of an airport"
+							text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
+
+                        <FullWidthImage image={Data.SecondFullWidth} />
+
+                        <QuoteBlock
+                            color={Data.quoteSecondColor}
+                            quote={Data.quoteSecond}
+							citeName={Data.quoteSecondCiteName}
+                            citeTitle={Data.quoteSecondCiteTitle}
+							citeImage={Data.quoteSecondCiteImage}
+                        />
+
+                        <CaseTextCenter
+                            title={Data.introTextSecondTitle}
+                            text={Data.introTextSecond} />
+
+						<LogoList logos={Data.logos} />
+
+                        <FullWidthImage
+                            image={Data.thirdFullWidth}
+                            title={Data.thirdFullWidthTitle}
+                            subtitle={Data.thirdFullWidthText} />
+
+                        <Contact
+                            title={Data.contactTitle}
+                            button={Data.contactButton} />
+
 						<ReadMore
-							imageBlock={readMoreBlockImageBlock}
-							buttons={readMoreBlockButtons} />
+							highlight={Data.readMore.highlight}
+							links={Data.readMore.links} />
 					</article>
 					<Footer />
 				</main>

@@ -7,7 +7,8 @@ class parallax extends React.Component {
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
 		this.ticking = false;
-		this.speed = props.speed || -0.3;
+		this.speed = props.speed ? parseFloat(props.speed) : -0.3;
+		this.offset = props.offset ? parseInt(props.offset) : 0;
 	}
 
 	componentDidMount() {
@@ -42,7 +43,7 @@ class parallax extends React.Component {
 		const bottomScreen = windowHeight + scrolledHeight;
 
 		// if the element is not yet in view then don't add parallax effect
-		if (bottomScreen <= this.elementTop) { return; }
+		if (bottomScreen <= (this.elementTop + this.offset)) { return; }
 
 		// set initial scrollheight
 		this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight;

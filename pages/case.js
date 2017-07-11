@@ -12,6 +12,7 @@ import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
 import LogoList from '../components/logo-list/logo-list';
 import Contact from '../components/contact/contact';
+import TextCard from '../components/text-card/text-card';
 
 import Data from '../dummy-data/case/case.json';
 
@@ -61,6 +62,11 @@ class Case extends React.Component {
 							title={Data.fiftyFourthTitle}
 							text={Data.fiftyFourthText}
 							image={Data.fiftyFourthImage} />
+
+						<TextCard
+							title="A design sprint in the rush of an airport"
+							text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
+						<LogoList logos={logos} />
 
                         <FullWidthImage image={Data.SecondFullWidth} />
 

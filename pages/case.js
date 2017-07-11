@@ -13,7 +13,7 @@ import FullWidthImage from '../components/full-width-image/full-width-image';
 import LogoList from '../components/logo-list/logo-list';
 import Contact from '../components/contact/contact';
 
-import Data from '../data/dummy/case/case.json';
+import Data from '../dummy-data/case/case.json';
 
 class Case extends React.Component {
 	render() {
@@ -79,17 +79,17 @@ class Case extends React.Component {
 						<LogoList logos={Data.logos} />
 
                         <FullWidthImage
-                            image={Data.ThirdFullWidth}
-                            title={Data.ThirdFullWidthTitle}
-                            subtitle={Data.ThirdFullWidthText} />
+                            image={Data.thirdFullWidth}
+                            title={Data.thirdFullWidthTitle}
+                            subtitle={Data.thirdFullWidthText} />
 
                         <Contact
                             title={Data.contactTitle}
                             button={Data.contactButton} />
 
 						<ReadMore
-							imageBlock={Data.readMoreImageBlock}
-							buttons={Data.readMoreButtons} />
+							highlight={Data.readMore.highlight}
+							links={Data.readMore.links} />
 					</article>
 					<Footer />
 				</main>

@@ -20,9 +20,11 @@ class ServicesItem extends React.Component {
                 </div>
 
                 <div className="service-item-graphics">
-					{ index === 0 && <TrailDiamond shadow="true"/> }
-					{ index === 1 && <TrailDoubleDiamond shadow="true"/> }
-                    { index === 2 && <TrailTriangle shadow="true"/> }
+					<parallax speed="0.3">
+						{ index === 0 && <TrailDiamond shadow="true"/> }
+						{ index === 1 && <TrailDoubleDiamond shadow="true"/> }
+						{ index === 2 && <TrailTriangle shadow="true"/> }
+					</parallax>
                 </div>
             </li>
         );

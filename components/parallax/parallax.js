@@ -7,14 +7,13 @@ class parallax extends React.Component {
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
 		this.ticking = false;
-		this.frontLayerSpeed = props.frontLayerSpeed || -0.3;
-		this.backLayerSpeed = props.backLayerSpeed || 0.3;
+		this.speed = props.speed || -0.3;
 	}
 
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.rect = this.frontLayer.getBoundingClientRect();
+			this.rect = this.element.getBoundingClientRect();
 			const clientTop =  document.body.clientTop || document.documentElement.clientTop || 0;
 			// y offset relative from top of document
 			this.elementTop = this.rect.top + window.pageYOffset - clientTop;
@@ -55,19 +54,13 @@ class parallax extends React.Component {
 		if (relativeScroll < 0) { return; }
 
 		// use tweenlite for a smooth parallax effect
-		TweenLite.to(this.frontLayer, 0.3, {y: relativeScroll * this.frontLayerSpeed}, {ease: "Linear.easeNone" });
-		TweenLite.to(this.backLayer, 0.3, {y: relativeScroll * this.backLayerSpeed}, {ease: "Linear.easeNone" });
+		TweenLite.to(this.element, 0.3, {y: relativeScroll * this.speed}, {ease: "Linear.easeNone" });
 	}
 
 	render() {
 		return (
-			<div>
-				<div ref={(node) => this.backLayer = node} className="parallax-layer-back">
-					{ this.props.backLayer }
-				</div>
-				<div ref={(node) => this.frontLayer = node} className="parallax-layer-front">
-					{ this.props.frontLayer }
-				</div>
+			<div ref={(node) => this.element = node } className="parallax-layer">
+				{ this.props.children }
 			</div>
 		);
 	}

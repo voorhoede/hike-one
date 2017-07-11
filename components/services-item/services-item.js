@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Diamond from '../shapes/diamond/diamond';
+import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
 import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
-import DoubleDiamond from '../shapes/double-diamond/double-diamond';
+import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
+import Parallax from '../parallax/parallax';
 
 class ServicesItem extends React.Component {
 
@@ -20,9 +21,11 @@ class ServicesItem extends React.Component {
                 </div>
 
                 <div className="service-item-graphics">
-					{ index === 0 && <Diamond shadow="true"/> }
-					{ index === 1 && <DoubleDiamond shadow="true"/> }
-                    { index === 2 && <TrailTriangle shadow="true"/> }
+					<Parallax speed="0.05" offset="100">
+						{ index === 0 && <TrailDiamond shadow="true"/> }
+						{ index === 1 && <TrailDoubleDiamond shadow="true"/> }
+						{ index === 2 && <TrailTriangle shadow="true"/> }
+					</Parallax>
                 </div>
             </li>
         );

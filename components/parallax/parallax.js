@@ -1,19 +1,20 @@
 import React from 'react';
+import TweenLite from "gsap";
 
 class parallax extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
 		this.ticking = false;
-		this.frontLayerSpeed = -0.3;
-		this.backLayerSpeed = 0.3;
+		this.speed = props.speed ? parseFloat(props.speed) : -0.3;
+		this.offset = props.offset ? parseInt(props.offset) : 0;
 	}
 
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.rect = this.frontLayer.getBoundingClientRect();
+			this.rect = this.element.getBoundingClientRect();
 			const clientTop =  document.body.clientTop || document.documentElement.clientTop || 0;
 			// y offset relative from top of document
 			this.elementTop = this.rect.top + window.pageYOffset - clientTop;
@@ -42,7 +43,7 @@ class parallax extends React.Component {
 		const bottomScreen = windowHeight + scrolledHeight;
 
 		// if the element is not yet in view then don't add parallax effect
-		if (bottomScreen <= this.elementTop) { return; }
+		if (bottomScreen <= (this.elementTop + this.offset)) { return; }
 
 		// set initial scrollheight
 		this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight;
@@ -53,20 +54,14 @@ class parallax extends React.Component {
 		// if relative scroll is negative then don't add parallax effect
 		if (relativeScroll < 0) { return; }
 
-		// set y offset on parallax layers
-		this.frontLayer.style.transform = `translate3d(0px, ${relativeScroll * this.frontLayerSpeed}px, 0px)`;
-		this.backLayer.style.transform = `translate3d(0px, ${relativeScroll * this.backLayerSpeed}px, 0px)`;
+		// use tweenlite for a smooth parallax effect
+		TweenLite.to(this.element, 0.3, {y: relativeScroll * this.speed}, {ease: "Linear.easeNone" });
 	}
 
 	render() {
 		return (
-			<div>
-				<div ref={(node) => this.backLayer = node} className="parallax-layer-back">
-					{ this.props.backLayer }
-				</div>
-				<div ref={(node) => this.frontLayer = node} className="parallax-layer-front">
-					{ this.props.frontLayer }
-				</div>
+			<div ref={(node) => this.element = node } className="parallax-layer">
+				{ this.props.children }
 			</div>
 		);
 	}

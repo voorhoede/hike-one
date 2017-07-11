@@ -66,7 +66,6 @@ class Case extends React.Component {
 						<TextCard
 							title="A design sprint in the rush of an airport"
 							text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
-						<LogoList logos={logos} />
 
                         <FullWidthImage image={Data.SecondFullWidth} />
 

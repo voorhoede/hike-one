@@ -19,31 +19,51 @@
 
     @media @screen-medium {
         width: 50%;
-        padding: 20px;
     }
 }
 
 .fifty-fifty-title,
 .fifty-fifty-text {
 	@media @screen-medium {
+		float: right;
 		max-width: 462px;
 	}
 
 	.fifty-fifty-text-small & {
 		@media @screen-medium {
+			margin-right: 88px;
 			max-width: 344px;
 		}
 	}
 }
 
-.fifty-fifty-image img {
-    width: 100%;
-    height: auto;
+
+.fifty-fifty-image {
+	@media @screen-medium {
+		padding: 20px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+	}
 }
 
-.fifty-fifty-content-left .fifty-fifty-image {
-    @media @screen-medium {
-        order: 1;
-        float: right;
-    }
+.fifty-fifty-content-left {
+	.fifty-fifty-title,
+	.fifty-fifty-text {
+		@media @screen-medium {
+			margin-right: 0;
+			margin-left: 88px;
+			float: left;
+		}
+	}
+
+	.fifty-fifty-image {
+		@media @screen-medium {
+			order: 1;
+			float: right;
+		}
+	}
 }
+

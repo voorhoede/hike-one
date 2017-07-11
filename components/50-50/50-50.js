@@ -4,7 +4,7 @@ class FiftyFifty extends React.Component {
     render() {
         const props = this.props;
         return (
-            <section className={`fifty-fifty clearfix container ${props.className ? props.className : ''}`}>
+            <section className={`fifty-fifty clearfix container ${props.classes ? props.classes : ''}`}>
 				<div className="container-inner">
 					<div className="fifty-fifty-image">
 						<img className="shadow" src={props.image} alt="" />

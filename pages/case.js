@@ -35,7 +35,7 @@ class Case extends React.Component {
                             title={Data.introTextTitle}
                             text={Data.introText} />
 
-						<FiftyFifty className="fifty-fifty-content-left"
+						<FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
 							title={Data.fiftyOneTitle}
 							text={Data.fiftyOneText}
 							image={Data.fiftyOneImage} />
@@ -63,12 +63,12 @@ class Case extends React.Component {
 							imageSmall={Data.collageImageSmall}
 						/>
 
-                        <FiftyFifty
+                        <FiftyFifty classes="fifty-fifty-text-small"
 							title={Data.fiftyThirdTitle}
 							text={Data.fiftyThirdText}
 							image={Data.fiftyThirdImage} />
 
-                        <FiftyFifty className="fifty-fifty-content-left"
+                        <FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
 							title={Data.fiftyFourthTitle}
 							text={Data.fiftyFourthText}
 							image={Data.fiftyFourthImage} />

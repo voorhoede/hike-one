@@ -7,6 +7,7 @@ import Footer from '../components/footer/footer';
 import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
+import Collage from '../components/collage/collage';
 import ImageCombo from '../components/image-combo/image-combo';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
@@ -54,6 +55,13 @@ class Case extends React.Component {
 								citeTitle={Data.quoteFirstCiteTitle}
 								citeImage={Data.quoteFirstCiteImage} />
 						</ImageCombo>
+
+						<Collage
+							title={Data.collageTitle}
+							text={Data.collageText}
+							imageMedium={Data.collageImageMedium}
+							imageSmall={Data.collageImageSmall}
+						/>
 
                         <FiftyFifty
 							title={Data.fiftyThirdTitle}

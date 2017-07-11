@@ -18,7 +18,7 @@ class Shapes extends React.Component {
 	render() {
 		return (
 			<div className="contact-shapes">
-				<Parallax frontLayer={this.frontLayer()} />
+				<Parallax frontLayerSpeed="0.2" frontLayer={this.frontLayer()} />
 			</div>
 		);
 	}

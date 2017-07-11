@@ -55,8 +55,8 @@ class parallax extends React.Component {
 		if (relativeScroll < 0) { return; }
 
 		// use tweenlite for a smooth parallax effect
-		TweenLite.to(this.frontLayer, 0.3, {top: relativeScroll * this.frontLayerSpeed}, {ease: "Linear.easeNone" });
-		TweenLite.to(this.backLayer, 0.3, {top: relativeScroll * this.backLayerSpeed}, {ease: "Linear.easeNone" });
+		TweenLite.to(this.frontLayer, 0.3, {y: relativeScroll * this.frontLayerSpeed}, {ease: "Linear.easeNone" });
+		TweenLite.to(this.backLayer, 0.3, {y: relativeScroll * this.backLayerSpeed}, {ease: "Linear.easeNone" });
 	}
 
 	render() {

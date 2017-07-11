@@ -14,7 +14,7 @@ const Collage = ({ imageMedium, imageSmall, title = '', text = '' }) => {
 				</div>
 			</div>
 		</section>
-	) 
-}
+	);
+};
 
 export default Collage;

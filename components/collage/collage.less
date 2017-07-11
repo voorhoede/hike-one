@@ -9,8 +9,8 @@
 	}
 }
 
-.collage .container-inner{
-	max-width: 1440px;
+.collage .container-inner {
+	max-width: @container-max-width;
 	@media @screen-small {
 		display: flex;
 		flex-direction: column;
@@ -37,9 +37,9 @@
 	display: none;
 	bottom: 18%;
     left: 27%;
-	
+
 	@media @screen-medium {
-        display: block;	
+        display: block;
     }
 }
 
@@ -83,6 +83,11 @@
 	font-size: 30px;
 	line-height: 36px;
 	margin-bottom: 16px;
+
+	@media @screen-medium {
+		font-size: 46px;
+		line-height: 56px;
+	}
 }
 
 .collage-text-description {

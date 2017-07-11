@@ -9,9 +9,10 @@ import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
+import LogoList from '../components/logo-list/logo-list';
+import TextCard from '../components/text-card/text-card';
 import FullWidthImage from '../components/full-width-image/full-width-image';
 
-import LogoList from '../components/logo-list/logo-list';
 
 class Case extends React.Component {
 	render() {
@@ -78,6 +79,9 @@ class Case extends React.Component {
                             citeTitle="Design Director - Hike One"
 							citeImage="static/images/hylke.jpg"
                         />
+                        <TextCard
+                        title="A design sprint in the rush of an airport"
+                        text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
 						<LogoList logos={logos} />
 						<ReadMore
 							imageBlock={readMoreBlockImageBlock}

@@ -1,13 +1,14 @@
 import React from 'react';
+import TweenLite from "gsap";
 
 class parallax extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
 		this.ticking = false;
-		this.frontLayerSpeed = -0.3;
-		this.backLayerSpeed = 0.3;
+		this.frontLayerSpeed = props.frontLayerSpeed || -0.3;
+		this.backLayerSpeed = props.backLayerSpeed || 0.3;
 	}
 
 	componentDidMount() {
@@ -53,9 +54,9 @@ class parallax extends React.Component {
 		// if relative scroll is negative then don't add parallax effect
 		if (relativeScroll < 0) { return; }
 
-		// set y offset on parallax layers
-		this.frontLayer.style.transform = `translate3d(0px, ${relativeScroll * this.frontLayerSpeed}px, 0px)`;
-		this.backLayer.style.transform = `translate3d(0px, ${relativeScroll * this.backLayerSpeed}px, 0px)`;
+		// use tweenlite for a smooth parallax effect
+		TweenLite.to(this.frontLayer, 0.3, {top: relativeScroll * this.frontLayerSpeed}, {ease: "Linear.easeNone" });
+		TweenLite.to(this.backLayer, 0.3, {top: relativeScroll * this.backLayerSpeed}, {ease: "Linear.easeNone" });
 	}
 
 	render() {

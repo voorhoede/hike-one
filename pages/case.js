@@ -60,8 +60,7 @@ class Case extends React.Component {
 							title={Data.collageTitle}
 							text={Data.collageText}
 							imageMedium={Data.collageImageMedium}
-							imageSmall={Data.collageImageSmall}
-						/>
+							imageSmall={Data.collageImageSmall} />
 
                         <FiftyFifty classes="fifty-fifty-text-small"
 							title={Data.fiftyThirdTitle}

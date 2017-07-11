@@ -1,1 +1,93 @@
 @import (reference) '../../styles/variables';
+
+.collage {
+	@media @screen-medium {
+		margin-bottom: 60px;
+	}
+	@media @screen-large {
+		margin-bottom: 120px;
+	}
+}
+
+.collage .container-inner{
+	max-width: 1440px;
+	@media @screen-small {
+		display: flex;
+		flex-direction: column;
+	}
+	@media @screen-medium {
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+.collage-image-container {
+	width: 100%;
+	@media @screen-medium {
+		width: 50%;
+		max-height: 741px;
+	}
+}
+
+.collage-image-small {
+	width: 100%;
+	max-width: 583px;
+	max-height: 326px;
+	position: relative;
+	display: none;
+	bottom: 18%;
+    left: 27%;
+	
+	@media @screen-medium {
+        display: block;	
+    }
+}
+
+.collage-image-medium {
+	width: 100%;
+	min-height: 261px;
+	@media @screen-small {
+		width:100%;
+		max-width: 714px;
+		max-height: 541px;
+	}
+}
+
+
+.collage-text-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 38px;
+	margin-bottom: 29px;
+
+	@media @screen-small {
+		padding: 0 0;
+	}
+
+	@media @screen-medium {
+		width: 50%;
+		margin-top: 100px;
+		max-width: 343px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 0 0 100px;
+	}
+
+	@media @screen-large {
+		padding: 0 0;
+	}
+}
+
+.collage-text-title {
+	width: 100%;
+	font-size: 30px;
+	line-height: 36px;
+	margin-bottom: 16px;
+}
+
+.collage-text-description {
+	width: 100%;
+	font-size: 16px;
+	line-height: 28px;
+	margin-bottom: 16px;
+}

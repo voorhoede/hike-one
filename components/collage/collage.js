@@ -2,15 +2,15 @@ import React from 'react';
 
 const Collage = ({ imageMedium, imageSmall, title = '', text = '' }) => {
 	return (
-		<section className="">
-			<div className="">
-				<div className="">
-					<img className="" src={imageMedium} alt="" />
-					<img className="" src={imageSmall} alt="" />
+		<section className="collage clearfix container">
+			<div className="container-inner">
+				<div className="collage-image-container">
+					<img className="collage-image-medium" src={imageMedium} alt="" />
+					<img className="collage-image-small" src={imageSmall} alt="" />
 				</div>
-				<div className="">
-					<h2 className="">{title}</h2>
-					<p className="">{text}</p>
+				<div className="collage-text-container">
+					<h2 className="collage-text-title">{title}</h2>
+					<p className="collage-text-description">{text}</p>
 				</div>
 			</div>
 		</section>

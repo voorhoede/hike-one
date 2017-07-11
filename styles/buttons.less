@@ -65,6 +65,7 @@
     color: @white;
 
     &:hover {
+		cursor: pointer;
         background-color: transparent;
         color: @red;
     }
@@ -87,15 +88,14 @@
 
 	&:hover {
 		cursor: pointer;
-	}
+		.icon svg {
+			background: @red;
+		}
 
-    &:hover .icon svg {
-		background: @red;
-
-		path {
+		.icon svg path {
 			fill: @white;
 		}
-    }
+	}
 
     .icon svg {
         display: block;
@@ -113,7 +113,7 @@
             border: 1px solid;
         }
 
-        svg path {
+        path {
             fill: @red;
             transition: fill 0.3s ease;
         }

@@ -16,7 +16,7 @@ const Triangle = (props) => {
 					<path d="M170.912 767.496l287.176 74.364a2 2 0 0 1 1.204 2.98l-154.94 253.066a2 2 0 0 1-3.56-.295L168.556 770.18a2 2 0 0 1 2.356-2.685z"/>
 				</g>
 			}
-			<g fill="none" fill-rule="evenodd" transform="translate(-106 -734)" data-reactid="57">
+			<g fill="none" fillRule="evenodd" transform="translate(-106 -734)" data-reactid="57">
 				<path d="M170.912 767.496l287.176 74.364a2 2 0 0 1 1.204 2.98l-154.94 253.066a2 2 0 0 1-3.56-.295L168.556 770.18a2 2 0 0 1 2.356-2.685z" data-reactid="58"></path>
 			</g>
 		</svg>

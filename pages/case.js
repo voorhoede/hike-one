@@ -3,26 +3,98 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
+
+import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import FiftyFifty from '../components/50-50/50-50';
+import QuoteBlock from '../components/quote-block/quote-block';
+import FullWidthImage from '../components/full-width-image/full-width-image';
+import LogoList from '../components/logo-list/logo-list';
+import Contact from '../components/contact/contact';
+import TextCard from '../components/text-card/text-card';
+
+import Data from '../dummy-data/case/case.json';
 
 class Case extends React.Component {
 	render() {
 		return (
 			<Layout title="Hike One - Case">
+
 				<main className="main js-main">
 					<Header />
 					<article className="article-full-width">
 						<CaseIntro
-							title="Gone in 60 seconds"
-							subtitle="SITA asked us to make it astonishingly easy for passengers all over the world to check in their luggage within 1 minute."
-							image="http://via.placeholder.com/1000x500" />
-						<CaseTextCenter />
+							title={Data.introImageTitle}
+							subtitle={Data.introImageSubTitle}
+							image={Data.introImage} />
+
+						<CaseTextCenter
+                            title={Data.introTextTitle}
+                            text={Data.introText} />
+
 						<FiftyFifty className="fifty-fifty-content-left"
-							title="Truly global"
-							text="We created a real smart system, that could predict the most used presets in languages at certain times of the day. This helped passengers in quickly selecting a language."
-							image="static/images/drop_fly1.jpg" />
+							title={Data.fiftyOneTitle}
+							text={Data.fiftyOneText}
+							image={Data.fiftyOneImage} />
+
+                        <FiftyFifty
+							title={Data.fiftyTwoTitle}
+							text={Data.fiftyTwoText}
+							image={Data.fiftyTwoImage} />
+
+                        <FullWidthImage image={Data.firstFullWidth} />
+
+                        <QuoteBlock
+                            color={Data.quoteFirstColor}
+                            quote={Data.quoteFirst}
+							citeName={Data.quoteFirstCiteName}
+                            citeTitle={Data.quoteFirstCiteTitle}
+							citeImage={Data.quoteFirstCiteImage}
+                        />
+
+                        <FiftyFifty
+							title={Data.fiftyThirdTitle}
+							text={Data.fiftyThirdText}
+							image={Data.fiftyThirdImage} />
+
+                        <FiftyFifty className="fifty-fifty-content-left"
+							title={Data.fiftyFourthTitle}
+							text={Data.fiftyFourthText}
+							image={Data.fiftyFourthImage} />
+
+						<TextCard
+							title="A design sprint in the rush of an airport"
+							text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
+
+                        <FullWidthImage image={Data.SecondFullWidth} />
+
+                        <QuoteBlock
+                            color={Data.quoteSecondColor}
+                            quote={Data.quoteSecond}
+							citeName={Data.quoteSecondCiteName}
+                            citeTitle={Data.quoteSecondCiteTitle}
+							citeImage={Data.quoteSecondCiteImage}
+                        />
+
+                        <CaseTextCenter
+                            title={Data.introTextSecondTitle}
+                            text={Data.introTextSecond} />
+
+						<LogoList logos={Data.logos} />
+
+                        <FullWidthImage
+                            image={Data.thirdFullWidth}
+                            title={Data.thirdFullWidthTitle}
+                            subtitle={Data.thirdFullWidthText} />
+
+                        <Contact
+                            title={Data.contactTitle}
+                            button={Data.contactButton} />
+
+						<ReadMore
+							highlight={Data.readMore.highlight}
+							links={Data.readMore.links} />
 					</article>
 					<Footer />
 				</main>

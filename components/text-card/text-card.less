@@ -1,0 +1,39 @@
+@import (reference) '../../styles/variables';
+
+.text-card {
+    margin-right: 1rem;
+    margin-bottom: 50px;
+    padding: 40px 45px 40px 1rem;
+
+    @media @screen-small {
+        margin-right: 6rem;
+    }
+
+    @media @screen-medium {
+        margin-right: 50vw;
+        margin-bottom: 80px;
+        padding: 55px;
+    }
+
+    // 1200 because if 1170 the text will stick to the side when the media querie just activated
+    @media only screen and (min-width: 1200px)  {
+        padding: 120px 110px;
+        margin-left: calc(~'(100vw - @{container-inner-max-width}) / 2 - 110px'); // -110px for padding left. To align the text to the grid
+        margin-bottom: 120px;
+    }
+}
+
+.text-card h2 {
+    font-size: 30px;
+    line-height: 36px;
+
+    @media @screen-large {
+        font-size: 46px;
+        line-height: 56px;
+        margin-bottom: 30px;
+    }
+}
+
+.text-card p {
+    font-weight: 500;
+}

@@ -6,27 +6,19 @@ import Triangle from '../shapes/triangle/triangle';
 import DiamondBorder from '../shapes/diamond-border/diamond-border';
 
 class Shapes extends React.Component {
-	backLayer() {
-		return (
-			<div>
-				<CircleBorder classes="shape-circle-1" color="blue" />
-				<DiamondBorder classes="shape-diamond-1" color="yellow"/>
-			</div>
-		);
-	}
-
-	frontLayer() {
-		return (
-			<Triangle classes="shape-triangle-1" color="red" shadow/>
-		);
-	}
-
 	render() {
 		return (
 			<div className="services-overview-shapes">
-				<Parallax
-					backLayer={this.backLayer()}
-					frontLayer={this.frontLayer()} />
+
+				<Parallax speed="0.3">
+					<CircleBorder classes="shape-circle-1" color="blue" />
+					<DiamondBorder classes="shape-diamond-1" color="yellow"/>
+				</Parallax>
+
+				<Parallax speed="-0.3">
+					<Triangle classes="shape-triangle-1" color="red" shadow />
+				</Parallax>
+
 			</div>
 		);
 	}

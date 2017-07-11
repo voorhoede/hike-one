@@ -8,6 +8,7 @@ import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import Collage from '../components/collage/collage';
+import ImageCombo from '../components/image-combo/image-combo';
 import FiftyFifty from '../components/50-50/50-50';
 import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
@@ -38,21 +39,22 @@ class Case extends React.Component {
 							title={Data.fiftyOneTitle}
 							text={Data.fiftyOneText}
 							image={Data.fiftyOneImage} />
-						
+
                         <FiftyFifty
 							title={Data.fiftyTwoTitle}
 							text={Data.fiftyTwoText}
 							image={Data.fiftyTwoImage} />
 
-                        <FullWidthImage image={Data.firstFullWidth} />
+						<ImageCombo>
+							<FullWidthImage image={Data.firstFullWidth} />
 
-                        <QuoteBlock
-                            color={Data.quoteFirstColor}
-                            quote={Data.quoteFirst}
-							citeName={Data.quoteFirstCiteName}
-                            citeTitle={Data.quoteFirstCiteTitle}
-							citeImage={Data.quoteFirstCiteImage}
-                        />
+							<QuoteBlock
+								color={Data.quoteFirstColor}
+								quote={Data.quoteFirst}
+								citeName={Data.quoteFirstCiteName}
+								citeTitle={Data.quoteFirstCiteTitle}
+								citeImage={Data.quoteFirstCiteImage} />
+						</ImageCombo>
 
 						<Collage
 							title={Data.collageTitle}
@@ -71,19 +73,21 @@ class Case extends React.Component {
 							text={Data.fiftyFourthText}
 							image={Data.fiftyFourthImage} />
 
-						<TextCard
-							title="A design sprint in the rush of an airport"
-							text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
 
-                        <FullWidthImage image={Data.SecondFullWidth} />
+						<ImageCombo classes="image-combo-text">
+							<TextCard
+								title="A design sprint in the rush of an airport"
+								text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
 
-                        <QuoteBlock
-                            color={Data.quoteSecondColor}
-                            quote={Data.quoteSecond}
-							citeName={Data.quoteSecondCiteName}
-                            citeTitle={Data.quoteSecondCiteTitle}
-							citeImage={Data.quoteSecondCiteImage}
-                        />
+							<FullWidthImage image={Data.SecondFullWidth} />
+
+							<QuoteBlock
+								color={Data.quoteSecondColor}
+								quote={Data.quoteSecond}
+								citeName={Data.quoteSecondCiteName}
+								citeTitle={Data.quoteSecondCiteTitle}
+								citeImage={Data.quoteSecondCiteImage} />
+						</ImageCombo>
 
                         <CaseTextCenter
                             title={Data.introTextSecondTitle}

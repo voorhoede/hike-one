@@ -1,3 +1,5 @@
+@import (reference) '../../styles/variables';
+
 .full-width-image {
     background-size: cover;
     background-position: center;
@@ -13,10 +15,7 @@
 
     @media @screen-large {
         margin-bottom: 170px;
-    }
-
-    @media only screen and (min-width: @container-inner-max-width) and (min-height: 900px) {
-        height: 800px;
+		height: 800px;
     }
 }
 
@@ -33,7 +32,7 @@
 }
 
 .full-width-image-text h2 {
-    font-weight: 900;
+    font-weight: @font-weight-bold-extra;
     font-size: 50px;
     line-height: 48px;
     margin-bottom: 32px;

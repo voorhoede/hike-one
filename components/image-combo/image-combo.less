@@ -1,0 +1,36 @@
+@import (reference) '../../styles/variables';
+
+.image-combo {
+	margin-bottom: 60px;
+
+	@media @screen-medium {
+		margin-bottom: 100px;
+	}
+
+	.text-card {
+		z-index: 1;
+	}
+
+	.full-width-image {
+		margin-bottom: 0;
+	}
+
+	.quote-block {
+		position: relative;
+		margin-top: -60px;
+
+		@media @screen-medium {
+			margin-top: -120px;
+		}
+	}
+}
+
+.image-combo-text {
+	.full-width-image {
+		margin-top: -60px;
+
+		@media @screen-medium {
+			margin-top: -120px;
+		}
+	}
+}

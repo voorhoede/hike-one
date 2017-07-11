@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Diamond from '../../shapes/diamond/diamond';
-import DoubleDiamond from '../../shapes/double-diamond/double-diamond';
+import Diamond from '../../shapes/trail-diamond/trail-diamond';
+import DoubleDiamond from '../../shapes/trail-double-diamond/trail-double-diamond';
 import Cube from '../../shapes/cube/cube';
 import Circle from '../../shapes/circle/circle';
 import Triangle from '../../shapes/triangle/triangle';

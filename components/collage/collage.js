@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Collage = ({ imageMedium, imageSmall, title = '', text = '' }) => {
 	return (
 		<section className="collage clearfix container">

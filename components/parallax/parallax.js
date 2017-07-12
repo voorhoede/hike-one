@@ -9,6 +9,7 @@ class parallax extends React.Component {
 		this.ticking = false;
 		this.speed = props.speed ? parseFloat(props.speed) : -0.3;
 		this.offset = props.offset ? parseInt(props.offset) : 0;
+		this.maxDistance = props.distance ? parseInt(props.distance) : null;
 	}
 
 	componentDidMount() {
@@ -50,6 +51,11 @@ class parallax extends React.Component {
 
 		// calculate relative scroll height
 		const relativeScroll = scrolledHeight - this.initialScrollHeight;
+
+		// if max distance is set and met then don't animate
+		if (this.maxDistance && this.maxDistance <= relativeScroll) {
+			return;
+		}
 
 		// if relative scroll is negative then don't add parallax effect
 		if (relativeScroll < 0) { return; }

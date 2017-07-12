@@ -7,7 +7,7 @@ class Shapes extends React.Component {
 	render() {
 		return (
 			<div className="contact-shapes">
-				<Parallax speed="0.15" >
+				<Parallax speed="0.15" offset="100" distance="400">
 					<Triangle classes="shape-triangle-1" color="blue" shadow/>
 					<Triangle classes="shape-triangle-2" color="red" />
 					<Triangle classes="shape-triangle-3" color="purple" />

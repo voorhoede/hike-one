@@ -1,7 +1,10 @@
 @import (reference) '../../styles/variables';
 
 .case-intro {
-	position: relative;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -9,9 +12,7 @@
     min-height: 80vh;
     background-size: cover;
     background-position: center;
-    padding-bottom: 2rem;
 	padding-top: @header-height + @header-margin-sm;
-    margin-bottom: 50px;
 
 	&::after {
 		content: '';
@@ -25,13 +26,13 @@
 
 	@media @screen-medium {
 		padding-top: @header-height + @header-margin-lg;
-        margin-bottom: 100px;
 	}
 }
 
-.case-intro .container {
+.case-intro-inner {
     margin-bottom: 0;
 	z-index: 1;
+	padding-bottom: 2rem;
 }
 
 .case-intro-title {

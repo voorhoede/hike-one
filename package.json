@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "build": "npm-run-all --serial backupdata build:dato build:css build:next",
-    "build:dato": "dato dump --token=50d4feff177d2302ff0f",
+    "build:dato": "dato dump --token=c6c5aac11814b76f9979",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
     "dev": "npm-run-all --parallel watch:css serve:dev",

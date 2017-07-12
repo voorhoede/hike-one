@@ -18,12 +18,12 @@ class Services extends React.Component {
 				<main className="main js-main">
 					<Header/>
 					<article className="article">
-						<ServicesIntro title={Data.introTitle} buttonLabel={Data.introReadMoreCta}/>
-						<ServiceApproach title={Data.approachTitle} text={Data.approachText} />
+						<ServicesIntro title={Data.headerTitle} buttonLabel={Data.headerReadmoreCta}/>
+						<ServiceApproach text={Data.introText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 						<Contact title={Data.contactTitle} button={Data.contactButton} />
 					</article>
-					<CTABlock title={Data.getToKnowTitle} button={Data.getToKnowButton} image="static/images/img-team.jpg" />
+					<CTABlock title={Data.callToActionBlockTitle} button={Data.callToActionBlockButton} image="static/images/img-team.jpg" />
 					<Footer />
 				</main>
 			</Layout>

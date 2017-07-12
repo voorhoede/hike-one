@@ -1,3 +1,5 @@
+@import (reference) '../../styles/variables';
+
 .case-text-center {
     text-align: center;
 }
@@ -7,11 +9,11 @@
 }
 
 .case-text-center h2 {
-    font-size: 30px;
+    font-size: @large-title-s;
     line-height: 36px;
 
     @media @screen-medium {
-        font-size: 66px;
+        font-size: @large-title-l;
         line-height: 70px;
     }
 }

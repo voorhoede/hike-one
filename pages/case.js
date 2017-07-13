@@ -24,7 +24,7 @@ class Case extends React.Component {
 			<Layout title="Hike One - Case">
 
 				<main className="main js-main">
-					<Header />
+					<Header color="white" />
 					<article className="article-full-width">
 						<CaseIntro
 							title={Data.introImageTitle}

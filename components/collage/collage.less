@@ -1,16 +1,6 @@
 @import (reference) '../../styles/variables';
 
 .collage {
-	@media @screen-medium {
-		margin-bottom: 60px;
-	}
-	@media @screen-large {
-		margin-bottom: 120px;
-	}
-}
-
-.collage .container-inner {
-	max-width: @container-max-width;
 	@media @screen-small {
 		display: flex;
 		flex-direction: column;
@@ -18,6 +8,11 @@
 	@media @screen-medium {
 		display: flex;
 		flex-direction: row;
+		margin-bottom: 60px;
+		padding: 0 0;
+	}
+	@media @screen-large {
+		margin-bottom: 120px;
 	}
 }
 
@@ -31,7 +26,7 @@
 
 .collage-image-small {
 	width: 100%;
-	max-width: 583px;
+	max-width: @column-large-5;
 	max-height: 326px;
 	position: relative;
 	display: none;
@@ -48,7 +43,7 @@
 	min-height: 261px;
 	@media @screen-small {
 		width:100%;
-		max-width: 714px;
+		max-width: @column-large-6;
 		max-height: 541px;
 	}
 }
@@ -67,10 +62,10 @@
 	@media @screen-medium {
 		width: 50%;
 		margin-top: 100px;
-		max-width: 343px;
+		max-width: @column-large-3;
 		margin-left: auto;
 		margin-right: auto;
-		padding: 0 0 0 100px;
+		padding: 0 0 0 @column-large-1;
 	}
 
 	@media @screen-large {

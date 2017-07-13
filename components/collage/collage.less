@@ -1,16 +1,6 @@
 @import (reference) '../../styles/variables';
 
 .collage {
-	@media @screen-medium {
-		margin-bottom: 60px;
-	}
-	@media @screen-large {
-		margin-bottom: 120px;
-	}
-}
-
-.collage .container-inner {
-	max-width: @container-max-width;
 	@media @screen-small {
 		display: flex;
 		flex-direction: column;
@@ -18,6 +8,10 @@
 	@media @screen-medium {
 		display: flex;
 		flex-direction: row;
+		margin-bottom: 60px;
+	}
+	@media @screen-large {
+		margin-bottom: 120px;
 	}
 }
 

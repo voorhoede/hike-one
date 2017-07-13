@@ -6,8 +6,8 @@ class FiftyFifty extends React.Component {
         return (
             <section className={`fifty-fifty clearfix container ${props.classes ? props.classes : ''}`}>
 				<div className="container-inner">
-					<div className="fifty-fifty-image">
-						<img className={`${props.noshadow ? 'no-shadow' : 'shadow-low-opacity'}`} src={props.image} alt="" />
+					<div className={`fifty-fifty-image ${props.extramargintop ? 'fifty-fifty-margin-top' : ''}` }>
+						<img className={`${props.noshadow ? 'no-shadow' : 'shadow-low-opacity'}` } src={props.image} alt="" />
 
 					</div>
 					<div className="fifty-fifty-content">

@@ -7,7 +7,7 @@ class FiftyFifty extends React.Component {
             <section className={`fifty-fifty clearfix container ${props.classes ? props.classes : ''}`}>
 				<div className="container-inner">
 					<div className="fifty-fifty-image">
-						<img className="shadow" src={props.image} alt="" />
+						<img className={`${props.noshadow ? 'no-shadow' : 'shadow-low-opacity'}`} src={props.image} alt="" />
 
 					</div>
 					<div className="fifty-fifty-content">

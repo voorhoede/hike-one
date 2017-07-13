@@ -44,6 +44,7 @@ class Case extends React.Component {
 								image={Data.fiftyOneImage} />
 
 							<FiftyFifty
+								noshadow
 								title={Data.fiftyTwoTitle}
 								text={Data.fiftyTwoText}
 								image={Data.fiftyTwoImage} />
@@ -70,7 +71,8 @@ class Case extends React.Component {
 										text={Data.fiftyThirdText}
 										image={Data.fiftyThirdImage} />
 
-							<FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
+							<FiftyFifty noshadow
+										classes="fifty-fifty-content-left fifty-fifty-text-small"
 										title={Data.fiftyFourthTitle}
 										text={Data.fiftyFourthText}
 										image={Data.fiftyFourthImage} />

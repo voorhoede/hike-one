@@ -50,15 +50,17 @@ class parallax extends React.Component {
 		this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight;
 
 		// calculate relative scroll height
-		const relativeScroll = scrolledHeight - this.initialScrollHeight;
+		let relativeScroll = scrolledHeight - this.initialScrollHeight;
 
 		// if max distance is set and met then don't animate
 		if (this.maxDistance && this.maxDistance <= relativeScroll) {
 			return;
 		}
 
-		// if relative scroll is negative then don't add parallax effect
-		if (relativeScroll < 0) { return; }
+		// if relative scroll is negative set parallax layer back to its original place
+		if (relativeScroll <= 0) {
+			relativeScroll = 0;
+		}
 
 		// use tweenlite for a smooth parallax effect
 		TweenLite.to(this.element, 0.3, {y: relativeScroll * this.speed}, {ease: "Linear.easeNone" });

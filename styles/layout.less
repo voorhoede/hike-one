@@ -3,6 +3,7 @@
 .container {
 	display: block;
 	width: 100%;
+	max-width: @column-large-4;
 	padding: 0 @spacing-default;
 	margin: @spacing-double 0;
 
@@ -15,9 +16,8 @@
 
 .container-inner {
 	width: 100%;
-	max-width: @column-large-10;
+	max-width: @column-large-4;
 	margin: 0 auto;
-	
 	@media @screen-small {
 		max-width: @column-large-10;
 	}

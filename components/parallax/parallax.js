@@ -9,7 +9,7 @@ class parallax extends React.Component {
 		this.animateLayers = this.animateLayers.bind(this);
 		this.calculateInitialOffSet = this.calculateInitialOffSet.bind(this);
 		this.ticking = false;
-		this.speed = props.speed ? parseFloat(props.speed) : -0.3;
+		this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3;
 		this.offset = props.offset ? parseInt(props.offset) : 0;
 		this.maxDistance = props.distance ? parseInt(props.distance) : null;
 		this.elementOffset = 0;

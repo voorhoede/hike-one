@@ -21,9 +21,11 @@ import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes';
 import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
 import LogoList from '../components/logo-list/logo-list';
-import Contact from '../components/contact/contact';
-import TextCard from '../components/text-card/text-card';
 
+import Contact from '../components/contact/contact';
+import * as ContactShapes from '../components/contact/contact-shapes';
+
+import TextCard from '../components/text-card/text-card';
 import Data from '../dummy-data/case/case.json';
 
 class Case extends React.Component {
@@ -121,6 +123,7 @@ class Case extends React.Component {
 								subtitle={Data.thirdFullWidthText} />
 
 							<Contact
+								parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 								title={Data.contactTitle}
 								button={Data.contactButton} />
 

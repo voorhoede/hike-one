@@ -21,7 +21,7 @@ class ServicesItem extends React.Component {
                 </div>
 
                 <div className="service-item-graphics">
-					<Parallax speed="0.05" offset="100">
+					<Parallax speed="0.05">
 						{ index === 0 && <TrailDiamond shadow="true"/> }
 						{ index === 1 && <TrailDoubleDiamond shadow="true"/> }
 						{ index === 2 && <TrailTriangle shadow="true"/> }

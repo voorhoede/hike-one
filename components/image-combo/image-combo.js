@@ -1,7 +1,8 @@
-const ImageCombo = (props) => {
+const ImageCombo = ({classes, children, parallaxLayerFront}) => {
 	return (
-		<div className={`${props.classes ? props.classes : '' } image-combo` }>
-			{ props.children }
+		<div className={`${classes ? classes : '' } image-combo` }>
+			{ children }
+			{ parallaxLayerFront }
 		</div>
 	);
 };

@@ -1,23 +1,22 @@
 import React from 'react';
 
-class FiftyFifty extends React.Component {
-    render() {
-        const props = this.props;
+const FiftyFifty = ({classes, image, title = '', text = '', parallaxLayerBack, parallaxLayerFront}) => {
         return (
-            <section className={`fifty-fifty clearfix container ${props.classes ? props.classes : ''}`}>
+            <section className={`fifty-fifty clearfix container ${classes ? classes : ''}`}>
+				{parallaxLayerBack}
 				<div className="container-inner">
 					<div className="fifty-fifty-image">
-						<img className="shadow" src={props.image} alt="" />
+						<img className="shadow" src={image} alt="" />
 
 					</div>
 					<div className="fifty-fifty-content">
-						<h2 className="fifty-fifty-title">{props.title}</h2>
-						<p className="fifty-fifty-text">{props.text}</p>
+						<h2 className="fifty-fifty-title">{title}</h2>
+						<p className="fifty-fifty-text">{text}</p>
 					</div>
 				</div>
+				{parallaxLayerFront}
             </section>
         );
-    }
-}
+};
 
 export default FiftyFifty;

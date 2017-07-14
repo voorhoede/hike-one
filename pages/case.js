@@ -31,81 +31,86 @@ class Case extends React.Component {
 							subtitle={Data.introImageSubTitle}
 							image={Data.introImage} />
 
-						<CaseTextCenter
-                            title={Data.introTextTitle}
-                            text={Data.introText} />
+						<div className="case-scrolling-content">
+							<CaseTextCenter
+								classes=""
+								title={Data.introTextTitle}
+								text={Data.introText} />
 
-						<FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
-							title={Data.fiftyOneTitle}
-							text={Data.fiftyOneText}
-							image={Data.fiftyOneImage} />
+							<FiftyFifty
+								classes="fifty-fifty-content-left fifty-fifty-text-small"
+								title={Data.fiftyOneTitle}
+								text={Data.fiftyOneText}
+								image={Data.fiftyOneImage} />
 
-                        <FiftyFifty
-							title={Data.fiftyTwoTitle}
-							text={Data.fiftyTwoText}
-							image={Data.fiftyTwoImage} />
+							<FiftyFifty
+								title={Data.fiftyTwoTitle}
+								text={Data.fiftyTwoText}
+								image={Data.fiftyTwoImage} />
 
-						<ImageCombo>
-							<FullWidthImage image={Data.firstFullWidth} />
+							<ImageCombo>
+								<FullWidthImage image={Data.firstFullWidth} />
 
-							<QuoteBlock
-								color={Data.quoteFirstColor}
-								quote={Data.quoteFirst}
-								citeName={Data.quoteFirstCiteName}
-								citeTitle={Data.quoteFirstCiteTitle}
-								citeImage={Data.quoteFirstCiteImage} />
-						</ImageCombo>
+								<QuoteBlock
+									color={Data.quoteFirstColor}
+									quote={Data.quoteFirst}
+									citeName={Data.quoteFirstCiteName}
+									citeTitle={Data.quoteFirstCiteTitle}
+									citeImage={Data.quoteFirstCiteImage} />
+							</ImageCombo>
 
-						<Collage
-							title={Data.collageTitle}
-							text={Data.collageText}
-							imageMedium={Data.collageImageMedium}
-							imageSmall={Data.collageImageSmall} />
+							<Collage
+								title={Data.collageTitle}
+								text={Data.collageText}
+								imageMedium={Data.collageImageMedium}
+								imageSmall={Data.collageImageSmall} />
 
-                        <FiftyFifty classes="fifty-fifty-text-small"
-							title={Data.fiftyThirdTitle}
-							text={Data.fiftyThirdText}
-							image={Data.fiftyThirdImage} />
+							<FiftyFifty classes="fifty-fifty-text-small"
+										title={Data.fiftyThirdTitle}
+										text={Data.fiftyThirdText}
+										image={Data.fiftyThirdImage} />
 
-                        <FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
-							title={Data.fiftyFourthTitle}
-							text={Data.fiftyFourthText}
-							image={Data.fiftyFourthImage} />
+							<FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
+										title={Data.fiftyFourthTitle}
+										text={Data.fiftyFourthText}
+										image={Data.fiftyFourthImage} />
 
 
-						<ImageCombo classes="image-combo-text">
-							<TextCard
-								title="A design sprint in the rush of an airport"
-								text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
+							<ImageCombo classes="image-combo-text">
+								<TextCard
+									title="A design sprint in the rush of an airport"
+									text="Using the Google Ventures method, we managed to go from idea to prototype in five days. While testing on day five, we had no actual machine to test the prototype in. That’s why we taped iPads to existing screens, while SITA hooked up laptops to the screens. For passengers, the experience was no different. " />
 
-							<FullWidthImage image={Data.SecondFullWidth} />
+								<FullWidthImage image={Data.SecondFullWidth} />
 
-							<QuoteBlock
-								color={Data.quoteSecondColor}
-								quote={Data.quoteSecond}
-								citeName={Data.quoteSecondCiteName}
-								citeTitle={Data.quoteSecondCiteTitle}
-								citeImage={Data.quoteSecondCiteImage} />
-						</ImageCombo>
+								<QuoteBlock
+									color={Data.quoteSecondColor}
+									quote={Data.quoteSecond}
+									citeName={Data.quoteSecondCiteName}
+									citeTitle={Data.quoteSecondCiteTitle}
+									citeImage={Data.quoteSecondCiteImage} />
+							</ImageCombo>
 
-                        <CaseTextCenter
-                            title={Data.introTextSecondTitle}
-                            text={Data.introTextSecond} />
+							<CaseTextCenter
+								title={Data.introTextSecondTitle}
+								text={Data.introTextSecond} />
 
-						<LogoList logos={Data.logos} />
+							<LogoList logos={Data.logos} />
 
-                        <FullWidthImage
-                            image={Data.thirdFullWidth}
-                            title={Data.thirdFullWidthTitle}
-                            subtitle={Data.thirdFullWidthText} />
+							<FullWidthImage
+								image={Data.thirdFullWidth}
+								title={Data.thirdFullWidthTitle}
+								subtitle={Data.thirdFullWidthText} />
 
-                        <Contact
-                            title={Data.contactTitle}
-                            button={Data.contactButton} />
+							<Contact
+								title={Data.contactTitle}
+								button={Data.contactButton} />
 
-						<ReadMore
-							highlight={Data.readMore.highlight}
-							links={Data.readMore.links} />
+							<ReadMore
+								highlight={Data.readMore.highlight}
+								links={Data.readMore.links} />
+						</div>
+
 					</article>
 					<Footer />
 				</main>

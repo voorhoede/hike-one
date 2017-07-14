@@ -3,11 +3,11 @@
 .container {
 	display: block;
 	width: 100%;
-	max-width: @container-max-width;
 	padding: 0 @spacing-default;
 	margin: @spacing-double 0;
 
 	@media @screen-small {
+		max-width: @column-large-12;
 		padding: 0 @spacing-double;
 		margin: 0 auto @spacing-container;
 	}
@@ -15,8 +15,10 @@
 
 .container-inner {
 	width: 100%;
-	max-width: @container-inner-max-width;
 	margin: 0 auto;
+	@media @screen-small {
+		max-width: @column-large-10;
+	}
 }
 
 .container.container-inner {
@@ -44,10 +46,10 @@
 
 .article {
 	padding: 0 @spacing-default;
-	max-width: @container-max-width;
 
 	@media @screen-medium {
 		margin: 0 auto;
+		max-width: @column-large-10;
 	}
 }
 

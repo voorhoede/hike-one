@@ -1,7 +1,8 @@
 import React from 'react';
 
 import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
-import Shapes from '../services-intro/services-intro-shapes';
+import ShapesFront from './services-intro-shapes-front';
+import ShapesBack from './services-intro-shapes-back';
 
 class ServicesIntro extends React.Component {
 	constructor() {
@@ -23,6 +24,7 @@ class ServicesIntro extends React.Component {
     	const props = this.props;
         return (
             <section className="services-intro">
+				<ShapesBack />
 				<div className="container-inner">
 					<h2 className="section-header content">{props.title}</h2>
 					<ButtonTertiary
@@ -30,7 +32,7 @@ class ServicesIntro extends React.Component {
 						onClick={this.handleOnClick}
 						classes="content" />
 				</div>
-				<Shapes />
+				<ShapesFront />
             </section>
         );
     }

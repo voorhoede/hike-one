@@ -1,5 +1,5 @@
 import React from 'react';
-import Shapes from '../services-approach/services-approach-shapes';
+import ShapesFront from './services-approach-shapes-front';
 
 class ServiceApproach extends React.Component {
     render() {
@@ -11,7 +11,7 @@ class ServiceApproach extends React.Component {
 						{props.text}
 					</p>
 				</div>
-				<Shapes />
+				<ShapesFront />
             </section>
         );
     }

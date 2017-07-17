@@ -12,15 +12,21 @@
 		padding: 0 0;
 	}
 	@media @screen-large {
-		margin-bottom: 120px;
+		margin-bottom: 100px;
 	}
 }
 
 .collage-image-container {
 	width: 100%;
+	overflow: hidden;
+	@media @screen-small {
+		max-height: 480px;
+		overflow: hidden;
+	}
 	@media @screen-medium {
 		width: 50%;
-		max-height: 741px;
+		max-height: 740px;
+		overflow: visible;
 	}
 }
 
@@ -30,7 +36,8 @@
 	max-height: 326px;
 	position: relative;
 	display: none;
-	bottom: 18%;
+	// bottom: 18%;
+	bottom: 170px;
     left: 27%;
 
 	@media @screen-medium {

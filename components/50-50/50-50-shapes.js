@@ -15,7 +15,7 @@ export const FrontLayer1 = () => {
 
 export const BackLayer1 = () => {
 	return (
-		<div className="fifty-fifty-shapes-1">
+		<div className="fifty-fifty-shapes-2">
 			<Parallax speed="0.875">
 				<DiamondBorder classes="shape-diamond-1" color="yellow"/>
 				<CircleBorder classes="shape-circle-1" color="green" />
@@ -26,7 +26,7 @@ export const BackLayer1 = () => {
 
 export const BackLayer2 = () => {
 	return (
-		<div className="fifty-fifty-shapes-2">
+		<div className="fifty-fifty-shapes-3">
 			<Parallax speed="0.875">
 				<CircleBorder classes="shape-circle-1" color="blue" />
 			</Parallax>

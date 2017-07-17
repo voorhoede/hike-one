@@ -1,3 +1,17 @@
-.case-text-center-shapes {
+@import (reference) '../../styles/variables';
 
+.case-text-center-shapes {
+	.shape-rectangle-1 {
+		position: absolute;
+		top: 30px;
+		height: 10px;
+		max-width: 100%;
+		width: auto;
+		left: 5%;
+
+		@media @screen-medium {
+			top: 150px;
+			height: 16px;
+		}
+	}
 }

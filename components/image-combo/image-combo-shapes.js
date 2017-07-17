@@ -17,7 +17,7 @@ export const FrontLayer2 = () => {
 		<div className="image-combo-shapes-2">
 			<Parallax speed="1.25">
 				<Triangle classes="shape-triangle-1" color="yellow" />
-				<Triangle classes="shape-triangle-1" color="purple" />
+				<Triangle classes="shape-triangle-2" color="purple" />
 			</Parallax>
 		</div>
 	);

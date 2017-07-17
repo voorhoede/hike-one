@@ -1,4 +1,5 @@
 import React from 'react';
+import getParallaxOffset from '../_helpers/getParallaxOffset';
 import TweenLite from "gsap";
 
 //todo: fix this.scrollheight = 0 when scrolling down to footer and reloading
@@ -13,18 +14,17 @@ class parallax extends React.Component {
 		this.offset = props.offset ? parseInt(props.offset) : 0;
 		this.maxDistance = props.distance ? parseInt(props.distance) : null;
 		this.elementOffset = 0;
+		this.duration = props.duration ? parseInt(props.duration) : 0.3;
 	}
 
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.rect = this.element.getBoundingClientRect();
-			const clientTop =  document.body.clientTop || document.documentElement.clientTop || 0;
+			this.elementRect = this.element.getBoundingClientRect();
 
 			// y offset relative from top of document
-			// todo: check if clientTop is needed
-			this.elementTop = this.rect.top + window.pageYOffset - clientTop;
-			this.elementBottom = this.rect.bottom + window.pageYOffset - clientTop;
+			this.elementTop = this.elementRect.top + window.pageYOffset;
+			this.elementBottom = this.elementRect.bottom + window.pageYOffset;
 
 			this.scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 			this.windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
@@ -50,32 +50,7 @@ class parallax extends React.Component {
 	}
 
 	calculateInitialOffSet() {
-		this.bottomScreen = this.windowHeight + this.scrolledHeight;
-		const elementHalf = this.rect.height / 2;
-		const windowHalf = this.windowHeight / 2;
-
-	 	if (this.elementTop > (this.bottomScreen)) {
-	 		// element below viewport
-			this.elementOffset = -((elementHalf + windowHalf) * (this.speed));
-		} else if (this.elementBottom < this.scrolledHeight) {
-			// element above viewport
-			this.elementOffset = (elementHalf + windowHalf) * this.speed;
-		} else  {
-			// element is partial in view
-			const viewportMiddle = this.scrolledHeight + (this.windowHeight / 2);
-			const elementMiddle = this.elementTop + (this.rect.height / 2);
-
-			// how far is element middle from viewportMiddle
-			const elementFromMiddle = elementMiddle - viewportMiddle;
-
-			if (elementFromMiddle > 0) {
-				// element middle under middle of the viewport
-				this.elementOffset = -((elementFromMiddle) * this.speed);
-			} else {
-				// element middle over middle of the viewport
-				this.elementOffset = ((-elementFromMiddle) * this.speed);
-			}
-		}
+		this.elementOffset = getParallaxOffset(this.speed, this.windowHeight, this.scrolledHeight, this.elementRect);
 
 		// apply offset
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
@@ -108,8 +83,13 @@ class parallax extends React.Component {
 		// calculate y offset
 		const yOffset = relativeScroll * this.speed + this.elementOffset;
 
-		// use tweenlite for a smooth parallax effect
-		TweenLite.to(this.element, 0.3, {y: yOffset}, {ease: "Linear.easeNone" });
+		if (this.duration === 0) {
+			// don't use tweenlite if animation is instant
+			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
+		} else {
+			// use tweenlite for a smooth parallax effect
+			TweenLite.to(this.element, this.duration, {y: yOffset}, {ease: "Linear.easeNone" });
+		}
 	}
 
 	render() {

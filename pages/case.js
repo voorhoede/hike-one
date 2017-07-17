@@ -67,14 +67,13 @@ class Case extends React.Component {
 								imageSmall={Data.collageImageSmall} />
 
 							<FiftyFifty 
-										extramargintop
 										classes="fifty-fifty-text-small"
 										title={Data.fiftyThirdTitle}
 										text={Data.fiftyThirdText}
 										image={Data.fiftyThirdImage} />
 
 							<FiftyFifty noshadow
-										classes="fifty-fifty-content-left fifty-fifty-text-small"
+										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-align-right fifty-fifty-align-toside"
 										title={Data.fiftyFourthTitle}
 										text={Data.fiftyFourthText}
 										image={Data.fiftyFourthImage} />

@@ -73,8 +73,7 @@ class Case extends React.Component {
 										image={Data.fiftyThirdImage} />
 
 							<FiftyFifty noshadow
-										aligntoside
-										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-align-right"
+										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-align-right fifty-fifty-align-toside"
 										title={Data.fiftyFourthTitle}
 										text={Data.fiftyFourthText}
 										image={Data.fiftyFourthImage} />

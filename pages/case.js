@@ -24,7 +24,7 @@ class Case extends React.Component {
 			<Layout title="Hike One - Case">
 
 				<main className="main js-main">
-					<Header />
+					<Header color="white" />
 					<article className="article-full-width">
 						<CaseIntro
 							title={Data.introImageTitle}
@@ -38,12 +38,13 @@ class Case extends React.Component {
 								text={Data.introText} />
 
 							<FiftyFifty
-								classes="fifty-fifty-content-left fifty-fifty-text-small"
+								classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
 								title={Data.fiftyOneTitle}
 								text={Data.fiftyOneText}
 								image={Data.fiftyOneImage} />
 
 							<FiftyFifty
+								noshadow
 								title={Data.fiftyTwoTitle}
 								text={Data.fiftyTwoText}
 								image={Data.fiftyTwoImage} />
@@ -65,12 +66,15 @@ class Case extends React.Component {
 								imageMedium={Data.collageImageMedium}
 								imageSmall={Data.collageImageSmall} />
 
-							<FiftyFifty classes="fifty-fifty-text-small"
+							<FiftyFifty 
+										extramargintop
+										classes="fifty-fifty-text-small"
 										title={Data.fiftyThirdTitle}
 										text={Data.fiftyThirdText}
 										image={Data.fiftyThirdImage} />
 
-							<FiftyFifty classes="fifty-fifty-content-left fifty-fifty-text-small"
+							<FiftyFifty noshadow
+										classes="fifty-fifty-content-left fifty-fifty-text-small"
 										title={Data.fiftyFourthTitle}
 										text={Data.fiftyFourthText}
 										image={Data.fiftyFourthImage} />

@@ -13,6 +13,8 @@ class Home extends React.Component {
 					<article className="article article-index">
 						<ButtonSecondaryLink value="StyleGuide" href="/style-guide"/>
 						<ButtonSecondaryLink value="Case" href="/case"/>
+						<ButtonSecondaryLink value="Home" href="/home"/>
+						<ButtonSecondaryLink value="Services" href="/services"/>
 					</article>
 				</main>
 			</Layout>

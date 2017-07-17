@@ -1,8 +1,9 @@
 @import (reference) '../../styles/variables';
 
 .home-hero {
+	width:100%;
+	max-width: 345px;
 	min-height: 440px;
-	min-width: 345px;
 	margin: 100px auto;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -11,6 +12,7 @@
 
 	@media @screen-small {
 		width: 100%;
+		max-width: 100%;
 		padding-top: 184px;
 	}
 
@@ -25,6 +27,7 @@
 		padding-top: 314px;
 		margin: 130px auto 160px auto;
 	}
+
 	& > svg {
 		margin: 0 auto;
 		width: 45px;
@@ -59,5 +62,5 @@
 
 .home-hero-icon-container {
 	width: 45px;
-	margin: 0 auto;	
+	margin: 0 auto 60px auto;	
 }

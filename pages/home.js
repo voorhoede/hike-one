@@ -19,6 +19,7 @@ class Home extends React.Component {
 					<article className="article-full-width">
 						<HomeHero
 								title={Data.heroHeading} 
+								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
 						<Contact
 								title={Data.contactTitle}

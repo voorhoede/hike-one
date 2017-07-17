@@ -3,7 +3,7 @@
 .home-hero {
 	min-height: 440px;
 	min-width: 345px;
-	margin: 100px 0;
+	margin: 100px auto;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
@@ -25,6 +25,11 @@
 		padding-top: 314px;
 		margin: 130px auto 160px auto;
 	}
+	& > svg {
+		margin: 0 auto;
+		width: 45px;
+		fill: @white;
+	}
 }
 
 .home-hero-heading {
@@ -42,4 +47,17 @@
 		font-size: @title-large-l;
 		line-height: 70px;
 	}
+}
+
+.home-hero-subheading {
+	font-size: @title-small-s;
+	text-align: center;
+	padding: 0 15px;
+	font-weight: @font-weight-normal;
+	color: @white;
+}
+
+.home-hero-icon-container {
+	width: 45px;
+	margin: 0 auto;	
 }

@@ -6,6 +6,8 @@ import Footer from '../components/footer/footer';
 
 import HomeHero from '../components/home-hero/home-hero';
 import ReadMore from '../components/read-more/read-more';
+import TextCenter from '../components/text-center/text-center';
+
 import Contact from '../components/contact/contact';
 
 import Data from '../dummy-data/home/home.json';
@@ -21,6 +23,15 @@ class Home extends React.Component {
 								title={Data.heroHeading} 
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
+						<TextCenter
+								classes="text-center-font-large text-center-spacing-large"
+								text={Data.homeTextIntro} />
+						<TextCenter
+								classes="text-center-font-medium text-center-spacing-large"
+								text={Data.homeTextStepTwo} />
+						<TextCenter
+								classes="text-center-font-medium text-center-spacing-large"
+								text={Data.homeTextStepThree} />
 						<Contact
 								title={Data.contactTitle}
 								button={Data.contactButton} />

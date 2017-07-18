@@ -6,7 +6,7 @@ import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
-import CaseTextCenter from '../components/case-text-center/case-text-center';
+import TextCenter from '../components/text-center/text-center';
 import Collage from '../components/collage/collage';
 import ImageCombo from '../components/image-combo/image-combo';
 import FiftyFifty from '../components/50-50/50-50';
@@ -32,7 +32,7 @@ class Case extends React.Component {
 							image={Data.introImage} />
 
 						<div className="case-scrolling-content">
-							<CaseTextCenter
+							<TextCenter
 								classes=""
 								title={Data.introTextTitle}
 								text={Data.introText} />
@@ -94,7 +94,7 @@ class Case extends React.Component {
 									citeImage={Data.quoteSecondCiteImage} />
 							</ImageCombo>
 
-							<CaseTextCenter
+							<TextCenter
 								title={Data.introTextSecondTitle}
 								text={Data.introTextSecond} />
 

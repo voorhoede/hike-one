@@ -2,8 +2,8 @@
 
 .home-hero {
 	width: 100%;
-	max-width: 345px;
-	min-height: 440px;
+	max-width: @column-small-4;
+	height: 440px;
 	margin: 100px auto;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
@@ -23,9 +23,10 @@
 
 	@media @screen-large {
 		height: 660px;
-		max-width: 1173px;
+		// max-width: 1173px;
+		max-width: @column-large-10;
 		padding-top: 314px;
-		margin: 130px auto 160px auto;
+		margin: 120px auto 160px auto;
 	}
 
 	& > svg {

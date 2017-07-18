@@ -21,8 +21,6 @@ class parallax extends React.Component {
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.elementRect = this.element.getBoundingClientRect();
-
 			this.setInitialOffSet();
 			window.addEventListener('scroll', this.onScroll);
 		}
@@ -56,7 +54,7 @@ class parallax extends React.Component {
 		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 		// only animate element when in view
-		if (!isElementInView(this.element))  {
+		if (!isElementInView(this.containerEl))  {
 			return;
 		}
 
@@ -85,8 +83,11 @@ class parallax extends React.Component {
 
 	render() {
 		return (
-			<div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
-				{ this.props.children }
+			<div ref={(node) => this.containerEl = node } className="parallax-layer-container">
+				<div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
+					{ this.props.children }
+				</div>
+
 			</div>
 		);
 	}

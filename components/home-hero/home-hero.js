@@ -10,9 +10,9 @@ class HomeHero extends React.Component {
 					<div className="container-inner home-hero" style={{backgroundImage: `url(${props.heroImage})`}}> 
 					<h1 className="home-hero-heading">{props.title}</h1>
 						<h2 className="home-hero-subheading">{props.subtitle}</h2>
-						<div className="home-hero-icon-container">
+						<button className="btn-clean home-hero-icon-container">
 							<ArrowDownTriple  />
-						</div>
+						</button>
 					</div>
 				</div>
 			</div>

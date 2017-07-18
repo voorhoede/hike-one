@@ -1,5 +1,5 @@
 import React from 'react';
-import getParallaxOffset from '../_helpers/getParallaxOffset';
+import getParallaxYOffset from '../_helpers/getParallaxYOffset';
 import TweenLite from "gsap";
 
 //todo: fix this.scrollheight = 0 when scrolling down to footer and reloading
@@ -8,7 +8,7 @@ class parallax extends React.Component {
 		super();
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
-		this.calculateInitialOffSet = this.calculateInitialOffSet.bind(this);
+		this.setInitialOffSet = this.setInitialOffSet.bind(this);
 		this.ticking = false;
 		this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3;
 		this.offset = props.offset ? parseInt(props.offset) : 0;
@@ -29,7 +29,7 @@ class parallax extends React.Component {
 			this.scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 			this.windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
 
-			this.calculateInitialOffSet();
+			this.setInitialOffSet();
 			window.addEventListener('scroll', this.onScroll);
 		}
 	}
@@ -49,8 +49,8 @@ class parallax extends React.Component {
 		this.ticking = true;
 	}
 
-	calculateInitialOffSet() {
-		this.elementOffset = getParallaxOffset(this.speed, this.windowHeight, this.scrolledHeight, this.elementRect);
+	setInitialOffSet() {
+		this.elementOffset = getParallaxYOffset(this.speed, this.windowHeight, this.scrolledHeight, this.elementRect);
 
 		// apply offset
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;

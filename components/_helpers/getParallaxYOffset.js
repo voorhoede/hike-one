@@ -1,6 +1,9 @@
-const getParallaxOffset = (speed, windowHeight, scrolledHeight, elementRect) => {
+const getParallaxYOffset = (speed, windowHeight, scrolledHeight, elementRect) => {
+	// y coordinate bottom of viewport relative from top of document
 	const bottomScreen = windowHeight + scrolledHeight;
+	// y coordinate top of element relative from top of document
 	const elementTop = elementRect.top + window.pageYOffset;
+	// y coordinate bottom of element relative from top of document
 	const elementBottom = elementRect.bottom + window.pageYOffset;
 	const elementHalf = elementRect.height / 2;
 	const windowHalf = windowHeight / 2;
@@ -30,4 +33,4 @@ const getParallaxOffset = (speed, windowHeight, scrolledHeight, elementRect) => 
 	}
 };
 
-export default getParallaxOffset;
+export default getParallaxYOffset;

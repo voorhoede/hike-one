@@ -1,0 +1,24 @@
+{
+	"heroHeading": "Great products start with great user experience",
+	"heroSubheading": "Welcome to Hike One",
+	"heroImage": "static/images/header_home.jpg",
+	"contactTitle": "Where will your journey lead us",
+	"contactButton": "Get in touch",
+	"readMore": {
+		"highlight": {
+			"image": "static/images/img-vbh.jpg",
+			"title": "VBH Pivot App",
+			"href": "#",
+			"linkLabel": "View case"
+		},
+		"links": [{
+			"title": "Your  first Design Sprint: do these 3 things first",
+			"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
+			},
+			{
+			"title": "In 5 days from sketch to tested prototype with Design Sprints",
+			"subtext": "17 November 2016 | Ingmar Coenen"
+			}
+		]
+	}
+}

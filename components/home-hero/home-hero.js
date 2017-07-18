@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ArrowDown from '../icons/arrow-down-round/arrow-down-round';
+import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
 class HomeHero extends React.Component {
 	render() {
 		const props = this.props;
@@ -11,7 +11,7 @@ class HomeHero extends React.Component {
 					<h1 className="home-hero-heading">{props.title}</h1>
 						<h2 className="home-hero-subheading">{props.subtitle}</h2>
 						<div className="home-hero-icon-container">
-							<ArrowDown  />
+							<ArrowDownTriple  />
 						</div>
 					</div>
 				</div>

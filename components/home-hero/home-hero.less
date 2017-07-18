@@ -1,7 +1,7 @@
 @import (reference) '../../styles/variables';
 
 .home-hero {
-	width:100%;
+	width: 100%;
 	max-width: 345px;
 	min-height: 440px;
 	margin: 100px auto;
@@ -38,12 +38,11 @@
 .home-hero-heading {
 	max-width: @column-small-4;
 	margin: 0 auto;
-	color: @white;
-	font-size: 30px;
+	padding: 15px;	
+	font-size: @title-large-s;
 	line-height: 34px;
 	text-align: center;
-	margin: 0 auto;
-	padding: 15px;
+	color: @white;
 
 	@media @screen-medium {
 		max-width: @column-large-8;
@@ -53,9 +52,9 @@
 }
 
 .home-hero-subheading {
+	padding: 0 15px;
 	font-size: @title-small-s;
 	text-align: center;
-	padding: 0 15px;
 	font-weight: @font-weight-normal;
 	color: @white;
 }

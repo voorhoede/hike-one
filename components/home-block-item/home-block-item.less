@@ -1,0 +1,76 @@
+@import (reference) '../../styles/variables';
+
+.home-block-item {
+	display: block;
+	position: relative;
+	left: 65px;
+	margin-bottom: 20px;
+
+	@media @screen-small {
+		float: left;
+		margin-bottom: 160px;
+		width: 100%;
+		max-width: 403px;
+		left: 0px;
+		&:not(:last-child) {
+			margin-right: @spacing-default;
+		}
+	}
+}
+
+.home-block-item-content {
+	width: 100%;
+	max-width: 325px;
+	height: 150px;
+	float: none;
+	text-align: center;
+	color: @white;
+	
+	& >  h3 {
+		font-size: @text-medium-m;
+		line-height: 26px;
+		margin: -50px 0 30px 0;
+		padding: 0 16px;
+	}
+
+	@media @screen-small {
+		max-width: 100%;
+		margin-right: 0;
+		padding-top: 40px;
+
+		& >  h3 {
+			font-size: @text-medium-m;
+		}
+	}
+}
+
+.home-block-item-blue {
+	background-color: @blue;
+}
+
+.home-block-item-purple {
+	background-color: @purple;
+}
+
+.home-block-item-green {
+	background-color: @green;
+}
+
+.home-block-item-shape {
+	position: relative;
+	top: 30px;
+	left: -65px;
+	height: 80px;
+	width: 80px;
+	
+	@media @screen-small {
+		width: 165px;
+		height: 165px;
+		top: -40px;
+		left: 30%;
+	}
+}
+
+.home-block-item-button {
+	margin-bottom: 40px;
+}

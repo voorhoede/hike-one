@@ -24,7 +24,7 @@ class Home extends React.Component {
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
 						<TextCenter
-								classes="text-center-font-large text-center-spacing-small"
+								classes="text-center-font-large text-center-spacing-large"
 								text={Data.homeTextIntro} />
 						<div className="container clearfix">
 							<div className="container-inner">

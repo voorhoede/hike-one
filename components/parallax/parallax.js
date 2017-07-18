@@ -1,5 +1,6 @@
 import React from 'react';
 import getParallaxYOffset from '../_helpers/getParallaxYOffset';
+import isElementInView from '../_helpers/isElementInView';
 import TweenLite from "gsap";
 
 //todo: fix this.scrollheight = 0 when scrolling down to footer and reloading
@@ -22,13 +23,6 @@ class parallax extends React.Component {
 		if (typeof window.requestAnimationFrame !== 'undefined') {
 			this.elementRect = this.element.getBoundingClientRect();
 
-			// y offset relative from top of document
-			this.elementTop = this.elementRect.top + window.pageYOffset;
-			this.elementBottom = this.elementRect.bottom + window.pageYOffset;
-
-			this.scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-			this.windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
-
 			this.setInitialOffSet();
 			window.addEventListener('scroll', this.onScroll);
 		}
@@ -50,7 +44,7 @@ class parallax extends React.Component {
 	}
 
 	setInitialOffSet() {
-		this.elementOffset = getParallaxYOffset(this.speed, this.windowHeight, this.scrolledHeight, this.elementRect);
+		this.elementOffset = getParallaxYOffset(this.element, this.speed);
 
 		// apply offset
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
@@ -60,12 +54,9 @@ class parallax extends React.Component {
 
 	animateLayers() {
 		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-		const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
-		const bottomScreen = windowHeight + scrolledHeight;
 
 		// only animate element when in view
-		if (bottomScreen <= this.elementTop ||
-			scrolledHeight >= this.elementBottom)  {
+		if (!isElementInView(this.element))  {
 			return;
 		}
 

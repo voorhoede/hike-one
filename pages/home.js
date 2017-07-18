@@ -24,13 +24,13 @@ class Home extends React.Component {
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
 						<TextCenter
-								classes="text-center-font-large text-center-spacing-large"
+								classes="text-center-font-large text-center-spacing-small"
 								text={Data.homeTextIntro} />
 						<TextCenter
-								classes="text-center-font-medium text-center-spacing-large"
+								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepTwo} />
 						<TextCenter
-								classes="text-center-font-medium text-center-spacing-large"
+								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepThree} />
 						<Contact
 								title={Data.contactTitle}

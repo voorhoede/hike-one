@@ -25,6 +25,7 @@ class Case extends React.Component {
 
 				<main className="main js-main">
 					<Header color="white" />
+					
 					<article className="article-full-width">
 						<CaseIntro
 							title={Data.introImageTitle}

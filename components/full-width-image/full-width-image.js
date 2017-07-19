@@ -23,13 +23,16 @@ class FullWidthImage extends React.Component {
 	}
 
 	componentDidMount() {
-		this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-		this.elBoundingRect = this.element.getBoundingClientRect();
-		this.setImageBottomOffset();
-		this.setInitialOffset();
+		// only add animation when requestAnimationFrame is supported
+		if (typeof window.requestAnimationFrame !== 'undefined') {
+			this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
+			this.elBoundingRect = this.element.getBoundingClientRect();
+			this.setImageBottomOffset();
+			this.setInitialOffset();
 
-		window.addEventListener('scroll', this.onScroll);
-		window.addEventListener('resize', this.onResize);
+			window.addEventListener('scroll', this.onScroll);
+			window.addEventListener('resize', this.onResize);
+		}
 	}
 
 	componentWillUnmount() {

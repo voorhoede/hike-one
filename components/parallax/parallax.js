@@ -8,9 +8,12 @@ class parallax extends React.Component {
 	constructor(props) {
 		super();
 		this.onScroll = this.onScroll.bind(this);
+		this.onResize = this.onResize.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
 		this.setInitialOffSet = this.setInitialOffSet.bind(this);
+		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
 		this.ticking = false;
+		this.resizeTimer = null;
 		this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3;
 		this.elementOffset = 0;
 		this.duration = props.duration ? parseInt(props.duration) : 0.3;
@@ -21,11 +24,13 @@ class parallax extends React.Component {
 		if (typeof window.requestAnimationFrame !== 'undefined') {
 			this.setInitialOffSet();
 			window.addEventListener('scroll', this.onScroll);
+			window.addEventListener('resize', this.onResize);
 		}
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
+		window.removeEventListener('resize', this.onResize);
 	}
 
 	onScroll() {
@@ -39,6 +44,17 @@ class parallax extends React.Component {
 		this.ticking = true;
 	}
 
+	onResize() {
+		// update an animation before the next repaint with requestAnimationFrame
+		if (!this.ticking) {
+			window.requestAnimationFrame(() => {
+				this.setOffsetOnResize();
+				this.ticking = false;
+			});
+		}
+		this.ticking = true;
+	}
+
 	setInitialOffSet() {
 		this.elementOffset = getParallaxYOffset(this.element, this.speed);
 
@@ -46,6 +62,15 @@ class parallax extends React.Component {
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
 	 	// show layers only after offset to prevent jumping animations
 		this.element.style.visibility = 'visible';
+	}
+
+	setOffsetOnResize() {
+		// add debounce for resize so it fires only add the end of resize
+		clearTimeout(this.resizeTimer);
+		this.resizeTimer = setTimeout(() => {
+			this.setInitialOffSet();
+			this.animateLayers();
+		}, 250);
 	}
 
 	animateLayers() {

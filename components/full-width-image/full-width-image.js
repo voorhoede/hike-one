@@ -7,10 +7,16 @@ class FullWidthImage extends React.Component {
 		this.setImageBottomOffset = this.setImageBottomOffset.bind(this);
 		this.setInitialOffset = this.setInitialOffset.bind(this);
 		this.setLayerOffsets = this.setLayerOffsets.bind(this);
+		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
 		this.resetElement = this.resetElement.bind(this);
 		this.onScroll = this.onScroll.bind(this);
+		this.onResize = this.onResize.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
+		this.resizeTimer = null;
+		this.elBoundingRect = null;
+		this.initialScrollHeight = 0;
 		this.speed = 0.5;
+		this.ticking = false;
 		this.state = {
 			imageBottomOffset: 0
 		};
@@ -20,16 +26,15 @@ class FullWidthImage extends React.Component {
 		this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
 		this.elBoundingRect = this.element.getBoundingClientRect();
 		this.setImageBottomOffset();
-
-		if (elementIsInView(this.element)) {
-			this.setInitialOffset();
-		}
+		this.setInitialOffset();
 
 		window.addEventListener('scroll', this.onScroll);
+		window.addEventListener('resize', this.onResize);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
+		window.removeEventListener('resize', this.onResize);
 	}
 
 	onScroll() {
@@ -37,6 +42,17 @@ class FullWidthImage extends React.Component {
 		if (!this.ticking) {
 			window.requestAnimationFrame(() => {
 				this.animateLayers();
+				this.ticking = false;
+			});
+		}
+		this.ticking = true;
+	}
+
+	onResize() {
+		// update an animation before the next repaint with requestAnimationFrame
+		if (!this.ticking) {
+			window.requestAnimationFrame(() => {
+				this.setOffsetOnResize();
 				this.ticking = false;
 			});
 		}
@@ -63,15 +79,28 @@ class FullWidthImage extends React.Component {
 	}
 
 	setInitialOffset() {
-		const yOffsetFixed = this.elBoundingRect.top;
-		const yOffsetImage = -this.elBoundingRect.top * this.speed;
+		if (elementIsInView(this.element)) {
+			const yOffsetFixed = this.elBoundingRect.top;
+			const yOffsetImage = -this.elBoundingRect.top * this.speed;
 
-		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
+			this.setLayerOffsets(yOffsetFixed, yOffsetImage);
+		}
 	}
 
 	setLayerOffsets(yOffsetFixed, yOffsetImage) {
 		this.fixedElement.style.transform = `translate3d(0px, ${yOffsetFixed}px, 0px)`;
 		this.imageElement.style.transform = `translate3d(0px, ${yOffsetImage}px, 0px)`;
+	}
+
+	setOffsetOnResize() {
+		// add debounce for resize so it fires only add the end of resize
+		clearTimeout(this.resizeTimer);
+		this.resizeTimer = setTimeout(() => {
+			this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
+			this.elBoundingRect = this.element.getBoundingClientRect();
+			this.setImageBottomOffset();
+			this.setInitialOffset();
+		}, 250);
 	}
 
 	setImageBottomOffset() {

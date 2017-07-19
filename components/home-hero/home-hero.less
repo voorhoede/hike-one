@@ -1,0 +1,74 @@
+@import (reference) '../../styles/variables';
+
+.home-hero {
+	width: 100%;
+	max-width: @column-small-4;
+	height: 440px;
+	margin: 100px auto;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	padding-top: 50%;
+
+	@media @screen-small {
+		max-width: 100%;
+		padding-top: 184px;
+	}
+
+	@media @screen-medium {
+		height: 660px;
+	}
+
+	@media @screen-large {
+		max-width: @column-large-10;
+		padding-top: 314px;
+		margin: 120px auto 160px auto;
+	}
+
+	& > svg {
+		margin: 0 auto;
+		width: 45px;
+		fill: @white;
+	}
+}
+
+.home-hero-heading {
+	max-width: @column-small-4;
+	margin: 0 auto;
+	padding: @spacing-default;	
+	font-size: @title-large-s;
+	line-height: 34px;
+	text-align: center;
+	color: @white;
+
+	@media @screen-small {
+		margin-top: @spacing-double;
+	}
+
+	@media @screen-medium {	
+		max-width: @column-large-8;
+		font-size: @title-large-l;
+		line-height: 70px;
+	}
+
+	@media @screen-large {
+		margin-top: 0px;
+	}
+}
+
+.home-hero-subheading {
+	padding: 0 @spacing-default;
+	font-size: @text-medium-s;
+	text-align: center;
+	font-weight: @font-weight-normal;
+	color: @white;
+	
+	@media @screen-small {
+		font-size: @title-small-s;
+	}
+}
+
+.home-hero-icon-container {
+	width: 45px;
+	margin: 0 auto 60px auto;	
+}

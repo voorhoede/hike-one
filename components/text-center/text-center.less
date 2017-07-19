@@ -1,0 +1,61 @@
+@import (reference) '../../styles/variables';
+
+.text-center {
+    text-align: center;
+    margin-bottom: 50px;
+    @media @screen-medium {
+        margin-bottom: 100px;
+    }
+}
+
+.text-center-spacing-small {
+    margin-bottom: 60px;
+    @media @screen-small {
+        margin-bottom: 80px;
+    }
+}
+
+.text-center .container-inner {
+    max-width: @column-small-4;
+    @media @screen-medium {
+        max-width: @column-large-8;
+    }
+}
+
+.text-center h2 {
+    font-size: @title-large-s;
+    line-height: 36px;
+
+    @media @screen-medium {
+        font-size: @title-large-l;
+        line-height: 70px;
+    }
+}
+
+.text-center p {
+    line-height: 28px;
+}
+
+.text-center-font-large p {
+    font-size: @text-medium-m;
+	line-height: 28px;
+    font-weight: normal;
+    color: @dark-gray;
+	
+	@media @screen-medium {
+		line-height: 44px;
+		font-size: @text-medium-l;
+	}
+}
+
+.text-center-font-medium p {
+    font-size: @text-medium-m;
+	line-height: 28px;
+	font-weight: normal;
+    color: @dark-gray;
+    
+	@media @screen-medium {
+		line-height: 36px;
+		font-size: @title-small-s;
+	}
+}

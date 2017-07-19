@@ -9,6 +9,7 @@ import CaseIntro from '../components/case-intro/case-intro';
 import CaseTextCenter from '../components/case-text-center/case-text-center';
 import * as CaseTextCenterShapes from '../components/case-text-center/case-text-center-shapes';
 
+import TextCenter from '../components/text-center/text-center';
 import Collage from '../components/collage/collage';
 import * as CollageShapes from '../components/collage/collage-shapes';
 
@@ -34,7 +35,7 @@ class Case extends React.Component {
 			<Layout title="Hike One - Case">
 
 				<main className="main js-main">
-					<Header />
+					<Header color="white" />
 					<article className="article-full-width">
 						<CaseIntro
 							title={Data.introImageTitle}
@@ -49,13 +50,14 @@ class Case extends React.Component {
 							</CaseTextCenter>
 
 							<FiftyFifty
-								classes="fifty-fifty-content-left fifty-fifty-text-small"
 								parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}
+								classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
 								title={Data.fiftyOneTitle}
 								text={Data.fiftyOneText}
 								image={Data.fiftyOneImage} />
 
 							<FiftyFifty
+								noshadow
 								parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
 								title={Data.fiftyTwoTitle}
 								text={Data.fiftyTwoText}
@@ -82,17 +84,17 @@ class Case extends React.Component {
 								imageSmall={Data.collageImageSmall} />
 
 							<FiftyFifty
-								classes="fifty-fifty-text-small"
-								title={Data.fiftyThirdTitle}
-								text={Data.fiftyThirdText}
-								image={Data.fiftyThirdImage} />
+										classes="fifty-fifty-text-small"
+										title={Data.fiftyThirdTitle}
+										text={Data.fiftyThirdText}
+										image={Data.fiftyThirdImage} />
 
-							<FiftyFifty
-								classes="fifty-fifty-content-left fifty-fifty-text-small"
-								parallaxLayerFront={ <FiftyFiftyShapes.FrontLayer1 />}
-								title={Data.fiftyFourthTitle}
-								text={Data.fiftyFourthText}
-								image={Data.fiftyFourthImage} />
+							<FiftyFifty noshadow
+										parallaxLayerFront={ <FiftyFiftyShapes.FrontLayer1 />}
+										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-align-right fifty-fifty-align-toside"
+										title={Data.fiftyFourthTitle}
+										text={Data.fiftyFourthText}
+										image={Data.fiftyFourthImage} />
 
 							<ImageCombo
 								parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
@@ -109,7 +111,7 @@ class Case extends React.Component {
 									citeImage={Data.quoteSecondCiteImage} />
 							</ImageCombo>
 
-							<CaseTextCenter
+							<TextCenter
 								title={Data.introTextSecondTitle}
 								text={Data.introTextSecond} />
 

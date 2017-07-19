@@ -4,7 +4,7 @@ const Collage = ({ imageMedium, imageSmall, title = '', text = '', parallaxLayer
 			{parallaxLayerBack}
 			<div className="collage-image-container">
 				<img className="collage-image-medium" src={imageMedium} alt="" />
-				<img className="collage-image-small shadow" src={imageSmall} alt="" />
+				<img className="collage-image-small shadow-low-opacity" src={imageSmall} alt="" />
 			</div>
 			<div className="collage-text-container">
 				<h2 className="collage-text-title">{title}</h2>

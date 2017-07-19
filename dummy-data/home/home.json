@@ -1,0 +1,27 @@
+{
+	"heroHeading": "Great products start with great user experience",
+	"heroSubheading": "Welcome to Hike One",
+	"heroImage": "static/images/header_home.jpg",
+	"contactTitle": "Where will your journey lead us",
+	"contactButton": "Get in touch",
+	"readMore": {
+		"highlight": {
+			"image": "static/images/img-vbh.jpg",
+			"title": "VBH Pivot App",
+			"href": "#",
+			"linkLabel": "View case"
+		},
+		"links": [{
+			"title": "Your  first Design Sprint: do these 3 things first",
+			"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
+			},
+			{
+			"title": "In 5 days from sketch to tested prototype with Design Sprints",
+			"subtext": "17 November 2016 | Ingmar Coenen"
+			}
+		]
+	},
+	"homeTextIntro": "We are Hike One, your favourite digital design agency. Ready to guide you on your hikes to new and better digital products.",
+	"homeTextStepTwo": "Because innovation is a journey through unmapped terrain, a hike will take you further than a fixed strategy that might get broken on the first obstacle. Every hike is unique, that is the beauty of it. See for yourself.",
+	"homeTextStepThree": "Innovation is what happens, while you are busy writing mission statements. Here’s what’s happening at Hike One:"
+}

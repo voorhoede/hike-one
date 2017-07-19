@@ -1,7 +1,7 @@
 import Parallax from '../parallax/parallax';
 import RectangleBorder from '../shapes/rectangle-border/rectangle-border';
 
-export const FrontLayer1 = () => {
+export const BackLayer1 = () => {
 	return (
 		<div className="case-text-center-shapes">
 			<Parallax speed="0.875">

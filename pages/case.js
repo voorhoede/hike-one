@@ -6,10 +6,10 @@ import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
 import CaseIntro from '../components/case-intro/case-intro';
-import CaseTextCenter from '../components/case-text-center/case-text-center';
-import * as CaseTextCenterShapes from '../components/case-text-center/case-text-center-shapes';
 
 import TextCenter from '../components/text-center/text-center';
+import * as TextCenterShapes from '../components/text-center/text-center-shapes';
+
 import Collage from '../components/collage/collage';
 import * as CollageShapes from '../components/collage/collage-shapes';
 
@@ -43,11 +43,11 @@ class Case extends React.Component {
 							image={Data.introImage} />
 
 						<div className="case-scrolling-content">
-							<CaseTextCenter
-								parallaxLayerBack={<CaseTextCenterShapes.FrontLayer1 />}
+							<TextCenter
+								parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
 								title={Data.introTextTitle}
 								text={Data.introText} >
-							</CaseTextCenter>
+							</TextCenter>
 
 							<FiftyFifty
 								parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}

@@ -3,18 +3,26 @@
 .home-block-item {
 	display: block;
 	position: relative;
-	left: 65px;
+	left: 35px;
 	margin-bottom: 20px;
-
+	height: 150px;
+	
 	@media @screen-small {
 		float: left;
 		margin-bottom: 160px;
 		width: 100%;
-		max-width: 403px;
+		height: 300px;
+		
 		left: 0px;
 		&:not(:last-child) {
 			margin-right: @spacing-default;
 		}
+	}
+	@media @screen-medium {
+		max-width: 336px;
+	}
+	@media @screen-large {
+		max-width: 403px;
 	}
 }
 
@@ -25,20 +33,31 @@
 	float: none;
 	text-align: center;
 	color: @white;
-	
+	padding-left: 70px;
+
 	& >  h3 {
 		font-size: @text-medium-m;
 		line-height: 26px;
-		margin: -50px 0 30px 0;
-		padding: 0 16px;
+		margin: 0 0 10px 0;
+		
+		padding: 30px  16px 0 16px;
 	}
 
 	@media @screen-small {
 		max-width: 100%;
 		margin-right: 0;
-		padding-top: 40px;
+		position: relative;
+		top: -40px;
+		padding: 25px 0 40px 0;
+		height: 180px;
+		
+		& > a {
+			padding: 12px 36px;
+		}
 
 		& >  h3 {
+			padding: 0;
+			margin-bottom: 35px;
 			font-size: @text-medium-m;
 		}
 	}
@@ -57,17 +76,18 @@
 }
 
 .home-block-item-shape {
-	position: relative;
+	position: absolute;
 	top: 30px;
-	left: -65px;
+	left: -25px;
 	height: 80px;
 	width: 80px;
-	
+
 	@media @screen-small {
+		position: relative;
 		width: 165px;
 		height: 165px;
 		top: -40px;
-		left: 30%;
+		margin: 0 auto;
 	}
 }
 

@@ -35,13 +35,13 @@
 		{
 			"title" : "Digital Product Design",
 			"text": "Let's go",
-			"shape": "triangle",
+			"shape": "doubleDiamond",
 			"color": "green"
 		},
 		{
 			"title" : "Design Management",
 			"text": "Push it",
-			"shape": "doubleDiamond",
+			"shape": "triangle",
 			"color": "purple"
 		}
 	]

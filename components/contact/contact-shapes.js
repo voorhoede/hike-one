@@ -1,7 +1,7 @@
 import Parallax from '../parallax/parallax';
 import Triangle from '../shapes/triangle/triangle';
 
-const ShapesFront = () => {
+export const FrontLayer1 = () => {
 	return (
 		<div className="contact-shapes">
 			<Parallax speed="1.25" >
@@ -15,5 +15,3 @@ const ShapesFront = () => {
 		</div>
 	);
 };
-
-export default ShapesFront;

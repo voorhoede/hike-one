@@ -1,23 +1,20 @@
-import React from 'react';
-
-class FiftyFifty extends React.Component {
-    render() {
-        const props = this.props;
-        return (
-			<section className={`fifty-fifty clearfix container  
-								${props.classes ? props.classes : ''} `}>
-				<div className="container-inner">
-					<div className="fifty-fifty-image">
-						<img className={`${props.noshadow ? 'no-shadow' : 'shadow-low-opacity'}` } src={props.image} alt="" />
-					</div>
-					<div className="fifty-fifty-content">
-						<h2 className="fifty-fifty-title">{props.title}</h2>
-						<p className="fifty-fifty-text">{props.text}</p>
-					</div>
+const FiftyFifty = ({classes, image, title = '', text = '', noshadow, parallaxLayerBack, parallaxLayerFront}) => {
+	return (
+		<section className={`fifty-fifty clearfix container
+							${classes ? classes : ''} `}>
+			{parallaxLayerBack}
+			<div className="container-inner">
+				<div className="fifty-fifty-image">
+					<img className={`${noshadow ? 'no-shadow' : 'shadow-low-opacity'}` } src={image} alt="" />
 				</div>
-            </section>
-        );
-    }
-}
+				<div className="fifty-fifty-content">
+					<h2 className="fifty-fifty-title">{title}</h2>
+					<p className="fifty-fifty-text">{text}</p>
+				</div>
+			</div>
+			{parallaxLayerFront}
+		</section>
+	);
+};
 
 export default FiftyFifty;

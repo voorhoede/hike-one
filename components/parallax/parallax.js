@@ -1,4 +1,6 @@
 import React from 'react';
+import getParallaxYOffset from '../_helpers/getParallaxYOffset';
+import isElementInView from '../_helpers/isElementInView';
 import TweenLite from "gsap";
 
 //todo: fix this.scrollheight = 0 when scrolling down to footer and reloading
@@ -6,36 +8,29 @@ class parallax extends React.Component {
 	constructor(props) {
 		super();
 		this.onScroll = this.onScroll.bind(this);
+		this.onResize = this.onResize.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
-		this.calculateInitialOffSet = this.calculateInitialOffSet.bind(this);
+		this.setInitialOffSet = this.setInitialOffSet.bind(this);
+		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
 		this.ticking = false;
+		this.resizeTimer = null;
 		this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3;
-		this.offset = props.offset ? parseInt(props.offset) : 0;
-		this.maxDistance = props.distance ? parseInt(props.distance) : null;
 		this.elementOffset = 0;
+		this.duration = props.duration ? parseInt(props.duration) : 0.3;
 	}
 
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.rect = this.element.getBoundingClientRect();
-			const clientTop =  document.body.clientTop || document.documentElement.clientTop || 0;
-
-			// y offset relative from top of document
-			// todo: check if clientTop is needed
-			this.elementTop = this.rect.top + window.pageYOffset - clientTop;
-			this.elementBottom = this.rect.bottom + window.pageYOffset - clientTop;
-
-			this.scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-			this.windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
-
-			this.calculateInitialOffSet();
+			this.setInitialOffSet();
 			window.addEventListener('scroll', this.onScroll);
+			window.addEventListener('resize', this.onResize);
 		}
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
+		window.removeEventListener('resize', this.onResize);
 	}
 
 	onScroll() {
@@ -49,33 +44,19 @@ class parallax extends React.Component {
 		this.ticking = true;
 	}
 
-	calculateInitialOffSet() {
-		this.bottomScreen = this.windowHeight + this.scrolledHeight;
-		const elementHalf = this.rect.height / 2;
-		const windowHalf = this.windowHeight / 2;
-
-	 	if (this.elementTop > (this.bottomScreen)) {
-	 		// element below viewport
-			this.elementOffset = -((elementHalf + windowHalf) * (this.speed));
-		} else if (this.elementBottom < this.scrolledHeight) {
-			// element above viewport
-			this.elementOffset = (elementHalf + windowHalf) * this.speed;
-		} else  {
-			// element is partial in view
-			const viewportMiddle = this.scrolledHeight + (this.windowHeight / 2);
-			const elementMiddle = this.elementTop + (this.rect.height / 2);
-
-			// how far is element middle from viewportMiddle
-			const elementFromMiddle = elementMiddle - viewportMiddle;
-
-			if (elementFromMiddle > 0) {
-				// element middle under middle of the viewport
-				this.elementOffset = -((elementFromMiddle) * this.speed);
-			} else {
-				// element middle over middle of the viewport
-				this.elementOffset = ((-elementFromMiddle) * this.speed);
-			}
+	onResize() {
+		// update an animation before the next repaint with requestAnimationFrame
+		if (!this.ticking) {
+			window.requestAnimationFrame(() => {
+				this.setOffsetOnResize();
+				this.ticking = false;
+			});
 		}
+		this.ticking = true;
+	}
+
+	setInitialOffSet() {
+		this.elementOffset = getParallaxYOffset(this.element, this.speed);
 
 		// apply offset
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
@@ -83,14 +64,20 @@ class parallax extends React.Component {
 		this.element.style.visibility = 'visible';
 	}
 
+	setOffsetOnResize() {
+		// add debounce for resize so it fires only add the end of resize
+		clearTimeout(this.resizeTimer);
+		this.resizeTimer = setTimeout(() => {
+			this.setInitialOffSet();
+			this.animateLayers();
+		}, 250);
+	}
+
 	animateLayers() {
 		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-		const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
-		const bottomScreen = windowHeight + scrolledHeight;
 
 		// only animate element when in view
-		if (bottomScreen <= this.elementTop ||
-			scrolledHeight >= this.elementBottom)  {
+		if (!isElementInView(this.containerEl))  {
 			return;
 		}
 
@@ -100,22 +87,25 @@ class parallax extends React.Component {
 		// calculate relative scroll height
 		let relativeScroll = scrolledHeight - this.initialScrollHeight;
 
-		// if max distance is set and met then don't animate
-		if (this.maxDistance && this.maxDistance <= relativeScroll) {
-			return;
-		}
-
 		// calculate y offset
 		const yOffset = relativeScroll * this.speed + this.elementOffset;
 
-		// use tweenlite for a smooth parallax effect
-		TweenLite.to(this.element, 0.3, {y: yOffset}, {ease: "Linear.easeNone" });
+		if (this.duration === 0) {
+			// don't use tweenlite if animation is instant
+			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
+		} else {
+			// use tweenlite for a smooth parallax effect
+			TweenLite.to(this.element, this.duration, {y: yOffset}, {ease: "Linear.easeNone" });
+		}
 	}
 
 	render() {
 		return (
-			<div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
-				{ this.props.children }
+			<div ref={(node) => this.containerEl = node } className="parallax-layer-container">
+				<div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
+					{ this.props.children }
+				</div>
+
 			</div>
 		);
 	}

@@ -1,0 +1,31 @@
+@import (reference) '../../styles/variables';
+
+.collage-shapes-1 {
+	.shape-triangle-1 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		display: none;
+
+		@media @screen-medium {
+			display: inline-block;
+			height: 162px;
+			bottom: 0;
+			right: -60px;
+		}
+	}
+
+	.shape-diamond-1 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		height: 15px;
+		left: 90%;
+		top: 55%;
+
+		@media @screen-medium {
+			left: 60%;
+			top: 50px;
+		}
+	}
+}

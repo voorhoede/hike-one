@@ -10,6 +10,8 @@ import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
 
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
+import * as TextCenterShapes from '../components/text-center/text-center-shapes';
+
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import Data from '../dummy-data/home/home.json';
@@ -28,6 +30,8 @@ class Home extends React.Component {
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
 						<TextCenter
+								parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
+								parallaxLayerBack={ <TextCenterShapes.BackLayer2 /> }
 								classes="text-center-font-large text-center-spacing-large"
 								text={Data.homeTextIntro} />
 						<ServicesOverviewSmall services={Data.overviewItems} />

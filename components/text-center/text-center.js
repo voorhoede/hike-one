@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextCenter = ({classes, title = '', text = '', parallaxLayerBack }) => {
+const TextCenter = ({classes, title = '', text = '', parallaxLayerBack, parallaxLayerFront }) => {
 	return (
 		<section className={`${classes ? classes : ''} text-center container`}>
 			{parallaxLayerBack}
@@ -10,6 +10,7 @@ const TextCenter = ({classes, title = '', text = '', parallaxLayerBack }) => {
 					: '' }
 				<p>{text}</p>
 			</div>
+			{parallaxLayerFront}
 		</section>
 	);
 };

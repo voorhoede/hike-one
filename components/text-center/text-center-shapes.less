@@ -1,6 +1,6 @@
 @import (reference) '../../styles/variables';
 
-.case-text-center-shapes {
+.text-center-shapes-1 {
 	.shape-rectangle-1 {
 		position: absolute;
 		top: 30px;
@@ -12,6 +12,59 @@
 		@media @screen-medium {
 			top: 150px;
 			height: 16px;
+		}
+	}
+}
+
+.text-center-shapes-2 {
+	.shape-triangle-1 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		height: 28px;
+		left: 85%;
+		top: -100px;
+
+		@media @screen-medium {
+			height: 110px;
+			top: 0;
+			left: 90%;
+		}
+	}
+
+	.shape-diamond-1 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		display: none;
+		@media @screen-medium {
+			display: inline-block;
+			height: 25px;
+			top: -100px;
+			left: 75%;
+		}
+	}
+
+	.shape-circle-1 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		height: 15px;
+		top: -50px;
+		left: 20%;
+	}
+
+	.shape-circle-2 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		display: none;
+		@media @screen-medium {
+			display: inline-block;
+			height: 12px;
+			left: 25%;
+			top: 150px;
+
 		}
 	}
 }

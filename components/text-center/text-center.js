@@ -6,9 +6,9 @@ const TextCenter = ({classes, title = '', text = '', parallaxLayerBack }) => {
 			{parallaxLayerBack}
 			<div className="container-inner">
 				{ title
-					? <h2>{title}</h2>
+					? <h2 className="content">{title}</h2>
 					: '' }
-				<p>{text}</p>
+				<p className="content">{text}</p>
 			</div>
 		</section>
 	);

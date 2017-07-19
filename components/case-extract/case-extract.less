@@ -1,0 +1,94 @@
+
+@import (reference) '../../styles/variables';
+
+.case-extract {
+	padding: 0;
+	position: relative;
+	
+	@media @screen-medium {
+		max-width: @column-large-10;
+	}
+}
+
+.case-extract-image-container {
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 220px;
+	
+	@media @screen-medium {
+		height: 440px;
+	}
+
+	@media @screen-large {
+		margin-left:auto; 
+		height: 600px;
+		max-width: @column-large-9;
+	}
+}
+
+.case-extract-text-container {
+	position: relative;
+	top: -45px;
+	max-width: @column-small-4;
+	background-color: @red;
+	color: @white;
+	padding: 30px  @spacing-default 30px 30px;
+	margin: 0 @spacing-default;
+	
+	& > h3 {
+		line-height: 36px;
+		font-size: @title-large-s;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	& > h4 {
+		line-height: 28px;
+		font-size: @text-medium-m;
+	}
+	& > span {
+		font-style: italic;
+		color: @black;
+		font-size: @subtitle-large-s;
+		display: block;
+	}
+	& > .case-extract-button-container {
+		height: 36px;
+		width: 36px;
+		margin: 30px 0;
+	}
+
+	@media @screen-large {
+		position: absolute;
+		left: 0;
+		padding: 0 50px;
+		width: 100%;
+		padding-top: 60px;
+		max-width: @column-large-4;
+
+		& > h3 {
+			line-height: 70px;
+			font-size: @title-large-l;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+
+		& > h4 {
+			line-height: 38px;
+			font-size: @title-small-s;
+			margin-bottom: 50px;
+		}
+		& > span {
+			margin-bottom: 40px;
+		}
+		& > .case-extract-button-container {
+			height: 50px;
+			width: 50px;
+			margin-bottom: 60px;
+			
+			& > .btn-tertiary .icon svg {
+				margin-top: 0;
+			}
+		}
+	}
+}

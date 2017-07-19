@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ArrowRight from '../../icons/arrow-right/arrow-right';
 import ArrowDown from '../../icons/arrow-down/arrow-down';
 
 class ButtonTertiary extends React.Component {

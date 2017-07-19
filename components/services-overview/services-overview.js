@@ -16,7 +16,6 @@ class ServicesOverview extends React.Component {
 						{ props.items.map((service, index) => <ServicesItem key={index} index={index} data={service}/>) }
 					</ul>
 				</div>
-
 				<ShapesFront />
             </section>
         );

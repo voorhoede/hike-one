@@ -3,8 +3,14 @@
 .text-center {
     text-align: center;
     margin-bottom: 50px;
+	position: relative;
     @media @screen-medium {
         margin-bottom: 100px;
+    }
+}
+.text-center-spacing-large {
+    @media @screen-small {
+        margin-bottom: 130px;
     }
 }
 
@@ -41,7 +47,7 @@
 	line-height: 28px;
     font-weight: normal;
     color: @dark-gray;
-	
+
 	@media @screen-medium {
 		line-height: 44px;
 		font-size: @text-medium-l;
@@ -53,7 +59,7 @@
 	line-height: 28px;
 	font-weight: normal;
     color: @dark-gray;
-    
+
 	@media @screen-medium {
 		line-height: 36px;
 		font-size: @title-small-s;

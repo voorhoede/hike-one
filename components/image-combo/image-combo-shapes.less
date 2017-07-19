@@ -1,0 +1,57 @@
+@import (reference) '../../styles/variables';
+
+.image-combo-shapes-1 {
+	.shape-triangle-1 {
+		display: none;
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+
+		@media @screen-medium {
+			display: inline-block;
+			height: 56px;
+			left: 5%;
+			bottom: 100px;
+		}
+	}
+
+	.shape-triangle-2 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		height: 45px;
+		top: -125px;
+		left: 80%;
+	}
+}
+
+.image-combo-shapes-2 {
+	.shape-triangle-1 {
+		display: none;
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+
+		@media @screen-medium {
+			display: inline-block;
+			height: 35px;
+			left: 80%;
+			top: 0;
+		}
+	}
+
+	.shape-triangle-2 {
+		position: absolute;
+		max-width: 100%;
+		width: auto;
+		height: 35px;
+		left: 5%;
+		bottom: -200px;
+
+		@media @screen-medium {
+			height: 90px;
+			bottom: 0;
+			left: 15%;
+		}
+	}
+}

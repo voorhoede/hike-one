@@ -9,7 +9,7 @@ class ServicesItem extends React.Component {
 
     render() {
     	const data = this.props.data;
-    	const index = this.props.index;
+        const index = this.props.index;
         return (
             <li className="services-item clearfix">
                 <div className="services-item-info">

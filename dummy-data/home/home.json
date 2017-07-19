@@ -27,5 +27,25 @@
 	"caseExtractHeaderImage": "static/images/drop-fly-header.jpg",
 	"caseExtractType": "Case",
 	"caseExtractTitle": "Gone in 60 seconds",
-	"caseExtactSubtitle": "Good bye long  queues, hello Drop & Fly!"
+	"caseExtactSubtitle": "Good bye long  queues, hello Drop & Fly!",
+	"overviewItems" : [
+		{
+			"title" : "Rapid innovation",
+			"text": "Explore",
+			"shape": "diamond",
+			"color": "blue"
+		},
+		{
+			"title" : "Digital Product Design",
+			"text": "Let's go",
+			"shape": "doubleDiamond",
+			"color": "green"
+		},
+		{
+			"title" : "Design Management",
+			"text": "Push it",
+			"shape": "triangle",
+			"color": "purple"
+		}
+	]
 }

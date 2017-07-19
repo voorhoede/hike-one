@@ -8,7 +8,7 @@ import Contact from '../components/contact/contact';
 import HomeHero from '../components/home-hero/home-hero';
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
-import HomeBlockItem from '../components/home-block-item/home-block-item';
+import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import Data from '../dummy-data/home/home.json';
 
@@ -26,16 +26,7 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-large text-center-spacing-large"
 								text={Data.homeTextIntro} />
-						<div className="container clearfix">
-							<div className="container-inner">
-							{ 
-								Object.values(Data.overviewItems)
-									.map((item, index) => (
-										<HomeBlockItem {...item}  key={index} />
-									))
-							}
-							</div>
-						</div>
+						<ServicesOverviewSmall services={Data.overviewItems} />
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepTwo} />

@@ -1,6 +1,10 @@
 @import (reference) '../../styles/variables';
 
 .home-intro {
+	position: relative;
+}
+
+.home-intro-inner {
 	width: 100%;
 	max-width: @column-small-4;
 	height: 440px;
@@ -35,7 +39,7 @@
 .home-intro-heading {
 	max-width: @column-small-4;
 	margin: 0 auto;
-	padding: @spacing-default;	
+	padding: @spacing-default;
 	font-size: @title-large-s;
 	line-height: 34px;
 	text-align: center;
@@ -45,7 +49,7 @@
 		margin-top: @spacing-double;
 	}
 
-	@media @screen-medium {	
+	@media @screen-medium {
 		max-width: @column-large-8;
 		font-size: @title-large-l;
 		line-height: 70px;
@@ -62,7 +66,7 @@
 	text-align: center;
 	font-weight: @font-weight-normal;
 	color: @white;
-	
+
 	@media @screen-small {
 		font-size: @title-small-s;
 	}
@@ -70,5 +74,5 @@
 
 .home-intro-icon-container {
 	width: 45px;
-	margin: 0 auto 60px auto;	
+	margin: 0 auto 60px auto;
 }

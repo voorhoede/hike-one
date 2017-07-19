@@ -6,6 +6,8 @@ import Footer from '../components/footer/footer';
 
 import Contact from '../components/contact/contact';
 import HomeIntro from '../components/home-intro/home-intro';
+import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
+
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
@@ -20,7 +22,9 @@ class Home extends React.Component {
 					<Header color="black" />
 					<article className="article-full-width">
 						<HomeIntro
-								title={Data.heroHeading} 
+								parallaxLayerFront={ <HomeIntroShapes.FrontLayer1 /> }
+								parallaxLayerBack={ <HomeIntroShapes.BackLayer1 /> }
+								title={Data.heroHeading}
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />
 						<TextCenter

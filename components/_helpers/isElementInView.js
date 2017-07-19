@@ -7,7 +7,9 @@ const isElementInView = (element) => {
 	const elementTop = elBoundingRect.top + window.pageYOffset;
 	const elementBottom = elBoundingRect.bottom + window.pageYOffset;
 
-	return (bottomScreen >= elementTop || scrolledHeight >= elementBottom);
+	return scrolledHeight >= elementTop && scrolledHeight <= elementBottom ||
+		 	bottomScreen <= elementBottom && bottomScreen >= elementTop ||
+			scrolledHeight <= elementTop && bottomScreen >= elementBottom;
 };
 
 export default isElementInView;

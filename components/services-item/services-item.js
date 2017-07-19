@@ -11,7 +11,7 @@ class ServicesItem extends React.Component {
     	const data = this.props.data;
         const index = this.props.index;
         return (
-            <li className={`services-item clearfix ${ this.props.classes ?  this.props.classes : ''} `}>
+            <li className="services-item clearfix">
                 <div className="services-item-info">
                     <h3 className="services-item-heading content">{data.title}</h3>
                     <p className="services-item-text content">{data.text}</p>

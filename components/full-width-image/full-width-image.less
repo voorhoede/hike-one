@@ -18,13 +18,31 @@
     }
 }
 
+.full-width-image-inner {
+	top: 0;
+	position: fixed;
+	height: 600px;
+	width: 100%;
+	overflow: hidden;
+
+	@media @screen-medium {
+		height: 700px;
+	}
+
+	@media @screen-large {
+		height: 800px;
+	}
+}
+
 .full-width-image-background {
 	position: absolute;
 	left: 0;
 	right: 0;
+	top: 0;
+	bottom: 0;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
 	background-size: cover;
+	background-position: center center;
 }
 
 .full-width-image-text {

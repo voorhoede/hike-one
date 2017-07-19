@@ -5,7 +5,7 @@ import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
 import Contact from '../components/contact/contact';
-import HomeHero from '../components/home-hero/home-hero';
+import HomeIntro from '../components/home-intro/home-intro';
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
@@ -19,7 +19,7 @@ class Home extends React.Component {
 				<main className="main js-main">
 					<Header color="black" />
 					<article className="article-full-width">
-						<HomeHero
+						<HomeIntro
 								title={Data.heroHeading} 
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />

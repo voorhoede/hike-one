@@ -9,7 +9,8 @@ class parallax extends React.Component {
 		super();
 		this.onScroll = this.onScroll.bind(this);
 		this.onResize = this.onResize.bind(this);
-		this.animateLayers = this.animateLayers.bind(this);
+		this.getYOffset = this.getYOffset.bind(this);
+		this.setYOffset = this.setYOffset.bind(this);
 		this.setInitialOffSet = this.setInitialOffSet.bind(this);
 		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
 		this.ticking = false;
@@ -37,7 +38,8 @@ class parallax extends React.Component {
 		// update an animation before the next repaint with requestAnimationFrame
 		if (!this.ticking) {
 			window.requestAnimationFrame(() => {
-				this.animateLayers();
+				const YOffSet = this.getYOffset();
+				this.setYOffset(YOffSet);
 				this.ticking = false;
 			});
 		}
@@ -68,12 +70,14 @@ class parallax extends React.Component {
 		// add debounce for resize so it fires only add the end of resize
 		clearTimeout(this.resizeTimer);
 		this.resizeTimer = setTimeout(() => {
+			this.initialScrollHeight = null;
 			this.setInitialOffSet();
-			this.animateLayers();
+			const YOffSet = this.getYOffset();
+			this.setYOffset(YOffSet, true);
 		}, 250);
 	}
 
-	animateLayers() {
+	getYOffset() {
 		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 		// only animate element when in view
@@ -87,10 +91,12 @@ class parallax extends React.Component {
 		// calculate relative scroll height
 		let relativeScroll = scrolledHeight - this.initialScrollHeight;
 
-		// calculate y offset
-		const yOffset = relativeScroll * this.speed + this.elementOffset;
+		// calculate y offset and return it
+		return relativeScroll * this.speed + this.elementOffset;
+	}
 
-		if (this.duration === 0) {
+	setYOffset(yOffset, noAnimation) {
+		if (this.duration === 0 || noAnimation) {
 			// don't use tweenlite if animation is instant
 			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
 		} else {

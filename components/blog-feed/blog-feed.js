@@ -1,4 +1,4 @@
-
+import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
 
 const BlogFeed = ({ blogImage, title, subtitle, date }) => {
 	return (
@@ -8,8 +8,10 @@ const BlogFeed = ({ blogImage, title, subtitle, date }) => {
 				<h3>{subtitle}</h3>
 				<h2>{title}</h2>
 				<span>{date}</span>
+				<ButtonTertiary classes="btn-white" iconType="arrowRight" />
 			</div>
 		</div>
 	) 
 }
+
 export default BlogFeed;

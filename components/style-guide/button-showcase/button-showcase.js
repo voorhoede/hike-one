@@ -31,7 +31,7 @@ class ButtonShowcase extends React.Component {
                     <div className="style-guide-column-two">
                         <div>
 							<h3 className="style-guide-sub-title">Tertiary button</h3>
-                            <ButtonTertiary href="#" value="More about our story" />
+                            <ButtonTertiary href="#" value="More about our story" iconType="arrowDown" />
                         </div>
                     </div>
 

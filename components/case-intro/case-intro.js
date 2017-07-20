@@ -74,7 +74,7 @@ class CaseIntro extends React.Component {
 					<div className="case-intro-parallax" ref={node => this.parallaxLayer = node}>
 						<h1 className="case-intro-title">{props.title}</h1>
 						<p className="case-intro-subtitle">{props.subtitle}</p>
-						<ButtonTertiary />
+						<ButtonTertiary iconType="arrowDown" />
 					</div>
 				</div>
 			</section>

@@ -1,0 +1,148 @@
+
+@import (reference) '../../styles/variables';
+
+.case-extract {
+	padding: 0;
+	position: relative;
+	
+	@media @screen-medium {
+		max-width: @column-large-10;
+	}
+}
+
+.case-extract-image-container {
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 220px;
+	margin-bottom: 40px;
+	@media @screen-medium {
+		height: 440px;
+	}
+
+	@media @screen-large {
+		margin-left: auto; 
+		height: 600px;
+		margin-bottom: 60px;
+		max-width: @column-large-9;
+	}
+}
+
+.case-extract-text-container {
+	position: relative;
+	top: -45px;
+	max-width: @column-small-4;
+	background-color: @red;
+	color: @white;
+	padding: 30px @spacing-default 30px 30px;
+	margin: 0 @spacing-default;
+	
+	& > h3 {
+		line-height: 36px;
+		font-size: @title-large-s;
+		font-weight: bold;
+		margin-bottom: 20px;
+	}
+
+	& > h4 {
+		line-height: 28px;
+		font-size: @text-medium-m;
+		margin-bottom: 30px;
+	}
+	
+	& > span {
+		margin-bottom: 20px;
+		font-style: italic;
+		color: @black;
+		font-size: @subtitle-large-s;
+		display: block;
+	}
+	
+	@media @screen-medium {
+		max-width: 100%;
+		margin: 0 @spacing-double;
+	}
+
+	@media @screen-large {
+		position: absolute;
+		left: 0;
+		padding: 0 50px;
+		width: 100%;
+		padding-top: 60px;
+		max-width: @column-large-4;
+		top: -60px;
+		margin: 0;
+
+		& > h3 {
+			line-height: 70px;
+			font-size: @title-large-l;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+
+		& > h4 {
+			line-height: 38px;
+			font-size: @title-small-s;
+			margin-bottom: 50px;
+		}
+
+		& > span {
+			margin-bottom: 40px;
+			font-size: @title-small-s;
+		}
+	}
+}
+
+.case-extract-button-container {
+		margin: 30px 0 0 0;
+
+		& > .btn-tertiary .icon svg {
+			margin-top: 0;
+			height: 37px;
+			width: 37px;
+		}
+		
+		@media @screen-large {
+			margin-bottom: 60px;
+	
+			& > .btn-tertiary .icon svg{
+				height: 50px;
+				width: 50px;
+				padding: 16px;
+			}
+		}
+}
+
+.case-extract-link {
+    margin: 0% auto;
+	text-align: center;
+	font-size: @text-medium-m;
+	font-weight: bold;
+	width: 250px;
+    padding: 0 @spacing-double;
+
+	@media @screen-large {
+		font-size: @text-medium-s;
+	}
+}
+
+.case-extract-link-text {
+	color: @red;
+	text-decoration: none;
+	float: left;
+	position: relative;
+	width: 100%;
+	& > span {
+		float: left;
+	}
+	& >.case-extract-link-button {
+		float: left;
+	    padding-left: 15px;
+
+		& > .btn-tertiary .icon svg {
+			margin-top: 0;
+			width: 14px;
+			height: 14px;
+		}
+	}
+}
+

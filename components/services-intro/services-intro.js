@@ -30,7 +30,8 @@ class ServicesIntro extends React.Component {
 					<ButtonTertiary
 						value={props.buttonLabel}
 						onClick={this.handleOnClick}
-						classes="content" />
+						classes="content" 
+						iconType="arrowDown"/>
 				</div>
 				<ShapesFront />
             </section>

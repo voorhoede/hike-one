@@ -24,7 +24,10 @@
 	"homeTextIntro": "We are Hike One, your favourite digital design agency. Ready to guide you on your hikes to new and better digital products.",
 	"homeTextStepTwo": "Because innovation is a journey through unmapped terrain, a hike will take you further than a fixed strategy that might get broken on the first obstacle. Every hike is unique, that is the beauty of it. See for yourself.",
 	"homeTextStepThree": "Innovation is what happens, while you are busy writing mission statements. Here’s what’s happening at Hike One:",
-	"contactTitle": "Where will your journey lead us?",
+	"caseExtractHeaderImage": "static/images/drop-fly-header.jpg",
+	"caseExtractType": "Case",
+	"caseExtractTitle": "Gone in 60 seconds",
+	"caseExtactSubtitle": "Good bye long  queues, hello Drop & Fly!",
 	"overviewItems" : [
 		{
 			"title" : "Rapid innovation",
@@ -44,5 +47,9 @@
 			"shape": "triangle",
 			"color": "purple"
 		}
-	]
+	],
+	"linkWork" : {
+		"text": "Explore all work",
+		"target": "/case"
+	}
 }

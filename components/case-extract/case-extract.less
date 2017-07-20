@@ -4,9 +4,13 @@
 .case-extract {
 	padding: 0;
 	position: relative;
-	
+	height: 545px;
 	@media @screen-medium {
 		max-width: @column-large-10;
+		height: 720px;
+	}
+	@media @screen-large {
+		height: 100%;
 	}
 }
 
@@ -29,7 +33,9 @@
 
 .case-extract-text-container {
 	position: relative;
-	top: -45px;
+	top: -89px;
+	text-decoration: none;
+	display: inline-block;
 	max-width: @column-small-4;
 	background-color: @red;
 	color: @white;
@@ -58,8 +64,10 @@
 	}
 	
 	@media @screen-medium {
-		max-width: 100%;
+		max-width: 94%;
+		width: 100%;
 		margin: 0 @spacing-double;
+		top: -90px;
 	}
 
 	@media @screen-large {
@@ -94,11 +102,12 @@
 
 .case-extract-button-container {
 		margin: 30px 0 0 0;
-
+		
 		& > .btn-tertiary .icon svg {
 			margin-top: 0;
 			height: 37px;
 			width: 37px;
+			padding: 9px;
 		}
 		
 		@media @screen-large {
@@ -107,7 +116,7 @@
 			& > .btn-tertiary .icon svg{
 				height: 50px;
 				width: 50px;
-				padding: 16px;
+				padding: 15px;
 			}
 		}
 }
@@ -131,6 +140,7 @@
 	float: left;
 	position: relative;
 	width: 100%;
+
 	& > span {
 		float: left;
 	}

@@ -5,11 +5,11 @@ const FiftyFifty = ({classes, image, title = '', text = '', noshadow, parallaxLa
 			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-image">
-					<img className={`${noshadow ? 'no-shadow' : 'shadow-low-opacity'}` } src={image} alt="" />
+					<img className={`content ${noshadow ? 'no-shadow' : 'shadow-low-opacity'}` } src={image} alt="" />
 				</div>
 				<div className="fifty-fifty-content">
-					<h2 className="fifty-fifty-title">{title}</h2>
-					<p className="fifty-fifty-text">{text}</p>
+					<h2 className="fifty-fifty-title content">{title}</h2>
+					<p className="fifty-fifty-text content">{text}</p>
 				</div>
 			</div>
 			{parallaxLayerFront}

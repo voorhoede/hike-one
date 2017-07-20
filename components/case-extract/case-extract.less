@@ -99,7 +99,6 @@
 			margin-top: 0;
 			height: 37px;
 			width: 37px;
-			transform: rotate(-91deg);
 		}
 		
 		@media @screen-large {
@@ -108,21 +107,42 @@
 			& > .btn-tertiary .icon svg{
 				height: 50px;
 				width: 50px;
-				transform: rotate(-91deg);
+				padding: 16px;
 			}
 		}
 }
 
 .case-extract-link {
+    margin: 0% auto;
 	text-align: center;
 	font-size: @text-medium-m;
 	font-weight: bold;
-	
-	& > a {
-		color: @red;
-		text-decoration: none;
-	}
+	width: 250px;
+    padding: 0 @spacing-double;
+
 	@media @screen-large {
 		font-size: @text-medium-s;
 	}
 }
+
+.case-extract-link-text {
+	color: @red;
+	text-decoration: none;
+	float: left;
+	position: relative;
+	width: 100%;
+	& > span {
+		float: left;
+	}
+	& >.case-extract-link-button {
+		float: left;
+	    padding-left: 15px;
+
+		& > .btn-tertiary .icon svg {
+			margin-top: 0;
+			width: 14px;
+			height: 14px;
+		}
+	}
+}
+

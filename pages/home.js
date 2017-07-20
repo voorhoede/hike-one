@@ -6,7 +6,7 @@ import Footer from '../components/footer/footer';
 
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
-import HomeHero from '../components/home-hero/home-hero';
+import HomeIntro from '../components/home-intro/home-intro';
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';

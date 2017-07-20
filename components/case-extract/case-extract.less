@@ -14,7 +14,7 @@
 	background-size: cover;
 	background-position: 50% 50%;
 	height: 220px;
-	
+	margin-bottom: 40px;
 	@media @screen-medium {
 		height: 440px;
 	}
@@ -22,6 +22,7 @@
 	@media @screen-large {
 		margin-left: auto; 
 		height: 600px;
+		margin-bottom: 60px;
 		max-width: @column-large-9;
 	}
 }
@@ -110,4 +111,18 @@
 				transform: rotate(-91deg);
 			}
 		}
+}
+
+.case-extract-link {
+	text-align: center;
+	font-size: @text-medium-m;
+	font-weight: bold;
+	
+	& > a {
+		color: @red;
+		text-decoration: none;
+	}
+	@media @screen-large {
+		font-size: @text-medium-s;
+	}
 }

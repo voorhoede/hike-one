@@ -47,5 +47,9 @@
 			"shape": "triangle",
 			"color": "purple"
 		}
-	]
+	],
+	"linkWork" : {
+		"text": "Explore all work",
+		"target": "/case"
+	}
 }

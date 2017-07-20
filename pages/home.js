@@ -35,7 +35,8 @@ class Home extends React.Component {
 								headerImage={Data.caseExtractHeaderImage}
 								title={Data.caseExtractTitle}
 								subtitle={Data.caseExtactSubtitle}
-								type={Data.caseExtractType} />
+								type={Data.caseExtractType}
+								link={Data.linkWork} />
 
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"

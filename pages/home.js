@@ -50,17 +50,18 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepThree} />
-						<BlogFeed 
-								title={Data.blogTitle}
-								subtitle={Data.blogSubtitle}
-								date={Data.blogDate}
-								blogImage={Data.blogImage}/>
+						<div className="container">
+							<div className="container-inner">
+								<BlogFeed 
+									title={Data.blogTitle}
+									subtitle={Data.blogSubtitle}
+									date={Data.blogDate}
+									blogImage={Data.blogImage}/>
+							</div>
+						</div>
 						<Contact
 								title={Data.contactTitle}
 								button={Data.contactButton} />
-						<ReadMore
-							highlight={Data.readMore.highlight}
-							links={Data.readMore.links} />
 					</article>
 					<Footer />
 				</main>

@@ -7,8 +7,10 @@ const BlogFeed = ({ blogImage, title, subtitle, date }) => {
 			<div className="blog-feed-text-container">
 				<h3>{subtitle}</h3>
 				<h2>{title}</h2>
-				<span>{date}</span>
-				<ButtonTertiary classes="btn-white" iconType="arrowRight" />
+				<div className="blog-feed-footer-container">
+					<span>{date}</span>
+					<ButtonTertiary classes="btn-white" iconType="arrowRight" />
+				</div>
 			</div>
 		</div>
 	) 

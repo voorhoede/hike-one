@@ -2,10 +2,10 @@
 
 .blog-feed {
 	width: 100%;
-	
 	margin-right: @spacing-default;
 	margin-bottom: 10px;
 	background: @green;
+
 	@media @screen-small {
 		width: 50%;	
 	}
@@ -32,6 +32,7 @@
 	color: @white;
 	text-align: left;
 	height: 100%;
+
 	& > h3 {
 		margin: 20px 0;
 		font-size: @title-small-s;
@@ -39,20 +40,16 @@
 		font-weight: normal;
 		font-style: italic;
 	}
+
 	& > h2 {
 		margin: 20px 0;
 		line-height: 24px;
 		font-size: @subtitle-large-s;
 	}
-	& > span {
-		margin-bottom: 20px;
-		font-weight: normal;
-		font-size: 12px;
-		display: block;
-	}
 
 	@media @screen-large {
 		padding: 0 @spacing-double;
+
 		& > h3 {
 			margin: 40px 0;
 			font-size: @title-small-s;
@@ -62,6 +59,31 @@
 			line-height: 44px;
 			font-size: @text-medium-l;
 		}
+	}
+}
+.blog-feed-footer-container {
+	text-align: left;
+	width:100%;
+	height: 75px;
+	
+	& > button {
+		float: right;
+
+		
+	}
+	& > .btn-tertiary .icon svg{
+			margin-top: 0;
+	}
+
+	& > span {
+		float:left;
+		margin-bottom: 20px;
+		font-weight: normal;
+		font-size: 12px;
+		display: block;
+	}
+	@media @screen-large {
+		
 		& > span {
 			margin-bottom: 25px;
 			font-weight: normal;

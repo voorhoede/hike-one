@@ -51,5 +51,10 @@
 	"linkWork" : {
 		"text": "Explore all work",
 		"target": "/case"
-	}
+	},
+	"blogImage": "static/images/blog-update.png",
+	"blogTitle": "I Used Phishing To Get My Colleagues’ Passwords. This Is What I Did.",
+	"blogSubtitle": "Update",
+	"blogDate": "Jul 4, 2017"
+
 }

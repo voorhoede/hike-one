@@ -1,0 +1,21 @@
+@import (reference) '../../styles/variables';
+
+.social-feed-large {
+	width: 100%;
+
+}
+.social-feed-large-image {
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	width: 100%;
+	height: 220px;
+	
+	@media @screen-small {
+		width: 100%;
+		height: 264px;
+	}
+	@media @screen-large {
+		height: 390px;
+	}
+}

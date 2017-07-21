@@ -2,8 +2,71 @@
 
 .social-feed-large {
 	width: 100%;
-
+	margin-bottom: 10px;
+	float: right;
+	@media @screen-small {
+		width: 48%;
+	}
+	@media @screen-large {
+		width: 48.71%;
+	}
 }
+
+.social-feed-large-text {
+	background: @blue;
+	padding: 20px 16px;
+	width: 100%;
+	float: left;
+	color: @white;
+	position: relative;
+
+	& > h4 {
+		font-style: italic;
+		font-size: 14px;
+		margin-bottom: 20px;
+	}
+
+	& > h3 {
+		margin-bottom: 40px;
+		line-height: 24px;
+		font-size: @subtitle-large-s;
+		
+	}
+	
+	& > span {
+		font-size: @text-medium-s;
+	}
+	& > svg {
+		width: 24px;
+		height : 24px;
+		position: absolute;
+		right: 15px; 
+		bottom: 15px;
+		& > path {
+			fill: @white;
+		}
+	}
+	
+	@media @screen-small {
+		height: 233px;
+		& > h4 {
+			margin-bottom: 20px;
+			font-size: @title-small-s;
+		}
+		
+		& > h3 {
+			line-height: 28px;
+			font-size: @subtitle-large-m;
+		}
+	}
+
+	@media @screen-large {
+		width: 50%;
+		height: 265px;
+		padding: 40px 20px 25px 30px;
+	}
+}
+
 .social-feed-large-image {
 	background-size: cover;
 	background-position: 50% 50%;
@@ -13,9 +76,13 @@
 	
 	@media @screen-small {
 		width: 100%;
-		height: 264px;
+		float: left;
+		height: 265px;
 	}
+
 	@media @screen-large {
-		height: 390px;
+		height: 265px;
+		width: 50%;
 	}
+
 }

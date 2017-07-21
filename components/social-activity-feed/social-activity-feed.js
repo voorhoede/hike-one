@@ -12,11 +12,15 @@ const socialActivityFeed = () => {
 							subtitle={Data.blogSubtitle}
 							date={Data.blogDate}
 							blogImage={Data.blogImage} />
+				<SocialFeedLarge
+					title={Data.twitterTitle}
+					subtitle={Data.twitterSubtitle}
+					date={Data.twitterDate}
+					twitterImage={Data.twitterImage} />
 				<SocialFeedSmall 
 					socialImagesFirst={Data.socialImagesFirst} 
 					socialImagesSecond={Data.socialImagesSecond} />
-				<SocialFeedLarge
-					twitterImage={Data.twitterImage} />
+			
 			</div>
 		</div>
 	)

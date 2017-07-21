@@ -61,5 +61,22 @@
 	"twitterImage": "static/images/intra-feed.jpg",
 	"twitterTitle": "Oh hi! @HikeOne company vehicle",
 	"twitterSubtitle": "@HikeOne",
-	"twitterDate": "Jul 4, 2017"
+	"twitterDate": "Jul 4, 2017",
+	"events": [
+		{
+			"title": "Design Sprint guru’s",
+			"dateTime": "Jul 18, 17:30 - 19:30",
+			"location": "Hike One Amsterdam"
+		},
+		{
+			"title": "UX Cocktail Hour",
+			"dateTime": "Jul 18, 17:30 - 19:30",
+			"location": "Hike One Rotterdam"
+		}
+	],
+	"eventsLink": {
+		"target": "/events",
+		"text": "Future events"
+	},
+	"eventsSubtitle": "Meet us"
 }

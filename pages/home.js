@@ -4,7 +4,7 @@ import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
-import BlogFeed from '../components/blog-feed/blog-feed';
+import SocialAcitvityFeed from '../components/social-activity-feed/social-activity-feed';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import HomeIntro from '../components/home-intro/home-intro';
@@ -50,15 +50,7 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepThree} />
-						<div className="container">
-							<div className="container-inner">
-								<BlogFeed 
-									title={Data.blogTitle}
-									subtitle={Data.blogSubtitle}
-									date={Data.blogDate}
-									blogImage={Data.blogImage}/>
-							</div>
-						</div>
+						<SocialAcitvityFeed />
 						<Contact
 								title={Data.contactTitle}
 								button={Data.contactButton} />

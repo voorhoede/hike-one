@@ -10,10 +10,8 @@ node_modules
 # npm cruft
 npm-debug.log
 
-# dist
-.next
-
-# generated styles
+# compiled files
+build/
 static/styles
 
 # data

@@ -11,6 +11,7 @@ class Home extends React.Component {
 				<Header/>
 				<main className="container main js-main">
 					<article className="article article-index">
+						<ButtonSecondaryLink value="Guide" href="/guide/"/>
 						<ButtonSecondaryLink value="StyleGuide" href="/style-guide"/>
 						<ButtonSecondaryLink value="Case" href="/case"/>
 						<ButtonSecondaryLink value="Home" href="/home"/>

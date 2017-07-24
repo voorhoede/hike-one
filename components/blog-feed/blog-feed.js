@@ -1,4 +1,4 @@
-import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
+import ButtonTertiaryLink from '../buttons/button-tertiary/button-tertiary-link';
 
 const BlogFeed = ({ blogImage, title, subtitle, date }) => {
 	return (
@@ -10,7 +10,7 @@ const BlogFeed = ({ blogImage, title, subtitle, date }) => {
 				<h2>{title}</h2>
 				<div className="blog-feed-footer-container">
 					<span>{date}</span>
-					<ButtonTertiary classes="btn-white" iconType="arrowRight" />
+					<ButtonTertiaryLink href="#blog" classes="btn-white" iconType="arrowRight" />
 				</div>
 			</div>
 		</div>

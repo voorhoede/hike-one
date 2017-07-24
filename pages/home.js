@@ -4,6 +4,7 @@ import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
+import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import HomeIntro from '../components/home-intro/home-intro';
 import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
@@ -38,6 +39,13 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepTwo} />
+						<CaseExtract 
+								headerImage={Data.caseExtractHeaderImage}
+								title={Data.caseExtractTitle}
+								subtitle={Data.caseExtactSubtitle}
+								type={Data.caseExtractType}
+								link={Data.linkWork} />
+
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepThree} />

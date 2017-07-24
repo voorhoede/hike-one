@@ -50,7 +50,7 @@ class Case extends React.Component {
 								text={Data.introText} >
 							</TextCenter>
 
-							{ Data.content.map((component, index) => {
+							{ Data.components.map((component, index) => {
 								switch (component.itemType) {
 									case '30_50_text_right':
 										return (

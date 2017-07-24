@@ -37,6 +37,20 @@
 	padding-bottom: 2rem;
 }
 
+.case-intro-video {
+	display: none;
+	object-fit: cover;
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	@media @screen-medium {
+		display: block;
+	}
+}
+
 .case-intro-title {
     color: @white;
     font-weight: @font-weight-bold-extra;

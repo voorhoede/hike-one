@@ -1,4 +1,5 @@
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
+import ArrowDown from '../icons/arrow-down/arrow-down';
 
 const SocialFeedEvents = ({ subtitle, events, link}) => {
 	return (
@@ -9,7 +10,10 @@ const SocialFeedEvents = ({ subtitle, events, link}) => {
 					return (
 						<div className="social-event" key={index}>
 							<h3 className="social-event-header">{event.title}</h3>
-							<span className="social-event-text-small">{event.dateTime}</span>
+							<span className="social-event-text-small">
+								<span className="icon-small icon-white">
+									<ArrowDown />
+								</span> {event.dateTime}</span>
 							<span className="social-event-text-large">{event.location}</span>
 							<ButtonSecondary classes="btn-white" href="#" value="Register" />
 							<div className="social-event-divider"></div>

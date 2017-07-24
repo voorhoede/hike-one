@@ -10,11 +10,11 @@ const SocialFeedEvents = ({ subtitle, events, link}) => {
 					return (
 						<div className="social-event" key={index}>
 							<h3 className="social-event-header">{event.title}</h3>
-							<span className="social-event-text-small">
+							<span className="social-event-text-small">{event.dateTime}</span>
+							<span className="social-event-text-large">
 								<span className="icon-small icon-white">
 									<ArrowDown />
-								</span> {event.dateTime}</span>
-							<span className="social-event-text-large">{event.location}</span>
+								</span> {event.location}</span>
 							<ButtonSecondary classes="btn-white" href="#" value="Register" />
 							<div className="social-event-divider"></div>
 						</div>
@@ -22,7 +22,7 @@ const SocialFeedEvents = ({ subtitle, events, link}) => {
 				})
 			}
 			<div className="social-event-footer">
-				<ButtonSecondary classes="" href="#" value="Future events" />
+				<ButtonSecondary classes="btn-clean btn-white" href="#" value="Future events" />
 			</div>
 		</div>
 	)

@@ -40,8 +40,12 @@
 	& > button {
 		margin-bottom: 35px;
 	}
-
+	@media @screen-small {
+		width: 50%;
+		float: left;
+	}
 	@media @screen-large {
+		width: 100%;
 		text-align: left;
 		height: 201px;
 		& > button {
@@ -96,9 +100,15 @@
 	
 	& > button {
 		margin: 25px auto;	
+		position: relative;
+    	top: 5px;
 	}
-
+	@media @screen-small {
+		float:left;
+		border-top: 1px solid @white;
+	}
 	@media @screen-large {
+		border-top: 0;
 		& > button {
 			margin: 22px auto;	
 		}	
@@ -110,7 +120,11 @@
 	height: 2px;
 	border-bottom: 1px solid @white;
 	margin-top: 0;
+	@media @screen-small {
+		border-bottom: 0;
+	}
 	@media @screen-large {
+		border-bottom: 1px solid @white;
 		bottom: 110px;
 		margin-top: 30px;
 		position: relative;

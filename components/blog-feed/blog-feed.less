@@ -29,22 +29,30 @@
 }
 
 .blog-feed-text-container {
+	width: 100%;
+	position: relative;
 	padding: 0 @spacing-default;
 	color: @white;
 	text-align: left;
 	height: 100%;
+	max-height: 150px;
 	background: @green;
 
 	& > h3 {
-		font-size: @title-small-s;
-		color: @dark-gray;
-		font-weight: normal;
+		font-size: @subtitle-small-s;
+		color: @black-grey;
+		line-height: 17px;
+		padding-top: 20px;
+		margin-bottom: 10px;
+		font-weight: 500;
 		font-style: italic;
+		
 	}
 
 	& > h2 {
 		line-height: 24px;
 		font-size: @subtitle-large-s;
+		margin-bottom: 10px;
 	}
 
 	@media @screen-small {
@@ -55,33 +63,36 @@
 	@media @screen-large {
 		padding: 0 @spacing-double;
 		height: 100%;
-		max-height: 266px;
+		min-height: 266px;
 
 		& > h3 {
 			font-size: @title-small-s;
+			padding-top: 40px;
+			line-height: 20px;
+			margin-bottom: 20px;
 		}
 		& > h2 {
-			line-height: 44px;
+			line-height: 38px;
+			margin-bottom: 24px;
 			font-size: @text-medium-l;
 		}
 	}
 }
 
 .blog-feed-footer-container {
-	text-align: left;
+	position: relative;
 	width: 100%;
 	height: 75px;
-	position: relative;
-	top: 40px;
+	text-align: left;
 	
 	& > button {
 		float: right;
 		position: relative;
-		bottom: 10px;
+		bottom: 0px;
 		right: 0;
 	}
 
-	& > .btn-tertiary .icon svg{
+	& > .btn-tertiary .icon svg {
 		margin-top: 0;
 		padding: 7px;
 		height: 28px;
@@ -90,22 +101,50 @@
 
 	& > span {
 		float:left;
-		font-weight: normal;
+		font-weight: 500;
 		font-size: 12px;
 		display: block;
 	}
 
-	@media @screen-large {		
-		top: 0;
+	@media @screen-small {
+	    position: relative;
+		height: 33px;
+		bottom: 0;
+		padding-bottom: 45px;
+	}
 
+	@media @screen-medium {
+		top: 80px;
+	}
+
+	@media @screen-large {		
+		position: relative;
+		top: 0;
 		& > button {
 			height: 25px;
 			right: -15px;
 		}
 		& > span {
-			font-weight: normal;
+			font-weight: 500;
 			font-size: @text-medium-s;
 			display: block;
 		}
+	}
+}
+
+.blog-feed-triangle {
+	position: absolute;
+    top: -15px;
+    left: 16px;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid @green;
+
+	@media @screen-large {
+		top: -30px;
+		left: 30px;
+		border-top: 30px solid transparent;
+		border-bottom: 30px solid transparent;
+		border-left: 30px solid @green;
 	}
 }

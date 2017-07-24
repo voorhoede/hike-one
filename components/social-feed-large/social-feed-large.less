@@ -71,7 +71,6 @@
 
 	@media @screen-large {
 		width: 50%;
-		// height: 200px;
 		height: 256px;
 		padding: 40px 20px 25px 30px;
 	}
@@ -91,9 +90,25 @@
 	}
 
 	@media @screen-large {
-		// height: 200px;
 		height: 256px;
 		width: 50%;
 	}
+}
+.social-feed-large-triangle {
+	position: absolute;
+    top: -15px;
+    left: 16px;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid @blue;
 
+	@media @screen-large {
+		top: 20px;
+		left: -20px;
+		width: 0; 
+		height: 0; 
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-top: 20px solid @blue;
+	}
 }

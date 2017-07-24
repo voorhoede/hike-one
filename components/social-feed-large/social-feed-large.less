@@ -6,11 +6,17 @@
 	float: right;
 	
 	@media @screen-small {
-		width: 48%;
+		// width: 48%;
+		width: 50%;
+		padding-right: 10px;
+		&:nth-child(2n) {
+			padding-right: 0;
+		}
 	}
 	@media @screen-large {
 		// width: 48.71%;
-		width: 49%;
+		// width: 49%;
+		width: 50%;
 	}
 }
 

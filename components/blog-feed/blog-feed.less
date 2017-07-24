@@ -1,13 +1,14 @@
 @import (reference) '../../styles/variables';
 
 .blog-feed {
-	width: 100%;
-	margin-right: @spacing-default/2;
-	margin-bottom: 10px;
-	background: @green;
 	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+	
 	@media @screen-small {
 		width: 50%;	
+		padding-right: 10px;
+		
 	}
 }
 
@@ -23,8 +24,6 @@
 		height: 200px;
 	}
 	@media @screen-large {
-		// height: 390px;
-		// height: 200px;
 		height: 268px;
 	}
 }
@@ -34,9 +33,9 @@
 	color: @white;
 	text-align: left;
 	height: 100%;
+	background: @green;
 
 	& > h3 {
-		margin: 20px 0;
 		font-size: @title-small-s;
 		color: @dark-gray;
 		font-weight: normal;
@@ -44,32 +43,42 @@
 	}
 
 	& > h2 {
-		margin: 20px 0;
 		line-height: 24px;
 		font-size: @subtitle-large-s;
 	}
 
+	@media @screen-small {
+		height: 100%;
+		min-height: 233px;
+	}
+
 	@media @screen-large {
 		padding: 0 @spacing-double;
-		height: 254px;
+		height: 100%;
+		max-height: 266px;
+
 		& > h3 {
-			margin: 40px 0;
 			font-size: @title-small-s;
 		}
 		& > h2 {
-			margin: 40px 0;
 			line-height: 44px;
 			font-size: @text-medium-l;
 		}
 	}
 }
+
 .blog-feed-footer-container {
 	text-align: left;
 	width: 100%;
 	height: 75px;
+	position: relative;
+	top: 40px;
 	
 	& > button {
 		float: right;
+		position: relative;
+		bottom: 10px;
+		right: 0;
 	}
 
 	& > .btn-tertiary .icon svg{
@@ -81,15 +90,19 @@
 
 	& > span {
 		float:left;
-		margin-bottom: 20px;
 		font-weight: normal;
 		font-size: 12px;
 		display: block;
 	}
 
 	@media @screen-large {		
+		top: 0;
+
+		& > button {
+			height: 25px;
+			right: -15px;
+		}
 		& > span {
-			margin-bottom: 25px;
 			font-weight: normal;
 			font-size: @text-medium-s;
 			display: block;

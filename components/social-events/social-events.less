@@ -1,0 +1,80 @@
+@import (reference) '../../styles/variables';
+
+.social-events {
+	width: 100%;
+	float: left;
+	background-color: @purple;
+	color: @white;
+	padding: 20px 0 33px 0;
+
+	@media @screen-large {
+		position: relative;
+		bottom: 277px;
+		width: 50%;
+		text-align: left;
+	}
+	
+}
+.social-event-subheader {
+	width: 100%;
+	margin-left: 16px;
+	font-style: italic;
+	text-align: left;
+	margin-bottom: 0;
+}
+
+.social-event {
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid @white;
+	padding: 30px 16px 35px 16px;
+	
+	@media @screen-large {
+		text-align: left;
+		height: 201px;
+		& > button {
+			&:hover{
+				background: transparent;
+			}
+		    position: relative;
+			bottom: 110px;
+			left: 350px;
+		}
+	}
+}
+
+.social-event-header {
+	font-size: @title-large-s;
+	margin-bottom: 0;
+}
+
+.social-event-text-small {
+	width: 100%;
+	display: block;
+	font-size: 14px;
+	line-height: 42px;
+}
+
+.social-event-text-large {
+	width: 100%;
+	display: block;
+	font-weight: bold;
+	font-size: @text-medium-s;
+	margin-bottom: 30px;
+}
+
+.social-event-footer {
+	width: 100%;
+	background: @purple;
+	text-align: center;
+	
+	& > button {
+		margin: 0;
+		padding: 25px 0 0 0;
+		border: none;
+		color: @white;
+		& > .icon > svg > path {
+			fill: @white;
+		}
+	}
+}

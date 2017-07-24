@@ -1,15 +1,16 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
+const noop = () => {}
 
-class PrimaryButton extends React.Component {
-    render() {
-        return (
-			<button
-				onClick={this.props.onClick}
-				className={`btn-primary ${this.props.classes ? this.props.classes: ''}`}>
-				{ this.props.value }
-			</button>
-        );
-    }
+const PrimaryButton = ({ className, onClick = noop, children }) => (
+	<button className={ `btn-primary ${className}` } onClick={ onClick }>
+		{ children }
+	</button>
+)
+
+PrimaryButton.PropTypes = {
+	className: PropTypes.string,
+	onClick: PropTypes.func
 }
 
 export default PrimaryButton;

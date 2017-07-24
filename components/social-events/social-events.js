@@ -11,13 +11,14 @@ const SocialFeedEvents = ({ subtitle, events, link}) => {
 							<h3 className="social-event-header">{event.title}</h3>
 							<span className="social-event-text-small">{event.dateTime}</span>
 							<span className="social-event-text-large">{event.location}</span>
-							 <ButtonSecondary classes="btn-white" href="#" value="Register" />
+							<ButtonSecondary classes="btn-white" href="#" value="Register" />
+							<div className="social-event-divider"></div>
 						</div>
 					)
 				})
 			}
 			<div className="social-event-footer">
-				<ButtonSecondary classes="" href="#" value="Register" />
+				<ButtonSecondary classes="" href="#" value="Future events" />
 			</div>
 		</div>
 	)

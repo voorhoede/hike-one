@@ -1,0 +1,31 @@
+# [editorconfig.org](http://editorconfig.org)
+# Defines the coding style for different editors and IDEs.
+
+# This is the top-most EditorConfig file
+root = true
+
+[*]
+charset = utf-8
+
+# Unix-style newlines with a newline ending every file
+end_of_line = lf
+insert_final_newline = true
+
+# Indentation
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+
+# Don't trim whitespace because of double space <br/> thing in Markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# YAML & JSON prefer 2 spaces
+[*.{yml,json}]
+indent_style = space
+indent_size = 2
+
+# Lint settings are in JSON, so
+[.eslintrc]
+indent_style = space
+indent_size = 2

@@ -55,6 +55,7 @@ class Case extends React.Component {
 									case '30_50_text_right':
 										return (
 											<FiftyFifty
+												key={index}
 												classes="fifty-fifty-text-small yo"
 												title={component.title}
 												text={component.text}
@@ -74,6 +75,7 @@ class Case extends React.Component {
 									case '50_50_text_right':
 										return (
 											<FiftyFifty
+												key={index}
 												noshadow
 												parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
 												title={component.title}
@@ -83,6 +85,7 @@ class Case extends React.Component {
 									case 'image_combo':
 										return (
 											<ImageCombo
+												key={index}
 												parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
 												classes={ component.textTitle ? 'image-combo-text': ''} >
 
@@ -107,6 +110,7 @@ class Case extends React.Component {
 									case 'collage':
 										return (
 											<Collage
+												key={index}
 												parallaxLayerFront={<CollageShapes.FrontLayer1 />}
 												parallaxLayerBack={<CollageShapes.BackLayer1 />}
 												title={component.title}
@@ -117,13 +121,14 @@ class Case extends React.Component {
 									case 'full_width_image':
 										return (
 											<FullWidthImage
+												key={index}
 												image={component.image.url}
 												title={component.title}
 												subtitle={component.subtitle} />
 										);
 									case 'collaboration':
 										return (
-											<div>
+											<div key={index}>
 												<TextCenter
 													title={component.title}
 													text={component.text} />

@@ -39,7 +39,7 @@ class Case extends React.Component {
 
 					<article className="article-full-width">
 						<CaseIntro
-							video="static/videos/drop-fly-video.mp4"
+							video={Data.headerVideo}
 							title={Data.headerTitle}
 							subtitle={Data.headerSubtitle}
 							image={Data.headerBackgroundImage.url} />

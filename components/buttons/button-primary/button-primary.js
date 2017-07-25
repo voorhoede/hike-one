@@ -1,15 +1,9 @@
-import React from 'react';
+const ButtonPrimary = ({classes = '', onClick, value = ''}) => (
+	<button
+		onClick={onClick}
+		className={`btn-primary ${classes}`}>
+		{ value }
+	</button>
+);
 
-class PrimaryButton extends React.Component {
-    render() {
-        return (
-			<button
-				onClick={this.props.onClick}
-				className={`btn-primary ${this.props.classes ? this.props.classes: ''}`}>
-				{ this.props.value }
-			</button>
-        );
-    }
-}
-
-export default PrimaryButton;
+export default ButtonPrimary;

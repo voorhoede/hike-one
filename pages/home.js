@@ -7,10 +7,13 @@ import Footer from '../components/footer/footer';
 import FeedsBlock from '../components/feeds-block/feeds-block';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
+import * as ContactShapes from '../components/contact/contact-shapes';
+
 import HomeIntro from '../components/home-intro/home-intro';
 import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
 
 import ReadMore from '../components/read-more/read-more';
+
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
@@ -40,7 +43,7 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepTwo} />
-						<CaseExtract 
+						<CaseExtract
 								headerImage={Data.caseExtractHeaderImage}
 								title={Data.caseExtractTitle}
 								subtitle={Data.caseExtactSubtitle}
@@ -52,8 +55,12 @@ class Home extends React.Component {
 								text={Data.homeTextStepThree} />
 						<FeedsBlock />
 						<Contact
-								title={Data.contactTitle}
-								button={Data.contactButton} />
+							parallaxLayerFront={<ContactShapes.FrontLayer1 />}
+							title={Data.contactTitle}
+							button={Data.contactButton} />
+						<ReadMore
+							highlight={Data.readMore.highlight}
+							links={Data.readMore.links} />
 					</article>
 					<Footer />
 				</main>

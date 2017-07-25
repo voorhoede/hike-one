@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
-import Header from '../components/menu-bar/menu-bar';
+import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
@@ -35,7 +35,7 @@ class Case extends React.Component {
 			<Layout title="Hike One - Case">
 
 				<main className="main js-main">
-					<Header color="white" />
+					<MenuBar color="white" />
 
 					<article className="article-full-width">
 						<CaseIntro

@@ -6,8 +6,8 @@ import Footer from '../components/footer/footer';
 
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
-import HomeIntro from '../components/home-intro/home-intro';
-import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
+import HomeIntro from '../components/page-header/page-header';
+import * as HomeIntroShapes from  '../components/page-header/page-header-shapes';
 
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';

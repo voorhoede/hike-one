@@ -24,9 +24,10 @@ const feedsBlock = () => {
 					linkTwitterAccount={Data.twitterAccountLink}
 					linkTwitterPost={Data.twitterPostLink} />
 				<ImageFeed
-					socialImagesFirst={Data.socialImagesFirst} 
-					socialImagesSecond={Data.socialImagesSecond} 
-					link={Data.socialLink} />
+					socialImagesInstagram={Data.socialImagesInstagram} 
+					socialImagesDribble={Data.socialImagesDribble} 
+					linkInstagram={Data.linkInstagram}
+					linkDribble={Data.linkDribble} />
 				<EventsExtract
 					subtitle={Data.eventsSubtitle}
 					events={Data.events}

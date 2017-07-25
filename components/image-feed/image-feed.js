@@ -1,28 +1,33 @@
 import ArrowRight from '../icons/arrow-right/arrow-right';
+import Link from 'next/link';
 
-const ImageFeed = ({socialImagesFirst, socialImagesSecond, link}) => {
+const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, linkInstagram}) => {
 	return (
 		<div className="image-feed-container">
-			<a href={link}>	
-				<div className="image-feed">
-					<div className="image-feed-image">
-						<img src={socialImagesFirst} alt=""/>
+			<Link href={linkDribble}>
+				<a>	
+					<div className="image-feed">
+						<div className="image-feed-image">
+							<img src={socialImagesInstagram} alt=""/>
+						</div>
+						<div className="image-feed-icon">
+							<ArrowRight />
+						</div>
 					</div>
-					<div className="image-feed-icon">
-						<ArrowRight />
+				</a>
+			</Link>
+			<Link href={linkInstagram}>
+				<a>
+					<div className="image-feed">
+						<div className="image-feed-image">
+							<img src={socialImagesDribble} alt=""/>
+						</div>
+						<div className="image-feed-icon">
+							<ArrowRight />
+						</div>
 					</div>
-				</div>
-			</a>
-			<a href={link}>
-				<div className="image-feed">
-					<div className="image-feed-image">
-						<img src={socialImagesSecond} alt=""/>
-					</div>
-					<div className="image-feed-icon">
-						<ArrowRight />
-					</div>
-				</div>
-			</a>
+				</a>
+			</Link>
 		</div>
 	)
 }

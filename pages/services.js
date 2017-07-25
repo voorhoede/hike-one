@@ -22,7 +22,7 @@ class Services extends React.Component {
 					<MenuBar />
 					<article className="article">
 						<PageHeader
-							parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
+							parallaxLayerFront={ <PageHeaderShapes.FrontLayer2 /> }
 							parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 							title="We help you build great digital products using human-centered design methods"
 							subtitle="Our services"

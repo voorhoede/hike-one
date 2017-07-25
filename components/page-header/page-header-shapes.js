@@ -16,6 +16,21 @@ export const FrontLayer1 = () => {
 	);
 };
 
+export const FrontLayer2 = () => {
+	return (
+		<div className="home-intro-shapes">
+			<Parallax speed="1.25">
+				<Triangle classes="shape-triangle-1" color="blue" />
+			</Parallax>
+			<Parallax speed="1.5">
+				<Triangle classes="shape-triangle-2" color="yellow" />
+				<Triangle classes="shape-triangle-3" color="purple" />
+			</Parallax>
+		</div>
+	);
+};
+
+
 export const BackLayer1 = () => {
 	return (
 		<div className="home-intro-shapes">

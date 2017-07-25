@@ -2,12 +2,50 @@
 
 .feeds-block {
 	width: 100%;
-	float: left;
 	padding: 0;
+	display: inline-block;
+	overflow: hidden;
+	
+	& > .container-inner {
+		height: 100%;
+	}
+
 	@media @screen-large {
 		max-width: @column-large-10;
 		float: none;
 		margin: auto;
 		height: 912px;
+		display: block;
 	}
+}
+
+.feeds-link-container {
+	float: left;
+	margin: 44px 0;
+	width: 100%;
+	text-align: center;
+	font-size: @text-medium-s;
+	top: 0;
+	position: relative;
+	
+	@media @screen-small {
+		font-size: @text-medium-m;
+	}
+
+	@media @screen-large {
+		top: -277px;
+		position: relative;
+	}
+}
+
+.feeds-link {
+	color: @red;
+	text-decoration: none;
+	position: relative;
+	
+}
+
+.feeds-link-icon {
+	display: inline-block;
+	padding-left: 10px;
 }

@@ -1,19 +1,37 @@
 import ArrowRight from '../icons/arrow-right/arrow-right';
+import Link from 'next/link';
 
-const TwitterExtract = ({ twitterImage, subtitle, title, date, link }) => {
+const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccount, linkTwitterPost }) => {
 	return (
-		<a href={link} className="twitter-extract"> 
+		<div className="twitter-extract"> 
 			<div className={`twitter-extract-image ${twitterImage ? '' : 'is-hidden' }`}>
-				<img src={twitterImage} alt=""/>
+				<Link href={linkTwitterPost}>
+					<a>
+						<img src={twitterImage} alt=""/>	
+					</a>	
+				</Link>
 			</div>
 			<div className={`twitter-extract-text ${twitterImage ? '' : 'twitter-extract-full-width' }`}>
 				<div className={`twitter-extract-triangle ${twitterImage ? '' : 'is-hidden' }`}></div>
-				<h4>{subtitle}</h4>
-				<h3>{title}</h3>
+				<Link href={linkTwitterAccount}>
+					<a>
+						<h4>{subtitle}</h4>
+					</a>
+				</Link>
+				
+				<Link href={linkTwitterPost}>
+					<a>
+						<h3>{title}</h3>
+					</a>
+				</Link>
 				<span>{date}</span>
-				<ArrowRight />
+				<Link href={linkTwitterAccount}>
+					<a>
+						<ArrowRight />
+					</a>
+				</Link>
 			</div>
-		</a>
+		</div>
 	)
 }
 

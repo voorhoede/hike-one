@@ -1,6 +1,7 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 import ArrowDown from '../icons/arrow-down/arrow-down';
+import Link from 'next/link';
 
 const EventsExtract = ({ subtitle, events, link}) => {
 	return (
@@ -11,7 +12,9 @@ const EventsExtract = ({ subtitle, events, link}) => {
 					return (
 						<div className="events-extract" key={index}>
 							<h3 className="events-extract-header">
-								<a href="#events" className="events-extract-link">{event.title}</a>
+								<Link href={event.link}>
+									<a className="events-extract-link">{event.title}</a>
+								</Link>
 							</h3>
 							<span className="events-extract-text-small">{event.dateTime}</span>
 							<span className="events-extract-text-large">

@@ -5,7 +5,7 @@ import Header from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import CaseIntro from '../components/case-intro/case-intro';
+import CaseIntro from '../components/case-header/case-header';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';

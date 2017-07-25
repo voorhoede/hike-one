@@ -12,26 +12,23 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import Data from '../data/current/services/services.json';
 
-class Services extends React.Component {
-	render() {
-		return (
-			<Layout title="Hike One - Services">
-				<main className="main js-main">
-					<Header/>
-					<article className="article">
-						<ServicesIntro title={Data.headerTitle} buttonLabel={Data.headerReadmoreCta}/>
-						<ServiceApproach text={Data.introText} />
-						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
-						<Contact
-							parallaxLayerFront={<ContactShapes.FrontLayer1 />}
-							title={Data.contactTitle} button={Data.contactButton} />
-					</article>
-					<CTABlock title={Data.callToActionBlockTitle} button={Data.callToActionBlockButton} image="static/images/img-team.jpg" />
-					<Footer />
-				</main>
-			</Layout>
-		);
-	}
-}
+const Services = () => (
+	<Layout title="Hike One - Services">
+		<main className="main js-main">
+			<Header/>
+			<article className="article">
+				<ServicesIntro title={Data.headerTitle} buttonLabel={Data.headerReadmoreCta}/>
+				<ServiceApproach text={Data.introText} />
+				<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
+				<Contact
+					parallaxLayerFront={<ContactShapes.FrontLayer1 />}
+					title={Data.contactTitle} button={Data.contactButton} />
+			</article>
+			<CTABlock title={Data.callToActionBlockTitle} button={Data.callToActionBlockButton} image="static/images/img-team.jpg" />
+			<Footer />
+		</main>
+	</Layout>
+);
+
 
 export default Services;

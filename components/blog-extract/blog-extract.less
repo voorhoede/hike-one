@@ -5,7 +5,7 @@
 	width: 100%;
 	margin-bottom: 10px;
 	text-decoration: none;
-	
+
 	@media @screen-small {
 		width: 50%;	
 		padding-right: 10px;
@@ -85,18 +85,21 @@
 	height: 45px;
 	text-align: left;
 	
-	& > button {
+	& > svg {
 		float: right;
 		position: relative;
 		bottom: 0px;
-		right: 0;
-	}
-
-	& > .btn-tertiary .icon svg {
+		right: -12px;
 		margin-top: 0;
-		padding: 7px;
+		padding: 0;
 		height: 28px;
 		width: 28px;
+		background: transparent;	
+		
+		& > path {
+			fill: white;
+			transform: translate(2px,2px) scale(0.65);
+		}
 	}
 
 	& > span {

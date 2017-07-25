@@ -6,7 +6,9 @@ const LogoList = ({logos}) => {
 			{ logos.map((logo, index) =>
 				<li key={index}>
 					<Link href="#">
-						<img src={logo.url} alt="" />
+						<a>
+							<img src={logo.url} alt="" />
+						</a>
 					</Link>
 				</li> )}
 		</ul>

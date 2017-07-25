@@ -9,16 +9,14 @@ const shapes = {
 	doubleDiamond: <TrailDoubleDiamond />
 };
 
-const ServicesItemSmall = ({ shape, text, title, color }) => {
-	return (
-		<section className={`services-item-small services-item-small-${color}`}>
-			<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
-			<div className="services-item-small-content">
-				<h3>{ title }</h3>
-				<ButtonSecondaryLink classes="btn-white" value={ text }  href="/services"/>
-			</div>
-		</section>
-	);
-};
+const ServicesItemSmall = ({ shape, text, title, color }) => (
+	<section className={`services-item-small services-item-small-${color}`}>
+		<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
+		<div className="services-item-small-content">
+			<h3>{ title }</h3>
+			<ButtonSecondaryLink classes="btn-white" value={ text }  href="/services"/>
+		</div>
+	</section>
+);
 
 export default ServicesItemSmall;

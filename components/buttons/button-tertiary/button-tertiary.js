@@ -7,17 +7,16 @@ const arrowIcons = {
 	arrowDown: <ArrowDown />
 };
 
-const ButtonTertiary = ({classes = '', onClick, value = '', iconType}) => {
-	return (
-		<button
-			onClick={onClick}
-			className={`btn-tertiary ${classes}`}>
-			{ value }
-			<span className="icon">
-				{ arrowIcons[iconType] }
-			</span>
-		</button>
-	);
-};
+const ButtonTertiary = ({classes = '', onClick, value = '', iconType}) => (
+	<button
+		onClick={onClick}
+		className={`btn-tertiary ${classes}`}>
+		{ value }
+		<span className="icon">
+			{ arrowIcons[iconType] }
+		</span>
+	</button>
+);
+
 
 export default ButtonTertiary;

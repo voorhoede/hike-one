@@ -71,13 +71,15 @@
 			"title": "Design Sprint guru’s",
 			"dateTime": "Jul 18, 17:30 - 19:30",
 			"location": "Hike One Amsterdam",
-			"link": "#EventLink1"
+			"link": "#EventLink1",
+			"linkLocation": "#EventLinkLocation1"
 		},
 		{
 			"title": "UX Cocktail Hour",
 			"dateTime": "Jul 18, 17:30 - 19:30",
 			"location": "Hike One Rotterdam",
-			"link": "#EventLink2"
+			"link": "#EventLink2",
+			"linkLocation": "#EventLinkLocation2"
 		}
 	],
 	"eventsLink": {

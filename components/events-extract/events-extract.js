@@ -18,14 +18,16 @@ const EventsExtract = ({ subtitle, events, link}) => {
 							</h3>
 							<span className="events-extract-text-small">{event.dateTime}</span>
 							<span className="events-extract-text-large">
-								<a href="#contact" className="events-extract-link">
-									<span className="icon-small icon-white">
-										<ArrowDown />
-									</span> 
-									{event.location}
-								</a>	
+								<Link href={event.linkLocation}>
+									<a className="events-extract-link">
+										<span className="icon-small icon-white">
+											<ArrowDown />
+										</span> 
+										{event.location}
+									</a>
+								</Link>
 							</span>
-							<ButtonSecondaryLink classes="btn-white" href="#register" value="Register" />
+							<ButtonSecondaryLink classes="btn-white" href="#Register" value="Register" />
 							<div className="events-extract-divider"></div>
 						</div>
 					)

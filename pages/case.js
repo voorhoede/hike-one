@@ -5,7 +5,7 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import CaseIntro from '../components/case-header/case-header';
+import CaseHeader from '../components/case-header/case-header';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
@@ -38,7 +38,7 @@ class Case extends React.Component {
 					<MenuBar color="white" />
 
 					<article className="article-full-width">
-						<CaseIntro
+						<CaseHeader
 							video="static/videos/drop-fly-video.mp4"
 							title={Data.headerTitle}
 							subtitle={Data.headerSubtitle}

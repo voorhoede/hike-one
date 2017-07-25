@@ -5,7 +5,9 @@ const ImageFeed = ({socialImagesFirst, socialImagesSecond, link}) => {
 		<div className="image-feed-container">
 			<a href={link}>	
 				<div className="image-feed">
-					<div className="image-feed-image" style={{backgroundImage: `url(${socialImagesFirst})`}}></div>
+					<div className="image-feed-image">
+						<img src={socialImagesFirst} alt=""/>
+					</div>
 					<div className="image-feed-icon">
 						<ArrowRight />
 					</div>
@@ -13,7 +15,9 @@ const ImageFeed = ({socialImagesFirst, socialImagesSecond, link}) => {
 			</a>
 			<a href={link}>
 				<div className="image-feed">
-					<div className="image-feed-image" style={{backgroundImage: `url(${socialImagesSecond})`}}></div>
+					<div className="image-feed-image">
+						<img src={socialImagesSecond} alt=""/>
+					</div>
 					<div className="image-feed-icon">
 						<ArrowRight />
 					</div>

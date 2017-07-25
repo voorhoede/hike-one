@@ -3,11 +3,23 @@
 
 .image-feed-image {
 	height: 135px;
-	background-size: cover;
-	background-position: 50% 50%;	
-
+	overflow: hidden;
 	@media @screen-small {
-		height: 250px;
+		height: 251px;
+	}
+	& > img {
+		width: 100%;
+		height: 135px;
+		object-fit: cover;
+	
+		@media @screen-small {
+			float: left;
+			height: 251px;
+		}
+
+		@media @screen-large {
+			height: 256px;
+		}
 	}
 }
 

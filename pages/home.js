@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
-import Header from '../components/header/header';
+import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import CaseExtract from '../components/case-extract/case-extract';
@@ -22,7 +22,7 @@ class Home extends React.Component {
 		return (
 			<Layout title="Hike One - Home">
 				<main className="main js-main">
-					<Header color="black" />
+					<MenuBar color="black" />
 					<article className="article-full-width">
 						<HomeIntro
 								parallaxLayerFront={ <HomeIntroShapes.FrontLayer1 /> }

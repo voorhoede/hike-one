@@ -6,7 +6,7 @@ import ArrowRightRound from '../icons/arrow-right-round/arrow-right-round';
 const ReadMore = ({image, highlight = {}, links = []}) => {
 	return (
 		<section className="read-more container">
-			<div className="read-more-highlight" style={{backgroundImage: `url(${image})`}} >
+			<div className="read-more-highlight" style={{backgroundImage: `url(${highlight.image})`}} >
 				<h2>{highlight.title}</h2>
 				<PrimaryButtonLink href={highlight.href} value={highlight.linkLabel} />
 			</div>

@@ -7,8 +7,8 @@ class LogoList extends React.Component {
 			<ul className="logo-list list-no-style container">
 				{ this.props.logos.map((logo, index) =>
 					<li key={index}>
-						<Link href={logo.link}>
-							<a><img src={logo.url} alt="" /></a>
+						<Link href="#">
+							<img src={logo.url} alt="" />
 						</Link>
 					</li> )}
 			</ul>

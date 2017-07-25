@@ -39,7 +39,7 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepTwo} />
-						<CaseExtract 
+						<CaseExtract
 								headerImage={Data.caseExtractHeaderImage}
 								title={Data.caseExtractTitle}
 								subtitle={Data.caseExtactSubtitle}

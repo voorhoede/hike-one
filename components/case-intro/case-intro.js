@@ -70,6 +70,13 @@ class CaseIntro extends React.Component {
 			<section
 				ref={node => this.element = node}
 				className="case-intro" style={{backgroundImage: `url(${props.image})`}} >
+
+				{ props.video &&
+					<video playsInline autoPlay muted loop poster={props.image} className="case-intro-video">
+						<source src={props.video} type="video/mp4" />
+					</video>
+				}
+
 				<div className="case-intro-inner container">
 					<div className="case-intro-parallax" ref={node => this.parallaxLayer = node}>
 						<h1 className="case-intro-title">{props.title}</h1>

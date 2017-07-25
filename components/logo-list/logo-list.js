@@ -5,8 +5,8 @@ const LogoList = ({logos}) => {
 		<ul className="logo-list list-no-style container">
 			{ logos.map((logo, index) =>
 				<li key={index}>
-					<Link href={logo.link}>
-						<a><img src={logo.image} alt="" /></a>
+					<Link href="#">
+						<img src={logo.url} alt="" />
 					</Link>
 				</li> )}
 		</ul>

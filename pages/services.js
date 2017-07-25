@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-
+import PageHeader from '../components/page-header/page-header';
 import ServicesIntro from '../components/services-intro/services-intro';
 import ServicesOverview from '../components/services-overview/services-overview';
 import CTABlock from '../components/cta-block/cta-block';
@@ -19,6 +19,11 @@ class Services extends React.Component {
 				<main className="main js-main">
 					<MenuBar />
 					<article className="article">
+						<PageHeader
+							title="We help you build great digital products using human-centered design methods"
+							subtitle="Our services"
+							heroImage="static/images/service-header.jpg"
+						/>
 
 						<ServicesIntro text={Data.introText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />

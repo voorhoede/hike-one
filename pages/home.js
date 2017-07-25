@@ -24,7 +24,7 @@ class Home extends React.Component {
 				<main className="main js-main">
 					<MenuBar color="black" />
 					<article className="article-full-width">
-						<HomeIntro
+						<PageHeader
 								parallaxLayerFront={ <HomeIntroShapes.FrontLayer1 /> }
 								parallaxLayerBack={ <HomeIntroShapes.BackLayer1 /> }
 								title={Data.heroHeading}

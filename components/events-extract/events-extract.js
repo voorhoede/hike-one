@@ -10,12 +10,18 @@ const EventsExtract = ({ subtitle, events, link}) => {
 				Object.values(events).map((event, index) => {
 					return (
 						<div className="events-extract" key={index}>
-							<h3 className="events-extract-header">{event.title}</h3>
+							<h3 className="events-extract-header">
+								<a href="#events" className="events-extract-link">{event.title}</a>
+							</h3>
 							<span className="events-extract-text-small">{event.dateTime}</span>
 							<span className="events-extract-text-large">
-								<span className="icon-small icon-white">
-									<ArrowDown />
-								</span> {event.location}</span>
+								<a href="#contact" className="events-extract-link">
+									<span className="icon-small icon-white">
+										<ArrowDown />
+									</span> 
+									{event.location}
+								</a>	
+							</span>
 							<ButtonSecondaryLink classes="btn-white" href="#register" value="Register" />
 							<div className="events-extract-divider"></div>
 						</div>

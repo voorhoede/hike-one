@@ -1,8 +1,8 @@
-const TrailDoubleDiamond = (props) => {
+const TrailDoubleDiamond = ({shadow}) => {
 	return (
 		<div className="shape">
 			<svg className="shape-trail-double-diamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">
-				{ props.shadow &&
+				{ shadow &&
 				    <defs>
 				        <filter id="shape-trail-double-diamond-shadow" width="160%" height="160%" x="-30%" y="-20%" filterUnits="objectBoundingBox">
 				            <feOffset dy="30" in="SourceAlpha" result="shadowOffsetOuter1"/>
@@ -15,7 +15,7 @@ const TrailDoubleDiamond = (props) => {
 				        </filter>
 				    </defs>
 				}
-			    <g filter={props.shadow ? 'url(#shape-trail-double-diamond-shadow)' : ''}
+			    <g filter={shadow ? 'url(#shape-trail-double-diamond-shadow)' : ''}
 					fill="none" fillRule="evenodd"  transform="translate(50 20)">
 			        <rect className="shape-trail-double-diamond-bg" width="299.511" height="299.824" fill="#45D33C" rx="4"/>
 			        <g transform="translate(33 71)">

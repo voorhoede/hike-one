@@ -1,15 +1,11 @@
-import React from 'react';
-
-class TextCard extends React.Component {
-    render() {
-        const props = this.props;
-        return (
+const TextCard = ({title = '', text = ''}) => {
+	return (
             <div className="text-card shadow">
-                <h2>{props.title}</h2>
-                <p>{props.text}</p>
+                <h2>{title}</h2>
+                <p>{text}</p>
             </div>
         );
-    }
-}
+
+};
 
 export default TextCard;

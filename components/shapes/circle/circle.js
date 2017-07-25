@@ -1,8 +1,8 @@
-const Circle = (props) => {
+const Circle = ({shadow}) => {
 	return (
 		<div className="shape">
 			<svg className="shape-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 400">
-			 	{ props.shadow &&
+			 	{ shadow &&
 					<defs>
 						<filter id="shape-circle-shadow" width="160%" height="160%" x="-30%" y="-20%" filterUnits="objectBoundingBox">
 							<feOffset dy="30" in="SourceAlpha" result="shadowOffsetOuter1"/>
@@ -15,7 +15,7 @@ const Circle = (props) => {
 						</filter>
 					</defs>
 			 	}
-				<g filter={props.shadow ? 'url(#shape-circle-shadow)' : ''}
+				<g filter={shadow ? 'url(#shape-circle-shadow)' : ''}
 				   fill="none"  fillRule="evenodd" transform="translate(50 20)">
 					<rect className="shape-circle-bg" width="299.511" height="299.824" rx="4"/>
 					<circle className="shape-circle-front" cx="150" cy="150" r="100" />

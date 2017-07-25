@@ -6,8 +6,8 @@ import Footer from '../components/footer/footer';
 
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
-import HomeIntro from '../components/page-header/page-header';
-import * as HomeIntroShapes from  '../components/page-header/page-header-shapes';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import ReadMore from '../components/read-more/read-more';
 import TextCenter from '../components/text-center/text-center';
@@ -25,8 +25,8 @@ class Home extends React.Component {
 					<MenuBar color="black" />
 					<article className="article-full-width">
 						<PageHeader
-								parallaxLayerFront={ <HomeIntroShapes.FrontLayer1 /> }
-								parallaxLayerBack={ <HomeIntroShapes.BackLayer1 /> }
+								parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
+								parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 								title={Data.heroHeading}
 								subtitle={Data.heroSubheading}
 								heroImage={Data.heroImage} />

@@ -1,8 +1,8 @@
 import ArrowRight from '../icons/arrow-right/arrow-right';
 
-const TwitterExtract = ({ twitterImage, subtitle, title, date }) => {
+const TwitterExtract = ({ twitterImage, subtitle, title, date, link }) => {
 	return (
-		<div className="twitter-extract"> 
+		<a href={link} className="twitter-extract"> 
 			<div className="twitter-extract-image"  style={{backgroundImage: `url(${twitterImage})`}}></div>
 			<div className="twitter-extract-text">
 				<div className="twitter-extract-triangle"></div>
@@ -11,7 +11,7 @@ const TwitterExtract = ({ twitterImage, subtitle, title, date }) => {
 				<span>{date}</span>
 				<ArrowRight />
 			</div>
-		</div>
+		</a>
 	)
 }
 

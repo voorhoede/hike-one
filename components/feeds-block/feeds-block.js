@@ -12,15 +12,18 @@ const feedsBlock = () => {
 				<BlogExtract 	title={Data.blogTitle}
 								subtitle={Data.blogSubtitle}
 								date={Data.blogDate}
-								blogImage={Data.blogImage} />
+								blogImage={Data.blogImage} 
+								link={Data.blogLink} />
 				<TwitterExtract
 					title={Data.twitterTitle}
 					subtitle={Data.twitterSubtitle}
 					date={Data.twitterDate}
-					twitterImage={Data.twitterImage} />
+					twitterImage={Data.twitterImage} 
+					link={Data.twitterLink} />
 				<ImageFeed
 					socialImagesFirst={Data.socialImagesFirst} 
-					socialImagesSecond={Data.socialImagesSecond} />
+					socialImagesSecond={Data.socialImagesSecond} 
+					link={Data.socialLink} />
 				<EventsExtract
 					subtitle={Data.eventsSubtitle}
 					events={Data.events}

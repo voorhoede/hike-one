@@ -1,3 +1,4 @@
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 import ArrowDown from '../icons/arrow-down/arrow-down';
 
@@ -15,14 +16,14 @@ const EventsExtract = ({ subtitle, events, link}) => {
 								<span className="icon-small icon-white">
 									<ArrowDown />
 								</span> {event.location}</span>
-							<ButtonSecondary classes="btn-white" href="#" value="Register" />
+							<ButtonSecondaryLink classes="btn-white" href="#register" value="Register" />
 							<div className="events-extract-divider"></div>
 						</div>
 					)
 				})
 			}
 			<div className="events-extract-footer">
-				<ButtonSecondary classes="btn-clean btn-white" href="#" value="Future events" />
+				<ButtonSecondaryLink classes="btn-clean btn-white" href="#future-events" value="Future events" />
 			</div>
 		</div>
 	)

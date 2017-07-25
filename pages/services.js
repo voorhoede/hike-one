@@ -3,8 +3,8 @@ import React from 'react';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
+
 import ServicesIntro from '../components/services-intro/services-intro';
-import ServiceApproach from '../components/services-approach/service-approach';
 import ServicesOverview from '../components/services-overview/services-overview';
 import CTABlock from '../components/cta-block/cta-block';
 import Contact from '../components/contact/contact';
@@ -19,8 +19,8 @@ class Services extends React.Component {
 				<main className="main js-main">
 					<MenuBar />
 					<article className="article">
-						<ServicesIntro title={Data.headerTitle} buttonLabel={Data.headerReadmoreCta}/>
-						<ServiceApproach text={Data.introText} />
+
+						<ServicesIntro text={Data.introText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 						<Contact
 							parallaxLayerFront={<ContactShapes.FrontLayer1 />}

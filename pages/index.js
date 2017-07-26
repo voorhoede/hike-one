@@ -9,7 +9,6 @@ const Home = () => (
 		<Header/>
 		<main className="container main js-main">
 			<article className="article article-index">
-				<ButtonSecondaryLink value="StyleGuide" href="/style-guide"/>
 				<ButtonSecondaryLink value="Case" href="/case"/>
 				<ButtonSecondaryLink value="Home" href="/home"/>
 				<ButtonSecondaryLink value="Services" href="/services"/>

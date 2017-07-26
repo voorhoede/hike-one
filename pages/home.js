@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
-import Header from '../components/header/header';
+import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import FeedsBlock from '../components/feeds-block/feeds-block';
@@ -9,8 +9,8 @@ import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
-import HomeIntro from '../components/home-intro/home-intro';
-import * as HomeIntroShapes from  '../components/home-intro/home-intro-shapes';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import ReadMore from '../components/read-more/read-more';
 
@@ -24,11 +24,11 @@ import Data from '../dummy-data/home/home.json';
 const Home = () => (
 	<Layout title="Hike One - Home">
 		<main className="main js-main">
-			<Header color="black" />
+			<MenuBar color="black" />
 			<article className="article-full-width">
-				<HomeIntro
-						parallaxLayerFront={ <HomeIntroShapes.FrontLayer1 /> }
-						parallaxLayerBack={ <HomeIntroShapes.BackLayer1 /> }
+				<PageHeader
+						parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
+						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 						title={Data.heroHeading}
 						subtitle={Data.heroSubheading}
 						heroImage={Data.heroImage} />

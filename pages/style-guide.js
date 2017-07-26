@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header       from '../components/header/header';
+import Header       from '../components/menu-bar/menu-bar';
 import Layout       from '../components/layout/layout';
 import StyleGuide   from '../components/style-guide/style-guide'
 

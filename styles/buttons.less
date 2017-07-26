@@ -78,7 +78,6 @@
     background: none;
 	text-decoration: none;
     border: none;
-    padding: 0;
     color: @red;
 	transition: background 0.3s ease, color 0.3s ease;
 
@@ -112,6 +111,7 @@
             height: 52px;
             border: 1px solid;
         }
+        
 
         path {
             fill: @red;
@@ -126,6 +126,10 @@
     border: none;
     padding: 0;
     display: block;
+    
+    &:hover {
+        background: transparent;
+    }
 }
 
 .btn-white {

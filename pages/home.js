@@ -4,6 +4,7 @@ import Layout from '../components/layout/layout';
 import Header from '../components/header/header';
 import Footer from '../components/footer/footer';
 
+import FeedsBlock from '../components/feeds-block/feeds-block';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
@@ -52,6 +53,7 @@ class Home extends React.Component {
 						<TextCenter
 								classes="text-center-font-medium text-center-spacing-small"
 								text={Data.homeTextStepThree} />
+						<FeedsBlock />
 						<Contact
 							parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 							title={Data.contactTitle}

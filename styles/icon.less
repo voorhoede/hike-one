@@ -1,0 +1,18 @@
+@import (reference) './variables';
+
+.icon-small {
+	& > svg {
+		width: 25px;
+		height: 25px;
+		position: relative;
+		top: 5px;
+	}	
+}
+
+.icon-white {
+	& > svg {
+		& > g > path {
+			fill: @white;
+		}
+	}
+}

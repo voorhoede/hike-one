@@ -1,0 +1,175 @@
+@import (reference) '../../styles/variables';
+
+.blog-extract {
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+	text-decoration: none;
+
+	@media @screen-small {
+		width: 50%;	
+		padding-right: 10px;
+	}
+}
+
+.blog-extract-image-container {
+	height: 220px;
+	width: 100%;
+	float: left;
+
+	@media @screen-small {
+		height: 200px;		
+	}
+	
+	@media @screen-large {
+		height: 256px;
+		width: 100%;
+	}
+
+	& > img {
+		width: 100%;
+		height: 220px;
+		object-fit: cover;
+	
+		@media @screen-small {
+			float: left;
+			height: 200px;
+		}
+
+		@media @screen-large {
+			height: 256px;
+		}
+	}
+}
+
+.blog-extract-text-container {
+	float: left;
+	width: 100%;
+	position: relative;
+	padding: 0 @spacing-default;
+	color: @white;
+	text-align: left;
+	height: 100%;
+	max-height: 170px;
+	background: @green;
+
+	& > h3 {
+		font-size: @subtitle-small-s;
+		color: @black-grey;
+		line-height: 17px;
+		padding-top: 20px;
+		margin-bottom: 10px;
+		font-weight: 500;
+		font-style: italic;
+		opacity: 0.6
+	}
+
+	& > h2 {
+		line-height: 24px;
+		font-size: @subtitle-large-s;
+		margin-bottom: 10px;
+	}
+
+	@media @screen-small {
+		height: 100%;
+		min-height: 233px;
+	}
+
+	@media @screen-large {
+		padding: 0 @spacing-double;
+		height: 100%;
+		min-height: 266px;
+
+		& > h3 {
+			font-size: @title-small-s;
+			padding-top: 40px;
+			line-height: 20px;
+			margin-bottom: 20px;
+		}
+		& > h2 {
+			line-height: 38px;
+			margin-bottom: 24px;
+			font-size: @text-medium-l;
+		}
+	}
+}
+
+.blog-extract-footer-container {
+	position: relative;
+	width: 100%;
+	height: 45px;
+	text-align: left;
+	
+	& > svg {
+		float: right;
+		position: relative;
+		bottom: 0px;
+		right: 0px;
+		margin-top: 0;
+		padding: 0;
+		height: 28px;
+		width: 28px;
+		background: transparent;	
+		
+		& > path {
+			fill: white;
+			transform: translate(2px,2px) scale(0.65);
+		}
+	}
+
+	& > span {
+		float:left;
+		font-weight: 500;
+		font-size: 12px;
+		display: block;
+	}
+
+	@media @screen-small {
+	    position: relative;
+		height: 33px;
+		bottom: 0;
+		padding-bottom: 45px;
+		& > span {
+			position: absolute;
+			bottom: 20px;
+		}
+	}
+
+	@media @screen-medium {
+		top: 80px;
+	}
+
+	@media @screen-large {		
+		position: relative;
+		top: 0;
+		& > button {
+			height: 25px;
+			right: -15px;
+		}
+		& > span {
+			font-weight: 500;
+			font-size: @text-medium-s;
+			display: block;
+		}
+		& > svg {
+			right: -12px;
+		}
+	}
+}
+
+.blog-extract-triangle {
+	position: absolute;
+    top: -15px;
+    left: 16px;
+	border-top: 15px solid transparent;
+	border-bottom: 15px solid transparent;
+	border-left: 15px solid @green;
+
+	@media @screen-large {
+		top: -30px;
+		left: 30px;
+		border-top: 30px solid transparent;
+		border-bottom: 30px solid transparent;
+		border-left: 30px solid @green;
+	}
+}

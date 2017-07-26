@@ -37,7 +37,7 @@ export const FrontLayer2 = () => (
 export const FrontLayer3 = () => (
 	<div className="text-center-shapes-3">
 		<Parallax speed="1.25">
-			<Triangle classes="shape-triangle-1" color="green" />
+			<Triangle classes="shape-triangle-1" color="red" />
 		</Parallax>
 	</div>
 );

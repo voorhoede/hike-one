@@ -31,8 +31,8 @@ const Services = () => {
 						heroImage="static/images/service-header.jpg" />
 
 					<TextCenter
-						parallaxLayerFront={ <TextCenterShapes.FrontLayer3 /> }
-						classes={` ${scrollToTargetClass}`}
+						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
+						classes={scrollToTargetClass}
 						text={Data.introText} />
 
 					<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />

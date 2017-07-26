@@ -12,11 +12,13 @@
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	background-size: cover;
-	padding-top: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	text-align: center;
 
 	@media @screen-small {
 		max-width: 100%;
-		padding-top: 184px;
 	}
 
 	@media @screen-medium {
@@ -25,7 +27,6 @@
 
 	@media @screen-large {
 		max-width: @column-large-10;
-		padding-top: 314px;
 		margin: 120px auto 160px auto;
 	}
 
@@ -64,8 +65,9 @@
 	padding: 0 @spacing-default;
 	font-size: @text-medium-s;
 	text-align: center;
-	font-weight: @font-weight-normal;
+	font-weight: @font-weight-light-extra;
 	color: @white;
+	margin-bottom: 5px;
 
 	@media @screen-small {
 		font-size: @title-small-s;

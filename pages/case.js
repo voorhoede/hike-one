@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
-import Header from '../components/header/header';
+import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import CaseIntro from '../components/case-intro/case-intro';
+import CaseHeader from '../components/case-header/case-header';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
@@ -29,146 +29,141 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 import TextCard from '../components/text-card/text-card';
 import Data from '../data/current/cases/gone-in-60-seconds.json';
 
-class Case extends React.Component {
-	render() {
-		return (
-			<Layout title="Hike One - Case">
+const Case = () => (
+	<Layout title="Hike One - Case">
+		<main className="main js-main">
+			<MenuBar color="white" />
 
-				<main className="main js-main">
-					<Header color="white" />
+			<article className="article-full-width">
+				<CaseHeader
+					video={Data.headerVideo}
+					title={Data.headerTitle}
+					subtitle={Data.headerSubtitle}
+					image={Data.headerBackgroundImage.url} />
 
-					<article className="article-full-width">
-						<CaseIntro
-							video={Data.headerVideo}
-							title={Data.headerTitle}
-							subtitle={Data.headerSubtitle}
-							image={Data.headerBackgroundImage.url} />
+				<div className="case-scrolling-content">
+					<TextCenter
+						parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
+						title={Data.introTitle}
+						text={Data.introText} >
+					</TextCenter>
 
-						<div className="case-scrolling-content">
-							<TextCenter
-								parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
-								title={Data.introTitle}
-								text={Data.introText} >
-							</TextCenter>
+					{ Data.components.map((component, index) => {
+						switch (component.itemType) {
+							case '30_50_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										classes="fifty-fifty-text-small yo"
+										title={component.title}
+										text={component.text}
+										image={component.image.url} />
+								);
 
-							{ Data.components.map((component, index) => {
-								switch (component.itemType) {
-									case '30_50_text_right':
-										return (
-											<FiftyFifty
-												key={index}
-												classes="fifty-fifty-text-small yo"
-												title={component.title}
-												text={component.text}
-												image={component.image.url} />
-										);
+							case '30_50_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}
+										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
+										title={component.title}
+										text={component.text}
+										image={component.image.url} />
+								);
+							case '50_50_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										noshadow
+										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
+										title={component.title}
+										text={component.text}
+										image={component.image.url} />
+								);
+							case 'image_combo':
+								return (
+									<ImageCombo
+										key={index}
+										parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
+										classes={ component.textTitle ? 'image-combo-text': ''} >
 
-									case '30_50_text_left':
-										return (
-											<FiftyFifty
-												key={index}
-												parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}
-												classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
-												title={component.title}
-												text={component.text}
-												image={component.image.url} />
-										);
-									case '50_50_text_right':
-										return (
-											<FiftyFifty
-												key={index}
-												noshadow
-												parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
-												title={component.title}
-												text={component.text}
-												image={component.image.url} />
-										);
-									case 'image_combo':
-										return (
-											<ImageCombo
-												key={index}
-												parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
-												classes={ component.textTitle ? 'image-combo-text': ''} >
+										{ component.textTitle &&
+											<TextCard
+												title={component.textTitle}
+												text={component.textContent} />
+										}
 
-												{ component.textTitle &&
-													<TextCard
-														title={component.textTitle}
-														text={component.textContent} />
-												}
+										<FullWidthImage image={component.image.url} />
 
-												<FullWidthImage image={component.image.url} />
+										{ component.quoteAuthorTitle &&
+											<QuoteBlock
+												color="blue"
+												quote={component.quote}
+												citeName={component.quoteAuthorName}
+												citeTitle={component.quoteAuthorTitle}
+												citeImage={component.quoteAuthorImage.url} />
+										}
+									</ImageCombo>
+								);
+							case 'collage':
+								return (
+									<Collage
+										key={index}
+										parallaxLayerFront={<CollageShapes.FrontLayer1 />}
+										parallaxLayerBack={<CollageShapes.BackLayer1 />}
+										title={component.title}
+										text={component.text}
+										imageMedium={component.imageBig.url}
+										imageSmall={component.imageSmall.url} />
+								);
+							case 'full_width_image':
+								return (
+									<FullWidthImage
+										key={index}
+										image={component.image.url}
+										title={component.title}
+										subtitle={component.subtitle} />
+								);
+							case 'collaboration':
+								return (
+									<div key={index}>
+										<TextCenter
+											title={component.title}
+											text={component.text} />
 
-												{ component.quoteAuthorTitle &&
-													<QuoteBlock
-														color="blue"
-														quote={component.quote}
-														citeName={component.quoteAuthorName}
-														citeTitle={component.quoteAuthorTitle}
-														citeImage={component.quoteAuthorImage.url} />
-												}
-											</ImageCombo>
-										);
-									case 'collage':
-										return (
-											<Collage
-												key={index}
-												parallaxLayerFront={<CollageShapes.FrontLayer1 />}
-												parallaxLayerBack={<CollageShapes.BackLayer1 />}
-												title={component.title}
-												text={component.text}
-												imageMedium={component.imageBig.url}
-												imageSmall={component.imageSmall.url} />
-										);
-									case 'full_width_image':
-										return (
-											<FullWidthImage
-												key={index}
-												image={component.image.url}
-												title={component.title}
-												subtitle={component.subtitle} />
-										);
-									case 'collaboration':
-										return (
-											<div key={index}>
-												<TextCenter
-													title={component.title}
-													text={component.text} />
+										<LogoList logos={component.logos} />
+									</div>
+								);
+						}
+					})}
 
-												<LogoList logos={component.logos} />
-											</div>
-										);
-								}
-							})}
+					<Contact
+						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
+						title="Where will your journey lead us"
+						button="Get in touch" />
 
-							<Contact
-								parallaxLayerFront={<ContactShapes.FrontLayer1 />}
-								title="Where will your journey lead us"
-								button="Get in touch" />
-
-							<ReadMore
-								highlight={{
-									"image": "static/images/img-vbh.jpg",
-									"title": "VBH Pivot App",
-									"href": "#",
-									"linkLabel": "View case"
-								}}
-								links={[
-									{
-										"title": "Your  first Design Sprint: do these 3 things first",
-										"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
-									},
-									{
-										"title": "In 5 days from sketch to tested prototype with Design Sprints",
-										"subtext": "17 November 2016 | Ingmar Coenen"
-									}
-								]} />
-						</div>
-					</article>
-					<Footer />
-				</main>
-			</Layout>
-		);
-	}
-}
+					<ReadMore
+						highlight={{
+							"image": "static/images/img-vbh.jpg",
+							"title": "VBH Pivot App",
+							"href": "#",
+							"linkLabel": "View case"
+						}}
+						links={[
+							{
+								"title": "Your  first Design Sprint: do these 3 things first",
+								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
+							},
+							{
+								"title": "In 5 days from sketch to tested prototype with Design Sprints",
+								"subtext": "17 November 2016 | Ingmar Coenen"
+							}
+						]} />
+				</div>
+			</article>
+			<Footer />
+		</main>
+	</Layout>
+);
 
 export default Case;

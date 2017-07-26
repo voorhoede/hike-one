@@ -9,7 +9,7 @@ const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
 			</div>
 
 			<div className="blog-extract-text-container">
-				<div className="blog-extract-triangle"></div>	
+				<div className="blog-extract-triangle"></div>
 				<h3>{subtitle}</h3>
 				<h2>{title}</h2>
 				<div className="blog-extract-footer-container">
@@ -19,7 +19,7 @@ const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
 			</div>
 		</a>
 	</Link>
-) 
+);
 
 
 export default BlogExtract;

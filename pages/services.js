@@ -14,6 +14,7 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import Data from '../data/current/services/services.json';
+import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Services = () => {
 	let scrollToTargetClass = 'js-scroll-to-target';

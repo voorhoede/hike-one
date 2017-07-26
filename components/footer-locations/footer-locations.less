@@ -20,7 +20,7 @@
 		content: '/';
 		display: block;
 		position: absolute;
-		top: 5px;
+		top: -5px;
 		left: -20px;
 		font-size: 28px;
 	}
@@ -54,12 +54,11 @@
 	cursor: pointer;
 
 	@media @screen-medium {
-		font-size: 26px;
-		line-height: 50px;
+		font-size: @body-text;
 	}
 
 	@media @screen-large {
-		font-size: 26px;
+		font-size: @body-text;
 	}
 
 	&:focus {
@@ -71,12 +70,11 @@
 		border-bottom: none;
 
 		@media @screen-medium {
-			font-size: 34px;
+			font-size: @heading-small;
 		}
 
 		@media @screen-large {
-			font-size: 34px;
-			line-height: 50px;
+			font-size: @heading-small;
 		}
 	}
 }
@@ -98,7 +96,7 @@
 	line-height: 30px;
 	font-weight: @font-weight-normal;
 	color: @white;
-	
+
 	@media @screen-large {
 		font-size: @body-text-s;
 		line-height: 28px;

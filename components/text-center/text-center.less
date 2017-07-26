@@ -43,7 +43,7 @@
 .text-center p {
     line-height: 28px;
     color: @dark-gray;
-    
+
     @media @screen-large {
         font-size: @body-text;
         font-weight: @font-weight-normal;
@@ -54,13 +54,18 @@
 .text-center-font-large p {
     font-size: @text-medium-m;
 	line-height: 28px;
-    font-weight: normal;
+    font-weight: @font-weight-light;
     color: @dark-gray;
 
 	@media @screen-medium {
 		line-height: 44px;
 		font-size: @text-medium-l;
-	}
+    }
+
+    @media @screen-large {
+        line-height: 50px;
+        font-size: @subtitle-large-l;
+    }
 }
 
 .text-center-font-medium p {
@@ -72,5 +77,9 @@
 	@media @screen-medium {
 		line-height: 36px;
 		font-size: @title-small-s;
-	}
+    }
+    @media @screen-large {
+        font-size: @body-text;
+        line-height: 33px;
+    }
 }

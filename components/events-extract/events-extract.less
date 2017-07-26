@@ -66,29 +66,42 @@
 }
 
 .events-extract-header {
+	font-size: @title-large-s;
+	margin-bottom: 15px;
+	line-height: 35px;
+	font-weight: @font-weight-bold;
+	color: @white;
 	
-		font-size: @title-large-s;
-		margin-bottom: 15px;
-		line-height: 35px;
-
-		@media @screen-large {
-			margin-bottom: 20px;
-		}
-	
+	@media @screen-large {
+		margin-bottom: 20px;
+		line-height: 38px;
+		font-size: @heading-small;
+	}
 }
 
 .events-extract-text-small {
 	width: 100%;
 	display: block;
-	font-size: 14px;
+	font-size: @body-text-s;
 	line-height: 16px;
 	font-weight: 500;
 	margin-bottom: 10px;
+	font-weight: @font-weight-light;
+	
+	@media @screen-large {
+		line-height: 28px;
+	}
+	
 }
 
 .events-extract-link {
 	color: white;
-    text-decoration: none;
+	text-decoration: none;
+	
+	@media @screen-large {
+		line-height: 42px;
+		font-size: @body-text;
+	}
 }
 
 .events-extract-text-large {

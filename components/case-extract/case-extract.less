@@ -45,7 +45,7 @@
 	& > h3 {
 		line-height: 36px;
 		font-size: @title-large-s;
-		font-weight: bold;
+		font-weight: @font-weight-light;
 		margin-bottom: 20px;
 	}
 
@@ -53,6 +53,7 @@
 		line-height: 28px;
 		font-size: @text-medium-m;
 		margin-bottom: 30px;
+		font-weight: @font-weight-normal;
 	}
 	
 	& > span {
@@ -88,14 +89,14 @@
 		}
 
 		& > h4 {
-			line-height: 38px;
-			font-size: @title-small-s;
+			line-height: 33px;
+			font-size: @body-text;
 			margin-bottom: 50px;
 		}
 
 		& > span {
 			margin-bottom: 40px;
-			font-size: @title-small-s;
+			font-size: @label;	
 		}
 	}
 }
@@ -140,12 +141,12 @@
 	float: left;
 	position: relative;
 	width: 100%;
-
+	font-weight: @font-weight-normal;
 	& > span {
 		float: left;
 	}
 	& >.case-extract-link-button {
-		float: left;
+
 	    padding-left: 15px;
 
 		& > .btn-tertiary .icon svg {
@@ -154,6 +155,9 @@
 			width: 14px;
 			height: 14px;
 		}
+	}
+	@media @screen-large {
+		font-size: @body-text;
 	}
 }
 

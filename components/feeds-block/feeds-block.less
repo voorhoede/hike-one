@@ -11,11 +11,14 @@
 	}
 
 	@media @screen-large {
-		max-width: @column-large-10;
+		max-width: @column-large-12;
 		float: none;
 		margin: auto;
 		height: 912px;
 		display: block;
+		& > .container-inner {
+			max-width: @column-large-12;
+		}
 	}
 }
 

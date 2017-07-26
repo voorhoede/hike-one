@@ -1,10 +1,12 @@
 import React from 'react';
 
 import Layout from '../components/layout/layout';
-import Header from '../components/header/header';
+import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+
 import ServicesIntro from '../components/services-intro/services-intro';
-import ServiceApproach from '../components/services-approach/service-approach';
 import ServicesOverview from '../components/services-overview/services-overview';
 import CTABlock from '../components/cta-block/cta-block';
 import Contact from '../components/contact/contact';
@@ -17,10 +19,16 @@ class Services extends React.Component {
 		return (
 			<Layout title="Hike One - Services">
 				<main className="main js-main">
-					<Header/>
+					<MenuBar />
 					<article className="article">
-						<ServicesIntro title={Data.headerTitle} buttonLabel={Data.headerReadmoreCta}/>
-						<ServiceApproach text={Data.introText} />
+						<PageHeader
+							parallaxLayerFront={ <PageHeaderShapes.FrontLayer2 /> }
+							parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
+							title="We help you build great digital products using human-centered design methods"
+							subtitle="Our services"
+							heroImage="static/images/service-header.jpg" />
+
+						<ServicesIntro text={Data.introText} />
 						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 						<Contact
 							parallaxLayerFront={<ContactShapes.FrontLayer1 />}

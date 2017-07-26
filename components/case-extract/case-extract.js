@@ -10,7 +10,9 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', type = '', link})
 				<h3>{title}</h3>
 				<h4>{subtitle}</h4>
 				<div className="case-extract-button-container">
-					<ButtonTertiary classes="btn-white" iconType="arrowRight" />
+					<ButtonTertiary classes="btn-white btn-icon-round">
+						<ArrowRight/>
+					</ButtonTertiary>
 				</div>
 			</div>
 			<div className="case-extract-link">

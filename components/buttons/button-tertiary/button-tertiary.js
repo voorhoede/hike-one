@@ -1,19 +1,10 @@
-import React from 'react';
-import ArrowRight from '../../icons/arrow-right/arrow-right';
-import ArrowDown from '../../icons/arrow-down/arrow-down';
-
-const arrowIcons = {
-	arrowRight: <ArrowRight />,
-	arrowDown: <ArrowDown />
-};
-
-const ButtonTertiary = ({classes = '', onClick, value = '', iconType}) => (
+const ButtonTertiary = ({classes = '', onClick, value = '', children}) => (
 	<button
 		onClick={onClick}
-		className={`btn-tertiary ${classes}`}>
+		className={`btn-tertiary ${classes}`} >
 		{ value }
 		<span className="icon">
-			{ arrowIcons[iconType] }
+			{children}
 		</span>
 	</button>
 );

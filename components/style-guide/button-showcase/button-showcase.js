@@ -6,6 +6,7 @@ import ButtonTertiary from '../../buttons/button-tertiary/button-tertiary';
 
 import Hamburger       from '../../icons/hamburger/hamburger';
 import Cross           from '../../icons/cross/cross';
+import ArrowDown from '../../icons/arrow-down/arrow-down';
 
 class ButtonShowcase extends React.Component {
     render() {
@@ -31,7 +32,9 @@ class ButtonShowcase extends React.Component {
                     <div className="style-guide-column-two">
                         <div>
 							<h3 className="style-guide-sub-title">Tertiary button</h3>
-                            <ButtonTertiary href="#" value="More about our story" iconType="arrowDown" />
+                            <ButtonTertiary href="#" value="More about our story">
+								<ArrowDown />
+							</ButtonTertiary>
                         </div>
                     </div>
 

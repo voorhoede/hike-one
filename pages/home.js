@@ -14,55 +14,63 @@ import * as PageHeaderShapes from  '../components/page-header/page-header-shapes
 
 import ReadMore from '../components/read-more/read-more';
 
+
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import Data from '../dummy-data/home/home.json';
+import scrollToElement from '../components/_helpers/scrollToElement';
 
-const Home = () => (
-	<Layout title="Hike One - Home">
-		<main className="main js-main">
-			<MenuBar color="black" />
-			<article className="article-full-width">
-				<PageHeader
+const Home = () => {
+	let scrollToTargetClass = 'js-scroll-to-target';
+
+	return (
+		<Layout title="Hike One - Home">
+			<main className="main js-main" >
+				<MenuBar color="black" />
+				<article className="article-full-width">
+					<PageHeader
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
 						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 						title={Data.heroHeading}
 						subtitle={Data.heroSubheading}
 						heroImage={Data.heroImage} />
-				<TextCenter
+					<TextCenter
 						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
 						parallaxLayerBack={ <TextCenterShapes.BackLayer2 /> }
-						classes="text-center-font-large text-center-spacing-large"
+						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
 						text={Data.homeTextIntro} />
-				<ServicesOverviewSmall services={Data.overviewItems} />
-				<TextCenter
+					<ServicesOverviewSmall services={Data.overviewItems} />
+					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.homeTextStepTwo} />
-				<CaseExtract
+					<CaseExtract
 						headerImage={Data.caseExtractHeaderImage}
 						title={Data.caseExtractTitle}
 						subtitle={Data.caseExtactSubtitle}
 						type={Data.caseExtractType}
 						link={Data.linkWork} />
 
-				<TextCenter
+					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.homeTextStepThree} />
-				<FeedsBlock />
-				<Contact
-					parallaxLayerFront={<ContactShapes.FrontLayer1 />}
-					title={Data.contactTitle}
-					button={Data.contactButton} />
-				<ReadMore
-					highlight={Data.readMore.highlight}
-					links={Data.readMore.links} />
-			</article>
-			<Footer />
-		</main>
-	</Layout>
-);
+					<FeedsBlock />
+					<Contact
+						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
+						title={Data.contactTitle}
+						button={Data.contactButton} />
+					<ReadMore
+						highlight={Data.readMore.highlight}
+						links={Data.readMore.links} />
+				</article>
+				<Footer />
+			</main>
+		</Layout>
+	);
+
+};
 
 export default Home;

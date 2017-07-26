@@ -73,9 +73,12 @@
 	color: @white;
 	
 	@media @screen-large {
-		margin-bottom: 20px;
-		line-height: 38px;
-		font-size: @heading-small;
+		& > a {
+			font-weight: @font-weight-bold;
+			margin-bottom: 20px;
+			line-height: 38px;
+			font-size: @heading-small;
+		}
 	}
 }
 
@@ -158,7 +161,7 @@
 	@media @screen-large {
 		border-bottom: 1px solid @white;
 		bottom: 110px;
-		margin-top: 30px;
+		margin-top: 15px;
 		position: relative;
 	}
 }

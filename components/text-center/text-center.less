@@ -36,24 +36,24 @@
 
     @media @screen-medium {
         font-size: @heading;
-        line-height: 55px;
+        line-height: @heading-line-height;
     }
 }
 
 .text-center p {
-    line-height: 28px;
+    line-height: @body-small-line-height;
     color: @dark-gray;
 
     @media @screen-large {
         font-size: @body-text;
         font-weight: @font-weight-normal;
-        line-height: 33px;
+        line-height: @body-line-height;
     }
 }
 
 .text-center-font-large p {
     font-size: @text-medium-m;
-	line-height: 28px;
+	line-height: @body-small-line-height;
     font-weight: @font-weight-light;
     color: @dark-gray;
 
@@ -63,14 +63,14 @@
     }
 
     @media @screen-large {
-        line-height: 50px;
+        line-height: @subtitle-line-height;
         font-size: @subtitle-large-l;
     }
 }
 
 .text-center-font-medium p {
     font-size: @text-medium-m;
-	line-height: 28px;
+	line-height: @body-small-line-height;
 	font-weight: normal;
     color: @dark-gray;
 
@@ -80,6 +80,6 @@
     }
     @media @screen-large {
         font-size: @body-text;
-        line-height: 33px;
+        line-height: @body-line-height;
     }
 }

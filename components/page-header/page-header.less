@@ -39,7 +39,7 @@
 
 .home-intro-heading {
 	max-width: @column-small-4;
-	margin: 0 auto 45px auto;
+	margin: 0 auto @spacing-default*4 auto;
 	padding: 0 @spacing-default;
 	font-size: @title-large-s;
 	line-height: 34px;
@@ -55,16 +55,15 @@
 }
 
 .home-intro .btn-tertiary {
-	margin-bottom: 44px;
+	margin-bottom: @spacing-default*4;
 
 	@media @screen-medium {
-		margin-bottom: 66px;
+		margin-bottom: @spacing-default*6;
 	}
 	@media @screen-large {
 		font-size: @body-text;
 		line-height: @line-height-body;
-		padding-bottom: @spacing-double;
-		margin-bottom: 0; 
+		padding: 0;
 	}
 }
 

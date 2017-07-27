@@ -73,17 +73,20 @@
 
 .btn-tertiary {
 	display: inline-block;
-	font-weight: @font-weight-light;
-	font-size: 14px;
+	font-weight: @font-weight-light-extra;
+	font-size: @text-medium-s;
     background: none;
 	text-decoration: none;
     border: none;
     color: @white;
 	transition: background 0.3s ease, color 0.3s ease;
 
-    @media @screen-small {
-        font-size: 20px;
-    }
+	@media @screen-small {
+		font-size: @title-small-s;
+	}
+	@media @screen-large {
+		font-size: @body-text;
+	}
 
 	&:hover {
 		cursor: pointer;

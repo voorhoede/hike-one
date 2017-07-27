@@ -7,6 +7,7 @@
     padding: 3.3125rem 1rem 2rem 2rem;
 	//todo: set this in variable with fallback font
     font-family: 'playfair';
+    font-weight: normal;
     font-size: @quote-large-s;
     line-height: 32px;
     margin: 0 0 60px 1rem;
@@ -21,7 +22,7 @@
         // margin-bottom: 160px;
         padding: 105px 80px;
         font-size: @quote-large-m;
-        line-height: 50px;
+        line-height: @line-height-quote;
     }
 
     @media @screen-large {
@@ -30,6 +31,7 @@
         padding-right: calc(~'(100vw - @{container-inner-max-width}) / 2 + 50px');
         margin-left:   calc(~'(100vw - @{container-inner-max-width}) / 2 + 200px');
         font-size: @quote-large-l;
+        line-height: @line-height-quote;
     }
 }
 
@@ -103,10 +105,17 @@
 }
 
 .quote-cite-name {
-    font-weight: @font-weight-bold;
     margin-bottom: 0;
+    line-height: @line-height-body-small;
+    font-size: @body-text-s;
+    font-weight: @font-weight-bold;
+    font-style: normal;
+    color: @white;
 }
 
 .quote-cite-title {
-    font-style: italic;
+    font-style: normal;
+    font-size: @body-text-s;
+    font-weight: @font-weight-normal;
+    color: @white;
 }

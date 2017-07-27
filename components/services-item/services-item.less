@@ -26,7 +26,8 @@
 	font-size: @title-large-s;
 	line-height: 1.2;
 	margin-bottom: 12px;
-
+	font-weight: @font-weight-bold;
+	
 	&::before {
 		content: '';
 		display: block;
@@ -44,7 +45,8 @@
 	}
 
 	@media @screen-large {
-		font-size: @title-large-l;
+		font-size: @heading;
+		line-height: @line-height-heading;
 	}
 }
 
@@ -78,14 +80,19 @@
 }
 
 .services-item-text {
-    line-height: 28px;
+    line-height: @line-height-body-small;
+	font-weight: @font-weight-normal;
+
 	@media @screen-medium {
 		margin-bottom: 36px;
+	}
+	@media @screen-large {
+		font-size: @body-text;
+		line-height: @line-height-body;
 	}
 }
 
 .services-item-info .services-item-tags {
-	// margin-bottom: 40px;
     padding-left: 22px;
 
 	@media @screen-medium {
@@ -98,8 +105,10 @@
 }
 
 .services-item-info .services-item-tags .content {
-    font-weight: @font-weight-bold;
-    font-style: italic;
+    font-weight: @font-weight-normal;
+	font-style: italic;
+	font-size: @body-text;
+	line-height: @line-height-body;
 }
 
 .service-item-graphics {

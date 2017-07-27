@@ -41,6 +41,7 @@
 		padding: 30px  @spacing-default 0 @spacing-default;
 		font-size: @text-medium-m;
 		line-height: 26px;
+		font-weight: @font-weight-bold;
 	}
 
 	@media @screen-small {
@@ -59,6 +60,13 @@
 			padding: 0;
 			margin-bottom: 35px;
 			font-size: @text-medium-m;
+		}
+	}
+	
+	@media @screen-small {
+		& >  h3 {
+			font-size: @body-text;
+			line-height: @line-height-body-small;
 		}
 	}
 }

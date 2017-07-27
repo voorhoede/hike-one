@@ -8,7 +8,6 @@ import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
 
 import ServicesIntro from '../components/services-intro/services-intro';
 import ServicesOverview from '../components/services-overview/services-overview';
-import CTABlock from '../components/cta-block/cta-block';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
@@ -32,7 +31,6 @@ const Services = () => (
 					parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 					title={Data.contactTitle} button={Data.contactButton} />
 			</article>
-			<CTABlock title={Data.callToActionBlockTitle} button={Data.callToActionBlockButton} image="static/images/img-team.jpg" />
 			<Footer />
 		</main>
 	</Layout>

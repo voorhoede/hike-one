@@ -2,22 +2,22 @@
 
 .text-center {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 	position: relative;
-    @media @screen-medium {
-        margin-bottom: 100px;
-    }
 }
+
 .text-center-spacing-large {
     @media @screen-small {
-        margin-bottom: 130px;
+        padding-top: @spacing-default*4;
+        padding-bottom: @spacing-default*8;
     }
 }
 
 .text-center-spacing-small {
     margin-bottom: 60px;
     @media @screen-small {
-        margin-bottom: 130px
+        padding-top: @spacing-default*4;
+        margin-bottom: @spacing-default*8;
     }
 }
 

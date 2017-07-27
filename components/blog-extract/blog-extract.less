@@ -57,7 +57,7 @@
 		font-size: @subtitle-small-s;
 		color: @white;
 		line-height: 17px;
-		padding-top: 20px;
+		padding-top: @spacing-double;
 		margin-bottom: 10px;
 		font-weight: 500;
 		font-style: italic;
@@ -67,17 +67,19 @@
 	& > h2 {
 		line-height: 24px;
 		font-size: @subtitle-large-s;
-		margin-bottom: 10px;
 		font-weight: @font-weight-bold;
 	}
 
 	@media @screen-small {
 		height: 100%;
 		min-height: 233px;
+		& > h2 {
+			margin-bottom: @spacing-default*6;
+		}
 	}
 
 	@media @screen-large {
-		padding: 0 @spacing-double;
+		padding: 0 @spacing-double @spacing-double @spacing-double;
 		height: 100%;
 		min-height: 266px;
 
@@ -85,12 +87,12 @@
 			font-size: @label;
 			font-style: italic;
 			font-weight: @font-weight-normal;
-			padding-top: 40px;
-			margin-bottom: 20px;
+			padding-top: @spacing-default*4;
+			margin-bottom: @spacing-double;
 		}
 		& > h2 {
 			line-height: @line-height-header-small;
-			margin-bottom: 24px;
+			margin-bottom: @spacing-default*4;
 			font-size: @heading-small;
 		}
 	}
@@ -99,13 +101,14 @@
 .blog-extract-footer-container {
 	position: relative;
 	width: 100%;
-	height: 45px;
 	text-align: left;
-	
+	float: left;
+	display: block;
+
 	& > svg {
 		float: right;
 		position: relative;
-		bottom: 0px;
+		bottom: 11px;
 		right: 0px;
 		margin-top: 0;
 		padding: 0;
@@ -128,23 +131,23 @@
 	}
 
 	@media @screen-small {
-	    position: relative;
-		height: 33px;
+	    position: absolute;
+		left: 0;
+		padding: 0 @spacing-default;
 		bottom: 0;
-		padding-bottom: 45px;
+		
 		& > span {
 			position: absolute;
-			bottom: 20px;
 		}
 	}
 
-	@media @screen-medium {
-		top: 80px;
-	}
-
 	@media @screen-large {		
-		position: relative;
-		top: 0;
+		position: absolute;
+		left: 0;
+		bottom: 15px;
+		width: 100%;		
+		padding: 0 @spacing-double;
+
 		& > button {
 			height: 25px;
 			right: -15px;
@@ -154,7 +157,7 @@
 			display: block;
 		}
 		& > svg {
-			right: -12px;
+			right: 0px;
 		}
 	}
 }

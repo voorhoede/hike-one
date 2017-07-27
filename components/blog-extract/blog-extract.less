@@ -55,19 +55,20 @@
 
 	& > h3 {
 		font-size: @subtitle-small-s;
-		color: @black-grey;
+		color: @white;
 		line-height: 17px;
 		padding-top: 20px;
 		margin-bottom: 10px;
 		font-weight: 500;
 		font-style: italic;
-		opacity: 0.6
+		opacity: 0.8;
 	}
 
 	& > h2 {
 		line-height: 24px;
 		font-size: @subtitle-large-s;
 		margin-bottom: 10px;
+		font-weight: @font-weight-bold;
 	}
 
 	@media @screen-small {
@@ -81,15 +82,16 @@
 		min-height: 266px;
 
 		& > h3 {
-			font-size: @title-small-s;
+			font-size: @label;
+			font-style: italic;
+			font-weight: @font-weight-normal;
 			padding-top: 40px;
-			line-height: 20px;
 			margin-bottom: 20px;
 		}
 		& > h2 {
-			line-height: 38px;
+			line-height: @line-height-header-small;
 			margin-bottom: 24px;
-			font-size: @text-medium-l;
+			font-size: @heading-small;
 		}
 	}
 }
@@ -112,16 +114,17 @@
 		background: transparent;	
 		
 		& > path {
-			fill: white;
+			fill: @white;
 			transform: translate(2px,2px) scale(0.65);
 		}
 	}
 
 	& > span {
-		float:left;
-		font-weight: 500;
+		float: left;
+		font-weight: @font-weight-normal;
 		font-size: 12px;
 		display: block;
+		color: @white;
 	}
 
 	@media @screen-small {
@@ -147,8 +150,7 @@
 			right: -15px;
 		}
 		& > span {
-			font-weight: 500;
-			font-size: @text-medium-s;
+			font-size: @body-text-s;
 			display: block;
 		}
 		& > svg {

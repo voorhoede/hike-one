@@ -73,48 +73,38 @@
 
 .btn-tertiary {
 	display: inline-block;
-	font-weight: 600;
-	font-size: 14px;
+	font-weight: @font-weight-light;
+	font-size: @text-medium-s;
     background: none;
 	text-decoration: none;
     border: none;
-    color: @red;
+    color: @white;
 	transition: background 0.3s ease, color 0.3s ease;
 
-    @media @screen-small {
-        font-size: 20px;
-    }
+	@media @screen-small {
+		font-size: @title-small-s;
+	}
+	@media @screen-large {
+		font-size: @body-text;
+	}
 
 	&:hover {
 		cursor: pointer;
-		.icon svg {
-			background: @red;
-		}
-
-		.icon svg path {
-			fill: @white;
-		}
 	}
 
     .icon svg {
         display: block;
         margin: 20px auto 0;
-        border: 2px solid;
-        border-radius: 50%;
         background: transparent;
         transition: background 0.3s ease;
         width: 40px;
-        height: 40px;
 
         @media @screen-small {
-            width: 52px;
-            height: 52px;
-            border: 1px solid;
+            width: 45px;
         }
-        
 
         path {
-            fill: @red;
+            fill: @white;
             transition: fill 0.3s ease;
         }
     }
@@ -126,17 +116,49 @@
     border: none;
     padding: 0;
     display: block;
-    
+
     &:hover {
         background: transparent;
     }
 }
 
+.btn-icon-round {
+	border: none;
+	background: none;
+	padding: 0;
+
+	.icon svg {
+		width: 40px;
+		border: 1px solid;
+		border-radius: 50%;
+		transition: background 0.3s ease;
+
+		@media @screen-small {
+			width: 45px;
+		}
+
+		path {
+			fill: @red;
+			transition: fill 0.3s ease;
+		}
+	}
+
+	&:hover {
+		.icon svg {
+			background: @red;
+		}
+
+		.icon svg path {
+			fill: @white;
+		}
+	}
+}
+
 .btn-white {
      color: @white;
      border-color: currentColor;
- 
+
      & > .icon svg path {
-         fill: currentColor; 
+         fill: currentColor;
     }
 }

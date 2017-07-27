@@ -45,20 +45,22 @@
 	& > h3 {
 		line-height: 36px;
 		font-size: @title-large-s;
-		font-weight: bold;
+		font-weight: @font-weight-light;
 		margin-bottom: 20px;
 	}
 
 	& > h4 {
-		line-height: 28px;
+		line-height: @line-height-lable;
 		font-size: @text-medium-m;
 		margin-bottom: 30px;
+		font-weight: @font-weight-normal;
 	}
 	
 	& > span {
 		margin-bottom: 20px;
 		font-style: italic;
-		color: @black;
+		color: @white;
+		font-weight: @font-weight-normal;
 		font-size: @subtitle-large-s;
 		display: block;
 	}
@@ -81,21 +83,21 @@
 		margin: 0;
 
 		& > h3 {
-			line-height: 70px;
+			line-height: @line-height-title;
 			font-size: @title-large-l;
-			font-weight: bold;
+			font-weight: @font-weight-bold;
 			margin-bottom: 30px;
 		}
 
 		& > h4 {
-			line-height: 38px;
-			font-size: @title-small-s;
+			line-height: @line-height-lable;
+			font-size: @body-text;
 			margin-bottom: 50px;
 		}
 
 		& > span {
 			margin-bottom: 40px;
-			font-size: @title-small-s;
+			font-size: @label;	
 		}
 	}
 }
@@ -140,12 +142,12 @@
 	float: left;
 	position: relative;
 	width: 100%;
-
+	font-weight: @font-weight-normal;
 	& > span {
 		float: left;
 	}
 	& >.case-extract-link-button {
-		float: left;
+
 	    padding-left: 15px;
 
 		& > .btn-tertiary .icon svg {
@@ -154,6 +156,9 @@
 			width: 14px;
 			height: 14px;
 		}
+	}
+	@media @screen-large {
+		font-size: @body-text;
 	}
 }
 

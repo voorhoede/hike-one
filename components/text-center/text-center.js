@@ -1,7 +1,7 @@
 import React from 'react';
 
-const TextCenter = ({classes, title = '', text = '', parallaxLayerBack, parallaxLayerFront }) => (
-	<section className={`${classes ? classes : ''} text-center container`}>
+const TextCenter = ({classes = '', title = '', text = '', parallaxLayerBack, parallaxLayerFront}) => (
+	<section className={`${classes} text-center container`}>
 		{parallaxLayerBack}
 		<div className="container-inner">
 			{ title

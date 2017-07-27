@@ -44,11 +44,27 @@
 h2.fifty-fifty-title {
 	margin-bottom: 16px;
 	font-size: @title-medium-s;
+	color: @dark-gray;
+	font-weight: @font-weight-bold;
 
 	@media @screen-medium {
 		margin-bottom: 26px;
 		line-height: 56px;
 		font-size: @title-medium-l;
+	}
+	@media @screen-large {
+		font-size: @heading;
+		line-height: @line-height-heading;	
+	}
+}
+
+p.fifty-fifty-text  {
+	color: @dark-gray;
+	font-weight: @font-weight-normal;
+
+	@media @screen-large {
+		font-size: @body-text;
+		line-height: @line-height-body;
 	}
 }
 

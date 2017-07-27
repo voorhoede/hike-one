@@ -65,7 +65,7 @@
 
     @media @screen-medium {
         font-size: @title-extra-large-m;
-        line-height: 70px;
+        line-height: @line-height-title;
     }
 
     @media @screen-large {
@@ -77,9 +77,10 @@
 
 .full-width-image-text p {
     font-size: @subtitle-large-s;
+    font-weight: @font-weight-normal;
 
     @media @screen-large {
-        font-size: @subtitle-large-l;
-        line-height: 42px;
+        font-size: @body-text;
+        line-height: @line-height-body;
     }
 }

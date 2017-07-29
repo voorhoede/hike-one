@@ -18,7 +18,6 @@ class Footer extends React.Component {
 	componentDidMount() {
 		if (typeof window.requestAnimationFrame !== 'undefined') {
 			this.footerHeight = this.footer.getBoundingClientRect().height;
-			this.mainContainer = document.querySelector('.js-main');
 			this.setFixedState();
 			window.addEventListener('resize', this.onResize);
 		}
@@ -31,10 +30,10 @@ class Footer extends React.Component {
 	setFixedState() {
 		if (window.innerHeight > this.footerHeight) {
 			this.footer.classList.add('is-fixed');
-			this.mainContainer.classList.add('footer-fixed');
+			document.body.classList.add('footer-fixed');
 		} else {
 			this.footer.classList.remove('is-fixed');
-			this.mainContainer.classList.remove('footer-fixed');
+			document.body.classList.remove('footer-fixed');
 		}
 	}
 

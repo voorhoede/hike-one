@@ -33,6 +33,7 @@
 }
 
 .events-extract {
+	position: relative;
 	width: 100%;
 	text-align: center;
 	padding: 40px 16px 0px 16px;
@@ -55,8 +56,8 @@
 
 		& > a {
 		    position: relative;
-			bottom: 110px;
-			left: 350px;
+			float: right;
+			top: -110px;
 			
 			&:hover{
 				background: transparent;
@@ -160,7 +161,6 @@
 	
 	@media @screen-large {
 		border-bottom: 1px solid @white;
-		bottom: 110px;
 		margin-top: 15px;
 		position: relative;
 	}

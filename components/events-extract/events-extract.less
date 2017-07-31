@@ -27,7 +27,7 @@
 	font-size: @subtitle-small-s;
 	
 	@media @screen-large {
-		display: inline;
+		margin-bottom: @spacing-small;	
 		font-size: @title-small-s;
 	}
 }
@@ -39,6 +39,8 @@
 	padding: @spacing-large 0 @spacing-small 0;
 	line-height: normal;
 	
+	
+
 	& > a {
 		margin-bottom: 35px;
 	}
@@ -51,8 +53,13 @@
 	@media @screen-large {
 		width: 100%;
 		text-align: left;
-		height: 201px;
-		padding: @spacing-large 0;
+		height: 150px;
+
+		&:first-of-type {
+			margin: 0 0 @spacing-large 0;
+		}
+		margin: 0;
+		padding: 0 0 0 0;
 
 		& > a {
 		    position: relative;
@@ -146,7 +153,7 @@
 		border-top: 0;
 	
 		& > a {
-			margin: @spacing-small auto;	
+			margin: @spacing-large auto;	
 		}	
 	}
 }

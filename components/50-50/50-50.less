@@ -4,6 +4,10 @@
 	position: relative;
 }
 
+.fifty-fifty.container {
+	margin: 0 auto 0 auto;
+}
+
 .fifty-fifty .container-inner {
     display: flex;
     align-items: center;
@@ -11,7 +15,8 @@
 
     @media @screen-medium {
 		flex-direction: row;
-		height: 535px;
+		padding: @spacing-large 0 @spacing-large*2 0;
+		margin: 0 auto 0 auto;
     }
 }
 

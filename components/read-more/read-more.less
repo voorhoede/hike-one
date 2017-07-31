@@ -21,7 +21,7 @@
 .read-more-highlight {
     background-size: cover;
     background-position: center;
-    padding: 90px 0;
+    padding: @spacing-default*8 0;
     text-align: center;
     color: @white;
 }
@@ -42,7 +42,7 @@
     }
 
     @media @screen-large {
-        margin-bottom: 40px;
+        margin-bottom: @spacing-large;
         font-size: @heading;
         line-height: @line-height-heading;
     }
@@ -67,15 +67,15 @@
 .read-more-links {
     color: @white;
     background-color: @blue;
-    padding: 40px 1rem;
+    padding: @spacing-large @spacing-default;
 
     @media @screen-large {
-        padding: 60px 70px 60px 70px;
+        padding: @spacing-extra-large;
     }
 }
 
 .read-more-links > div:not(:last-child) {
-    margin-bottom: 30px;
+    margin-bottom: @spacing-medium;
 }
 
 .read-more-links a {
@@ -83,7 +83,7 @@
     text-decoration: none;
     font-weight: @font-weight-bold;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: @spacing-default;
 
     &:hover {
         svg {

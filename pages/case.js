@@ -28,7 +28,9 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
 import Data from '../data/current/cases/gone-in-60-seconds.json';
+import scrollToElement from '../components/_helpers/scrollToElement';
 
+const scrollToTargetClass = 'js-scroll-to-target';
 const Case = () => (
 	<Layout title="Hike One - Case">
 		<main className="main js-main">
@@ -36,12 +38,13 @@ const Case = () => (
 
 			<article className="article-full-width">
 				<CaseHeader
+					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 					video={Data.headerVideo}
 					title={Data.headerTitle}
 					subtitle={Data.headerSubtitle}
 					image={Data.headerBackgroundImage.url} />
 
-				<div className="case-scrolling-content">
+				<div className={`${scrollToTargetClass} case-scrolling-content`}>
 					<TextCenter
 						parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
 						title={Data.introTitle}

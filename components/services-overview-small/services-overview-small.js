@@ -1,7 +1,7 @@
 import ServicesItemSmall from '../services-item-small/services-item-small';
 
 const ServicesOverviewSmall = ({ services }) => (
-	<div className="container clearfix">
+	<div className="services-item-small-container container clearfix">
 		<div className="container-inner">
 		{
 			Object.values(services)

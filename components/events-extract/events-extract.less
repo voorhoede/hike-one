@@ -5,20 +5,20 @@
 	float: left;
 	background-color: @purple;
 	color: @white;
-	padding: 20px 0 0 0;
+	padding: @spacing-small @spacing-default;
 
 	@media @screen-large {
 		position: relative;
+		height: 528px;
 		bottom: 277px;
 		width: 50%;
 		text-align: left;
-		padding: 38px 0 0 0;
+		padding: @spacing-large @spacing-medium @spacing-medium @spacing-medium;
 	}
 	
 }
 .events-extract-subheader {
 	width: 100%;
-	margin-left: 16px;
 	font-style: italic;
 	text-align: left;
 	margin-bottom: 0;
@@ -27,17 +27,20 @@
 	font-size: @subtitle-small-s;
 	
 	@media @screen-large {
-		margin-left: 30px;
+		margin-bottom: @spacing-small;	
 		font-size: @title-small-s;
 	}
 }
 
 .events-extract {
+	position: relative;
 	width: 100%;
 	text-align: center;
-	padding: 40px 16px 0px 16px;
+	padding: @spacing-large 0 @spacing-small 0;
 	line-height: normal;
 	
+	
+
 	& > a {
 		margin-bottom: 35px;
 	}
@@ -50,13 +53,19 @@
 	@media @screen-large {
 		width: 100%;
 		text-align: left;
-		height: 201px;
-		padding: 40px 30px 0 30px;
+		height: 150px;
+
+		&:first-of-type {
+			top: 6px;
+			margin: 0 0 @spacing-large 0;
+		}
+		margin: 0;
+		padding: 0 0 0 0;
 
 		& > a {
 		    position: relative;
-			bottom: 110px;
-			left: 350px;
+			float: right;
+			top: -110px;
 			
 			&:hover{
 				background: transparent;
@@ -67,7 +76,7 @@
 
 .events-extract-header {
 	font-size: @title-large-s;
-	margin-bottom: 15px;
+	margin-bottom: @spacing-default;
 	line-height: 35px;
 	font-weight: @font-weight-bold;
 	color: @white;
@@ -75,7 +84,7 @@
 	@media @screen-large {
 		& > a {
 			font-weight: @font-weight-bold;
-			margin-bottom: 20px;
+			margin-bottom: @spacing-small;
 			line-height: @line-height-header-small;
 			font-size: @heading-small;
 		}
@@ -88,7 +97,7 @@
 	font-size: @body-text-s;
 	line-height: 16px;
 	font-weight: 500;
-	margin-bottom: 10px;
+	margin-bottom: @spacing-default;
 	font-weight: @font-weight-light;
 	
 	@media @screen-large {
@@ -112,38 +121,40 @@
 	display: block;
 	font-weight: bold;
 	font-size: @text-medium-s;
-	margin-bottom: 30px;
+	margin-bottom: @spacing-medium;
 	text-decoration: none;
 	color: white;
 
 	@media @screen-large {
 		font-size: @subtitle-large-m;
-		margin-bottom: 18px;
+		margin-bottom: @spacing-default*1.5;
 	}
 }
 
 .events-extract-footer {
 	width: 100%;
-	background: @purple;
 	text-align: center;
 	top: -6px;
 	position: relative;
 	
 	& > a {
-		margin: 25px auto;	
+		margin: 0 auto;	
 		position: relative;
 	}
 
 	@media @screen-small {
 		float:left;
 		border-top: 1px solid @white;
+		& > a {
+			margin: @spacing-small auto 0 auto;
+		}
 	}
 
 	@media @screen-large {
 		border-top: 0;
 	
 		& > a {
-			margin: 20px auto;	
+			margin: @spacing-large auto;	
 		}	
 	}
 }
@@ -160,8 +171,7 @@
 	
 	@media @screen-large {
 		border-bottom: 1px solid @white;
-		bottom: 110px;
-		margin-top: 15px;
+		margin-top: @spacing-default;
 		position: relative;
 	}
 }

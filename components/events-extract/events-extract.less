@@ -5,7 +5,7 @@
 	float: left;
 	background-color: @purple;
 	color: @white;
-	padding: @spacing-double 0 0 0;
+	padding: @spacing-double @spacing-default;
 
 	@media @screen-large {
 		position: relative;
@@ -13,13 +13,12 @@
 		bottom: 277px;
 		width: 50%;
 		text-align: left;
-		padding: @spacing-default*3 0 0 0;
+		padding: @spacing-default*4 @spacing-default*3 @spacing-default*3 @spacing-default*3;
 	}
 	
 }
 .events-extract-subheader {
 	width: 100%;
-	margin-left: @spacing-default;
 	font-style: italic;
 	text-align: left;
 	margin-bottom: 0;
@@ -28,7 +27,7 @@
 	font-size: @subtitle-small-s;
 	
 	@media @screen-large {
-		margin-left: @spacing-default*3;
+		display: inline;
 		font-size: @title-small-s;
 	}
 }
@@ -37,7 +36,7 @@
 	position: relative;
 	width: 100%;
 	text-align: center;
-	padding: @spacing-default*4 @spacing-default 0px @spacing-default;
+	padding: @spacing-default*4 0 @spacing-double 0;
 	line-height: normal;
 	
 	& > a {
@@ -53,7 +52,7 @@
 		width: 100%;
 		text-align: left;
 		height: 201px;
-		padding: @spacing-default*4 @spacing-default*3 0 @spacing-default*3;
+		padding: @spacing-default*4 0;
 
 		& > a {
 		    position: relative;
@@ -126,19 +125,21 @@
 
 .events-extract-footer {
 	width: 100%;
-	background: @purple;
 	text-align: center;
 	top: -6px;
 	position: relative;
 	
 	& > a {
-		margin: @spacing-double auto;	
+		margin: 0 auto;	
 		position: relative;
 	}
 
 	@media @screen-small {
 		float:left;
 		border-top: 1px solid @white;
+		& > a {
+			margin: @spacing-double auto 0 auto;
+		}
 	}
 
 	@media @screen-large {

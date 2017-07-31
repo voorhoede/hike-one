@@ -2,22 +2,22 @@
 
 .text-center {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
 	position: relative;
-    @media @screen-medium {
-        margin-bottom: 100px;
-    }
 }
+
 .text-center-spacing-large {
     @media @screen-small {
-        margin-bottom: 130px;
+        padding-top: @spacing-large;
+        padding-bottom: @spacing-large*2;
     }
 }
 
 .text-center-spacing-small {
     margin-bottom: 60px;
     @media @screen-small {
-        margin-bottom: 130px
+        padding-top: @spacing-large;
+        margin-bottom: @spacing-large*2;
     }
 }
 
@@ -71,7 +71,7 @@
 .text-center-font-medium p {
     font-size: @text-medium-m;
 	line-height: @line-height-body-small;
-	font-weight: normal;
+	font-weight: @font-weight-normal;
     color: @darker-gray;
 
 	@media @screen-medium {

@@ -1,7 +1,6 @@
-
 @import (reference) '../../styles/variables';
 
-.case-extract {
+.case-extract-inner {
 	padding: 0;
 	position: relative;
 	height: 545px;
@@ -11,6 +10,7 @@
 	}
 	@media @screen-large {
 		height: 100%;
+		padding-top: @spacing-extra-large;
 	}
 }
 
@@ -24,9 +24,9 @@
 	}
 
 	@media @screen-large {
-		margin-left: auto; 
+		margin-left: auto;
 		height: 600px;
-		margin-bottom: 60px;
+		margin-bottom: @spacing-large;
 		max-width: @column-large-9;
 	}
 }
@@ -39,82 +39,84 @@
 	max-width: @column-small-4;
 	background-color: @red;
 	color: @white;
-	padding: 30px @spacing-default 30px 30px;
+	padding: @spacing-medium @spacing-default  @spacing-medium  @spacing-medium;
 	margin: 0 @spacing-default;
-	
+
 	& > h3 {
 		line-height: 36px;
 		font-size: @title-large-s;
 		font-weight: @font-weight-light;
-		margin-bottom: 20px;
+		margin-bottom:  @spacing-small;
 	}
 
 	& > h4 {
 		line-height: @line-height-lable;
 		font-size: @text-medium-m;
-		margin-bottom: 30px;
+		margin-bottom: @spacing-medium;
 		font-weight: @font-weight-normal;
 	}
-	
+
 	& > span {
-		margin-bottom: 20px;
+		margin-bottom: @spacing-small;
 		font-style: italic;
 		color: @white;
 		font-weight: @font-weight-normal;
 		font-size: @subtitle-large-s;
 		display: block;
+		opacity: 0.8;
 	}
-	
+
 	@media @screen-medium {
 		max-width: 94%;
 		width: 100%;
-		margin: 0 @spacing-double;
+		margin: 0 @spacing-small;
 		top: -90px;
 	}
 
 	@media @screen-large {
 		position: absolute;
 		left: 0;
-		padding: 0 50px;
+		padding: 0 @spacing-default*5;
 		width: 100%;
-		padding-top: 60px;
+		padding-top: @spacing-extra-large;
 		max-width: @column-large-4;
-		top: -60px;
+		top: 0;
 		margin: 0;
 
 		& > h3 {
 			line-height: @line-height-title;
 			font-size: @title-large-l;
 			font-weight: @font-weight-bold;
-			margin-bottom: 30px;
+			margin-bottom: @spacing-small;
 		}
 
 		& > h4 {
 			line-height: @line-height-lable;
 			font-size: @body-text;
-			margin-bottom: 50px;
+			margin-bottom: @spacing-default*5;
 		}
 
 		& > span {
-			margin-bottom: 40px;
-			font-size: @label;	
+			margin-bottom: @spacing-medium;
+			font-size: @label;
 		}
 	}
 }
 
 .case-extract-button-container {
-		margin: 30px 0 0 0;
-		
+		margin: 0 0 0 0;
+
 		& > .btn-tertiary .icon svg {
 			margin-top: 0;
 			height: 37px;
 			width: 37px;
 			padding: 8px;
 		}
-		
+
 		@media @screen-large {
 			margin-bottom: 60px;
-	
+			float: right;
+
 			& > .btn-tertiary .icon svg{
 				height: 50px;
 				width: 50px;
@@ -123,40 +125,31 @@
 		}
 }
 
-.case-extract-link {
-    margin: 0% auto;
+.case-extract-link-container {
 	text-align: center;
+}
+
+.case-extract-link  {
+	color: @red;
+	text-decoration: none;
+	position: relative;
+	padding: 0 @spacing-small;
 	font-size: @text-medium-m;
-	font-weight: bold;
-	width: 250px;
-    padding: 0 @spacing-double;
+	font-weight: @font-weight-normal;
+	display: inline-block;
 
 	@media @screen-large {
 		font-size: @text-medium-s;
 	}
-}
-
-.case-extract-link-text {
-	color: @red;
-	text-decoration: none;
-	float: left;
-	position: relative;
-	width: 100%;
-	font-weight: @font-weight-normal;
 	& > span {
 		float: left;
 	}
-	& >.case-extract-link-button {
 
+	.case-extract-link-icon {
+		float: left;
 	    padding-left: 15px;
-
-		& > .btn-tertiary .icon svg {
-			
-			margin-top: 0;
-			width: 14px;
-			height: 14px;
-		}
 	}
+
 	@media @screen-large {
 		font-size: @body-text;
 	}

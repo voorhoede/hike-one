@@ -27,7 +27,7 @@
 
 	@media @screen-large {
 		max-width: @column-large-10;
-		margin: 120px auto 160px auto;
+		margin: @spacing-default*11 auto @spacing-large*2 auto;
 	}
 
 	& > svg {
@@ -39,7 +39,7 @@
 
 .home-intro-heading {
 	max-width: @column-small-4;
-	margin: 0 auto 45px auto;
+	margin: 0 auto @spacing-large auto;
 	padding: 0 @spacing-default;
 	font-size: @title-large-s;
 	line-height: 34px;
@@ -55,14 +55,19 @@
 }
 
 .home-intro .btn-tertiary {
-	margin-bottom: 44px;
+	margin-bottom: @spacing-large;
 
 	@media @screen-medium {
-		margin-bottom: 66px;
+		margin-bottom: @spacing-extra-large;
+	}
+	@media @screen-large {
+		font-size: @body-text;
+		line-height: @line-height-body;
+		padding: 0;
 	}
 }
 
 .home-intro-icon-container {
 	width: 45px;
-	margin: 0 auto 60px auto;
+	margin: 0 auto @spacing-extra-large auto;
 }

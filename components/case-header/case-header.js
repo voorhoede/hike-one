@@ -1,3 +1,4 @@
+import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
 import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
 import TweenLite from "gsap";
 
@@ -81,7 +82,9 @@ class CaseIntro extends React.Component {
 					<div className="case-header-parallax" ref={node => this.parallaxLayer = node}>
 						<h1 className="case-header-title">{props.title}</h1>
 						<p className="case-header-subtitle">{props.subtitle}</p>
-						<ButtonTertiary iconType="arrowDown" />
+						<ButtonTertiary onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
+							<ArrowDownTriple/>
+						</ButtonTertiary>
 					</div>
 				</div>
 			</section>

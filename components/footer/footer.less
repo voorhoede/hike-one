@@ -4,11 +4,11 @@
 .footer {
 	background: @black;
 	margin: 0;
-	padding: 25px 0;
+	padding: 54px 0 0 0;
 	color: @white;
 
 	@media @screen-medium {
-		padding: 100px 0 25px;
+		padding: 100px 0 0;
 	}
 }
 
@@ -20,22 +20,7 @@
 	min-height: 100vh;
 	z-index: -1;
 	display: flex;
-	align-items: center;
-
-	.footer-join-link {
-		@media only screen and (min-width: 768px) {
-			margin: 10vh 0;
-		}
-		@media only screen and (min-width: 768px) and (min-height: 810px) {
-			margin: 10vh 0 17vh;
-		}
-	}
-
-	.header-logo {
-		@media only screen and (min-width: 768px) and (min-height: 740px) {
-			margin-bottom: 10vh;
-		}
-	}
+	align-items: flex-end;
 }
 
 .footer .container-inner {
@@ -49,8 +34,11 @@
 }
 
 .footer .header-logo {
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	display: block;
+	@media @screen-medium {
+		margin-bottom: 65px;
+	}
 }
 
 .footer-left {
@@ -63,7 +51,7 @@
 
 .footer-right {
 	@media @screen-medium {
-		display: inline-block;
+
 		display: inline-flex;
 		vertical-align: top;
 		width: 30%;
@@ -83,7 +71,6 @@
 
 .footer-link-list {
 	.list-no-style;
-	margin-bottom: 25px;
 	column-count: 2;
 	column-fill: auto;
 	height: 160px;
@@ -92,13 +79,13 @@
 		display: inline-block;
 		vertical-align: top;
 	    max-width: 400px;
+		margin-bottom: 25px;
 	}
 }
 
 .footer-link-list li {
 	display: inline-block;
 	width: 50%;
-    line-height: 30px;
 }
 
 .footer-link-list li {
@@ -109,6 +96,8 @@
 	color: @white;
 	text-decoration: none;
 	font-weight: @font-weight-normal;
+	font-size: 18px;
+	line-height: 35px;
 
 	@media @screen-large {
 		font-size: @body-text;
@@ -150,6 +139,7 @@
 	box-sizing: content-box;
     vertical-align: text-top;
 	display: inline-block;
+	margin-left: 5px;
 
 	@media @screen-medium {
 		vertical-align: sub;
@@ -192,11 +182,15 @@
 
 .footer-copyright {
 	color: @white;
+	font-size: 18px;
 	font-weight: @font-weight-normal;
+	padding-bottom: 15px;
+	margin-bottom: 0;
 
 	@media @screen-medium {
+		padding-bottom: 0;
 		display: inline-block;
-	    transform: translateY(-200%);
+	    transform: translateY(-130%);
 	}
 	@media @screen-large {
 		line-height: @line-height-body-small;

@@ -1,13 +1,18 @@
 import ServicesItemSmall from '../services-item-small/services-item-small';
 
+const colors = ['blue', 'green', 'purple'];
+const shapes = ['diamond', 'doubleDiamond', 'triangle'];
+
 const ServicesOverviewSmall = ({ services }) => (
 	<div className="container clearfix">
 		<div className="container-inner">
 		{
 			Object.values(services)
-				.map((item, index) => (
-					<ServicesItemSmall {...item}  key={index} />
-			))
+				.map((item, index) => {
+					item.color = colors[index];
+					item.shape = shapes[index];
+					return <ServicesItemSmall {...item}  key={index} />;
+				})
 		}
 		</div>
 	</div>

@@ -5,20 +5,21 @@
 	float: left;
 	background-color: @purple;
 	color: @white;
-	padding: 20px 0 0 0;
+	padding: @spacing-double 0 0 0;
 
 	@media @screen-large {
 		position: relative;
+		height: 528px;
 		bottom: 277px;
 		width: 50%;
 		text-align: left;
-		padding: 38px 0 0 0;
+		padding: @spacing-default*3 0 0 0;
 	}
 	
 }
 .events-extract-subheader {
 	width: 100%;
-	margin-left: 16px;
+	margin-left: @spacing-default;
 	font-style: italic;
 	text-align: left;
 	margin-bottom: 0;
@@ -27,7 +28,7 @@
 	font-size: @subtitle-small-s;
 	
 	@media @screen-large {
-		margin-left: 30px;
+		margin-left: @spacing-default*3;
 		font-size: @title-small-s;
 	}
 }
@@ -36,7 +37,7 @@
 	position: relative;
 	width: 100%;
 	text-align: center;
-	padding: 40px 16px 0px 16px;
+	padding: @spacing-default*4 @spacing-default 0px @spacing-default;
 	line-height: normal;
 	
 	& > a {
@@ -52,7 +53,7 @@
 		width: 100%;
 		text-align: left;
 		height: 201px;
-		padding: 40px 30px 0 30px;
+		padding: @spacing-default*4 @spacing-default*3 0 @spacing-default*3;
 
 		& > a {
 		    position: relative;
@@ -68,7 +69,7 @@
 
 .events-extract-header {
 	font-size: @title-large-s;
-	margin-bottom: 15px;
+	margin-bottom: @spacing-default;
 	line-height: 35px;
 	font-weight: @font-weight-bold;
 	color: @white;
@@ -76,7 +77,7 @@
 	@media @screen-large {
 		& > a {
 			font-weight: @font-weight-bold;
-			margin-bottom: 20px;
+			margin-bottom: @spacing-double;
 			line-height: @line-height-header-small;
 			font-size: @heading-small;
 		}
@@ -89,7 +90,7 @@
 	font-size: @body-text-s;
 	line-height: 16px;
 	font-weight: 500;
-	margin-bottom: 10px;
+	margin-bottom: @spacing-default;
 	font-weight: @font-weight-light;
 	
 	@media @screen-large {
@@ -113,13 +114,13 @@
 	display: block;
 	font-weight: bold;
 	font-size: @text-medium-s;
-	margin-bottom: 30px;
+	margin-bottom: @spacing-default*3;
 	text-decoration: none;
 	color: white;
 
 	@media @screen-large {
 		font-size: @subtitle-large-m;
-		margin-bottom: 18px;
+		margin-bottom: @spacing-default*1.5;
 	}
 }
 
@@ -131,7 +132,7 @@
 	position: relative;
 	
 	& > a {
-		margin: 25px auto;	
+		margin: @spacing-double auto;	
 		position: relative;
 	}
 
@@ -144,7 +145,7 @@
 		border-top: 0;
 	
 		& > a {
-			margin: 20px auto;	
+			margin: @spacing-double auto;	
 		}	
 	}
 }
@@ -161,7 +162,7 @@
 	
 	@media @screen-large {
 		border-bottom: 1px solid @white;
-		margin-top: 15px;
+		margin-top: @spacing-default;
 		position: relative;
 	}
 }

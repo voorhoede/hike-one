@@ -3,12 +3,12 @@
 .twitter-extract {
 	float: right;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: @spacing-default;
 	text-decoration: none;
 	
 	@media @screen-small {
 		width: 50%;
-		padding-right: 10px;
+		padding-right: @spacing-default;
 		
 		&:nth-child(2n) {
 			padding-right: 0;
@@ -33,7 +33,7 @@
 
 .twitter-extract-text {
 	background: @blue;
-	padding: @spacing-double 16px;
+	padding: @spacing-double @spacing-default;
 	width: 100%;
 	float: left;
 	color: @white;
@@ -52,7 +52,7 @@
 		}
 
 		& > h3 {
-			margin-bottom: 15px;
+			margin-bottom: @spacing-default;
 			line-height: 24px;
 			font-weight: @font-weight-bold;
 			font-size: @subtitle-large-s;
@@ -104,7 +104,7 @@
 	@media @screen-large {
 		width: 50%;
 		height: 246px;
-		padding: 40px 20px 25px 30px;
+		padding: @spacing-default*4 @spacing-double @spacing-double @spacing-default*3;
 	}
 }
 

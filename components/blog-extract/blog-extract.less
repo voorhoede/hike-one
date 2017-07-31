@@ -3,12 +3,12 @@
 .blog-extract {
 	float: left;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: @spacing-default;
 	text-decoration: none;
 
 	@media @screen-small {
 		width: 50%;	
-		padding-right: 10px;
+		padding-right: @spacing-default;
 	}
 }
 
@@ -79,7 +79,7 @@
 	}
 
 	@media @screen-large {
-		padding: 0 @spacing-double @spacing-double @spacing-double;
+		padding: 0 @spacing-double @spacing-double @spacing-default*3;
 		height: 100%;
 		min-height: 266px;
 

@@ -1,6 +1,6 @@
 @import (reference) '../../styles/variables';
 
-.case-intro {
+.case-header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -13,7 +13,7 @@
     background-size: cover;
     background-position: center;
 	padding-top: @header-height + @header-margin-sm;
-	margin-bottom: 50px;
+	margin-bottom: @spacing-default*5;
 
 	&::after {
 		content: '';
@@ -27,17 +27,17 @@
 
 	@media @screen-medium {
 		padding-top: @header-height + @header-margin-lg;
-		margin-bottom: 100px;
+		margin-bottom: @spacing-default*9;
 	}
 }
 
-.case-intro-inner {
+.case-header-inner {
     margin-bottom: 0;
 	z-index: 1;
 	padding-bottom: 2rem;
 }
 
-.case-intro-video {
+.case-header-video {
 	display: none;
 	object-fit: cover;
 	width: 100vw;
@@ -51,7 +51,7 @@
 	}
 }
 
-.case-intro-title {
+.case-header-title {
     color: @white;
     font-weight: @font-weight-bold-extra;
     font-size: @title-extra-large-s;
@@ -63,16 +63,17 @@
     }
 
     @media @screen-large {
+        margin-bottom: @spacing-medium;
         font-size: @title-giant-l;
         line-height: @line-height-giant;
     }
 }
 
-.case-intro-subtitle {
+.case-header-subtitle {
     font-size: @subtitle-large-s;
     color: @white;
     max-width: 800px;
-    margin: 0 auto 1rem;
+    margin: 0 auto @spacing-default;
     font-weight: @font-weight-light;
 
     @media @screen-medium {
@@ -81,12 +82,13 @@
     }
 
     @media @screen-large {
+        margin-bottom: @spacing-default*5;
         font-size: @subtitle-large-l;
         line-height: @line-height-subtitle;
     }
 }
 
-.case-intro .icon svg {
+.case-header .icon svg {
     border-color: @white;
 
     path {

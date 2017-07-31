@@ -5,33 +5,42 @@ class FullWidthImage extends React.Component {
 	constructor() {
 		super();
 		this.setImageBottomOffset = this.setImageBottomOffset.bind(this);
+		this.setInitialValues = this.setInitialValues.bind(this);
 		this.setInitialOffset = this.setInitialOffset.bind(this);
 		this.setLayerOffsets = this.setLayerOffsets.bind(this);
 		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
+		this.setEvents = this.setEvents.bind(this);
 		this.resetElement = this.resetElement.bind(this);
 		this.onScroll = this.onScroll.bind(this);
 		this.onResize = this.onResize.bind(this);
 		this.animateLayers = this.animateLayers.bind(this);
+		this.getBackgroundImage = this.getBackgroundImage.bind(this);
 		this.resizeTimer = null;
 		this.elBoundingRect = null;
 		this.initialScrollHeight = 0;
 		this.speed = 0.5;
 		this.ticking = false;
-		this.state = {
-			imageBottomOffset: 0
-		};
 	}
 
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-			this.elBoundingRect = this.element.getBoundingClientRect();
-			this.setImageBottomOffset();
-			this.setInitialOffset();
 
-			window.addEventListener('scroll', this.onScroll);
-			window.addEventListener('resize', this.onResize);
+			// wait until image is loaded
+			const backgroundImage = this.getBackgroundImage();
+
+			if (!backgroundImage.complete) {
+				// background image not yet loaded
+				backgroundImage.onload = () => {
+					this.setInitialValues();
+					this.setEvents();
+				};
+
+			} else {
+				// background image load complete
+				this.setInitialValues();
+				this.setEvents();
+			}
 		}
 	}
 
@@ -81,6 +90,18 @@ class FullWidthImage extends React.Component {
 		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
 	}
 
+	setEvents() {
+		window.addEventListener('scroll', this.onScroll);
+		window.addEventListener('resize', this.onResize);
+	}
+
+	setInitialValues() {
+		this.initialScrollHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
+		this.elBoundingRect = this.element.getBoundingClientRect();
+		this.setImageBottomOffset();
+		this.setInitialOffset();
+	}
+
 	setInitialOffset() {
 		if (elementIsInView(this.element)) {
 			const yOffsetFixed = this.elBoundingRect.top;
@@ -99,10 +120,7 @@ class FullWidthImage extends React.Component {
 		// add debounce for resize so it fires only add the end of resize
 		clearTimeout(this.resizeTimer);
 		this.resizeTimer = setTimeout(() => {
-			this.initialScrollHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-			this.elBoundingRect = this.element.getBoundingClientRect();
-			this.setImageBottomOffset();
-			this.setInitialOffset();
+			this.setInitialValues();
 		}, 250);
 	}
 
@@ -120,8 +138,16 @@ class FullWidthImage extends React.Component {
 		// this is done by offsetting the bottom css attribute
 		if (totalTravelDistance < initialYOffsetImage) {
 			const imageBottomOffset = totalTravelDistance - initialYOffsetImage;
-			this.setState({imageBottomOffset});
+			this.imageElement.style.bottom = imageBottomOffset;
 		}
+	}
+
+	getBackgroundImage() {
+		const src = this.imageElement.style.backgroundImage;
+		const url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
+		const img = new Image();
+		img.src = url;
+		return img;
 	}
 
 	resetElement() {
@@ -137,10 +163,7 @@ class FullWidthImage extends React.Component {
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
 					<div className="full-width-image-background"
 						 ref={node => this.imageElement = node}
-						 style={{
-						 	backgroundImage: `url(${this.props.image})`,
-							bottom: this.state.imageBottomOffset
-						 }} >
+						 style={{ backgroundImage: `url(${this.props.image})`}} >
 					</div>
 				</div>
 

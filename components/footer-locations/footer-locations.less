@@ -20,7 +20,7 @@
 		content: '/';
 		display: block;
 		position: absolute;
-		top: -5px;
+		top: 4px;
 		left: -20px;
 		font-size: 28px;
 	}
@@ -36,8 +36,12 @@
 	@media @screen-medium {
 		min-width: 80px;
 		text-align: center;
+
+		&::after {
+			top: -5px;
+		}
 	}
-	
+
 	@media @screen-large {
 		line-height: @line-height-footer-items;
 	}
@@ -93,6 +97,7 @@
 .footer-locations-info p {
 	margin-bottom: 0;
 	line-height: 30px;
+	font-size: 18px;
 	font-weight: @font-weight-normal;
 	color: @white;
 

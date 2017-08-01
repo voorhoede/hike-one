@@ -40,20 +40,20 @@
 
 	.fifty-fifty-text-small & {
 		@media @screen-medium {
-			margin-right: 88px;
+			margin-right: @spacing-large*2;
 			max-width: 344px;
 		}
 	}
 }
 
 h2.fifty-fifty-title {
-	margin-bottom: 16px;
+	margin-bottom: @spacing-default;
 	font-size: @title-medium-s;
 	color: @darker-gray;
 	font-weight: @font-weight-bold;
 
 	@media @screen-medium {
-		margin-bottom: 26px;
+		margin-bottom: @spacing-small;
 		line-height: 56px;
 		font-size: @title-medium-l;
 	}
@@ -74,10 +74,10 @@ p.fifty-fifty-text  {
 }
 
 .fifty-fifty-image {
-	padding-bottom: 50px;
+	padding-bottom: @spacing-default*5;
 
 	@media @screen-medium {
-		padding: 0 20px;
+		padding: 0 @spacing-small;
 	}
 
 	img {
@@ -91,7 +91,7 @@ p.fifty-fifty-text  {
 	.fifty-fifty-text {
 		@media @screen-medium {
 			margin-right: 0;
-			margin-left: 88px;
+			margin-left: @spacing-default*8;
 			float: left;
 		}
 	}
@@ -114,5 +114,5 @@ p.fifty-fifty-text  {
 }
 
 .fifty-fifty-align-toside > .container-inner > .fifty-fifty-content {
-	padding-left: 15px;
+	padding-left: @spacing-default;
 }

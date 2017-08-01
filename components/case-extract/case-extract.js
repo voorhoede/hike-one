@@ -5,7 +5,7 @@ import Link from 'next/link';
 const CaseExtract = ({ headerImage ,title = '', subtitle = '', type = '', link}) => (
 
 	<section className="case-extract container">
-		<Link href={link.target}>
+		<Link href={link}>
 			<a>
 				<div className="case-extract-inner clearfix">
 					<div className="case-extract-image-container" style={{backgroundImage: `url(${headerImage})`}}></div>
@@ -26,7 +26,7 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', type = '', link})
 		<div className="case-extract-link-container">
 			<Link href="#">
 				<a className="case-extract-link clearfix">
-					<span>{link.text}</span>
+					<span>Explore all work</span>
 					<div className="case-extract-link-icon">
 						<ArrowRight/>
 					</div>

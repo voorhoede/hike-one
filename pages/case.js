@@ -30,7 +30,7 @@ import TextCard from '../components/text-card/text-card';
 import Data from '../data/current/cases/gone-in-60-seconds.json';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
-import getParallaxVariationCount from '../components/_helpers/getParallaxVariationCount';
+import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
 
 const parallaxLayersMap = {
 	'30_50_text_right': [
@@ -51,7 +51,7 @@ const parallaxLayersMap = {
 	]
 };
 
-const componentCounter = {};
+let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
 const Case = () => (
@@ -76,8 +76,12 @@ const Case = () => (
 
 					{ Data.components.map((component, index) => {
 						const itemType = component.itemType;
-						const layerCount = getParallaxVariationCount(componentCounter, itemType, parallaxLayersMap);
-						const parallaxLayers = layerCount !== null ? parallaxLayersMap[itemType][layerCount] : '';
+						componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
+						const count = componentCounter[itemType];
+
+						const parallaxLayers = componentCounter[itemType] !== null
+							? parallaxLayersMap[itemType][count]
+							: '';
 
 						switch (itemType) {
 							case '30_50_text_right':
@@ -137,6 +141,8 @@ const Case = () => (
 												citeTitle={component.quoteAuthorTitle}
 												citeImage={component.quoteAuthorImage.url} />
 										}
+
+										{ parallaxLayers }
 									</ImageCombo>
 								);
 							case 'collage':

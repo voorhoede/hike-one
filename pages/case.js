@@ -28,9 +28,32 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
 import Data from '../data/current/cases/gone-in-60-seconds.json';
-import scrollToElement from '../components/_helpers/scrollToElement';
 
+import scrollToElement from '../components/_helpers/scrollToElement';
+import getParallaxVariationCount from '../components/_helpers/getParallaxVariationCount';
+
+const parallaxLayersMap = {
+	'30_50_text_right': [
+		[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1"/>]
+	],
+	'30_50_text_left': [
+		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
+	],
+	'50_50_text_right': [
+		[<FiftyFiftyShapes.TextRight1Back position="back" key="1"/>]
+	],
+	'image_combo':[
+		[<ImageComboShapes.WithText1Front position="front" text="true" key="1"/>],
+		[<ImageComboShapes.WithoutText1Front position="front" key="1"/>]
+	],
+	'collage': [
+		[<CollageShapes.variation1Front position="front" key="1" />, <CollageShapes.variation1Back position="back" key="2"/>]
+	]
+};
+
+const componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
+
 const Case = () => (
 	<Layout title="Hike One - Case">
 		<main className="main js-main">
@@ -46,48 +69,56 @@ const Case = () => (
 
 				<div className={`${scrollToTargetClass} case-scrolling-content`}>
 					<TextCenter
-						parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
 						title={Data.introTitle}
-						text={Data.introText} >
+						text={Data.introText}>
+						<TextCenterShapes.variation1Back position="back" />
 					</TextCenter>
 
 					{ Data.components.map((component, index) => {
-						switch (component.itemType) {
+						const itemType = component.itemType;
+						const layerCount = getParallaxVariationCount(componentCounter, itemType, parallaxLayersMap);
+						const parallaxLayers = layerCount !== null ? parallaxLayersMap[itemType][layerCount] : '';
+
+						switch (itemType) {
 							case '30_50_text_right':
+
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-text-small yo"
+										classes="fifty-fifty-text-small"
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url} >
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 
 							case '30_50_text_left':
 								return (
 									<FiftyFifty
 										key={index}
-										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}
 										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url} >
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 							case '50_50_text_right':
 								return (
 									<FiftyFifty
 										key={index}
 										noshadow
-										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url}>
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 							case 'image_combo':
 								return (
 									<ImageCombo
 										key={index}
-										parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
 										classes={ component.textTitle ? 'image-combo-text': ''} >
 
 										{ component.textTitle &&
@@ -112,12 +143,12 @@ const Case = () => (
 								return (
 									<Collage
 										key={index}
-										parallaxLayerFront={<CollageShapes.FrontLayer1 />}
-										parallaxLayerBack={<CollageShapes.BackLayer1 />}
 										title={component.title}
 										text={component.text}
 										imageMedium={component.imageBig.url}
-										imageSmall={component.imageSmall.url} />
+										imageSmall={component.imageSmall.url}>
+										{ parallaxLayers }
+									</Collage>
 								);
 							case 'full_width_image':
 								return (

@@ -8,8 +8,9 @@ const HomeIntro = ({heroImage, title = '', subtitle = '', parallaxLayerFront, pa
 			<div className="container-inner home-intro-inner" style={{backgroundImage: `url(${heroImage})`}}>
 				<h1 className="home-intro-heading content">{title}</h1>
 
-				<ButtonTertiary classes="content" value={subtitle}
+				<ButtonTertiary classes="content" 
 								onClick={onClickScrollButton ? onClickScrollButton : null}>
+					<span className="btn-text">{subtitle}</span>
 					<ArrowDownTriple  />
 				</ButtonTertiary>
 			</div>

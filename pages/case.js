@@ -178,9 +178,10 @@ const Case = () => (
 					})}
 
 					<Contact
-						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 						title="Where will your journey lead us"
-						button="Get in touch" />
+						button="Get in touch" >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
 
 					<ReadMore
 						highlight={{

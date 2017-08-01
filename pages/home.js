@@ -33,20 +33,26 @@ const Home = () => {
 				<article className="article-full-width">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
-						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 						title={Data.heroHeading}
 						subtitle={Data.heroSubheading}
-						heroImage={Data.heroImage} />
+						heroImage={Data.heroImage} >
+						<PageHeaderShapes.variation1Front position="front" />
+						<PageHeaderShapes.variation1Back position="back" />
+					</PageHeader>
+
 					<TextCenter
-						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
-						parallaxLayerBack={ <TextCenterShapes.BackLayer2 /> }
 						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
-						text={Data.homeTextIntro} />
+						text={Data.homeTextIntro} >
+						<TextCenterShapes.variation2Front position="front"/>
+						<TextCenterShapes.variation2Back position="back" />
+					</TextCenter>
+
 					<ServicesOverviewSmall services={Data.overviewItems} />
+
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.homeTextStepTwo} />
+
 					<CaseExtract
 						headerImage={Data.caseExtractHeaderImage}
 						title={Data.caseExtractTitle}
@@ -58,10 +64,13 @@ const Home = () => {
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.homeTextStepThree} />
 					<FeedsBlock />
+
 					<Contact
-						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 						title={Data.contactTitle}
-						button={Data.contactButton} />
+						button={Data.contactButton} >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
+
 					<ReadMore
 						highlight={Data.readMore.highlight}
 						links={Data.readMore.links} />

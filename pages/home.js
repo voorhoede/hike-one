@@ -12,15 +12,12 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-import ReadMore from '../components/read-more/read-more';
-
-
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
-import Data from '../dummy-data/home/home.json';
+import Data from '../data/current/home/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Home = () => {
@@ -35,36 +32,32 @@ const Home = () => {
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
 						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
-						title={Data.heroHeading}
-						subtitle={Data.heroSubheading}
-						heroImage={Data.heroImage} />
+						title={Data.headerTitle}
+						subtitle={Data.headerSubtitle}
+						heroImage={Data.headerImage.url} />
 					<TextCenter
 						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
 						parallaxLayerBack={ <TextCenterShapes.BackLayer2 /> }
 						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
-						text={Data.homeTextIntro} />
-					<ServicesOverviewSmall services={Data.overviewItems} />
+						text={Data.introText} />
+					<ServicesOverviewSmall services={Data.serviceItems} />
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
-						text={Data.homeTextStepTwo} />
+						text={Data.caseExtractIntro} />
 					<CaseExtract
-						headerImage={Data.caseExtractHeaderImage}
-						title={Data.caseExtractTitle}
-						subtitle={Data.caseExtactSubtitle}
-						type={Data.caseExtractType}
-						link={Data.linkWork} />
+						headerImage={Data.caseExtract.image.url}
+						title={Data.caseExtract.title}
+						subtitle={Data.caseExtract.subtitle}
+						link="/case" />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
-						text={Data.homeTextStepThree} />
+						text={Data.eventsIntro} />
 					<FeedsBlock />
 					<Contact
 						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
-						title={Data.contactTitle}
-						button={Data.contactButton} />
-					<ReadMore
-						highlight={Data.readMore.highlight}
-						links={Data.readMore.links} />
+						title="Where will your journey lead us"
+						button="Get in touch" />
 				</article>
 				<Footer />
 			</main>

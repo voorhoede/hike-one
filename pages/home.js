@@ -12,15 +12,12 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-import ReadMore from '../components/read-more/read-more';
-
-
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
-import Data from '../dummy-data/home/home.json';
+import Data from '../data/current/home/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Home = () => {
@@ -33,16 +30,16 @@ const Home = () => {
 				<article className="article-full-width">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title={Data.heroHeading}
-						subtitle={Data.heroSubheading}
-						heroImage={Data.heroImage} >
+						title={Data.headerTitle}
+						subtitle={Data.headerSubtitle}
+						heroImage={Data.headerImage.url} >
 						<PageHeaderShapes.variation1Front position="front" />
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
 
 					<TextCenter
 						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
-						text={Data.homeTextIntro} >
+						text={Data.introText} >
 						<TextCenterShapes.variation2Front position="front"/>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
@@ -51,29 +48,25 @@ const Home = () => {
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
-						text={Data.homeTextStepTwo} />
+						text={Data.caseExtractIntro} />
 
 					<CaseExtract
-						headerImage={Data.caseExtractHeaderImage}
-						title={Data.caseExtractTitle}
-						subtitle={Data.caseExtactSubtitle}
-						type={Data.caseExtractType}
-						link={Data.linkWork} />
+						headerImage={Data.caseExtract.image.url}
+						title={Data.caseExtract.title}
+						subtitle={Data.caseExtract.subtitle}
+						link="/case" />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
-						text={Data.homeTextStepThree} />
+						text={Data.eventsIntro} />
 					<FeedsBlock />
 
 					<Contact
-						title={Data.contactTitle}
-						button={Data.contactButton} >
+						title="Where will your journey lead us"
+						button="Get in touch" >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 
-					<ReadMore
-						highlight={Data.readMore.highlight}
-						links={Data.readMore.links} />
 				</article>
 				<Footer />
 			</main>

@@ -1,10 +1,10 @@
 @import (reference) '../../styles/variables';
 
 .services-item {
-	margin-bottom: 80px;
+	margin-bottom: @spacing-large*2;
 	font-style: normal;
 	color: @white;
-	padding: 40px 25px;
+	padding: @spacing-large @spacing-small;
 	position: relative;
 
 	&::before {
@@ -13,20 +13,19 @@
 
 	@media @screen-medium {
 		display: flex;
-		margin-bottom: 132px;
-		padding: 48px 54px;
+		padding: @spacing-large @spacing-default*5;
 	}
 
 	@media @screen-large {
-		margin-top: @spacing-small;
-		padding: 96px 109px;
+		margin-top: @spacing-medium;
+		padding: @spacing-extra-large @spacing-default*10 @spacing-large*2 @spacing-default*10;
 	}
 }
 
 .services-item-heading {
 	font-size: @title-large-s;
 	line-height: 1.2;
-	margin-bottom: 12px;
+	margin-bottom: @spacing-default;
 	font-weight: @font-weight-bold;
 	
 	&::before {
@@ -43,6 +42,7 @@
 
 	@media @screen-medium {
 		font-size: @title-large-m;
+		margin-bottom: @spacing-small;
 	}
 
 	@media @screen-large {
@@ -54,7 +54,7 @@
 .services-item-info {
 	display: inline-block;
 	width: 100%;
-	margin-bottom: 54px;
+	margin-bottom: @spacing-default*5;
 
 	@media @screen-medium {
 		vertical-align: top;
@@ -62,7 +62,7 @@
 		width: 50%;
 		margin: 0;
 		position: relative;
-		padding-right: 20px;
+		padding-right: @spacing-small;
 	}
 
 	@media @screen-large {
@@ -75,7 +75,7 @@
 	@media @screen-medium {
 		order: 1;
 		padding-right: 0;
-		padding-left: 20px;
+		padding-left: @spacing-small;
 		float: right
 	}
 }
@@ -85,7 +85,7 @@
 	font-weight: @font-weight-normal;
 
 	@media @screen-medium {
-		margin-bottom: 36px;
+		margin-bottom: @spacing-small;
 	}
 	@media @screen-large {
 		font-size: @body-text;
@@ -94,7 +94,7 @@
 }
 
 .services-item-info .services-item-tags {
-    padding-left: 22px;
+    padding-left: @spacing-small;
 
 	@media @screen-medium {
 		margin-bottom: 0;

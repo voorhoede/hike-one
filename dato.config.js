@@ -6,6 +6,12 @@ module.exports = (dato, root, i18n) => {
 		servicesDir.createDataFile(`services.json`, 'json', mappedServicesData);
 	});
 
+	root.directory("data/current/home", (homeDir) => {
+
+		const mappedHomeData = dato.home.toMap();
+		homeDir.createDataFile(`home.json`, 'json', mappedHomeData);
+	});
+
 	root.directory(`data/current/cases`, (caseDir) => {
 		dato.cases.map((item) => {
 			const folderName =

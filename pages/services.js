@@ -42,8 +42,8 @@ const Services = () => {
 						title={Data.contactTitle} button={Data.contactButton}>
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-					<Footer />
 				</article>
+				<Footer />
 			</main>
 		</Layout>
 	);

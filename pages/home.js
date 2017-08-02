@@ -27,7 +27,7 @@ const Home = () => {
 		<Layout title="Hike One - Home">
 			<main className="main js-main" >
 				<MenuBar color="black" />
-				<article className="article-full-width">
+				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.headerTitle}

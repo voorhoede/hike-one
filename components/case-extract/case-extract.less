@@ -45,14 +45,15 @@
 
 	& > h3 {
 		line-height: 36px;
+		line-height: @line-height-title-s;
 		font-size: @title-large-s;
-		font-weight: @font-weight-light;
+		font-weight: @font-weight-bold;
 		margin-bottom:  @spacing-small;
 	}
 
 	& > h4 {
-		line-height: @line-height-lable;
-		font-size: @text-medium-m;
+		line-height: @line-height-subtitle-s;
+		font-size: @body-text-s;
 		margin-bottom: @spacing-medium;
 		font-weight: @font-weight-normal;
 	}
@@ -62,7 +63,8 @@
 		font-style: italic;
 		color: @white;
 		font-weight: @font-weight-normal;
-		font-size: @subtitle-large-s;
+		font-size:  @body-text-s;
+		line-height: @line-height-body-s;
 		display: block;
 		opacity: 0.8;
 	}
@@ -72,6 +74,21 @@
 		width: 100%;
 		margin: 0 @spacing-small;
 		top: -90px;
+	
+		& > h3 {
+			line-height: @line-height-title-m;
+			font-size: @title-large-m;
+		}
+		
+		& > h4 {
+			line-height: @line-height-subtitle-m;
+			font-size: @body-text-m;
+		}
+
+		& > span {
+			font-size:  @body-text-m;
+			line-height: @line-height-body-m;
+		}
 	}
 
 	@media @screen-large {
@@ -87,19 +104,19 @@
 		& > h3 {
 			line-height: @line-height-title;
 			font-size: @title-large-l;
-			font-weight: @font-weight-bold;
 			margin-bottom: @spacing-small;
 		}
 
 		& > h4 {
-			line-height: @line-height-lable;
+			line-height: @line-height-subtitle-m;
 			font-size: @body-text;
 			margin-bottom: @spacing-default*5;
 		}
 
 		& > span {
 			margin-bottom: @spacing-medium;
-			font-size: @label;
+			font-size: @body-text;
+			line-height: @line-height-body;
 		}
 	}
 }
@@ -135,12 +152,19 @@
 	text-decoration: none;
 	position: relative;
 	padding: 0 @spacing-small;
-	font-size: @text-medium-m;
+	line-height: @line-height-body-s;
+	font-size: @body-text-s;
 	font-weight: @font-weight-normal;
 	display: inline-block;
+	
+	@media @screen-medium {
+		line-height: @line-height-body-m;
+		font-size: @body-text-m;
+	}
 
 	@media @screen-large {
-		font-size: @text-medium-s;
+		line-height: @line-height-body;
+		font-size: @body-text;
 	}
 	& > span {
 		float: left;
@@ -150,9 +174,13 @@
 		float: left;
 	    padding-left: 15px;
 	}
-
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
 	@media @screen-large {
 		font-size: @body-text;
+		line-height: @line-height-body;
 	}
 }
 

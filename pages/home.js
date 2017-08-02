@@ -30,20 +30,26 @@ const Home = () => {
 				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						parallaxLayerFront={ <PageHeaderShapes.FrontLayer1 /> }
-						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 						title={Data.headerTitle}
 						subtitle={Data.headerSubtitle}
-						heroImage={Data.headerImage.url} />
+						heroImage={Data.headerImage.url} >
+						<PageHeaderShapes.variation1Front position="front" />
+						<PageHeaderShapes.variation1Back position="back" />
+					</PageHeader>
+
 					<TextCenter
-						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
-						parallaxLayerBack={ <TextCenterShapes.BackLayer2 /> }
 						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
-						text={Data.introText} />
+						text={Data.introText} >
+						<TextCenterShapes.variation2Front position="front"/>
+						<TextCenterShapes.variation2Back position="back" />
+					</TextCenter>
+
 					<ServicesOverviewSmall services={Data.serviceItems} />
+
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.caseExtractIntro} />
+
 					<CaseExtract
 						headerImage={Data.caseExtract.image.url}
 						title={Data.caseExtract.title}
@@ -54,10 +60,13 @@ const Home = () => {
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.eventsIntro} />
 					<FeedsBlock />
+
 					<Contact
-						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 						title="Where will your journey lead us"
-						button="Get in touch" />
+						button="Get in touch" >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
+
 				</article>
 				<Footer />
 			</main>

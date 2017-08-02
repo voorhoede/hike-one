@@ -1,7 +1,12 @@
-const FiftyFifty = ({classes, image, title = '', text = '', noshadow, parallaxLayerBack, parallaxLayerFront}) => {
+import React from 'react';
+
+const FiftyFifty = ({classes = '', image, title = '', text = '', noshadow, children}) => {
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+
 	return (
-		<section className={`fifty-fifty clearfix container
-							${classes ? classes : ''} `}>
+		<section className={`fifty-fifty clearfix container ${classes}`}>
 			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-image">

@@ -24,24 +24,26 @@ const Services = () => {
 				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						parallaxLayerFront={ <PageHeaderShapes.FrontLayer2 /> }
-						parallaxLayerBack={ <PageHeaderShapes.BackLayer1 /> }
 						title="We help you build great digital products using human-centered design methods"
 						subtitle="Our services"
-						heroImage="static/images/service-header.jpg" />
+						heroImage="static/images/service-header.jpg">
+						<PageHeaderShapes.variation2Front position="front"/>
+						<PageHeaderShapes.variation1Back position="back"/>
+					</PageHeader>
 
 					<TextCenter
-						parallaxLayerFront={ <TextCenterShapes.FrontLayer2 /> }
 						classes={scrollToTargetClass}
-						text={Data.introText} />
+						text={Data.introText} >
+						<TextCenterShapes.variation2Front position="front" />
+					</TextCenter>
 
 					<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 					<Contact
-						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
-						title={Data.contactTitle} button={Data.contactButton} />
-					<Footer />
+						title={Data.contactTitle} button={Data.contactButton}>
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
 				</article>
-
+				<Footer />
 			</main>
 		</Layout>
 	);

@@ -28,9 +28,36 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
 import Data from '../data/current/cases/gone-in-60-seconds.json';
-import scrollToElement from '../components/_helpers/scrollToElement';
 
+import scrollToElement from '../components/_helpers/scrollToElement';
+import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
+
+// object with parallax shape layer variations for every type of component
+// combined with the componentCounter object a specific variantion is chosen for each component
+const parallaxLayersMap = {
+	'30_50_text_right': [
+		[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1"/>]
+	],
+	'30_50_text_left': [
+		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
+	],
+	'50_50_text_right': [
+		[<FiftyFiftyShapes.TextRight1Back position="back" key="1"/>]
+	],
+	'image_combo':[
+		[<ImageComboShapes.WithText1Front position="front" key="1"/>],
+		[<ImageComboShapes.WithoutText1Front position="front" key="1"/>]
+	],
+	'collage': [
+		[<CollageShapes.variation1Front position="front" key="1" />, <CollageShapes.variation1Back position="back" key="2"/>]
+	]
+};
+
+// object that counts how many times a component is used on this page
+// this is done by the `setComponentCounter` function
+let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
+
 const Case = () => (
 	<Layout title="Hike One - Case">
 		<main className="main js-main">
@@ -46,48 +73,62 @@ const Case = () => (
 
 				<div className={`${scrollToTargetClass} case-scrolling-content`}>
 					<TextCenter
-						parallaxLayerBack={<TextCenterShapes.BackLayer1 />}
 						title={Data.introTitle}
-						text={Data.introText} >
+						text={Data.introText}>
+						<TextCenterShapes.variation1Back position="back" />
 					</TextCenter>
 
 					{ Data.components.map((component, index) => {
-						switch (component.itemType) {
+						const itemType = component.itemType;
+						// set component count
+						componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
+						const count = componentCounter[itemType];
+
+						// if a parallax variation layer is available then use that one
+						const parallaxLayers = componentCounter[itemType] !== null
+							? parallaxLayersMap[itemType][count]
+							: '';
+
+						switch (itemType) {
 							case '30_50_text_right':
+
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-text-small yo"
+										classes="fifty-fifty-text-small"
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url} >
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 
 							case '30_50_text_left':
 								return (
 									<FiftyFifty
 										key={index}
-										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer1 />}
 										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url} >
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 							case '50_50_text_right':
 								return (
 									<FiftyFifty
 										key={index}
 										noshadow
-										parallaxLayerBack={ <FiftyFiftyShapes.BackLayer2 /> }
 										title={component.title}
 										text={component.text}
-										image={component.image.url} />
+										image={component.image.url}>
+										{ parallaxLayers }
+									</FiftyFifty>
 								);
 							case 'image_combo':
 								return (
 									<ImageCombo
 										key={index}
-										parallaxLayerFront={<ImageComboShapes.FrontLayer2 /> }
 										classes={ component.textTitle ? 'image-combo-text': ''} >
 
 										{ component.textTitle &&
@@ -106,18 +147,20 @@ const Case = () => (
 												citeTitle={component.quoteAuthorTitle}
 												citeImage={component.quoteAuthorImage.url} />
 										}
+
+										{ parallaxLayers }
 									</ImageCombo>
 								);
 							case 'collage':
 								return (
 									<Collage
 										key={index}
-										parallaxLayerFront={<CollageShapes.FrontLayer1 />}
-										parallaxLayerBack={<CollageShapes.BackLayer1 />}
 										title={component.title}
 										text={component.text}
 										imageMedium={component.imageBig.url}
-										imageSmall={component.imageSmall.url} />
+										imageSmall={component.imageSmall.url}>
+										{ parallaxLayers }
+									</Collage>
 								);
 							case 'full_width_image':
 								return (
@@ -141,9 +184,10 @@ const Case = () => (
 					})}
 
 					<Contact
-						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 						title="Where will your journey lead us"
-						button="Get in touch" />
+						button="Get in touch" >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
 
 					<ReadMore
 						highlight={{

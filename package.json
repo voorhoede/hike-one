@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "prebuild": "rimraf build/ && mkdir build/",
-    "build": "npm-run-all --serial backupdata build:dato build:css build:next build:guide",
+    "build": "npm-run-all --serial backupdata build:dato copydata build:css build:next build:guide",
     "build:dato": "dato dump --token=c6c5aac11814b76f9979",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
@@ -18,7 +18,8 @@
     "serve:dev": "node server.js",
     "serve:guide": "start-storybook -p 3001 -c .storybook -s ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
-    "backupdata": "node tasks/backup-data"
+    "backupdata": "node tasks/backup-data",
+    "copydata": "ncp data/current/cases static/data/cases"
   },
   "repository": {
     "type": "git",
@@ -29,10 +30,11 @@
   "private": true,
   "dependencies": {
     "express": "4.15.3",
+    "gsap": "1.20.2",
+    "isomorphic-fetch": "2.2.1",
     "next": "2.4.4",
     "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "gsap": "1.20.2"
+    "react-dom": "15.6.1"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.1.9",

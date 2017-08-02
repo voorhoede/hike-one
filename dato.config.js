@@ -1,4 +1,4 @@
-module.exports = (dato, root, i18n) => {
+module.exports = (dato, root) => {
 
 	root.directory("data/current/services", (servicesDir) => {
 
@@ -13,6 +13,10 @@ module.exports = (dato, root, i18n) => {
 	});
 
 	root.directory(`data/current/cases`, (caseDir) => {
+		const indexData = {
+			cases: []
+		};
+
 		dato.cases.map((item) => {
 			const folderName =
 				item.headerTitle
@@ -20,8 +24,16 @@ module.exports = (dato, root, i18n) => {
 					.replace(/[^a-zA-Z0-9\s]/g,'') // remove all special characters
 					.replace(/[\s]/g,'-'); // replace all spaces with dashes
 
+			const indexObject = {
+				id: folderName,
+				label: item.headerTitle
+			};
+
 			const mappedItemData = item.toMap();
 			caseDir.createDataFile(`${folderName}.json`, 'json', mappedItemData);
+			indexData.cases.push(indexObject);
 		});
+
+		caseDir.createDataFile(`_index.json`, 'json', indexData);
 	});
 };

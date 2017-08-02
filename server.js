@@ -15,6 +15,10 @@ app.prepare()
 		server.use(express.static('./static/root'));
 		server.use('/guide/', express.static('./build/guide/'));
 
+		server.get('/case/:id', (req, res) => {
+			app.render(req, res, '/case', {id: req.params.id});
+		});
+
 		server.get('*', (req, res) => {
 			return handle(req, res);
 		});

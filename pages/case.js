@@ -32,6 +32,8 @@ import Data from '../data/current/cases/gone-in-60-seconds.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
 
+// object with parallax shape layer variations for every type of component
+// combined with the componentCounter object a specific variantion is chosen for each component
 const parallaxLayersMap = {
 	'30_50_text_right': [
 		[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1"/>]
@@ -43,7 +45,7 @@ const parallaxLayersMap = {
 		[<FiftyFiftyShapes.TextRight1Back position="back" key="1"/>]
 	],
 	'image_combo':[
-		[<ImageComboShapes.WithText1Front position="front" text="true" key="1"/>],
+		[<ImageComboShapes.WithText1Front position="front" key="1"/>],
 		[<ImageComboShapes.WithoutText1Front position="front" key="1"/>]
 	],
 	'collage': [
@@ -51,6 +53,8 @@ const parallaxLayersMap = {
 	]
 };
 
+// object that counts how many times a component is used on this page
+// this is done by the `setComponentCounter` function
 let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
@@ -76,9 +80,11 @@ const Case = () => (
 
 					{ Data.components.map((component, index) => {
 						const itemType = component.itemType;
+						// set component count
 						componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
 						const count = componentCounter[itemType];
 
+						// if a parallax variation layer is available then use that one
 						const parallaxLayers = componentCounter[itemType] !== null
 							? parallaxLayersMap[itemType][count]
 							: '';

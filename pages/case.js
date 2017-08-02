@@ -36,7 +36,7 @@ const Case = () => (
 		<main className="main js-main">
 			<MenuBar color="white" />
 
-			<article className="article-full-width">
+			<article className="article">
 				<CaseHeader
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 					video={Data.headerVideo}

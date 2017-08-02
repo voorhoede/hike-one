@@ -39,8 +39,9 @@ const Services = () => {
 					<Contact
 						parallaxLayerFront={<ContactShapes.FrontLayer1 />}
 						title={Data.contactTitle} button={Data.contactButton} />
+					<Footer />
 				</article>
-				<Footer />
+
 			</main>
 		</Layout>
 	);

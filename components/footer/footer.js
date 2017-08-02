@@ -31,10 +31,10 @@ class Footer extends React.Component {
 	setFixedState() {
 		if (window.innerHeight > this.footerHeight) {
 			this.footer.classList.add('is-fixed');
-			this.mainContainer.style.marginBottom = `${this.footerHeight}px`;
+			this.mainContainer.style.paddingBottom = `${this.footerHeight}px`;
 		} else {
 			this.footer.classList.remove('is-fixed');
-			this.mainContainer.style.marginBottom = `0px`;
+			this.mainContainer.style.paddingBottom = `0px`;
 		}
 	}
 

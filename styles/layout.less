@@ -30,7 +30,7 @@
 }
 
 .main {
-	background: @white;
+	overflow: hidden;
 }
 
 // makes content (text, buttons, etc) to always be above the front parallax layer
@@ -40,16 +40,8 @@
 }
 
 .article {
-	padding: 0 @spacing-default;
-
-	@media @screen-medium {
-		margin: 0 auto;
-		max-width: @column-large-10;
-	}
-}
-
-.article-full-width {
 	max-width: none;
+	background: @white;
 	@media @screen-medium {
 		margin: 0;
 	}

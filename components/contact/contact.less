@@ -12,17 +12,22 @@
 
 .contact h3 {
 	font-size: @title-large-s;
-	line-height: @line-height-header-small;
+	line-height: @line-height-title-s;
 	margin-bottom: @spacing-medium;
 	font-weight: @font-weight-bold;
 	color: @darker-gray;
 
 	@media @screen-medium {
-		font-size: @title-large-l;
-		line-height: @line-height-title;
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
 		padding-top: @spacing-default*8;
 		max-width: 800px;
 		margin: 0 auto @spacing-large*2;
+	}
+	@media @screen-large {
+		max-width: @column-large-10;
+		font-size: @title-large-l;
+		line-height: @line-height-title;
 	}
 }
 

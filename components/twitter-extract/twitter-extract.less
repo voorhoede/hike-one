@@ -32,12 +32,12 @@
 }
 
 .twitter-extract-text {
-	background: @blue;
-	padding: @spacing-small @spacing-default;
-	width: 100%;
 	float: left;
-	color: @white;
+	width: 100%;
 	position: relative;
+	padding: @spacing-small @spacing-default;
+	background: @blue;
+	color: @white;
 	
 	& > a {
 		text-decoration: none;
@@ -53,9 +53,9 @@
 
 		& > h3 {
 			margin-bottom: @spacing-default;
-			line-height: 24px;
 			font-weight: @font-weight-bold;
-			font-size: @subtitle-large-s;
+			font-size: @heading-small-s;
+			line-height: @line-height-header-small-s;
 		}
 
 		& > svg {
@@ -64,6 +64,7 @@
 			position: absolute;
 			right: 15px; 
 			bottom: 20px;
+
 			& > path {
 				fill: @white;
 			}
@@ -71,13 +72,13 @@
 	}
 
 	& > span {
-		font-size: 12px;
+		font-size: @body-text-small-s;
+		line-height: @line-height-body-small-s;
 		font-weight: @font-weight-normal;
 	}
 
-	@media @screen-small {
+	@media @screen-medium {
 		height: 233px;
-
 		& > a {
 			& > h4 {
 				margin-bottom: @spacing-small;
@@ -88,8 +89,8 @@
 			
 			& > h3 {
 				margin-bottom: @spacing-small;
-				line-height: @line-height-body-small;
-				font-size: @body-text;
+				font-size: @heading-small-m;
+				line-height: @line-height-header-small-m;
 			}
 		}
 
@@ -97,11 +98,25 @@
 			position: absolute;
 			bottom: @spacing-small;
 			font-weight: @font-weight-normal;
-			font-size: @body-text-s;
+			font-size: @body-text-small-m;
+			line-height: @line-height-body-small-m;
 		}
 	}
-
 	@media @screen-large {
+		& > a {
+			& > h4 {
+				font-size: @body-text;
+				line-height: @line-height-body;
+			}
+			& > h3 {
+				font-size: @body-text;
+				line-height: @line-height-body;
+			}
+		}
+		& > span {
+			font-size: @body-text-small;
+			line-height: @line-height-body-small;
+		}
 		width: 50%;
 		height: 246px;
 		padding: @spacing-large @spacing-small @spacing-small @spacing-medium;

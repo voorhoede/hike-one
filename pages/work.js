@@ -9,16 +9,18 @@ const work = () => (
 		<main className="main js-main">
 			<MenuBar />
 			<article className="article work">
-				<h1>Our Work</h1>
-				<ul>
-					{ Data.cases.map((item, index) => (
-						<li key={index}>
-							<Link href={`/case?id=${item.id}`} as={`/case/${item.id}`}>
-								<a>{item.label}</a>
-							</Link>
-						</li>
-					))}
-				</ul>
+				<section className="work-intro container">
+					<h1 className="work-intro-heading">Our Work</h1>
+					<ul className="work-intro-list list-no-style">
+						{ Data.cases.map((item, index) => (
+							<li key={index}>
+								<Link href={`/case?id=${item.id}`} as={`/case/${item.id}`}>
+									<a>Case: {item.label}</a>
+								</Link>
+							</li>
+						))}
+					</ul>
+				</section>
 
 			</article>
 			<Footer/>

@@ -19,7 +19,7 @@
 	background-size: cover;
 	background-position: 50% 50%;
 	height: 220px;
-	margin-bottom: 40px;
+	margin-bottom: @spacing-large;
 	@media @screen-medium {
 		height: 440px;
 	}
@@ -44,7 +44,6 @@
 	margin: 0 @spacing-default;
 
 	& > h3 {
-		line-height: 36px;
 		line-height: @line-height-title-s;
 		font-size: @title-large-s;
 		font-weight: @font-weight-bold;
@@ -132,13 +131,13 @@
 		}
 
 		@media @screen-large {
-			margin-bottom: 60px;
+			margin-bottom: @spacing-extra-large;
 			float: right;
 
-			& > .btn-tertiary .icon svg{
+			& > .btn-tertiary .icon svg {
 				height: 50px;
 				width: 50px;
-				padding: 15px;
+				padding: @spacing-default;
 			}
 		}
 }
@@ -157,30 +156,23 @@
 	font-weight: @font-weight-normal;
 	display: inline-block;
 	
-	@media @screen-medium {
-		line-height: @line-height-body-m;
-		font-size: @body-text-m;
-	}
-
-	@media @screen-large {
-		line-height: @line-height-body;
-		font-size: @body-text;
-	}
 	& > span {
 		float: left;
 	}
 
+	@media @screen-medium {
+		line-height: @line-height-body-m;
+		font-size: @body-text-m;
+	}
+
+	@media @screen-large {
+		line-height: @line-height-body;
+		font-size: @body-text;
+	}
+
 	.case-extract-link-icon {
 		float: left;
-	    padding-left: 15px;
-	}
-	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-	}
-	@media @screen-large {
-		font-size: @body-text;
-		line-height: @line-height-body;
+	    padding-left: @spacing-default;
 	}
 }
 

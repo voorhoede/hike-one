@@ -3,7 +3,6 @@ import getParallaxYOffset from '../_helpers/getParallaxYOffset';
 import isElementInView from '../_helpers/isElementInView';
 import TweenLite from "gsap";
 
-//todo: fix this.scrollheight = 0 when scrolling down to footer and reloading
 class parallax extends React.Component {
 	constructor(props) {
 		super();

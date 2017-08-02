@@ -1,4 +1,5 @@
 import React from 'react';
+import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -27,7 +28,6 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
-import Data from '../data/current/cases/gone-in-60-seconds.json';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
@@ -58,7 +58,7 @@ const parallaxLayersMap = {
 let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
-const Case = () => (
+const Case = ({Data}) => (
 	<Layout title="Hike One - Case">
 		<main className="main js-main">
 			<MenuBar color="white" />
@@ -212,5 +212,13 @@ const Case = () => (
 		</main>
 	</Layout>
 );
+
+// get blog data on server
+Case.getInitialProps = async ({req, query}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const res = await fetch(`${baseUrl}/static/data/cases/${query.id}.json`);
+	const json = await res.json();
+	return { Data: json };
+};
 
 export default Case;

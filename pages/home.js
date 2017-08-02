@@ -72,7 +72,6 @@ const Home = () => {
 			</main>
 		</Layout>
 	);
-
 };
 
 export default Home;

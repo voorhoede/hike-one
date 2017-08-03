@@ -216,7 +216,7 @@ const Case = ({Data}) => (
 // get blog data on server
 Case.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const res = await fetch(`${baseUrl}/cases/${query.slug}.json`);
+	const res = await fetch(`${baseUrl}/api/cases/${query.slug}`);
 	const json = await res.json();
 	return { Data: json };
 };

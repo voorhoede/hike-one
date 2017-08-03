@@ -26,10 +26,14 @@
     align-items: center;
     flex-wrap: wrap;
 	margin-top: 0;
-	line-height: @header-height;
+	// line-height: @header-height;
+	height: 66px;
 
 	@media @screen-small {
 		margin-top: 0;
+	}
+	@media @screen-large {
+		height: 100px;
 	}
 }
 
@@ -44,7 +48,7 @@
 .header .btn {
 	z-index: 3;
 	position: fixed;
-	top: 50px;
+	top: 33px;
 	right: 0;
 	transform: translateY(-50%);
 	font-size: 0;
@@ -61,7 +65,9 @@
 	@media @screen-medium {
 		padding: 0 @spacing-small;
 	}
-
+	@media @screen-large {
+		top: 50px;
+	}
 	@media only screen and (min-width: @container-max-width) {
 		right: calc(~"(100vw - @{column-large-12} + 32px) / 2");
 	}

@@ -47,28 +47,35 @@
 
 h2.fifty-fifty-title {
 	margin-bottom: @spacing-default;
-	font-size: @title-medium-s;
-	color: @darker-gray;
+	font-size: @heading-s;
 	font-weight: @font-weight-bold;
+	color: @darker-gray;
+	line-height: @line-height-heading-s;
 
 	@media @screen-medium {
 		margin-bottom: @spacing-small;
-		line-height: 56px;
-		font-size: @title-medium-l;
+		line-height: @line-height-heading-m;
+		font-size: @heading-m;
 	}
 	@media @screen-large {
-		font-size: @heading;
-		line-height: @line-height-heading;
+		font-size: @heading-l;
+		line-height: @line-height-heading-l;
 	}
 }
 
 p.fifty-fifty-text  {
 	color: @darker-gray;
 	font-weight: @font-weight-normal;
-
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	
+	@media @screen-medium {	
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
 	@media @screen-large {
-		font-size: @body-text;
-		line-height: @line-height-body;
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
 	}
 }
 

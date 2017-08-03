@@ -4,29 +4,28 @@
 	.shadow;
     background-color: @blue;
     color: @white;
-    padding: 3.3125rem 1rem 2rem 2rem;
+    padding: @spacing-default*5 @spacing-default @spacing-small @spacing-small;
 	//todo: set this in variable with fallback font
     font-family: 'playfair';
-    font-weight: normal;
+    font-weight: @font-weight-normal;
     font-size: @quote-large-s;
-    line-height: 32px;
-    margin: 0 0 60px 1rem;
+    line-height: 35px;
+    margin: 0 0 @spacing-default*5 @spacing-default;
 
     @media @screen-small {
         margin-left: 10%;
-        margin-bottom: 100px;
+        margin-bottom: @spacing-default*9;
     }
 
     @media @screen-medium {
         margin-left: 20%;
-        // margin-bottom: 160px;
-        padding: 105px 80px;
+        padding: @spacing-default*9 @spacing-default*7;
         font-size: @quote-large-m;
         line-height: @line-height-quote;
     }
 
     @media @screen-large {
-        padding: 110px 120px;
+        padding: @spacing-default*10 @spacing-default*11;
         // Align the content with the container-inner + 50px for extra spacing just after the @screen-large mark
         padding-right: calc(~'(100vw - @{container-inner-max-width}) / 2 + 50px');
         margin-left:   calc(~'(100vw - @{container-inner-max-width}) / 2 + 200px');
@@ -66,14 +65,14 @@
 .quote-cite {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: @spacing-small;
 
     @media @screen-medium {
-        margin-top: 40px;
+        margin-top: @spacing-large;
     }
 
     @media @screen-large {
-        margin-top: 60px;
+        margin-top: @spacing-medium * 2;
     }
 }
 
@@ -82,11 +81,18 @@
     vertical-align: top;
     width: calc(~"100% - (70px + 1rem)");
     font-family: @main-font;
-    font-size: @text-medium-s;
-    line-height: 22px;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
 
     @media @screen-medium {
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
         width: calc(~"100% - (100px + 2rem)");
+    }
+    
+    @media @screen-large {
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;
     }
 }
 
@@ -95,28 +101,49 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    margin-right: 1rem;
+    margin-right: @spacing-small;
     vertical-align: top;
 
     @media @screen-medium {
         width: 100px;
         height: 100px;
-        margin-right: 2rem;
+        margin-right: @spacing-small;
     }
 }
 
 .quote-cite-name {
     margin-bottom: 0;
-    line-height: @line-height-body-small;
     font-size: @body-text-s;
+    line-height: @line-height-body-s;
     font-weight: @font-weight-bold;
     font-style: normal;
     color: @white;
+    
+    @media @screen-medium {
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
+    }
+
+    @media @screen-large {
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;
+    }
 }
 
 .quote-cite-title {
-    font-style: normal;
+    font-style: italic;
     font-size: @body-text-s;
+    line-height: @line-height-body-s;
     font-weight: @font-weight-normal;
     color: @white;
+    
+    @media @screen-medium {
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;   
+    }
+
+    @media @screen-large {
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;   
+    }
 }

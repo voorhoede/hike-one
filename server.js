@@ -15,6 +15,7 @@ app.prepare()
 
 		// so we can serve files from the root directory instead of next.js default static folder
 		server.use(express.static('./static/root'));
+		server.use('/guide/', express.static('./build/guide/'));
 
 		server.get('/api/cases/:slug', (req, res) => {
 			const json = cases.find(item => item.slug === req.params.slug);

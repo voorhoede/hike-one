@@ -13,6 +13,9 @@ npm-debug.log
 # dist
 .next
 
+# generated build files
+build
+
 # generated styles
 static/styles
 

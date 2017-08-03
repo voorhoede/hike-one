@@ -5,6 +5,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const cases = require('./data/current/cases/cases.json');
+
 const fs = require('fs');
 
 app.prepare()
@@ -14,14 +16,18 @@ app.prepare()
 		// so we can serve files from the root directory instead of next.js default static folder
 		server.use(express.static('./static/root'));
 
-		server.get('/case/:id', (req, res) => {
-			app.render(req, res, '/case', {id: req.params.id});
+		server.get('/api/cases/:slug', (req, res) => {
+			const json = cases.find(item => item.slug === req.params.slug);
+			res.json(json);
+		});
+
+		server.get('/case/:slug', (req, res) => {
+			app.render(req, res, '/case', {slug: req.params.slug});
 		});
 
 		server.get('*', (req, res) => {
 			return handle(req, res);
 		});
-
 
 		server.listen(3000, (err) => {
 			if (err) throw err;

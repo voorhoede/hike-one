@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
-    "build": "npm-run-all --serial backupdata build:dato copydata build:css build:next",
+    "build": "npm-run-all --serial backupdata build:dato build:css build:next",
     "build:dato": "dato dump --token=c6c5aac11814b76f9979",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
@@ -15,8 +15,7 @@
     "dev": "npm-run-all --parallel watch:css serve:dev",
     "serve:dev": "node server.js",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
-    "backupdata": "node tasks/backup-data",
-    "copydata": "ncp data/current/cases static/data/cases"
+    "backupdata": "node tasks/backup-data"
   },
   "repository": {
     "type": "git",
@@ -29,7 +28,7 @@
     "express": "4.15.3",
     "gsap": "1.20.2",
     "isomorphic-fetch": "2.2.1",
-    "next": "2.4.4",
+    "next": "2.4.9",
     "react": "15.6.1",
     "react-dom": "15.6.1"
   },

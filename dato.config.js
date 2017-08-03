@@ -12,28 +12,14 @@ module.exports = (dato, root) => {
 		homeDir.createDataFile(`home.json`, 'json', mappedHomeData);
 	});
 
-	root.directory(`data/current/cases`, (caseDir) => {
-		const indexData = {
-			cases: []
-		};
+	root.directory('data/current/cases', (caseDir) => {
 
-		dato.cases.map((item) => {
-			const folderName =
-				item.headerTitle
-					.toLowerCase()
-					.replace(/[^a-zA-Z0-9\s]/g,'') // remove all special characters
-					.replace(/[\s]/g,'-'); // replace all spaces with dashes
+		const casesData = dato.cases.reduce((acc,item) => {
+			const mappedData = item.toMap();
+			acc.push(mappedData);
+			return acc;
+		}, []);
 
-			const indexObject = {
-				id: folderName,
-				label: item.headerTitle
-			};
-
-			const mappedItemData = item.toMap();
-			caseDir.createDataFile(`${folderName}.json`, 'json', mappedItemData);
-			indexData.cases.push(indexObject);
-		});
-
-		caseDir.createDataFile(`_index.json`, 'json', indexData);
+		caseDir.createDataFile('cases.json', 'json', casesData);
 	});
 };

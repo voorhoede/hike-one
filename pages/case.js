@@ -67,7 +67,7 @@ const Case = ({Data}) => (
 				<CaseHeader
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 					video={Data.headerVideo}
-					title={Data.headerTitle}
+					title={Data.title}
 					subtitle={Data.headerSubtitle}
 					image={Data.headerBackgroundImage.url} />
 
@@ -216,7 +216,7 @@ const Case = ({Data}) => (
 // get blog data on server
 Case.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const res = await fetch(`${baseUrl}/static/data/cases/${query.id}.json`);
+	const res = await fetch(`${baseUrl}/cases/${query.slug}.json`);
 	const json = await res.json();
 	return { Data: json };
 };

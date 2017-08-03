@@ -50,33 +50,36 @@
 	padding: @spacing-large 0 @spacing-small 0;
 	line-height: normal;
 
-	& > a {
+	a {
 		margin-bottom: 35px;
 	}
 	
 	@media @screen-small {
 		width: 50%;
 		float: left;
+
 	}
 
 	@media @screen-large {
 		width: 100%;
 		text-align: left;
 		height: 150px;
+		margin: 0;
+		padding: 0 0 0 0;
 
 		&:first-of-type {
 			top: 6px;
 			margin: 0 0 @spacing-large 0;
 		}
-		margin: 0;
-		padding: 0 0 0 0;
-
-		& > a {
-		    position: relative;
+		
+		.events-extract-button {
 			float: right;
-			top: -110px;
-			
-			&:hover{
+			position: relative;
+			top: -100px;
+		}
+
+		a {			
+			&:hover {
 				background: transparent;
 			}
 		}
@@ -91,13 +94,13 @@
 	color: @white;
 	
 	@media @screen-medium {
-		& > a {
+		a {
 			line-height: @line-height-header-small-m;
 			font-size: @heading-small-m;
 		}
 	}
 	@media @screen-large {
-		& > a {
+		a {
 			font-weight: @font-weight-bold;
 			margin-bottom: @spacing-small;
 			line-height: @line-height-header-small;
@@ -129,12 +132,12 @@
 .events-extract-link {
 	color: white;
 	text-decoration: none;
-	& > a {
+	a {
 		font-size: @body-text-s;
 		line-height: @line-height-body-s;
 	}
 	@media @screen-large {
-		& > a {
+		a {
 			line-height: @line-height-body;
 			font-size: @body-text-m;
 		}
@@ -167,7 +170,7 @@
 	text-align: center;
 	position: relative;
 	
-	& > a {
+	a {
 		margin: 0 auto;	
 		position: relative;
 	}
@@ -175,7 +178,8 @@
 	@media @screen-small {
 		float:left;
 		border-top: 1px solid @white;
-		& > a {
+		
+		a {
 			margin: @spacing-small auto 0 auto;
 		}
 	}

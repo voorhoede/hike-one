@@ -36,13 +36,12 @@
 	width: 100%;
 	max-width: @column-small-4 - 20;
 	height: 150px;
-	padding-left: 70px;
 	float: none;
 	text-align: center;
 	color: @white;
-	
-	& >  h3 {
-		margin: 0 0 10px 0;
+
+	.services-item-small-heading {	
+		margin: 0 0 @spacing-default 0;
 		padding: @spacing-medium  @spacing-default 0 @spacing-default;
 		font-size: @body-text-s;
 		line-height: @line-height-body-s;
@@ -57,11 +56,11 @@
 		margin-right: 0;
 		position: relative;
 		
-		& > a {
+		a {
 			padding: @spacing-default @spacing-large;
 		}
 
-		& >  h3 {
+		.services-item-small-heading {
 			padding: 0;
 			margin-bottom: @spacing-medium;
 			font-size: @body-text-m;
@@ -71,7 +70,7 @@
 	}
 	
 	@media @screen-large {
-		& >  h3 {
+		.services-item-small-heading {
 			font-size: @body-text;
 			line-height: @line-height-body;
 		}

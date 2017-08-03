@@ -16,7 +16,7 @@
     "deploy:alias": "now alias",
     "dev": "npm-run-all --parallel watch:css serve:dev",
     "serve:dev": "node server.js",
-    "serve:guide": "start-storybook -p 3001 -c .storybook -s ./",
+    "serve:guide": "start-storybook --port 3001 --config-dir .storybook --static-dir ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
     "backupdata": "node tasks/backup-data",
     "copydata": "ncp data/current/cases static/data/cases"

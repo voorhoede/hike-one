@@ -54,36 +54,37 @@
 .case-header-title {
     color: @white;
     font-weight: @font-weight-bold-extra;
-    font-size: @title-extra-large-s;
-    line-height: @line-height-giant-subtitle;
+    font-size: @title-giant-s;
+    line-height: @line-height-giant-s;
 
     @media @screen-medium {
-        font-size: @title-extra-large-m;
-        line-height: 68px;
+        font-size: @title-giant-m;
+        line-height: @line-height-giant-m;
     }
 
     @media @screen-large {
         margin-bottom: @spacing-medium;
         font-size: @title-giant-l;
-        line-height: @line-height-giant;
+        line-height: @line-height-giant-l;
     }
 }
 
 .case-header-subtitle {
-    font-size: @subtitle-large-s;
     color: @white;
     max-width: 800px;
-    margin: 0 auto @spacing-default;
-    font-weight: @font-weight-light;
+    margin: 0 auto @spacing-small;
+	font-size: @subtitle-large-s;
+	font-weight: @font-weight-light;
+	line-height: @line-height-subtitle-s;
 
     @media @screen-medium {
         font-size: @subtitle-large-m;
-        line-height: @line-height-body-small;
+        line-height: @line-height-subtitle-m;
     }
 
     @media @screen-large {
-        margin-bottom: @spacing-default*5;
+        margin-bottom: @spacing-default*5;	
         font-size: @subtitle-large-l;
-        line-height: @line-height-subtitle;
+        line-height: @line-height-subtitle-l;
     }
 }

@@ -43,27 +43,36 @@
 	margin: 0 auto @spacing-large auto;
 	padding: 0 @spacing-default;
 	font-size: @title-large-s;
-	line-height: 34px;
+	line-height: @line-height-title-s;
 	text-align: center;
 	color: @white;
 	font-weight: @font-weight-bold;
 
 	@media @screen-medium {
 		max-width: @column-large-8;
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
+	}
+
+	@media @screen-large {
 		font-size: @title-large-l;
-		line-height: @line-height-title;
+		line-height: @line-height-title-l;
 	}
 }
 
 .home-intro .btn-tertiary {
 	margin-bottom: @spacing-large;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
 
 	@media @screen-medium {
 		margin-bottom: @spacing-extra-large;
+		line-height: @line-height-body-m;
+		font-size: @body-text-m;
 	}
 	@media @screen-large {
-		font-size: @body-text;
-		line-height: @line-height-body;
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
 		padding: 0;
 	}
 }

@@ -10,12 +10,12 @@ const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccoun
 		<div className={`twitter-extract-text ${twitterImage ? '' : 'twitter-extract-full-width' }`}>
 			<div className={`twitter-extract-triangle ${twitterImage ? '' : 'is-hidden' }`}></div>
 			<a href={linkTwitterAccount}>
-				<h4>{subtitle}</h4>
+				<h4 className="twitter-extract-subtitle">{subtitle}</h4>
 			</a>
 			<a href={linkTwitterPost}>
-				<h3>{title}</h3>
+				<h3 className="twitter-extract-title">{title}</h3>
 			</a>
-			<span>{date}</span>
+			<span className="twitter-extract-date">{date}</span>
 			<a href={linkTwitterAccount}>
 				<ArrowRight />
 			</a>

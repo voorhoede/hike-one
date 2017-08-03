@@ -29,57 +29,67 @@
 }
 
 .text-center h2 {
-    font-size: @title-large-s;
-    line-height: 36px;
+    font-size: @heading-s;
+    line-height: @line-height-heading-s;
     font-weight: @font-weight-bold;
     color: @darker-gray;
 
     @media @screen-medium {
-        font-size: @heading;
-        line-height: @line-height-heading;
+        font-size: @heading-m;
+        line-height: @line-height-heading-m;
+    }
+    @media @screen-large {
+        font-size: @heading-l;
+        line-height: @line-height-heading-l;
     }
 }
 
 .text-center p {
-    line-height: @line-height-body-small;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
+    font-weight: @font-weight-normal;
     color: @darker-gray;
+    
+    @media @screen-medium {
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
+    }
 
     @media @screen-large {
-        font-size: @body-text;
-        font-weight: @font-weight-normal;
-        line-height: @line-height-body;
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;
     }
 }
 
 .text-center-font-large p {
-    font-size: @text-medium-m;
-	line-height: @line-height-body-small;
+    font-size: @subtitle-large-s;
+	line-height: @line-height-subtitle-s;
     font-weight: @font-weight-light;
     color: @darker-gray;
 
 	@media @screen-medium {
-		line-height: 44px;
-		font-size: @text-medium-l;
+		line-height: @line-height-subtitle-m;
+		font-size: @subtitle-large-m;
     }
 
     @media @screen-large {
-        line-height: @line-height-subtitle;
+        line-height: @line-height-subtitle-l;
         font-size: @subtitle-large-l;
     }
 }
 
 .text-center-font-medium p {
-    font-size: @text-medium-m;
-	line-height: @line-height-body-small;
+    font-size: @body-text-s;
+	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
     color: @darker-gray;
 
 	@media @screen-medium {
-		line-height: 36px;
-		font-size: @title-small-s;
+		line-height: @line-height-body-m;
+		font-size: @body-text-m;
     }
     @media @screen-large {
-        font-size: @body-text;
-        line-height: @line-height-body;
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;
     }
 }

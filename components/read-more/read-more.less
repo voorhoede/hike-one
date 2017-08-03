@@ -29,7 +29,7 @@
 .read-more-links a,
 .read-more-highlight h2 {
     font-size: @title-medium-s;
-    line-height: @line-height-header-small;
+    line-height: @line-height-header-small-l;
 }
 
 .read-more-hightlight h2 {
@@ -38,13 +38,13 @@
 
     @media @screen-medium {
         font-size: @title-medium-l;
-        line-height: 58px;
+        line-height: @line-height-heading-m;
     }
 
     @media @screen-large {
         margin-bottom: @spacing-large;
-        font-size: @heading;
-        line-height: @line-height-heading;
+        font-size: @heading-l;
+        line-height: @line-height-heading-l;
     }
 }
 
@@ -61,6 +61,9 @@
 
     @media @screen-medium {
         width: 250px;
+    }
+    @media @screen-large {
+        width: 295px;
     }
 }
 
@@ -82,6 +85,8 @@
     color: @white;
     text-decoration: none;
     font-weight: @font-weight-bold;
+    font-size: @heading-small-s;
+    line-height: @line-height-header-small-s;
     display: inline-block;
     margin-bottom: @spacing-default;
 
@@ -96,25 +101,29 @@
     }
 
     @media @screen-medium {
-        font-size: @text-medium-l;
-        line-height: 36px;
+        font-size: @heading-small-m;
+        line-height: @line-height-header-small-m;
     }
+    
     @media @screen-large {
-        font-size: @heading-small;
-        line-height: @line-height-header-small;
+        font-size: @heading-small-l;
+        line-height: @line-height-header-small-l;
     }
 }
 
 .read-more-links p {
-    line-height: @line-height-body-small;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
     margin: 0;
     font-weight: @font-weight-normal;
 
     @media @screen-medium {
-        font-size: @text-medium-m;
+        font-size:  @body-text-m;
+        line-height: @line-height-body-m;
     }
 
     @media @screen-large {
-        font-size: @body-text-s;
+        font-size:  @body-text-l;
+        line-height: @line-height-body-l;
     }
 }

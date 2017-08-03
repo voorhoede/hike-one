@@ -26,15 +26,14 @@
 
 .feeds-link-container {
 	float: left;
-	margin: 44px 0;
+	margin: @spacing-small 0;
 	width: 100%;
 	text-align: center;
-	font-size: @text-medium-s;
 	top: 0;
 	position: relative;
 	
-	@media @screen-small {
-		font-size: @text-medium-m;
+	@media @screen-medium {
+		margin: @spacing-large 0;
 	}
 
 	@media @screen-large {
@@ -47,8 +46,19 @@
 	color: @red;
 	text-decoration: none;
 	position: relative;
-	font-size: @body-text;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
+	
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	@media @screen-large {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
 }
 
 .feeds-link-icon {

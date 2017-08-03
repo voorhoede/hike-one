@@ -4,43 +4,53 @@
 	background: @white;
     margin-right: 1rem;
 	position: relative;
-    padding: 40px 45px 40px 1rem;
+    padding: @spacing-large @spacing-large @spacing-large @spacing-default;
 
     @media @screen-small {
-        margin-right: 6rem;
+        margin-right: @spacing-default*9;
     }
 
     @media @screen-medium {
         margin-right: 50vw;
-        padding: 55px;
+        padding: @spacing-default*5;
     }
 
     // 1200 because if 1170 the text will stick to the side when the media querie just activated
     @media only screen and (min-width: 1200px)  {
-        padding: 120px 110px;
+        padding: @spacing-default*11 @spacing-default*10;
         margin-left: calc(~'(100vw - @{container-inner-max-width}) / 2 - 110px'); // -110px for padding left. To align the text to the grid
     }
 }
 
 .text-card h2 {
-    font-size: @title-medium-s;
-    line-height: 36px;
+    font-size: @heading-s;
+    line-height: @line-height-header-small-s;
     font-weight: @font-weight-bold;
     color: @darker-gray;
-
+    @media @screen-medium {
+        font-size: @heading-m;
+        line-height: @line-height-heading-m;
+    }
     @media @screen-large {
-        font-size: @heading;
-        line-height: @line-height-heading;
-        margin-bottom: 30px;
+        font-size: @heading-l;
+        line-height: @line-height-heading-l;
+        margin-bottom: @spacing-medium;
     }
 }
 
 .text-card p {
     font-weight: @font-weight-normal;
     color: @darker-gray;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
+    
+    @media @screen-medium {
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
+    }
 
     @media @screen-large {
-        font-size: @body-text;
-        line-height: @line-height-body;
+        font-size: @body-text-l;
+        line-height: @line-height-body-l;
     }
 }

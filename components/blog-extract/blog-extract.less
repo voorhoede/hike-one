@@ -54,27 +54,35 @@
 	background: @green;
 
 	& > h3 {
-		font-size: @subtitle-small-s;
 		color: @white;
-		line-height: 17px;
+		font-size: @body-text-s;
+		line-height: @line-height-body-s;
 		padding-top: @spacing-small;
-		margin-bottom: 10px;
-		font-weight: 500;
+		margin-bottom: @spacing-default;
+		font-weight: @font-weight-normal;
 		font-style: italic;
 		opacity: 0.8;
 	}
 
 	& > h2 {
-		line-height: 24px;
-		font-size: @subtitle-large-s;
+		line-height: @line-height-header-small-s;
+		font-size: @heading-small-s;
 		font-weight: @font-weight-bold;
+		margin-bottom: @spacing-default;
 	}
 
-	@media @screen-small {
+	@media @screen-medium {
 		height: 100%;
 		min-height: 233px;
+		padding: 0 @spacing-small;
 		& > h2 {
+			line-height: @line-height-header-small-m;
+			font-size: @heading-small-m;
 			margin-bottom: @spacing-extra-large;
+		}
+		& > h3 {
+			font-size: @body-text-m;
+			line-height: @line-height-body-m;
 		}
 	}
 
@@ -84,16 +92,16 @@
 		min-height: 266px;
 
 		& > h3 {
-			font-size: @label;
+			font-size: @body-text-l;
+			line-height: @line-height-body-l;
 			font-style: italic;
-			font-weight: @font-weight-normal;
 			padding-top: @spacing-large;
 			margin-bottom: @spacing-medium;
 		}
 		& > h2 {
-			line-height: @line-height-header-small;
+			line-height: @line-height-header-small-l;
 			margin-bottom: @spacing-large;
-			font-size: @heading-small;
+			font-size: @heading-small-l;
 		}
 	}
 }
@@ -108,7 +116,7 @@
 	& > svg {
 		float: right;
 		position: relative;
-		bottom: 11px;
+		bottom: @spacing-default;
 		right: 0px;
 		margin-top: 0;
 		padding: 0;
@@ -123,21 +131,25 @@
 	}
 
 	& > span {
+		display: block;
 		float: left;
 		font-weight: @font-weight-normal;
-		font-size: 12px;
-		display: block;
+		font-size: @body-text-small-s;
+		line-height: @line-height-body-small-s;
 		color: @white;
 	}
 
-	@media @screen-small {
-	    position: absolute;
+	@media @screen-medium {
+		position: absolute;
 		left: 0;
-		padding: 0 @spacing-default;
-		bottom: 0;
+		padding: 0 @spacing-small;
+		bottom: @spacing-default;
 		
+
 		& > span {
 			position: absolute;
+			font-size: @body-text-small-m;
+			line-height: @line-height-body-small-m;
 		}
 	}
 
@@ -146,14 +158,15 @@
 		left: 0;
 		bottom: 15px;
 		width: 100%;		
-		padding: 0 @spacing-small;
+		padding: 0 @spacing-medium;
 
 		& > button {
 			height: 25px;
 			right: -15px;
 		}
 		& > span {
-			font-size: @body-text-s;
+			font-size: @body-text-small-l;
+			line-height: @line-height-body-small-l;
 			display: block;
 		}
 		& > svg {

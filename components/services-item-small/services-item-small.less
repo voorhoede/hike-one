@@ -10,7 +10,7 @@
 	display: block;
 	position: relative;
 	left: 35px;
-	margin-bottom: 20px;
+	margin-bottom: @spacing-small;
 	height: 150px;
 	
 	@media @screen-small {
@@ -44,12 +44,12 @@
 	& >  h3 {
 		margin: 0 0 10px 0;
 		padding: @spacing-medium  @spacing-default 0 @spacing-default;
-		font-size: @text-medium-m;
-		line-height: 26px;
+		font-size: @body-text-s;
+		line-height: @line-height-body-s;
 		font-weight: @font-weight-bold;
 	}
 
-	@media @screen-small {
+	@media @screen-medium {
 		top: -@spacing-large;
 		padding: @spacing-small 0 @spacing-medium 0;
 		height: 180px;
@@ -64,14 +64,16 @@
 		& >  h3 {
 			padding: 0;
 			margin-bottom: @spacing-medium;
-			font-size: @text-medium-m;
+			font-size: @body-text-m;
+			line-height: @line-height-body-m;
+
 		}
 	}
 	
-	@media @screen-small {
+	@media @screen-large {
 		& >  h3 {
 			font-size: @body-text;
-			line-height: @line-height-body-small;
+			line-height: @line-height-body;
 		}
 	}
 }

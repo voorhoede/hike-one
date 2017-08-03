@@ -24,7 +24,7 @@
 
 .services-item-heading {
 	font-size: @title-large-s;
-	line-height: 1.2;
+	line-height: @line-height-title-s;
 	margin-bottom: @spacing-default;
 	font-weight: @font-weight-bold;
 	
@@ -41,7 +41,8 @@
 	}
 
 	@media @screen-medium {
-		font-size: @title-large-m;
+		font-size: @heading-m;
+		line-height: @line-height-heading-m;
 		margin-bottom: @spacing-small;
 	}
 
@@ -81,10 +82,13 @@
 }
 
 .services-item-text {
-    line-height: @line-height-body-small-l;
+    font-size: @body-text-s;
+	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
 
 	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
 		margin-bottom: @spacing-small;
 	}
 	@media @screen-large {
@@ -108,8 +112,18 @@
 .services-item-info .services-item-tags .content {
     font-weight: @font-weight-normal;
 	font-style: italic;
-	font-size: @body-text-l;
-	line-height: @line-height-body-l;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+	@media @screen-large {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
+	
 }
 
 .service-item-graphics {

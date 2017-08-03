@@ -4,17 +4,20 @@
     display: inline-block;
     color: @white;
     font-weight: 700;
-    font-size: 20px;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
     text-decoration: none;
     background-color: @blue;
     border: 1px solid @blue;
-    padding: 12px 42px;
-    margin-bottom: 20px;
+    padding: @spacing-small @spacing-large;
+    margin-bottom: @spacing-small;
     border-radius: 100px;
     transition: background 0.3s ease, color 0.3s ease;
 
     @media @screen-medium {
-        padding: 19px 50px;
+        padding: 18px @spacing-default*5;
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
     }
 
     &:hover {
@@ -26,19 +29,26 @@
 
 .btn-secondary {
 	display: inline-block;
-    padding: 12px 42px;
-    font-size: 18px;
-    font-weight: 500;
+    padding: @spacing-default @spacing-medium;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
+    font-weight: @font-weight-normal;
     background-color: transparent;
 	text-decoration: none;
     color: @red;
 	border: 1px solid @red;
-	margin-bottom: 20px;
+	margin-bottom: @spacing-small;
 	border-radius: 100px;
 	transition: background 0.3s ease, color 0.3s ease;
 
     @media @screen-medium {    
-        padding: 13px 38px;
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
+        padding: @spacing-default @spacing-large;
+    }
+
+    @media @screen-large {
+        width: 178px;
     }
 
     &:hover {
@@ -74,19 +84,20 @@
 .btn-tertiary {
 	display: inline-block;
 	font-weight: @font-weight-light;
-	font-size: @text-medium-s;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
     background: none;
 	text-decoration: none;
     border: none;
     color: @white;
 	transition: background 0.3s ease, color 0.3s ease;
 
-	@media @screen-small {
-		font-size: @title-small-s;
-	}
-	@media @screen-large {
-		font-size: @body-text;
-	}
+    @media @screen-medium {
+        padding: @spacing-small @spacing-default*5;
+        font-size: @body-text-m;
+        line-height: @line-height-body-m;
+    }
+
 
 	&:hover {
 		cursor: pointer;

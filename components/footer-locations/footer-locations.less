@@ -48,16 +48,18 @@
 }
 
 .footer-locations-list button {
-	font-size: 28px;
+	font-size: @body-text-s;
 	color: @white;
 	text-transform: uppercase;
 	border: none;
 	background: transparent;
 	padding: 0;
+	position: relative;
+	top: 4px;
 	cursor: pointer;
 
 	@media @screen-medium {
-		font-size: @body-text-l;
+		font-size: @body-text-m;
 	}
 
 	@media @screen-large {
@@ -71,13 +73,17 @@
 	&.is-active {
 		font-weight: @font-weight-bold;
 		border-bottom: none;
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-s;
 
 		@media @screen-medium {
 			font-size: @heading-small-l;
+			line-height: @line-height-header-small-m;
 		}
 
 		@media @screen-large {
 			font-size: @heading-small-l;
+			line-height: @line-height-header-small-l;
 		}
 	}
 }
@@ -96,13 +102,18 @@
 
 .footer-locations-info p {
 	margin-bottom: 0;
-	line-height: 30px;
-	font-size: 18px;
+	font-size: @body-text-small-s;
+	line-height: @line-height-body-small-s;
 	font-weight: @font-weight-normal;
 	color: @white;
 
+	@media @screen-medium {
+		font-size: @body-text-small-m;
+		line-height: @line-height-body-small-m;
+	}
+
 	@media @screen-large {
-		font-size: @body-text-s;
+		font-size: @body-text-small-l;
 		line-height: @line-height-body-small-l;
 	}
 }

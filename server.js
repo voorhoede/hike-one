@@ -13,6 +13,7 @@ app.prepare()
 
 		// so we can serve files from the root directory instead of next.js default static folder
 		server.use(express.static('./static/root'));
+		server.use('/guide/', express.static('./build/guide/'));
 
 		server.get('/case/:id', (req, res) => {
 			app.render(req, res, '/case', {id: req.params.id});
@@ -21,7 +22,6 @@ app.prepare()
 		server.get('*', (req, res) => {
 			return handle(req, res);
 		});
-
 
 		server.listen(3000, (err) => {
 			if (err) throw err;

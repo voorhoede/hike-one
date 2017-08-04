@@ -1,19 +1,21 @@
+@import (reference) '../../../styles/variables';
+
 .btn-primary {
 	display: inline-block;
 	color: @white;
-	font-weight: 700;
+	font-weight: @font-weight-normal;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	text-decoration: none;
 	background-color: @blue;
 	border: 1px solid @blue;
-	padding: @spacing-small @spacing-large;
+	padding: @spacing-default @spacing-medium;
 	margin-bottom: @spacing-small;
 	border-radius: 100px;
 	transition: background 0.3s ease, color 0.3s ease;
 
 	@media @screen-medium {
-		padding: 18px @spacing-default*5;
+		padding: @spacing-default @spacing-large;
 		font-size: @body-text-m;
 		line-height: @line-height-body-m;
 	}
@@ -21,6 +23,25 @@
 	&:hover {
 		cursor: pointer;
 		color: @blue;
+		background-color: transparent;
+	}
+}
+
+.btn-primary.btn-large {
+	font-weight: @font-weight-bold;
+	padding: @spacing-small @spacing-large;
+
+	@media @screen-medium {
+		padding: 18px @spacing-default*5;
+	}
+}
+
+.btn-primary.btn-red {
+	background-color: @red;
+	border: 1px solid @red;
+
+	&:hover {
+		color: @red;
 		background-color: transparent;
 	}
 }

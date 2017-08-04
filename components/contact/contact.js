@@ -1,5 +1,5 @@
 import React from 'react';
-import SecondaryButtonLink from '../buttons/button-secondary/button-secondary-link';
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const Contact = ({title = '', button = '', children}) => {
 	const childrenArray = React.Children.toArray(children);
@@ -9,9 +9,9 @@ const Contact = ({title = '', button = '', children}) => {
 		<section className="contact">
 			<div className="container-inner">
 				<h3 className="content">{title}</h3>
-				<SecondaryButtonLink noArrow href="#" classes="btn-secondary-alt content">
+				<ButtonPrimaryLink href="#" classes="btn-red btn-large content">
 					{button}
-				</SecondaryButtonLink>
+				</ButtonPrimaryLink>
 			</div>
 			{ parallaxLayerFront }
 		</section>

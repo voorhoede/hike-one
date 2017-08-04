@@ -27,14 +27,18 @@ const EventsExtract = ({ subtitle, events}) => (
 								</a>
 							</Link>
 						</span>
-						<ButtonSecondaryLink classes="btn-white events-extract-button" href="#Register" value="Register" />
+						<ButtonSecondaryLink classes="btn-white events-extract-button" href="#Register" icon="arrowRight">
+							Register
+						</ButtonSecondaryLink>
 						<div className="events-extract-divider"></div>
 					</div>
 				);
 			})
 		}
 		<div className="events-extract-footer">
-			<ButtonSecondaryLink classes="btn-clean btn-white" href="#future-events" value="Future events" />
+			<ButtonSecondaryLink classes="btn-clean btn-white" href="#future-events" icon="arrowRight">
+				Future events
+			</ButtonSecondaryLink>
 		</div>
 	</div>
 );

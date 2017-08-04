@@ -1,17 +1,20 @@
-import ArrowRight from '../../icons/arrow-right/arrow-right';
+import Icon from '../../icon/icon';
 
-const ButtonSecondary = ({classes = '', onClick, value = '', noArrow}) => (
-	<button
-		onClick={onClick}
-		className={`btn-secondary ${classes}`}>
-		{ value }
-		{ !noArrow &&
+const ButtonSecondary = ({classes = '', onClick = null, children, icon = ''}) => {
+	return (
+		<button
+			onClick={onClick}
+			className={`btn-secondary ${classes}`}>
+			{ children }
+
+			{ icon &&
 			<span className="icon">
-				<ArrowRight/>
+				<Icon icon={icon}/>
 			</span>
-		}
-	</button>
-);
+			}
+		</button>
+	);
+};
 
 
 export default ButtonSecondary;

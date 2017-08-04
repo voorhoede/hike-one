@@ -9,7 +9,9 @@ const Contact = ({title = '', button = '', children}) => {
 		<section className="contact">
 			<div className="container-inner">
 				<h3 className="content">{title}</h3>
-				<SecondaryButtonLink noArrow href="#" classes="btn-secondary-alt content" value={button} />
+				<SecondaryButtonLink noArrow href="#" classes="btn-secondary-alt content">
+					{button}
+				</SecondaryButtonLink>
 			</div>
 			{ parallaxLayerFront }
 		</section>

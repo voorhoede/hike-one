@@ -1,0 +1,26 @@
+.btn-primary {
+	display: inline-block;
+	color: @white;
+	font-weight: 700;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	text-decoration: none;
+	background-color: @blue;
+	border: 1px solid @blue;
+	padding: @spacing-small @spacing-large;
+	margin-bottom: @spacing-small;
+	border-radius: 100px;
+	transition: background 0.3s ease, color 0.3s ease;
+
+	@media @screen-medium {
+		padding: 18px @spacing-default*5;
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: @blue;
+		background-color: transparent;
+	}
+}

@@ -2,8 +2,8 @@ import BlogExtract from '../blog-extract/blog-extract';
 import ImageFeed from '../image-feed/image-feed';
 import TwitterExtract from '../twitter-extract/twitter-extract';
 import EventsExtract from '../events-extract/events-extract';
-import Link from 'next/link';
-import ArrowRight from '../icons/arrow-right/arrow-right';
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
+
 
 import Data from '../../dummy-data/home/home.json';
 
@@ -33,14 +33,9 @@ const feedsBlock = () => (
 				link={Data.eventsLink}
 			/>
 			<div className="feeds-link-container">
-				<Link href={Data.oneMoreThinglink.target}>
-					<a className="feeds-link">
-						<span>{Data.oneMoreThinglink.text}</span>
-						<div className="feeds-link-icon">
-							<ArrowRight/>
-						</div>
-					</a>
-				</Link>
+				<ButtonCleanLink href={Data.oneMoreThinglink.target} icon="arrowRight" classes="btn-red feeds-link">
+					{Data.oneMoreThinglink.text}
+				</ButtonCleanLink>
 			</div>
 		</div>
 	</div>

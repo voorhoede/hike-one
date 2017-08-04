@@ -1,4 +1,5 @@
 import ArrowRight from '../icons/arrow-right/arrow-right';
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
 import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
 import Link from 'next/link';
 
@@ -24,14 +25,9 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
 		</Link>
 
 		<div className="case-extract-link-container">
-			<Link href="#">
-				<a className="case-extract-link clearfix">
-					<span>Explore all work</span>
-					<div className="case-extract-link-icon">
-						<ArrowRight/>
-					</div>
-				</a>
-			</Link>
+			<ButtonCleanLink href="#" classes="case-extract-link btn-red" icon="arrowRight">
+				Explore all work
+			</ButtonCleanLink>
 		</div>
 	</section>
 );

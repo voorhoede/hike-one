@@ -1,5 +1,5 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
-import ButtonSecondary from '../buttons/button-secondary/button-secondary';
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
 import ArrowDown from '../icons/arrow-down/arrow-down';
 import Link from 'next/link';
 
@@ -36,9 +36,9 @@ const EventsExtract = ({ subtitle, events}) => (
 			})
 		}
 		<div className="events-extract-footer">
-			<ButtonSecondaryLink classes="btn-clean" href="#future-events" icon="arrowRight">
+			<ButtonCleanLink href="#future-events" icon="arrowRight">
 				Future events
-			</ButtonSecondaryLink>
+			</ButtonCleanLink>
 		</div>
 	</div>
 );

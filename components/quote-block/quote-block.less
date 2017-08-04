@@ -4,13 +4,13 @@
 	.shadow;
     background-color: @blue;
     color: @white;
-    padding: @spacing-default*5 @spacing-default @spacing-small @spacing-small;
+    padding: @spacing-default*4 @spacing-default @spacing-default*4 @spacing-small;
 	//todo: set this in variable with fallback font
     font-family: 'playfair';
     font-weight: @font-weight-normal;
-    font-size: @quote-large-s;
+    font-size: @subtitle-large-s;
     line-height: 35px;
-    margin: 0 0 @spacing-default*5 @spacing-default;
+    margin: 0 0 @spacing-default*5 @spacing-default*1.5;
 
     @media @screen-small {
         margin-left: 10%;
@@ -20,7 +20,7 @@
     @media @screen-medium {
         margin-left: 20%;
         padding: @spacing-default*9 @spacing-default*7;
-        font-size: @quote-large-m;
+        font-size: @quote-large-l;
         line-height: @line-height-quote;
     }
 

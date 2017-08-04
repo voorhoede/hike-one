@@ -3,8 +3,8 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 
-import PrimaryButton from '../button-primary/button-primary';
-import PrimaryButtonLink from '../button-primary/button-primary-link';
+import ButtonPrimary from '../button-primary/button-primary';
+import ButtonPrimaryLink from '../button-primary/button-primary-link';
 
 const ButtonDecorator = (storyFn) => (
 	<div style={{ margin: '10px' }}>
@@ -16,7 +16,7 @@ const stories = storiesOf('Buttons', module);
 stories.addDecorator(withKnobs);
 
 stories.addDecorator(ButtonDecorator)
-	.add('Primary button', () => {
+	.add('Button Primary', () => {
 		const colorOptions = {
 			'btn-red': 'red',
 			'': 'default',
@@ -31,14 +31,14 @@ stories.addDecorator(ButtonDecorator)
 		return (
 			<div>
 				{!isLinkValue &&
-					<PrimaryButton onClick={ action('clicked')} classes={`${colorValue} ${largeClass}`}>
+					<ButtonPrimary onClick={ action('clicked')} classes={`${colorValue} ${largeClass}`}>
 						{ textValue }
-					</PrimaryButton>
+					</ButtonPrimary>
 				}
 				{isLinkValue &&
-					<PrimaryButtonLink href="#" classes={`${colorValue} ${largeClass}`}>
+					<ButtonPrimaryLink href="#" classes={`${colorValue} ${largeClass}`}>
 						{ textValue }
-					</PrimaryButtonLink>
+					</ButtonPrimaryLink>
 				}
 			</div>
 		);

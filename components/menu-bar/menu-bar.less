@@ -26,31 +26,45 @@
     align-items: center;
     flex-wrap: wrap;
 	margin-top: 0;
-	line-height: @header-height;
+	height: 60px;
 
 	@media @screen-small {
 		margin-top: 0;
+	}
+	@media @screen-large {
+		height: 100px;
 	}
 }
 
 .header-logo {
 	display: inline-block;
 	z-index: 3;
+	svg {
+		height: 20px;
+		width: 120px;
+	}
 	&:visited {
 		color: @black;
+	}
+
+	@media @screen-medium {
+		svg {
+			height: 30px;
+			width: 130px;
+		}
 	}
 }
 
 .header .btn {
 	z-index: 3;
 	position: fixed;
-	top: 50px;
+	top: 33px;
 	right: 0;
 	transform: translateY(-50%);
 	font-size: 0;
 	background: transparent;
 	border: none;
-    padding: 0 @spacing-default;
+    padding: 0 @spacing-default*1.5;
 	margin: 0;
 	cursor: pointer;
 
@@ -61,7 +75,9 @@
 	@media @screen-medium {
 		padding: 0 @spacing-small;
 	}
-
+	@media @screen-large {
+		top: 50px;
+	}
 	@media only screen and (min-width: @container-max-width) {
 		right: calc(~"(100vw - @{column-large-12} + 32px) / 2");
 	}

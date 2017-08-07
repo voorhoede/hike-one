@@ -142,7 +142,8 @@ const Case = ({Data}) => (
 
 										{ component.quoteAuthorTitle &&
 											<QuoteBlock
-												color={ component.textTitle ? 'purple' : 'blue'}
+												color={component.quoteColor.color }
+												alignment={component.quoteAlignLeft ? 'quote-block-left' : 'quote-block-right' }
 												quote={component.quote}
 												citeName={component.quoteAuthorName}
 												citeTitle={component.quoteAuthorTitle}

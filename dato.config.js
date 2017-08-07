@@ -1,4 +1,9 @@
 module.exports = (dato, root) => {
+	root.directory("data/current/componentGuide", (guideDir) => {
+
+		const mappedGuideData = dato.componentGuide.toMap();
+		guideDir.createDataFile(`componentGuide.json`, 'json', mappedGuideData);
+	});
 
 	root.directory("data/current/services", (servicesDir) => {
 

@@ -192,7 +192,7 @@ const Case = ({Data}) => (
 
 					<ReadMore
 						highlight={{
-							"image": "static/images/img-vbh.jpg",
+							"image": "/static/images/img-vbh.jpg",
 							"title": "VBH Pivot App",
 							"href": "#",
 							"linkLabel": "View case"

@@ -27,7 +27,7 @@ const EventsExtract = ({ subtitle, events}) => (
 								</a>
 							</Link>
 						</span>
-						<ButtonSecondaryLink classes="events-extract-button" href="#Register" icon="arrowRight">
+						<ButtonSecondaryLink classes="events-extract-button btn-purple" href="#Register" icon="arrowRight">
 							Register
 						</ButtonSecondaryLink>
 						<div className="events-extract-divider"></div>

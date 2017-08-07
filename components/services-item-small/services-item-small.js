@@ -15,7 +15,7 @@ const ServicesItemSmall = ({ shape, button = '', title = '', color }) => (
 			<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
 			<div className="services-item-small-content">
 				<h3 className="services-item-small-heading">{ title }</h3>
-				<ButtonSecondaryLink href="/services" icon="arrowRight">
+				<ButtonSecondaryLink href="/services" icon="arrowRight" classes={`btn-${color}`}>
 					{ button }
 				</ButtonSecondaryLink>
 			</div>

@@ -26,7 +26,32 @@
 }
 
 .btn-secondary.btn-red {
-	color: @red;
-	border: 1px solid @red;
+	&:hover {
+		color: @red;
+
+		.icon svg path {
+			fill: @red;
+		}
+	}
+}
+
+.btn-secondary.btn-green {
+	&:hover {
+		color: @green;
+
+		.icon svg path {
+			fill: @green;
+		}
+	}
+}
+
+.btn-secondary.btn-purple {
+	&:hover {
+		color: @purple;
+
+		.icon svg path {
+			fill: @purple;
+		}
+	}
 }
 

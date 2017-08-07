@@ -18,6 +18,8 @@ stories.addDecorator(withKnobs);
 stories.addDecorator(ButtonDecorator)
 	.add('Button Secondary', () => {
 		const textValue = text('Button Text', 'Secondary Button');
+		const largeValue = boolean('Large', false);
+		const largeClass = largeValue ? 'btn-large' : '';
 		const isLinkValue = boolean('As Link', false);
 		const withIcon = boolean('With Icon', false);
 		const icon = withIcon ? 'arrowRight' : null;
@@ -25,12 +27,12 @@ stories.addDecorator(ButtonDecorator)
 		return (
 			<div>
 				{!isLinkValue &&
-				<ButtonSecondary onClick={ action('clicked')} icon={icon}>
+				<ButtonSecondary onClick={ action('clicked')} classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonSecondary>
 				}
 				{isLinkValue &&
-				<ButtonSecondaryLink  href="#" icon={icon}>
+				<ButtonSecondaryLink  href="#" classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonSecondaryLink>
 				}

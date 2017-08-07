@@ -17,9 +17,6 @@ stories.addDecorator(withKnobs);
 
 stories.addDecorator(ButtonDecorator)
 	.add('Button Primary', () => {
-
-
-
 		const textValue = text('Button Text', 'Primary Button');
 		const largeValue = boolean('Large', false);
 		const largeClass = largeValue ? 'btn-large' : '';
@@ -30,12 +27,12 @@ stories.addDecorator(ButtonDecorator)
 		return (
 			<div>
 				{!isLinkValue &&
-				<ButtonPrimary onClick={ action('clicked')} classes={`${largeClass}`} icon={icon}>
+				<ButtonPrimary onClick={ action('clicked')} classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonPrimary>
 				}
 				{isLinkValue &&
-				<ButtonPrimaryLink href="#" classes={`${largeClass}`} icon={icon}>
+				<ButtonPrimaryLink href="#" classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonPrimaryLink>
 				}

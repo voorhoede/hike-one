@@ -1,0 +1,93 @@
+@import (reference) '../../styles/variables';
+
+@icon-size: 14px;
+
+.btn-basis {
+	display: inline-block;
+	padding: @spacing-default @spacing-medium;
+	text-decoration: none;
+	border-radius: 100px;
+	font-family: @main-font;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	font-weight: @font-weight-normal;
+	transition: background 0.3s ease, color 0.3s ease;
+
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+		padding: @spacing-default @spacing-large;
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		.icon {
+			animation-timing-function: ease-in-out;
+			animation-name: horizontal-spring-icon-to;
+		}
+	}
+
+	.icon {
+		position: absolute;
+		margin-top: 2px;
+		margin-left: 8px;
+		animation-duration: .3s;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		animation-name: horizontal-spring-icon-from;
+
+		svg {
+			width: @icon-size;
+			height: @icon-size;
+		}
+
+		svg path {
+			transition: fill 0.3s ease;
+		}
+	}
+
+	&.btn-icon {
+		padding: @spacing-default (@spacing-medium + @icon-size) @spacing-default @spacing-medium;
+
+		@media @screen-medium {
+			padding: @spacing-default (@spacing-large + @icon-size) @spacing-default @spacing-large;
+		}
+	}
+
+	&.btn-large {
+		font-weight: @font-weight-bold;
+		padding: @spacing-small @spacing-large;
+
+		@media @screen-medium {
+			padding: 18px @spacing-default*5;
+		}
+	}
+
+	&.btn-icon.btn-large {
+		padding: @spacing-small (@spacing-large + @icon-size) @spacing-small @spacing-large;
+
+		@media @screen-medium {
+			padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
+		}
+	}
+}
+
+@keyframes horizontal-spring-icon-to {
+	83.25% {
+		transform: translateX(6px);
+	}
+
+	100% {
+		transform: translateX(5px);
+	}
+}
+
+@keyframes horizontal-spring-icon-from {
+	0% {
+		transform: translateX(6px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}

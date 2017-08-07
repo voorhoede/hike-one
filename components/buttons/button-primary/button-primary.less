@@ -1,99 +1,20 @@
 @import (reference) '../../../styles/variables';
+@import (once) '../buttons';
 
 @icon-size: 14px;
 
 .btn-primary {
-	display: inline-block;
-	padding: @spacing-default @spacing-medium;
+	.btn-basis;
 	margin-bottom: @spacing-small;
-	text-decoration: none;
 	border: 1px solid @red;
-	border-radius: 100px;
 	background-color: @red;
 	color: @white;
-	font-family: @main-font;
-	font-weight: @font-weight-normal;
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	transition: background 0.3s ease, color 0.3s ease;
-
-	@media @screen-medium {
-		padding: @spacing-default @spacing-large @spacing-default @spacing-large;
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-	}
 
 	&:hover {
-		cursor: pointer;
 		background-color: @red-dark;
-
-		.icon {
-			animation-timing-function: ease-in-out;
-			animation-name: horizontal-spring-icon-to;
-		}
 	}
 
-	.icon {
-		position: absolute;
-		margin-top: 2px;
-		margin-left: 8px;
-		animation-duration: .3s;
-		animation-timing-function: linear;
-		animation-fill-mode: forwards;
-		animation-name: horizontal-spring-icon-from;
-
-		svg {
-			width: @icon-size;
-			height: @icon-size;
-		}
-
-		svg path {
-			fill: @white;
-			transition: fill 0.3s ease;
-		}
-	}
-}
-
-.btn-primary-icon {
-	padding: @spacing-default (@spacing-medium + @icon-size) @spacing-default @spacing-medium;
-
-	@media @screen-medium {
-		padding: @spacing-default (@spacing-large + @icon-size) @spacing-default @spacing-large;
-	}
-}
-
-.btn-primary.btn-large {
-	font-weight: @font-weight-bold;
-	padding: @spacing-small @spacing-large;
-
-	@media @screen-medium {
-		padding: 18px @spacing-default*5;
-	}
-
-	&.btn-primary-icon {
-		padding: @spacing-small (@spacing-large + @icon-size) @spacing-small @spacing-large;
-
-		@media @screen-medium {
-			padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
-		}
-	}
-}
-
-@keyframes horizontal-spring-icon-to {
-	83.25% {
-		transform: translateX(6px);
-	}
-
-	100% {
-		transform: translateX(5px);
-	}
-}
-
-@keyframes horizontal-spring-icon-from {
-	0% {
-		transform: translateX(6px);
-	}
-	100% {
-		transform: translateX(0);
+	.icon svg path {
+		fill: @white;
 	}
 }

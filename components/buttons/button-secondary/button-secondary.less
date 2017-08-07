@@ -1,42 +1,27 @@
 @import (reference) '../../../styles/variables';
+@import (once) '../buttons';
+
+@icon-size: 14px;
 
 .btn-secondary {
-	display: inline-block;
-	padding: @spacing-default @spacing-medium;
-	font-family: @main-font;
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	font-weight: @font-weight-normal;
+	.btn-basis;
 	background-color: transparent;
-	text-decoration: none;
 	color: @white;
 	border: 1px solid @white;
 	margin-bottom: @spacing-small;
-	border-radius: 100px;
-	transition: background 0.3s ease, color 0.3s ease;
-
-	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-		padding: @spacing-default @spacing-large;
-	}
 
 	&:hover {
-		cursor: pointer;
-		color: @red;
+		color: @blue;
 		background-color: @white;
 
 		.icon svg path {
-			fill: @white;
+			fill: @blue;
 		}
 	}
 
-	.icon {
-		margin-left: 8px;
-		svg path {
-			fill: @white;
-			transition: fill 0.3s ease;
-		}
+	.icon svg path {
+		fill: @white;
+		transition: fill 0.3s ease;
 	}
 }
 
@@ -44,3 +29,4 @@
 	color: @red;
 	border: 1px solid @red;
 }
+

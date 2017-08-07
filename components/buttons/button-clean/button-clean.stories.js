@@ -17,7 +17,7 @@ stories.add('Button Clean', () => {
 
 		const colorValue = select('Color', colorOptions, '');
 		const backgroundColor = colorValue === '' ? '#00aae9' : '';
-		const textValue = text('Button Text', 'Button Clea');
+		const textValue = text('Button Text', 'Button Clean');
 		const withIcon = boolean('With Icon', false);
 		const isLinkValue = boolean('As Link', false);
 		const icon = withIcon ? 'arrowRight' : null;

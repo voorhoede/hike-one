@@ -1,5 +1,5 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
-import ButtonSecondary from '../buttons/button-secondary/button-secondary';
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
 import ArrowDown from '../icons/arrow-down/arrow-down';
 import Link from 'next/link';
 
@@ -27,14 +27,18 @@ const EventsExtract = ({ subtitle, events}) => (
 								</a>
 							</Link>
 						</span>
-						<ButtonSecondaryLink classes="btn-white events-extract-button" href="#Register" value="Register" />
+						<ButtonSecondaryLink classes="events-extract-button" href="#Register" icon="arrowRight">
+							Register
+						</ButtonSecondaryLink>
 						<div className="events-extract-divider"></div>
 					</div>
 				);
 			})
 		}
 		<div className="events-extract-footer">
-			<ButtonSecondaryLink classes="btn-clean btn-white" href="#future-events" value="Future events" />
+			<ButtonCleanLink href="#future-events" icon="arrowRight">
+				Future events
+			</ButtonCleanLink>
 		</div>
 	</div>
 );

@@ -7,7 +7,9 @@ const ReadMore = ({highlight = {}, links = []}) => (
 	<section className="read-more container">
 		<div className="read-more-highlight" style={{backgroundImage: `url(${highlight.image})`}} >
 			<h2>{highlight.title}</h2>
-			<PrimaryButtonLink href={highlight.href} value={highlight.linkLabel} />
+			<PrimaryButtonLink href={highlight.href} >
+				{highlight.linkLabel}
+			</PrimaryButtonLink>
 		</div>
 		<div className="read-more-links">
 			{links.map((item, i) => {

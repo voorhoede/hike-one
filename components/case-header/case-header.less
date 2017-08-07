@@ -83,8 +83,32 @@
     }
 
     @media @screen-large {
-        margin-bottom: @spacing-default*5;	
+        margin-bottom: @spacing-default*5;
         font-size: @subtitle-large-l;
         line-height: @line-height-subtitle-l;
     }
+}
+
+.case-header-button {
+	background: none;
+	border: none;
+	padding: @spacing-small @spacing-default*5;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	svg {
+		display: block;
+		margin: 0 auto;
+		width: 40px;
+
+		@media @screen-small {
+			width: 45px;
+		}
+
+		path {
+			fill: @white;
+		}
+	}
 }

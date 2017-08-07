@@ -60,13 +60,18 @@
 	}
 }
 
-.home-intro .btn-tertiary {
+.page-header-button {
+	display: inline-block;
+	background: none;
+	border: none;
+	color: @white;
 	margin-bottom: @spacing-large;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 
 	@media @screen-medium {
 		margin-bottom: @spacing-extra-large;
+		padding: @spacing-small @spacing-default*5;
 		line-height: @line-height-body-m;
 		font-size: @body-text-m;
 	}
@@ -75,9 +80,27 @@
 		line-height: @line-height-body-l;
 		padding: 0;
 	}
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	.icon svg {
+		display: block;
+		margin: 0 auto;
+		width: 40px;
+
+		@media @screen-small {
+			width: 45px;
+		}
+
+		path {
+			fill: @white;
+		}
+	}
 }
 
-.home-intro-icon-container {
-	width: 45px;
-	margin: 0 auto @spacing-extra-large auto;
+.page-header-button-text {
+	display: block;
+	padding-bottom: @spacing-small;
 }

@@ -1,15 +1,15 @@
 import Link  from 'next/link';
-import ArrowRight from '../../icons/arrow-right/arrow-right';
+import Icon from '../../icon/icon';
 
-const ButtonSecondaryLink = ({classes = '', href, value = '', noArrow}) => (
+const ButtonSecondaryLink = ({classes = '', href, children = '', icon}) => (
 	<Link href={href}>
 		<a className={`btn-secondary ${classes}`}>
-			{ value }
+			{ children }
 
-			{!noArrow &&
-				<span className="icon">
-					<ArrowRight/>
-				</span>
+			{ icon &&
+			<span className="icon">
+				<Icon icon={icon}/>
+			</span>
 			}
 		</a>
 	</Link>

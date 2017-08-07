@@ -1,5 +1,5 @@
 import ArrowRight from '../icons/arrow-right/arrow-right';
-import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
 import Link from 'next/link';
 
 const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
@@ -14,9 +14,9 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
 						<h3>{title}</h3>
 						<h4>{subtitle}</h4>
 						<div className="case-extract-button-container">
-							<ButtonTertiary classes="btn-white btn-icon-round">
+							<span className="case-extract-button">
 								<ArrowRight/>
-							</ButtonTertiary>
+							</span>
 						</div>
 					</div>
 				</div>
@@ -24,14 +24,9 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
 		</Link>
 
 		<div className="case-extract-link-container">
-			<Link href="#">
-				<a className="case-extract-link clearfix">
-					<span>Explore all work</span>
-					<div className="case-extract-link-icon">
-						<ArrowRight/>
-					</div>
-				</a>
-			</Link>
+			<ButtonCleanLink href="#" classes="case-extract-link btn-red" icon="arrowRight">
+				Explore all work
+			</ButtonCleanLink>
 		</div>
 	</section>
 );

@@ -9,9 +9,9 @@ const Home = () => (
 		<Header/>
 		<main className="container main js-main">
 			<article className="article article-index">
-				<ButtonSecondaryLink value="Work" href="/work"/>
-				<ButtonSecondaryLink value="Home" href="/home"/>
-				<ButtonSecondaryLink value="Services" href="/services"/>
+				<ButtonSecondaryLink href="/work" classes="btn-red">work</ButtonSecondaryLink>
+				<ButtonSecondaryLink href="/home" classes="btn-red">Home</ButtonSecondaryLink>
+				<ButtonSecondaryLink href="/services" classes="btn-red">Services</ButtonSecondaryLink>
 			</article>
 		</main>
 	</Layout>

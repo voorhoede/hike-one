@@ -1,0 +1,46 @@
+@import (reference) '../../../styles/variables';
+
+.btn-secondary {
+	display: inline-block;
+	padding: @spacing-default @spacing-medium;
+	font-family: @main-font;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	font-weight: @font-weight-normal;
+	background-color: transparent;
+	text-decoration: none;
+	color: @white;
+	border: 1px solid @white;
+	margin-bottom: @spacing-small;
+	border-radius: 100px;
+	transition: background 0.3s ease, color 0.3s ease;
+
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+		padding: @spacing-default @spacing-large;
+	}
+
+	&:hover {
+		cursor: pointer;
+		color: @red;
+		background-color: @white;
+
+		.icon svg path {
+			fill: @white;
+		}
+	}
+
+	.icon {
+		margin-left: 18px;
+		svg path {
+			fill: @white;
+			transition: fill 0.3s ease;
+		}
+	}
+}
+
+.btn-secondary.btn-red {
+	color: @red;
+	border: 1px solid @red;
+}

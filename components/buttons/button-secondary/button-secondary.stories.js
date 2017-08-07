@@ -1,0 +1,40 @@
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withKnobs, select, text, boolean} from '@storybook/addon-knobs';
+
+import ButtonSecondary from '../button-secondary/button-secondary';
+import ButtonSecondaryLink from '../button-secondary/button-secondary-link';
+
+const ButtonDecorator = (storyFn) => (
+	<div style={{ padding: '10px', background: '#00aae9', height: '100vh'}}>
+		{ storyFn() }
+	</div>
+);
+
+const stories = storiesOf('Buttons', module);
+stories.addDecorator(withKnobs);
+
+stories.addDecorator(ButtonDecorator)
+	.add('Button Secondary', () => {
+		const textValue = text('Button Text', 'Secondary Button');
+		const isLinkValue = boolean('As Link', false);
+		const withIcon = boolean('With Icon', false);
+		const icon = withIcon ? 'arrowRight' : null;
+
+		return (
+			<div>
+				{!isLinkValue &&
+				<ButtonSecondary onClick={ action('clicked')} icon={icon}>
+					{ textValue }
+				</ButtonSecondary>
+				}
+				{isLinkValue &&
+				<ButtonSecondaryLink  href="#" icon={icon}>
+					{ textValue }
+				</ButtonSecondaryLink>
+				}
+			</div>
+		);
+	});
+

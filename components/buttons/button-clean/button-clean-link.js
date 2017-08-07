@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Icon from '../../icon/icon';
 
-const PrimaryButtonLink = ({classes = '', href, children = '', icon}) => (
+const ButtonCleanLink = ({classes = '', href, children = '', icon}) => (
 	<Link href={href}>
-		<a className={`btn-primary ${classes}`}>
+		<a className={`btn-clean ${classes}`}>
 			{children}
 			{ icon &&
 			<span className="icon">
@@ -14,5 +14,4 @@ const PrimaryButtonLink = ({classes = '', href, children = '', icon}) => (
 	</Link>
 );
 
-
-export default PrimaryButtonLink;
+export default ButtonCleanLink;

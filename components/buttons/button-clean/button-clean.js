@@ -1,9 +1,9 @@
 import Icon from '../../icon/icon';
 
-const ButtonSecondary = ({classes = '', onClick = null, children = '', icon = ''}) => (
+const ButtonClean = ({classes = '', onClick = null, children = '', icon }) => (
 	<button
 		onClick={onClick}
-		className={`btn-secondary ${classes}`}>
+		className={`btn-clean ${classes}`}>
 		{ children }
 
 		{ icon &&
@@ -14,6 +14,4 @@ const ButtonSecondary = ({classes = '', onClick = null, children = '', icon = ''
 	</button>
 );
 
-
-
-export default ButtonSecondary;
+export default ButtonClean;

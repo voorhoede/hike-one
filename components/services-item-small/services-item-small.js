@@ -10,11 +10,13 @@ const shapes = {
 };
 
 const ServicesItemSmall = ({ shape, button = '', title = '', color }) => (
-	<section className={`services-item-small services-item-small-${color}`}>
-		<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
-		<div className="services-item-small-content">
-			<h3 className="services-item-small-heading">{ title }</h3>
-			<ButtonSecondaryLink classes="btn-white" value={ button }  href="/services"/>
+	<section className={`services-item-small`}>
+		<div className={`services-item-small-${color}`}>
+			<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
+			<div className="services-item-small-content">
+				<h3 className="services-item-small-heading">{ title }</h3>
+				<ButtonSecondaryLink classes="btn-white" value={ button }  href="/services"/>
+			</div>
 		</div>
 	</section>
 );

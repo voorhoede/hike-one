@@ -13,7 +13,10 @@
 	height: 150px;
 	left: 20px;
 	margin-bottom: @spacing-small;
-	
+	& > div {
+		max-height: 150px;
+	}
+
 	@media @screen-small {
 		float: left;
 		width: 100%;
@@ -22,11 +25,15 @@
 		margin-bottom: @spacing-extra-large;
 
 		&:not(:last-child) {
-			margin-right: @spacing-default;
+			padding-right: @spacing-default;
+		}
+		& > div {
+			max-height: 300px;
 		}
 	}
+
 	@media @screen-medium {
-		max-width: 32.32%;
+		max-width: 33%;
 		margin-bottom: 0px;
 	}
 	
@@ -52,6 +59,7 @@
 		margin: auto;
 		top: -@spacing-large;
 		position: relative;
+		height:300px;
 	}
 
 	@media @screen-medium {

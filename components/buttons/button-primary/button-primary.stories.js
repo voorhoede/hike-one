@@ -17,28 +17,27 @@ stories.addDecorator(withKnobs);
 
 stories.addDecorator(ButtonDecorator)
 	.add('Button Primary', () => {
-		const colorOptions = {
-			'btn-red': 'red',
-			'': 'default',
-		};
 
-		const colorValue = select('Color', colorOptions, '');
+
+
 		const textValue = text('Button Text', 'Primary Button');
 		const largeValue = boolean('Large', false);
 		const largeClass = largeValue ? 'btn-large' : '';
 		const isLinkValue = boolean('As Link', false);
+		const withIcon = boolean('With Icon', false);
+		const icon = withIcon ? 'arrowRight' : null;
 
 		return (
 			<div>
 				{!isLinkValue &&
-					<ButtonPrimary onClick={ action('clicked')} classes={`${colorValue} ${largeClass}`}>
-						{ textValue }
-					</ButtonPrimary>
+				<ButtonPrimary onClick={ action('clicked')} classes={`${largeClass}`} icon={icon}>
+					{ textValue }
+				</ButtonPrimary>
 				}
 				{isLinkValue &&
-					<ButtonPrimaryLink href="#" classes={`${colorValue} ${largeClass}`}>
-						{ textValue }
-					</ButtonPrimaryLink>
+				<ButtonPrimaryLink href="#" classes={`${largeClass}`} icon={icon}>
+					{ textValue }
+				</ButtonPrimaryLink>
 				}
 			</div>
 		);

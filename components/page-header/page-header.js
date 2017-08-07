@@ -1,6 +1,5 @@
 import React from 'react';
 import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
-import ButtonTertiary from '../buttons/button-tertiary/button-tertiary';
 
 const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, children}) => {
 	const childrenArray = React.Children.toArray(children);
@@ -14,11 +13,13 @@ const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, 
 				<div className="container-inner home-intro-inner" style={{backgroundImage: `url(${heroImage})`}}>
 					<h1 className="home-intro-heading content">{title}</h1>
 
-					<ButtonTertiary classes="content"
-									onClick={onClickScrollButton ? onClickScrollButton : null}>
-						<span className="btn-text">{subtitle}</span>
-						<ArrowDownTriple  />
-					</ButtonTertiary>
+					<button className="page-header-button content"
+							onClick={onClickScrollButton ? onClickScrollButton : null} >
+						<span className="page-header-button-text">{subtitle}</span>
+						<span className="icon">
+							<ArrowDownTriple />
+						</span>
+					</button>
 				</div>
 			</div>
 			{parallaxLayerFront}

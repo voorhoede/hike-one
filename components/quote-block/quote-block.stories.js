@@ -22,7 +22,19 @@ storiesOf('Quote block', module)
 	.addDecorator(withKnobs)
 	.add('with text card', () => (
 		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >
-			<TextCard title={ text('Title', item.textTitle) } text={text('Text content', item.textContent)} />
+			<TextCard  title={ text('Title', item.textTitle) } text={text('Text content', item.textContent)} />
+			<FullWidthImage image={item.image.url} />
+			<QuoteBlock
+				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }
+				alignment={select('Alignment', ['quote-block-left', 'quote-block-right'], item.quoteAlignLeft)}
+				quote={text('Quote', item.quote)}
+				citeName={text('Author name', item.quoteAuthorName)}
+				citeTitle={text('Author title', item.quoteAuthorTitle)}
+				citeImage={item.quoteAuthorImage.url} />
+		</ImageCombo>
+	))
+	.add('without text card', () => (
+		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >
 			<FullWidthImage image={item.image.url} />
 			<QuoteBlock
 				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }

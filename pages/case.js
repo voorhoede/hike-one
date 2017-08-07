@@ -108,6 +108,7 @@ const Case = ({Data}) => (
 									<FiftyFifty
 										key={index}
 										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
+										noshadow
 										title={component.title}
 										text={component.text}
 										image={component.image.url} >
@@ -141,7 +142,7 @@ const Case = ({Data}) => (
 
 										{ component.quoteAuthorTitle &&
 											<QuoteBlock
-												color="blue"
+												color={ component.textTitle ? 'purple' : 'blue'}
 												quote={component.quote}
 												citeName={component.quoteAuthorName}
 												citeTitle={component.quoteAuthorTitle}

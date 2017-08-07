@@ -9,27 +9,34 @@
 .services-item-small {
 	display: block;
 	position: relative;
-	left: 35px;
-	margin-bottom: @spacing-small;
+	width: 325px;
 	height: 150px;
-	
+	left: 20px;
+	margin-bottom: @spacing-small;
+	& > div {
+		max-height: 150px;
+	}
+
 	@media @screen-small {
 		float: left;
 		width: 100%;
 		height: 300px;	
 		left: 0px;
-		
+		margin-bottom: @spacing-extra-large;
+
 		&:not(:last-child) {
-			margin-right: @spacing-default;
+			padding-right: @spacing-default;
+		}
+		& > div {
+			max-height: 300px;
 		}
 	}
+
 	@media @screen-medium {
-		max-width: 31%;
+		max-width: 33%;
 		margin-bottom: 0px;
 	}
-	@media @screen-large {
-		max-width: 32.35%;
-	}
+	
 }
 
 .services-item-small-content {
@@ -46,6 +53,13 @@
 		font-size: @body-text-s;
 		line-height: @line-height-body-s;
 		font-weight: @font-weight-bold;
+	}
+	
+	@media @screen-small { 
+		margin: auto;
+		top: -@spacing-large;
+		position: relative;
+		height:300px;
 	}
 
 	@media @screen-medium {
@@ -92,7 +106,7 @@
 .services-item-small-shape {
 	position: absolute;
 	top: 30px;
-	left: -25px;
+	left: -20px;
 	height: 80px;
 	width: 80px;
 

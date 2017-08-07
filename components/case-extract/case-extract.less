@@ -3,11 +3,11 @@
 .case-extract-inner {
 	padding: 0;
 	position: relative;
-	height: 545px;
+	height: 445px;
 	margin: auto;
 	@media @screen-medium {
 		max-width: @column-large-10;
-		height: 720px;
+		height: 660px;
 	}
 	@media @screen-large {
 		height: 100%;
@@ -20,6 +20,7 @@
 	background-position: 50% 50%;
 	height: 220px;
 	margin-bottom: @spacing-large;
+
 	@media @screen-medium {
 		height: 440px;
 	}
@@ -47,18 +48,18 @@
 		line-height: @line-height-title-s;
 		font-size: @title-large-s;
 		font-weight: @font-weight-bold;
-		margin-bottom:  @spacing-small;
+		margin-bottom:  @spacing-default;
 	}
 
 	& > h4 {
-		line-height: @line-height-subtitle-s;
+		line-height: @line-height-body-s;
 		font-size: @body-text-s;
 		margin-bottom: @spacing-medium;
 		font-weight: @font-weight-normal;
 	}
 
 	& > span {
-		margin-bottom: @spacing-small;
+		margin-bottom: @spacing-default/2;
 		font-style: italic;
 		color: @white;
 		font-weight: @font-weight-normal;
@@ -155,7 +156,8 @@
 	font-size: @body-text-s;
 	font-weight: @font-weight-normal;
 	display: inline-block;
-	
+	margin-top: @spacing-large;
+
 	& > span {
 		float: left;
 	}

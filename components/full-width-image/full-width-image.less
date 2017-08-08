@@ -58,6 +58,13 @@
     padding: 0 1rem;
     width: 100%;
     max-width: @column-large-8;
+    
+    @media @screen-medium {
+        max-width: @column-small-8;
+    }
+    @media @screen-large {
+        max-width: @column-large-10;
+    }
 }
 
 .full-width-image-text h2 {

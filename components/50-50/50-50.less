@@ -6,6 +6,10 @@
 
 .fifty-fifty.container {
 	margin: 0 auto @spacing-large*2 auto;
+	@media @screen-medium-large {
+		padding: 0;
+		margin: 0 auto @spacing-small*5 auto;
+	}
 }
 
 .fifty-fifty .container-inner {
@@ -15,9 +19,22 @@
 
     @media @screen-medium {
 		flex-direction: row;
-		padding: @spacing-large 0 @spacing-large*2 0;
+		// padding: @spacing-large 0 @spacing-large*2 0;
 		margin: 0 auto 0 auto;
-    }
+	}
+	@media @screen-medium-large {
+		padding: 0;
+		margin: 0 auto 0 auto;
+	}
+}
+
+.fifty-fifty-content {
+	@media @screen-medium {
+		padding: 0 @spacing-default*4;
+	}
+	@media @screen-medium-large {
+		padding: 0 @spacing-small*5 0 @spacing-large*2;
+	}
 }
 
 .fifty-fifty-content,
@@ -84,6 +101,9 @@ p.fifty-fifty-text  {
 
 	@media @screen-medium {
 		padding: 0 @spacing-small;
+	}
+	@media @screen-medium-large {
+		padding: 0;
 	}
 
 	img {

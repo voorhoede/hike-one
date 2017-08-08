@@ -13,9 +13,14 @@
 		margin-bottom: 60px + 60px;
 		padding: 0 0;
 	}
+	
+	@media @screen-medium-large {
+		margin-bottom: 220px;
+	}
+
 	@media @screen-large {
 		// normal margin bottom plus parallax image offset
-		margin-bottom: 100px + 150px;
+		margin-bottom: 200px + 150px;
 		padding-top: @spacing-large;
 	}
 }
@@ -48,9 +53,9 @@
 
 	@media @screen-medium {
 		display: block;
-		bottom: -220px;
-		
-    }
+		bottom: -220px;		
+	}
+	
 
 	@media @screen-large {
 		left: 27%;
@@ -83,11 +88,16 @@
 
 	@media @screen-medium {
 		width: 50%;
-		margin-top: 100px;
+		margin-top: @spacing-small*5;
 		max-width: @column-large-3;
 		margin-left: auto;
 		margin-right: @spacing-medium;
 		padding: 0 0 0 @column-large-1;
+	}
+
+	@media @screen-medium-large {
+		margin-left: @spacing-small*5;
+    	margin-right: @spacing-small*4;
 	}
 
 	@media @screen-large {

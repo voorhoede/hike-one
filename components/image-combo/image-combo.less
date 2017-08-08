@@ -11,6 +11,7 @@
 
 	.text-card {
 		z-index: 1;
+		word-wrap: break-word;
 	}
 
 	.full-width-image {
@@ -18,19 +19,33 @@
 	}
 
 	.quote-block {
-		position: relative;
+		position:relative;
+		z-index: 1;		
 		margin-top: -@spacing-extra-large;
-		margin-left: @spacing-default;
-		
 
 		@media @screen-medium {
 			margin-top: -@spacing-extra-large*2;
 		}
+	}
+}
 
-		@media @screen-large {
-			margin-left: 0;
-			max-width: @column-large-10;
-		}
+blockquote.quote-block-left {
+	margin-right: @spacing-default*1.5;
+	margin-left: 0;
+
+	@media @screen-large {
+		margin-right: 0;
+		max-width: @column-large-10;
+	}
+}
+
+blockquote.quote-block-right {
+	margin-left: @spacing-default*1.5;
+	margin-right: 0;
+
+	@media @screen-large {
+		max-width: @column-large-10;
+		margin-left: auto;
 	}
 }
 
@@ -41,15 +56,6 @@
 
 		@media @screen-medium {
 			margin-top: -300px;
-		}
-	}
-	.quote-block {
-		margin-left: auto;
-		margin-right: @spacing-default;
-
-		@media @screen-large {
-			max-width: @column-large-10;
-			margin-right: 0;
 		}
 	}
 }

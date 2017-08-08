@@ -30,22 +30,23 @@
 }
 
 blockquote.quote-block-left {
-	position: relative;
-	margin-left: @spacing-default;
+	margin-right: @spacing-default*1.5;
+	margin-left: 0;
 
 	@media @screen-large {
+		margin-right: 0;
 		margin-left: 0;
 		max-width: @column-large-10;
 	}
 }
 
 blockquote.quote-block-right {
-	margin-left: auto;
-	margin-right: @spacing-default;
+	margin-left: @spacing-default*1.5;
+	margin-right: 0;
 
 	@media @screen-large {
 		max-width: @column-large-10;
-		margin-right: 0;
+		margin-left: auto;
 	}
 }
 

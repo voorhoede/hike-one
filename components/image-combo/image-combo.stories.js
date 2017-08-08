@@ -11,14 +11,7 @@ import FullWidthImage from '../full-width-image/full-width-image';
 
 const item = Data.components.find(item => item.itemType === 'image_combo')
 
-const quoteBlockDecorator = (storyFn) => (
-	<div style={{ margin: '10px' }}>
-		{ storyFn() }
-	</div>
-);
-
 storiesOf('Image Combo', module)
-	.addDecorator(quoteBlockDecorator)
 	.addDecorator(withKnobs)
 	.add('with text card', () => (
 		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >

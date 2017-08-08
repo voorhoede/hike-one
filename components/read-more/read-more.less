@@ -1,4 +1,5 @@
 @import (reference) '../../styles/variables.less';
+@import (reference) '../../components/buttons/button-secondary/button-secondary';
 
 .read-more {
     padding: 0;
@@ -19,11 +20,53 @@
 }
 
 .read-more-highlight {
-    background-size: cover;
-    background-position: center;
+	position: relative;
+	overflow: hidden;
     padding: @spacing-default*8 0;
     text-align: center;
     color: @white;
+	text-decoration: none;
+
+	&:hover {
+		.read-more-highlight-img {
+			transform: scale(1.05);
+
+			&:before {
+				opacity: 0.1;
+			}
+		}
+
+		.btn-secondary {
+			.btn-secondary-hover-state-red;
+		}
+	}
+}
+
+.read-more-highlight-img {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-size: cover;
+	background-position: center;
+	transition: transform 0.3s;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		background-color: @black;
+		transition: opacity 0.3s;
+	}
+}
+
+.read-more-highlight-content {
+	position: relative;
 }
 
 .read-more-links a,
@@ -32,7 +75,7 @@
     line-height: @line-height-header-small-l;
 }
 
-.read-more-hightlight h2 {
+.read-more-highlight h2 {
     font-weight: @font-weight-bold;
     color: @white;
 
@@ -104,7 +147,7 @@
         font-size: @heading-small-m;
         line-height: @line-height-header-small-m;
     }
-    
+
     @media @screen-large {
         font-size: @heading-small-l;
         line-height: @line-height-header-small-l;

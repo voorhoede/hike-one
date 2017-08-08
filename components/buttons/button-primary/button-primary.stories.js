@@ -5,6 +5,7 @@ import { withKnobs, select, text, boolean} from '@storybook/addon-knobs';
 
 import ButtonPrimary from '../button-primary/button-primary';
 import ButtonPrimaryLink from '../button-primary/button-primary-link';
+import ButtonPrimaryMock from '../button-primary/button-primary-mock';
 
 const ButtonDecorator = (storyFn) => (
 	<div style={{ margin: '10px' }}>
@@ -20,21 +21,31 @@ stories.addDecorator(ButtonDecorator)
 		const textValue = text('Button Text', 'Primary Button');
 		const largeValue = boolean('Large', false);
 		const largeClass = largeValue ? 'btn-large' : '';
-		const isLinkValue = boolean('As Link', false);
 		const withIcon = boolean('With Icon', false);
 		const icon = withIcon ? 'arrowRight' : null;
+		const types = {
+			'button': 'button',
+			'link': 'link',
+			'mock': 'mock'
+		};
+		const type = select('Type', types, 'button');
 
 		return (
 			<div>
-				{!isLinkValue &&
+				{type === 'button' &&
 				<ButtonPrimary onClick={ action('clicked')} classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonPrimary>
 				}
-				{isLinkValue &&
+				{type === 'link' &&
 				<ButtonPrimaryLink href="#" classes={largeClass} icon={icon}>
 					{ textValue }
 				</ButtonPrimaryLink>
+				}
+				{type === 'mock' &&
+				<ButtonPrimaryMock classes={largeClass} icon={icon}>
+					{ textValue }
+				</ButtonPrimaryMock>
 				}
 			</div>
 		);

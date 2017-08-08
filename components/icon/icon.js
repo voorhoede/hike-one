@@ -1,16 +1,16 @@
-import ArrowDown from '../icons/arrow-down/arrow-down';
-import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
-import ArrowRight from '../icons/arrow-right/arrow-right';
-import FaceBook from '../icons/facebook/facebook';
-import Instagram from '../icons/instagram/instagram';
-import Linkedin from '../icons/linkedin/linkedin';
-import Medium from '../icons/medium/medium';
-import Twitter from '../icons/twitter/twitter';
+import ArrowDown from '../icons/arrow-down';
+import ArrowDownCircle from '../icons/arrow-down-circle';
+import ArrowRight from '../icons/arrow-right';
+import FaceBook from '../icons/facebook-circle';
+import Instagram from '../icons/instagram-circle';
+import Linkedin from '../icons/linkedin-circle';
+import Medium from '../icons/medium-circle';
+import Twitter from '../icons/twitter-circle';
 
 const Icon = ({icon = 'arrowDown'}) => {
 	const icons = {
 		arrowDown: <ArrowDown />,
-		arrowDownTriple: <ArrowDownTriple />,
+		arrowDownCircle: <ArrowDownCircle />,
 		arrowRight: <ArrowRight/>,
 		faceBook: <FaceBook/>,
 		instagram: <Instagram/>,

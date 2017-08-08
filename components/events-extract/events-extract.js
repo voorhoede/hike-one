@@ -1,6 +1,6 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
-import ArrowDown from '../icons/arrow-down/arrow-down';
+import ArrowDown from '../icons/arrow-down';
 import Link from 'next/link';
 
 const EventsExtract = ({ subtitle, events}) => (

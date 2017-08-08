@@ -1,4 +1,4 @@
-import ArrowRight from '../icons/arrow-right/arrow-right';
+import ArrowRight from '../icons/arrow-right';
 import Link from 'next/link';
 
 const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, linkInstagram}) => (

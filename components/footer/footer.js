@@ -5,7 +5,7 @@ import Logo 	   from '../logo/logo';
 import FooterLocations from '../footer-locations/footer-locations';
 import SocialMedia from '../social-media/social-media';
 
-import ArrowRight  from '../icons/arrow-right/arrow-right';
+import ArrowRight  from '../icons/arrow-right';
 
 class Footer extends React.Component {
 	constructor() {

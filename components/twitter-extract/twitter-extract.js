@@ -1,4 +1,4 @@
-import ArrowRight from '../icons/arrow-right/arrow-right';
+import ArrowRight from '../icons/arrow-right';
 
 const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccount, linkTwitterPost }) => (
 	<div className="twitter-extract">

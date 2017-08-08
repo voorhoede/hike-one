@@ -1,4 +1,4 @@
-import ArrowRightRound from '../icons/arrow-right-round/arrow-right-round';
+import ArrowRightRound from '../icons/arrow-right-circle';
 import Link from 'next/link';
 
 const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (

@@ -1,5 +1,5 @@
 @import (reference) '../../styles/variables';
-
+@max-width-image: 1920px;
 .full-width-image {
     width: 100%;
     height: 600px;
@@ -15,7 +15,7 @@
     @media @screen-large {
         height: 800px;
         margin: @spacing-large auto @spacing-default*8 auto;
-        max-width: 1920px;
+        max-width: @max-width-image;
     }
 }
 
@@ -32,7 +32,7 @@
 
 	@media @screen-large {
         height: 800px;
-        max-width: 1920px;
+        max-width: @max-width-image;
         margin: auto;
 	}
 }

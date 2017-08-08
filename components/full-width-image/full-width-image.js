@@ -138,7 +138,7 @@ class FullWidthImage extends React.Component {
 		// this is done by offsetting the bottom css attribute
 		if (totalTravelDistance < initialYOffsetImage) {
 			const imageBottomOffset = totalTravelDistance - initialYOffsetImage;
-			this.imageElement.style.bottom = imageBottomOffset;
+			this.imageElement.style.bottom = `${imageBottomOffset}px`;
 		}
 	}
 

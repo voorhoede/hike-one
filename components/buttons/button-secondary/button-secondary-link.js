@@ -3,7 +3,7 @@ import Icon from '../../icon/icon';
 
 const ButtonSecondaryLink = ({classes = '', href, children = '', icon}) => (
 	<Link href={href}>
-		<a className={`btn-secondary ${classes}`}>
+		<a className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{ children }
 
 			{ icon &&

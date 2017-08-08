@@ -3,7 +3,7 @@ import Icon from '../../icon/icon';
 
 const PrimaryButtonLink = ({classes = '', href, children = '', icon}) => (
 	<Link href={href}>
-		<a className={`btn-primary ${classes}`}>
+		<a className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{ icon &&
 			<span className="icon">
@@ -13,6 +13,5 @@ const PrimaryButtonLink = ({classes = '', href, children = '', icon}) => (
 		</a>
 	</Link>
 );
-
 
 export default PrimaryButtonLink;

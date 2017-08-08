@@ -14,7 +14,8 @@
 
     @media @screen-large {
         height: 800px;
-        margin: @spacing-large 0 @spacing-default*8 0;
+        margin: @spacing-large auto @spacing-default*8 auto;
+        max-width: @max-width-image;
     }
 }
 
@@ -30,12 +31,14 @@
 	}
 
 	@media @screen-large {
-		height: 800px;
+        height: 800px;
+        max-width: @max-width-image;
+        margin: auto;
 	}
 }
 
 .full-width-image-background {
-	position: absolute;
+    position: absolute;
 	left: 0;
 	right: 0;
 	top: 0;

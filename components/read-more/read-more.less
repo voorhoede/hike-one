@@ -26,6 +26,10 @@
     text-align: center;
     color: @white;
 	text-decoration: none;
+	height: 380px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&:hover {
 		.read-more-highlight-img {
@@ -39,6 +43,10 @@
 		.btn-secondary {
 			.btn-secondary-hover-state-red;
 		}
+	}
+
+	@media @screen-medium {
+		height: auto;
 	}
 }
 
@@ -85,7 +93,7 @@
     }
 
     @media @screen-large {
-        margin-bottom: @spacing-large;
+		margin-bottom: @spacing-large;
         font-size: @heading-l;
         line-height: @line-height-heading-l;
     }

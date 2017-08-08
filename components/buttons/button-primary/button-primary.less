@@ -11,10 +11,16 @@
 	color: @white;
 
 	&:hover {
-		background-color: @red-dark;
+		.btn-primary-hover-state;
 	}
 
 	.icon svg path {
 		fill: @white;
 	}
+}
+
+// this allows to include button hover states in other components
+.btn-primary-hover-state {
+	.btn-basis-hover-state;
+	background-color: @red-dark;
 }

@@ -19,15 +19,6 @@
 		padding: @spacing-default @spacing-large;
 	}
 
-	&:hover {
-		cursor: pointer;
-
-		.icon {
-			animation-timing-function: ease-in-out;
-			animation-name: horizontal-spring-icon-to;
-		}
-	}
-
 	.icon {
 		position: absolute;
 		margin-top: 2px;
@@ -70,6 +61,16 @@
 		@media @screen-medium {
 			padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
 		}
+	}
+}
+
+// gets included in actual buttons i.e. primary button and secondary button
+.btn-basis-hover-state {
+	cursor: pointer;
+
+	.icon {
+		animation-timing-function: ease-in-out;
+		animation-name: horizontal-spring-icon-to;
 	}
 }
 

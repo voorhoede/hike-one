@@ -1,5 +1,5 @@
 @import (reference) '../../../styles/variables';
-@import (once) '../buttons';
+@import (reference) '../buttons';
 
 @icon-size: 14px;
 
@@ -11,12 +11,7 @@
 	margin-bottom: @spacing-small;
 
 	&:hover {
-		color: @blue;
-		background-color: @white;
-
-		.icon svg path {
-			fill: @blue;
-		}
+		.btn-secondary-hover-state;
 	}
 
 	.icon svg path {
@@ -25,33 +20,53 @@
 	}
 }
 
-.btn-secondary.btn-red {
-	&:hover {
-		color: @red;
+// this allows to include button hover states in other components
+.btn-secondary-hover-state {
+	.btn-basis-hover-state;
+	color: @blue;
+	background-color: @white;
 
-		.icon svg path {
-			fill: @red;
-		}
+	.icon svg path {
+		fill: @blue;
 	}
 }
 
-.btn-secondary.btn-green {
-	&:hover {
-		color: @green;
-
-		.icon svg path {
-			fill: @green;
-		}
+.btn-secondary-hover-state-red {
+	.btn-secondary-hover-state;
+	color: @red;
+	background-color: @white;
+	.icon svg path {
+		fill: @red;
 	}
 }
 
-.btn-secondary.btn-purple {
-	&:hover {
-		color: @purple;
+.btn-secondary-hover-state-green {
+	.btn-secondary-hover-state;
+	color: @green;
 
-		.icon svg path {
-			fill: @purple;
-		}
+	.icon svg path {
+		fill: @green;
 	}
+}
+
+.btn-secondary-hover-state-purple {
+	.btn-secondary-hover-state;
+	color: @purple;
+
+	.icon svg path {
+		fill: @purple;
+	}
+}
+
+.btn-secondary.btn-green:hover {
+	.btn-secondary-hover-state-green;
+}
+
+.btn-secondary.btn-purple:hover {
+	.btn-secondary-hover-state-purple;
+}
+
+.btn-secondary.btn-red:hover {
+	.btn-secondary-hover-state-red;
 }
 

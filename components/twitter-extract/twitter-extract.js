@@ -1,4 +1,4 @@
-import ArrowRight from '../icons/arrow-right';
+import Icon from '../icon/icon';
 
 const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccount, linkTwitterPost }) => (
 	<div className="twitter-extract">
@@ -17,7 +17,7 @@ const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccoun
 			</a>
 			<span className="twitter-extract-date">{date}</span>
 			<a href={linkTwitterAccount}>
-				<ArrowRight />
+				<Icon icon="twitter" />
 			</a>
 		</div>
 	</div>

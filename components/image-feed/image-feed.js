@@ -1,4 +1,4 @@
-import ArrowRight from '../icons/arrow-right';
+import Icon from '../icon/icon';
 import Link from 'next/link';
 
 const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, linkInstagram}) => (
@@ -10,7 +10,7 @@ const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, lin
 						<img src={socialImagesInstagram} alt=""/>
 					</div>
 					<div className="image-feed-icon">
-						<ArrowRight />
+						<Icon icon="instagram" />
 					</div>
 				</div>
 			</a>
@@ -22,7 +22,7 @@ const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, lin
 						<img src={socialImagesDribble} alt=""/>
 					</div>
 					<div className="image-feed-icon">
-						<ArrowRight />
+						<Icon icon="dribble" />
 					</div>
 				</div>
 			</a>

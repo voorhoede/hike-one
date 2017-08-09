@@ -1,7 +1,7 @@
 import Link  from 'next/link';
 
 import ButtonSecondaryMock from  '../buttons/button-secondary/button-secondary-mock';
-import ArrowRightRound from '../icons/arrow-right-round/arrow-right-round';
+import ArrowRightRound from '../icons/arrow-right-circle';
 
 const ReadMore = ({highlight = {}, links = []}) => (
 	<section className="read-more container">

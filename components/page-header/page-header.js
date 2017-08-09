@@ -1,5 +1,5 @@
 import React from 'react';
-import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
+import Icon from '../icon/icon';
 
 const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, children}) => {
 	const childrenArray = React.Children.toArray(children);
@@ -17,7 +17,7 @@ const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, 
 							onClick={onClickScrollButton ? onClickScrollButton : null} >
 						<span className="page-header-button-text">{subtitle}</span>
 						<span className="icon">
-							<ArrowDownTriple />
+							<Icon icon="arrowDownCircle" />
 						</span>
 					</button>
 				</div>

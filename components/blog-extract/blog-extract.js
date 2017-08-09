@@ -1,4 +1,4 @@
-import ArrowRightRound from '../icons/arrow-right-round/arrow-right-round';
+import Icon from '../icon/icon';
 import Link from 'next/link';
 
 const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
@@ -14,7 +14,7 @@ const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
 				<h2>{title}</h2>
 				<div className="blog-extract-footer-container">
 					<span>{date}</span>
-					<ArrowRightRound />
+					<Icon icon="arrowRightCircle" />
 				</div>
 			</div>
 		</a>

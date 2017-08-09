@@ -1,10 +1,10 @@
 import Link  from 'next/link';
 
-import Facebook   from '../icons/facebook/facebook';
-import Twitter 	  from '../icons/twitter/twitter';
-import Instagram  from '../icons/instagram/instagram';
-import LinkedIn   from '../icons/linkedin/linkedin';
-import Medium 	  from '../icons/medium/medium';
+import Facebook   from '../icons/facebook-circle';
+import Twitter 	  from '../icons/twitter-circle';
+import Instagram  from '../icons/instagram-circle';
+import LinkedIn   from '../icons/linkedin-circle';
+import Medium 	  from '../icons/medium-circle';
 
 const SocialMedia = () => (
 	<div className="menu-social">

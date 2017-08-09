@@ -1,4 +1,4 @@
-import ArrowDownTriple from '../icons/arrow-down-triple/arrow-down-triple';
+import Icon from '../icon/icon'
 import TweenLite from "gsap";
 
 class CaseIntro extends React.Component {
@@ -83,7 +83,7 @@ class CaseIntro extends React.Component {
 						<p className="case-header-subtitle">{props.subtitle}</p>
 						<button className="case-header-button"
 								onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
-							<ArrowDownTriple/>
+							<Icon icon="arrowDownCircle" />
 						</button>
 					</div>
 				</div>

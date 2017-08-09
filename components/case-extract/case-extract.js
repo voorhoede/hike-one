@@ -1,4 +1,4 @@
-import ArrowRight from '../icons/arrow-right/arrow-right';
+import Icon from '../icon/icon';
 import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
 import Link from 'next/link';
 
@@ -15,7 +15,7 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
 						<h4>{subtitle}</h4>
 						<div className="case-extract-button-container">
 							<span className="case-extract-button">
-								<ArrowRight/>
+								<Icon icon="arrowRightCircle"/>
 							</span>
 						</div>
 					</div>

@@ -11,7 +11,7 @@
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
-	transition: background 0.3s ease, color 0.3s ease;
+	transition: background 0.3s ease, color 0.3s ease, transform .3s ease;
 
 	@media @screen-medium {
 		font-size: @body-text-m;
@@ -19,6 +19,9 @@
 		padding: @spacing-default @spacing-large;
 	}
 
+	&:active {
+		transform: scale(0.98);
+	}
 	.icon {
 		position: absolute;
 		margin-top: 2px;

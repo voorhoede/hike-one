@@ -8,15 +8,14 @@ import ButtonSecondaryLink from '../button-secondary/button-secondary-link';
 import ButtonSecondaryMock from '../button-secondary/button-secondary-mock';
 
 const ButtonDecorator = (storyFn) => (
-	<div style={{ padding: '10px', background: '#00aae9', height: '100vh'}}>
+	<div style={{ padding: '10px', height: '100vh'}} className="js-background">
 		{ storyFn() }
 	</div>
 );
 
-const stories = storiesOf('Buttons', module);
-stories.addDecorator(withKnobs);
-
-stories.addDecorator(ButtonDecorator)
+storiesOf('Buttons', module)
+	.addDecorator(withKnobs)
+	.addDecorator(ButtonDecorator)
 	.add('Button Secondary', () => {
 		const textValue = text('Button Text', 'Secondary Button');
 		const largeValue = boolean('Large', false);
@@ -30,20 +29,47 @@ stories.addDecorator(ButtonDecorator)
 		};
 		const type = select('Type', types, 'button');
 
+		let disabled = false;
+		if (type === 'button') {
+			disabled = boolean('Disabled', false);
+		}
+
+		const colorOptions = {
+			'btn-red': 'red',
+			'btn-purple': 'purple',
+			'btn-green': 'green',
+			'': 'default',
+		};
+
+		const backgroundColors = {
+			'btn-red': '#fe595b',
+			'btn-purple': '#8314bb',
+			'btn-green': '#45d33c',
+			'': '#00aae9'
+		};
+
+		const colorClass = select('Color', colorOptions, '');
+		const classes = `${colorClass} ${largeClass}`;
+		const backgroundColor = backgroundColors[colorClass];
+		const wrapper = document.querySelector('.js-background');
+		if (wrapper) {
+			wrapper.style.backgroundColor = backgroundColor;
+		}
+
 		return (
 			<div>
 				{type === 'button' &&
-				<ButtonSecondary onClick={ action('clicked')} classes={largeClass} icon={icon}>
+				<ButtonSecondary onClick={ action('clicked')} classes={classes} icon={icon} disabled={disabled}>
 					{ textValue }
 				</ButtonSecondary>
 				}
 				{type === 'link' &&
-				<ButtonSecondaryLink  href="#" classes={largeClass} icon={icon}>
+				<ButtonSecondaryLink  href="#" classes={classes} icon={icon}>
 					{ textValue }
 				</ButtonSecondaryLink>
 				}
 				{type === 'mock' &&
-				<ButtonSecondaryMock classes={largeClass} icon={icon}>
+				<ButtonSecondaryMock classes={classes} icon={icon}>
 					{ textValue }
 				</ButtonSecondaryMock>
 				}

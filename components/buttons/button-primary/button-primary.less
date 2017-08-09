@@ -10,12 +10,17 @@
 	background-color: @red;
 	color: @white;
 
-	&:hover {
+	&:hover:enabled {
 		.btn-primary-hover-state;
 	}
 
 	.icon svg path {
 		fill: @white;
+	}
+
+	&:disabled,
+	&[disabled] {
+		opacity: .5;
 	}
 }
 

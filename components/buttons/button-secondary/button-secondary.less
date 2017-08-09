@@ -10,8 +10,17 @@
 	border: 1px solid @white;
 	margin-bottom: @spacing-small;
 
-	&:hover {
+	&:hover:enabled {
 		.btn-secondary-hover-state;
+	}
+
+	&:disabled,
+	&[disabled] {
+		opacity: .5;
+	}
+
+	:active {
+		transform: scale(0.95);
 	}
 
 	.icon svg path {
@@ -58,15 +67,15 @@
 	}
 }
 
-.btn-secondary.btn-green:hover {
+.btn-secondary.btn-green:hover:enabled {
 	.btn-secondary-hover-state-green;
 }
 
-.btn-secondary.btn-purple:hover {
+.btn-secondary.btn-purple:hover:enabled {
 	.btn-secondary-hover-state-purple;
 }
 
-.btn-secondary.btn-red:hover {
+.btn-secondary.btn-red:hover:enabled {
 	.btn-secondary-hover-state-red;
 }
 

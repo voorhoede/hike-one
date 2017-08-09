@@ -1,6 +1,6 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
-import ArrowDown from '../icons/arrow-down';
+import Icon from '../icon/icon';
 import Link from 'next/link';
 
 const EventsExtract = ({ subtitle, events}) => (
@@ -20,8 +20,8 @@ const EventsExtract = ({ subtitle, events}) => (
 						<span className="events-extract-text-large">
 							<Link href={event.linkLocation}>
 								<a className="events-extract-link">
-									<span className="icon-small icon-white">
-										<ArrowDown />
+									<span className="icon icon-small">
+										<Icon icon="location" />
 									</span>
 									{event.location}
 								</a>

@@ -97,7 +97,7 @@
 	font-weight: @font-weight-normal;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
-	
+
 	@media @screen-medium {
 		font-size: @body-text-m;
 		line-height: @line-height-body-m;
@@ -135,22 +135,19 @@
 }
 
 .footer-join-link svg {
-	width: 11px;
-	height: 11px;
-	padding: 9px;
-	border-radius: 50%;
-	background: @white;
 	box-sizing: content-box;
-    vertical-align: text-top;
+	vertical-align: middle;
 	display: inline-block;
 	margin-left: @spacing-half;
+	width: 35px;
+	height: 35px;
+
+	path {
+		fill: @white;
+	}
 
 	@media @screen-medium {
 		vertical-align: sub;
-	}
-
-	path {
-		fill: @darker-gray;
 	}
 }
 
@@ -158,8 +155,8 @@
 	font-size: @heading-small-s;
 	line-height: @line-height-header-small-s;
 	font-weight: @font-weight-bold;
-	color: @white;	
-	margin-bottom: @spacing-medium;	
+	color: @white;
+	margin-bottom: @spacing-medium;
 
 	@media @screen-medium {
 		font-size: @heading-small-m;
@@ -183,7 +180,7 @@
 	width: 100%;
 	max-width: 70%;
 	margin: 0 auto @spacing-small 0;
-	
+
 	@media @screen-medium {
 		max-width: 90%;
 		margin: 0 auto @spacing-half 0;

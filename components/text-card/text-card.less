@@ -8,13 +8,19 @@
 
     @media @screen-small {
         margin-right: @spacing-default*9;
+        bottom: @spacing-small*4;
     }
 
     @media @screen-medium {
         margin-right: 50vw;
         padding: @spacing-default*5;
+        bottom: -@spacing-default*5;
+        max-width: @column-large-4;
     }
-
+    @media @screen-medium-large {
+        max-width: @column-large-6;
+        bottom: 0;
+    }
     // 1200 because if 1170 the text will stick to the side when the media querie just activated
     @media only screen and (min-width: 1200px)  {
         padding: @spacing-default*11 @spacing-default*10;

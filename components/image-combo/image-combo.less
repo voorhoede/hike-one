@@ -4,21 +4,9 @@
 	position: relative;
 	margin-bottom: @spacing-extra-large;
 
-	@media @screen-medium {
-		margin-top: @spacing-large;
-		margin-bottom: @spacing-default*8;
-		max-width: @max-width-image;
-		margin: auto;
-	}
-
 	.text-card {
 		z-index: 1;
-		word-wrap: break-word;
-		    
-    width: 800px;
-    
-    margin-left: 0;
-    margin-right: auto;
+		word-wrap: break-word;	
 	}
 
 	.full-width-image {
@@ -32,6 +20,27 @@
 
 		@media @screen-medium {
 			margin-top: -@spacing-extra-large*2;
+		}
+	}
+
+	@media @screen-medium {
+		margin-top: @spacing-large;
+		margin-bottom: @spacing-default*8;
+		max-width: @max-width-image;
+		margin: auto;
+	}
+
+	@media @screen-medium-large {
+		.text-card {
+			width: @column-large-4;
+		}
+	}
+
+	@media @screen-large {
+		.text-card {
+			width: @column-large-6;
+			margin-left: 0;
+			margin-right: auto;
 		}
 	}
 }

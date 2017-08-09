@@ -3,7 +3,18 @@
 .text-center {
     text-align: center;
     margin-bottom: @spacing-default*8;
-	position: relative;
+    position: relative;
+    max-width: @column-small-12;
+
+    @media @screen-medium {
+        max-width: @column-large-6;
+    }
+    @media @screen-medium-large {
+        max-width: @column-large-7;
+    }
+    @media @screen-large {
+        max-width: @column-large-10;
+    }
 }
 
 .text-center-spacing-large {
@@ -24,6 +35,12 @@
 .text-center .container-inner {
     max-width: @column-small-4;
     @media @screen-medium {
+        max-width: @column-large-6;
+    }
+    @media @screen-medium-large {
+        max-width: @column-large-8;
+    }
+    @media @screen-large {
         max-width: @column-large-8;
     }
 }

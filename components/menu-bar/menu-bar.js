@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Logo			from '../logo/logo';
 import Hamburger 	from '../icons/hamburger/hamburger';
 import Cross 		from '../icons/cross/cross';
+import Triangle from '../shapes/triangle/triangle';
 
 import Menu from '../menu/menu';
 
@@ -41,7 +42,11 @@ class Header extends React.Component {
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
-
+					{ /* <div className={`menu-triangle-btn-bg ${this.state.menuIsOpen ? 
+							'menu-triangle-hide' : ''}`}>
+					</div> */}
+					<Triangle classes="shape-triangle-1" color="white" classes={'triangle-fixed'} />
+					
 					<button
 						className="btn"
 						ref={node => this.menuBtn = node}
@@ -49,7 +54,7 @@ class Header extends React.Component {
 						{ !this.state.menuIsOpen && <Hamburger /> }
 						{ this.state.menuIsOpen && <Cross /> }
 					</button>
-
+					
 					{ this.state.menuIsOpen && <Menu/> }
 				</div>
 			</header>

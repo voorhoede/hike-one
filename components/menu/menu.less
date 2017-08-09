@@ -44,6 +44,11 @@
 		padding-right: 100px;
 	}
 
+	@media @screen-large {
+		color: @white;
+		background: transparent;
+	}
+
 	@media only screen and (min-width: @container-max-width) {
 		// padding to keep the menu items aligned with the hamburger menu
 		// necessary for the container on the header
@@ -56,6 +61,45 @@
 
 	@media only screen and (min-height: 1000px) and (min-width: 768px){
 		padding-bottom: 50vh;
+	}
+}
+
+.menu-triangle-btn-bg {
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+    border-left: 55px solid @white;
+    position: fixed;
+    right: 0px;
+    top: -10px;
+    border-radius: 0;
+    z-index: 4;
+	transform: rotate(-23deg);
+	& > .btn {
+		transform: rotate(23deg);
+		right: 15px;
+		top: -15px;
+	}
+	@media @screen-large {
+		right: calc(~"(100vw - @{column-large-12} + 115px) / 2");
+	}
+}
+
+.menu-triangle-hide {
+	display: none;
+}
+
+.menu-triangle { 	
+	@media @screen-large {
+		border-top: 1000px solid transparent;
+		border-bottom: 1000px solid transparent;
+		border-right: 3000px solid @darker-gray;
+		top: 0; 
+		z-index: -1;
+		right: 0;
+		position: fixed;
+		transform: rotate(160deg);
+		left: 55vw;
+    	top: -600px;
 	}
 }
 
@@ -75,6 +119,9 @@
 	@media @screen-small {
 		font-size: 40px;
 	}
+	@media @screen-large {
+		text-align: left;
+	}
 }
 
 .menu-list a {
@@ -84,4 +131,20 @@
 
 .menu-list-sub {
 	opacity: 0.7;
+}
+
+.menu-item-spaced {
+	padding-left: @spacing-small;
+}
+.menu-item-spaced-double {
+	padding-left: @spacing-small*2;
+}
+.menu-item-spaced-triple {
+	padding-left: @spacing-small*2 + @spacing-small;
+}
+.menu-item-spaced-quadruple {
+	padding-left: @spacing-large + @spacing-small*4;
+}
+.menu-item-spaced-quintuple {
+	padding-left: @spacing-large + @spacing-small*4 + @spacing-small;
 }

@@ -8,7 +8,7 @@ import TextCard from '../text-card/text-card';
 import ImageCombo from '../image-combo/image-combo';
 import FullWidthImage from '../full-width-image/full-width-image';
 
-const item = Data.components.find(item => item.itemType === 'image_combo')
+const item = Data.components.find(item => item.itemType === 'image_combo');
 
 storiesOf('Image Combo', module)
 	.addDecorator(withKnobs)
@@ -26,7 +26,7 @@ storiesOf('Image Combo', module)
 		</ImageCombo>
 	))
 	.add('without text card', () => (
-		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >
+		<ImageCombo>
 			<FullWidthImage image={item.image.url} />
 			<QuoteBlock
 				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }

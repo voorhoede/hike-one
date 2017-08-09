@@ -8,7 +8,7 @@ import ButtonSecondaryLink from '../button-secondary/button-secondary-link';
 import ButtonSecondaryMock from '../button-secondary/button-secondary-mock';
 
 const ButtonDecorator = (storyFn) => (
-	<div style={{ padding: '10px', height: '100vh'}} className="js-background">
+	<div style={{ padding: '10px', backgroundColor: '#00aae9', height: '100vh'}} className="js-background">
 		{ storyFn() }
 	</div>
 );

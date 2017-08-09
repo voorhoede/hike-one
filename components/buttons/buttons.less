@@ -19,6 +19,11 @@
 		padding: @spacing-default @spacing-large;
 	}
 
+	&:disabled,
+	&[disabled] {
+		opacity: .5;
+	}
+
 	&:active {
 		transform: scale(0.98);
 	}

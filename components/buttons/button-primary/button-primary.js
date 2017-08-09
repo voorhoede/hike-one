@@ -1,9 +1,10 @@
 import Icon from '../../icon/icon';
 
-const ButtonPrimary = ({classes = '', onClick = null, children = '', icon }) => (
+const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disabled = false }) => (
 	<button
 		onClick={onClick}
-		className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}>
+		className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}
+		disabled={disabled} >
 		<span className="btn-primary-text">{ children }</span>
 
 		{ icon &&

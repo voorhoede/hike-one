@@ -26,7 +26,7 @@ storiesOf('Image Combo', module)
 		</ImageCombo>
 	))
 	.add('without text card', () => (
-		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >
+		<ImageCombo>
 			<FullWidthImage image={item.image.url} />
 			<QuoteBlock
 				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }

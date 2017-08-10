@@ -6,10 +6,10 @@ const Menu = () => (
 		<div className="menu-triangle"></div>
 		<div className="menu-inner">			
 			<ul className="menu-list">
-				<li><Link href="/team"><a>Team</a></Link></li>
-				<li className="menu-item-spaced"><Link href="/services"><a>Services</a></Link></li>
-				<li className="menu-item-spaced-double"><Link href="/work"><a>Work</a></Link></li>
-				<li className="menu-item-spaced-triple"><Link href="/contact"><a>Contact</a></Link></li>
+				<li><Link href="/team"><a className="menu-item-red">Team</a></Link></li>
+				<li className="menu-item-spaced"><Link href="/services"><a className="menu-item-green">Services</a></Link></li>
+				<li className="menu-item-spaced-double"><Link href="/work"><a className="menu-item-blue">Work</a></Link></li>
+				<li className="menu-item-spaced-triple"><Link href="/contact"><a className="menu-item-yellow">Contact</a></Link></li>
 			</ul>
 
 			<ul className="menu-list menu-list-sub">

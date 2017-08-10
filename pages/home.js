@@ -17,7 +17,7 @@ import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
-import Data from '../data/current/home/home.json';
+import Data from '../data/current/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Home = () => {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-import cases from '../data/current/cases/cases.json';
+import cases from '../data/current/cases.json';
 
 const work = () => (
 	<Layout title="Hike One - Case">

@@ -31,12 +31,10 @@
 	padding: 100px 20px 100px 20px;
 	background-color: @darker-gray;
     overflow-y: hidden;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
-
+	
 	@media @screen-medium {
 		width: 65vw;
 		background: transparent;
@@ -52,7 +50,7 @@
 	}
 
 	@media only screen and (min-width: @container-max-width) {
-		width: 55vw;
+		width: 52vw;
 		// padding to keep the menu items aligned with the hamburger menu
 		// necessary for the container on the header
 		padding-right: calc(~"50% - (@{container-max-width}/2) + 100px")
@@ -121,7 +119,7 @@ svg.menu-triangle-enlarged {
 	text-align: left;
 	font-size: @title-large-s;
 	line-height: @line-height-title-s;
-	font-weight: @font-weight-bold;
+	font-weight: @font-weight-normal;
 	margin-bottom: @spacing-small;
 
 	@media @screen-small {
@@ -176,7 +174,9 @@ svg.menu-triangle-enlarged {
 	}
 }
 .menu-inner-no-margin {
-	margin-bottom: 0;
+	@media @screen-large {
+		margin-bottom: 0;
+	}
 }
 
 .menu-item-red{

@@ -12,16 +12,16 @@ const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, 
 
 	const style ={__html:
 		`<style>
-			.home-intro-inner {
+			.page-header-inner {
 				background-image: url(${heroImageSmall});
 			}
 			@media only screen and (min-width: 768px) {
-				.home-intro-inner {
+				.page-header-inner {
 					background-image: url(${heroImageMedium});
 				}
 			}
 			@media only screen and (min-width: 1170px) {
-				.home-intro-inner {
+				.page-header-inner {
 					background-image: url(${heroImageLarge});
 				}
 			}
@@ -29,11 +29,11 @@ const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, 
 
 
 	return (
-		<div className="home-intro container">
+		<div className="page-header container">
 			{parallaxLayerBack}
-			<div className="home-intro-overlay">
-				<div className="container-inner home-intro-inner">
-					<h1 className="home-intro-heading content">{title}</h1>
+			<div className="page-header-overlay">
+				<div className="container-inner page-header-inner">
+					<h1 className="page-header-heading content">{title}</h1>
 
 					<button className="page-header-button content"
 							onClick={onClickScrollButton ? onClickScrollButton : null} >

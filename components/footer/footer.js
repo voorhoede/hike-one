@@ -4,8 +4,7 @@ import Link  	   from 'next/link';
 import Logo 	   from '../logo/logo';
 import FooterLocations from '../footer-locations/footer-locations';
 import SocialMedia from '../social-media/social-media';
-
-import ArrowRight  from '../icons/arrow-right/arrow-right';
+import Icon from '../icon/icon';
 
 class Footer extends React.Component {
 	constructor() {
@@ -16,9 +15,10 @@ class Footer extends React.Component {
 	}
 
 	componentDidMount() {
-		if (typeof window.requestAnimationFrame !== 'undefined') {
+		this.mainContainer = document.querySelector('.js-main');
+
+		if (typeof window.requestAnimationFrame !== 'undefined' && this.mainContainer) {
 			this.footerHeight = this.footer.getBoundingClientRect().height;
-			this.mainContainer = document.querySelector('.js-main');
 			this.setFixedState();
 			window.addEventListener('resize', this.onResize);
 		}
@@ -73,7 +73,11 @@ class Footer extends React.Component {
 								</ul>
 							</div>
 
-							<Link href="#"><a className="footer-join-link">Up for a new challenge yourself? Join us! <ArrowRight /> </a></Link>
+							<Link href="#">
+								<a className="footer-join-link">
+									Up for a new challenge yourself? Join us! <Icon icon="arrowRightCircle" />
+								</a>
+							</Link>
 						</div>
 
 						<div className="footer-right">

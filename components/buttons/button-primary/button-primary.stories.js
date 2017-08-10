@@ -30,10 +30,15 @@ stories.addDecorator(ButtonDecorator)
 		};
 		const type = select('Type', types, 'button');
 
+		let disabled = false;
+		if (type === 'button') {
+			disabled = boolean('Disabled', false);
+		}
+
 		return (
 			<div>
 				{type === 'button' &&
-				<ButtonPrimary onClick={ action('clicked')} classes={largeClass} icon={icon}>
+				<ButtonPrimary onClick={ action('clicked')} classes={largeClass} icon={icon} disabled={disabled}>
 					{ textValue }
 				</ButtonPrimary>
 				}

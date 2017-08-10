@@ -2,9 +2,10 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo			from '../logo/logo';
-import Hamburger 	from '../icons/hamburger/hamburger';
-import Cross 		from '../icons/cross/cross';
 import Triangle from '../shapes/triangle/triangle';
+import Hamburger 	from '../icons/hamburger';
+import Cross 		from '../icons/hamburger-close';
+
 
 import Menu from '../menu/menu';
 

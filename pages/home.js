@@ -54,7 +54,7 @@ const Home = () => {
 						headerImage={Data.caseExtract.image.url}
 						title={Data.caseExtract.title}
 						subtitle={Data.caseExtract.subtitle}
-						link="/case" />
+						link="/case/gone-in-60-seconds" />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"

@@ -29,24 +29,3 @@
 .shape-triangle.white path {
 	fill: @white;
 }
-
-.triangle-fixed {
-	position: fixed;
-	z-index: 2;
-	right: 15px;
-	top: 10px;
-	width: 50px;
-	height: 50px;
-	fill: @white;
-
-	@media @screen-large {
-		right: 30px;
-		top: 20px;
-		width: 80px;
-		height: 80px;	
-	}
-
-	@media only screen and (min-width: @container-max-width) {
-		right: calc(~"(100vw - @{column-large-12} + 100px) / 2");
-	}
-}

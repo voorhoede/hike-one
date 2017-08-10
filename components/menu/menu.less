@@ -22,18 +22,19 @@
 		content: '';
 	}
 }
+
 .menu-inner {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	padding: 100px 20px 100px 20px;
+	padding: @spacing-small*5 @spacing-small;
 	background-color: @darker-gray;
     overflow-y: hidden;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
 	
 	@media @screen-medium {
 		width: 65vw;
@@ -45,8 +46,8 @@
 	}
 
 	@media @screen-large {
-		color: @white;
 		width: 65vw;
+		color: @white;
 	}
 
 	@media only screen and (min-width: @container-max-width) {
@@ -65,37 +66,13 @@
 	}
 }
 
-.menu-triangle-btn-bg {
-    border-top: 40px solid transparent;
-    border-bottom: 40px solid transparent;
-    border-left: 55px solid @white;
-    position: fixed;
-    right: 0px;
-    top: -10px;
-    border-radius: 0;
-    z-index: 4;
-	transform: rotate(-23deg);
-	& > .btn {
-		transform: rotate(23deg);
-		right: 15px;
-		top: -15px;
-	}
-	@media @screen-large {
-		right: calc(~"(100vw - @{column-large-12} + 115px) / 2");
-	}
-}
-
-.menu-triangle-hide {
-	display: none;
-}
-
 svg.menu-triangle-enlarged {
 	transform: scale(36);
 	fill: @darker-gray;
-	
 	&:hover {
 		fill: @darker-gray;
 	}
+
 	@media @screen-medium {
 		transform: scale(50) translate(2px);
 	}
@@ -197,5 +174,26 @@ svg.menu-triangle-enlarged {
 .menu-item-yellow{
 	&:hover{
 		color: @yellow;
+	}
+}
+
+.menu-bg-triangle-fixed {
+	position: fixed;
+	z-index: 2;
+	right: 15px;
+	top: 10px;
+	width: 50px;
+	height: 50px;
+	fill: @white;
+
+	@media @screen-large {
+		right: 30px;
+		top: 20px;
+		width: 80px;
+		height: 80px;	
+	}
+
+	@media only screen and (min-width: @container-max-width) {
+		right: calc(~"(100vw - @{column-large-12} + 100px) / 2");
 	}
 }

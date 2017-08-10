@@ -49,7 +49,7 @@ class Header extends React.Component {
 						{ !this.state.menuIsOpen && <Hamburger /> }
 						{ this.state.menuIsOpen && <Cross /> }
 					</button>
-					<Triangle classes={`shape-triangle-1 triangle-fixed 
+					<Triangle classes={`shape-triangle-1 menu-bg-triangle-fixed
 										${this.state.menuIsOpen ? 'menu-triangle-enlarged' : ''}`} />
 					{ this.state.menuIsOpen && <Menu/> }
 				</div>

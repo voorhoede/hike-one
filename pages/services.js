@@ -19,14 +19,14 @@ const Services = () => {
 	let scrollToTargetClass = 'js-scroll-to-target';
 	return (
 		<Layout title="Hike One - Services">
-			<main className="main js-main">
+			<main className="main js-main">np
 				<MenuBar />
 				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title="We help you build great digital products using human-centered design methods"
-						subtitle="Our services"
-						heroImage="static/images/service-header.jpg">
+						title={Data.title}
+						subtitle={Data.headerSubtitle}
+						heroImage={Data.headerImage.url}>
 						<PageHeaderShapes.variation2Front position="front"/>
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>

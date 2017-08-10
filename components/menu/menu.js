@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import SocialMedia from '../social-media/social-media';
+import Triangle from '../shapes/triangle/triangle';
 
 const Menu = () => (
 	<div className="menu">
-		<div className="menu-triangle"></div>
 		<div className="menu-inner">			
 			<ul className="menu-list">
 				<li><Link href="/team"><a className="menu-item-red">Team</a></Link></li>
@@ -12,7 +12,7 @@ const Menu = () => (
 				<li className="menu-item-spaced-triple"><Link href="/contact"><a className="menu-item-yellow">Contact</a></Link></li>
 			</ul>
 
-			<ul className="menu-list menu-list-sub">
+			<ul className="menu-list menu-list-sub menu-inner-no-margin">
 				<li className="menu-item-spaced-quadruple"><Link href="/updates"><a>Updates</a></Link></li>
 				<li className="menu-item-spaced-quintuple"><Link href="/playground"><a>Playground</a></Link></li>
 			</ul>

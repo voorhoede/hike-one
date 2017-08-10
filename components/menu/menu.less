@@ -7,6 +7,7 @@
 	position: fixed;
     top: 0;
     right: 0;
+	list-style-type: none;
 
 	&::before {
 		position: fixed;
@@ -27,7 +28,7 @@
 	right: 0;
 	width: 100%;
 	height: 100vh;
-	padding: 100px 22px 50px 0;
+	padding: 100px 20px 100px 20px;
 	background-color: @darker-gray;
     overflow-y: hidden;
 
@@ -35,21 +36,23 @@
 	flex-direction: column;
 	justify-content: space-between;
 
-	@media @screen-small {
-		padding: 100px 39px 100px 0;
-	}
 
 	@media @screen-medium {
-		width: 50%;
-		padding-right: 100px;
+		width: 65vw;
+		background: transparent;
+	}
+
+	@media @screen-medium-large {
+		width: 50vw;
 	}
 
 	@media @screen-large {
 		color: @white;
-		background: transparent;
+		width: 65vw;
 	}
 
 	@media only screen and (min-width: @container-max-width) {
+		width: 55vw;
 		// padding to keep the menu items aligned with the hamburger menu
 		// necessary for the container on the header
 		padding-right: calc(~"50% - (@{container-max-width}/2) + 100px")
@@ -88,54 +91,42 @@
 	display: none;
 }
 
-.menu-triangle { 	
-	@media @screen-large {
-		border-top: 1000px solid transparent;
-		border-bottom: 1000px solid transparent;
-		border-right: 3000px solid @darker-gray;
-		top: 0; 
-		z-index: -1;
-		right: 0;
-		position: fixed;
-		// transform: rotate(160deg);
-		left: 55vw;
-		// top: -600px;
-		transform: rotate(158deg);
-    	// left: 64vw;
-    	top: -650px;
+svg.menu-triangle-enlarged {
+	transform: scale(36);
+	fill: @darker-gray;
+	
+	&:hover {
+		fill: @darker-gray;
 	}
-
-	@media only screen and (min-width: 2560px) {
-		border-top: 2000px solid transparent;
-    	border-bottom: 1500px solid transparent;
-		border-right: 4000px solid #272727;
-		top: 0;
-		z-index: -1;
-		right: 0;
-		position: fixed;
-		left: 52vw;
-		-webkit-transform: rotate(158deg);
-		transform: rotate(158deg);
-		top: -900px;
+	@media @screen-medium {
+		transform: scale(50) translate(2px);
+	}
+	@media only screen and (min-width: @container-max-width) {
+		transform: scale(52) translate(6px);
 	}
 }
 
 .menu-list {
 	margin: 0 0 @spacing-default*7 0;
-	padding: 0;
+	padding: 0 @spacing-small;
 	list-style: none;
 	font-style: normal;
+
+	@media only screen and (min-width: @container-max-width) {
+		margin-left: @spacing-small*5;
+	}
 }
 
 .menu-list li {
-	text-align: right;
+	text-align: left;
 	font-size: @title-large-s;
 	line-height: @line-height-title-s;
 	font-weight: @font-weight-bold;
+	margin-bottom: @spacing-small;
 
 	@media @screen-small {
-		font-size: @title-large-m;
-		line-height: @line-height-title-m;
+		font-size: @title-large-s;
+		line-height: @line-height-title-s;
 	}
 	@media @screen-large {
 		font-size: @title-large-m;
@@ -154,19 +145,38 @@
 }
 
 .menu-item-spaced {
-	padding-left: @spacing-medium;
+	@media @screen-medium {
+		padding-left: @spacing-medium;
+	}
 }
 .menu-item-spaced-double {
-	padding-left: @spacing-medium*2;
+	@media @screen-medium {
+		padding-left: @spacing-medium*2;
+	}
 }
 .menu-item-spaced-triple {
-	padding-left: @spacing-medium*3;
+	@media @screen-medium {
+		padding-left: @spacing-medium*3;
+	}
 }
 .menu-item-spaced-quadruple {
-	padding-left: @spacing-medium*5;
+	@media @screen-medium {
+		padding-left: @spacing-medium*5;
+	}
+	@media only screen and (min-width: @container-max-width) {
+		padding-left: (@spacing-medium*5) + @spacing-large;
+	}
 }
 .menu-item-spaced-quintuple {
-	padding-left: @spacing-medium*6;
+	@media @screen-medium {
+		padding-left: @spacing-medium*6;
+	}
+	@media only screen and (min-width: @container-max-width) {
+		padding-left: (@spacing-medium*6) + @spacing-large;
+	}
+}
+.menu-inner-no-margin {
+	margin-bottom: 0;
 }
 
 .menu-item-red{

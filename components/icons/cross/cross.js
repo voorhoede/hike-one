@@ -1,6 +1,8 @@
 const Cross = () => (
-	<svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27">
-		<path fill="#000" fillRule="nonzero" d="M10.477 13.306L0 23.783l2.828 2.828 10.478-10.477 10.477 10.477 2.828-2.828-10.477-10.477L26.611 2.828 23.783 0 13.306 10.477 2.828 0 0 2.828z"/>
+	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+		<path d="M20.91,61.09a2,2,0,0,1-1.41-3.41L57.68,19.49a2,2,0,0,1,2.83,2.83L22.32,60.51A2,2,0,0,1,20.91,61.09Z"/>
+		<path d="M59.09,61.09a2,2,0,0,1-1.41-.59L19.49,22.32a2,2,0,0,1,2.83-2.83L60.51,57.68a2,2,0,0,1-1.41,3.41Z"/>
+		<line x1="39" y1="40" x2="41" y2="40" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
 	</svg>
 );
 

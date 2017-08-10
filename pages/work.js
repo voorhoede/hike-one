@@ -11,9 +11,9 @@ const work = () => (
 			<article className="article work">
 				<section className="work-intro container">
 					<h1 className="work-intro-heading">Our Work</h1>
-					<ul className="work-intro-list list-no-style">
+					<ul className="work-intro-list list-no-style list-custom">
 					{ cases.map((item, index) => (
-						<li key={index}>
+						<li key={index} className="list-custom-item">
 							<Link href={`/case?slug=${item.slug}`} as={`/case/${item.slug}`}>
 								<a>Case: {item.title}</a>
 							</Link>

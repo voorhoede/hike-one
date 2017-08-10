@@ -1,17 +1,20 @@
 .menu-social {
-	width: 200px;
+	width: 100%;
+    padding: 0 @spacing-small;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
     margin: 0 0 0 auto;
-
-	@media @screen-small {
-		width: 250px;
+	
+	@media @screen-medium {
+		width: 55%;
 	}
+
 	@media @screen-large {
-		margin-left: 240px;
+		margin-left: 400px;
 		margin-top: 70px;
+		width: 300px;
 	}
 }
 

@@ -19,7 +19,7 @@ const Services = () => {
 	let scrollToTargetClass = 'js-scroll-to-target';
 	return (
 		<Layout title="Hike One - Services">
-			<main className="main js-main">np
+			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
 					<PageHeader

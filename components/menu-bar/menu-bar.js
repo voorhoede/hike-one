@@ -42,11 +42,6 @@ class Header extends React.Component {
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
-					{ /* <div className={`menu-triangle-btn-bg ${this.state.menuIsOpen ? 
-							'menu-triangle-hide' : ''}`}>
-					</div> */}
-					<Triangle classes="shape-triangle-1" color="white" classes={'triangle-fixed'} />
-					
 					<button
 						className="btn"
 						ref={node => this.menuBtn = node}
@@ -54,7 +49,7 @@ class Header extends React.Component {
 						{ !this.state.menuIsOpen && <Hamburger /> }
 						{ this.state.menuIsOpen && <Cross /> }
 					</button>
-					
+					<Triangle classes="shape-triangle-1" color="white" classes={'triangle-fixed'} />
 					{ this.state.menuIsOpen && <Menu/> }
 				</div>
 			</header>

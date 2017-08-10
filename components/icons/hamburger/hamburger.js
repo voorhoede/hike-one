@@ -1,9 +1,8 @@
 const Hamburger = () => (
-	<svg width="35" height="26" viewBox="0 0 35 26" xmlns="http://www.w3.org/2000/svg">
-		<rect x="0" y="0"  width="35" height="4"  />
-		<rect x="0" y="11"  width="35" height="4" />
-		<rect x="0" y="11"  width="35" height="4" />
-		<rect x="0" y="22" width="35" height="4" />
+	<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 80 80">
+		<path d="M67,26H13a2,2,0,0,1,0-4H67a2,2,0,0,1,0,4Z"/>
+		<path d="M57,42H19a2,2,0,0,1,0-4H57a2,2,0,0,1,0,4Z"/>
+		<path d="M48,58H24a2,2,0,0,1,0-4H48a2,2,0,0,1,0,4Z"/>
 	</svg>
 );
 

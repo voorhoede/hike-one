@@ -39,7 +39,8 @@ class Header extends React.Component {
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
-							<Logo color={this.props.color ? this.props.color : "black" && this.state.menuIsOpen ? 'white': ''}/>
+							<Logo color={`${this.props.color ? this.props.color : "black"}
+							 	${this.state.menuIsOpen ? 'white': ''}`} />
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>

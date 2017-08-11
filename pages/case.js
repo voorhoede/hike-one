@@ -91,7 +91,6 @@ const Case = ({Data}) => (
 
 						switch (itemType) {
 							case '30_50_text_right':
-
 								return (
 									<FiftyFifty
 										key={index}
@@ -107,8 +106,7 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
-										noshadow
+										classes="fifty-fifty-content-left fifty-fifty-text-small"
 										title={component.title}
 										text={component.text}
 										image={component.image.url} >
@@ -119,7 +117,17 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										noshadow
+										title={component.title}
+										text={component.text}
+										image={component.image.url}>
+										{ parallaxLayers }
+									</FiftyFifty>
+								);
+							case '50_50_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										classes="fifty-fifty-content-left"
 										title={component.title}
 										text={component.text}
 										image={component.image.url}>

@@ -12,13 +12,13 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', noshadow, child
 				<div className="fifty-fifty-image">
 					<img className={`content ${noshadow ? 'no-shadow' : 'shadow-low-opacity'}` }
 						 srcSet={`
-						 	${image}&auto=format&fit=max&q90&w=250 250w,
-						 	${image}&auto=format&fit=max&q90&w=500 500w,
-						 	${image}&auto=format&fit=max&q90&w=630 630w,
-							${image}&auto=format&fit=max&q90&w=750 750w,
-							${image}&auto=format&fit=max&q90&w=1000 1000w,
-							${image}&auto=format&fit=max&q90&w=1260 1260w,
-							${image}&auto=format&fit=max&q90&w=1400 1400w
+						 	${image}&auto=format&fm=jpg&fit=max&q90&w=250 250w,
+						 	${image}&auto=format&fm=jpg&fit=max&q90&w=500 500w,
+						 	${image}&auto=format&fm=jpg&fit=max&q90&w=630 630w,
+							${image}&auto=format&fm=jpg&fit=max&q90&w=750 750w,
+							${image}&auto=format&fm=jpg&fit=max&q90&w=1000 1000w,
+							${image}&auto=format&fm=jpg&fit=max&q90&w=1260 1260w,
+							${image}&auto=format&fm=jpg&fit=max&q90&w=1400 1400w
 						 `}
 						 sizes="
 							(max-width: 768px) calc(100vw - 30px),

@@ -13,7 +13,7 @@
 		margin-bottom: 60px + 140px;
 		padding: 0 0;
 	}
-	
+
 	@media @screen-medium-large {
 		margin-bottom: 310px;
 	}
@@ -42,26 +42,29 @@
 }
 
 .collage-image-small {
-	width: 100%;
-	max-width: @column-large-5;
 	max-height: 326px;
-	position: relative;
+	position: absolute;
 	display: none;
-	object-fit: cover;
-	left: 13%;
-	
-	@media @screen-medium {
-		display: block;
-		bottom: -200px;		
-	}
+	right: -@spacing-default * 3;
 
 	@media @screen-medium {
-		bottom: -250px;
+		display: block;
+		top: 275px;
+		right: -@spacing-default * 4;
+	}
+
+	@media @screen-medium-large {
+		top: 350px;
+		right: -@spacing-default * 8;
 	}
 
 	@media @screen-large {
-		left: 27%;
-		bottom: -420px;
+		top: 400px;
+		right: -@spacing-default * 8;
+	}
+
+	@media only screen and (min-width: 1500px) {
+		max-height: 436px;
 	}
 }
 

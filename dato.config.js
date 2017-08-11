@@ -1,23 +1,11 @@
 module.exports = (dato, root) => {
-	root.directory("data/current/componentGuide", (guideDir) => {
 
-		const mappedGuideData = dato.componentGuide.toMap();
-		guideDir.createDataFile(`componentGuide.json`, 'json', mappedGuideData);
-	});
-
-	root.directory("data/current/services", (servicesDir) => {
-
+	root.directory("data/current", dir => {
 		const mappedServicesData = dato.service.toMap();
-		servicesDir.createDataFile(`services.json`, 'json', mappedServicesData);
-	});
-
-	root.directory("data/current/home", (homeDir) => {
+		dir.createDataFile(`services.json`, 'json', mappedServicesData);
 
 		const mappedHomeData = dato.home.toMap();
-		homeDir.createDataFile(`home.json`, 'json', mappedHomeData);
-	});
-
-	root.directory('data/current/cases', (caseDir) => {
+		dir.createDataFile(`home.json`, 'json', mappedHomeData);
 
 		const casesData = dato.cases.reduce((acc,item) => {
 			const mappedData = item.toMap();
@@ -25,6 +13,10 @@ module.exports = (dato, root) => {
 			return acc;
 		}, []);
 
-		caseDir.createDataFile('cases.json', 'json', casesData);
+		dir.createDataFile('cases.json', 'json', casesData);
+
+		const mappedGuideData = dato.componentGuide.toMap();
+		dir.createDataFile('component-guide.json', 'json', mappedGuideData);
+
 	});
 };

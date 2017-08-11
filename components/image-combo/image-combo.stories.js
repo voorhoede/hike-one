@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
-import Data from '../../data/current/componentGuide/componentGuide.json';
+import Data from '../../data/current/component-guide.json';
 import QuoteBlock from '../quote-block/quote-block';
 import TextCard from '../text-card/text-card';
 import ImageCombo from '../image-combo/image-combo';

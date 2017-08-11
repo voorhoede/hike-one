@@ -59,6 +59,13 @@
 			margin-right: @spacing-large*2;
 		}
 	}
+
+	.fifty-fifty-text-small.fifty-fifty-content-left & {
+		@media @screen-medium {
+			margin-right: 0;
+			margin-left: @spacing-large*2;
+		}
+	}
 }
 
 h2.fifty-fifty-title {
@@ -84,8 +91,8 @@ p.fifty-fifty-text  {
 	font-weight: @font-weight-normal;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
-	
-	@media @screen-medium {	
+
+	@media @screen-medium {
 		font-size: @body-text-m;
 		line-height: @line-height-body-m;
 	}

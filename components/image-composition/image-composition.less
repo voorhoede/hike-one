@@ -32,11 +32,11 @@
 }
 
 .image-composition-padded {
-	padding-top: @spacing-medium;
+	margin-top: @spacing-medium;
 	padding-right: @spacing-default*1.5;
 
 	@media @screen-medium {
-		padding-top: @spacing-medium*2;
+		margin-top: @spacing-medium*2;
 		padding-right: @spacing-small;
 	}
 }
@@ -44,10 +44,6 @@
 .image-composition-image {
 	object-fit: contain;
 	width: 100%;
-
-	@media @screen-small {
-		width: auto;
-	}
 }
 
 .image-composition-image-title {

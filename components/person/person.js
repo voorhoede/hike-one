@@ -1,7 +1,7 @@
 const Person = ({image=''}) => (
-	<div className="image-composition-float-left image-composition-padded">
-		<img src={image.photo.url} alt="" className="image-composition-image" />
-			<div className="person image-composition-text image-composition-text-center">
+	<div className="person">
+		<img src={image.photo.url} alt="" className="person-image" />
+			<div className="person-text">
 				<span className="person-title">
 					{image.name}
 				</span>

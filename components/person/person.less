@@ -1,21 +1,61 @@
 @import (reference) '../../styles/variables';
 
 .person {
+    float: left;
+	padding: 0;
+	position: relative;
+	width: 50%;
+	&:hover {
+		& > .person-text {
+			display: block;
+		}
+	}
+	@media @screen-small {
+		width: auto;
+	}
+}
 
+.person-image {
+	object-fit: contain;
+	width: 100%;
+
+	@media @screen-small {
+		width: auto;
+	}
 }
 
 .person-text {
+	display: block;
+	position: absolute;
+	text-align: center;
 	font-size: @body-text-small-l;
-	line-height: @line-height-body-small-l;
+	font-weight: @font-weight-bold;
 	color: @white;
+	line-height: @line-height-body-small-l;
+	top: 30%;
+	width: 100%;
+	@media @screen-small {
+		top: 50%;
+	}
+	@media @screen-medium{
+		display: none;
+	}
+}
+
+.person-title {
+	float:left;
+	width :100%;
+	text-align: center;
+	font-size: @body-text-l;
+	line-height: @line-height-body-l;
 	font-weight: @font-weight-bold;
 }
 
-.person-text-title {
-
-
-}
-
-.person-text-subtitle {
-
+.person-subtitle {
+	width: 100%;
+	float:left;
+	text-align: center;
+	font-size: @body-text-small-l;
+	line-height:@line-height-body-small-l;
+	font-weight: @font-weight-normal;
 }

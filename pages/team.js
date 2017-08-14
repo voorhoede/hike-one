@@ -12,21 +12,8 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import Data from '../data/current/team.json';
-import scrollToElement from '../components/_helpers/scrollToElement';
 
-const images = [
-	{
-		url: "../../static/images/453x808.png"
-	},
-	{ 
-		url: "../../static/images/452x600.png",
-		alignRight: true
-	},
-	{ 	
-		url: "../../static/images/329x441.png",
-		alignRight: true
-	}
-]
+import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Team = () => {
 	let scrollToTargetClass = 'js-scroll-to-target';
@@ -44,7 +31,7 @@ const Team = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 					
-					<ImageComposition images={images} />
+					<ImageComposition images={Data.imageComposition}/>
 				</article>
 				<Footer />
 			</main>

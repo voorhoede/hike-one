@@ -1,0 +1,56 @@
+@import (reference) '../../styles/variables';
+
+.image-composition {
+	width: 100%;
+	height: 440px;
+	padding: 0 @spacing-default*1.5;
+	margin: 0 auto @spacing-medium*2 auto;	
+	
+	@media @screen-medium {
+		height: 993px;
+		max-width: @column-large-8;
+	}
+	
+	@media @screen-medium-large {
+		height: 1291px;
+	}
+
+	@media @screen-large {
+		height: 1261px;
+	}
+}
+
+.image-composition-align-left {
+	width: 50%;
+	float: left;
+	margin-top: @spacing-medium*2;
+	
+	@media @screen-medium {
+		padding-right: @spacing-default*2;
+	}
+
+	@media @screen-large {
+		// padding-right: @spacing-small*2;
+	}
+}
+
+.image-composition-align-right {
+	width: 50%;
+	float: right;
+
+	& > .image-composition-image {
+		padding: 0 @spacing-half;
+		
+		@media @screen-medium {
+			padding: @spacing-default @spacing-half;
+		}
+		@media @screen-large {
+			padding: 0 0 @spacing-small @spacing-small;
+		}
+	}
+}
+
+.image-composition-image {
+	object-fit: contain;
+	width: 100%;
+}

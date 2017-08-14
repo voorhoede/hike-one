@@ -88,13 +88,6 @@ class FullWidthImage extends React.Component {
 		const relativeScroll = this.initialScrollHeight - scrolledHeight;
 		const yOffsetFixed = this.elementTop + relativeScroll;
 		const yOffsetImage = -(this.elementTop + relativeScroll) * this.speed;
-
-		if (this.props.test) {
-			console.log('this.initialScrollHeight', this.initialScrollHeight);
-			console.log('relativeScroll', relativeScroll);
-			console.log('this.elementTop', this.elementTop);
-		}
-
 		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
 	}
 
@@ -152,7 +145,6 @@ class FullWidthImage extends React.Component {
 
 	getBackgroundImage() {
 		const src = window.getComputedStyle(this.imageElement).backgroundImage;
-		// const src = this.imageElement.style.backgroundImage;
 		const url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
 		const img = new Image();
 		img.src = url;

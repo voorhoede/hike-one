@@ -12,6 +12,7 @@ const Home = () => (
 				<ButtonPrimaryLink href="/work" icon="arrowRight">work</ButtonPrimaryLink>
 				<ButtonPrimaryLink href="/home" icon="arrowRight">Home</ButtonPrimaryLink>
 				<ButtonPrimaryLink href="/services" icon="arrowRight">Services</ButtonPrimaryLink>
+				<ButtonPrimaryLink href="/team" icon="arrowRight">Team</ButtonPrimaryLink>
 			</article>
 		</main>
 	</Layout>

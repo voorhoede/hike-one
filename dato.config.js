@@ -1,6 +1,9 @@
 module.exports = (dato, root) => {
 
 	root.directory("data/current", dir => {
+		const mappedTeamData = dato.team.toMap();
+		dir.createDataFile(`team.json`, 'json', mappedTeamData);
+
 		const mappedServicesData = dato.service.toMap();
 		dir.createDataFile(`services.json`, 'json', mappedServicesData);
 

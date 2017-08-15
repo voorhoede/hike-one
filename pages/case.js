@@ -194,7 +194,7 @@ const Case = ({Data}) => (
 											title={component.title}
 											text={component.text} />
 
-										<LogoList logos={component.logos} />
+										<LogoList companies={component.companies} />
 									</div>
 								);
 						}

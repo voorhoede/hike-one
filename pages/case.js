@@ -141,21 +141,23 @@ const Case = ({Data}) => (
 										classes={ component.textTitle ? 'image-combo-text': ''} >
 
 										{ component.textTitle &&
-											<TextCard
-												title={component.textTitle}
-												text={component.textContent} />
+										<TextCard
+											title={component.textTitle}
+											text={component.textContent} />
 										}
 
-										<FullWidthImage image={component.image.url} />
+										<FullWidthImage
+											image={component.image.url}
+											index={index}/>
 
 										{ component.quoteAuthorTitle &&
-											<QuoteBlock
-												color={component.quoteColor.color }
-												alignment={component.quoteAlignLeft ? 'quote-block-left' : 'quote-block-right' }
-												quote={component.quote}
-												citeName={component.quoteAuthorName}
-												citeTitle={component.quoteAuthorTitle}
-												citeImage={component.quoteAuthorImage.url} />
+										<QuoteBlock
+											color={component.quoteColor.color }
+											alignment={component.quoteAlignLeft ? 'quote-block-left' : 'quote-block-right' }
+											quote={component.quote}
+											citeName={component.quoteAuthorName}
+											citeTitle={component.quoteAuthorTitle}
+											citeImage={component.quoteAuthorImage.url} />
 										}
 
 										{ parallaxLayers }
@@ -176,6 +178,7 @@ const Case = ({Data}) => (
 								return (
 									<FullWidthImage
 										key={index}
+										index={index}
 										image={component.image.url}
 										title={component.title}
 										subtitle={component.subtitle} />

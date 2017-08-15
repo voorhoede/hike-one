@@ -21,13 +21,14 @@
 }
 
 .image-composition-float-left {
-	width: 50%;
 	float: left;
 	position: relative;
-	padding-bottom: @spacing-small;
+	width: 50%;
+	max-width: @column-large-4;
+	padding-bottom: @spacing-default;
 	
 	@media @screen-medium {
-		padding-bottom: @spacing-small*2;
+		padding-bottom: @spacing-small;
 	}
 }
 
@@ -55,9 +56,9 @@
 		bottom: 55px;
 		left: 40px;
 		font-size: @body-text-small-l;
+		font-weight: @font-weight-bold;
 		line-height: @line-height-body-small-l;
 		color: @white;
-		font-weight: @font-weight-bold;
 	}
 }
 

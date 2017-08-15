@@ -5,14 +5,13 @@ import Person from '../person/person';
 const ImageComposition = ({images=[]}) => (
 	<div className="image-composition">
 		{ Object.values(images).map((image, index) => {	
-			{ 
-				if (image.itemType === 'team_image_1_2') {
-					return <TeamImage1_2 image={image}  key={index} /> 
-				} else if (image.itemType === 'team_image_4_3') {
-					return <TeamImage4_3 image={image} key={index} /> 
-				} else if (image.itemType === 'person') {
-					return <Person image={image} key={index} /> 
-				}
+			switch (image.itemType) {
+				case 'team_image_1_2': 
+					return <TeamImage1_2 image={image}  key={index} />; 
+				case 'team_image_4_3':
+					return <TeamImage4_3 image={image} key={index} />;
+				case 'person':
+					return <Person image={image} key={index} />; 					
 			}
 		})}
 	</div>

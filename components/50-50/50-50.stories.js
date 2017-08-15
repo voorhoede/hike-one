@@ -17,10 +17,10 @@ storiesOf('50-50', module)
 			</FiftyFifty>
 		);
 	})
-	.add('30-50 text right', () => {
+	.add('40-60 text right', () => {
 		return (
 			<FiftyFifty
-				classes="fifty-fifty-text-small"
+				classes="fifty-fifty-image-large"
 				title={data.title}
 				text={data.text}
 				image={data.image.url}>
@@ -37,10 +37,10 @@ storiesOf('50-50', module)
 			</FiftyFifty>
 		);
 	})
-	.add('30-50 text left', () => {
+	.add('40-60 text left', () => {
 		return (
 			<FiftyFifty
-				classes="fifty-fifty-content-left fifty-fifty-text-small"
+				classes="fifty-fifty-content-left fifty-fifty-image-large"
 				title={data.title}
 				text={data.text}
 				image={data.image.url}>

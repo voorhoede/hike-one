@@ -47,17 +47,23 @@
     }
 }
 
+.fifty-fifty-image-large {
+	@media @screen-large {
+		.fifty-fifty-content {
+			width: 40%;
+		}
+
+		.fifty-fifty-image {
+			width: 60%;
+		}
+	}
+}
+
 .fifty-fifty-title,
 .fifty-fifty-text {
 	@media @screen-medium {
 		float: right;
 		max-width: 450px;
-	}
-
-	.fifty-fifty-text-small & {
-		@media @screen-medium {
-			margin-right: @spacing-large*2;
-		}
 	}
 
 	.fifty-fifty-text-small.fifty-fifty-content-left & {
@@ -133,17 +139,4 @@ p.fifty-fifty-text  {
 			float: right;
 		}
 	}
-}
-
-.fifty-fifty-align-toside,
-.fifty-fifty-align-toside > .container-inner > .fifty-fifty-image {
-	padding-left: 0;
-
-	@media @screen-medium {
-		padding-right: 0;
-	}
-}
-
-.fifty-fifty-align-toside > .container-inner > .fifty-fifty-content {
-	padding-left: @spacing-default;
 }

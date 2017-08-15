@@ -41,6 +41,9 @@ const parallaxLayersMap = {
 	'40_60_text_left': [
 		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
 	],
+	'50_50_text_left': [
+		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
+	],
 	'50_50_text_right': [
 		[<FiftyFiftyShapes.TextRight1Back position="back" key="1"/>]
 	],
@@ -94,9 +97,9 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-image-large"
 										title={component.title}
 										text={component.text}
+										imageLarge="true"
 										image={component.image.url} >
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -106,9 +109,10 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-content-left fifty-fifty-image-large"
 										title={component.title}
+										contentLeft="true"
 										text={component.text}
+										imageLarge="true"
 										image={component.image.url} >
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -127,7 +131,7 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-content-left"
+										contentLeft="true"
 										title={component.title}
 										text={component.text}
 										image={component.image.url}>

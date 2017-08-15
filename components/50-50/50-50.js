@@ -1,17 +1,18 @@
 import React from 'react';
 
-const FiftyFifty = ({classes = '', image, title = '', text = '', children}) => {
+const FiftyFifty = ({classes = '', image, title = '', text = '', children, imageLarge, contentLeft}) => {
 	const childrenArray = React.Children.toArray(children);
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-	const hasLargeImage = classes.indexOf('fifty-fifty-image-large') >= 0;
+	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
+	const contentPosClass = contentLeft ? 'fifty-fifty-content-left': '';
 
 	return (
-		<section className={`fifty-fifty clearfix container ${classes}`}>
+		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>
 			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-image">
-					{!hasLargeImage &&
+					{!imageLarge &&
 					<img className="content"
 						 srcSet={`
 							${image}&auto=format&fm=jpg&fit=max&q90&w=250 250w,
@@ -30,7 +31,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children}) => {
 						 src={`${image}&auto=format&q=90&w=750`}
 						 alt="" />
 					}
-					{hasLargeImage &&
+					{imageLarge &&
 					<img className="content"
 						 srcSet={`
 							${image}&auto=format&fm=jpg&fit=max&q90&w=250 250w,

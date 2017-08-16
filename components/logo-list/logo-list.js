@@ -1,12 +1,14 @@
 import Link from 'next/link'
 
-const LogoList = ({logos}) => (
+const LogoList = ({companies}) => (
 	<ul className="logo-list list-no-style container">
-		{ logos.map((logo, index) =>
+		{ companies.map((company, index) =>
 			<li key={index}>
-				<Link href="#">
+				<Link href={company.website}>
 					<a>
-						<img src={logo.url} alt="" />
+						<img
+							src={`${company.logo.url}&auto=format&fit=max&max-w=250`}
+							alt={company.name} />
 					</a>
 				</Link>
 			</li> )}

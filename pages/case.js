@@ -35,10 +35,13 @@ import setComponentCounter from '../components/_helpers/setParallaxComponentCoun
 // object with parallax shape layer variations for every type of component
 // combined with the componentCounter object a specific variantion is chosen for each component
 const parallaxLayersMap = {
-	'30_50_text_right': [
+	'40_60_text_right': [
 		[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1"/>]
 	],
-	'30_50_text_left': [
+	'40_60_text_left': [
+		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
+	],
+	'50_50_text_left': [
 		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
 	],
 	'50_50_text_right': [
@@ -90,27 +93,26 @@ const Case = ({Data}) => (
 							: '';
 
 						switch (itemType) {
-							case '30_50_text_right':
-
+							case '40_60_text_right':
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-text-small"
 										title={component.title}
 										text={component.text}
+										imageLarge="true"
 										image={component.image.url} >
 										{ parallaxLayers }
 									</FiftyFifty>
 								);
 
-							case '30_50_text_left':
+							case '40_60_text_left':
 								return (
 									<FiftyFifty
 										key={index}
-										classes="fifty-fifty-content-left fifty-fifty-text-small fifty-fifty-margin-medium"
-										noshadow
 										title={component.title}
+										contentLeft="true"
 										text={component.text}
+										imageLarge="true"
 										image={component.image.url} >
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -119,7 +121,17 @@ const Case = ({Data}) => (
 								return (
 									<FiftyFifty
 										key={index}
-										noshadow
+										title={component.title}
+										text={component.text}
+										image={component.image.url}>
+										{ parallaxLayers }
+									</FiftyFifty>
+								);
+							case '50_50_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										contentLeft="true"
 										title={component.title}
 										text={component.text}
 										image={component.image.url}>
@@ -182,7 +194,7 @@ const Case = ({Data}) => (
 											title={component.title}
 											text={component.text} />
 
-										<LogoList logos={component.logos} />
+										<LogoList companies={component.companies} />
 									</div>
 								);
 						}

@@ -10,16 +10,6 @@
 	padding-bottom: 200px;
 }
 
-.header.open {
-	h1 {
-		color: @light-gray;
-	}
-
-	.btn svg path{
-		fill: @light-gray;
-	}
-}
-
 .header .container {
 	display: flex;
     justify-content: space-between;
@@ -55,7 +45,7 @@
 	}
 }
 
-.header .btn {
+.menu-btn {
 	z-index: 3;
 	position: fixed;
 	top: 30px;
@@ -69,13 +59,24 @@
 	cursor: pointer;
 	outline: none;
 
-	&.white svg {
-		fill: @white;
-	}
-
-	& > svg {
+	.menu-btn-icon svg {
+		position: relative;
+		fill: @black;
 		width: 30px;
 		height: 30px;
+	}
+
+	svg.menu-btn-background {
+		position: absolute;
+		left: -10px;
+		top: -7px;
+		width: 50px;
+		height: 50px;
+		fill: @white;
+
+		.is-open & {
+			display: none;
+		}
 	}
 
 	@media @screen-medium {
@@ -85,25 +86,29 @@
 		top: 55px;
 		right: 49px;
 
-		& > svg {
+		.menu-btn-icon svg {
 			width: 40px;
 			height: 40px;
+		}
+
+		svg.menu-btn-background {
+			left: -21px;
+			top: -15px;
+			width: 80px;
+			height: 80px;
 		}
 	}
 	@media only screen and (min-width: @container-max-width) {
 		right: calc(~"(100vw - @{column-large-12} + 140px) / 2");
 	}
 
-	&:hover{
-		& > svg {
+	&:hover {
+		.menu-btn-icon svg {
 			fill: @white;
 		}
-		& ~ svg path {
+
+		svg.menu-btn-background path {
 			fill: @black;
 		}
 	}
-}
-
-.header .btn.white svg {
-	fill: @white;
 }

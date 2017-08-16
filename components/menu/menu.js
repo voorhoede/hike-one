@@ -4,7 +4,8 @@ import Triangle from '../shapes/triangle/triangle';
 
 const Menu = () => (
 	<div className="menu">
-		<div className="menu-inner">			
+		<Triangle classes={`menu-background menu-background-enlarged`} />
+		<div className="menu-inner">
 			<ul className="menu-list">
 				<li><Link href="/team"><a className="menu-item-red">Team</a></Link></li>
 				<li className="menu-item-spaced"><Link href="/services"><a className="menu-item-green">Services</a></Link></li>
@@ -18,7 +19,6 @@ const Menu = () => (
 			</ul>
 
 			<SocialMedia />
-
 		</div>
 	</div>
 );

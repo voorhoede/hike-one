@@ -35,7 +35,7 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header className={`header ${this.state.menuIsOpen ? 'open' : ''}`}>
+			<header className={`header ${this.state.menuIsOpen ? 'is-open' : ''}`}>
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
@@ -45,14 +45,15 @@ class Header extends React.Component {
 						</a>
 					</Link>
 					<button
-						className="btn"
+						className="menu-btn"
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
-						{ !this.state.menuIsOpen && <Hamburger /> }
-						{ this.state.menuIsOpen && <Cross /> }
+						<Triangle classes="menu-btn-background" />
+						<span className="menu-btn-icon">
+							{ !this.state.menuIsOpen && <Hamburger /> }
+							{ this.state.menuIsOpen && <Cross /> }
+						</span>
 					</button>
-					<Triangle classes={`shape-triangle-1 menu-bg-triangle-fixed
-										${this.state.menuIsOpen ? 'menu-triangle-enlarged' : ''}`} />
 					{ this.state.menuIsOpen && <Menu/> }
 				</div>
 			</header>

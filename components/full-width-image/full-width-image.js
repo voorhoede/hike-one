@@ -200,8 +200,8 @@ class FullWidthImage extends React.Component {
 					<div className="full-width-image-text">
                     	{ title && <h2>{title}</h2> }
 						{ subtitle && <p>{subtitle}</p> }
-						{ props.links &&
-							Object.values(props.links).map(
+						{ links &&
+							Object.values(links).map(
 								(link, index)=> {
 									return <a href={link.target} key={index}
 										className="full-width-image-link">{link.title}</a>

@@ -25,6 +25,7 @@ class FullWidthImage extends React.Component {
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
+			this.initialScrollHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 			// wait until image is loaded
 			const backgroundImage = this.getBackgroundImage();
@@ -82,11 +83,11 @@ class FullWidthImage extends React.Component {
 		}
 
 		this.elementReset = false;
+		this.elementTop = this.elementTop ? this.elementTop : this.element.getBoundingClientRect().top + window.pageYOffset;
 		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 		const relativeScroll = this.initialScrollHeight - scrolledHeight;
-		const yOffsetFixed = this.elBoundingRect.top + relativeScroll;
-		const yOffsetImage = -(this.elBoundingRect.top + relativeScroll) * this.speed;
-
+		const yOffsetFixed = this.elementTop + relativeScroll;
+		const yOffsetImage = -(this.elementTop + relativeScroll) * this.speed;
 		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
 	}
 
@@ -96,7 +97,6 @@ class FullWidthImage extends React.Component {
 	}
 
 	setInitialValues() {
-		this.initialScrollHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 		this.elBoundingRect = this.element.getBoundingClientRect();
 		this.setImageBottomOffset();
 		this.setInitialOffset();
@@ -120,6 +120,7 @@ class FullWidthImage extends React.Component {
 		// add debounce for resize so it fires only add the end of resize
 		clearTimeout(this.resizeTimer);
 		this.resizeTimer = setTimeout(() => {
+			this.elementTop = null;
 			this.setInitialValues();
 		}, 250);
 	}
@@ -143,7 +144,7 @@ class FullWidthImage extends React.Component {
 	}
 
 	getBackgroundImage() {
-		const src = this.imageElement.style.backgroundImage;
+		const src = window.getComputedStyle(this.imageElement).backgroundImage;
 		const url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'');
 		const img = new Image();
 		img.src = url;
@@ -155,21 +156,50 @@ class FullWidthImage extends React.Component {
 	}
 
 	render() {
-		const props = this.props;
+        const {image, index, title, subtitle, links} = this.props;
+		const heroImageSmall = `${image}auto=format&fit=max&q=90&w=768`;
+		const heroImageMedium = `${image}auto=format&fit=max&q=90&w=1170`;
+		const heroImageLarge = `${image}auto=format&fit=max&q=90&w=1600`;
+		const heroImageExtraLarge = `${image}auto=format&fit=max&q=90&w=1920`;
+
+		const style ={__html:
+			`<style>
+				.full-width-image-background-${index} {
+					background-image: url(${heroImageSmall});
+				}
+			@media only screen and (min-width: 500px) {
+				.full-width-image-background-${index} {
+					background-image: url(${heroImageMedium});
+				}
+			}
+			@media only screen and (min-width: 768px) {
+				.full-width-image-background-${index} {
+					background-image: url(${heroImageLarge});
+				}
+			}
+			@media only screen and (min-width: 1170px) {
+				.full-width-image-background-${index} {
+					background-image: url(${heroImageExtraLarge});
+				}
+			}
+			
+		</style>`};
+
         return (
             <div className="full-width-image" ref={node => this.element = node}>
 				<div className="full-width-image-inner"
 					 ref={node => this.fixedElement = node}
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
-					<div className="full-width-image-background"
+					<div className={`full-width-image-background full-width-image-background-${index}`}
 						 ref={node => this.imageElement = node}
 						 style={{ backgroundImage: `url(${this.props.image})`}} >
 					</div>
 				</div>
-                {(props.title || props.subtitle || props.links) &&
+
+                {(title || subtitle || links) &&
 					<div className="full-width-image-text">
-                    	{ props.title && <h2>{props.title}</h2> }
-						{ props.subtitle && <p>{props.subtitle}</p> }
+                    	{ title && <h2>{title}</h2> }
+						{ subtitle && <p>{subtitle}</p> }
 						{ props.links &&
 							Object.values(props.links).map(
 								(link, index)=> {
@@ -180,6 +210,7 @@ class FullWidthImage extends React.Component {
 						}	
                 	</div>
                 }
+				<div dangerouslySetInnerHTML={style}></div>
             </div>
         );
     }

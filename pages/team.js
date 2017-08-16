@@ -11,10 +11,49 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageComposition from '../components/image-composition/image-composition';
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
+import QuoteBlock from '../components/quote-block/quote-block';
+import FullWidthImage from '../components/full-width-image/full-width-image';
+import ImageCombo from '../components/image-combo/image-combo';
 
 import Data from '../data/current/team.json';
-
 import scrollToElement from '../components/_helpers/scrollToElement';
+
+const workspace = {
+	workspaceTitle: 'Our work space',
+	workspaceImageUrl: '../static/images/header_home.jpg',
+	workspaceLocations: [
+		{
+			title: 'AMS',
+			target: '#AMS'
+		},{
+			title: 'RTM',
+			target: '#RTM'
+		},{
+			title: 'EHV',
+			target: '#EHV'
+		}
+	],
+	workspaceStatistics: [
+		{
+			title:'amountFanatics',
+			amount: 62
+		},{
+			title:'digitalDesigner',
+			amount: 53
+		},{
+			title:'projectMangers',
+			amount: 8
+		},{
+			title:'superHeroes',
+			amount: 4
+		},
+	],
+	workspaceOpenings: {
+		title: 'See job openings',
+		target: '#jobopenings'
+	}
+}
+
 
 const Team = () => {
 	let scrollToTargetClass = 'js-scroll-to-target';
@@ -36,6 +75,18 @@ const Team = () => {
 						<ImageCompositionShapes.variation1Front position="front"/>
 						<ImageCompositionShapes.variation1Back position="back"/>
 					</ImageComposition>
+					
+					<ImageCombo
+						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
+						<FullWidthImage image={workspace.workspaceImageUrl}
+							title={workspace.workspaceTitle} 
+							links={workspace.workspaceLocations} />
+						<QuoteBlock
+							color='blue'
+							alignment='quote-block-right' 
+							text={workspace.workspaceStatistics}
+							openings={workspace.workspaceOpenings} />
+					</ImageCombo>
 				</article>
 				<Footer />
 			</main>

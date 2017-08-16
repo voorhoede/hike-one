@@ -155,7 +155,7 @@ class FullWidthImage extends React.Component {
 	}
 
 	render() {
-        const props = this.props;
+		const props = this.props;
         return (
             <div className="full-width-image" ref={node => this.element = node}>
 				<div className="full-width-image-inner"
@@ -166,11 +166,18 @@ class FullWidthImage extends React.Component {
 						 style={{ backgroundImage: `url(${this.props.image})`}} >
 					</div>
 				</div>
-
-                {(props.title || props.subtitle) &&
+                {(props.title || props.subtitle || props.links) &&
 					<div className="full-width-image-text">
                     	{ props.title && <h2>{props.title}</h2> }
-                    	{ props.subtitle && <p>{props.subtitle}</p> }
+						{ props.subtitle && <p>{props.subtitle}</p> }
+						{ props.links &&
+							Object.values(props.links).map(
+								(link, index)=> {
+									return <a href={link.target} key={index}
+										className="full-width-image-link">{link.title}</a>
+								}
+							)
+						}	
                 	</div>
                 }
             </div>

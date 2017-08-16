@@ -99,3 +99,38 @@
         line-height: @line-height-body-l;
     }
 }
+
+.full-width-image-link {
+    color: @white;
+    font-weight:@font-weight-normal;
+    padding: 0 @spacing-default;
+    font-size: @subtitle-large-s;
+    line-height: @line-height-subtitle-s;
+    
+    &::after {
+        content: '/';
+        display: inline-block;
+        position: relative;
+        top: 4px;
+        left: 20px;
+		font-size: 28px;
+    }
+    &:last-child::after {
+        content: '';
+    }
+    &:focus {
+        font-size: @subtitle-large-m;
+        line-height: @line-height-subtitle-m;
+        font-weight:@font-weight-bold;
+        text-decoration: underline;
+    }
+    @media @screen-large {
+        padding: 0 @spacing-small;
+        &:focus {
+            font-size: @subtitle-large-l;
+            line-height: @line-height-subtitle-l;
+            font-weight:@font-weight-bold;
+            text-decoration: underline;
+        }
+    }
+}

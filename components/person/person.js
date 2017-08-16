@@ -1,4 +1,4 @@
-const Person = ({image=''}) => (
+const Person = ({image}) => (
 	<div className="person">
 		<img src={image.photo.url} alt="" className="person-image" />
 			<div className="person-text">

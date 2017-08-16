@@ -2,20 +2,28 @@
 
 .image-composition-shapes-1 {
 	.shape-triangle-1 {
+		display: none;
 		position: absolute;
 		z-index: 1;
 		top: -265px;
 		left: 12%;
 		height: 168px;
-    	width: 148px;
+		width: 148px;
+		@media @screen-medium {
+			display: block;
+		}
 	}
 	.shape-triangle-2 {
+		display: none;
 		position: absolute;
 		z-index: 1;
 		bottom: -150px;
 		right: 0px;
 		height: 93px;
 		width: 106px;
+		@media @screen-medium {
+			display: block;
+		}
 	}
 }
 

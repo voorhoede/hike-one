@@ -5,7 +5,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const cases = require('./data/current/cases/cases.json');
+const cases = require('./data/current/cases.json');
 
 const fs = require('fs');
 

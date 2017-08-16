@@ -12,7 +12,7 @@ import ServicesOverview from '../components/services-overview/services-overview'
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
-import Data from '../data/current/services/services.json';
+import Data from '../data/current/services.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Services = () => {
@@ -24,9 +24,9 @@ const Services = () => {
 				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title="We help you build great digital products using human-centered design methods"
-						subtitle="Our services"
-						heroImage="static/images/service-header.jpg">
+						title={Data.title}
+						subtitle={Data.headerSubtitle}
+						heroImage={Data.headerImage.url}>
 						<PageHeaderShapes.variation2Front position="front"/>
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>

@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 
-import Data from '../../data/current/componentGuide/componentGuide.json';
+import Data from '../../data/current/component-guide.json';
 import Collage from './collage';
 
 const item = Data.components.find(item => item.itemType === 'collage');

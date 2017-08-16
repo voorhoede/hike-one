@@ -5,6 +5,7 @@
 	padding: 0;
 	position: relative;
 	width: 50%;
+	z-index: 1;
 
 	&:hover {
 		& > .person-text {
@@ -13,13 +14,11 @@
 	}
 	
 	@media @screen-small {
-		width: 100%;
 		max-width: @column-large-3;
 	}
 }
 
 .person-image {
-	object-fit: contain;
 	width: 100%;
 	position: relative;
 	top: 5px;

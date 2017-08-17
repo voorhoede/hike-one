@@ -20,7 +20,7 @@ const ImageComposition = ({children, TeamImage2_1, TeamImage3_4, Person}) => {
 					{TeamImage2_1.title}
 				</span>
 			</div>
-			<div className="teamimage-container-large">
+			<div className="teamimage-container-large teamimage-container-align-left">
 				<img srcSet={`
 					${TeamImage3_4.photo.url}&auto=format&q=90&w=375 375w,
 					${TeamImage3_4.photo.url}&auto=format&q=90&w=480 480w

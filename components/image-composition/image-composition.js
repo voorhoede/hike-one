@@ -7,37 +7,37 @@ const ImageComposition = ({children, TeamImage2_1, TeamImage3_4, Person}) => {
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	
 	return (
-		<div className="image-composition">
+		<div className="image-composition clearfix">
 			{parallaxLayerBack}
 			<div className="teamimage-large-align-left teamimage-large-padded">
 				<img srcSet={`
-					${TeamImage2_1.photo.url}&auto=format&q=90&w=165 375w,
-					${TeamImage2_1.photo.url}&auto=format&q=90&w=452 480w
+					${TeamImage2_1.photo.url}&auto=format&q=90&w=375 375w,
+					${TeamImage2_1.photo.url}&auto=format&q=90&w=480 480w
 				`} sizes={`
-					(max-width: 375px) 165px, 452px
-				`} src={`${TeamImage2_1.photo.url}&auto=format&q=90&w=165`}  alt="" className="teamimage-large-image" />
+					(max-width: 1100px) calc(50vw - 40px)
+				`} src={`${TeamImage2_1.photo.url}&auto=format&q=90&w=452`}  alt="" className="teamimage-large-image" />
 				<span className="teamimage-large-title">
 					{TeamImage2_1.title}
 				</span>
 			</div>
 			<div className="teamimage-normal-align-left ">
 				<img srcSet={`
-					${TeamImage3_4.photo.url}&auto=format&q=90&w=165 375w,
-					${TeamImage3_4.photo.url}&auto=format&q=90&w=452 480w
+					${TeamImage3_4.photo.url}&auto=format&q=90&w=375 375w,
+					${TeamImage3_4.photo.url}&auto=format&q=90&w=480 480w
 				`} sizes={`
-					(max-width: 375px) 165px, 452px
-				`} src={`${TeamImage3_4.photo.url}&auto=format&q=90&w=165`} alt="" className="teamimage-normal-image" />
+					(max-width: 1100px) 50vw
+				`} src={`${TeamImage3_4.photo.url}&auto=format&q=90&w=452`} alt="" className="teamimage-normal-image" />
 				<span className="teamimage-normal-title">
 					{TeamImage3_4.title}
 				</span>
 			</div>
 			<div className="person">
 				<img srcSet={`
-					${Person.photo.url}&auto=format&q=90&w=165 375w,
-					${Person.photo.url}&auto=format&q=90&w=362 480w
+					${Person.photo.url}&auto=format&q=90&w=375 375w,
+					${Person.photo.url}&auto=format&q=90&w=480 480w
 				`} sizes={`
-					(max-width: 375px) 165px, 375px
-				`} src={`${Person.photo.url}&auto=format&q=90&w=165`} alt="" className="person-image" />
+					(max-width: 1100px) 50vw
+				`} src={`${Person.photo.url}&auto=format&q=90&w=375`} alt="" className="person-image" />
 				<div className="person-text">
 					<span className="person-title">
 						{Person.name}

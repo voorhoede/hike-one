@@ -1,0 +1,27 @@
+.transition-normal-transform {
+	&:hover {
+		transform: scale(1.05);
+
+		&:before {
+			opacity: 0.1;
+		}
+	}
+}
+
+.transition-normal-opacity {
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		opacity: 0;
+		background-color: @black;
+		transition: opacity 0.3s;
+	}
+}
+
+.transition-transform-start {
+	transition: transform 0.3s;
+}

@@ -15,11 +15,11 @@ export const variation1Front = () => (
 );
 
 export const variation1Back = () => (
-	<div className="image-composition-shapes-2">
+	<div className="image-composition-shapes-1">
 		<Parallax speed="0.875">
-			<CircleBorder classes="shape-triangle-3" color="purple" />
-			<CircleBorder classes="shape-triangle-4" color="green" />
-			<DiamondBorder classes="shape-triangle-5" color="yellow" />
+			<CircleBorder classes="shape-circle-3" color="purple" />
+			<CircleBorder classes="shape-circle-4" color="green" />
+			<DiamondBorder classes="shape-diamond-5" color="yellow" />
 		</Parallax>
 	</div>
 );

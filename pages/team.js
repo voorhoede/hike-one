@@ -16,7 +16,12 @@ import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 
 import Data from '../data/current/team.json';
+import TeamImage2_1Data from '../data/current/teamImages21.json';
+import TeamImage3_4Data from '../data/current/teamImages34.json';
+import PeopleData from '../data/current/people.json';
+
 import scrollToElement from '../components/_helpers/scrollToElement';
+let scrollToTargetClass = 'js-scroll-to-target';
 
 const workspace = {
 	overlay: true,
@@ -68,9 +73,8 @@ const workspace = {
 	}
 }
 
+const Team = () => {	
 
-const Team = () => {
-	let scrollToTargetClass = 'js-scroll-to-target';
 	return (
 		<Layout title="Hike One - Team">
 			<main className="main js-main">
@@ -84,12 +88,17 @@ const Team = () => {
 						<PageHeaderShapes.variation2Front position="front"/>
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
-					
-					<ImageComposition> 
-						<ImageCompositionShapes.variation1Front position="front"/>
-						<ImageCompositionShapes.variation1Back position="back"/>
-					</ImageComposition>
-					
+
+					<div className={`${scrollToTargetClass}`}>
+						<ImageComposition
+							Person={PeopleData} 
+							TeamImage2_1={TeamImage2_1Data}
+							TeamImage3_4={TeamImage3_4Data}> 
+							<ImageCompositionShapes.variation1Front position="front"/>
+							<ImageCompositionShapes.variation1Back position="back"/>
+						</ImageComposition>
+					</div>
+
 					<ImageCombo
 						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
 						<ImageGallery 

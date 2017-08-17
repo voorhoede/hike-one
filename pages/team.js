@@ -18,9 +18,9 @@ import TeamImage3_4Data from '../data/current/teamImages34.json';
 import PeopleData from '../data/current/people.json';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
+let scrollToTargetClass = 'js-scroll-to-target';
 
-const Team = () => {
-	let scrollToTargetClass = 'js-scroll-to-target';
+const Team = () => {	
 	return (
 		<Layout title="Hike One - Team">
 			<main className="main js-main">
@@ -34,14 +34,15 @@ const Team = () => {
 						<PageHeaderShapes.variation2Front position="front"/>
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
-					
-					<ImageComposition 
-						Person={PeopleData} 
-						TeamImage2_1={TeamImage2_1Data}
-						TeamImage3_4={TeamImage3_4Data}> 
-						<ImageCompositionShapes.variation1Front position="front"/>
-						<ImageCompositionShapes.variation1Back position="back"/>
-					</ImageComposition>
+					<div className={`${scrollToTargetClass}`}>
+						<ImageComposition
+							Person={PeopleData} 
+							TeamImage2_1={TeamImage2_1Data}
+							TeamImage3_4={TeamImage3_4Data}> 
+							<ImageCompositionShapes.variation1Front position="front"/>
+							<ImageCompositionShapes.variation1Back position="back"/>
+						</ImageComposition>
+					</div>
 				</article>
 				<Footer />
 			</main>

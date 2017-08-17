@@ -12,15 +12,29 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageComposition from '../components/image-composition/image-composition';
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
 import QuoteBlock from '../components/quote-block/quote-block';
-import FullWidthImage from '../components/full-width-image/full-width-image';
+import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 
 import Data from '../data/current/team.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const workspace = {
+	overlay: true,
 	workspaceTitle: 'Our work space',
-	workspaceImageUrl: '../static/images/header_home.jpg',
+	workspaceImages: [
+		{
+			name: 'amsterdam',
+			url:'../static/images/office_amsterdam.jpg'
+		},
+		{
+			name: 'rotterdam',
+			url:'../static/images/header_home.jpg'
+		},
+		{
+			name: 'eindhoven',
+			url:'../static/images/img-team.jpg'
+		}
+	],
 	workspaceLocations: [
 		{
 			title: 'AMS',
@@ -78,11 +92,12 @@ const Team = () => {
 					
 					<ImageCombo
 						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
-						<FullWidthImage image={workspace.workspaceImageUrl}
-							title={workspace.workspaceTitle} 
-							links={workspace.workspaceLocations} />
+						<ImageGallery 
+							images={workspace.workspaceImages}
+							title={workspace.workspaceTitle}
+							links={workspace.workspaceLocations}>
+						</ImageGallery>
 						<QuoteBlock
-							color='blue'
 							alignment='quote-block-right' 
 							text={workspace.workspaceStatistics}
 							openings={workspace.workspaceOpenings} />

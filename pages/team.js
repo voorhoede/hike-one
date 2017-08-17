@@ -13,6 +13,9 @@ import ImageComposition from '../components/image-composition/image-composition'
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
 
 import Data from '../data/current/team.json';
+import TeamImage2_1Data from '../data/current/teamImages21.json';
+import TeamImage3_4Data from '../data/current/teamImages34.json';
+import PeopleData from '../data/current/people.json';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 
@@ -32,7 +35,10 @@ const Team = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 					
-					<ImageComposition> 
+					<ImageComposition 
+						Person={PeopleData} 
+						TeamImage2_1={TeamImage2_1Data}
+						TeamImage3_4={TeamImage3_4Data}> 
 						<ImageCompositionShapes.variation1Front position="front"/>
 						<ImageCompositionShapes.variation1Back position="back"/>
 					</ImageComposition>

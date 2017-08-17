@@ -32,20 +32,23 @@ const ImageComposition = ({children, TeamImage2_1, TeamImage3_4, Person}) => {
 				</span>
 			</div>
 			<div className="person">
-				<img srcSet={`
-					${Person.photo.url}&auto=format&q=90&w=375 375w,
-					${Person.photo.url}&auto=format&q=90&w=480 480w
-				`} sizes={`
-					(max-width: 1100px) 50vw
-				`} src={`${Person.photo.url}&auto=format&q=90&w=375`} alt="" className="person-image" />
-				<div className="person-text">
-					<span className="person-title">
-						{Person.name}
-					</span>
-					<span className="person-subtitle">
-						{Person.role}
-					</span>
-				</div>
+				<div className="transition-transform-start transition-normal-transform">
+					<img srcSet={`
+						${Person.photo.url}&auto=format&q=90&w=375 375w,
+						${Person.photo.url}&auto=format&q=90&w=480 480w
+					`} sizes={`
+						(max-width: 1100px) 50vw
+					`} src={`${Person.photo.url}&auto=format&q=90&w=375`} alt="" 
+						className="person-image" />
+					<div className="person-text">
+						<span className="person-title">
+							{Person.name}
+						</span>
+						<span className="person-subtitle">
+							{Person.role}
+						</span>
+					</div>
+				</div>	
 			</div>
 			{parallaxLayerFront}
 		</div>

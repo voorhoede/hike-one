@@ -11,7 +11,7 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageComposition from '../components/image-composition/image-composition';
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
-import QuoteBlock from '../components/quote-block/quote-block';
+import TextBlock from '../components/text-block/text-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 
@@ -80,9 +80,9 @@ const Team = () => {
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
-				{/*onClickScrollButton={() => scrollToElement(scrollToTargetClass) }*/}	
+				
 					<PageHeader
-						
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }		
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
 						heroImage={Data.headerImage.url}>
@@ -90,7 +90,7 @@ const Team = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					{ /*<div className={`${scrollToTargetClass}`}>*/}
+					<div className={`${scrollToTargetClass}`}>
 						<ImageComposition
 							Person={PeopleData} 
 							TeamImage2_1={TeamImage2_1Data}
@@ -98,7 +98,7 @@ const Team = () => {
 							<ImageCompositionShapes.variation1Front position="front"/>
 							<ImageCompositionShapes.variation1Back position="back"/>
 						</ImageComposition>
-					{/*</div>*/}
+					</div>
 
 					<ImageCombo
 						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
@@ -107,11 +107,11 @@ const Team = () => {
 							title={workspace.workspaceTitle}
 							links={workspace.workspaceLocations}>
 						</ImageGallery>
-						<QuoteBlock
-							alignment='quote-block-right' 
+						<TextBlock
+							alignment='text-block-right' 
 							text={workspace.workspaceStatistics}
 							openings={workspace.workspaceOpenings} />
-							
+
 					</ImageCombo>
 				</article>
 				<Footer />

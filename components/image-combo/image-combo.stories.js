@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
 
 import Data from '../../data/current/component-guide.json';
-import QuoteBlock from '../quote-block/quote-block';
+import TextBlock from '../text-block/text-block';
 import TextCard from '../text-card/text-card';
 import ImageCombo from '../image-combo/image-combo';
 import FullWidthImage from '../full-width-image/full-width-image';
@@ -16,9 +16,9 @@ storiesOf('Image Combo', module)
 		<ImageCombo classes={ item.textTitle ? 'image-combo-text': ''} >
 			<TextCard  title={ text('Title', item.textTitle) } text={text('Text content', item.textContent)} />
 			<FullWidthImage image={item.image.url} />
-			<QuoteBlock
+			<TextBlock
 				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }
-				alignment={select('Alignment', ['quote-block-right', 'quote-block-left'], item.quoteAlignLeft)}
+				alignment={select('Alignment', ['text-block-right', 'text-block-left'], item.quoteAlignLeft)}
 				quote={text('Quote', item.quote)}
 				citeName={text('Author name', item.quoteAuthorName)}
 				citeTitle={text('Author title', item.quoteAuthorTitle)}
@@ -28,9 +28,9 @@ storiesOf('Image Combo', module)
 	.add('without text card', () => (
 		<ImageCombo>
 			<FullWidthImage image={item.image.url} />
-			<QuoteBlock
+			<TextBlock
 				color={select('Color', ['purple', 'blue', 'green'], item.quoteColor.color) }
-				alignment={select('Alignment', ['quote-block-right', 'quote-block-left'], item.quoteAlignLeft)}
+				alignment={select('Alignment', ['text-block-right', 'text-block-left'], item.quoteAlignLeft)}
 				quote={text('Quote', item.quote)}
 				citeName={text('Author name', item.quoteAuthorName)}
 				citeTitle={text('Author title', item.quoteAuthorTitle)}

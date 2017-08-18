@@ -1,29 +1,20 @@
 @import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
 
 .image-composition {
-	clear: both;
+	.clearfix;
 	position: relative;
 	width: 100%;
-	height: 440px;
-	padding: 0 @spacing-default*1.5;
-	margin: 0 auto @spacing-medium*2 auto;	
-	
-	@media @screen-medium {
-		height: 993px;
-		padding: 0 @spacing-small*2;
-		max-width: @column-large-8;
-	}
-	
-	@media @screen-medium-large {
-		height: 1291px;
-	}
+	padding: 0 @spacing-default*1.5 @spacing-medium*2 @spacing-default*1.5;
+	margin: 0 auto;
 
-	@media @screen-large {
-		height: 1261px;
+	@media @screen-medium {
+		padding: 0 @spacing-small*2 @spacing-medium*2 @spacing-small*2;
+		max-width: @column-large-8;
 	}
 }
 
-.teamimage-container-large {
+.teamimage-large {
 	position: relative;
 	width: 50%;
 	max-width: @column-large-4;
@@ -34,7 +25,7 @@
 	}
 }
 
-.teamimage-container-spaced {
+.teamimage-spaced {
 	margin-top: @spacing-medium;
 	padding-right: @spacing-default*1.5;
 
@@ -44,17 +35,17 @@
 	}
 }
 
-.teamimage-container-align-left {
+.teamimage-align-left {
 	float: left;
 }
 
-.teamimage-container-image,
-.teamimage-container-person-image  {
+.teamimage-image,
+.teamimage-person-image  {
 	width: 100%;
 	display: block;
 }
 
-.teamimage-container-text-title {
+.teamimage-text-title {
 	display: none;
 
 	@media @screen-small {
@@ -69,7 +60,7 @@
 	}
 }
 
-.teamimage-container-person {
+.teamimage-person {
 	padding: 0;
 	position: relative;
 	width: 50%;
@@ -77,17 +68,17 @@
 	overflow: hidden;
 
 	&:hover {
-		.teamimage-person-container-text {
+		.teamimage-person-text {
 			opacity: 1;
 		}
 	}
-	
+
 	@media @screen-small {
 		max-width: @column-large-3;
 	}
 }
 
-.teamimage-person-container-text {
+.teamimage-person-text {
 	opacity: 0;
 	display: flex;
     position: absolute;
@@ -97,14 +88,10 @@
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	font-size: @body-text-small-l;
-	font-weight: @font-weight-bold;
 	color: @white;
-	line-height: @line-height-body-small-l;
-	background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 }
 
-.teamimage-person-container-title {
+.teamimage-person-title {
 	float: left;
 	width: 100%;
 	text-align: center;
@@ -113,7 +100,7 @@
 	font-weight: @font-weight-bold;
 }
 
-.teamimage-person-container-subtitle {
+.teamimage-person-subtitle {
 	float: left;
 	width: 100%;
 	text-align: center;

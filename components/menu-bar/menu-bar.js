@@ -5,7 +5,15 @@ import Logo			from '../logo/logo';
 import Triangle from '../shapes/triangle/triangle';
 import Hamburger 	from '../icons/hamburger';
 import Cross 		from '../icons/hamburger-close';
-import {TweenLite, Power3, Power0, TimelineLite, TimelineMax}  from 'gsap';
+
+import Facebook   from '../icons/facebook-circle';
+import Twitter 	  from '../icons/twitter-circle';
+import Instagram  from '../icons/instagram-circle';
+import LinkedIn   from '../icons/linkedin-circle';
+import Medium 	  from '../icons/medium-circle';
+
+
+import {TweenLite, Power3, Power0, Power1, TimelineLite, TimelineMax}  from 'gsap';
 
 
 import Menu from '../menu/menu';
@@ -27,8 +35,8 @@ class Header extends React.Component {
 
 	componentDidMount() {
 		const windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
-		const svgBgRect = this.menuBackground.getBoundingClientRect();
-		const svgBgHelperRect = this.menuBackgroundRect.getBoundingClientRect();
+		const svgBgRect = this.menuBg.getBoundingClientRect();
+		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
 
 		const scale = (windowWidth * 0.7) / svgBgHelperRect.width;
 
@@ -44,19 +52,25 @@ class Header extends React.Component {
 		this.tlBackground = new TimelineMax({paused: true});
 
 		this.tlBackground.add([
-			new TweenLite.to(this.menuBackground, 1, {x: 50}),
-			new TweenLite.to(this.menuBackground, 5, {x: 0})
+			new TweenLite.to(this.menuBg, 1, {x: 50}),
+			new TweenLite.to(this.menuBg, 5, {x: 0})
 		],'+=0', 'sequence');
 
 		this.tlMenu
-			.set(this.menuBackground, {opacity: 1})
-			.to(this.tlBackground, 0.3, {progress:1, ease: Power3.easeIn})
-			.to(this.menuBackground, 0.3, {
+			.set(this.menu, {display: 'block'})
+			.set(this.menuBgTransparent, {display: 'block'})
+			.set(this.menuBg, {opacity: 1})
+			.to(this.tlBackground, 0.4, {progress:1, ease: Power3.easeIn})
+			.from(this.menuBgTransparent, 0.3, {opacity: 0}, 0)
+			.to(this.menuBg, 0.3, {
 				scale: scale ,
 				right:xOffset,
 				top:yOffset ,
 				ease: Power3.easeInOut
-			}, 0.05);
+			}, 0.05)
+		 	.staggerFrom(this.menuList.childNodes, 0.2, {opacity: 0, x:30, y: 10, ease: Power3.easeInOut }, 0.05, '-=0.25')
+			.staggerFrom(this.socialIcons.childNodes, 0.15, {x: 20, opacity: 0, ease: Power3.easeInOut}, 0.05,  '-=0.2');
+
 	}
 
 	toggleMenu() {
@@ -65,11 +79,10 @@ class Header extends React.Component {
 		this.setState({menuIsOpen: !this.state.menuIsOpen});
 
 		if (this.state.menuIsOpen) {
-			this.tlMenu.seek(0);
+			this.tlMenu.reverse().timeScale(2);
 		} else {
-			this.tlMenu.play();
+			this.tlMenu.play().timeScale(1);
 		}
-		this.menuIsOpen = !this.menuIsOpen;
 	}
 
 	render() {
@@ -99,23 +112,34 @@ class Header extends React.Component {
 						</span>
 					</button>
 
-					<div className="menu">
-						<svg ref={node => this.menuBackground = node}
-							className="menu-background"
-							xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+					<div className="menu" ref={node => this.menu = node}>
+						<div ref={node => this.menuBgTransparent = node}
+							className="menu-background-transparent"></div>
+						<svg ref={node => this.menuBg = node}
+							 className="menu-background"
+							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
 							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-							<rect ref={node => this.menuBackgroundRect = node}
-								className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
+							<rect ref={node => this.menuBgRect = node}
+								  className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
 						</svg>
+
 						<div className="menu-inner">
-							<ul className="menu-list">
+							<ul className="menu-list" ref={node => this.menuList = node}>
 								<li className="menu-item-red"><Link href="/team"><a>Team</a></Link></li>
 								<li className="menu-item-green"><Link href="/services"><a >Services</a></Link></li>
 								<li className="menu-item-blue"><Link href="/work"><a>Work</a></Link></li>
 								<li className="menu-item-yellow menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
 								<li className="menu-item-sub"><Link href="/updates"><a>Updates</a></Link></li>
 								<li className="menu-item-sub"><Link href="/playground"><a>Playground</a></Link></li>
-								<li><SocialMedia /></li>
+								<li>
+									<div className="menu-social" ref={node => this.socialIcons = node}>
+										<Link href="#"><a><Facebook /></a></Link>
+										<Link href="#"><a><Twitter /></a></Link>
+										<Link href="#"><a><Instagram /></a></Link>
+										<Link href="#"><a><LinkedIn /></a></Link>
+										<Link href="#"><a><Medium /></a></Link>
+									</div>
+								</li>
 							</ul>
 						</div>
 					</div>

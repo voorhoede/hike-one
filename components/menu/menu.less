@@ -1,33 +1,28 @@
 @import (reference) '../../styles/variables';
 
 .menu {
-	width: 100%;
 	background: transparent;
 	z-index: 2;
-	position: fixed;
-    top: 0;
-    right: 0;
-	list-style-type: none;
+}
 
-	&::before {
-		position: fixed;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		width: 100%;
-    	height: 100vh;
-		background: black;
-		opacity: 0.4;
-		content: '';
-	}
+.menu-background-transparent {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100vh;
+	background: black;
+	opacity: 0.4;
 }
 
 .menu-inner {
-	display: none;
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 	width: 100%;
@@ -35,10 +30,6 @@
 	padding: @spacing-small*5 @spacing-small;
 	background-color: @black;
 	z-index: 3;
-
-	.header.is-open & {
-		display: flex;
-	}
 
 	@media @screen-medium {
 		width: 50vw;
@@ -104,6 +95,10 @@
 }
 
 .menu .menu-social {
+
+	a {
+		display: inline-block;
+	}
 	@media @screen-medium {
 		display: inline-block;
 	}

@@ -20,7 +20,7 @@ class FullWidthImage extends React.Component {
 		this.initialScrollHeight = 0;
 		this.speed = 0.5;
 		this.ticking = false;
-		this.showImage = this.showImage.bind(this);
+
 		
 	}
 
@@ -157,10 +157,6 @@ class FullWidthImage extends React.Component {
 		this.fixedElement.style.transform = `translate3d(0px, -110%, 0px)`;
 	}
 
-	showImage(index) {
-		console.log('we get here?', index);
-	}
-
 	render() {
 		const {image, index, title, subtitle, links, overlay} = this.props;
 		const heroImageSmall = `${image}auto=format&fit=max&q=90&w=768`;
@@ -191,30 +187,24 @@ class FullWidthImage extends React.Component {
 		</style>`};
 
         return (
-			<div className={`full-width-image full-width-image-overlay 
-							${index ? 'full-width-image-show' : ''}`} 
+			<div className={
+					(this.props.imageIndex === this.props.index) ? 
+					'full-width-image full-width-image-show full-width-image-overlay' : 'full-width-image'
+				}
 				ref={node => this.element = node}>
 				<div className={`full-width-image-inner  ${overlay ? '' : ''}`}
 					 ref={node => this.fixedElement = node}
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
-					<div className={`full-width-image-background full-width-image-background-${index}`}
+					<div className={`full-width-image-background`}
 						 ref={node => this.imageElement = node}
-						 style={{ backgroundImage: `url(${this.props.image})`}} >
+						 style={{ backgroundImage: `url(${image})`}} >
 					</div>
 				</div>
-
-                {(title || subtitle || links) &&
+				
+                {(title || subtitle ) &&
 					<div className="full-width-image-text">
                     	{ title && <h2>{title}</h2> }
 						{ subtitle && <p>{subtitle}</p> }
-						{ links &&
-							Object.values(links).map(
-								(link, index)=> {
-									return <button key={index} onClick={() => {this.showImage(index)}}
-										className="full-width-image-action">{link.title}</button>
-								}
-							)
-						}	
                 	</div>
                 }
 				<div dangerouslySetInnerHTML={style}></div>

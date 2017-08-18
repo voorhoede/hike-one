@@ -25,10 +25,8 @@ export const variation2Back = () => (
 
 export const variation2Front = () => (
 	<div className="text-center-shapes-2">
-		<Parallax speed="0.875">
-			<Parallax speed="1.25">
-				<Triangle classes="shape-triangle-1" color="red" />
-			</Parallax>
+		<Parallax speed="1.25">
+			<Triangle classes="shape-triangle-1" color="red" />
 		</Parallax>
 	</div>
 );

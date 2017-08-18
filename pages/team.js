@@ -1,0 +1,54 @@
+import React from 'react';
+
+import Layout from '../components/layout/layout';
+import MenuBar from '../components/menu-bar/menu-bar';
+import Footer from '../components/footer/footer';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+import TextCenter from '../components/text-center/text-center';
+import * as TextCenterShapes from '../components/text-center/text-center-shapes';
+import Contact from '../components/contact/contact';
+import * as ContactShapes from '../components/contact/contact-shapes';
+import ImageComposition from '../components/image-composition/image-composition';
+import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
+
+import Data from '../data/current/team.json';
+import TeamImage2_1Data from '../data/current/teamImages21.json';
+import TeamImage3_4Data from '../data/current/teamImages34.json';
+import PeopleData from '../data/current/people.json';
+
+import scrollToElement from '../components/_helpers/scrollToElement';
+let scrollToTargetClass = 'js-scroll-to-target';
+
+const Team = () => {	
+	return (
+		<Layout title="Hike One - Team">
+			<main className="main js-main">
+				<MenuBar />
+				<article className="article">
+					<PageHeader
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
+						title={Data.title}
+						subtitle={Data.headerSubtitle}
+						heroImage={Data.headerImage.url}>
+						<PageHeaderShapes.variation2Front position="front"/>
+						<PageHeaderShapes.variation1Back position="back"/>
+					</PageHeader>
+					<div className={`${scrollToTargetClass}`}>
+						<ImageComposition
+							Person={PeopleData} 
+							TeamImage2_1={TeamImage2_1Data}
+							TeamImage3_4={TeamImage3_4Data}> 
+							<ImageCompositionShapes.variation1Front position="front"/>
+							<ImageCompositionShapes.variation1Back position="back"/>
+						</ImageComposition>
+					</div>
+				</article>
+				<Footer />
+			</main>
+		</Layout>
+	);
+};
+
+
+export default Team;

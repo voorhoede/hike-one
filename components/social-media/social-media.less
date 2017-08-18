@@ -2,7 +2,6 @@
 
 .menu-social {
 	width: 100%;
-    padding: 0 @spacing-small;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -14,36 +13,19 @@
 		height: 50px;
 
 		path {
+			transition: fill .3s;
 			fill: @dark-gray;
 		}
-	}
-
-	@media @screen-small {
-		width: 250px;
-	}
-
-	@media @screen-medium {
-		width: 55%;
-		padding:0;
-	}
-
-	@media @screen-large {
-		left: 40px;
-		position: relative;
-		width: 300px;
-		margin-top: 70px;
-		padding: 0 @spacing-small;
-		margin-left: 300px;
-		margin-right: auto;
 	}
 }
 
 .menu-social a {
 	color: @black;
 	text-decoration: none;
-}
 
-.menu-social img {
-	width: 100%;
-	height: auto;
+	&:hover {
+		svg path {
+			fill: @white;
+		}
+	}
 }

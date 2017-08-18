@@ -111,9 +111,8 @@ class Header extends React.Component {
 									<li className="menu-item-yellow menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
 									<li className="menu-item-sub"><Link href="/updates"><a>Updates</a></Link></li>
 									<li className="menu-item-sub"><Link href="/playground"><a>Playground</a></Link></li>
+									<li><SocialMedia /></li>
 								</ul>
-
-								<SocialMedia />
 							</div>
 						</div>
 

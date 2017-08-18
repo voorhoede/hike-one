@@ -20,6 +20,8 @@ class FullWidthImage extends React.Component {
 		this.initialScrollHeight = 0;
 		this.speed = 0.5;
 		this.ticking = false;
+		this.showImage = this.showImage.bind(this);
+		
 	}
 
 	componentDidMount() {
@@ -155,13 +157,16 @@ class FullWidthImage extends React.Component {
 		this.fixedElement.style.transform = `translate3d(0px, -110%, 0px)`;
 	}
 
+	showImage(index) {
+		console.log('we get here?', index);
+	}
+
 	render() {
-        const {image, index, title, subtitle, links, overlay} = this.props;
+		const {image, index, title, subtitle, links, overlay} = this.props;
 		const heroImageSmall = `${image}auto=format&fit=max&q=90&w=768`;
 		const heroImageMedium = `${image}auto=format&fit=max&q=90&w=1170`;
 		const heroImageLarge = `${image}auto=format&fit=max&q=90&w=1600`;
 		const heroImageExtraLarge = `${image}auto=format&fit=max&q=90&w=1920`;
-
 		const style ={__html:
 			`<style>
 				.full-width-image-background-${index} {
@@ -186,7 +191,9 @@ class FullWidthImage extends React.Component {
 		</style>`};
 
         return (
-            <div className="full-width-image full-width-image-overlay" ref={node => this.element = node}>
+			<div className={`full-width-image full-width-image-overlay 
+							${index ? 'full-width-image-show' : ''}`} 
+				ref={node => this.element = node}>
 				<div className={`full-width-image-inner  ${overlay ? '' : ''}`}
 					 ref={node => this.fixedElement = node}
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
@@ -203,8 +210,8 @@ class FullWidthImage extends React.Component {
 						{ links &&
 							Object.values(links).map(
 								(link, index)=> {
-									return <a href={link.target} key={index}
-										className="full-width-image-link">{link.title}</a>
+									return <button key={index} onClick={() => {this.showImage(index)}}
+										className="full-width-image-action">{link.title}</button>
 								}
 							)
 						}	

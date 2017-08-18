@@ -1,20 +1,28 @@
 import FullWidthImage from '../full-width-image/full-width-image';
+class ImageGallery extends React.Component{
+	constructor() {
+		super();
+	}
 
-const ImageGallery = ({images='', title={}, links={}}) => (
-	<div className="image-gallery">
-		{
-			Object.values(images).map(
-				(image, index) => {
-					return <FullWidthImage
-						key={index}
-						image={image.url}
-						title={title} 
-						links={links} 
-					/>
+	render() {
+		const {images, title, links} = this.props;
+		return (
+			<div className="image-gallery">
+				{
+					Object.values(images).map(
+						(image, index) => {
+							return <FullWidthImage
+								key={index}
+								index={index==1}
+								image={image.url}
+								title={title} 
+								links={links} 
+							/>
+						}
+					)
 				}
-			)
-		}
-	</div>
-)
-
+			</div>
+		)
+	}
+}
 export default ImageGallery;

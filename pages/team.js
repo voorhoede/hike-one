@@ -80,8 +80,9 @@ const Team = () => {
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
+				{/*onClickScrollButton={() => scrollToElement(scrollToTargetClass) }*/}	
 					<PageHeader
-						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
+						
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
 						heroImage={Data.headerImage.url}>
@@ -89,7 +90,7 @@ const Team = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					<div className={`${scrollToTargetClass}`}>
+					{ /*<div className={`${scrollToTargetClass}`}>*/}
 						<ImageComposition
 							Person={PeopleData} 
 							TeamImage2_1={TeamImage2_1Data}
@@ -97,7 +98,7 @@ const Team = () => {
 							<ImageCompositionShapes.variation1Front position="front"/>
 							<ImageCompositionShapes.variation1Back position="back"/>
 						</ImageComposition>
-					</div>
+					{/*</div>*/}
 
 					<ImageCombo
 						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
@@ -110,6 +111,7 @@ const Team = () => {
 							alignment='quote-block-right' 
 							text={workspace.workspaceStatistics}
 							openings={workspace.workspaceOpenings} />
+							
 					</ImageCombo>
 				</article>
 				<Footer />

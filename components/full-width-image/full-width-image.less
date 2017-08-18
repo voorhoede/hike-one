@@ -16,10 +16,10 @@
         height: 800px;
         margin: @spacing-large auto @spacing-default*8 auto;
         max-width: @max-width-image;
-    }
+    }  
 }
 
-.full-width-image-overlay{
+.full-width-image-overlay {
     background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 }
 
@@ -104,12 +104,14 @@
     }
 }
 
-.full-width-image-link {
+.full-width-image-action {
     color: @white;
     font-weight:@font-weight-normal;
     padding: 0 @spacing-default;
     font-size: @subtitle-large-s;
     line-height: @line-height-subtitle-s;
+    background: transparent;
+    border: none;
     
     &::after {
         content: '/';

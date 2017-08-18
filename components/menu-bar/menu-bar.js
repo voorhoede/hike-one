@@ -19,7 +19,6 @@ class Header extends React.Component {
 			hamburger: false
 		};
 		this.disableScrollClass = 'disable-scroll';
-		this.menuIsOpen = false;
 	}
 
 	componentWillUnmount() {
@@ -50,6 +49,7 @@ class Header extends React.Component {
 		],'+=0', 'sequence');
 
 		this.tlMenu
+			.set(this.menuBackground, {opacity: 1})
 			.to(this.tlBackground, 0.3, {progress:1, ease: Power3.easeIn})
 			.to(this.menuBackground, 0.3, {
 				scale: scale ,
@@ -62,7 +62,9 @@ class Header extends React.Component {
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);
 
-		if (this.menuIsOpen) {
+		this.setState({menuIsOpen: !this.state.menuIsOpen});
+
+		if (this.state.menuIsOpen) {
 			this.tlMenu.seek(0);
 		} else {
 			this.tlMenu.play();
@@ -85,37 +87,38 @@ class Header extends React.Component {
 						className="menu-btn"
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
-						<Triangle classes="menu-btn-background" />
+						<Triangle classes="menu-btn-background menu-btn-background-basis" />
+						<svg className="menu-btn-background menu-btn-background-hover"
+							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+						</svg>
+
 						<span className="menu-btn-icon">
 							{ !this.state.menuIsOpen && <Hamburger /> }
 							{ this.state.menuIsOpen && <Cross /> }
 						</span>
 					</button>
 
-						<div className="menu">
-
-							<svg ref={node => this.menuBackground = node}
-								className="menu-background menu-background-2 shape-triangle"
-								xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-								<rect ref={node => this.menuBackgroundRect = node}
-									className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
-							</svg>
-
-
-							<div className="menu-inner">
-								<ul className="menu-list" ref={node => this.menuList1 = node}>
-									<li className="menu-item-red"><Link href="/team"><a>Team</a></Link></li>
-									<li className="menu-item-green"><Link href="/services"><a >Services</a></Link></li>
-									<li className="menu-item-blue"><Link href="/work"><a>Work</a></Link></li>
-									<li className="menu-item-yellow menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
-									<li className="menu-item-sub"><Link href="/updates"><a>Updates</a></Link></li>
-									<li className="menu-item-sub"><Link href="/playground"><a>Playground</a></Link></li>
-									<li><SocialMedia /></li>
-								</ul>
-							</div>
+					<div className="menu">
+						<svg ref={node => this.menuBackground = node}
+							className="menu-background"
+							xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+							<rect ref={node => this.menuBackgroundRect = node}
+								className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
+						</svg>
+						<div className="menu-inner">
+							<ul className="menu-list">
+								<li className="menu-item-red"><Link href="/team"><a>Team</a></Link></li>
+								<li className="menu-item-green"><Link href="/services"><a >Services</a></Link></li>
+								<li className="menu-item-blue"><Link href="/work"><a>Work</a></Link></li>
+								<li className="menu-item-yellow menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
+								<li className="menu-item-sub"><Link href="/updates"><a>Updates</a></Link></li>
+								<li className="menu-item-sub"><Link href="/playground"><a>Playground</a></Link></li>
+								<li><SocialMedia /></li>
+							</ul>
 						</div>
-
+					</div>
 				</div>
 			</header>
 		);

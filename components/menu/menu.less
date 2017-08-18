@@ -33,28 +33,12 @@
 	width: 100%;
 	height: 100vh;
 	padding: @spacing-small*5 @spacing-small;
-	background-color: @darker-gray;
+	background-color: @black;
     overflow-y: hidden;
 
 	@media @screen-medium {
-		width: 65vw;
-		background: transparent;
-	}
-
-	@media @screen-medium-large {
 		width: 50vw;
-	}
-
-	@media @screen-large {
-		width: 65vw;
-		color: @white;
-	}
-
-	@media only screen and (min-width: @container-max-width) {
-		width: 52vw;
-		// padding to keep the menu items aligned with the hamburger menu
-		// necessary for the container on the header
-		padding-right: calc(~"50% - (@{container-max-width}/2) + 100px")
+		background: transparent;
 	}
 
 	@media only screen and (min-height: 768px) and (min-width: 768px){
@@ -66,20 +50,7 @@
 	}
 }
 
-svg.menu-background-enlarged {
-	transform: scale(36);
-	fill: @darker-gray;
-	&:hover {
-		fill: @darker-gray;
-	}
 
-	@media @screen-medium {
-		transform: scale(50) translate(2px);
-	}
-	@media only screen and (min-width: @container-max-width) {
-		transform: scale(52) translate(6px);
-	}
-}
 
 .menu-list {
 	margin: 0 0 @spacing-default*7 0;
@@ -99,6 +70,10 @@ svg.menu-background-enlarged {
 	font-weight: @font-weight-bold;
 	margin-bottom: @spacing-small;
 
+	&.menu-item-last {
+		margin-bottom: @spacing-default*7 + @spacing-small;
+	}
+
 	@media @screen-small {
 		font-size: @title-large-s;
 		line-height: @line-height-title-s;
@@ -110,86 +85,52 @@ svg.menu-background-enlarged {
 	}
 }
 
+
+
 .menu-list a {
 	color: @light-gray;
 	text-decoration: none;
 }
 
-.menu-list-sub {
+.menu-item-sub {
 	opacity: 0.7;
 }
 
-.menu-item-spaced {
-	@media @screen-medium {
-		padding-left: @spacing-medium;
-	}
-}
-.menu-item-spaced-double {
-	@media @screen-medium {
-		padding-left: @spacing-medium*2;
-	}
-}
-.menu-item-spaced-triple {
-	@media @screen-medium {
-		padding-left: @spacing-medium*3;
-	}
-}
-.menu-item-spaced-quadruple {
-	@media @screen-medium {
-		padding-left: @spacing-medium*5;
-	}
-	@media only screen and (min-width: @container-max-width) {
-		padding-left: (@spacing-medium*5) + @spacing-large;
-	}
-}
-.menu-item-spaced-quintuple {
-	@media @screen-medium {
-		padding-left: @spacing-medium*6;
-	}
-	@media only screen and (min-width: @container-max-width) {
-		padding-left: (@spacing-medium*6) + @spacing-large;
-	}
-}
+
 .menu-inner-no-margin {
 	@media @screen-large {
 		margin-bottom: 0;
 	}
 }
 
-.menu-item-red{
-	&:hover{
-		color: @red;
-	}
+.menu-item-red:hover a {
+	color: @red;
 }
-.menu-item-green{
-	&:hover{
-		color: @green;
-	}
+
+.menu-item-green:hover a {
+	color: @green;
 }
-.menu-item-blue{
-	&:hover{
-		color: @blue;
-	}
+
+.menu-item-blue:hover a {
+	color: @blue;
 }
-.menu-item-yellow{
-	&:hover{
-		color: @yellow;
-	}
+
+.menu-item-yellow:hover a {
+	color: @yellow;
 }
 
 .menu-background {
 	position: fixed;
-	z-index: 2;
 	right: 15px;
 	top: 10px;
-	width: 50px;
 	height: 50px;
-	fill: @white;
+	fill: @black;
+	transform-origin: 0 0;
+	z-index: 3;
 
 	@media @screen-large {
 		right: 30px;
 		top: 20px;
-		width: 80px;
 		height: 80px;
 	}
 

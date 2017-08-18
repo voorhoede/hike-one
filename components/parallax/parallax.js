@@ -1,7 +1,7 @@
 import React from 'react';
 import getParallaxYOffset from '../_helpers/getParallaxYOffset';
 import isElementInView from '../_helpers/isElementInView';
-import TweenLite from "gsap";
+import TweenLite from 'gsap';
 
 class parallax extends React.Component {
 	constructor(props) {

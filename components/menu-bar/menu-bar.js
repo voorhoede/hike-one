@@ -76,6 +76,8 @@ class Header extends React.Component {
 			.set(this.menuBgTransparent, {display: 'block'})
 			.set(this.menuBg, {opacity: 1})
 			.set(this.menuBtnBg, {opacity: 0})
+			.set(this.menuList.childNodes, {opacity: 0})
+			.set(this.socialIcons.childNodes, {opacity: 0})
 			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 0)
 			.to(this.menuBg, 0.25, {
 				scale: this.scale,
@@ -93,14 +95,14 @@ class Header extends React.Component {
 			.staggerFrom(this.menuList.childNodes, 0.2, {
 				opacity: 0,
 				x: 30,
-				y: 10,
+				y: window.matchMedia("(max-width: 768px)").matches ? 0 : 10,
 				ease: Power3.easeInOut
 			}, 0.05, '-=0.25')
 			.staggerFrom(this.socialIcons.childNodes, 0.15, {
 				x: 20,
 				opacity: 0,
 				ease: Power3.easeInOut
-			}, 0.05,  '-=0.2');
+			}, 0.05, '-=0.2');
 	}
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);

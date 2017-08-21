@@ -158,7 +158,7 @@ class FullWidthImage extends React.Component {
 	}
 
 	render() {
-		const {image, index, title, subtitle, links, overlay} = this.props;
+		const {image, index, title, subtitle, imageOverlay} = this.props;
 		const heroImageSmall = `${image}auto=format&fit=max&q=90&w=768`;
 		const heroImageMedium = `${image}auto=format&fit=max&q=90&w=1170`;
 		const heroImageLarge = `${image}auto=format&fit=max&q=90&w=1600`;
@@ -189,7 +189,7 @@ class FullWidthImage extends React.Component {
         return (
 			<div className={ 
 					(this.props.imageIndex === this.props.index) ? 
-					'full-width-image full-width-image-show full-width-image-overlay' : 'full-width-image'
+					'full-width-image full-width-image-show' : 'full-width-image'
 				}
 				ref={node => this.element = node}>
 				<div className={`full-width-image-inner`}
@@ -199,6 +199,9 @@ class FullWidthImage extends React.Component {
 						ref={node => this.imageElement = node}
 						style={{ backgroundImage: `url(${image})`}} >
 					</div>
+					{ imageOverlay &&
+						<div className="full-width-image-overlay"></div>
+					}
 				</div>
 				
                 {(title || subtitle ) &&

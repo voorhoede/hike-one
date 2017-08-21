@@ -1,5 +1,5 @@
 
-const StatisticsBlock = ({color = '', alignment='', statisticsSingle='', statisticsCombination=[], openings=''}) => (	
+const StatisticsBlock = ({color = '', alignment='', statisticsSingle='', statisticsCombination=[], jobOpenings=''}) => (	
 	<div className={`text-block ${color} ${alignment}`}>
 			<div className="statistics">
 				{ statisticsSingle &&
@@ -24,10 +24,10 @@ const StatisticsBlock = ({color = '', alignment='', statisticsSingle='', statist
 							)
 						}
 						</div>
-						{ openings &&
+						{ jobOpenings &&
 							<div className="statistics-call-to-action">
-								<a href={openings.target} className="btn-primary">
-									<span>{openings.title}</span>
+								<a href={jobOpenings.target} className="btn-primary">
+									<span>{jobOpenings.title}</span>
 								</a>
 							</div>
 						}

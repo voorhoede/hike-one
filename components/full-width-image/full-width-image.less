@@ -20,7 +20,10 @@
 }
 
 .full-width-image-overlay {
-    
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 9;
     background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 }
 
@@ -113,14 +116,18 @@
     line-height: @line-height-subtitle-s;
     background: transparent;
     border: none;
+    outline: none;
     
     &::after {
         content: '/';
         display: inline-block;
         position: relative;
         top: 4px;
-        left: 20px;
-		font-size: 28px;
+        left: @spacing-default;
+        font-size: 28px;
+        @media @screen-large {
+            left: @spacing-small;
+        }
     }
     &:last-child::after {
         content: '';

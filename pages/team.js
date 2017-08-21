@@ -113,7 +113,7 @@ const Team = () => {
 							alignment='text-block-right' 
 							statisticsSingle={workspace.statisticsSingle}
 							statisticsCombination={workspace.statisticsCombination}
-							openings={workspace.workspaceOpenings} />
+							jobOpenings={workspace.workspaceOpenings} />
 					</ImageCombo>
 				</article>
 				<Footer />

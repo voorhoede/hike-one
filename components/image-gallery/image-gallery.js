@@ -26,7 +26,7 @@ class ImageGallery extends React.Component{
 								imageIndex={this.state.imageIndex}
 								index={index}
 								image={image.url}
-								overlay={true}
+								imageOverlay={true}
 							/>
 						}
 					)

@@ -11,7 +11,7 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageComposition from '../components/image-composition/image-composition';
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
-import TextBlock from '../components/text-block/text-block';
+import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 
@@ -52,20 +52,22 @@ const workspace = {
 			target: '#EHV'
 		}
 	],
-	workspaceStatistics: [
+	statisticsSingle: {
+		title:'Digital Fanatics',
+		amount: 62,
+		large: true
+	},
+	statisticsCombination: [
 		{
-			title:'amountFanatics',
-			amount: 62
-		},{
-			title:'digitalDesigner',
+			title:'Digital Designer',
 			amount: 53
 		},{
-			title:'projectMangers',
+			title:'Project Mangers',
 			amount: 8
 		},{
-			title:'superHeroes',
+			title:'Super Heroes',
 			amount: 4
-		},
+		}
 	],
 	workspaceOpenings: {
 		title: 'See job openings',
@@ -74,7 +76,6 @@ const workspace = {
 }
 
 const Team = () => {	
-
 	return (
 		<Layout title="Hike One - Team">
 			<main className="main js-main">
@@ -107,11 +108,12 @@ const Team = () => {
 							title={workspace.workspaceTitle}
 							links={workspace.workspaceLocations}>
 						</ImageGallery>
-						<TextBlock
+						<StatisticsBlock
+							color='blue'
 							alignment='text-block-right' 
-							text={workspace.workspaceStatistics}
+							statisticsSingle={workspace.statisticsSingle}
+							statisticsCombination={workspace.statisticsCombination}
 							openings={workspace.workspaceOpenings} />
-
 					</ImageCombo>
 				</article>
 				<Footer />

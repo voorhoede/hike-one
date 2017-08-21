@@ -26,14 +26,14 @@ class ImageGallery extends React.Component{
 								imageIndex={this.state.imageIndex}
 								index={index}
 								image={image.url}
-								title={title} 
-								links={links} 
+								overlay={true}
 							/>
 						}
 					)
 				}
 				
 				<div className="full-width-image-text">
+					{ title && <h2>{title}</h2> }
 					{ links &&
 						links.map(
 							(link, i) => {

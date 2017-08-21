@@ -187,17 +187,17 @@ class FullWidthImage extends React.Component {
 		</style>`};
 
         return (
-			<div className={
+			<div className={ 
 					(this.props.imageIndex === this.props.index) ? 
 					'full-width-image full-width-image-show full-width-image-overlay' : 'full-width-image'
 				}
 				ref={node => this.element = node}>
-				<div className={`full-width-image-inner  ${overlay ? '' : ''}`}
+				<div className={`full-width-image-inner`}
 					 ref={node => this.fixedElement = node}
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
-					<div className={`full-width-image-background`}
-						 ref={node => this.imageElement = node}
-						 style={{ backgroundImage: `url(${image})`}} >
+					<div className="full-width-image-background"
+						ref={node => this.imageElement = node}
+						style={{ backgroundImage: `url(${image})`}} >
 					</div>
 				</div>
 				

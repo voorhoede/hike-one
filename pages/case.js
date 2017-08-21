@@ -20,7 +20,7 @@ import * as ImageComboShapes from '../components/image-combo/image-combo-shapes'
 import FiftyFifty from '../components/50-50/50-50';
 import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes';
 
-import TextBlock from '../components/text-block/text-block';
+import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
 import LogoList from '../components/logo-list/logo-list';
 
@@ -155,15 +155,14 @@ const Case = ({Data}) => (
 											index={index}/>
 
 										{ component.quoteAuthorTitle &&
-										<TextBlock
-											color={component.quoteColor.color }
-											alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right' }
-											quote={component.quote}
-											citeName={component.quoteAuthorName}
-											citeTitle={component.quoteAuthorTitle}
-											citeImage={component.quoteAuthorImage.url} />
+											<QuoteBlock
+												color={component.quoteColor.color }
+												alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right' }
+												quote={component.quote}
+												citeName={component.quoteAuthorName}
+												citeTitle={component.quoteAuthorTitle}
+												citeImage={component.quoteAuthorImage.url} />
 										}
-
 										{ parallaxLayers }
 									</ImageCombo>
 								);

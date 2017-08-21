@@ -20,8 +20,6 @@ class FullWidthImage extends React.Component {
 		this.initialScrollHeight = 0;
 		this.speed = 0.5;
 		this.ticking = false;
-
-		
 	}
 
 	componentDidMount() {
@@ -187,10 +185,8 @@ class FullWidthImage extends React.Component {
 		</style>`};
 
         return (
-			<div className={ 
-					(this.props.imageIndex === this.props.index) ? 
-					'full-width-image full-width-image-show' : 'full-width-image'
-				}
+			<div className={(this.props.imageIndex === this.props.index) ? 
+					'full-width-image full-width-image-show' : 'full-width-image'}
 				ref={node => this.element = node}>
 				<div className={`full-width-image-inner`}
 					 ref={node => this.fixedElement = node}
@@ -199,11 +195,8 @@ class FullWidthImage extends React.Component {
 						ref={node => this.imageElement = node}
 						style={{ backgroundImage: `url(${image})`}} >
 					</div>
-					{ imageOverlay &&
-						<div className="full-width-image-overlay"></div>
-					}
+					{ imageOverlay && <div className="full-width-image-overlay"></div>}
 				</div>
-				
                 {(title || subtitle ) &&
 					<div className="full-width-image-text">
                     	{ title && <h2>{title}</h2> }

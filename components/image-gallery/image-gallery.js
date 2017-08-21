@@ -38,7 +38,7 @@ class ImageGallery extends React.Component{
 						links.map(
 							(link, i) => {
 								return <button key={i} onClick={() => { this.showImage(i) }}
-									className="full-width-image-action">{link.title}</button>
+									className="full-width-image-button">{link.title}</button>
 							}
 						)
 					}	

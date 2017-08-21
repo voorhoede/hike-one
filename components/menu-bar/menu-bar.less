@@ -74,10 +74,6 @@
 		width: 50px;
 		height: 50px;
 		transition: opacity 0.3s, transform 0.3s;
-
-		.is-open & {
-			display: none;
-		}
 	}
 
 	svg.menu-btn-background-basis {
@@ -117,13 +113,10 @@
 		}
 
 		svg.menu-btn-background {
-			left: -21px;
+			left: -16px;
 			top: -15px;
 			width: 80px;
 			height: 80px;
 		}
-	}
-	@media only screen and (min-width: @container-max-width) {
-		right: calc(~"(100vw - @{column-large-12} + 140px) / 2");
 	}
 }

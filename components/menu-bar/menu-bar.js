@@ -12,82 +12,132 @@ import Instagram  from '../icons/instagram-circle';
 import LinkedIn   from '../icons/linkedin-circle';
 import Medium 	  from '../icons/medium-circle';
 
+import {TweenLite, Power3, TimelineLite}  from 'gsap';
 
-import {TweenLite, Power3, Power0, Power1, TimelineLite, TimelineMax}  from 'gsap';
-
-
-import Menu from '../menu/menu';
-import SocialMedia from '../social-media/social-media';
 class Header extends React.Component {
 	constructor() {
 		super();
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.setInitialValues = this.setInitialValues.bind(this);
+		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
+		this.onResize = this.onResize.bind(this);
 		this.state = {
-			menuIsOpen: false,
 			hamburger: false
 		};
+		this.menuIsOpen = false;
 		this.disableScrollClass = 'disable-scroll';
+	}
+
+	componentDidMount() {
+		this.setInitialValues();
+		this.setAnimationTimeline();
+		window.addEventListener('resize', this.onResize);
 	}
 
 	componentWillUnmount() {
 		document.body.classList.remove(this.disableScrollClass);
+		window.removeEventListener('resize', this.onResize);
 	}
 
-	componentDidMount() {
+	setInitialValues() {
 		const windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
 		const svgBgRect = this.menuBg.getBoundingClientRect();
 		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
+		const bgCoverPercentage = window.matchMedia("(max-width: 768px)").matches ? 2 : 0.7;
+		this.scale = Math.round((windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
 
-		const scale = (windowWidth * 0.7) / svgBgHelperRect.width;
+		this.svgHeight = svgBgRect.height * this.scale;
+		this.svgWidth = svgBgRect.width * this.scale;
 
-		const yDiff = svgBgHelperRect.top - svgBgRect.top;
-		const yOffsetHelperRect = (yDiff / svgBgRect.height);
-		const yOffset = -((svgBgRect.height * scale) * yOffsetHelperRect);
+		const yDiff = svgBgRect.top - svgBgHelperRect.top;
+		this.yOffset = Math.round(yDiff * this.scale);
 
-		const xDiff = (svgBgRect.left - svgBgHelperRect.right);
+		const xDiff = ( svgBgHelperRect.right - svgBgRect.left);
 		const xOffsetHelperRect = (xDiff / svgBgRect.width);
-		const xOffset = -((svgBgRect.width * scale) * xOffsetHelperRect + svgBgRect.width);
+		this.xOffset = Math.round((svgBgRect.width * this.scale) * xOffsetHelperRect + svgBgRect.width);
 
-		this.tlMenu = new TimelineMax({paused: true});
-		this.tlBackground = new TimelineMax({paused: true});
-
-		this.tlBackground.add([
-			new TweenLite.to(this.menuBg, 1, {x: 50}),
-			new TweenLite.to(this.menuBg, 5, {x: 0})
-		],'+=0', 'sequence');
-
-		this.tlMenu
-			.set(this.menu, {display: 'block'})
-			.set(this.menuBgTransparent, {display: 'block'})
-			.set(this.menuBg, {opacity: 1})
-			.to(this.tlBackground, 0.4, {progress:1, ease: Power3.easeIn})
-			.from(this.menuBgTransparent, 0.3, {opacity: 0}, 0)
-			.to(this.menuBg, 0.3, {
-				scale: scale ,
-				right:xOffset,
-				top:yOffset ,
-				ease: Power3.easeInOut
-			}, 0.05)
-		 	.staggerFrom(this.menuList.childNodes, 0.2, {opacity: 0, x:30, y: 10, ease: Power3.easeInOut }, 0.05, '-=0.25')
-			.staggerFrom(this.socialIcons.childNodes, 0.15, {x: 20, opacity: 0, ease: Power3.easeInOut}, 0.05,  '-=0.2');
-
+		const xDiff2 = (svgBgHelperRect.right - svgBgRect.right);
+		this.xOffset2 = Math.round(xDiff2 * this.scale);
 	}
 
+	setAnimationTimeline() {
+		this.tlMenu = new TimelineLite({paused: true});
+		this.tlMenu
+			.set(this.menu, {clearProps:'all'})
+			.set(this.menuInner, {clearProps: 'all'})
+			.set(this.menuList.childNodes, {clearProps: 'all'})
+			.set(this.socialIcons.childNodes, {clearProps: 'all'})
+			.set(this.menuBgTransparent, {clearProps:'all'})
+			.set(this.menuBg, {clearProps:'all'})
+			.set(this.menuBtnBg, {clearProps: 'all'})
+			.set(this.menuBgSvgFinal, {clearProps: 'all'})
+			.set(this.menu, {display: 'block'})
+			.set(this.menuInner, {right: 0})
+			.set(this.menuBgTransparent, {display: 'block'})
+			.set(this.menuBg, {opacity: 1})
+			.set(this.menuBtnBg, {opacity: 0})
+			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 0)
+			.to(this.menuBg, 0.25, {
+				scale: this.scale,
+				x: -this.xOffset,
+				top: this.yOffset,
+				ease: Power3.easeInOut
+			}, 0.05)
+			.set(this.menuBg, {opacity: 0}, '-=0.1')
+			.set(this.menuBgSvgFinal, {
+				height: this.svgHeight,
+				width: this.svgWidth,
+				right: this.xOffset2,
+				y: this.yOffset,
+			}, '-=0.1')
+			.staggerFrom(this.menuList.childNodes, 0.2, {
+				opacity: 0,
+				x: 30,
+				y: 10,
+				ease: Power3.easeInOut
+			}, 0.05, '-=0.25')
+			.staggerFrom(this.socialIcons.childNodes, 0.15, {
+				x: 20,
+				opacity: 0,
+				ease: Power3.easeInOut
+			}, 0.05,  '-=0.2');
+	}
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);
 
-		this.setState({menuIsOpen: !this.state.menuIsOpen});
-
-		if (this.state.menuIsOpen) {
-			this.tlMenu.reverse().timeScale(2);
+		if (this.menuIsOpen) {
+			this.tlMenu
+				.timeScale(2)
+				.reverse();
 		} else {
-			this.tlMenu.play().timeScale(1);
+			this.tlMenu
+				.timeScale(1)
+				.play();
 		}
+
+		this.menuIsOpen = !this.menuIsOpen;
+	}
+
+	onResize() {
+		if (this.menuIsOpen) {
+			// close menu
+			this.tlMenu
+				.timeScale(10)
+				.reverse();
+			this.menuIsOpen = false;
+		}
+
+		// add debounce for resize so it fires only add the end of resize
+		clearTimeout(this.resizeTimer);
+		this.resizeTimer = setTimeout(() => {
+			this.setInitialValues();
+			this.setAnimationTimeline();
+		}, 250);
 	}
 
 	render() {
 		return (
-			<header className={`header ${this.state.menuIsOpen ? 'is-open' : ''}`}>
+			<header className={`header`}>
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
@@ -100,11 +150,13 @@ class Header extends React.Component {
 						className="menu-btn"
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
-						<Triangle classes="menu-btn-background menu-btn-background-basis" />
-						<svg className="menu-btn-background menu-btn-background-hover"
-							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-						</svg>
+						<span ref={node => this.menuBtnBg = node}>
+							<Triangle classes="menu-btn-background menu-btn-background-basis" />
+							<svg className="menu-btn-background menu-btn-background-hover"
+								 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+							</svg>
+						</span>
 
 						<span className="menu-btn-icon">
 							{ !this.state.menuIsOpen && <Hamburger /> }
@@ -115,15 +167,24 @@ class Header extends React.Component {
 					<div className="menu" ref={node => this.menu = node}>
 						<div ref={node => this.menuBgTransparent = node}
 							className="menu-background-transparent"></div>
-						<svg ref={node => this.menuBg = node}
-							 className="menu-background"
-							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-							<rect ref={node => this.menuBgRect = node}
-								  className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
-						</svg>
 
-						<div className="menu-inner">
+							<svg className="menu-background" ref={node => this.menuBg = node}
+								 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+								<polygon points="226, 1.7 494,71 349,307"/>
+							</svg>
+
+							<svg className="menu-background-final" ref={node => this.menuBgSvgFinal = node}
+								 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+								<polygon points="226, 1.7 494,71 349,307"/>
+							</svg>
+
+							<svg className="menu-background" xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+								<rect ref={node => this.menuBgRect = node}
+									  className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
+							</svg>
+
+						<div className="menu-inner" ref={node => this.menuInner = node}>
 							<ul className="menu-list" ref={node => this.menuList = node}>
 								<li className="menu-item-red"><Link href="/team"><a>Team</a></Link></li>
 								<li className="menu-item-green"><Link href="/services"><a >Services</a></Link></li>

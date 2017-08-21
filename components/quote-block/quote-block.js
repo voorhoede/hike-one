@@ -1,6 +1,6 @@
 import React from 'react';
 
-const QuoteBlock = ({color = '', alignment='', quote = '', citeImage, citeName = '', citeTitle = '', text='', openings=''}) => (
+const QuoteBlock = ({color = '', alignment='', quote = '', citeImage, citeName = '', citeTitle = ''}) => (
 	<blockquote className={`text-block ${color} ${alignment}`}>
 		{ quote &&		
 			<span className="content">

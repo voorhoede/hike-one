@@ -64,3 +64,24 @@
 .text-block.dark-gray {
     background-color: @darker-gray;
 }
+
+
+.text-block-left {
+	margin-right: @spacing-default*1.5;
+	margin-left: 0;
+
+	@media @screen-large {
+		margin-right: 0;
+		max-width: @column-large-10;
+	}
+}
+
+.text-block-right {
+	margin-left: @spacing-default*1.5;
+	margin-right: 0;
+
+	@media @screen-large {
+		max-width: @column-large-10;
+		margin-left: auto;
+	}
+}

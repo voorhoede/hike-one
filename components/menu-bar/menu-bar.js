@@ -22,9 +22,9 @@ class Header extends React.Component {
 		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
 		this.onResize = this.onResize.bind(this);
 		this.state = {
-			hamburger: false
+			hamburger: false,
+			menuIsOpen: false
 		};
-		this.menuIsOpen = false;
 		this.disableScrollClass = 'disable-scroll';
 	}
 
@@ -107,7 +107,7 @@ class Header extends React.Component {
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);
 
-		if (this.menuIsOpen) {
+		if (this.state.menuIsOpen) {
 			this.tlMenu
 				.timeScale(2)
 				.reverse();
@@ -117,16 +117,17 @@ class Header extends React.Component {
 				.play();
 		}
 
-		this.menuIsOpen = !this.menuIsOpen;
+		this.setState({menuIsOpen : !this.state.menuIsOpen});
 	}
 
 	onResize() {
-		if (this.menuIsOpen) {
+		if (this.state.menuIsOpen) {
 			// close menu
 			this.tlMenu
 				.timeScale(10)
 				.reverse();
-			this.menuIsOpen = false;
+			document.body.classList.remove(this.disableScrollClass);
+			this.setState({menuIsOpen: false});
 		}
 
 		// add debounce for resize so it fires only add the end of resize
@@ -139,12 +140,11 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header className={`header`}>
+			<header className={`header ${this.state.menuIsOpen ? 'is-open' : ''}`}>
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">
-							<Logo color={`${this.props.color ? this.props.color : "black"}
-							 	${this.state.menuIsOpen ? 'white': ''}`} />
+							<Logo color={`${this.props.color ? this.props.color : "black"}`} />
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>

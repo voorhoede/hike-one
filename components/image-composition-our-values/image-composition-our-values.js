@@ -59,7 +59,7 @@ const ImageCompositionOurValues = ({children, TeamImage3_4, Person, ourValues}) 
 				color='purple'
 				alignment='text-block-right'
 				size='small'
-				list={ourValues} />		
+				ourValueslist={ourValues} />		
 			{parallaxLayerFront}
 		
 		</div>

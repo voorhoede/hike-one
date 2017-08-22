@@ -1,12 +1,12 @@
 import BulletPointTriangle from '../icons/bullet-point-triangle';
 
-const TextBlock = ({color = '', alignment='', size='', list=''}) => (
+const TextBlock = ({color = '', alignment='', size='', ourValueslist=''}) => (
 	<div className={`text-block ${color} ${alignment} text-block-${size}`}>
-		<h3 className="text-block-subtitle">{list.title}</h3>
-		{ list && 
+		<h3 className="text-block-subtitle">{ourValueslist.title}</h3>
+		{ ourValueslist && 
 			<ul className="text-block-list">
 			{  
-				list.values.map((item,index) => {
+				ourValueslist.values.map((item,index) => {
 					return (
 						<li key={index} className="text-block-list-item">
 							<span className="text-block-list-icon">

@@ -17,7 +17,6 @@ class FullWidthImage extends React.Component {
 		this.getBackgroundImage = this.getBackgroundImage.bind(this);
 		this.resizeTimer = null;
 		this.elBoundingRect = null;
-		this.initialScrollHeight = 0;
 		this.speed = 0.5;
 		this.ticking = false;
 	}
@@ -25,7 +24,6 @@ class FullWidthImage extends React.Component {
 	componentDidMount() {
 		// only add animation when requestAnimationFrame is supported
 		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.initialScrollHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 			// wait until image is loaded
 			const backgroundImage = this.getBackgroundImage();
@@ -85,9 +83,8 @@ class FullWidthImage extends React.Component {
 		this.elementReset = false;
 		this.elementTop = this.elementTop ? this.elementTop : this.element.getBoundingClientRect().top + window.pageYOffset;
 		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-		const relativeScroll = this.initialScrollHeight - scrolledHeight;
-		const yOffsetFixed = this.elementTop + relativeScroll;
-		const yOffsetImage = -(this.elementTop + relativeScroll) * this.speed;
+		const yOffsetFixed = this.elementTop -scrolledHeight;
+		const yOffsetImage = -(this.elementTop + -scrolledHeight) * this.speed;
 		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
 	}
 
@@ -185,8 +182,7 @@ class FullWidthImage extends React.Component {
 		</style>`};
 
         return (
-			<div className={(this.props.imageIndex === this.props.index) ? 
-					'full-width-image full-width-image-show' : 'full-width-image'}
+			<div className="full-width-image"
 				ref={node => this.element = node}>
 				<div className={`full-width-image-inner`}
 					 ref={node => this.fixedElement = node}

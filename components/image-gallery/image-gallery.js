@@ -1,4 +1,6 @@
+import React from 'react';
 import FullWidthImage from '../full-width-image/full-width-image';
+
 class ImageGallery extends React.Component{
 	constructor() {
 		super();
@@ -9,9 +11,7 @@ class ImageGallery extends React.Component{
 	}
 
 	showImage(index) {
-		this.setState({
-			imageIndex: index
-		});
+		this.setState({imageIndex: index});
 	}
 
 	render() {
@@ -20,13 +20,14 @@ class ImageGallery extends React.Component{
 			<div className="image-gallery">
 				{ items.map(
 					(item, index) => (
-						<FullWidthImage
-							key={index}
-							imageIndex={this.state.imageIndex}
-							index={index}
-							image={item.url}
-							imageOverlay={true}
-						/>
+						<div key={index}>
+							{ this.state.imageIndex === index &&
+							<FullWidthImage
+								index={index}
+								image={item.url}
+								imageOverlay={true} />
+							}
+						</div>
 					)
 				)}
 				<div className="full-width-image-text">

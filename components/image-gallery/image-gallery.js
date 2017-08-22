@@ -26,7 +26,7 @@ class ImageGallery extends React.Component{
 							<FullWidthImage
 								index={index}
 								image={item.url}
-								imageOverlay={true} />
+								overlay={true} />
 							}
 						</div>
 					)

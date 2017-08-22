@@ -28,7 +28,7 @@ const ImageCompositionOurValues = ({children, TeamImage3_4, Person, ourValues}) 
 				</div>
 
 			{
-				[Person, Person, Person].map((item,index) => (
+				[Person, Person, Person].map((item, index) => (
 					<div key={index} className={`teamimage-person teamimage-person-small teamimage-spaced 
 						teamimage-person-align-left`}>
 						<div className="transition-img-hover">
@@ -59,7 +59,7 @@ const ImageCompositionOurValues = ({children, TeamImage3_4, Person, ourValues}) 
 				color='purple'
 				alignment='text-block-right'
 				size='small'
-				text={ourValues} />		
+				list={ourValues} />		
 			{parallaxLayerFront}
 		
 		</div>

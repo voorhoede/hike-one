@@ -77,7 +77,7 @@ const workspace = {
 	}
 }
 const ourValues = {
-	subtitle: 'Our values', 
+	title: 'Our values', 
 	values: [
 		'Do what you love',
 		'Find a way',

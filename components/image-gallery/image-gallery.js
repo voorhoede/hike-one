@@ -15,36 +15,32 @@ class ImageGallery extends React.Component{
 	}
 
 	render() {
-		const {images, title, links} = this.props;
+		const {items} = this.props;
 		return (
 			<div className="image-gallery">
-				{
-					images.map(
-						(image, index) => {
-							return <FullWidthImage
-								key={index}
-								imageIndex={this.state.imageIndex}
-								index={index}
-								image={image.url}
-								imageOverlay={true}
-							/>
-						}
+				{ items.map(
+					(item, index) => (
+						<FullWidthImage
+							key={index}
+							imageIndex={this.state.imageIndex}
+							index={index}
+							image={item.url}
+							imageOverlay={true}
+						/>
 					)
-				}
-				
+				)}
 				<div className="full-width-image-text">
-					{ title && <h2>{title}</h2> }
-					{ links &&
-						links.map(
-							(link, i) => {
-								return <button key={i} onClick={() => { this.showImage(i) }}
-									className="full-width-image-button">{link.title}</button>
-							}
+					{ items.map(
+						(item, i) => (
+							<button key={i} onClick={() => this.showImage(i)}
+								className="full-width-image-button">
+								{item.title}
+							</button>
 						)
-					}	
+					)}
 				</div>
 			</div>
-		)
+		);
 	}
 }
 export default ImageGallery;

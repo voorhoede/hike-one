@@ -12,32 +12,7 @@ import FullWidthImage from '../full-width-image/full-width-image';
 const workspace = {
 	overlay: true,
 	workspaceTitle: 'Our work space',
-	workspaceImages: [
-		{
-			name: 'amsterdam',
-			url:'../static/images/office_amsterdam.jpg'
-		},
-		{
-			name: 'rotterdam',
-			url:'../static/images/header_home.jpg'
-		},
-		{
-			name: 'eindhoven',
-			url:'../static/images/img-team.jpg'
-		}
-	],
-	workspaceLocations: [
-		{
-			title: 'AMS',
-			target: '#AMS'
-		},{
-			title: 'RTM',
-			target: '#RTM'
-		},{
-			title: 'EHV',
-			target: '#EHV'
-		}
-	],
+
 	statisticsSingle: {
 		title:'Digital Fanatics',
 		amount: 62,
@@ -59,7 +34,7 @@ const workspace = {
 		title: 'See job openings',
 		target: '#jobopenings'
 	}
-}
+};
 
 const item = Data.components.find(item => item.itemType === 'image_combo');
 

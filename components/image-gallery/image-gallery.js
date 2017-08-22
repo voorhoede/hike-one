@@ -1,4 +1,6 @@
+import React from 'react';
 import FullWidthImage from '../full-width-image/full-width-image';
+
 class ImageGallery extends React.Component{
 	constructor() {
 		super();
@@ -9,42 +11,41 @@ class ImageGallery extends React.Component{
 	}
 
 	showImage(index) {
-		this.setState({
-			imageIndex: index
-		});
+		this.setState({imageIndex: index});
 	}
 
 	render() {
-		const {images, title, links} = this.props;
+		const { items, title } = this.props;
+		const { imageIndex } = this.state;
 		return (
 			<div className="image-gallery">
-				{
-					images.map(
-						(image, index) => {
-							return <FullWidthImage
-								key={index}
-								imageIndex={this.state.imageIndex}
+				{ items.map(
+					(item, index) => (
+						<div key={index}>
+							{ imageIndex === index &&
+							<FullWidthImage
 								index={index}
-								image={image.url}
-								imageOverlay={true}
-							/>
-						}
-					)
-				}
-				
-				<div className="full-width-image-text">
-					{ title && <h2>{title}</h2> }
-					{ links &&
-						links.map(
-							(link, i) => {
-								return <button key={i} onClick={() => { this.showImage(i) }}
-									className="full-width-image-button">{link.title}</button>
+								image={item.url}
+								overlay={true} />
 							}
+						</div>
+					)
+				)}
+				<div className="image-gallery-navigation">
+					{ title && <h2 className="image-gallery-title">{title}</h2> }
+					{ items.map(
+						(item, index) => (
+							<button key={index}
+								onClick={() => this.showImage(index)}
+								className={`image-gallery-btn
+								${imageIndex === index ? 'is-active' : ''}`}>
+								{ item.title }
+							</button>
 						)
-					}	
+					)}
 				</div>
 			</div>
-		)
+		);
 	}
 }
 export default ImageGallery;

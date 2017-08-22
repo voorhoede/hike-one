@@ -27,37 +27,24 @@ let scrollToTargetClass = 'js-scroll-to-target';
 
 const workspace = {
 	overlay: true,
-	workspaceTitle: 'Our work space',
-	workspaceImages: [
+	galleryTitle: 'Our work space',
+	galleryItems: [
 		{
-			name: 'amsterdam',
+			title: 'AMS',
 			url:'../static/images/office_amsterdam.jpg'
 		},
 		{
-			name: 'rotterdam',
+			title: 'RTM',
 			url:'../static/images/header_home.jpg'
 		},
 		{
-			name: 'eindhoven',
-			url:'../static/images/img-team.jpg'
-		}
-	],
-	workspaceLocations: [
-		{
-			title: 'AMS',
-			target: '#AMS'
-		},{
-			title: 'RTM',
-			target: '#RTM'
-		},{
 			title: 'EHV',
-			target: '#EHV'
+			url:'../static/images/img-team.jpg'
 		}
 	],
 	statisticsSingle: {
 		title:'Digital Fanatics',
-		amount: 62,
-		large: true
+		amount: 62
 	},
 	statisticsCombination: [
 		{
@@ -76,6 +63,7 @@ const workspace = {
 		target: '#jobopenings'
 	}
 }
+
 const ourValues = {
 	title: 'Our values', 
 	values: [
@@ -85,15 +73,16 @@ const ourValues = {
 		'Get things done'
 	]
 }
-const Team = () => {	
+
+const Team = () => {
 	return (
 		<Layout title="Hike One - Team">
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
-				
+
 					<PageHeader
-						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }		
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
 						heroImage={Data.headerImage.url}>
@@ -103,23 +92,19 @@ const Team = () => {
 
 					<div className={`${scrollToTargetClass}`}>
 						<ImageComposition
-							Person={PeopleData} 
+							Person={PeopleData}
 							TeamImage2_1={TeamImage2_1Data}
-							TeamImage3_4={TeamImage3_4Data}> 
+							TeamImage3_4={TeamImage3_4Data}>
 							<ImageCompositionShapes.variation1Front position="front"/>
 							<ImageCompositionShapes.variation1Back position="back"/>
 						</ImageComposition>
 					</div>
 
 					<ImageCombo>
-						<ImageGallery 
-							images={workspace.workspaceImages}
-							title={workspace.workspaceTitle}
-							links={workspace.workspaceLocations}>
-						</ImageGallery>
+						<ImageGallery title={workspace.galleryTitle} items={workspace.galleryItems} />
 						<StatisticsBlock
 							color='blue'
-							alignment='text-block-right' 
+							alignment='text-block-right'
 							statisticsSingle={workspace.statisticsSingle}
 							statisticsCombination={workspace.statisticsCombination}
 							jobOpenings={workspace.workspaceOpenings} />

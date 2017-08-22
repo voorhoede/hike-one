@@ -1,0 +1,83 @@
+@import (reference) '../../styles/variables';
+
+.text-block {
+	.shadow;
+    background-color: @blue;
+    color: @white;
+    padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
+	//todo: set this in variable with fallback font
+    font-family: 'playfair';
+    font-weight: @font-weight-normal;
+    font-size: @subtitle-large-s;
+    line-height: 35px;
+    margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+
+    @media @screen-small {
+        margin-bottom: @spacing-default*9;
+    }
+
+    @media @screen-medium {
+        padding: @spacing-default*9 @spacing-default*7;
+        font-size: @subtitle-large-m;
+        line-height: @line-height-quote;
+    }
+    
+    @media @screen-medium-large {
+        margin-bottom: @spacing-small*5;
+    }
+    
+    @media @screen-large {
+        padding: @spacing-default*10 @spacing-default*11;
+        font-size: @quote-large-l;
+        line-height: @line-height-quote;
+    }
+}
+
+.text-block.blue {
+    background-color: @blue;
+}
+
+.text-block.red {
+    background-color: @red;
+}
+
+.text-block.purple {
+    background-color: @purple;
+}
+
+.text-block.yellow {
+    background-color: @yellow;
+}
+
+.text-block.green {
+    background-color: @green;
+}
+
+.text-block.gray {
+    background-color: @gray;
+}
+
+.text-block.dark-gray {
+    background-color: @darker-gray;
+}
+
+
+.text-block-left {
+	margin-right: @spacing-default*1.5;
+	margin-left: 0;
+
+	@media @screen-large {
+		margin-right: 0;
+		max-width: @column-large-10;
+	}
+}
+
+.text-block-right {
+	margin-left: @spacing-default*1.5;
+	margin-right: 0;
+
+	@media @screen-large {
+		max-width: @column-large-10;
+		margin-left: auto;
+	}
+}

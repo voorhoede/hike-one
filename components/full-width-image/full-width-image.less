@@ -19,6 +19,14 @@
     }
 }
 
+.full-width-image-overlay {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 9;
+    background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
+}
+
 .full-width-image-inner {
 	top: 0;
 	position: fixed;
@@ -58,7 +66,7 @@
     padding: 0 1rem;
     width: 100%;
     max-width: @column-large-8;
-    
+
     @media @screen-medium {
         max-width: @column-small-8;
     }
@@ -99,3 +107,4 @@
         line-height: @line-height-body-l;
     }
 }
+

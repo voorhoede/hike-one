@@ -155,15 +155,14 @@ const Case = ({Data}) => (
 											index={index}/>
 
 										{ component.quoteAuthorTitle &&
-										<QuoteBlock
-											color={component.quoteColor.color }
-											alignment={component.quoteAlignLeft ? 'quote-block-left' : 'quote-block-right' }
-											quote={component.quote}
-											citeName={component.quoteAuthorName}
-											citeTitle={component.quoteAuthorTitle}
-											citeImage={component.quoteAuthorImage.url} />
+											<QuoteBlock
+												color={component.quoteColor.color }
+												alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right' }
+												quote={component.quote}
+												citeName={component.quoteAuthorName}
+												citeTitle={component.quoteAuthorTitle}
+												citeImage={component.quoteAuthorImage.url} />
 										}
-
 										{ parallaxLayers }
 									</ImageCombo>
 								);

@@ -1,8 +1,9 @@
 @import (reference) '../../styles/variables';
 
 .image-composition-our-values {
-	padding: 0 0 60px 0;
-	
+	padding: 0 0 @spacing-medium*2 0;
+	margin-bottom: @spacing-medium*3;
+
 	.teamimage-large {
 		position: relative;
 		width: 50%;
@@ -26,10 +27,11 @@
 		&:nth-child(even) {
 			padding-left:@spacing-default/2;
 		}
+
 		@media @screen-medium-large {
-			padding: 0 @spacing-default;
-			
+			padding: 0 @spacing-default;	
 		}
+
 		@media @screen-large {
 			&:nth-child(odd) {
 				padding-right:@spacing-default*4;
@@ -59,7 +61,7 @@
 			margin: 150px 0px 164px 0px;
 			
 			&:nth-child(4) {
-				margin: 20px 10px 0 122px;
+				margin: @spacing-small @spacing-default 0 122px;
 			}
 		}
 
@@ -67,7 +69,7 @@
 			margin: 210px 0px 137px 0px;
 			
 			&:nth-child(4) {
-				margin: 40px 0px 0 120px;
+				margin: @spacing-small*2 0px 0 120px;
 			}
 		}
 	}
@@ -91,20 +93,20 @@
 		clear:both;
 		width: auto;
 		margin: 0 @spacing-default*1.5;
-		
+		font-family: @main-font;
+
 		@media @screen-medium-large {
 			clear:both;
 			width: 70%;
 			height: auto;
 			position: absolute;
-			margin: 0 15px;
-			bottom: 0;
-			right: 10px;
+			margin: 0 @spacing-default*1.5;
+			bottom: @spacing-medium*2;
+			right: @spacing-default;
 			max-width: 550px;
 		}
-		
 		@media @screen-large {
-			bottom: -90px;
+			bottom: 0;
 		}
 	}
 

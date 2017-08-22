@@ -29,7 +29,7 @@ const ImageCompositionOurValues = ({children, TeamImage3_4, Person, ourValues}) 
 
 			{
 				[Person, Person, Person].map((item,index) => (
-					<div className={`teamimage-person teamimage-person-small teamimage-spaced 
+					<div key={index} className={`teamimage-person teamimage-person-small teamimage-spaced 
 						teamimage-person-align-left`}>
 						<div className="transition-img-hover">
 							<img srcSet={`

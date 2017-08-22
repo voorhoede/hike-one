@@ -41,8 +41,23 @@
 		transition: fill 0.3s;
 	}
 
-	.is-open & .logo.black .logo-body {
-		fill: @white;
+	.animation-is-finished & {
+		background: @black;
+		padding: 20px 15px;
+		margin-left: -15px;
+	}
+
+	.is-open & {
+		@media @screen-medium {
+			padding: 0;
+			margin-left: 0;
+			margin-top: 0;
+			background: transparent;
+		}
+
+		.logo.black .logo-body {
+			fill: @white;
+		}
 	}
 
 	@media @screen-medium {

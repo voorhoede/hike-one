@@ -79,6 +79,7 @@ class Header extends React.Component {
 			.set(this.menuBg, {clearProps:'all'})
 			.set(this.menuBtnBg, {clearProps: 'all'})
 			.set(this.menuBgSvgFinal, {clearProps: 'all'})
+			.set(this.header, {clearProps:'all'})
 			.set(this.menu, {display: 'block'})
 			.set(this.menuInner, {right: 0})
 			.set(this.menuBgTransparent, {display: 'block'})
@@ -86,6 +87,8 @@ class Header extends React.Component {
 			.set(this.menuBtnBg, {opacity: 0})
 			.set(this.menuList.childNodes, {opacity: 0})
 			.set(this.socialIcons.childNodes, {opacity: 0})
+			.set(this.header, {className:'-=animation-is-finished'})
+			.set(this.header, {className:'+=is-open'})
 			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 0)
 			.to(this.menuBg, 0.25, {
 				scale: this.scale,
@@ -110,7 +113,8 @@ class Header extends React.Component {
 				x: 20,
 				opacity: 0,
 				ease: Power3.easeInOut
-			}, 0.05, '-=0.2');
+			}, 0.05, '-=0.2')
+			.set(this.header, {className:'+=animation-is-finished'});
 	}
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);
@@ -148,7 +152,8 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header className={`header ${this.state.menuIsOpen ? 'is-open' : ''}`}>
+			<header ref={node => this.header = node}
+				className="header">
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">

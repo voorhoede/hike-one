@@ -43,19 +43,27 @@ class Header extends React.Component {
 		const windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
 		const svgBgRect = this.menuBg.getBoundingClientRect();
 		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
+
+		// how much % should the background svg cover.
+		// On smaller screens it should cover 100%. To accomplish this the value is set on 200%
 		const bgCoverPercentage = window.matchMedia("(max-width: 768px)").matches ? 2 : 0.7;
+
+		// calculate how large the scale of the background svg should be on this screensize
 		this.scale = Math.round((windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
 
 		this.svgHeight = svgBgRect.height * this.scale;
 		this.svgWidth = svgBgRect.width * this.scale;
 
+		// calculate offset from top for background svg after scaling
 		const yDiff = svgBgRect.top - svgBgHelperRect.top;
 		this.yOffset = Math.round(yDiff * this.scale);
 
+		// calculate offset from right for background svg after scaling
 		const xDiff = ( svgBgHelperRect.right - svgBgRect.left);
 		const xOffsetHelperRect = (xDiff / svgBgRect.width);
 		this.xOffset = Math.round((svgBgRect.width * this.scale) * xOffsetHelperRect + svgBgRect.width);
 
+		// calculate offset from right for background svg that is placed after animation is done
 		const xDiff2 = (svgBgHelperRect.right - svgBgRect.right);
 		this.xOffset2 = Math.round(xDiff2 * this.scale);
 	}

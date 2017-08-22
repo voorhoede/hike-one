@@ -97,7 +97,6 @@ const Team = () => {
 							statisticsCombination={workspace.statisticsCombination}
 							jobOpenings={workspace.workspaceOpenings} />
 					</ImageCombo>
-					</ImageCombo>
 				</article>
 				<Footer />
 			</main>

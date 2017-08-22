@@ -27,10 +27,18 @@
     }
     
     @media @screen-large {
+        max-width: @column-large-10;
         padding: @spacing-default*10 @spacing-default*11;
         font-size: @quote-large-l;
         line-height: @line-height-quote;
     }
+}
+
+.text-block-small {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 9;
 }
 
 .text-block.blue {
@@ -68,7 +76,7 @@
 
 	@media @screen-large {
 		margin-right: 0;
-		max-width: @column-large-10;
+		// max-width: @column-large-10;
 	}
 }
 
@@ -77,7 +85,7 @@
 	margin-right: 0;
 
 	@media @screen-large {
-		max-width: @column-large-10;
+		// max-width: @column-large-10;
 		margin-left: auto;
 	}
 }

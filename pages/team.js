@@ -5,12 +5,14 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+import TextBlock from '../components/text-block/text-block';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageComposition from '../components/image-composition/image-composition';
 import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
+import ImageCompositionOurValues from '../components/image-composition-our-values/image-composition-our-values';
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
@@ -74,7 +76,15 @@ const workspace = {
 		target: '#jobopenings'
 	}
 }
-
+const ourValues = {
+	subtitle: 'Our values', 
+	values: [
+		'Do what you love',
+		'Find a way',
+		'Be open and honest',
+		'Get things done'
+	]
+}
 const Team = () => {	
 	return (
 		<Layout title="Hike One - Team">
@@ -101,8 +111,7 @@ const Team = () => {
 						</ImageComposition>
 					</div>
 
-					<ImageCombo
-						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
+					<ImageCombo>
 						<ImageGallery 
 							images={workspace.workspaceImages}
 							title={workspace.workspaceTitle}
@@ -115,6 +124,13 @@ const Team = () => {
 							statisticsCombination={workspace.statisticsCombination}
 							jobOpenings={workspace.workspaceOpenings} />
 					</ImageCombo>
+
+					<ImageCompositionOurValues
+							TeamImage3_4={TeamImage3_4Data}
+							Person={PeopleData}
+							ourValues={ourValues}>
+					</ImageCompositionOurValues>
+					
 				</article>
 				<Footer />
 			</main>

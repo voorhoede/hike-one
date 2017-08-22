@@ -1,0 +1,34 @@
+@import './variables';
+
+.image-composition {
+	position: relative;
+	width: 100%;
+	padding: 0 @spacing-default*1.5 @spacing-medium*2 @spacing-default*1.5;
+	margin: 0 auto;
+
+	@media @screen-medium {
+		padding: 0 @spacing-small*2 @spacing-medium*2 @spacing-small*2;
+		max-width: @column-large-8;
+		margin-bottom: @spacing-small*4;
+	}
+	
+	// position text
+	// position 
+	// generic style ing
+	// hover state
+		
+}
+.teamimage-text-title {
+	display: none;
+
+	@media @screen-small {
+		display: block;
+		position: absolute;
+		bottom: 55px;
+		left: 40px;
+		font-size: @body-text-small-l;
+		font-weight: @font-weight-bold;
+		line-height: @line-height-body-small-l;
+		color: @white;
+	}
+}

@@ -88,16 +88,15 @@ const Team = () => {
 						</ImageComposition>
 					</div>
 
-					<ImageCombo
-						classes={ workspace.workspaceTitle ? 'image-combo-text': ''} >
-						<ImageGallery items={workspace.galleryItems} >
-						</ImageGallery>
+					<ImageCombo>
+						<ImageGallery items={workspace.galleryItems} />
 						<StatisticsBlock
 							color='blue'
 							alignment='text-block-right'
 							statisticsSingle={workspace.statisticsSingle}
 							statisticsCombination={workspace.statisticsCombination}
 							jobOpenings={workspace.workspaceOpenings} />
+					</ImageCombo>
 					</ImageCombo>
 				</article>
 				<Footer />

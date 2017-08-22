@@ -15,13 +15,14 @@ class ImageGallery extends React.Component{
 	}
 
 	render() {
-		const {items} = this.props;
+		const { items, title } = this.props;
+		const { imageIndex } = this.state;
 		return (
 			<div className="image-gallery">
 				{ items.map(
 					(item, index) => (
 						<div key={index}>
-							{ this.state.imageIndex === index &&
+							{ imageIndex === index &&
 							<FullWidthImage
 								index={index}
 								image={item.url}
@@ -30,12 +31,15 @@ class ImageGallery extends React.Component{
 						</div>
 					)
 				)}
-				<div className="full-width-image-text">
+				<div className="image-gallery-navigation">
+					{ title && <h2 className="image-gallery-title">{title}</h2> }
 					{ items.map(
-						(item, i) => (
-							<button key={i} onClick={() => this.showImage(i)}
-								className="full-width-image-button">
-								{item.title}
+						(item, index) => (
+							<button key={index}
+								onClick={() => this.showImage(index)}
+								className={`image-gallery-btn
+								${imageIndex === index ? 'is-active' : ''}`}>
+								{ item.title }
 							</button>
 						)
 					)}

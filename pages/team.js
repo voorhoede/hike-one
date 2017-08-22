@@ -25,7 +25,7 @@ let scrollToTargetClass = 'js-scroll-to-target';
 
 const workspace = {
 	overlay: true,
-	workspaceTitle: 'Our work space',
+	galleryTitle: 'Our work space',
 	galleryItems: [
 		{
 			title: 'AMS',
@@ -89,7 +89,7 @@ const Team = () => {
 					</div>
 
 					<ImageCombo>
-						<ImageGallery items={workspace.galleryItems} />
+						<ImageGallery title={workspace.galleryTitle} items={workspace.galleryItems} />
 						<StatisticsBlock
 							color='blue'
 							alignment='text-block-right'

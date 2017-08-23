@@ -8,8 +8,8 @@ const ServicesItem = ({data , index}) => (
 		<div className="services-item-info">
 			<h3 className="services-item-heading content">{data.title}</h3>
 			<p className="services-item-text content">{data.text}</p>
-			<ul className="services-item-tags">
-				{ data.tags.map((tag, index) => <li key={index} className="content">{ tag.tag }</li>) }
+			<ul className="services-item-tags list-custom">
+				{ data.tags.map((tag, index) => <li key={index} className="content list-custom-item">{ tag.tag }</li>) }
 		   </ul>
 		</div>
 

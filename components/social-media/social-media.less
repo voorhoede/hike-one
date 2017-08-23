@@ -1,7 +1,7 @@
 @import (reference) '../../styles/variables';
 
 .menu-social {
-	width: 200px;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -13,21 +13,19 @@
 		height: 50px;
 
 		path {
+			transition: fill .3s;
 			fill: @dark-gray;
 		}
-	}
-
-	@media @screen-small {
-		width: 250px;
 	}
 }
 
 .menu-social a {
 	color: @black;
 	text-decoration: none;
-}
 
-.menu-social img {
-	width: 100%;
-	height: auto;
+	&:hover {
+		svg path {
+			fill: @white;
+		}
+	}
 }

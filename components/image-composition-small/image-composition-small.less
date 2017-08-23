@@ -1,0 +1,34 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.image-composition-small {
+	.clearfix;
+	@media @screen-medium {
+		max-width: @column-large-8;
+	}
+	.teamimage-person {
+		@media @screen-small {
+			max-width: @column-large-3;
+		}
+	}
+
+	.teamimage-large {
+		max-width: @column-large-4;
+
+		@media @screen-medium {
+			padding-bottom: @spacing-small*2;
+		}
+	}
+
+	
+	.teamimage-spaced {
+		margin-top: @spacing-medium;
+		padding-right: @spacing-default*1.5;
+
+		@media @screen-medium {
+			margin-top: @spacing-medium*2;
+			padding-right: @spacing-small*2;
+		}
+	}
+
+}

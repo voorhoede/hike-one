@@ -1,0 +1,52 @@
+@import (reference) '../../styles/variables';
+
+.text-block-list {
+    & > li::before {
+        background-color: transparent;
+    }
+    list-style: none;
+    padding-left: 0;
+    margin-top: @spacing-small;
+    @media @screen-large {
+        margin-top: @spacing-medium*2;
+    }
+}
+
+
+.text-block-list-item {
+    margin: 0 0 @spacing-small 0;
+    @media @screen-large {
+        margin: 0 0 @spacing-small*2 0;
+    }
+}
+
+.text-block-list-icon {
+    padding-right: @spacing-small;
+
+    & > svg {
+        width: 10px;
+        height: 10px;   
+    }
+
+    @media @screen-large {
+        padding-right: @spacing-default*3;
+        
+        & > svg {
+            width: 20px;
+            height: 20px;   
+        }
+    }
+}
+
+.text-block-list-text {
+    font-size: @heading-small-s;
+    line-height: @line-height-header-small-s;
+    @media @screen-medium {
+        font-size: @heading-small-m;
+        line-height: @line-height-header-small-m;
+    }
+    @media @screen-large {
+        font-size: @heading-small-l;
+        line-height: @line-height-header-small-l;
+    }
+}

@@ -1,0 +1,106 @@
+@import (reference) '../../styles/variables';
+
+.image-composition-large {
+	.clearfix;
+	padding: 0 0 @spacing-medium*2 0;
+	margin-bottom: @spacing-medium*3;
+
+	.teamimage-large {
+		max-width: 100%;
+
+		@media @screen-medium {
+			padding-bottom: @spacing-small*2;
+		}
+		@media @screen-large {
+			max-width: @column-large-4;
+		}
+	}
+
+	.teamimage-spaced {
+		padding: 0 @spacing-default*1.5 @spacing-default @spacing-default*1.5;
+		margin: 0;
+
+		&:nth-child(odd) {
+			padding-right:@spacing-default/2;
+		}
+
+		&:nth-child(even) {
+			padding-left:@spacing-default/2;
+		}
+
+		@media @screen-medium-large {
+			padding: 0 @spacing-default;	
+			&:nth-child(odd) {
+				padding-right:@spacing-default;
+			}
+			&:nth-child(even) {
+				padding-left:@spacing-default;
+			}
+		}
+
+		@media @screen-large {
+			&:nth-child(odd) {
+				padding-right:@spacing-default*3;
+				padding-left: 0;
+			}
+
+			&:nth-child(even) {
+				padding-right: @spacing-default*3;
+				padding-left: 0;
+			}
+
+			margin-top: @spacing-medium*2;
+			padding-right: @spacing-small*2;
+		}
+	}
+
+	.teamimage-person-small {
+		float: left;
+		width: 50%;
+		
+		@media @screen-small {
+			max-width: 100%;
+			margin-top: 0;
+		}
+
+		@media @screen-medium-large {
+			width: 25%;
+			margin: 155px 0px 160px 0px;
+			
+			&:nth-child(4) {
+				margin: @spacing-small @spacing-default 0 @spacing-extra-large*2;
+			}
+		}
+
+		@media @screen-large {
+			margin: 210px 0px 140px 0px;
+			
+			&:nth-child(4) {
+				margin: @spacing-small*2 0px 0 @spacing-extra-large*2;
+			}
+		}
+	}
+
+
+	.text-block-small {
+		clear: both;
+		width: auto;
+		margin: 0 @spacing-default*1.5;
+		font-family: @main-font;
+
+		@media @screen-medium-large {
+			clear:both;
+			width: 70%;
+			height: auto;
+			position: absolute;
+			margin: 0 @spacing-default*1.5;
+			bottom: @spacing-medium*3.25;
+			right: @spacing-default*1.5;
+			max-width: 550px;
+		}
+		@media @screen-large {
+			bottom: -@spacing-small*2;
+		}
+	}
+
+}

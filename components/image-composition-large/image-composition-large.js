@@ -71,7 +71,8 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 							</span>
 						</div>
 					</div>
-				</div><div className={`teamimage-person teamimage-person-small teamimage-spaced 
+				</div>
+				<div className={`teamimage-person teamimage-person-small teamimage-spaced 
 								teamimage-person-align-left teamimage-person-small-padded`}>
 					<div className="transition-img-hover">
 						<img srcSet={`

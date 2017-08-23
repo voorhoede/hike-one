@@ -10,9 +10,10 @@ import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
-import ImageCompositionSmall from '../components/image-composition/image-composition';
-import * as ImageCompositionSmallShapes from '../components/image-composition/image-composition-shapes';
-import ImageCompositionLarge from '../components/image-composition-our-values/image-composition-our-values';
+import ImageCompositionSmall from '../components/image-composition-small/image-composition-small';
+import * as ImageCompositionSmallShapes from '../components/image-composition-small/image-composition-small-shapes';
+import ImageCompositionLarge from '../components/image-composition-large/image-composition-large';
+import * as ImageCompositionLargeShapes from '../components/image-composition-large/image-composition-large-shapes';
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
@@ -114,6 +115,8 @@ const Team = () => {
 							TeamImage3_4={TeamImage3_4Data}
 							Person={PeopleData}
 							listValues={listValues}>
+							<ImageCompositionLargeShapes.variation1Front position="front"/>
+							<ImageCompositionLargeShapes.variation1Back position="back"/>
 					</ImageCompositionLarge>
 					
 				</article>

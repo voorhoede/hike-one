@@ -4,18 +4,19 @@ import CircleBorder from '../shapes/circle-border/circle-border';
 import Triangle from '../shapes/triangle/triangle';
 
 export const variation1Front = () => (
-	<div className="image-composition-shapes-1">
+	<div className="image-composition-large-shapes-1">
 		<Parallax speed="1.5">
 			<Triangle classes="shape-triangle-1" color="green" />
 		</Parallax>
 		<Parallax speed="1.25">
 			<Triangle classes="shape-triangle-2" color="yellow" />
+			<Triangle classes="shape-triangle-3" color="red" />
 		</Parallax>
 	</div>
 );
 
 export const variation1Back = () => (
-	<div className="image-composition-shapes-1">
+	<div className="image-composition-large-shapes-1">
 		<Parallax speed="0.875">
 			<CircleBorder classes="shape-circle-1" color="blue" />
 			<CircleBorder classes="shape-circle-2" color="red" />

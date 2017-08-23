@@ -46,7 +46,7 @@ class Header extends React.Component {
 
 		// how much % should the background svg cover.
 		// On smaller screens it should cover 100%. To accomplish this the value is set on 200%
-		const bgCoverPercentage = window.matchMedia("(max-width: 768px)").matches ? 2 : 0.7;
+		const bgCoverPercentage = window.matchMedia("(max-width: 767px)").matches ? 2 : 0.7;
 
 		// calculate how large the scale of the background svg should be on this screensize
 		this.scale = Math.round((windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
@@ -106,7 +106,7 @@ class Header extends React.Component {
 			.staggerFrom(this.menuList.childNodes, 0.2, {
 				opacity: 0,
 				x: 30,
-				y: window.matchMedia("(max-width: 768px)").matches ? 0 : 10,
+				y: window.matchMedia("(max-width: 767px)").matches ? 0 : 10,
 				ease: Power3.easeInOut
 			}, 0.05, '-=0.25')
 			.staggerFrom(this.socialIcons.childNodes, 0.15, {

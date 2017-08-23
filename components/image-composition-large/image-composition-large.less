@@ -2,9 +2,9 @@
 
 .image-composition-large {
 	.clearfix;
-	padding: 0 @spacing-default*1.5 @spacing-medium*2 @spacing-default*1.5;
+	padding: 0 0 @spacing-medium*2 @spacing-default*1.5;
 	margin-bottom: @spacing-medium*3;
-
+	
 	.teamimage-large {
 		max-width: 100%;
 
@@ -17,42 +17,17 @@
 	}
 
 	.teamimage-spaced {
-		padding: 0 @spacing-default*1.5 @spacing-default @spacing-default*1.5;
+		padding: 0 @spacing-default*1.5 @spacing-default*1.5 0px;
 		margin: 0;
-
-		&:nth-child(odd) {
-			padding-left: 5px;
-			padding-right: 0;
-		}
-
-		&:nth-child(even) {
-			padding-left: 0;
-			padding-right: 5px;
-		}
 
 		@media @screen-medium-large {
 			padding: 0 @spacing-default;	
-			&:nth-child(odd) {
-				padding-right:@spacing-default;
-			}
-			&:nth-child(even) {
-				padding-left:@spacing-default;
-			}
 		}
 
 		@media @screen-large {
-			&:nth-child(odd) {
-				padding-right:@spacing-default*3;
-				padding-left: 0;
-			}
-
-			&:nth-child(even) {
-				padding-right: @spacing-default*3;
-				padding-left: 0;
-			}
-
+			padding-right: @spacing-default*3;
+			padding-left: 0;
 			margin-top: @spacing-medium*2;
-			padding-right: @spacing-small*2;
 		}
 	}
 
@@ -68,18 +43,18 @@
 		@media @screen-medium-large {
 			width: 25%;
 			margin: 155px 0px 160px 0px;
-			
-			&:nth-child(4) {
-				margin: @spacing-small @spacing-default 0 @spacing-extra-large*2;
-			}
 		}
 
 		@media @screen-large {
 			margin: 210px 0px 147px 0px;
-			
-			&:nth-child(4) {
-				margin: @spacing-small*2 0px 0 @spacing-extra-large*2;
-			}
+		}
+	}
+	.teamimage-person-small-padded {
+		@media @screen-medium-large {
+			margin: @spacing-small @spacing-default 0 @spacing-extra-large*2;
+		}
+		@media @screen-large {
+			margin: @spacing-small*2 0px 0 @spacing-extra-large*2;
 		}
 	}
 
@@ -87,24 +62,24 @@
 	.text-block-small {
 		clear: both;
 		width: auto;
-		margin: 0 auto;
+		margin-right: @spacing-default*1.5;
 		font-family: @main-font;
+		margin-left: 0;
 
 		@media @screen-medium-large {
 			clear:both;
 			width: 56%;
 			height: auto;
 			position: absolute;
-			margin: 0 @spacing-default*1.5;
-			bottom: @spacing-medium*2;
+			bottom: -@spacing-small*2;
 			right: 0;
 			max-width: 550px;
 		}
+
 		@media @screen-large {
 			width: 70%;
-			bottom: -@spacing-small*3;
+			bottom: -130px;
 			right: @spacing-default*1.5;
 		}
 	}
-
 }

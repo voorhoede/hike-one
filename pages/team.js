@@ -113,7 +113,7 @@ const Team = () => {
 
 					<ImageCompositionLarge
 							TeamImage3_4={TeamImage3_4Data}
-							People={PeopleData}
+							Person={PeopleData}
 							listValues={listValues}>
 							<ImageCompositionLargeShapes.variation1Front position="front"/>
 							<ImageCompositionLargeShapes.variation1Back position="back"/>

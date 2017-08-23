@@ -10,9 +10,9 @@ import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
-import ImageComposition from '../components/image-composition/image-composition';
-import * as ImageCompositionShapes from '../components/image-composition/image-composition-shapes';
-import ImageCompositionOurValues from '../components/image-composition-our-values/image-composition-our-values';
+import ImageCompositionSmall from '../components/image-composition/image-composition';
+import * as ImageCompositionSmallShapes from '../components/image-composition/image-composition-shapes';
+import ImageCompositionLarge from '../components/image-composition-our-values/image-composition-our-values';
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
@@ -64,7 +64,7 @@ const workspace = {
 	}
 }
 
-const ourValues = {
+const listValues = {
 	title: 'Our values', 
 	values: [
 		'Do what you love',
@@ -91,13 +91,13 @@ const Team = () => {
 					</PageHeader>
 
 					<div className={`${scrollToTargetClass}`}>
-						<ImageComposition
+						<ImageCompositionSmall
 							Person={PeopleData}
 							TeamImage2_1={TeamImage2_1Data}
 							TeamImage3_4={TeamImage3_4Data}>
-							<ImageCompositionShapes.variation1Front position="front"/>
-							<ImageCompositionShapes.variation1Back position="back"/>
-						</ImageComposition>
+							<ImageCompositionSmallShapes.variation1Front position="front"/>
+							<ImageCompositionSmallShapes.variation1Back position="back"/>
+						</ImageCompositionSmall>
 					</div>
 
 					<ImageCombo>
@@ -110,11 +110,11 @@ const Team = () => {
 							jobOpenings={workspace.workspaceOpenings} />
 					</ImageCombo>
 
-					<ImageCompositionOurValues
+					<ImageCompositionLarge
 							TeamImage3_4={TeamImage3_4Data}
 							Person={PeopleData}
-							ourValues={ourValues}>
-					</ImageCompositionOurValues>
+							listValues={listValues}>
+					</ImageCompositionLarge>
 					
 				</article>
 				<Footer />

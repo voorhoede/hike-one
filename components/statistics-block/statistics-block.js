@@ -11,18 +11,14 @@ const StatisticsBlock = ({color = '', alignment='', statisticsSingle='', statist
 				{ statisticsCombination &&
 					<div className="statistic-combination">
 						<div className="statistic-combination-items">
-						{ 
-							Object.values(statisticsCombination).map(
-								(item, index) => {		
-									return (
-										<div key={index} className="statistics-normal">
-											<span className="statistics-amount-normal">{item.amount}</span>
-											<span className="statistics-title-normal">{item.title}</span>
-										</div>
-									)
-								}
+						{ Object.values(statisticsCombination).map(
+							(item, index) => (
+								<div key={index} className="statistics-normal">
+									<span className="statistics-amount-normal">{item.amount}</span>
+									<span className="statistics-title-normal">{item.title}</span>
+								</div>
 							)
-						}
+						)}
 						</div>
 						{ jobOpenings &&
 							<div className="statistics-call-to-action">

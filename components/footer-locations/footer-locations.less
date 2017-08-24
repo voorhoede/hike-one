@@ -28,7 +28,7 @@
 	&:first-child {
 		margin-left: 0;
 
-		&::after{
+		&::after {
 			display: none;
 		}
 	}
@@ -36,14 +36,17 @@
 	@media @screen-medium {
 		min-width: 80px;
 		text-align: center;
-
 		&::after {
-			top: -5px;
+			top: 5px;
 		}
 	}
 
 	@media @screen-large {
 		line-height: @line-height-footer-items;
+		
+		&::after {
+			top: 0;
+		}
 	}
 }
 
@@ -81,7 +84,9 @@
 		border-bottom: none;
 		font-size: @heading-small-l;
 		line-height: @line-height-header-small-s;
-
+		color: @white;
+		text-decoration: underline;
+		
 		@media @screen-medium {
 			font-size: @heading-small-l;
 			line-height: @line-height-header-small-m;

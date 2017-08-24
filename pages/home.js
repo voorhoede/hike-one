@@ -21,7 +21,7 @@ import Data from '../data/current/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Home = () => {
-	let scrollToTargetClass = 'js-scroll-to-target';
+	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
 		<Layout title="Hike One - Home">

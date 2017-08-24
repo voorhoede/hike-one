@@ -3,33 +3,60 @@
 
 .image-composition-small {
 	.clearfix;
+	display: flex;
+	justify-content: center;
 	padding: 0 @spacing-default*1.5 @spacing-medium*2 @spacing-default*1.5;
-	@media @screen-medium {
+
+	.image-composition-small-inner {
 		max-width: @column-large-8;
 	}
-	.teamimage-person {
-		@media @screen-small {
-			max-width: @column-large-3;
+
+	.image-composition-img-1,
+	.image-composition-img-2,
+	.image-composition-img-3 {
+		float: left;
+		width: calc(~"50% - 7.5px");
+
+		@media @screen-medium-large {
+			width: calc(~"50% - 20px");
 		}
 	}
 
-	.teamimage-large {
+	.image-composition-img-1 {
+		margin-top: @spacing-medium;
+		margin-right: 7.5px;
 		max-width: @column-large-4;
 
-		@media @screen-medium {
-			padding-bottom: @spacing-small*2;
-		}
-	}
-
-	
-	.teamimage-spaced {
-		margin-top: @spacing-medium;
-		padding-right: @spacing-default*1.5;
-
-		@media @screen-medium {
+		@media @screen-medium-large {
 			margin-top: @spacing-medium*2;
-			padding-right: @spacing-small*2;
+			margin-right: @spacing-small;
 		}
 	}
 
+	.image-composition-img-2 {
+		margin-left: 7.5px;
+		margin-bottom: @spacing-default * 1.5;
+		max-width: @column-large-4;
+
+		@media @screen-medium-large {
+			margin-bottom: @spacing-small*2;
+			margin-left: @spacing-small;
+		}
+	}
+
+	.image-composition-img-3 {
+		margin-left: 7.5px;
+		max-width: @column-large-3;
+		@media @screen-medium-large {
+			margin-left: @spacing-small;
+		}
+	}
+
+	.image-person-img,
+	.image-team-img {
+		display: block;
+		width: 100%;
+	}
 }
+
+

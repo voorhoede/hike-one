@@ -10,16 +10,6 @@
 	padding-bottom: 200px;
 }
 
-.header.open {
-	h1 {
-		color: @light-gray;
-	}
-
-	.btn svg path{
-		fill: @light-gray;
-	}
-}
-
 .header .container {
 	display: flex;
     justify-content: space-between;
@@ -47,6 +37,29 @@
 		color: @black;
 	}
 
+	.logo-body {
+		transition: fill 0.3s;
+	}
+
+	.animation-is-finished & {
+		background: @black;
+		padding: 20px 15px;
+		margin-left: -15px;
+	}
+
+	.is-open & {
+		@media @screen-medium {
+			padding: 0;
+			margin-left: 0;
+			margin-top: 0;
+			background: transparent;
+		}
+
+		.logo.black .logo-body {
+			fill: @white;
+		}
+	}
+
 	@media @screen-medium {
 		svg {
 			height: 30px;
@@ -55,34 +68,88 @@
 	}
 }
 
-.header .btn {
+.menu-btn {
 	z-index: 3;
 	position: fixed;
-	top: 33px;
-	right: 0;
+	top: 30px;
+    right: 25px;
 	transform: translateY(-50%);
 	font-size: 0;
 	background: transparent;
 	border: none;
-    padding: 0 @spacing-default*1.5;
+    padding: 0;
 	margin: 0;
 	cursor: pointer;
+	outline: none;
 
-	&.white svg {
+	.menu-btn-icon svg {
+		position: relative;
+		fill: @black;
+		width: 30px;
+		height: 30px;
+		transition: fill 0.3s;
+	}
+
+	svg.menu-btn-background {
+		position: absolute;
+		left: -10px;
+		top: -7px;
+		width: 50px;
+		height: 50px;
+		transition: opacity 0.3s, transform 0.3s;
+	}
+
+	svg.menu-btn-background-basis {
 		fill: @white;
 	}
 
+	svg.menu-btn-background-hover {
+		opacity: 0;
+		fill: @black;
+	}
+
+	&:hover {
+		.menu-btn-icon svg line {
+			stroke: @white;
+		}
+
+		svg.menu-btn-background-basis {
+			opacity: 0;
+		}
+
+		svg.menu-btn-background-hover {
+			opacity: 1;
+			transform: scale(1.2);
+		}
+	}
+
+	.is-open & {
+		svg.menu-btn-background-basis {
+			opacity: 0;
+		}
+
+		.menu-btn-icon svg line {
+			stroke: @white;
+		}
+	}
+
 	@media @screen-medium {
-		padding: 0 @spacing-small;
+		padding: 0;
 	}
 	@media @screen-large {
-		top: 50px;
-	}
-	@media only screen and (min-width: @container-max-width) {
-		right: calc(~"(100vw - @{column-large-12} + 32px) / 2");
-	}
-}
+		top: 55px;
+		right: 49px;
 
-.header .btn.white svg {
-	fill: @white;
+		.menu-btn-icon svg {
+			width: 40px;
+			height: 40px;
+		}
+
+		svg.menu-btn-background {
+			left: -21px;
+			top: -15px;
+			width: 80px;
+			height: 80px;
+		}
+	}
 }

@@ -8,9 +8,10 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 	return (
-		<div className="image-composition image-composition-large clearfix">
+		<div className="image-composition-large clearfix">
 			{parallaxLayerBack}
-			<div className="image-team">
+			<div className="image-composition-large-inner">
+				<div className="image-composition-img-1 image-team">
 					<img srcSet={`
 						${TeamImage3_4.photo.url}&auto=format&fm=jpg&q=90&w=320 320w,
 						${TeamImage3_4.photo.url}&auto=format&fm=jpg&q=90&w=375 375w,
@@ -27,64 +28,70 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						{TeamImage3_4.title}
 					</span>
 				</div>
-				<div className="image-person">
-					<img srcSet={`
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
-					`} sizes={`
-						(max-width: 768px) calc(50vw - 30px),
-						(max-width: 1024px) calc(50vw - 80px),
-						329px
-					`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
-						className="image-person-img" />
-					<div className="image-person-text">
-						<span className="image-person-title">
-							{Person.name}
-						</span>
-						<span className="image-person-subtitle">
-							{Person.role}
-						</span>
+				<div className="image-composition-img-2 image-person">
+					<div className="transition-img-hover">
+						<img srcSet={`
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
+						`} sizes={`
+							(max-width: 768px) calc(50vw - 30px),
+							(max-width: 1024px) calc(50vw - 80px),
+							329px
+						`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
+							 className="image-person-img" />
+						<div className="image-person-text">
+							<span className="image-person-title">
+								{Person.name}
+							</span>
+							<span className="image-person-subtitle">
+								{Person.role}
+							</span>
+						</div>
 					</div>
 				</div>
-				<div className="image-person">
-					<img srcSet={`
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
-					`} sizes={`
-						(max-width: 768px) calc(50vw - 30px),
-						(max-width: 1024px) calc(50vw - 80px),
-						329px
-					`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
-						className="image-person-img" />
-					<div className="image-person-text">
-						<span className="image-person-title">
-							{Person.name}
-						</span>
-						<span className="image-person-subtitle">
-							{Person.role}
-						</span>
+				<div className="image-composition-img-3 image-person">
+					<div className="transition-img-hover">
+						<img srcSet={`
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
+						`} sizes={`
+							(max-width: 768px) calc(50vw - 30px),
+							(max-width: 1024px) calc(50vw - 80px),
+							329px
+						`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
+							 className="image-person-img" />
+						<div className="image-person-text">
+							<span className="image-person-title">
+								{Person.name}
+							</span>
+							<span className="image-person-subtitle">
+								{Person.role}
+							</span>
+						</div>
 					</div>
 				</div>
-				<div className="image-person">
-					<img srcSet={`
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
-						${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
-					`} sizes={`
-						(max-width: 768px) calc(50vw - 30px),
-						(max-width: 1024px) calc(50vw - 80px),
-						329px
-					`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
-						className="image-person-img" />
-					<div className="image-person-text">
-						<span className="image-person-title">
-							{Person.name}
-						</span>
-						<span className="image-person-subtitle">
-							{Person.role}
-						</span>
+				<div className="image-composition-img-4 image-person">
+					<div className="transition-img-hover">
+						<img srcSet={`
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=165 165w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=329 329w,
+							${Person.photo.url}&auto=format&fm=jpg&q=90&w=660 660w
+						`} sizes={`
+							(max-width: 768px) calc(50vw - 30px),
+							(max-width: 1024px) calc(50vw - 80px),
+							329px
+						`} src={`${Person.photo.url}&auto=format&fm=jpg&q=90&w=329`} alt=""
+							 className="image-person-img" />
+						<div className="image-person-text">
+							<span className="image-person-title">
+								{Person.name}
+							</span>
+							<span className="image-person-subtitle">
+								{Person.role}
+							</span>
+						</div>
 					</div>
 				</div>
 				<div className="image-composition-text">
@@ -102,9 +109,10 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						))}
 					</ul>
 				</div>
+			</div>
 			{parallaxLayerFront}
 		</div>
-	)
+	);
 };
 
 export default ImageCompositionLarge;

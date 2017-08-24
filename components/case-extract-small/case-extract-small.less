@@ -14,25 +14,13 @@
 	background-size: cover;
 	height: 282px;
 	background-position: 50% 50%;
+	
 	@media @screen-large {
 		height: 433px;
 	}
 }
 
 .case-extract-small {
-	&:hover {
-		.case-extract-small-text > h4,
-		.case-extract-small-text > .case-extract-small-button {
-			opacity: 1;
-			display: block;		
-		}
-		.case-extract-small-text {
-			max-height: 304px;
-			top: -194px;
-		}
-
-	}
-
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -60,6 +48,19 @@
 	@media @screen-large {
 		padding-bottom: 0;
 		max-height: 473px;
+	}
+
+	&:hover {
+		.case-extract-small-text > h4,
+		.case-extract-small-text > .case-extract-small-button {
+			opacity: 1;
+			display: block;		
+		}
+		.case-extract-small-text {
+			max-height: 304px;
+			top: -194px;
+		}
+
 	}
 }
 
@@ -150,8 +151,9 @@
 .case-extract-small-button {
 	display: block;
 	opacity: 0;
-	margin: 0 0 0 0;
-
+	margin: 0 @spacing-small 0 auto;
+	width: 40px;
+	
 	svg {
 		margin-top: 0;
 		height: 40px;
@@ -160,11 +162,5 @@
 		path {
 			fill: @white;
 		}
-	}
-
-	@media @screen-large {
-		width: 40px;
-    	margin-left: auto;
-		margin-right: @spacing-small;
 	}
 }

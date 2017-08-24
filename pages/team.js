@@ -78,7 +78,6 @@ const Team = () => {
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
-
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
@@ -88,15 +87,14 @@ const Team = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					<div className={`${scrollToTargetClass}`}>
-						<ImageCompositionSmall
-							Person={PeopleData}
-							TeamImage2_1={TeamImage2_1Data}
-							TeamImage3_4={TeamImage3_4Data}>
-							<ImageCompositionSmallShapes.variation1Front position="front"/>
-							<ImageCompositionSmallShapes.variation1Back position="back"/>
-						</ImageCompositionSmall>
-					</div>
+					<ImageCompositionSmall
+						classes={scrollToTargetClass}
+						Person={PeopleData}
+						TeamImage2_1={TeamImage2_1Data}
+						TeamImage3_4={TeamImage3_4Data}>
+						<ImageCompositionSmallShapes.variation1Front position="front"/>
+						<ImageCompositionSmallShapes.variation1Back position="back"/>
+					</ImageCompositionSmall>
 
 					<ImageCombo>
 						<ImageGallery title={workspace.galleryTitle} items={workspace.galleryItems} />
@@ -121,7 +119,6 @@ const Team = () => {
 						button="Get in touch" >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-
 				</article>
 				<Footer />
 			</main>

@@ -116,6 +116,12 @@ const Team = () => {
 							<ImageCompositionLargeShapes.variation1Back position="back"/>
 					</ImageCompositionLarge>
 
+					<Contact
+						title="Where will your journey lead us"
+						button="Get in touch" >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
+
 				</article>
 				<Footer />
 			</main>

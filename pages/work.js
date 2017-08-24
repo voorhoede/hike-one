@@ -52,9 +52,6 @@ const work = () => {
 					
 					<div className="case-extract-small-container">
 						<CaseExtractSmall item={caseItem}/>
-						<CaseExtractSmall item={caseItem}/>
-						<CaseExtractSmall item={caseItem}/>
-						<CaseExtractSmall item={caseItem}/>
 					</div>
 				</article>
 				<Footer/>

@@ -2,13 +2,13 @@
 
 .statistics {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     width: 100%;
-    font-family: @main-font;
+    font-family: @font-main;
     align-items: center;
-    
+
     @media @screen-large {
-        flex-direction: row;    
+        flex-direction: row;
     }
 }
 
@@ -19,7 +19,7 @@
     width: 100%;
     justify-content: center;
     flex-direction: column;
-    
+
     @media @screen-large {
         max-width: 332px;
         width: 100%;
@@ -30,15 +30,15 @@
 .statistics-title-large {
     font-weight: @font-weight-bold;
     font-size: @subtitle-large-s;
-    line-height: @line-height-header-small-s; 
-    
+    line-height: @line-height-header-small-s;
+
     @media @screen-medium {
         font-size: @subtitle-large-m;
-        line-height: @line-height-header-small-m; 
+        line-height: @line-height-header-small-m;
     }
     @media @screen-large {
         font-size: @subtitle-large-l;
-        line-height: @line-height-header-small-l; 
+        line-height: @line-height-header-small-l;
     }
 }
 
@@ -60,12 +60,12 @@
     padding-top: @spacing-medium;
     border-right: 0;
     border-bottom: 2px solid rgba(255,255,255, 0.3);
-    
+
 
     @media @screen-large {
         height: 290px;
         border-bottom: 0;
-        border-right: 2px solid rgba(255,255,255, 0.3);    
+        border-right: 2px solid rgba(255,255,255, 0.3);
     }
 }
 
@@ -85,7 +85,7 @@
     }
 }
 
-.statistics-normal {    
+.statistics-normal {
     display: flex;
     max-width: 720px;
     width: 100%;
@@ -99,7 +99,7 @@
 .statistics-title-normal {
     font-size: @body-text-s;
     line-height: @line-height-body-small-s;
-    text-align: center;   
+    text-align: center;
 
     @media @screen-medium {
         font-size: @body-text-m;
@@ -109,7 +109,7 @@
     @media @screen-large {
         font-size: @body-text-l;
         line-height: @line-height-body-m;
-    } 
+    }
 }
 
 .statistics-amount-normal {
@@ -117,7 +117,7 @@
     line-height: @line-height-header-small-l;
     font-weight: @font-weight-bold-extra;
     margin-bottom: @spacing-default;
-    
+
     @media @screen-medium {
         line-height: @line-height-title-l;
     }

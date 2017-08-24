@@ -6,7 +6,7 @@
     color: @white;
     padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
 	//todo: set this in variable with fallback font
-    font-family: 'playfair';
+    font-family: @font-alt;
     font-weight: @font-weight-normal;
     font-size: @subtitle-large-s;
     line-height: 35px;
@@ -21,11 +21,11 @@
         font-size: @subtitle-large-m;
         line-height: @line-height-quote;
     }
-    
+
     @media @screen-medium-large {
         margin-bottom: @spacing-small*5;
     }
-    
+
     @media @screen-large {
         max-width: @column-large-10;
         padding: @spacing-default*10 @spacing-default*11;

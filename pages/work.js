@@ -12,7 +12,7 @@ import data from '../data/current/work.json';
 
 const caseItem = {
 	color: 'blue',
-	companyName: 'Sita',
+	companyname: 'Sita',
 	title: 'Gone in 60 seconds',
 	subtitle: 'Een update voor de grootste woning stie van Nederland',
 	slug: 'gone-in-60-seconds',

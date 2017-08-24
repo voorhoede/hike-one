@@ -13,7 +13,7 @@ const CaseExtractSmall = ({ item, children}) => {
 					style={{backgroundImage: `url(${item.headerBackgroundImage.url})`}}></div>
 					<div className={`case-extract-small-text
 						${item.color ? item.color: ''} shadow`}>
-						<span>{item.companyName}</span>
+						<span>{item.companyname}</span>
 						<h3>{item.title}</h3>
 						<h4>{item.subtitle}</h4>
 						<div className="case-extract-small-button">

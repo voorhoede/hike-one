@@ -6,7 +6,7 @@ import * as CaseExtractSmallShapes from './case-extract-small-shapes';
 
 const caseItem = {
 	color: 'blue',
-	companyName: 'Sita',
+	companyname: 'Sita',
 	title: 'Gone in 60 seconds',
 	subtitle: 'Een update voor de grootste woning stie van Nederland',
 	slug: 'gone-in-60-seconds',

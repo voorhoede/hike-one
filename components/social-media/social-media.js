@@ -8,11 +8,11 @@ import Medium 	  from '../icons/medium-circle';
 
 const SocialMedia = () => (
 	<div className="menu-social">
-		<Link href="#"><a><Facebook /></a></Link>
-		<Link href="#"><a><Twitter /></a></Link>
-		<Link href="#"><a><Instagram /></a></Link>
-		<Link href="#"><a><LinkedIn /></a></Link>
-		<Link href="#"><a><Medium /></a></Link>
+		<Link href="/"><a target="_blank"><Facebook /></a></Link>
+		<Link href="/"><a target="_blank"><Twitter /></a></Link>
+		<Link href="/"><a target="_blank"><Instagram /></a></Link>
+		<Link href="/"><a target="_blank"><LinkedIn /></a></Link>
+		<Link href="/"><a target="_blank"><Medium /></a></Link>
 	</div>
 );
 

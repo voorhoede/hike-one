@@ -53,7 +53,7 @@ class Footer extends React.Component {
 		return (
 			<footer ref={node => this.footer = node} className="footer">
 				<div className="container-inner">
-					<Link href="/" >
+					<Link href="/">
 						<a className="header-logo">
 							<Logo color="white"/>
 							<h1 className="a11y-sr-only">Hike one</h1>
@@ -64,17 +64,17 @@ class Footer extends React.Component {
 						<div className="footer-left">
 							<div className="footer-links">
 								<ul className="footer-link-list">
-									<li><Link href="#"><a>Team</a></Link></li>
-									<li><Link href="#"><a>Services</a></Link></li>
-									<li><Link href="#"><a>Work</a></Link></li>
-									<li><Link href="#"><a>Contact</a></Link></li>
-									<li><Link href="#"><a>Updates</a></Link></li>
-									<li><Link href="#"><a>Playground</a></Link></li>
+									<li><Link href="/team"><a>Team</a></Link></li>
+									<li><Link href="/services"><a>Services</a></Link></li>
+									<li><Link href="/work"><a>Work</a></Link></li>
+									<li><Link href="/contact"><a>Contact</a></Link></li>
+									<li><Link href="/updates"><a>Updates</a></Link></li>
+									<li><Link href="/playground"><a>Playground</a></Link></li>
 								</ul>
 							</div>
 
-							<Link href="#">
-								<a className="footer-join-link">
+							<Link href="https://hikeone.homerun.co/">
+								<a className="footer-join-link" target="_blank">
 									Up for a new challenge yourself? Join us! <Icon icon="arrowRightCircle" />
 								</a>
 							</Link>
@@ -82,7 +82,7 @@ class Footer extends React.Component {
 
 						<div className="footer-right">
 							<div className="footer-contact">
-								<div className="footer-contact-tel">+31 20 204 45 77</div>
+								<Link href="tel:31 20 204 45 77"><a className="footer-contact-tel">+31 20 204 45 77</a></Link>
 								<Link href="mailto:hello@hike.one"><a className="footer-contact-email">hello@hike.one</a></Link>
 							</div>
 

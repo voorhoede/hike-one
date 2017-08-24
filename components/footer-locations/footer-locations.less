@@ -66,6 +66,12 @@
 		font-size: @body-text-l;
 	}
 
+	transition: color .3s;
+
+	&:hover {
+		color: @red;
+	}
+
 	&:focus {
 		outline: none;
 	}
@@ -90,6 +96,12 @@
 
 .footer-locations-info {
 	margin-bottom: 50px;
+	
+	.is-active {
+		a {
+			text-decoration: none;
+		}
+	}
 }
 
 .footer-locations-info div {
@@ -106,7 +118,12 @@
 	line-height: @line-height-body-small-s;
 	font-weight: @font-weight-normal;
 	color: @white;
+	transition: color .3s;
 
+	&:hover {
+		color: @red;
+	}
+	
 	@media @screen-medium {
 		font-size: @body-text-small-m;
 		line-height: @line-height-body-small-m;

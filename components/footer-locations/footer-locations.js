@@ -1,5 +1,5 @@
 import React 	   from 'react';
-
+import Link  	   from 'next/link';
 class FooterLocations extends React.Component {
 	constructor() {
 		super();
@@ -33,18 +33,30 @@ class FooterLocations extends React.Component {
 
 				<div className="footer-locations-info">
 					<div className={this.state.location === 'ams' ? 'is-active' : ''}>
-						<p>Rijnsburgstraat 9-11</p>
-						<p>1059AT Amsterdam</p>
+						<Link href="https://www.google.nl/maps/place/unitid+amsterdam">
+							<a target="_blank">
+								<p>Rijnsburgstraat 9-11</p>
+								<p>1059AT Amsterdam</p>
+							</a>
+						</Link>
 					</div>
 
 					<div className={this.state.location === 'rtm' ? 'is-active' : ''}>
-						<p>Schiedamsedijk 40a</p>
-						<p>3011ED Rotterdam</p>
+						<Link href="https://www.google.nl/maps/place/unitid+rotterdam">
+							<a target="_blank">	
+								<p>Schiedamsedijk 40a</p>
+								<p>3011ED Rotterdam</p>
+							</a>
+						</Link>
 					</div>
 
 					<div className={this.state.location === 'ehv' ? 'is-active' : ''}>
-						<p>Rijnsburgstraat 9-11</p>
-						<p>1059AT Amsterdam</p>
+						<Link href="#eindhoven">
+								<a target="_blank">	
+									<p>Rijnsburgstraat 9-11</p>
+									<p>1059AT Amsterdam</p>
+								</a>
+						</Link>
 					</div>
 				</div>
 			</div>

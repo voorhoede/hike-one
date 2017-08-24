@@ -1,11 +1,11 @@
-@import (reference) '../../styles/variables';
+@import (reference) 'variables';
+@import (reference) 'shadows';
 
 .text-block {
 	.shadow;
     background-color: @blue;
     color: @white;
     padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
-	//todo: set this in variable with fallback font
     font-family: @font-alt;
     font-weight: @font-weight-normal;
     font-size: @subtitle-large-s;
@@ -31,18 +31,6 @@
         padding: @spacing-default*10 @spacing-default*11;
         font-size: @quote-large-l;
         line-height: @line-height-quote;
-    }
-}
-
-.text-block-small {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    z-index: 9;
-    padding: @spacing-small*2 @spacing-default @spacing-medium*2 @spacing-small*2;
-
-    @media @screen-medium-large {
-        padding: @spacing-medium*2 @spacing-small @spacing-small @spacing-medium*2;
     }
 }
 

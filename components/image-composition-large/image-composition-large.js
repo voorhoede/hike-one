@@ -1,14 +1,14 @@
 
 import React from 'react';
-import TextBlock from '../text-block/text-block';
+import Icon from '../icon/icon';
 
 const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => {
 	const childrenArray = React.Children.toArray(children);
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
-	return (			
-		<div className="image-composition image-composition-large clearfix">		
+	return (
+		<div className="image-composition image-composition-large clearfix">
 			{parallaxLayerBack}
 			<div className="teamimage-large teamimage-align-left teamimage-spaced teamimage-large-fixed-height">
 					<img srcSet={`
@@ -26,7 +26,7 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						{TeamImage3_4.title}
 					</span>
 				</div>
-				<div className={`teamimage-person teamimage-person-small teamimage-spaced 
+				<div className={`teamimage-person teamimage-person-small teamimage-spaced
 								teamimage-person-align-left`}>
 					<div className="transition-img-hover">
 						<img srcSet={`
@@ -49,7 +49,7 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						</div>
 					</div>
 				</div>
-					<div className={`teamimage-person teamimage-person-small teamimage-spaced 
+					<div className={`teamimage-person teamimage-person-small teamimage-spaced
 								teamimage-person-align-left`}>
 					<div className="transition-img-hover">
 						<img srcSet={`
@@ -72,7 +72,7 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						</div>
 					</div>
 				</div>
-				<div className={`teamimage-person teamimage-person-small teamimage-spaced 
+				<div className={`teamimage-person teamimage-person-small teamimage-spaced
 								teamimage-person-align-left teamimage-person-small-padded`}>
 					<div className="transition-img-hover">
 						<img srcSet={`
@@ -95,11 +95,21 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 						</div>
 					</div>
 				</div>
-				<TextBlock
-				color='purple'
-				alignment='text-block-right'
-				size='text-block-small'
-				listValues={listValues} />
+				<div className="image-composition-text">
+					<h3 className="text-block-subtitle">{listValues.title}</h3>
+					<ul className="text-block-list">
+						{  listValues.values.map((item, index) => (
+							<li key={index} className="text-block-list-item">
+								<span className="text-block-list-icon">
+									<Icon icons="triangle"/>
+								</span>
+								<span className="text-block-list-text">
+									{item}
+								</span>
+							</li>
+						))}
+					</ul>
+				</div>
 			{parallaxLayerFront}
 		</div>
 	)

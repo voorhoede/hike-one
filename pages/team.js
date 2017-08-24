@@ -5,9 +5,6 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
-import TextBlock from '../components/text-block/text-block';
-import TextCenter from '../components/text-center/text-center';
-import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageCompositionSmall from '../components/image-composition-small/image-composition-small';
@@ -66,7 +63,7 @@ const workspace = {
 }
 
 const listValues = {
-	title: 'Our values', 
+	title: 'Our values',
 	values: [
 		'Do what you love',
 		'Find a way',
@@ -118,7 +115,7 @@ const Team = () => {
 							<ImageCompositionLargeShapes.variation1Front position="front"/>
 							<ImageCompositionLargeShapes.variation1Back position="back"/>
 					</ImageCompositionLarge>
-					
+
 				</article>
 				<Footer />
 			</main>

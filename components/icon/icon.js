@@ -10,6 +10,7 @@ import Location from '../icons/location';
 import Medium from '../icons/medium-circle';
 import Twitter from '../icons/twitter';
 import TwitterCircle from '../icons/twitter-circle';
+import Triangle from '../icons/triangle';
 
 const Icon = ({icon = 'arrowDown'}) => {
 	const icons = {
@@ -24,7 +25,8 @@ const Icon = ({icon = 'arrowDown'}) => {
 		location: <Location/>,
 		medium: <Medium/>,
 		twitter: <Twitter/>,
-		twitterCircle: <TwitterCircle/>
+		twitterCircle: <TwitterCircle/>,
+		triangle: <Triangle />
 	};
 
 	return (icons[icon]);

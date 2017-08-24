@@ -54,25 +54,3 @@ p {
 		font-size: @heading-small-l;
 	}
 }
-
-ul {
-    font-weight: @font-weight-normal;
-    font-style: italic;
-    list-style: none;
-
-    li {
-        position: relative;
-
-        &::before {
-            content: '';
-            position:absolute;
-            top: 50%;
-            left: -20px;
-            width: 4px;
-            height: 4px;
-            background-color: @red;
-            border-radius: 50%;
-            transform: translateY(-50%);
-        }
-    }
-}

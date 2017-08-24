@@ -6,6 +6,7 @@ import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
 import Footer from '../components/footer/footer';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import * as CaseExtractSmallShapes from '../components/case-extract-small/case-extract-small-shapes';
 import cases from '../data/current/cases.json';
 import data from '../data/current/work.json';
 
@@ -51,7 +52,9 @@ const work = () => {
 					</section>
 					
 					<div className="case-extract-small-container">
-						<CaseExtractSmall item={caseItem}/>
+						<CaseExtractSmall item={caseItem}>
+							<CaseExtractSmallShapes.variation1Front position="front"/>
+						</CaseExtractSmall>
 					</div>
 				</article>
 				<Footer/>

@@ -5,9 +5,21 @@ import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import Footer from '../components/footer/footer';
 import scrollToElement from '../components/_helpers/scrollToElement';
-
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import cases from '../data/current/cases.json';
 import data from '../data/current/work.json';
+
+const caseItem = {
+	color: 'blue',
+	companyName: 'Sita',
+	title: 'Gone in 60 seconds',
+	subtitle: 'Een update voor de grootste woning stie van Nederland',
+	slug: 'gone-in-60-seconds',
+	headerBackgroundImage: {
+		url: 'https://www.datocms-assets.com/2625/1500551495-drop-fly-header.jpg?'
+	}
+}
+
 
 const work = () => {
 	const scrollToTargetClass = 'js-scroll-to-target';
@@ -37,7 +49,13 @@ const work = () => {
 						))}
 						</ul>
 					</section>
-
+					
+					<div className="case-extract-small-container">
+						<CaseExtractSmall item={caseItem}/>
+						<CaseExtractSmall item={caseItem}/>
+						<CaseExtractSmall item={caseItem}/>
+						<CaseExtractSmall item={caseItem}/>
+					</div>
 				</article>
 				<Footer/>
 			</main>

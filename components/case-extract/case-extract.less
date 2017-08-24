@@ -122,27 +122,27 @@
 }
 
 .case-extract-button-container {
-		margin: 0 0 0 0;
+	margin: 0 0 0 0;
+
+	svg {
+		margin-top: 0;
+		height: 40px;
+		width: 40px;
+
+		path {
+			fill: @white;
+		}
+	}
+
+	@media @screen-large {
+		margin-bottom: @spacing-extra-large;
+		float: right;
 
 		svg {
-			margin-top: 0;
-			height: 40px;
-			width: 40px;
-
-			path {
-				fill: @white;
-			}
+			height: 50px;
+			width: 50px;
 		}
-
-		@media @screen-large {
-			margin-bottom: @spacing-extra-large;
-			float: right;
-
-			svg {
-				height: 50px;
-				width: 50px;
-			}
-		}
+	}
 }
 
 .case-extract-link-container {

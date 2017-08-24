@@ -8,7 +8,7 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person, listValues}) => 
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 	return (
-		<div className="image-composition-large clearfix">
+		<div className="image-composition-large">
 			{parallaxLayerBack}
 			<div className="image-composition-large-inner">
 				<div className="image-composition-img-1 image-team">

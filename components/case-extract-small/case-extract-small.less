@@ -1,0 +1,148 @@
+@import (reference) '../../styles/variables';
+
+.case-extract-small-container {
+	width: 100%;
+	display:flex;
+	flex-flow: row wrap;
+	margin: @spacing-medium auto @spacing-medium auto;
+
+	@media @screen-large {
+		max-width: @column-large-10;
+	}
+}
+.case-extract-small-image {
+	background-size: cover;
+	height: 282px;
+	background-position: 50% 50%;
+	@media @screen-large {
+		height: 433px;
+	}
+}
+
+.case-extract-small {
+	&:hover {
+		.case-extract-small-text > h4,
+		.case-extract-small-text > .case-extract-small-button {
+			opacity: 1;
+			display: block;		
+		}
+		.case-extract-small-text {
+			max-height: 304px;
+			top: -194px;
+		}
+
+	}
+
+	position: relative;
+	width: 100%;
+	height: 100%;
+	max-height: 336px;
+	margin: 0 0 @spacing-small*4 0;
+	
+	&:nth-child(even) {
+		padding: 0 0 @spacing-small*2 0;
+	}
+
+	& > a {
+		text-decoration: none;
+	}
+	
+	@media @screen-medium {
+		max-height: 347px;
+		padding: 0 @spacing-default @spacing-default 0;
+		max-width: 50%;
+	}
+	
+	@media @screen-medium-large {
+		max-height: 433px;
+	}
+	
+	@media @screen-large {
+		padding-bottom: 0;
+		max-height: 473px;
+	}
+}
+
+.case-extract-small-text {
+	position: relative;
+	top: -100px;
+	max-height: 140px;
+	padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
+	margin: 0 @spacing-default*1.5;
+	color: @white;
+	text-decoration: none;
+
+	& > h3 {
+		line-height: @line-height-title-s;
+		font-size: @title-large-s;
+		font-weight: @font-weight-bold;
+		margin-bottom:  @spacing-default;
+	}
+
+	& > h4 {
+		opacity: 0;
+		display: block;
+		line-height: @line-height-body-s;
+		font-size: @body-text-s;
+		margin-bottom: @spacing-medium;
+		font-weight: @font-weight-normal;
+	}
+
+	& > span {
+		margin-bottom: @spacing-default/2;
+		font-style: italic;
+		color: @white;
+		font-weight: @font-weight-normal;
+		font-size:  @body-text-s;
+		line-height: @line-height-body-s;
+		display: block;
+		opacity: 0.8;
+		text-decoration: none;
+	}
+
+	@media @screen-medium-large {
+		position: relative;
+	}
+}
+
+.case-extract-small-text.blue {
+	background-color: @blue;
+}
+
+.case-extract-small-text.red {
+	background-color: @red;
+}
+
+.case-extract-small-text.green {
+	background-color: @green;
+}
+
+.case-extract-small-text.purple {
+	background-color: @purple;
+}
+
+.case-extract-small-text.yellow {
+	background-color: @purple;
+}
+
+.case-extract-small-button {
+	display: block;
+	opacity: 0;
+	margin: 0 0 0 0;
+
+	svg {
+		margin-top: 0;
+		height: 40px;
+		width: 40px;
+
+		path {
+			fill: @white;
+		}
+	}
+
+	@media @screen-large {
+		width: 40px;
+    	margin-left: auto;
+		margin-right: @spacing-small;
+	}
+}

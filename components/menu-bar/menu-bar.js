@@ -3,8 +3,7 @@ import Link from 'next/link';
 
 import Logo			from '../logo/logo';
 import Triangle from '../shapes/triangle/triangle';
-import Hamburger 	from '../icons/hamburger';
-import Cross 		from '../icons/hamburger-close';
+import Hamburger from '../icons/hamburger/hamburger';
 
 import Facebook   from '../icons/facebook-circle';
 import Twitter 	  from '../icons/twitter-circle';
@@ -12,7 +11,7 @@ import Instagram  from '../icons/instagram-circle';
 import LinkedIn   from '../icons/linkedin-circle';
 import Medium 	  from '../icons/medium-circle';
 
-import {TweenLite, Power3, TimelineLite}  from 'gsap';
+import {TweenLite, Power3, Power2, TimelineLite, TimelineMax}  from 'gsap';
 
 class Header extends React.Component {
 	constructor() {
@@ -116,6 +115,7 @@ class Header extends React.Component {
 			}, 0.05, '-=0.2')
 			.set(this.header, {className:'+=animation-is-finished'});
 	}
+
 	toggleMenu() {
 		document.body.classList.toggle(this.disableScrollClass);
 
@@ -123,10 +123,12 @@ class Header extends React.Component {
 			this.tlMenu
 				.timeScale(2)
 				.reverse();
+			this.hamburger.reverseAnimation();
 		} else {
 			this.tlMenu
 				.timeScale(1)
 				.play();
+			this.hamburger.playAnimation();
 		}
 
 		this.setState({menuIsOpen : !this.state.menuIsOpen});
@@ -174,8 +176,7 @@ class Header extends React.Component {
 						</span>
 
 						<span className="menu-btn-icon">
-							{ !this.state.menuIsOpen && <Hamburger /> }
-							{ this.state.menuIsOpen && <Cross /> }
+							<Hamburger ref={node => this.hamburger = node} />
 						</span>
 					</button>
 

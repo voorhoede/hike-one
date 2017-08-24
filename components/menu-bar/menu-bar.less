@@ -109,8 +109,8 @@
 	}
 
 	&:hover {
-		.menu-btn-icon svg {
-			fill: @white;
+		.menu-btn-icon svg line {
+			stroke: @white;
 		}
 
 		svg.menu-btn-background-basis {
@@ -123,8 +123,14 @@
 		}
 	}
 
-	.is-open & .menu-btn-icon svg {
-		fill: @white;
+	.is-open & {
+		svg.menu-btn-background-basis {
+			opacity: 0;
+		}
+
+		.menu-btn-icon svg line {
+			stroke: @white;
+		}
 	}
 
 	@media @screen-medium {

@@ -1,0 +1,27 @@
+@import (reference) '../../styles/variables';
+
+.case-extract-small-shapes {
+	.shape-triangle-1 {
+		display:none;
+		@media @screen-medium {
+			display: block;
+			top: 150px;
+			position: absolute;
+			width: 21px;
+			height: 41px;
+			left: -20%;
+		}
+	}
+
+	.shape-triangle-2 {
+		display:none;
+		@media @screen-medium {
+			display:block;
+			position: absolute;
+			height: 127px;
+			width: 87px;
+			left: -20%;
+			top: 500px;
+		}
+	}
+}

@@ -81,9 +81,20 @@
 }
 
 .menu-list a {
+	display: inline-block;
 	color: @light-gray;
 	text-decoration: none;
-	transition: color .3s;
+
+	&,
+	svg {
+		transition: color .5s, transform .5s; // hover out
+	}
+
+	&:hover,
+	&:hover svg {
+		transform: scale(1.1);
+		transition: color .1s, transform .1s; // hover in
+	}
 }
 
 .menu-item-sub a {
@@ -95,10 +106,8 @@
 	a {
 		display: inline-block;
 		margin-right: @spacing-default * .5;
-	}
 
-	@media @screen-small {
-		a {
+		@media @screen-small {
 			margin-right: @spacing-default;
 		}
 	}

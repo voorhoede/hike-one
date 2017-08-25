@@ -1,25 +1,21 @@
 @import (reference) '../../styles/variables';
 
-.header {
-	position: absolute;
-	top: 0;
+.menu-bar {
 	width: 100%;
-	height: @header-height;
 	text-align: center;
 	background: @white;
-	padding-bottom: 200px;
+
 }
 
-.header .container {
+.menu-bar .container {
 	display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-	margin-top: 0;
 	height: 60px;
-
+	margin-bottom: 0;
 	@media @screen-small {
-		margin-top: 0;
+		margin-bottom: 0;
 	}
 	@media @screen-large {
 		height: 100px;

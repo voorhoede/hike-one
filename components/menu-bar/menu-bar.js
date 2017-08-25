@@ -154,8 +154,7 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header ref={node => this.header = node}
-				className="header">
+			<header ref={node => this.header = node} className="menu-bar">
 				<div className="container">
 					<Link href="/" >
 						<a className="header-logo">

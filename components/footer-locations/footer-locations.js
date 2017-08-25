@@ -33,30 +33,24 @@ class FooterLocations extends React.Component {
 
 				<div className="footer-locations-info">
 					<div className={this.state.location === 'ams' ? 'is-active' : ''}>
-						<Link href="https://www.google.nl/maps/place/unitid+amsterdam">
-							<a target="_blank">
-								<p>Rijnsburgstraat 9-11</p>
-								<p>1059AT Amsterdam</p>
-							</a>
-						</Link>
+						<a href="https://www.google.com/maps/place/UNITiD+B.V.+Amsterdam" target="_blank">
+							<p>Rijnsburgstraat 9-11</p>
+							<p>1059AT Amsterdam</p>
+						</a>
 					</div>
 
 					<div className={this.state.location === 'rtm' ? 'is-active' : ''}>
-						<Link href="https://www.google.nl/maps/place/unitid+rotterdam">
-							<a target="_blank">	
-								<p>Schiedamsedijk 40a</p>
-								<p>3011ED Rotterdam</p>
-							</a>
-						</Link>
+						<a href="https://www.google.com/maps/place/UNITiD+B.V.+Rotterdam" target="_blank">
+							<p>Schiedamsedijk 40a</p>
+							<p>3011ED Rotterdam</p>
+						</a>
 					</div>
 
 					<div className={this.state.location === 'ehv' ? 'is-active' : ''}>
-						<Link href="#eindhoven">
-								<a target="_blank">	
-									<p>Rijnsburgstraat 9-11</p>
-									<p>1059AT Amsterdam</p>
-								</a>
-						</Link>
+						<a href="#eindhoven" target="_blank">
+							<p>Rijnsburgstraat 9-11</p>
+							<p>1059AT Amsterdam</p>
+						</a>
 					</div>
 				</div>
 			</div>

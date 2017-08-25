@@ -138,6 +138,8 @@ class Header extends React.Component {
 			this.tlMenu
 				.timeScale(10)
 				.reverse();
+			// revert hamburger icon
+			this.hamburger.reverseAnimation();
 			document.body.classList.remove(this.disableScrollClass);
 			this.setState({menuIsOpen: false});
 		}

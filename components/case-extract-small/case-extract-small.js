@@ -4,7 +4,7 @@ import Link from 'next/link';
 const CaseExtractSmall = ({
 	slug = '',
 	color = '',
-	companyname = '',
+	companyName = '',
 	title= '',
 	subtitle = '',
 	image = '',
@@ -18,8 +18,9 @@ const CaseExtractSmall = ({
 				<a>
 					<div className="case-extract-small-image"
 					style={{backgroundImage: `url(${image.url})`}}></div>
-					<div className={`case-extract-small-text ${color} shadow`}>
-						<span>{companyname}</span>
+					<div className="case-extract-small-text shadow"
+						 style={{backgroundColor: color.hex}}>
+						<span>{companyName}</span>
 						<h3>{title}</h3>
 						<h4>{subtitle}</h4>
 						<div className="case-extract-small-button">

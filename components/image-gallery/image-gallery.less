@@ -2,6 +2,7 @@
 
 .image-gallery {
 	position: relative;
+	background-color: @black;
 }
 
 .image-gallery-navigation {
@@ -27,8 +28,14 @@
 .image-gallery-title {
 	display: none;
 
+	@media @screen-medium {
+		display: block;
+		font-size: @title-giant-m;
+		line-height: @line-height-giant-m;
+	}
 	@media @screen-large {
-		display:block;
+		font-size: @title-giant-l;
+		line-height: @line-height-giant-l;
 	}
 }
 
@@ -65,6 +72,10 @@
 		line-height: @line-height-subtitle-m;
 		font-weight:@font-weight-bold;
 		text-decoration: underline;
+	}
+
+	&:hover {
+		cursor: pointer;
 	}
 
 	@media @screen-large {

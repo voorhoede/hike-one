@@ -35,7 +35,7 @@ const work = () => {
 								subtitle={item.headerSubtitle}
 								image={item.headerBackgroundImage}
 								companyName={item.companyName}
-								color={item.caseThemeColor}
+								color={item.caseThemeColor.hex}
 								slug={item.slug} />
 						))}
 					</WorkOverview>

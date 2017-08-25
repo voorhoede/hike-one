@@ -70,7 +70,6 @@ class Header extends React.Component {
 		this.tlMenu = new TimelineLite({paused: true});
 		this.tlMenu
 			.set(this.menu, {clearProps:'all'})
-			.set(this.menuInner, {clearProps: 'all'})
 			.set(this.menuList.childNodes, {clearProps: 'all'})
 			.set(this.socialIcons.childNodes, {clearProps: 'all'})
 			.set(this.menuBgTransparent, {clearProps:'all'})
@@ -79,7 +78,6 @@ class Header extends React.Component {
 			.set(this.menuBgSvgFinal, {clearProps: 'all'})
 			.set(this.header, {clearProps:'all'})
 			.set(this.menu, {display: 'block'})
-			.set(this.menuInner, {right: 0})
 			.set(this.menuBgTransparent, {display: 'block'})
 			.set(this.menuBg, {opacity: 1})
 			.set(this.menuBtnBg, {opacity: 0})
@@ -87,13 +85,14 @@ class Header extends React.Component {
 			.set(this.socialIcons.childNodes, {opacity: 0})
 			.set(this.header, {className:'-=animation-is-finished'})
 			.set(this.header, {className:'+=is-open'})
-			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 0)
+			.add('startAnimation')
+			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 'startAnimation')
 			.to(this.menuBg, 0.25, {
 				scale: this.scale,
 				x: -this.xOffset,
 				top: this.yOffset,
 				ease: Power3.easeInOut
-			}, 0.05)
+			}, '-=.2')
 			.set(this.menuBg, {opacity: 0}, '-=0.1')
 			.set(this.menuBgSvgFinal, {
 				height: this.svgHeight,

@@ -16,6 +16,10 @@
 	height: 100vh;
 	background: black;
 	opacity: 0.4;
+
+	.is-open & {
+		display: block;
+	}
 }
 
 .menu-inner {
@@ -28,6 +32,11 @@
 	padding: @spacing-small*5 0 0 @spacing-small;
 	background: transparent;
 	z-index: 3;
+
+
+	.is-open & {
+		right: 0;
+	}
 
 	@media @screen-medium {
 		padding: @spacing-small*5 0 0 @spacing-small * 2;

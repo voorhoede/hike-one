@@ -1,0 +1,25 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.work-overview {
+	.clearfix;
+
+	.case-extract-small {
+		width: 100%;
+	}
+
+	@media @screen-medium {
+		.case-extract-small {
+			float: left;
+			width: calc(~"50% - 20px");
+		}
+
+		.case-extract-small:nth-child(odd) {
+			margin-right: @spacing-default * 2;
+		}
+
+		.case-extract-small:nth-child(even){
+			margin-left: @spacing-default * 2;
+		}
+	}
+}

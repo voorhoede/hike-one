@@ -2,9 +2,11 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
-import Footer from '../components/footer/footer';
-import scrollToElement from '../components/_helpers/scrollToElement';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import Footer from '../components/footer/footer';
+import WorkOverview from '../components/work-overview/work-overview';
+
+import scrollToElement from '../components/_helpers/scrollToElement';
 import cases from '../data/current/cases.json';
 import data from '../data/current/work.json';
 
@@ -25,17 +27,18 @@ const work = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					<section className="container">
+					<WorkOverview classes={scrollToTargetClass}>
 						{ cases.map((item, index) => (
-						<CaseExtractSmall
-							title={item.title}
-							subtitle={item.headerSubtitle}
-							image={item.headerBackgroundImage}
-							companyName={item.companyName}
-							color={item.caseThemeColor}
-							slug={item.slug} />
+							<CaseExtractSmall
+								key={index}
+								title={item.title}
+								subtitle={item.headerSubtitle}
+								image={item.headerBackgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor}
+								slug={item.slug} />
 						))}
-					</section>
+					</WorkOverview>
 				</article>
 				<Footer/>
 			</main>

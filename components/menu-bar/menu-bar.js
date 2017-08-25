@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo			from '../logo/logo';
-import Triangle from '../shapes/triangle/triangle';
 import Hamburger from '../icons/hamburger/hamburger';
 
 import Facebook   from '../icons/facebook-circle';
@@ -167,8 +166,7 @@ class Header extends React.Component {
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
 						<span ref={node => this.menuBtnBg = node}>
-							<Triangle classes="menu-btn-background menu-btn-background-basis" />
-							<svg className="menu-btn-background menu-btn-background-hover"
+							<svg className="menu-btn-background"
 								 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
 								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
 							</svg>

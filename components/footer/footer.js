@@ -54,7 +54,7 @@ class Footer extends React.Component {
 			<footer ref={node => this.footer = node} className="footer">
 				<div className="container-inner">
 					<Link href="/">
-						<a className="header-logo">
+						<a className="footer-logo">
 							<Logo color="white"/>
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
@@ -72,18 +72,15 @@ class Footer extends React.Component {
 									<li><Link href="/playground"><a>Playground</a></Link></li>
 								</ul>
 							</div>
-
-							<Link href="https://hikeone.homerun.co/">
-								<a className="footer-join-link" target="_blank">
-									Up for a new challenge yourself? Join us! <Icon icon="arrowRightCircle" />
-								</a>
-							</Link>
+							<a className="footer-join-link" href="https://hikeone.homerun.co/" target="_blank">
+								Up for a new challenge yourself? Join us! <Icon icon="arrowRightCircle" />
+							</a>
 						</div>
 
 						<div className="footer-right">
 							<div className="footer-contact">
-								<Link href="tel:31 20 204 45 77"><a className="footer-contact-tel">+31 20 204 45 77</a></Link>
-								<Link href="mailto:hello@hike.one"><a className="footer-contact-email">hello@hike.one</a></Link>
+								<a href="tel:31 20 204 45 77" className="footer-contact-tel">+31 20 204 45 77</a>
+								<a href="mailto:hello@hike.one" className="footer-contact-email">hello@hike.one</a>
 							</div>
 
 							<FooterLocations />

@@ -6,7 +6,6 @@ import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
 import Footer from '../components/footer/footer';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
-import * as CaseExtractSmallShapes from '../components/case-extract-small/case-extract-small-shapes';
 import cases from '../data/current/cases.json';
 import data from '../data/current/work.json';
 
@@ -16,11 +15,10 @@ const caseItem = {
 	title: 'Gone in 60 seconds',
 	subtitle: 'Een update voor de grootste woning stie van Nederland',
 	slug: 'gone-in-60-seconds',
-	headerBackgroundImage: {
+	image: {
 		url: 'https://www.datocms-assets.com/2625/1500551495-drop-fly-header.jpg?'
 	}
 }
-
 
 const work = () => {
 	const scrollToTargetClass = 'js-scroll-to-target';
@@ -50,11 +48,9 @@ const work = () => {
 						))}
 						</ul>
 					</section>
-					
+
 					<div className="case-extract-small-container">
-						<CaseExtractSmall item={caseItem}>
-							<CaseExtractSmallShapes.variation1Front position="front"/>
-						</CaseExtractSmall>
+						<CaseExtractSmall {...caseItem}></CaseExtractSmall>
 					</div>
 				</article>
 				<Footer/>

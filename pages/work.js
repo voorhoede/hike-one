@@ -1,24 +1,14 @@
-import Link from 'next/link';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
-import Footer from '../components/footer/footer';
-import scrollToElement from '../components/_helpers/scrollToElement';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import Footer from '../components/footer/footer';
+import WorkOverview from '../components/work-overview/work-overview';
+
+import scrollToElement from '../components/_helpers/scrollToElement';
 import cases from '../data/current/cases.json';
 import data from '../data/current/work.json';
-
-const caseItem = {
-	color: 'blue',
-	companyname: 'Sita',
-	title: 'Gone in 60 seconds',
-	subtitle: 'Een update voor de grootste woning stie van Nederland',
-	slug: 'gone-in-60-seconds',
-	image: {
-		url: 'https://www.datocms-assets.com/2625/1500551495-drop-fly-header.jpg?'
-	}
-}
 
 const work = () => {
 	const scrollToTargetClass = 'js-scroll-to-target';
@@ -37,21 +27,18 @@ const work = () => {
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					<section className={`work-intro container ${scrollToTargetClass}`}>
-						<ul className="work-intro-list list-no-style list-custom">
+					<WorkOverview classes={scrollToTargetClass}>
 						{ cases.map((item, index) => (
-							<li key={index} className="list-custom-item">
-								<Link href={`/case?slug=${item.slug}`} as={`/case/${item.slug}`}>
-									<a>Case: {item.title}</a>
-								</Link>
-							</li>
+							<CaseExtractSmall
+								key={index}
+								title={item.title}
+								subtitle={item.headerSubtitle}
+								image={item.headerBackgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug} />
 						))}
-						</ul>
-					</section>
-
-					<div className="case-extract-small-container">
-						<CaseExtractSmall {...caseItem}></CaseExtractSmall>
-					</div>
+					</WorkOverview>
 				</article>
 				<Footer/>
 			</main>

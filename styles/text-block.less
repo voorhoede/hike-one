@@ -1,12 +1,12 @@
-@import (reference) '../../styles/variables';
+@import (reference) 'variables';
+@import (reference) 'shadows';
 
 .text-block {
 	.shadow;
     background-color: @blue;
     color: @white;
     padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
-	//todo: set this in variable with fallback font
-    font-family: 'playfair';
+    font-family: @font-alt;
     font-weight: @font-weight-normal;
     font-size: @subtitle-large-s;
     line-height: 35px;
@@ -21,12 +21,13 @@
         font-size: @subtitle-large-m;
         line-height: @line-height-quote;
     }
-    
+
     @media @screen-medium-large {
         margin-bottom: @spacing-small*5;
     }
-    
+
     @media @screen-large {
+        max-width: @column-large-10;
         padding: @spacing-default*10 @spacing-default*11;
         font-size: @quote-large-l;
         line-height: @line-height-quote;
@@ -61,14 +62,12 @@
     background-color: @darker-gray;
 }
 
-
 .text-block-left {
 	margin-right: @spacing-default*1.5;
 	margin-left: 0;
 
 	@media @screen-large {
 		margin-right: 0;
-		max-width: @column-large-10;
 	}
 }
 
@@ -77,7 +76,13 @@
 	margin-right: 0;
 
 	@media @screen-large {
-		max-width: @column-large-10;
 		margin-left: auto;
 	}
+}
+.text-block-subtitle {
+    font-size: @text-medium-m;
+    opacity: 0.6;
+    font-weight: @font-weight-normal;
+    font-style: italic;
+    line-height: @line-height-body-m;
 }

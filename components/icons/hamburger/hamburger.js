@@ -11,15 +11,15 @@ class Hamburger extends React.Component {
 	componentDidMount() {
 		this.tlHamburger = new TimelineMax({paused: true});
 		this.tlHamburger
-			.set(this.hamburgerPath1, {transformOrigin: '50% 10%'})
+			.set(this.hamburgerPath1, {transformOrigin: '10% 0'})
 			.to(this.hamburgerPath1, 0.3, {
+				x: '70%',
 				rotation: 135,
-				attr: {y1: 2, y2: 2},
-				x: '-29%',
 				ease: Power2.easeInOut
 			})
 			.to(this.hamburgerPath2, 0.3, {
-				attr: {x1: 40, x2: 40},
+				scaleX: 0,
+				x: '50%',
 				ease: Power2.easeInOut
 			}, 0)
 			.to(this.hamburgerPath3, 0.3, {

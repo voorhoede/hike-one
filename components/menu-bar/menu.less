@@ -16,6 +16,10 @@
 	height: 100vh;
 	background: black;
 	opacity: 0.4;
+
+	.is-open & {
+		display: block;
+	}
 }
 
 .menu-inner {
@@ -28,6 +32,11 @@
 	padding: @spacing-small*5 0 0 @spacing-small;
 	background: transparent;
 	z-index: 3;
+
+
+	.is-open & {
+		right: 0;
+	}
 
 	@media @screen-medium {
 		padding: @spacing-small*5 0 0 @spacing-small * 2;
@@ -81,9 +90,26 @@
 }
 
 .menu-list a {
+	display: inline-block;
 	color: @light-gray;
 	text-decoration: none;
-	transition: color .3s;
+
+	&,
+	svg {
+		transition: color .5s, transform .5s, opacity .5s; // hover/active out
+	}
+
+	&:hover,
+	&:hover svg {
+		transition: color .1s; // hover in
+	}
+
+	&:active,
+	&:active svg {
+		opacity: 0.8;
+		transform: scale(0.98);
+		transition: transform .1s, opacity .1s; // active in
+	}
 }
 
 .menu-item-sub a {
@@ -95,10 +121,8 @@
 	a {
 		display: inline-block;
 		margin-right: @spacing-default * .5;
-	}
 
-	@media @screen-small {
-		a {
+		@media @screen-small {
 			margin-right: @spacing-default;
 		}
 	}

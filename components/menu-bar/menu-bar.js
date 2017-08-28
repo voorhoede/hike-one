@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo			from '../logo/logo';
-import Triangle from '../shapes/triangle/triangle';
 import Hamburger from '../icons/hamburger/hamburger';
 
 import Facebook   from '../icons/facebook-circle';
@@ -71,7 +70,6 @@ class Header extends React.Component {
 		this.tlMenu = new TimelineLite({paused: true});
 		this.tlMenu
 			.set(this.menu, {clearProps:'all'})
-			.set(this.menuInner, {clearProps: 'all'})
 			.set(this.menuList.childNodes, {clearProps: 'all'})
 			.set(this.socialIcons.childNodes, {clearProps: 'all'})
 			.set(this.menuBgTransparent, {clearProps:'all'})
@@ -80,7 +78,6 @@ class Header extends React.Component {
 			.set(this.menuBgSvgFinal, {clearProps: 'all'})
 			.set(this.header, {clearProps:'all'})
 			.set(this.menu, {display: 'block'})
-			.set(this.menuInner, {right: 0})
 			.set(this.menuBgTransparent, {display: 'block'})
 			.set(this.menuBg, {opacity: 1})
 			.set(this.menuBtnBg, {opacity: 0})
@@ -88,13 +85,14 @@ class Header extends React.Component {
 			.set(this.socialIcons.childNodes, {opacity: 0})
 			.set(this.header, {className:'-=animation-is-finished'})
 			.set(this.header, {className:'+=is-open'})
-			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 0)
+			.add('startAnimation')
+			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 'startAnimation')
 			.to(this.menuBg, 0.25, {
 				scale: this.scale,
 				x: -this.xOffset,
 				top: this.yOffset,
 				ease: Power3.easeInOut
-			}, 0.05)
+			}, '-=.2')
 			.set(this.menuBg, {opacity: 0}, '-=0.1')
 			.set(this.menuBgSvgFinal, {
 				height: this.svgHeight,
@@ -140,6 +138,8 @@ class Header extends React.Component {
 			this.tlMenu
 				.timeScale(10)
 				.reverse();
+			// revert hamburger icon
+			this.hamburger.reverseAnimation();
 			document.body.classList.remove(this.disableScrollClass);
 			this.setState({menuIsOpen: false});
 		}
@@ -167,8 +167,7 @@ class Header extends React.Component {
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
 						<span ref={node => this.menuBtnBg = node}>
-							<Triangle classes="menu-btn-background menu-btn-background-basis" />
-							<svg className="menu-btn-background menu-btn-background-hover"
+							<svg className="menu-btn-background"
 								 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
 								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
 							</svg>

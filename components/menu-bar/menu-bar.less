@@ -86,10 +86,9 @@
 
 	.menu-btn-icon svg {
 		position: relative;
-		fill: @black;
 		width: 30px;
 		height: 30px;
-		transition: fill 0.3s;
+		transition: stroke .5s, transform .5s; // hover off
 	}
 
 	svg.menu-btn-background {
@@ -98,38 +97,27 @@
 		top: -7px;
 		width: 50px;
 		height: 50px;
-		transition: opacity 0.3s, transform 0.3s;
-	}
-
-	svg.menu-btn-background-basis {
+		transition: fill .5s, transform .5s; // hover off
 		fill: @white;
 	}
 
-	svg.menu-btn-background-hover {
-		opacity: 0;
-		fill: @black;
-	}
-
 	&:hover {
-		.menu-btn-icon svg line {
-			stroke: @white;
-		}
-
-		svg.menu-btn-background-basis {
-			opacity: 0;
-		}
-
-		svg.menu-btn-background-hover {
-			opacity: 1;
+		svg.menu-btn-background {
+			fill: @black;
 			transform: scale(1.2);
+			transition: fill .1s, transform .1s; // hover on
+		}
+
+		.menu-btn-icon svg {
+			transform: scale(1.1);
+			transition: stroke .1s, transform .1s; // hover on
+			line {
+				stroke: @white;
+			}
 		}
 	}
 
 	.is-open & {
-		svg.menu-btn-background-basis {
-			opacity: 0;
-		}
-
 		.menu-btn-icon svg line {
 			stroke: @white;
 		}

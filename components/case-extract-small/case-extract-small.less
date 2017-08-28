@@ -4,7 +4,13 @@
 	background-size: cover;
 	height: 282px;
 	background-position: 50% 50%;
-
+	
+	@media @screen-medium {
+		height: 300px;
+	}
+	@media @screen-medium-large {
+		height: 350px;
+	}
 	@media @screen-large {
 		height: 433px;
 	}
@@ -14,14 +20,14 @@
 	position: relative;
 	max-height: 336px;
 	margin: 0 0 @spacing-small*4 0;
-
-	&:nth-child(even) {
-		padding: 0 0 @spacing-small*2 0;
-	}
-
-	a {
+	
+	& > a {
 		text-decoration: none;
 	}
+	
+	&:nth-child(even) {
+		padding: 0 0 @spacing-small*2 0;
+	}	
 
 	@media @screen-medium {
 		max-height: 347px;
@@ -34,25 +40,39 @@
 	@media @screen-large {
 		padding-bottom: 0;
 		max-height: 473px;
-	}
-
-	&:hover {
-		.case-extract-small-text > h4,
-		.case-extract-small-text > .case-extract-small-button {
-			opacity: 1;
-			display: block;
+		&:hover {
+			.case-extract-small-text > h4,
+			.case-extract-small-button {
+				opacity: 1;
+				display: block;
+			}
+	
+			.case-extract-small-text {
+				bottom: 550px;
+				height: auto;
+				max-height: auto;
+			}
+	
+			.case-extract-small-bg {
+				height: 300px;
+				bottom: 250px;
+			}
 		}
-		.case-extract-small-text {
-			max-height: 304px;
-			top: -194px;
-		}
-
 	}
+}
+
+.case-extract-small-bg {
+    height: 150px;
+    position: relative;
+    width: auto;
+    bottom: 100px;
+    margin: 0 15px;
+    display: block;
 }
 
 .case-extract-small-text {
 	position: relative;
-	top: -100px;
+	bottom: 250px;
 	max-height: 140px;
 	padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
 	margin: 0 @spacing-default*1.5;
@@ -122,7 +142,10 @@
 	opacity: 0;
 	margin: 0 @spacing-small 0 auto;
 	width: 40px;
-
+    position: absolute;
+    bottom: 0px;
+	right: 15px;
+	
 	svg {
 		margin-top: 0;
 		height: 40px;

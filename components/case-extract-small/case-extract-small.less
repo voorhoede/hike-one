@@ -40,22 +40,28 @@
 	@media @screen-large {
 		padding-bottom: 0;
 		max-height: 473px;
+	
+
 		&:hover {
+			
 			.case-extract-small-text > h4,
 			.case-extract-small-button {
 				opacity: 1;
 				display: block;
+				transition: opacity 0.1s;
+				transition-delay: 0.2s;
 			}
 	
 			.case-extract-small-text {
-				bottom: 550px;
 				height: auto;
-				max-height: auto;
+				transform: translateY(-160px);
+				transition: transform 0.1s;				
 			}
 	
 			.case-extract-small-bg {
-				height: 300px;
-				bottom: 250px;
+				bottom: 100px;
+				transform: scaleY(2);
+				transition: transform 0.1s;
 			}
 		}
 	}
@@ -67,17 +73,22 @@
     width: auto;
     bottom: 100px;
     margin: 0 15px;
-    display: block;
+	display: block;
+	transform-origin: left bottom;
+	transform: scaleY(1);
+	transition: transform 0.5s;
 }
 
 .case-extract-small-text {
 	position: relative;
 	bottom: 250px;
-	max-height: 140px;
 	padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
 	margin: 0 @spacing-default*1.5;
 	color: @white;
 	text-decoration: none;
+	transform-origin: left bottom;
+	transform: translateY(0px);
+	transition: transform 0.5s;
 
 	.case-extract-text-dark & {
 		color: @black;
@@ -92,6 +103,7 @@
 
 	h4 {
 		opacity: 0;
+		transition: opacity 0.1s;
 		display: block;
 		line-height: @line-height-body-s;
 		font-size: @body-text-s;
@@ -140,6 +152,7 @@
 .case-extract-small-button {
 	display: block;
 	opacity: 0;
+	transition: opacity 0.1s;
 	margin: 0 @spacing-small 0 auto;
 	width: 40px;
     position: absolute;

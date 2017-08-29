@@ -4,6 +4,8 @@ Website for Hike One
 
 ## Getting Started
 
+Create a `.env` file in the project root. Ask a team member for the settings.
+
 This project requires [NodeJS](http://nodejs.org/) and NPM (comes with NodeJS) to be installed. All other project dependencies can be installed via NPM.
 
 Install node packages:  

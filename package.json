@@ -7,7 +7,7 @@
     "start": "NODE_ENV=production node server.js",
     "prebuild": "rimraf build/ && mkdir build/",
     "build": "npm-run-all --serial backupdata build:dato build:css build:next build:guide",
-    "build:dato": "dato dump --token=c6c5aac11814b76f9979",
+    "build:dato": "dato dump",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
     "build:guide": "npm-run-all --serial build:guide:stories copy:guide:*",

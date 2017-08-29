@@ -64,13 +64,13 @@ const Home = () => {
 						subtitle={Data.caseExtract.subtitle}
 						link="/case/gone-in-60-seconds" />
 
-					
-					<TextCenter
-						classes="text-center-font-medium text-center-spacing-small"
-						text={Data.eventsIntro} />
 					<TextCenter
 						classes="text-center-font-title text-center-spacing-small"
 						title={Data.eventsTitle} />
+
+					<TextCenter
+						classes="text-center-font-medium text-center-spacing-small"
+						text={Data.eventsIntro} />
 					
 					<FeedsBlock />
 

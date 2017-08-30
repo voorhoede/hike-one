@@ -1,5 +1,5 @@
 import Icon from '../icon/icon';
-import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary';
 import Link from 'next/link';
 
 const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
@@ -24,9 +24,9 @@ const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
 		</Link>
 
 		<div className="case-extract-link-container">
-			<ButtonCleanLink href="#" classes="case-extract-link btn-red" icon="arrowRight">
+			<ButtonSecondaryLink href="/work" classes="case-extract-link btn-red-border" icon="arrowRight">
 				Explore all work
-			</ButtonCleanLink>
+			</ButtonSecondaryLink>
 		</div>
 	</section>
 );

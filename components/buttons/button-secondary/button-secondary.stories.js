@@ -36,6 +36,7 @@ storiesOf('Buttons', module)
 
 		const colorOptions = {
 			'btn-red': 'red',
+			'btn-red-border': 'red border',
 			'btn-purple': 'purple',
 			'btn-green': 'green',
 			'': 'default',
@@ -43,6 +44,7 @@ storiesOf('Buttons', module)
 
 		const backgroundColors = {
 			'btn-red': '#fe595b',
+			'btn-red-border': '#fff',
 			'btn-purple': '#8314bb',
 			'btn-green': '#45d33c',
 			'': '#00aae9'

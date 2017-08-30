@@ -38,18 +38,12 @@
 	}
 
 	@media @screen-medium {
-		padding: @spacing-small*5 0 0 @spacing-small * 2;
+		padding-top: 100px;
 		overflow: hidden;
-		width: 50vw;
+		width: 70vw;
+		height: 200vh;
+		transform-origin: 0 0;
 		transform: rotate(-22deg);
-	}
-
-	@media @screen-large {
-		padding: @spacing-small * 6 0 0 @spacing-small;
-	}
-
-	@media only screen and (min-width: 900px) and (max-height: 500px) {
-		padding: @spacing-small*4 0 0 0;
 	}
 }
 
@@ -73,6 +67,7 @@
 
 	@media @screen-medium {
 		transform: rotate(22deg);
+		transform-origin: 0 0;
 		margin-bottom: @spacing-small;
 	}
 

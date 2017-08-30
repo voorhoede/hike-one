@@ -32,9 +32,9 @@ module.exports = (dato, root) => {
 
 		const mappedWorkData = dato.work.toMap();
 		dir.createDataFile('work.json', 'json', mappedWorkData);
-		
-		const mappedUpdateData = dato.update.toMap();
-		dir.createDataFile('update.json', 'json', mappedUpdateData);
+
+		const mappedUpdateData = dato.updateOverview.toMap();
+		dir.createDataFile('update-overview.json', 'json', mappedUpdateData);
 
 	});
 };

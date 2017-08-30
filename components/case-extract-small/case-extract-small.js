@@ -18,17 +18,18 @@ const CaseExtractSmall = ({
 		<div className={`case-extract-small
 			${ getContrastYIQ(color) === 'black' ? 'case-extract-text-dark' : '' }`}>
 			<Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
-				<a>
+				<a className="">
 					<div className="case-extract-small-image"
 					style={{backgroundImage: `url(${image.url})`}}></div>
-					<div className="case-extract-small-text shadow"
-						 style={{backgroundColor: color}}>
+					<div className="case-extract-small-bg shadow"
+						 style={{backgroundColor: color}}></div>
+					<div className="case-extract-small-text">
 						<span>{companyName}</span>
 						<h3>{title}</h3>
 						<h4>{subtitle}</h4>
-						<div className="case-extract-small-button">
-							<Icon icon="arrowRightCircle"/>
-						</div>
+					</div>
+					<div className="case-extract-small-button">
+						<Icon icon="arrowRightCircle"/>
 					</div>
 				</a>
 			</Link>

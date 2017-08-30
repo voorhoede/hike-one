@@ -38,7 +38,7 @@ class Header extends React.Component {
 	}
 
 	setInitialValues() {
-		const windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
+		this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
 		const svgBgRect = this.menuBg.getBoundingClientRect();
 		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
 
@@ -47,7 +47,7 @@ class Header extends React.Component {
 		const bgCoverPercentage = window.matchMedia("(max-width: 767px)").matches ? 2 : 0.7;
 
 		// calculate how large the scale of the background svg should be on this screensize
-		this.scale = Math.round((windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
+		this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
 
 		this.svgHeight = svgBgRect.height * this.scale;
 		this.svgWidth = svgBgRect.width * this.scale;
@@ -133,7 +133,10 @@ class Header extends React.Component {
 	}
 
 	onResize() {
-		if (this.state.menuIsOpen) {
+		// check if window is actually resized (some phones fire resize event on scroll)
+		const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
+
+		if (this.state.menuIsOpen && this.windowWidth !== newWindowWidth) {
 			// close menu
 			this.tlMenu
 				.timeScale(10)
@@ -144,12 +147,14 @@ class Header extends React.Component {
 			this.setState({menuIsOpen: false});
 		}
 
-		// add debounce for resize so it fires only add the end of resize
-		clearTimeout(this.resizeTimer);
-		this.resizeTimer = setTimeout(() => {
-			this.setInitialValues();
-			this.setAnimationTimeline();
-		}, 250);
+		if (this.windowWidth !== newWindowWidth) {
+			// add debounce for resize so it fires only add the end of resize
+			clearTimeout(this.resizeTimer);
+			this.resizeTimer = setTimeout(() => {
+				this.setInitialValues();
+				this.setAnimationTimeline();
+			}, 250);
+		}
 	}
 
 	render() {

@@ -33,20 +33,17 @@
 	background: transparent;
 	z-index: 3;
 
-
 	.is-open & {
 		right: 0;
 	}
 
 	@media @screen-medium {
-		padding: @spacing-small*5 0 0 @spacing-small * 2;
+		padding-top: @spacing-small*5;
 		overflow: hidden;
-		width: 50vw;
+		width: 70vw;
+		height: 200vh;
+		transform-origin: 0 0;
 		transform: rotate(-22deg);
-	}
-
-	@media @screen-large {
-		padding: @spacing-small * 6 0 0 @spacing-small;
 	}
 }
 
@@ -68,17 +65,9 @@
 	font-weight: @font-weight-bold;
 	margin-bottom: @spacing-default * 1.5;
 
-	@media @screen-small {
-		font-size: @title-large-s;
-		line-height: @line-height-title-s;
-
-		&.menu-item-last {
-			margin-bottom: @spacing-default*7 + @spacing-small;
-		}
-	}
-
 	@media @screen-medium {
 		transform: rotate(22deg);
+		transform-origin: 0 0;
 		margin-bottom: @spacing-small;
 	}
 
@@ -86,6 +75,21 @@
 		font-size: @title-large-m;
 		line-height: @line-height-title-l;
 		text-align: left;
+
+		&.menu-item-last {
+			margin-bottom: @spacing-default*7 + @spacing-small;
+		}
+	}
+
+	@media only screen and (min-width: 1170px) and (max-height: 750px) {
+		font-size: @title-large-s;
+		line-height: @line-height-title-s;
+	}
+
+	@media only screen and (min-width: 1170px) and (max-height: 800px) {
+		&.menu-item-last {
+			margin-bottom: @spacing-small;
+		}
 	}
 }
 
@@ -159,9 +163,9 @@
 	opacity: 0;
 
 	@media @screen-large {
-		right: 30px;
+		right: 35px;
 		top: 20px;
-		height: 90px;
+		height: 80px;
 	}
 }
 

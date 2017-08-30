@@ -11,6 +11,7 @@ storiesOf('Update extract', module)
 			extractImage={MockImageData.caseExtract.image.url}
 			title={text('Title', 'Hike One was at PUSH Conference in München')}
 			date={text('Date', 'July 6 2017')}
-			name={text('Name', 'Nick Hoogendoorn')} >
+			name={text('Name', 'Nick Hoogendoorn')} 
+			color={text('Color', '#E45052')}>
 		</UpdateExtractSmall>
 	));

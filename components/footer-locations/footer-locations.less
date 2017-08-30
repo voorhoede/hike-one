@@ -43,7 +43,7 @@
 
 	@media @screen-large {
 		line-height: @line-height-footer-items;
-		
+
 		&::after {
 			top: 0;
 		}
@@ -86,7 +86,7 @@
 		line-height: @line-height-header-small-s;
 		color: @white;
 		text-decoration: underline;
-		
+
 		@media @screen-medium {
 			font-size: @heading-small-l;
 			line-height: @line-height-header-small-m;
@@ -101,7 +101,8 @@
 
 .footer-locations-info {
 	margin-bottom: 50px;
-	
+
+
 	.is-active {
 		a {
 			text-decoration: none;
@@ -117,18 +118,18 @@
 	}
 }
 
-.footer-locations-info p {
+.footer-locations-info a {
 	margin-bottom: 0;
 	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
 	font-weight: @font-weight-normal;
-	color: @white;
 	transition: color .3s;
+	color: @white;
 
 	&:hover {
 		color: @red;
 	}
-	
+
 	@media @screen-medium {
 		font-size: @body-text-small-m;
 		line-height: @line-height-body-small-m;

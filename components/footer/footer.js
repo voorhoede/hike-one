@@ -79,7 +79,7 @@ class Footer extends React.Component {
 
 						<div className="footer-right">
 							<div className="footer-contact">
-								<a href="tel:31 20 204 45 77" className="footer-contact-tel">+31 20 204 45 77</a>
+								<a href="tel:+31-202044577" className="footer-contact-tel">+31 20 204 45 77</a>
 								<a href="mailto:hello@hike.one" className="footer-contact-email">hello@hike.one</a>
 							</div>
 

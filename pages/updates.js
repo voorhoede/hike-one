@@ -13,33 +13,39 @@ const updateData = [
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
+		color: '#fe595b',
 		extractImage : MockImageData.caseExtract.image.url
 	},
 	{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
+		color: '#00aae9',
 		extractImage : MockImageData.caseExtract.image.url
 	},
 	{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
+		color: '#ffe044',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
+		color: '#45d33c',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
+		color: '#E45052',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
-		name :"Nick Hogedoorn", 
+		name :"Nick Hogedoorn",
+		color: '#8314bb',
 		extractImage : MockImageData.caseExtract.image.url
 	}
 ]

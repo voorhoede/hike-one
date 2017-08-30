@@ -4,9 +4,45 @@ import Footer from '../components/footer/footer';
 import UpdatesHeader from '../components/updates-header/updates-header';
 import * as UpdatesHeaderShapes from '../components/updates-header/updates-header-shapes';
 import data from '../data/current/update.json';
-import Data from '../data/current/home.json';
-import UpdatesExtract from '../components/updates-extract/updates-extract';
-import UpdatesOverview from '../components/updates-overview/updates-overview';
+import MockImageData from '../data/current/home.json';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import UpdateOverview from '../components/update-overview/update-overview';
+
+const updateData = [
+	{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	},
+	{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	},
+	{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	},{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	},{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	},{
+		title :"yo" ,
+		date :"2017-07-07", 
+		name :"Nick Hogedoorn", 
+		extractImage : MockImageData.caseExtract.image.url
+	}
+]
 
 const updates = () => {
 	const scrollToTargetClass = 'js-scroll-to-target';
@@ -21,13 +57,13 @@ const updates = () => {
 						<UpdatesHeaderShapes.variation2Front position="front"/>
 						<UpdatesHeaderShapes.variation1Back position="back"/>
 					</UpdatesHeader>
-					<UpdatesOverview>
-						<UpdatesExtract 
-							title="yo" 
-							date="2017-07-07" 
-							name="Nick Hogedoorn" 
-							extractImage={Data.caseExtract.image.url}/>
-					</UpdatesOverview>
+					<UpdateOverview>
+						{ 
+							updateData.map((item, index) => (
+								<UpdateExtractSmall key={index} {...item} />
+							))
+						}
+					</UpdateOverview>
 				</article>
 				<Footer />
 			</main>

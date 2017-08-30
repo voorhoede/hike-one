@@ -44,11 +44,19 @@ const Home = () => {
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
+					<TextCenter
+						classes="text-center-font-title text-center-spacing-small"
+						title={Data.servicesItemTitle} />
+
 					<ServicesOverviewSmall services={Data.serviceItems} />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
 						text={Data.caseExtractIntro} />
+
+					<TextCenter
+						classes="text-center-font-title text-center-spacing-small"
+						title={Data.caseExtractTitle} />
 
 					<CaseExtract
 						headerImage={Data.caseExtract.image.url}
@@ -58,7 +66,9 @@ const Home = () => {
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
+						title={Data.eventsTitle} 
 						text={Data.eventsIntro} />
+					
 					<FeedsBlock />
 
 					<Contact

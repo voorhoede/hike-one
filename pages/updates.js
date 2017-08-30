@@ -51,7 +51,7 @@ const updateData = [
 		date :"2017-07-07",
 		name :"Nick Hogedoorn",
 		color: '#8314bb',
-		target: 'https://github.com/voorhoede/hike-one/pull/126',
+		target: 'https://unitid.nl',
 		extractImage : MockImageData.caseExtract.image.url
 	}
 ]

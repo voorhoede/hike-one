@@ -4,6 +4,8 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
+import PageHeaderSmall from '../components/page-header-small/page-header-small';
+import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
 
 import "isomorphic-fetch";
 
@@ -12,6 +14,12 @@ const Service = ({Data}) => (
 		<main className="main js-main">
 			<MenuBar/>
 			<article className="article">
+				<PageHeaderSmall
+					title="Our Services">
+					<PageHeaderSmallShapes.variation2Front position="front"/>
+					<PageHeaderSmallShapes.variation1Back position="back"/>
+				</PageHeaderSmall>
+				
 				<h1>{Data.title}</h1>
 				<Contact
 					title="Where will your journey lead us"

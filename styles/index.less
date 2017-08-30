@@ -83,6 +83,11 @@ html, body {
 body.disable-scroll {
 	overflow: hidden;
 	max-height: 100vh;
+
+	@media @screen-medium {
+		overflow: auto;
+		max-height: none;
+	}
 }
 
 * {

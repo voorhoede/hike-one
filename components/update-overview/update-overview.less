@@ -1,0 +1,35 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.update-overview {
+	.clearfix;
+
+	.update-extract-small {
+		width: 100%;
+	}
+
+	@media @screen-medium {
+		.update-extract-small {
+			float: left;
+			width: calc(~"50% - 15px");
+		}
+		.update-extract-small:nth-child(2n) {
+			margin-left: @spacing-medium;
+		}
+	}
+	@media @screen-medium-large {
+		.update-extract-small {
+			float: left;
+			width: calc(~"(100%/3) - 30px");
+		}
+
+		.update-extract-small:nth-child(2n) {
+			margin-left: 0;
+		}
+		
+		.update-extract-small:nth-child(3n+2) {
+			margin-left: @spacing-large;
+			margin-right: @spacing-large;
+		}
+	}
+}

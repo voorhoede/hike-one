@@ -7,12 +7,12 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 	const style ={__html:
 		`<style>
 			.update-extract-small-image-${index} {
-				background-image: url(${imageSmallScreen});
+				background-image: url("${imageSmallScreen}");
 			}
 			
 			@media only screen and (min-width: 768px) {
 				.update-extract-small-image-${index} {
-					background-image: url(${imageLargeScreen});
+					background-image: url("${imageLargeScreen}");
 				}
 			}			
 		</style>`};
@@ -20,6 +20,7 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 	return (
 		<a href={target} target="_blank" className={`update-extract-small
 			${ getContrastYIQ(color) === 'black' ? 'update-extract-small-text-dark' : '' }`}>
+			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`update-extract-small-image-${index} update-extract-small-image`}></div>
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>
 				<div className="update-extract-small-type" style={{color: color}}>update</div>

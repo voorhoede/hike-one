@@ -1,18 +1,29 @@
 @import (reference) '../../styles/variables';
 
 .updates-header {
-	padding:0;
+	padding: 0;
 	display: flex;
 	justify-content: center;
 	position: relative;
-	top: -@spacing-medium*2;
+	top: -@header-height-s;
 
 	 @media @screen-medium {
-		top: -@spacing-small*5;
+		top: -@header-height;
 	}
 }
 
 .updates-header-container {
+	&::before {
+		content: '';
+		position: absolute;
+		transform: rotate(-23deg) translateX(50%);
+		top: -100%;
+		right: 0;
+		bottom: -100%;
+		left: 0;
+		background: @white-grey;
+	}
+
 	position: relative;
 	height: 200px;
 	width: 100%;
@@ -21,7 +32,6 @@
 	@media @screen-medium {
 		height: 400px;	
 	}
-
 }
 
 .updates-header-title {
@@ -43,14 +53,4 @@
 		font-size: @title-large-l;
 		line-height: @line-height-heading-l;
 	}
-}
-
-.updates-header-bg {
-    position: absolute;
-	transform: rotate(-23deg) translateX(50%);
-	top: -100%;
-	right: 0;
-	bottom: -100%;
-	left: 0;
-	background: @white-grey;
 }

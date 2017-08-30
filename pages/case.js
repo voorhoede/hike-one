@@ -229,7 +229,7 @@ const Case = ({Data}) => (
 	</Layout>
 );
 
-// get blog data on server
+// get case data on server
 Case.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const res = await fetch(`${baseUrl}/api/cases/${query.slug}`);

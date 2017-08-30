@@ -17,7 +17,6 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 			}			
 		</style>`};
 
-
 	return (
 		<a href={target} target="_blank" className={`update-extract-small
 			${ getContrastYIQ(color) === 'black' ? 'update-extract-small-text-dark' : '' }`}>

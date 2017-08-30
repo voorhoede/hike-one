@@ -1,8 +1,8 @@
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-import UpdatesHeader from '../components/updates-header/updates-header';
-import * as UpdatesHeaderShapes from '../components/updates-header/updates-header-shapes';
+import PageHeaderSmall from '../components/page-header-small/page-header-small';
+import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
 import data from '../data/current/update-overview.json';
 import MockImageData from '../data/current/home.json';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
@@ -62,11 +62,11 @@ const updates = () => {
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
-					<UpdatesHeader
+					<PageHeaderSmall
 						title={data.title}>
-						<UpdatesHeaderShapes.variation2Front position="front"/>
-						<UpdatesHeaderShapes.variation1Back position="back"/>
-					</UpdatesHeader>
+						<PageHeaderSmallShapes.variation2Front position="front"/>
+						<PageHeaderSmallShapes.variation1Back position="back"/>
+					</PageHeaderSmall>
 					<UpdateOverview>
 						{
 							updateData.map((item, index) => (

@@ -13,7 +13,6 @@ const Service = ({Data}) => (
 			<MenuBar/>
 			<article className="article">
 				<h1>{Data.title}</h1>
-
 				<Contact
 					title="Where will your journey lead us"
 					button="Get in touch" >

@@ -4,7 +4,7 @@ import Triangle from '../shapes/triangle/triangle';
 import CircleBorder from '../shapes/circle-border/circle-border';
 
 export const variation2Front = () => (
-	<div className="updates-header-shapes">
+	<div className="page-header-small-shapes">
 		<Parallax speed="1.25">
 			<Triangle classes="shape-triangle-1" color="blue" />
 		</Parallax>
@@ -17,7 +17,7 @@ export const variation2Front = () => (
 );
 
 export const variation1Back = () => (
-	<div className="updates-header-shapes">
+	<div className="page-header-small-shapes">
 		<Parallax speed="0.875">
 			<DiamondBorder classes="shape-diamond-1" color="purple"/>
 			<CircleBorder  classes="shape-circle-1" color="blue"/>

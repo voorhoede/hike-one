@@ -24,10 +24,6 @@
 	& > a {
 		text-decoration: none;
 	}
-	
-	&:nth-child(even) {
-		padding: 0 0 @spacing-small*2 0;
-	}	
 
 	@media @screen-medium {
 		max-height: 347px;
@@ -153,16 +149,17 @@
 	display: block;
 	opacity: 0;
 	transition: opacity 0.1s;
-	margin: 0 @spacing-small 0 auto;
-	width: 40px;
+	margin: 0 @spacing-small @spacing-small auto;
+	width: 55px;
+	height: 55px;
     position: absolute;
     bottom: 0px;
 	right: 15px;
 	
 	svg {
 		margin-top: 0;
-		height: 40px;
-		width: 40px;
+		width: 55px;
+		height: 55px;
 
 		path {
 			fill: @white;

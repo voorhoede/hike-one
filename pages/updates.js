@@ -14,6 +14,7 @@ const updateData = [
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
 		color: '#fe595b',
+		target: '#',
 		extractImage : MockImageData.caseExtract.image.url
 	},
 	{
@@ -21,6 +22,7 @@ const updateData = [
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
 		color: '#00aae9',
+		target: '#',
 		extractImage : MockImageData.caseExtract.image.url
 	},
 	{
@@ -28,24 +30,28 @@ const updateData = [
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
 		color: '#ffe044',
+		target: '#',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
 		color: '#45d33c',
+		target: '#',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn", 
 		color: '#E45052',
+		target: '#',
 		extractImage : MockImageData.caseExtract.image.url
 	},{
 		title :"yo" ,
 		date :"2017-07-07", 
 		name :"Nick Hogedoorn",
 		color: '#8314bb',
+		target: 'https://github.com/voorhoede/hike-one/pull/126',
 		extractImage : MockImageData.caseExtract.image.url
 	}
 ]

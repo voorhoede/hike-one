@@ -1,8 +1,8 @@
 import getContrastYIQ from '../_helpers/getContrastYIQ';
 
-const updateExtractSmall = ({title='', date='', name='', extractImage='', color=''}) => { 
+const updateExtractSmall = ({title='', date='', name='', extractImage='', color='', target=''}) => { 
 	return (
-		<div className={`update-extract-small 
+		<a href={target} target="_blank" className={`update-extract-small 
 			${ getContrastYIQ(color) === 'black' ? 'update-extract-small-text-dark' : '' }`}>
 			<img srcSet={`
 				${extractImage}&fm=jpg&q=90&w=345 345w,
@@ -20,7 +20,7 @@ const updateExtractSmall = ({title='', date='', name='', extractImage='', color=
 				<h2 className="update-extract-small-title">{title}</h2>
 				<span className="update-extract-small-subtitle">{date} - {name}</span>
 			</div>
-		</div>
+		</a>
 	)
 }
 

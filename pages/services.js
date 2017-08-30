@@ -12,7 +12,7 @@ import ServicesOverview from '../components/services-overview/services-overview'
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
-import Data from '../data/current/services.json';
+import Data from '../data/current/service-overview.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
 const Services = () => {

@@ -196,6 +196,15 @@ const Case = ({Data}) => (
 										<LogoList companies={component.companies} />
 									</div>
 								);
+
+							case 'text_center':
+								return (
+									<div key={index}>
+										<TextCenter
+											title={component.title}
+											text={component.text} />
+									</div>
+								);
 						}
 					})}
 

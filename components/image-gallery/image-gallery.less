@@ -5,6 +5,23 @@
 	background-color: @black;
 }
 
+.image-gallery-img {
+	height: @full-width-image-height-s;
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+
+	@media @screen-medium {
+		height: @full-width-image-height-m;
+	}
+
+	@media @screen-large {
+		height: @full-width-image-height-l;
+	}
+}
+
 .image-gallery-navigation {
 	position: absolute;
 	top: 65px;

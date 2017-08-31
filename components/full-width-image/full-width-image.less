@@ -2,18 +2,18 @@
 
 .full-width-image {
     width: 100%;
-    height: 600px;
+    height: @full-width-image-height-s;
     position: relative;
 	overflow: hidden;
     margin-bottom: @spacing-default*8;
 
     @media @screen-medium {
-        height: 700px;
+        height: @full-width-image-height-m;
         margin-bottom: @spacing-default*9;
     }
 
     @media @screen-large {
-        height: 800px;
+        height: @full-width-image-height-l;
         margin: @spacing-large auto @spacing-default*8 auto;
         max-width: @max-width-image;
     }

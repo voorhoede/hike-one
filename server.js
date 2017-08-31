@@ -6,6 +6,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const cases = require('./data/current/cases.json');
+const services = require('./data/current/services.json');
 
 const fs = require('fs');
 
@@ -24,6 +25,15 @@ app.prepare()
 
 		server.get('/case/:slug', (req, res) => {
 			app.render(req, res, '/case', {slug: req.params.slug});
+		});
+
+		server.get('/api/services/:slug', (req, res) => {
+			const json = services.find(item => item.slug === req.params.slug);
+			res.json(json);
+		});
+
+		server.get('/services/:slug', (req, res) => {
+			app.render(req, res, '/service', {slug: req.params.slug});
 		});
 
 		server.get('*', (req, res) => {

@@ -27,7 +27,7 @@ const TabSelector = ({product,design,training}) => (
 			</a>
 		</Link>	
 		<Link href={`${training.target}`}>
-			<a className="tab-selector-item tab-selector-item--${training.color}">
+			<a className={`tab-selector-item tab-selector-item-${training.color}`}>
 				<div className="tab-selector-item-shape shadow">
 					<TrailTriangle />
 				</div>

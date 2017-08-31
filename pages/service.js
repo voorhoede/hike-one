@@ -11,21 +11,21 @@ import TabSelector from '../components/tab-selector/tab-selector';
 import "isomorphic-fetch";
 
 const productDesignData = {
-	title:'New product design',
-	color:'blue',
-	target:'#newproductdesign'
+	title: 'New product design',
+	color: 'blue',
+	target: '#newproductdesign'
 }
 
 const designData = {
-	title:'UX / UI Design',
-	color:'green',
-	target:'#design'
+	title: 'UX / UI Design',
+	color: 'green',
+	target: '#design'
 }
 
 const trainingData = {
-	title:'Training & Academy',
-	color:'purple',
-	target:'#training'
+	title: 'Training & Academy',
+	color: 'purple',
+	target: '#training'
 }
 
 const Service = ({Data}) => (

@@ -13,7 +13,7 @@ import WorkOverview from '../components/work-overview/work-overview';
 import "isomorphic-fetch";
 
 const Service = ({Data}) => (
-	<Layout title="Hike One - Case">
+	<Layout title={`Hike One - ${Data.title}`}>
 		<main className="main js-main">
 			<MenuBar/>
 			<article className="article">

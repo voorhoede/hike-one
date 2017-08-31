@@ -14,7 +14,7 @@ module.exports = (dato, root) => {
 		dir.createDataFile('people.json', 'json', peopleData[0].toMap());
 
 		const mappedServicesData = dato.service.toMap();
-		dir.createDataFile(`services.json`, 'json', mappedServicesData);
+		dir.createDataFile(`service-overview.json`, 'json', mappedServicesData);
 
 		const mappedHomeData = dato.home.toMap();
 		dir.createDataFile(`home.json`, 'json', mappedHomeData);
@@ -36,5 +36,13 @@ module.exports = (dato, root) => {
 		const mappedUpdateData = dato.updateOverview.toMap();
 		dir.createDataFile('update-overview.json', 'json', mappedUpdateData);
 
+
+		const serviceDetailsData = dato.serviceDetails.reduce((acc,item) => {
+			const mappedData = item.toMap();
+			acc.push(mappedData);
+			return acc;
+		}, []);
+
+		dir.createDataFile('services.json', 'json', serviceDetailsData);
 	});
 };

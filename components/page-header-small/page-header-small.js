@@ -1,16 +1,16 @@
-const updatesHeader = ({title = '', children}) => {
+const pageHeaderSmall = ({title = '', children}) => {
 	const childrenArray = React.Children.toArray(children);
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	return (
-		<div className="updates-header container">
-			{parallaxLayerBack}	
-			<div className="updates-header-container">
-				<h1 className="updates-header-title">{title}</h1>	
+		<div className="page-header-small container">
+			{parallaxLayerBack}
+			<div className="page-header-small-container">
+				<h1 className="page-header-small-title">{title}</h1>
 			</div>
 			{parallaxLayerFront}
 		</div>
 	);
 };
 
-export default updatesHeader;
+export default pageHeaderSmall;

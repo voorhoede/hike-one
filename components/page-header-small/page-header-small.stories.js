@@ -1,11 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import UpdatesHeader from './updates-header';
+import PageHeaderSmall from './page-header-small';
 import { withKnobs, text} from '@storybook/addon-knobs';
 
-storiesOf('Updates header', module)
+storiesOf('Page header small', module)
 	.addDecorator(withKnobs)
-	.add('updates header', () => (
-		<UpdatesHeader
+	.add('Page header small', () => (
+		<PageHeaderSmall
 			title={text('Title', 'Updates')}/>
 	));

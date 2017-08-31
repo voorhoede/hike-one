@@ -3,7 +3,7 @@
 .tab-selector {
 	width: auto;
 	height: 140px;
-	margin: 0 @spacing-default*1.5;
+	margin: 0 @spacing-default*1.5 @spacing-small*2 @spacing-default*1.5;
 	padding: 0;
 	
 	@media @screen-medium {
@@ -11,6 +11,7 @@
 	}
 
 	@media @screen-large {
+		margin-bottom: @spacing-medium*2;
 		height: 90px;
 		max-width: @column-large-10;
 		margin: 0 auto;

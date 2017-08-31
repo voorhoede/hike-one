@@ -1,5 +1,3 @@
-import ServicesItemSmall from '../services-item-small/services-item-small';
-import TextCenter from '../text-center/text-center';
 import Link from 'next/link';
 import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
 import TrailTriangle from '../shapes/trail-triangle/trail-triangle';

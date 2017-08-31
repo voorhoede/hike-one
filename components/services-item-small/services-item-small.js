@@ -2,6 +2,7 @@ import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
 import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
 import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
+import Link from 'next/link';
 
 const shapes = {
 	diamond: <TrailDiamond />,
@@ -9,7 +10,7 @@ const shapes = {
 	doubleDiamond: <TrailDoubleDiamond />
 };
 
-const ServicesItemSmall = ({ shape, button = '', title = '', text='', company='' }) => (
+const ServicesItemSmall = ({ shape, button = '', title = '', text='', target=''}) => (
 	<section className={`services-item-small`}>
 		<div className={`services-item-small-shape shadow`}>{ shapes[shape] }</div>
 		<div className="services-item-small-content">
@@ -22,9 +23,11 @@ const ServicesItemSmall = ({ shape, button = '', title = '', text='', company=''
 					src={`https://www.datocms-assets.com/2625/1502811013-1501144305-rectangle-3.png?&auto=format&fit=max&max-w=250`}
 					alt='' />
 			</div>
-			<p className="service-item-small-subtitle">
-				For PostNL we validated a new business idea using Lean Startup methods.
-			</p>
+			<Link href={`${target}`}>
+				<a className="service-item-small-subtitle">
+					For PostNL we validated a new business idea using Lean Startup methods.
+				</a>
+			</Link>
 			<ButtonSecondaryLink href="/services" icon="arrowRight" classes={`btn-red-border btn-wide`}>
 				{ button }
 			</ButtonSecondaryLink>

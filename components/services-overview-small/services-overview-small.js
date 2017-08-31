@@ -4,7 +4,7 @@ import TextCenter from '../text-center/text-center';
 const colors = ['blue', 'green', 'purple'];
 const shapes = ['diamond', 'doubleDiamond', 'triangle'];
 
-const ServicesOverviewSmall = ({ services, title='' }) => (
+const ServicesOverviewSmall = ({ services, title=''}) => (
 	<div className="services-item-small-container container clearfix">
 		<TextCenter
 			classes="text-center-font-title text-center-spacing-small"

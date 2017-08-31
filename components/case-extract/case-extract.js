@@ -2,10 +2,10 @@ import Icon from '../icon/icon';
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary';
 import Link from 'next/link';
 
-const CaseExtract = ({ headerImage ,title = '', subtitle = '', link}) => (
+const CaseExtract = ({ headerImage ,title = '', subtitle = '', slug= ''}) => (
 
 	<section className="case-extract container">
-		<Link href={link}>
+		<Link href={`/case?slug=${slug}`} as={`/case/${slug}`} prefetch>
 			<a>
 				<div className="case-extract-inner clearfix">
 					<div className="case-extract-image-container" style={{backgroundImage: `url(${headerImage})`}}></div>

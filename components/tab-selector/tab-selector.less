@@ -1,0 +1,18 @@
+@import (reference) '../../styles/variables';
+
+.tab-selector {
+	width: auto;
+	height: 138px;
+	margin: 0 15px;
+	padding: 0;
+	
+	@media @screen-medium {
+		height: 80px;
+	}
+
+	@media @screen-large {
+		height: 90px;
+		max-width: @column-large-10;
+		margin: 0 auto;
+	}
+}

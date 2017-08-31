@@ -3,10 +3,13 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import Contact from '../components/contact/contact';
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import * as ContactShapes from '../components/contact/contact-shapes';
+import FiftyFifty from '../components/50-50/50-50';
 import PageHeaderSmall from '../components/page-header-small/page-header-small';
 import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
-
+import TextCenter from '../components/text-center/text-center';
+import WorkOverview from '../components/work-overview/work-overview';
 import "isomorphic-fetch";
 
 const Service = ({Data}) => (
@@ -19,8 +22,53 @@ const Service = ({Data}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
-				
-				<h1>{Data.title}</h1>
+
+				<TextCenter
+					title={Data.introTitle}
+					text={Data.introText}/>
+
+				{ Data.content.map((component, index) => {
+					switch (component.itemType) {
+						case '40_60_text_right':
+							return (
+								<FiftyFifty
+									key={index}
+									title={component.title}
+									text={component.text}
+									imageLarge="true"
+									image={component.image.url} >
+								</FiftyFifty>
+							);
+
+						case '40_60_text_left':
+							return (
+								<FiftyFifty
+									key={index}
+									title={component.title}
+									contentLeft="true"
+									text={component.text}
+									imageLarge="true"
+									image={component.image.url} >
+								</FiftyFifty>
+							);
+					}
+				})}
+
+				<TextCenter title={Data.caseExtractTitle} />
+
+				<WorkOverview>
+					{ Data.caseExtract.map((item, index) => (
+						<CaseExtractSmall
+							key={index}
+							title={item.title}
+							subtitle={item.headerSubtitle}
+							image={item.headerBackgroundImage}
+							companyName={item.companyName}
+							color={item.caseThemeColor.hex}
+							slug={item.slug} />
+					))}
+				</WorkOverview>
+
 				<Contact
 					title="Where will your journey lead us"
 					button="Get in touch" >

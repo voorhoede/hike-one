@@ -6,8 +6,28 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import PageHeaderSmall from '../components/page-header-small/page-header-small';
 import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
+import TabSelector from '../components/tab-selector/tab-selector';
+import Data from '../data/current/home.json';
 
 import "isomorphic-fetch";
+
+const items = [
+	{
+		shape: 'diamnond',
+		title: 'New product design',
+		target: '#newproductdesign'
+	},
+	{
+		shape: 'doubleDiamond',
+		title: 'UX / UI Design',
+		target: '#uxuidesign'
+	},
+	{
+		shape: 'triangle',
+		title: 'Training & Academy',
+		target: '#trainingandacademy'
+	}
+]
 
 const Service = ({Data}) => (
 	<Layout title="Hike One - Case">
@@ -19,8 +39,7 @@ const Service = ({Data}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
-				
-				<h1>{Data.title}</h1>
+				<TabSelector items={items} />
 				<Contact
 					title="Where will your journey lead us"
 					button="Get in touch" >

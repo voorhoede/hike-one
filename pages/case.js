@@ -62,7 +62,7 @@ let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
 const Case = ({Data}) => (
-	<Layout title="Hike One - Case">
+	<Layout title="Hike One - Work">
 		<main className="main js-main">
 			<MenuBar color="white" />
 

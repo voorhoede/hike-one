@@ -11,7 +11,7 @@ module.exports = (dato, root) => {
 		const peopleData = dato.collectionsByType.people;
 		dir.createDataFile('people.json', 'json', peopleData[0].toMap());
 
-		dir.createDataFile(`service-overview.json`, 'json', dato.service.toMap());
+		dir.createDataFile(`service-overview.json`, 'json', dato.serviceOverview.toMap());
 
 		dir.createDataFile(`home.json`, 'json', dato.home.toMap());
 
@@ -25,7 +25,7 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
-		dir.createDataFile('services.json', 'json', dato.serviceDetails);
+		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 	});
 

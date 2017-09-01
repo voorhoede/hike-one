@@ -33,7 +33,7 @@ This will build and then serve the website on:
 Also watches for changes. 
 
 ## Deployment
-Travis handles deployments. It should, anyway..
+Travis handles deployments. It should, anyway.. so.
 
 ## Git Commit Messages
 

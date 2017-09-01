@@ -38,6 +38,7 @@ const Service = ({Data}) => (
 			<MenuBar/>
 			<article className="article">
 				<PageHeaderSmall
+					classes="pageheader-no-margin"
 					title="Our Services">
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
@@ -46,7 +47,7 @@ const Service = ({Data}) => (
 				<TabSelector
 					product={productDesignData}
 					design={designData}
-					training={trainingData}/>
+					training={trainingData} />
 
 				<TextCenter
 					title={Data.introTitle}

@@ -1,19 +1,25 @@
 @import (reference) '../../styles/variables';
 
 .tab-selector {
+	position: relative;
 	width: auto;
 	height: 140px;
-	margin: 0 @spacing-default*1.5;
+	margin: -70px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
 	padding: 0;
-	
+
+	@media @screen-small {
+		margin: -70px @spacing-default*1.5 @container-margin-bottom-l @spacing-default*1.5;
+	}
+
 	@media @screen-medium {
 		height: 80px;
+		margin-top: -40px;
 	}
 
 	@media @screen-large {
 		height: 90px;
 		max-width: @column-large-10;
-		margin: 0 auto;
+		margin: -45px auto @container-margin-bottom-l auto;
 	}
 }
 
@@ -24,6 +30,7 @@
 	padding: @spacing-small;
 	text-decoration: none;
 	color: @black;
+	background: @white;
 	border-right: 1px solid @lighter-gray;
 	height: 100%;
 
@@ -37,7 +44,7 @@
 
 	@media @screen-medium-large {
 		padding: @spacing-small @spacing-default*2.5 @spacing-small @spacing-medium*2;
-		
+
 		&:nth-child(2) {
 			padding-right: @spacing-medium*3;
 		}
@@ -66,7 +73,7 @@
 	width: 39px;
 	height: 39px;
 	margin: 0 auto @spacing-default auto;
-	
+
 	@media @screen-medium {
 		float: left;
 	}
@@ -84,7 +91,7 @@
 	font-weight: @font-weight-normal;
 	line-height: @line-height-body-small-s;
 	margin-bottom: @spacing-default*1.5;
-	
+
 	@media @screen-medium{
 		float: left;
 		padding-top: @spacing-default;

@@ -58,6 +58,9 @@
 
 	@media @screen-medium {
 		padding: @spacing-medium;
+		height: 130px;
+	}
+	@media @screen-large {
 		height: 152px;
 	}
 }
@@ -69,12 +72,10 @@
 	font-weight: @font-weight-bold;
 	margin-bottom: @spacing-default;
 	margin-top: @spacing-default;
-
+	
 	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-small-m;
 		margin-bottom: @spacing-small;
-		margin-top: @spacing-small;
+		margin-top: 0;
 	}
 	@media @screen-large {
 		font-size: @body-text-l;
@@ -83,7 +84,13 @@
 }
 
 .update-extract-small-subtitle {
+    position: absolute;
+    width: 100%;
+    padding: @spacing-default*1.5 0 @spacing-small 0;
+	bottom: 0;
+
 	color: @white;
+	font-weight: normal;
 	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
 
@@ -92,6 +99,7 @@
 		line-height: @line-height-body-small-m;
 	}
 	@media @screen-large {
+		padding-top: @spacing-default*1.5;
 		font-size: @body-text-small-l;
 		line-height: @line-height-body-small-l;
 	}
@@ -99,17 +107,22 @@
 
 .update-extract-small-type {
 	position: absolute;
-	top: -15px;
+	top: -10px;
 	left: 20px;
-	padding: 2px 17px;
+	padding: 0px 8px;
 	text-transform: uppercase;
-	letter-spacing: 3px;
-	font-size: @subtitle-small-s;
+	letter-spacing: 2px;
+	font-size: @label-s;
+	line-height: @line-height-label-s;
 	font-weight: @font-weight-bold;
 	background: @white;
 	color: @black;
 
 	@media @screen-medium {
 		left: 30px;
+		top: -10px;
+		padding: 0px 8px;
+		letter-spacing: 3px;
+		font-size: @subtitle-small-s;
 	}
 }

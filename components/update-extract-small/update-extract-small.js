@@ -3,6 +3,14 @@ import getContrastYIQ from '../_helpers/getContrastYIQ';
 const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index}) => {
 	const imageSmallScreen = `${image}&fm=jpg&q=90&w=737`;
 	const imageLargeScreen = `${image}&fm=jpg&q=90&h=332`;
+	const oldDate = new Date(date);
+	const options = {  
+		day: "numeric",
+		year: "numeric",
+		month: "long"  
+	};  
+
+	const newDateFormat = oldDate.toLocaleDateString("en-us", options).replace(/,/g,'');
 
 	const style ={__html:
 		`<style>
@@ -25,7 +33,8 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>
 				<div className="update-extract-small-type" style={{color: color}}>update</div>
 				<h2 className="update-extract-small-title">{title}</h2>
-				<span className="update-extract-small-subtitle">{date} - {author}</span>
+				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
+				{ newDateFormat } - {author}</span>
 			</div>
 
 			<div dangerouslySetInnerHTML={style}></div>

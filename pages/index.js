@@ -37,13 +37,6 @@ const Home = () => {
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
 
-					<TextCenter
-						classes={`text-center-font-large text-center-spacing-large ${scrollToTargetClass}`}
-						text={Data.introText} >
-						<TextCenterShapes.variation2Front position="front"/>
-						<TextCenterShapes.variation2Back position="back" />
-					</TextCenter>
-
 					<ServicesOverviewSmall title={Data.servicesItemTitle}  services={Data.serviceItems} />
 
 					<TextCenter

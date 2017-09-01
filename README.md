@@ -32,6 +32,8 @@ This will build and then serve the website on:
 
 Also watches for changes. 
 
+## Deployment
+Travis handles deployments.
 
 ## Git Commit Messages
 

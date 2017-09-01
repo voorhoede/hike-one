@@ -34,7 +34,6 @@
   },
   "author": "De Voorhoede",
   "license": "All Rights Reserved",
-  "private": true,
   "dependencies": {
     "express": "4.15.3",
     "gsap": "1.20.2",

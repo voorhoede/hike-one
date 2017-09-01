@@ -4,7 +4,7 @@ import Footer from '../components/footer/footer';
 import PageHeaderSmall from '../components/page-header-small/page-header-small';
 import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
 import data from '../data/current/update-overview.json';
-import updatesData from '../data/current/updates.json';
+import updatesData from '../data/current/update-extracts.json';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverview from '../components/update-overview/update-overview';
 

@@ -51,6 +51,7 @@
 	@media @screen-large {
 		.fifty-fifty-content {
 			width: 40%;
+			padding-right: 0;
 		}
 
 		.fifty-fifty-image {
@@ -59,18 +60,18 @@
 	}
 }
 
+.fifty-fifty-image-large.fifty-fifty-content-left .fifty-fifty-content {
+	@media @screen-large {
+		padding-left: 0;
+		padding-right: @spacing-large*2;
+	}
+}
+
 .fifty-fifty-title,
 .fifty-fifty-text {
 	@media @screen-medium {
 		float: right;
 		max-width: 450px;
-	}
-
-	.fifty-fifty-text-small.fifty-fifty-content-left & {
-		@media @screen-medium {
-			margin-right: 0;
-			margin-left: @spacing-large*2;
-		}
 	}
 }
 

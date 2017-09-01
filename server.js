@@ -32,7 +32,7 @@ app.prepare()
 			res.json(json);
 		});
 
-		server.get('/services/:slug', (req, res) => {
+		server.get('/service/:slug', (req, res) => {
 			app.render(req, res, '/service', {slug: req.params.slug});
 		});
 

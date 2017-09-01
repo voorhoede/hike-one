@@ -21,15 +21,15 @@ const ServicesOverviewSmall = ({ services, title=''}) => (
 			Object.values(services)
 				.map((item, index) => {
 					item.shape = shapesList[index];
-					return (	
+					return (
 						<div key={index} className={`services-item-small`}>
 							<div className={`services-item-small-shape shadow`}>{ shapes[item.shape] }</div>
 							<div className="services-item-small-content">
 								<h3 className="services-item-small-heading">{ item.title }</h3>
 								<p className="services-item-description">
-									We use design to improve the interaction between people and services. We prototype and validate with users in a loop of continues improvement. 
+									We use design to improve the interaction between people and services. We prototype and validate with users in a loop of continues improvement.
 								</p>
-								<div className="service-item-small-image-container">	
+								<div className="service-item-small-image-container">
 									<img className="service-item-small-logo"
 										src={`https://www.datocms-assets.com/2625/1502811013-1501144305-rectangle-3.png?&auto=format&fit=max&max-w=250`}
 										alt='' />
@@ -39,7 +39,10 @@ const ServicesOverviewSmall = ({ services, title=''}) => (
 										For PostNL we validated a new business idea using Lean Startup methods.
 									</a>
 								</Link>
-								<ButtonSecondaryLink href={`/services/${item.target}`} icon="arrowRight" classes={`btn-red-border btn-wide`}>
+								<ButtonSecondaryLink
+									href={`/service?slug=new-product-design`}
+									hrefAs={`/service/new-product-design`}
+									icon="arrowRight" classes={`btn-red-border btn-wide`}>
 									{ item.button }
 								</ButtonSecondaryLink>
 							</div>

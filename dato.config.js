@@ -23,10 +23,11 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('update-overview.json', 'json', dato.updateOverview.toMap());
 
+		dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts));
+
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
-
 	});
 
 	function mapCollection(collection) {

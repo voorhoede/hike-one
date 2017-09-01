@@ -7,6 +7,7 @@ const handle = app.getRequestHandler();
 
 const cases = require('./data/current/cases.json');
 const services = require('./data/current/services.json');
+const updates = require('./data/current/updates.json');
 
 const fs = require('fs');
 
@@ -23,17 +24,26 @@ app.prepare()
 			res.json(json);
 		});
 
-		server.get('/case/:slug', (req, res) => {
-			app.render(req, res, '/case', {slug: req.params.slug});
-		});
-
 		server.get('/api/services/:slug', (req, res) => {
 			const json = services.find(item => item.slug === req.params.slug);
 			res.json(json);
 		});
 
+		server.get('/api/updates/:slug', (req, res) => {
+			const json = updates.find(item => item.slug === req.params.slug);
+			res.json(json);
+		});
+
+		server.get('/case/:slug', (req, res) => {
+			app.render(req, res, '/case', {slug: req.params.slug});
+		});
+
 		server.get('/service/:slug', (req, res) => {
 			app.render(req, res, '/service', {slug: req.params.slug});
+		});
+
+		server.get('/update/:slug', (req, res) => {
+			app.render(req, res, '/update', {slug: req.params.slug});
 		});
 
 		server.get('*', (req, res) => {

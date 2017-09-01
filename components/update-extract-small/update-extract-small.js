@@ -2,13 +2,14 @@ import getContrastYIQ from '../_helpers/getContrastYIQ';
 
 const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index}) => {
 	const imageSmallScreen = `${image}&fm=jpg&q=90&w=737`;
-	const imageLargeScreen = `${image}&fm=jpg&q=90&h=332`;
+	const imageMediumScreen = `${image}&fm=jpg&q=90&w=470&h=332&fit=crop`;
+	const imageLargeScreen = `${image}&fm=jpg&q=90&w=337&h=366&fit=crop`;
 	const oldDate = new Date(date);
-	const options = {  
+	const options = {
 		day: "numeric",
 		year: "numeric",
-		month: "long"  
-	};  
+		month: "long"
+	};
 
 	const newDateFormat = oldDate.toLocaleDateString("en-us", options).replace(/,/g,'');
 
@@ -19,6 +20,12 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 			}
 			
 			@media only screen and (min-width: 768px) {
+				.update-extract-small-image-${index} {
+					background-image: url("${imageMediumScreen}");
+				}
+			}		
+			
+			@media only screen and (min-width: 1024px) {
 				.update-extract-small-image-${index} {
 					background-image: url("${imageLargeScreen}");
 				}

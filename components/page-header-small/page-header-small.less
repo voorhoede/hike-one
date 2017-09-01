@@ -7,8 +7,16 @@
 	position: relative;
 	margin-top: -@header-height-s;
 
+	&.pageheader-no-margin {
+		margin-bottom: 0;
+	}
+
 	 @media @screen-medium {
 		margin-top: -@header-height;
+
+		 &.pageheader-no-margin {
+			 margin-bottom: 0;
+		 }
 	}
 }
 

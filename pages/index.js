@@ -44,11 +44,7 @@ const Home = () => {
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
-					<TextCenter
-						classes="text-center-font-title text-center-spacing-small"
-						title={Data.servicesItemTitle} />
-
-					<ServicesOverviewSmall services={Data.serviceItems} />
+					<ServicesOverviewSmall title={Data.servicesItemTitle}  services={Data.serviceItems} />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"

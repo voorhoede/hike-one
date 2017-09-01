@@ -21,7 +21,9 @@ class ImageGallery extends React.Component{
 			<div className="image-gallery">
 				{ items.map(
 					(item, index) => (
-						<div key={index}>
+						<div key={index}
+							 className={`image-gallery-img
+							${imageIndex === index ? 'is-active' : ''}`} >
 							{ imageIndex === index &&
 							<FullWidthImage
 								index={index}

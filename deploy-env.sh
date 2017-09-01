@@ -34,8 +34,7 @@ then
 		-e NODE_ENV="$environment";
 	now -t "$now_token" alias $(geturl "$environment") "${domain}";
 	echo -n $environment;
-	# TODO: reset regex back to 'master' when done testing
-elif grep -qE '^feat/travis-dev$' <<<"$branch";
+elif grep -qE '^master$' <<<"$branch";
 then
 	# deployment to staging environment
 	environment='staging';

@@ -8,7 +8,7 @@ cache:
   - node_modules
 branches:
   only:
-   - feat/travis-dev
+   - master
    - /^v\d+\.\d+\.\d+$/
 notifications:
   email: false

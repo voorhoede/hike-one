@@ -32,15 +32,14 @@ const ServicesOverviewSmall = ({ services, title=''}) => (
 										src={item.referenceCompanyLogo.url}
 										alt='' />
 								</div>
-								{ item.referenceCaseLink &&
+								{ item.referenceCaseLink ?
 									<Link href={`/case?slug=${item.referenceCaseLink.slug}`}
 										  as={`/case/${item.referenceCaseLink.slug}`}>
 										<a className="service-item-small-subtitle">
 											{ item.referenceText }
 										</a>
 									</Link>
-								}
-								{ !item.referenceCaseLink &&
+									:
 									<p className="service-item-small-subtitle">
 										{ item.referenceText }
 									</p>

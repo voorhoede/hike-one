@@ -1,0 +1,16 @@
+language: node_js
+git:
+  depth: 1
+node_js:
+- '8'
+cache:
+  directories:
+  - node_modules
+branches:
+  only:
+   - feat/travis-dev
+   - /^v\d+\.\d+\.\d+$/
+notifications:
+  email: false
+script:
+  - bash ./deploy-env.sh $TRAVIS_BRANCH $NOW_TOKEN $DATO_API_TOKEN

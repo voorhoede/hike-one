@@ -42,7 +42,7 @@ then
 	now deploy -C \
 		-n "$environment" \
 		-t "$now_token" \
-		-e DATO_API_TOKEN="$dato_api_token"
+		-e DATO_API_TOKEN="$dato_api_token" \
 		-e NODE_ENV="$environment";
 	now -t "$now_token" alias $(geturl "$environment") "${environment}.${domain}";
 	echo -n $environment;

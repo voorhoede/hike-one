@@ -4,7 +4,7 @@ import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
 import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
 import Link from 'next/link';
 
-const TabSelector = ({product,design,training}) => (
+const TabSelector = ({product, design, training}) => (
 	<div className="tab-selector container shadow">
 		<Link href={`${product.target}`}>
 			<a className="tab-selector-item tab-selector-item-blue">

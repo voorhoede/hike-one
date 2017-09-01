@@ -14,7 +14,7 @@ import TabSelector from '../components/tab-selector/tab-selector';
 
 import "isomorphic-fetch";
 
-const productDesignData = {
+const productData = {
 	title: 'New product design',
 	color: 'blue',
 	target: '#newproductdesign'
@@ -43,9 +43,8 @@ const Service = ({Data}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
-
 				<TabSelector
-					product={productDesignData}
+					product={productData}
 					design={designData}
 					training={trainingData} />
 

@@ -26,22 +26,28 @@ const ServicesOverviewSmall = ({ services, title=''}) => (
 							<div className={`services-item-small-shape shadow`}>{ shapes[item.shape] }</div>
 							<div className="services-item-small-content">
 								<h3 className="services-item-small-heading">{ item.title }</h3>
-								<p className="services-item-description">
-									We use design to improve the interaction between people and services. We prototype and validate with users in a loop of continues improvement.
-								</p>
+								<p className="services-item-description">{ item.text }</p>
 								<div className="service-item-small-image-container">
 									<img className="service-item-small-logo"
-										src={`https://www.datocms-assets.com/2625/1502811013-1501144305-rectangle-3.png?&auto=format&fit=max&max-w=250`}
+										src={item.referenceCompanyLogo.url}
 										alt='' />
 								</div>
-								<Link href={`${item.target}`}>
-									<a className="service-item-small-subtitle">
-										For PostNL we validated a new business idea using Lean Startup methods.
-									</a>
-								</Link>
+								{ item.referenceCaseLink &&
+									<Link href={`/case?slug=${item.referenceCaseLink.slug}`}
+										  as={`/case/${item.referenceCaseLink.slug}`}>
+										<a className="service-item-small-subtitle">
+											{ item.referenceText }
+										</a>
+									</Link>
+								}
+								{ !item.referenceCaseLink &&
+									<p className="service-item-small-subtitle">
+										{ item.referenceText }
+									</p>
+								}
 								<ButtonSecondaryLink
-									href={`/service?slug=new-product-design`}
-									hrefAs={`/service/new-product-design`}
+									href={`/service?slug=${item.link.slug}`}
+									hrefAs={`/service/${item.link.slug}`}
 									icon="arrowRight" classes={`btn-red-border btn-wide`}>
 									{ item.button }
 								</ButtonSecondaryLink>

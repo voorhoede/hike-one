@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Icon from '../../icon/icon';
 
-const PrimaryButtonLink = ({classes = '', href, children = '', icon}) => (
-	<Link href={href}>
+const PrimaryButtonLink = ({classes = '', href, hrefAs = null, children = '', icon}) => (
+	<Link href={href} as={`${hrefAs ? hrefAs : href }`}>
 		<a className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{ icon &&

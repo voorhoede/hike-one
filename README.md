@@ -1,4 +1,5 @@
-# hike one
+# hike one 
+[![Build Status](https://travis-ci.org/voorhoede/hike-one.svg?branch=master)](https://travis-ci.org/voorhoede/hike-one)
 
 Website for Hike One
 
@@ -33,7 +34,27 @@ This will build and then serve the website on:
 Also watches for changes. 
 
 ## Deployment
-Travis handles deployments. It should, anyway.. so.
+[Travis](https://travis-ci.org) handles deployments.
+
+### Staging
+Code pushed to the **master** branch at github will trigger a deployment to 
+[**staging**](https://staging.hikeone.nl)
+
+### Production
+If Travis encounters a new **tag**, a production deployment will happen.
+
+1. Tags need to be explicitly pushed to the git remote.
+
+```sh
+# Create a tag
+$ git tag v1.2.3
+
+# push to remote
+$ git push --tags
+```
+
+2.  Tags must match the following pattern:
+**v0.1.2** (Three groups of digits, separated by periods, prefixed with a lowercase letter "v")
 
 ## Git Commit Messages
 

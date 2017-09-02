@@ -9,7 +9,7 @@ cache:
 branches:
   only:
    - master
-   - travis-dev
+   - feat/travis-dev
    - /^v\d+\.\d+\.\d+$/
 notifications:
   email: false

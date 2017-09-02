@@ -20,8 +20,8 @@ set -euo pipefail;
 branch=$1;
 now_token=$2;
 dato_api_token=$3;
-poll_interval=5;
-poll_attempts=20;
+poll_interval=10;
+poll_attempts=40;
 
 # domains.txt should exist
 [ -f ./domains.txt ] || { \

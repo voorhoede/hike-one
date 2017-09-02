@@ -106,7 +106,7 @@ then
 	environment='production';
 	deploy $environment;
 	echo -n $environment;
-elif grep -qE '^travis-dev$' <<<"$branch";
+elif grep -qE '^feat/travis-dev$' <<<"$branch";
 then
 	# deployment to staging environment (staging.hike*.*)
 	environment='staging';

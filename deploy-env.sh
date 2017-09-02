@@ -99,6 +99,7 @@ deploy () {
 	done <./domains.txt; # Read urls from file
 };
 
+# check if travis branch matches patterns.
 if grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"$branch";
 then
 	# branch name matches tag pattern = production deployment

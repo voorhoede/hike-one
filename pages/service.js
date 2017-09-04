@@ -11,8 +11,10 @@ import * as PageHeaderSmallShapes from '../components/page-header-small/page-hea
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
-
+import Link from 'next/link';
 import "isomorphic-fetch";
+import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
+import DataService from '../data/current/home.json';
 
 const productData = {
 	title: 'New product design',
@@ -50,7 +52,9 @@ const Service = ({Data}) => (
 
 				<TextCenter
 					title={Data.introTitle}
-					text={Data.introText}/>
+					text={Data.introText} />
+
+				<CompanyOverviewSmall services={DataService.serviceItems} />
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {

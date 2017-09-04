@@ -1,7 +1,7 @@
 const cookie = (name, value, days ) => {
 	// if value is undefined, get the cookie value
 	if( value === undefined ){
-		const cookiestring = '; ' + w.document.cookie;
+		const cookiestring = '; ' + window.document.cookie;
 		const cookies = cookiestring.split( '; ' + name + '=' );
 		if ( cookies.length === 2 ){
 			return cookies.pop().split( ';' ).shift();

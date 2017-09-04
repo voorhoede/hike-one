@@ -41,11 +41,8 @@ const Home = () => {
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"
+						title={Data.caseExtractTitle}
 						text={Data.caseExtractIntro} />
-
-					<TextCenter
-						classes="text-center-font-title text-center-spacing-small"
-						title={Data.caseExtractTitle} />
 
 					<CaseExtract
 						headerImage={Data.caseExtract.image.url}

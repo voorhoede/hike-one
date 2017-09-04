@@ -6,11 +6,15 @@
     background-color: @blue;
     color: @white;
     padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
-    font-family: @font-alt;
+    font-family: @font-alt-fallback;
     font-weight: @font-weight-normal;
     font-size: @subtitle-large-s;
     line-height: 35px;
     margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+
+	.fonts-loaded & {
+		font-family: @font-alt;
+	}
 
     @media @screen-small {
         margin-bottom: @spacing-default*9;

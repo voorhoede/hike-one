@@ -18,9 +18,13 @@
     display: inline-block;
     vertical-align: top;
     width: calc(~"100% - (70px + 1rem)");
-    font-family: @font-main;
+    font-family: @font-main-fallback;
     font-size: @body-text-s;
     line-height: @line-height-body-s;
+
+	.fonts-loaded & {
+		font-family: @font-main
+	}
 
     @media @screen-medium {
         font-size: @body-text-m;

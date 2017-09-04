@@ -11,26 +11,9 @@ import * as PageHeaderSmallShapes from '../components/page-header-small/page-hea
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
+import services from '../data/current/services.json';
 
 import "isomorphic-fetch";
-
-const productData = {
-	title: 'New product design',
-	color: 'blue',
-	target: '#newproductdesign'
-}
-
-const designData = {
-	title: 'UX / UI Design',
-	color: 'green',
-	target: '#design'
-}
-
-const trainingData = {
-	title: 'Training & Academy',
-	color: 'purple',
-	target: '#training'
-}
 
 const Service = ({Data}) => (
 	<Layout title={`Hike One - ${Data.title}`}>
@@ -43,10 +26,10 @@ const Service = ({Data}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
+
 				<TabSelector
-					product={productData}
-					design={designData}
-					training={trainingData} />
+					selectedItem={Data.slug}
+					services={services} />
 
 				<TextCenter
 					title={Data.introTitle}

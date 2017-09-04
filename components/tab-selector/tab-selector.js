@@ -4,10 +4,12 @@ import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
 import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
 import Link from 'next/link';
 
-const TabSelector = ({product, design, training}) => (
+const TabSelector = ({product, design, training, isSelected}) => (
 	<div className="tab-selector container shadow">
 		<Link href={`${product.target}`}>
-			<a className="tab-selector-item tab-selector-item-blue">
+			<a className={`tab-selector-item tab-selector-item-blue 
+			${isSelected === `${product.name}` ? 
+				`tab-selector-item-${product.color}-selected`: '' }`}>
 				<div className="tab-selector-item-shape shadow">
 					<TrailDiamond />
 				</div>
@@ -17,7 +19,9 @@ const TabSelector = ({product, design, training}) => (
 			</a>
 		</Link>	
 		<Link href={`${design.target}`}>
-			<a className={`tab-selector-item tab-selector-item-${design.color}`}>
+			<a className={`tab-selector-item tab-selector-item-${design.color} 
+			${isSelected === `${design.name}` ? 
+			`tab-selector-item-${design.color}-selected`: '' }` }>
 				<div className="tab-selector-item-shape shadow">
 					<TrailDoubleDiamond />
 				</div>
@@ -27,7 +31,9 @@ const TabSelector = ({product, design, training}) => (
 			</a>
 		</Link>	
 		<Link href={`${training.target}`}>
-			<a className={`tab-selector-item tab-selector-item-${training.color}`}>
+			<a className={`tab-selector-item tab-selector-item-${training.color} 
+			${isSelected === `${training.name}` ? 
+			`tab-selector-item-${training.color}-selected` : '' }`}>
 				<div className="tab-selector-item-shape shadow">
 					<TrailTriangle />
 				</div>

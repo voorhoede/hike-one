@@ -1,31 +1,34 @@
 @import (reference) '../../styles/variables';
 
 .tab-selector {
+	display: flex;
 	position: relative;
 	width: auto;
 	height: 140px;
-	margin: -20px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
+	margin: -@spacing-small @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
 	padding: 0;
-
+	
 	@media @screen-small {
-		margin: -20px @spacing-default*1.5 @container-margin-bottom-l @spacing-default*1.5;
+		margin: -@spacing-small @spacing-default*1.5 @container-margin-bottom-l @spacing-default*1.5;
 	}
 
 	@media @screen-medium {
 		height: 80px;
-		margin-top: -40px;
+		margin-top: -@spacing-large;
 	}
 
 	@media @screen-large {
 		height: 90px;
 		max-width: @column-large-10;
-		margin: -45px auto @container-margin-bottom-l auto;
+		margin: -@spacing-default*4.5 auto @container-margin-bottom-l auto;
 	}
 }
 
 .tab-selector-item {
-	display: block;
-	float: left;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: calc(100%/3);
 	padding: @spacing-small;
 	text-decoration: none;
@@ -40,10 +43,11 @@
 
 	@media @screen-medium {
 		padding: @spacing-small;
+		flex-direction: row;
 	}
 
 	@media @screen-medium-large {
-		padding: @spacing-small @spacing-default*2.5 @spacing-small @spacing-medium*2;
+		padding: @spacing-small @spacing-default*2.5 @spacing-small @spacing-small*2;
 
 		&:nth-child(2) {
 			padding-right: @spacing-medium*3;
@@ -51,18 +55,21 @@
 	}
 }
 
+.tab-selector-item-blue-selected,
 .tab-selector-item-blue:active,
 .tab-selector-item-blue:hover {
 	background: @blue;
 	color: @white;
 }
 
+.tab-selector-item-green-selected,
 .tab-selector-item-green:active,
 .tab-selector-item-green:hover {
 	background: @green;
 	color: @white;
 }
 
+.tab-selector-item-purple-selected,
 .tab-selector-item-purple:active,
 .tab-selector-item-purple:hover {
 	background: @purple;
@@ -72,32 +79,43 @@
 .tab-selector-item-shape {
 	width: 39px;
 	height: 39px;
-	margin: 0 auto @spacing-default auto;
+	margin: 0 auto;
+	margin-bottom: @spacing-default*1.5;
+	position: absolute;
+	top: 25px;
 
 	@media @screen-medium {
-		float: left;
+		position: relative;
+		top: 0;
+		margin: 0 @spacing-small;
 	}
 
 	@media @screen-large {
 		width: 50px;
 		height: 50px;
+		margin-left: 0;
 		margin-right: @spacing-medium;
 	}
 }
 
 .tab-selector-item-title {
+	margin-bottom: 0;
+	position: relative;
+	top: 30px;
 	text-align: center;
 	font-size: @body-text-s;
 	font-weight: @font-weight-normal;
 	line-height: @line-height-body-small-s;
-	margin-bottom: @spacing-default*1.5;
-
-	@media @screen-medium{
-		float: left;
-		padding-top: @spacing-default;
-		padding-left: @spacing-default;
+	
+	@media @screen-small {
+		top: 25px;
 	}
-	@media @screen-medium-large {
+	
+	@media @screen-medium {
+		top: 0;
+	}
+
+	@media @screen-medium-large {	
 		font-size: @body-text-m;
 		line-height: @line-height-body-small-m;
 	}

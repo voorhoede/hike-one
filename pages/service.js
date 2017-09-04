@@ -16,20 +16,23 @@ import "isomorphic-fetch";
 
 const productData = {
 	title: 'New product design',
+	name: 'New product design',
 	color: 'blue',
-	target: '#newproductdesign'
+	target: '/service/new-product-design'
 }
 
 const designData = {
 	title: 'UX / UI Design',
+	name: 'UX Design',
 	color: 'green',
-	target: '#design'
+	target: '/service/ux-design'
 }
 
 const trainingData = {
 	title: 'Training & Academy',
+	name: 'Training & Academy',
 	color: 'purple',
-	target: '#training'
+	target: '/service/training-and-academy'
 }
 
 const Service = ({Data}) => (
@@ -43,7 +46,9 @@ const Service = ({Data}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
+				
 				<TabSelector
+					isSelected={Data.title}
 					product={productData}
 					design={designData}
 					training={trainingData} />

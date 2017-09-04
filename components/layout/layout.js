@@ -1,11 +1,29 @@
 import React from 'react';
 import Head from 'next/head';
-
+import loadFonts from '../_helpers/fontLoader'
 class Layout extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			fontsLoaded: props.fontsLoaded ? 'fonts-loaded' : ''
+		};
+		this.checkFontsLoaded = this.checkFontsLoaded.bind(this);
+	}
 
 	componentDidMount() {
 		// scroll to top when reloading a page to correctly position parallax layers
 		window.addEventListener('beforeunload', () => window.scrollTo(0, 0));
+		this.checkFontsLoaded();
+	}
+
+	checkFontsLoaded() {
+		// if fonts aren't loaded then check with font observer when they're
+		// and add fonts loaded class
+		if (this.state.fontsLoaded !== 'fonts-loaded') {
+			loadFonts().then(
+				this.setState({fontsLoaded: 'fonts-loaded'})
+			);
+		}
 	}
 
 	render() {
@@ -31,7 +49,9 @@ class Layout extends React.Component {
 					<link rel="stylesheet" href="/static/styles/index.css" />
 					<link rel="manifest" href="/manifest.json" />
 				</Head>
-				{ children }
+				<div className={this.state.fontsLoaded}>
+					{ children }
+				</div>
 			</div>
 		);
 	}

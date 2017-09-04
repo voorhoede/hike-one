@@ -1,4 +1,6 @@
 import React from 'react';
+import "isomorphic-fetch";
+
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
@@ -11,8 +13,7 @@ import * as PageHeaderSmallShapes from '../components/page-header-small/page-hea
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
-
-import "isomorphic-fetch";
+import cookie from '../components/_helpers/cookie';
 
 const productData = {
 	title: 'New product design',
@@ -32,8 +33,8 @@ const trainingData = {
 	target: '#training'
 }
 
-const Service = ({Data}) => (
-	<Layout title={`Hike One - ${Data.title}`}>
+const Service = ({Data, fontsLoaded}) => (
+	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar/>
 			<article className="article">
@@ -105,12 +106,13 @@ const Service = ({Data}) => (
 	</Layout>
 );
 
-// get service data on server
 Service.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const res = await fetch(`${baseUrl}/api/services/${query.slug}`);
 	const json = await res.json();
-	return { Data: json };
+
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return { Data: json, fontsLoaded};
 };
 
 export default Service;

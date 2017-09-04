@@ -13,8 +13,6 @@ import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import TextCenter from '../components/text-center/text-center';
-import * as TextCenterShapes from '../components/text-center/text-center-shapes';
-
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import Data from '../data/current/home.json';

@@ -14,6 +14,7 @@ import TabSelector from '../components/tab-selector/tab-selector';
 import Link from 'next/link';
 import "isomorphic-fetch";
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
+// TODO add correct endpoint for company ref
 import DataService from '../data/current/home.json';
 
 const productData = {

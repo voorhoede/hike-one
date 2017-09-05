@@ -2,6 +2,7 @@ import ArrowDown from '../icons/arrow-down';
 import ArrowDownCircle from '../icons/arrow-down-circle';
 import ArrowRightCircle from '../icons/arrow-right-circle';
 import ArrowRight from '../icons/arrow-right';
+import ArrowLeft from '../icons/arrow-left';
 import Dribble from '../icons/dribble';
 import FaceBook from '../icons/facebook-circle';
 import Instagram from '../icons/instagram-circle';
@@ -18,6 +19,7 @@ const Icon = ({icon = 'arrowDown'}) => {
 		arrowDownCircle: <ArrowDownCircle />,
 		arrowRightCircle: <ArrowRightCircle />,
 		arrowRight: <ArrowRight/>,
+		arrowLeft: <ArrowLeft/>,
 		dribble: <Dribble/>,
 		faceBook: <FaceBook/>,
 		instagram: <Instagram/>,

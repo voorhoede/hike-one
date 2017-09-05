@@ -5,6 +5,8 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
+
+import FullWidthHeader from '../components/full-width-header/full-width-header';
 import BodyHeading from '../components/body-heading/body-heading';
 import BodyQuote from '../components/body-quote/body-quote';
 import BodyText from '../components/body-text/body-text';
@@ -12,14 +14,17 @@ import InlineImage from '../components/inline-image/inline-image';
 import List from '../components/list/list';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
 
-
 const Update = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
-			<MenuBar/>
+			<MenuBar color="white" />
 			<article className="article">
-				<h1> { Data.title } </h1>
-
+				<FullWidthHeader 
+					headerImage={Data.headerImage.url}
+					color={Data.color.hex}
+					title={Data.title}
+					authorName={Data.author.name} 
+					updatedDate={Data.date}/>	
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
 						case 'body_heading':

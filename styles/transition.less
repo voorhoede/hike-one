@@ -1,6 +1,10 @@
+@transition-img-speed: 0.3s;
+@transition-img-opacity: 0.1;
+@transition-img-scale: 1.05;
+
 .transition-img-hover {
 	position: relative;
-	transition: transform 0.3s;
+	transition: transform @transition-img-speed;
 
 	&:before {
 		content: '';
@@ -11,14 +15,14 @@
 		bottom: 0;
 		opacity: 0;
 		background-color: @black;
-		transition: opacity 0.3s;
+		transition: opacity @transition-img-speed;
 	}
 
 	&:hover {
-		transform: scale(1.05);
+		transform: scale(@transition-img-scale);
 
 		&:before {
-			opacity: 0.1;
+			opacity: @transition-img-opacity;
 		}
 	}
 }

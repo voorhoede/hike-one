@@ -31,15 +31,15 @@ const workspace = {
 	galleryItems: [
 		{
 			title: 'AMS',
-			url:'../static/images/office_amsterdam.jpg'
+			url:'../static/images/office-amsterdam.jpg'
 		},
 		{
 			title: 'RTM',
-			url:'../static/images/header_home.jpg'
+			url:'../static/images/office-rotterdam.jpg'
 		},
 		{
 			title: 'EHV',
-			url:'../static/images/img-team.jpg'
+			url:'../static/images/office-eindhoven.jpg'
 		}
 	],
 	statisticsSingle: {
@@ -62,7 +62,42 @@ const workspace = {
 		title: 'See job openings',
 		target: '#jobopenings'
 	}
-}
+};
+
+const people = [
+	{
+		role: 'Projectmanager',
+		name: 'Rozanne Verhoeven',
+		photo: {
+			url: '../static/images/rozanne.jpg'
+		}
+	},{
+		role: 'Interaction Designer',
+		name: 'Myrthe Geldof',
+		photo: {
+			url: '../static/images/myrthe.jpg'
+		}
+	},{
+		role: 'Interaction Designer',
+		name: 'Steven van Asselt',
+		photo: {
+			url: '../static/images/steven.jpg'
+		}
+	},{
+		role: 'Partner',
+		name: 'Matthijs Collard',
+		photo: {
+			url: '../static/images/matthijs.jpg'
+		}
+	},
+];
+
+const TeamImage3_4DummyData = {
+	title: 'Crafting our company bike',
+	photo: {
+		url: '../static/images/tinkering.jpg'
+	}
+};
 
 const listValues = {
 	title: 'Our values',
@@ -91,7 +126,7 @@ const Team = ({fontsLoaded}) => {
 
 					<ImageCompositionSmall
 						classes={scrollToTargetClass}
-						Person={PeopleData}
+						Person={people[0]}
 						TeamImage2_1={TeamImage2_1Data}
 						TeamImage3_4={TeamImage3_4Data}>
 						<ImageCompositionSmallShapes.variation1Front position="front"/>
@@ -109,8 +144,10 @@ const Team = ({fontsLoaded}) => {
 					</ImageCombo>
 
 					<ImageCompositionLarge
-							TeamImage3_4={TeamImage3_4Data}
-							Person={PeopleData}
+							TeamImage3_4={TeamImage3_4DummyData}
+							Person1={people[1]}
+							Person2={people[2]}
+							Person3={people[3]}
 							listValues={listValues}>
 							<ImageCompositionLargeShapes.variation1Front position="front"/>
 							<ImageCompositionLargeShapes.variation1Back position="back"/>

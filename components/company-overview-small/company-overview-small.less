@@ -24,6 +24,7 @@
 	align-items: center;
 	justify-content: center;
 	margin-bottom: @spacing-default;
+	height: 50px;
 
 	img {
 		width: 91px;
@@ -31,6 +32,7 @@
 	}
 	
 	@media @screen-large {
+		height: 70px;
 		img {
 			width: 123px;
 		}	
@@ -51,19 +53,25 @@
 }
 
 .company-item-small-subtitle {
+	display: flex;
 	width: 100%;
 	margin-bottom: 0;
 	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
+	justify-content: center;
 	text-align: center;
 	color: @dark-grey;
 	text-decoration: none;
+	margin-bottom: 0;
 	
 	@media @screen-small {
 		text-align: center;
+		max-width: 50%;
+		margin: auto;
 	}
 
 	@media @screen-medium {
+		max-width: 100%;
 		font-size: @body-text-small-m;
 		line-height: @line-height-body-small-m;
 	}

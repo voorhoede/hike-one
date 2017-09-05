@@ -92,6 +92,13 @@ const people = [
 	},
 ];
 
+const TeamImage3_4DummyData = {
+	title: 'Crafting our company bike',
+	photo: {
+		url: '../static/images/tinkering.jpg'
+	}
+};
+
 const listValues = {
 	title: 'Our values',
 	values: [
@@ -137,7 +144,7 @@ const Team = ({fontsLoaded}) => {
 					</ImageCombo>
 
 					<ImageCompositionLarge
-							TeamImage3_4={TeamImage3_4Data}
+							TeamImage3_4={TeamImage3_4DummyData}
 							Person1={people[1]}
 							Person2={people[2]}
 							Person3={people[3]}

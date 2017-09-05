@@ -12,18 +12,19 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person1, Person2, Person
 			{parallaxLayerBack}
 			<div className="image-composition-large-inner">
 				<div className="image-composition-img-1 image-team">
-					<img srcSet={`
-						${TeamImage3_4.photo.url}&fm=jpg&q=90&w=320 320w,
-						${TeamImage3_4.photo.url}&fm=jpg&q=90&w=375 375w,
-						${TeamImage3_4.photo.url}&fm=jpg&q=90&w=453 453w,
-						${TeamImage3_4.photo.url}&fm=jpg&q=90&w=600 600w,
-						${TeamImage3_4.photo.url}&fm=jpg&q=90&w=906 906w
-					`} sizes={`
-						(max-width: 768px) calc(50vw - 30px),
-						(max-width: 1024px) calc(50vw - 80px),
-						453px
-					`} src={`${TeamImage3_4.photo.url}&fm=jpg&q=90&w=453`} alt=""
-						 className="image-team-img" />
+					{/*<img srcSet={`*/}
+						{/*${TeamImage3_4.photo.url}&fm=jpg&q=90&w=320 320w,*/}
+						{/*${TeamImage3_4.photo.url}&fm=jpg&q=90&w=375 375w,*/}
+						{/*${TeamImage3_4.photo.url}&fm=jpg&q=90&w=453 453w,*/}
+						{/*${TeamImage3_4.photo.url}&fm=jpg&q=90&w=600 600w,*/}
+						{/*${TeamImage3_4.photo.url}&fm=jpg&q=90&w=906 906w*/}
+					{/*`} sizes={`*/}
+						{/*(max-width: 768px) calc(50vw - 30px),*/}
+						{/*(max-width: 1024px) calc(50vw - 80px),*/}
+						{/*453px*/}
+					{/*`} src={`${TeamImage3_4.photo.url}&fm=jpg&q=90&w=453`} alt=""*/}
+						 {/*className="image-team-img" />*/}
+					<img src={TeamImage3_4.photo.url} className="image-team-img" />
 					<span className="image-team-title">
 						{TeamImage3_4.title}
 					</span>

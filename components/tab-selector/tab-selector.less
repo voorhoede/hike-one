@@ -27,7 +27,6 @@
 .tab-selector-item {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
 	width: calc(100%/3);
 	padding: @spacing-small;
@@ -42,6 +41,7 @@
 	}
 
 	@media @screen-medium {
+		justify-content: center;
 		padding: @spacing-small;
 		flex-direction: row;
 	}
@@ -80,14 +80,13 @@
 	width: 39px;
 	height: 39px;
 	margin: 0 auto;
-	margin-bottom: @spacing-default*1.5;
-	position: absolute;
-	top: 25px;
+	position: relative;
+	top: 0;
 
 	@media @screen-medium {
 		position: relative;
 		top: 0;
-		margin: 0 @spacing-small;
+		margin: 0 @spacing-default 0 0px;
 	}
 
 	@media @screen-large {
@@ -101,7 +100,7 @@
 .tab-selector-item-title {
 	margin-bottom: 0;
 	position: relative;
-	top: 30px;
+	top: 15px;
 	text-align: center;
 	font-size: @body-text-s;
 	font-weight: @font-weight-normal;

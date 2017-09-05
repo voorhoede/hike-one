@@ -9,6 +9,9 @@ set -euo pipefail;
 # The domain names that are aliases to a now deployment, are expected to be
 # found in 'domains.txt' in the project root.
 
+# The script will wait until the status of a deployment is either 'ready' or
+# 'build_error'
+
 # Required arguments:
 
 # 1. branch: the branch name used by travis
@@ -29,10 +32,6 @@ poll_attempts=40;
 	exit 1; \
 }
 
-geturl () {
-	now -t "$now_token" ls "$1" | grep -oE "${1}-[a-z]+\.now\.sh" | head -n1;
-};
-
 deployment_status () {
 	local environment=$1
 	local url=$2
@@ -44,18 +43,22 @@ deploy () {
 	local environment=$1;
 	local prefix=${2:-0}; # whether to prefix domain with environment or not
 
-	# create a now deployment
-	now deploy -C \
+	# create a now deployment and save its domain name
+	# TODO: check errors for now deploy command
+	local deployment;
+
+	deployment=$(now deploy -C \
 		-n "$environment" \
 		-t "$now_token" \
 		-e DATO_API_TOKEN="$dato_api_token" \
-		-e NODE_ENV="$environment";
+		-e NODE_ENV="$environment" | sed s#https://##);
 
-	# get most recent deployment's ugly domain name
-	local deployment;
-	deployment=$(geturl "$environment");
+	grep -qE "${environment}-[a-z]+\.now\.sh" || { \
+		echo 'Error: now deployment did not return a valid domain name'; \
+		exit 1; \
+	}
 
-	for (( i=1; i <= poll_attempts; i++))
+	for (( i=1; i <= poll_attempts; i++ ))
 	do
 		echo "Checking now deployment status. Attempt #${i}.";
 		local status;

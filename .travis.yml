@@ -13,5 +13,6 @@ branches:
    - /^v\d+\.\d+\.\d+$/
 notifications:
   email: false
+install: npm install -g now
 script:
   - bash ./deploy-env.sh $TRAVIS_BRANCH $NOW_TOKEN $DATO_API_TOKEN

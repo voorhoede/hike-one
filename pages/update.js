@@ -5,13 +5,14 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
+import FullWidthHeader from '../components/full-width-header/full-width-header';
 
 const Update = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar/>
 			<article className="article">
-				<h1> { Data.title } </h1>
+				<FullWidthHeader header={Data} />	
 			</article>
 			<Footer />
 		</main>

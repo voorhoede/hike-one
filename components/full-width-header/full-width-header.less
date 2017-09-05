@@ -1,0 +1,114 @@
+ @import (reference) '../../styles/variables';
+
+.full-width-header {
+	width: 100%;
+	max-width: @column-large-10;
+	margin: 0 auto @spacing-large*2 auto;
+
+	@media @screen-large {
+		margin-bottom: @spacing-large*3;
+	}
+}
+
+.full-width-header-image {
+	background-size: cover;
+	background-position: 50% 50%;
+	width: 100%;
+	height: 282px;
+
+	@media @screen-medium {
+		height: 425px;
+	}
+	@media @screen-large {
+		height: 500px;
+	}
+}
+
+.full-width-header-text {
+	display: flex;
+	flex-direction: column;
+	max-width: @column-large-10;
+	margin-top: -92px;
+	width: calc(~'(100vw) - 15px');
+	height: auto;
+	padding: @spacing-medium @spacing-default*1.5;
+	min-height: 200px;
+	background: @dark-blue;
+	color: @white;
+	
+	@media @screen-medium {
+		width: calc(~'(100vw) - 180px');
+		padding: @spacing-large @spacing-medium;
+	}
+	@media @screen-large {
+		flex-direction: row;
+		padding: @spacing-large @spacing-medium;
+		width: calc(~'( @{container-inner-max-width}) - 280px');
+	}
+}
+
+.full-width-header-text-container {
+	display: flex;
+	flex-direction: column;
+	
+	@media @screen-large {
+		margin-left: 100px;
+	}
+}
+
+.full-width-header-back {
+	color: @white;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	margin-bottom: @spacing-default*1.5;
+
+	svg {
+		fill: @white;
+		width: 21px;
+		height: 21px;
+	}
+
+	@media @screen-large {
+		width: 175px;
+		align-items: flex-start;
+	}
+}
+
+.full-width-header-subtitle {
+	padding-left: @spacing-default*1.5;
+	font-size: @body-text-small-l;
+	line-height: @line-height-body-small-l;
+	font-weight: @font-weight-bold;
+}
+
+.full-width-header-title {
+	font-size: @heading-s;
+	line-height: @line-height-subtitle-m;
+	font-weight: @font-weight-bold;
+	color: @white;
+	margin-bottom: @spacing-default;
+	
+	@media @screen-medium {
+		font-size: @heading-m;
+		line-height: @line-height-heading-m;
+	}
+	@media @screen-medium {
+		margin-bottom: @spacing-medium;
+		font-size: @heading-l;
+		line-height: @line-height-heading-l;
+	}
+}
+
+.full-width-header-author {
+	opacity: 0.5;
+	margin-bottom: 0;
+	font-size: @body-text-s;
+	line-height: @line-height-body-small-l;
+	font-weight: @font-weight-bold;
+}
+
+.full-width-header-back-container {
+	display: flex;
+	align-items: center;
+}

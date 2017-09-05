@@ -5,6 +5,13 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
+import BodyHeading from '../components/body-heading/body-heading';
+import BodyQuote from '../components/body-quote/body-quote';
+import BodyText from '../components/body-text/body-text';
+import InlineImage from '../components/inline-image/inline-image';
+import List from '../components/list/list';
+import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
+
 
 const Update = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -16,34 +23,36 @@ const Update = ({Data, fontsLoaded}) => (
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
 						case 'body_heading':
-							return <h2 key={index}>{ component.title }</h2>;
+							return <BodyHeading key={index} title={component.title} />;
 						case 'body_quote':
-							return <blockquote key={index}>{ component.quote }</blockquote>;
+							return <BodyQuote key={index} quote={component.quote}/>;
 						case 'body_text':
-							return <p key={index}>{ component.text }</p>;
+							return <BodyText key={index} text={component.text} />;
 						case 'inline_image':
 							return (
-								<div key={index}>
-									<img src={component.image.url} />
-									{ component.caption && <p>{ component.caption }</p> }
-								</div>
+								<InlineImage
+									key={index}
+									image={component.image.url}
+								    caption={component.caption} />
 							);
 						case 'inline_image_large':
 							return (
-								<div key={index}>
-									<img src={component.image.url} />
-									{ component.caption && <p>{ component.caption }</p> }
-								</div>
+								<InlineImage
+									key={index}
+									large={true}
+									image={component.image.url}
+									caption={component.caption} />
 							);
 						case 'list':
-							return (
-								<p key={index}>{component.items}</p>
-							);
+							// add helper function here to convert markdown list to an array with items
+							// const items = parseList(component.items)
+							{/*return (*/}
+								{/*<List key={index} items={items} />*/}
+							{/*);*/}
+							return;
 						case 'full_width_image_small':
 							return (
-								<div key={index}>
-									<img src={component.image.url} />
-								</div>
+								<FullWidthImageSmall key={index} image={component.image.url} />
 							);
 					}
 				})}

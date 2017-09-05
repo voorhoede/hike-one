@@ -82,7 +82,7 @@
 	@media @screen-small {
 		float: none;
 		margin: 0 auto 0 auto;
-		padding: @spacing-large*2 0 @spacing-large 0;
+		padding: @spacing-large 0 @spacing-large 0;
 		max-width: 350px;
 		width: 100%;
 		left: 0;
@@ -92,9 +92,9 @@
 		float: left;
 		max-width: 33%;
 		margin-bottom: 0;
-
+		padding-top: 0;
+		
 		&:first-child {
-			padding-top: @spacing-large*2;
 			padding-right: @spacing-small;
 		}
 
@@ -144,14 +144,14 @@
 		padding-left: 0;
 		margin-top: @spacing-large;
 		position: relative;
-		height: 300px;
+		height: auto;
 		max-width: 100%;
 	}
 
 	@media @screen-medium {
 		top: -@spacing-large;
 		padding: @spacing-small 0 @spacing-medium 0;
-		height: 180px;
+		height: auto;
 		max-width: 100%;
 		margin-right: 0;
 		position: relative;
@@ -202,19 +202,21 @@
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	text-align: left;
-	padding-right: @spacing-default*2.5;
 	height: 130px;
 	overflow: hidden;
 
 	@media @screen-small {
 		text-align: center;
 	}
+	@media @screen-medium {
+		height: 125px;
+	}
 
 	@media @screen-large {
 		font-size: @body-text-l;
 		line-height: @line-height-body-l;
 		margin-bottom: @spacing-medium;
-		height: 165px;
+		height: 170px;
 	}
 }
 
@@ -239,7 +241,7 @@
 	float: left;
 	width: 100%;
 	margin-bottom: @spacing-small;
-	font-size:@body-text-small-s;
+	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
 	text-align: left;
 	color: @dark-grey;
@@ -250,6 +252,7 @@
 	}
 
 	@media @screen-medium {
+		height: 70px;
 		font-size: @body-text-small-m;
 		line-height: @line-height-body-small-m;
 	}

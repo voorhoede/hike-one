@@ -10,7 +10,7 @@ import FullWidthHeader from '../components/full-width-header/full-width-header';
 const Update = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
-			<MenuBar/>
+			<MenuBar color="white" />
 			<article className="article">
 				<FullWidthHeader header={Data} />	
 			</article>

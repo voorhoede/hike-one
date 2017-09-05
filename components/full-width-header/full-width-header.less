@@ -2,17 +2,17 @@
 
 .full-width-header {
 	width: 100%;
-	max-width: @column-large-10;
-	margin: 0 auto @spacing-large*2 auto;
+	max-width: @max-width-image;
+	margin: -@header-height-s auto @spacing-large*2 auto;
 
 	@media @screen-large {
+		margin-top: -@header-height;
 		margin-bottom: @spacing-large*3;
 	}
 }
 
 .full-width-header-image {
 	background-size: cover;
-	background-position: 50% 50%;
 	width: 100%;
 	height: 282px;
 
@@ -22,6 +22,11 @@
 	@media @screen-large {
 		height: 500px;
 	}
+}
+
+.full-width-header-text-container {
+	max-width: @column-large-12;
+	margin: auto;
 }
 
 .full-width-header-text {
@@ -52,7 +57,7 @@
 	flex-direction: column;
 	
 	@media @screen-large {
-		margin-left: @spacing-small*5;
+		// margin-left: @spacing-small*5;
 	}
 }
 

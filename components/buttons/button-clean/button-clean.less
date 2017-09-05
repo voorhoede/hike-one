@@ -1,7 +1,7 @@
 @import (reference) '../../../styles/variables';
 
 .btn-clean {
-	font-family: @font-main;
+	font-family: @font-main-fallback;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
@@ -11,6 +11,10 @@
 	padding: 0;
 	display: block;
 	color: @white;
+
+	.fonts-loaded & {
+		font-family: @font-main;
+	}
 
 	&:hover {
 		background: transparent;

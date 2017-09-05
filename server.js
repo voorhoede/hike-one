@@ -1,5 +1,6 @@
 const express = require('express');
 const next = require('next');
+const cookieParser = require('cookie-parser');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -17,6 +18,8 @@ app.prepare()
 
 		// so we can serve files from the root directory instead of next.js default static folder
 		server.use(express.static('./static/root'));
+
+		server.use(cookieParser());
 		server.use('/guide/', express.static('./build/guide/'));
 
 		server.get('/api/cases/:slug', (req, res) => {

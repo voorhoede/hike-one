@@ -31,6 +31,7 @@ import TextCard from '../components/text-card/text-card';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
+import cookie from '../components/_helpers/cookie';
 
 // object with parallax shape layer variations for every type of component
 // combined with the componentCounter object a specific variantion is chosen for each component
@@ -61,11 +62,10 @@ const parallaxLayersMap = {
 let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
-const Case = ({Data}) => (
-	<Layout title={`Hike One - ${Data.title}`}>
+const Case = ({Data, fontsLoaded}) => (
+	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar color="white" />
-
 			<article className="article">
 				<CaseHeader
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
@@ -238,12 +238,13 @@ const Case = ({Data}) => (
 	</Layout>
 );
 
-// get case data on server
 Case.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const res = await fetch(`${baseUrl}/api/cases/${query.slug}`);
 	const json = await res.json();
-	return { Data: json };
+
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return {Data: json, fontsLoaded};
 };
 
 export default Case;

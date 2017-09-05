@@ -7,7 +7,7 @@ const LogoList = ({companies}) => (
 				<Link href={company.website}>
 					<a>
 						<img
-							src={`${company.logo.url}&auto=format&fit=max&max-w=250`}
+							src={`${company.logo.url}&auto=format&fm=png&fit=max&max-w=250`}
 							alt={company.name} />
 					</a>
 				</Link>

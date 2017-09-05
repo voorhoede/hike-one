@@ -29,6 +29,7 @@ const updates = () => {
 								author={item.author.name}
 								target={item.link}
 								image={item.image.url}
+								category={item.category.name}
 								color={item.themeColor.hex} />
 						))}
 					</UpdateOverview>

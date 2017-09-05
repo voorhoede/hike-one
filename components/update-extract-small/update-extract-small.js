@@ -1,6 +1,6 @@
 import getContrastYIQ from '../_helpers/getContrastYIQ';
 
-const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index}) => {
+const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index, category = 'update'}) => {
 	const imageSmallScreen = `${image}&fm=jpg&q=90&w=737`;
 	const imageMediumScreen = `${image}&fm=jpg&q=90&w=470&h=332&fit=crop`;
 	const imageLargeScreen = `${image}&fm=jpg&q=90&w=337&h=366&fit=crop`;
@@ -38,7 +38,7 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`update-extract-small-image-${index} update-extract-small-image`}></div>
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>
-				<div className="update-extract-small-type" style={{color: color}}>update</div>
+				<div className="update-extract-small-type" style={{color: color}}>{category}</div>
 				<h2 className="update-extract-small-title">{title}</h2>
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
 				{ newDateFormat } - {author}</span>

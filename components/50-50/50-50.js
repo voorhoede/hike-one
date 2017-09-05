@@ -47,7 +47,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 							(max-width: 1024px) calc(60vw - 50px),
 							(max-width: 1244px) calc(60vw - 30px),
 							715px"
-						 src={`${image}&auto=format&q=90&w=750`}
+						 src={`${image}&auto=format&fm=jpg&q=90&w=750`}
 						 alt="" />
 					}
 				</div>

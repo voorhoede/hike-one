@@ -6,9 +6,9 @@ const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, 
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
-	const heroImageSmall = `${heroImage}auto=format&fit=max&q=90&w=768`;
-	const heroImageMedium = `${heroImage}auto=format&fit=max&q=90&w=1170`;
-	const heroImageLarge = `${heroImage}auto=format&fit=max&q=90&w=1244`;
+	const heroImageSmall = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=768`;
+	const heroImageMedium = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=1170`;
+	const heroImageLarge = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=1244`;
 
 	const style ={__html:
 		`<style>

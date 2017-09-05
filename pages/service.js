@@ -14,24 +14,8 @@ import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import cookie from '../components/_helpers/cookie';
+import services from '../data/current/services.json';
 
-const productData = {
-	title: 'New product design',
-	color: 'blue',
-	target: '#newproductdesign'
-}
-
-const designData = {
-	title: 'UX / UI Design',
-	color: 'green',
-	target: '#design'
-}
-
-const trainingData = {
-	title: 'Training & Academy',
-	color: 'purple',
-	target: '#training'
-}
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -44,10 +28,10 @@ const Service = ({Data, fontsLoaded}) => (
 					<PageHeaderSmallShapes.variation2Front position="front"/>
 					<PageHeaderSmallShapes.variation1Back position="back"/>
 				</PageHeaderSmall>
+
 				<TabSelector
-					product={productData}
-					design={designData}
-					training={trainingData} />
+					selectedItem={Data.slug}
+					services={services} />
 
 				<TextCenter
 					title={Data.introTitle}

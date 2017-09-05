@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
 import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
+import Triangle from '../shapes/triangle/triangle';
 import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 
@@ -13,6 +14,9 @@ const shapes = {
 
 const ServicesOverviewSmall = ({ services, title=''}) => (
 	<div className="services-overview-small container clearfix">
+		<div className="service-overview-small-triangle">
+			<Triangle />
+		</div>
 		<div className="services-overview-small-header">
 			{title}
 		</div>

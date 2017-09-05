@@ -36,6 +36,7 @@
   "license": "All Rights Reserved",
   "private": true,
   "dependencies": {
+    "cookie-parser": "1.4.3",
     "express": "4.15.3",
     "fontfaceobserver": "2.0.13",
     "gsap": "1.20.2",

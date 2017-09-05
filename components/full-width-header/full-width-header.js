@@ -1,4 +1,5 @@
 import Icon from '../icon/icon';
+import Link from 'next/link';
 import getDateFormat from '../_helpers/getDateFormat';
 
 const FullWidthHeader = ({headerImage='', color='', title='',authorName='',updatedDate=''}) => (
@@ -7,10 +8,12 @@ const FullWidthHeader = ({headerImage='', color='', title='',authorName='',updat
 		<div className="full-width-header-inner-container">
 			<div className="full-width-header-text shadow" style={{backgroundColor:`${color}`}}>
 				<div className="full-width-header-back">
-					<div className="full-width-header-back-container">	
-						<Icon icon="arrowLeft"/>
-						<span className="full-width-header-subtitle">all updates</span>
-					</div>
+					<Link href={`/updates`}  as={`/updates`}>
+						<a className="full-width-header-back-container">	
+							<Icon icon="arrowLeft"/>
+							<span className="full-width-header-subtitle">all updates</span>
+						</a>
+					</Link>
 				</div>
 				<div className="full-width-header-text-container">
 					<h1 className="full-width-header-title">{title}</h1>

@@ -24,9 +24,11 @@
 	}
 }
 
-.full-width-header-text-container {
-	max-width: @column-large-12;
-	margin: auto;
+.full-width-header-inner-container {
+	@media @screen-large {
+		max-width: @column-large-12;
+		margin: auto;
+	}
 }
 
 .full-width-header-text {
@@ -57,7 +59,7 @@
 	flex-direction: column;
 	
 	@media @screen-large {
-		// margin-left: @spacing-small*5;
+		margin-left: @spacing-small*5;
 	}
 }
 

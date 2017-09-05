@@ -38,7 +38,10 @@ const Home = ({fontsLoaded}) => {
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
 
-					<ServicesOverviewSmall title={Data.servicesItemTitle}  services={Data.serviceItems} />
+					<ServicesOverviewSmall
+						classes={scrollToTargetClass}
+						title={Data.servicesItemTitle}
+						services={Data.serviceItems} />
 
 					<TextCenter
 						classes="text-center-font-medium text-center-spacing-small"

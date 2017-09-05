@@ -12,8 +12,8 @@ const shapes = {
 	doubleDiamond: <TrailDoubleDiamond />
 };
 
-const ServicesOverviewSmall = ({ services, title=''}) => (
-	<div className="services-overview-small container clearfix">
+const ServicesOverviewSmall = ({services, title='', classes=''}) => (
+	<div className={`services-overview-small container clearfix ${classes}`}>
 		<div className="service-overview-small-triangle">
 			<Triangle />
 		</div>

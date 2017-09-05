@@ -70,27 +70,3 @@
 @import (once) '../components/work-overview/work-overview';
 @import (once) '../styles/pages/case';
 @import (once) '../styles/pages/work';
-
-html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: @font-main;
-}
-
-body.disable-scroll {
-	overflow: hidden;
-	max-height: 100vh;
-
-	@media @screen-medium {
-		overflow: auto;
-		max-height: none;
-	}
-}
-
-* {
-	box-sizing: border-box;
-}

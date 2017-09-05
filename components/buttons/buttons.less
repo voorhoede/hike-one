@@ -7,11 +7,15 @@
 	padding: @spacing-default @spacing-medium;
 	text-decoration: none;
 	border-radius: 100px;
-	font-family: @font-main;
+	font-family: @font-main-fallback;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
 	transition: background 0.3s ease, color 0.3s ease, transform .3s ease;
+
+	.fonts-loaded & {
+		font-family: @font-main;
+	}
 
 	@media @screen-medium {
 		font-size: @body-text-m;

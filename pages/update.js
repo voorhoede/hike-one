@@ -1,11 +1,13 @@
 import React from 'react';
+import "isomorphic-fetch";
+
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-import "isomorphic-fetch";
+import cookie from '../components/_helpers/cookie';
 
-const Update = ({Data}) => (
-	<Layout title={`Hike One - ${Data.title}`}>
+const Update = ({Data, fontsLoaded}) => (
+	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar/>
 			<article className="article">
@@ -16,12 +18,13 @@ const Update = ({Data}) => (
 	</Layout>
 );
 
-// get update data on server
 Update.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const res = await fetch(`${baseUrl}/api/updates/${query.slug}`);
 	const json = await res.json();
-	return { Data: json };
+
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return { Data: json, fontsLoaded};
 };
 
 export default Update;

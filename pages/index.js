@@ -1,4 +1,5 @@
 import React from 'react';
+import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -13,18 +14,18 @@ import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import TextCenter from '../components/text-center/text-center';
-import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import Data from '../data/current/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
+import cookie from '../components/_helpers/cookie';
 
-const Home = () => {
+const Home = ({fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Home">
+		<Layout title="Hike One - Home" fontsLoaded={fontsLoaded}>
 			<main className="main js-main" >
 				<MenuBar color="black" />
 				<article className="article">
@@ -68,6 +69,11 @@ const Home = () => {
 			</main>
 		</Layout>
 	);
+};
+
+Home.getInitialProps = async ({req}) => {
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return {fontsLoaded};
 };
 
 export default Home;

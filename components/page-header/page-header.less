@@ -103,5 +103,9 @@
 .page-header-button-text {
 	display: block;
 	padding-bottom: @spacing-small;
-	font-family: @font-main;
+	font-family: @font-main-fallback;
+
+	.fonts-loaded {
+		font-family: @font-main;
+	}
 }

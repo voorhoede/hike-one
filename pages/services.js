@@ -1,4 +1,5 @@
 import React from 'react';
+import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -14,11 +15,12 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import Data from '../data/current/service-overview.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
+import cookie from '../components/_helpers/cookie';
 
-const Services = () => {
+const Services = ({fontsLoaded}) => {
 	let scrollToTargetClass = 'js-scroll-to-target';
 	return (
-		<Layout title="Hike One - Services">
+		<Layout title="Hike One - Services" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
@@ -49,5 +51,9 @@ const Services = () => {
 	);
 };
 
+Services.getInitialProps = async ({req}) => {
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return {fontsLoaded};
+};
 
 export default Services;

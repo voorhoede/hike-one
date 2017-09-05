@@ -1,4 +1,5 @@
 import React from 'react';
+import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -20,6 +21,7 @@ import TeamImage2_1Data from '../data/current/teamImages21.json';
 import TeamImage3_4Data from '../data/current/teamImages34.json';
 import PeopleData from '../data/current/people.json';
 
+import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';
 let scrollToTargetClass = 'js-scroll-to-target';
 
@@ -72,9 +74,9 @@ const listValues = {
 	]
 }
 
-const Team = () => {
+const Team = ({fontsLoaded}) => {
 	return (
-		<Layout title="Hike One - Team">
+		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article">
@@ -124,6 +126,11 @@ const Team = () => {
 			</main>
 		</Layout>
 	);
+};
+
+Team.getInitialProps = async ({req}) => {
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	return {fontsLoaded};
 };
 
 

@@ -4,8 +4,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-family: @font-main;
+    font-family: @font-main-fallback;
     align-items: center;
+
+	.fonts-loaded & {
+		font-family: @font-main;
+	}
 
     @media @screen-large {
         flex-direction: row;

@@ -1,5 +1,5 @@
 import Icon from '../icon/icon';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import Link from 'next/link';
 
 const CaseExtract = ({ headerImage ,title = '', subtitle = '', slug= ''}) => (

@@ -13,9 +13,12 @@ import * as PageHeaderSmallShapes from '../components/page-header-small/page-hea
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
+import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
+// TODO add correct endpoint for company ref
+import DataService from '../data/current/home.json';
+
 import cookie from '../components/_helpers/cookie';
 import services from '../data/current/services.json';
-
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -35,7 +38,9 @@ const Service = ({Data, fontsLoaded}) => (
 
 				<TextCenter
 					title={Data.introTitle}
-					text={Data.introText}/>
+					text={Data.introText} />
+
+				<CompanyOverviewSmall services={DataService.serviceItems} />
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {

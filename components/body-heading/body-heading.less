@@ -1,0 +1,25 @@
+@import (reference) '../../styles/variables';
+
+.body-heading {
+	width: 100%;
+	max-width: @column-large-7;
+	margin: 0 auto @spacing-default auto;
+	padding-left: @spacing-default*1.5;
+	font-size: @heading-small-s;
+	line-height: @line-height-header-small-s;
+	font-weight: @font-weight-bold;
+	text-align: left;
+	color: @darker-gray;
+	
+
+	@media @screen-medium {
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}	
+
+	@media @screen-large {
+		padding-left: 0;
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-l;	
+	}	
+}

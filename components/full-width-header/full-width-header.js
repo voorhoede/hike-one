@@ -2,7 +2,7 @@ import Icon from '../icon/icon';
 import Link from 'next/link';
 import getDateFormat from '../_helpers/getDateFormat';
 
-const FullWidthHeader = ({headerImage='', color='', title='',authorName='',updatedDate=''}) => (
+const FullWidthHeader = ({headerImage='', color='', title='', authorName='', updatedDate=''}) => (
 	<div className="full-width-header">
 		<div className="full-width-header-image" style={{backgroundImage: `url(${headerImage})`}}></div>
 		<div className="full-width-header-inner-container">

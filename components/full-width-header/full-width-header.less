@@ -44,12 +44,11 @@
 	color: @white;
 	
 	@media @screen-medium {
-		width: calc(~'(100vw) - 180px');
 		padding: @spacing-large @spacing-medium;
 	}
 	@media @screen-large {
+		max-width: @column-large-11;
 		flex-direction: row;
-		width: calc(~'( @{container-inner-max-width}) - 280px');
 		padding: @spacing-large @spacing-medium;
 	}
 }

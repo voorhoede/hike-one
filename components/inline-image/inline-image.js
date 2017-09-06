@@ -1,6 +1,6 @@
 const inlineImage= ({image = '#', caption = null, large = false}) => (
 	<div className={`inline-image ${large ? 'inline-image-large' : ''}`}>
-		<div className="inline-image-container" backgroundImage={{image}}>
+		<div className="inline-image-container">
 			<img 
 			srcSet={`
 				${image}&auto=format&fm=jpg&fit=crop&q90&h=350&w=445 768w,
@@ -11,7 +11,8 @@ const inlineImage= ({image = '#', caption = null, large = false}) => (
 				(max-width: 768px) calc(100vw - 30px),
 				(max-width: 1024px) 790px,
 				821px"`} 
-			alt=""  />
+			alt=""  
+			src={image}/>
 		</div>
 		{caption && <p>{ caption }</p>}
 	</div>

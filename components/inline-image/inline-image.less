@@ -8,24 +8,18 @@
 	color: @dark-grey;
 	font-weight: @font-weight-normal;
 	text-align: center;
+	
 	p {
 		display: none;
 	}
+
 	img {
 		height: auto;
 		width: 100%;
 		overflow: hidden;
 	}
-	@media @screen-small {
-		img{
-			height: auto;
-			width: 100%;
-		}
-	}
+	
 	@media @screen-medium {
-		img {
-			width: 100%;
-		}
 		p {
 			margin-top: @spacing-default;
 			display: block;
@@ -48,7 +42,6 @@
 	}
 
 	@media @screen-medium-large {		
-		height: auto;
 		height: 500px;
 	}
 }

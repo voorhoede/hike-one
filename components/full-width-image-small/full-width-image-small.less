@@ -1,0 +1,24 @@
+@import (reference) '../../styles/variables';
+
+.full-width-image-small {
+    width: 100%;
+	height: @full-width-image-height-s;
+	display: none;
+    position: relative;
+	overflow: hidden;
+    margin-bottom: @spacing-large;
+
+    @media @screen-medium {
+        height: 400px;
+		display: none;
+    }
+
+    @media @screen-large {
+		display: block;
+        height: 550px;
+        margin: 0 auto @spacing-large*2 auto;
+        max-width: @max-width-image;
+	}
+	background-size: cover;
+	background-position: 50% 50%;
+}

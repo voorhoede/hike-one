@@ -1,5 +1,5 @@
 const bodyQuote = ({quote = ''}) => (
-	<blockquote className="body-quote"> {quote} </blockquote>
+	<blockquote className="body-quote"> "{quote}" </blockquote>
 );
 
 export default bodyQuote;

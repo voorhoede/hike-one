@@ -117,7 +117,6 @@ elif grep -qE '^feat/travis-dev$' <<<"$branch";
 then
 	# deployment to staging environment (staging.hike*.*)
 	deploy 'staging' 1;
-	echo -n $environment;
 else
 	# nothing to deploy
 	echo 'nothing to deploy' >&2;

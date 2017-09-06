@@ -18,6 +18,8 @@ set -euo pipefail;
 # 2. now_token: Authentication token for zeit.now
 # 3. dato_api_token: Read-only authentication token for dato CMS
 
+# Returns deployment ID
+
 # Usage: bash deploy-env.sh <branch> <now_token> <dato_api_token>
 
 branch=$1;
@@ -43,17 +45,18 @@ deploy () {
 	local environment=$1;
 	local prefix=${2:-0}; # whether to prefix domain with environment or not
 
-	# create a now deployment and save its domain name
-	# TODO: check errors for now deploy command
-	local deployment;
+	echo 'Start a now deployment';
 
+	# create a now deployment and save its domain name
+	local deployment;
 	deployment=$(now deploy -C \
 		-n "$environment" \
 		-t "$now_token" \
 		-e DATO_API_TOKEN="$dato_api_token" \
 		-e NODE_ENV="$environment" | sed s#https://##);
 
-	grep -qE "${environment}-[a-z]+\.now\.sh" || { \
+	# Verify that running now deploy returned a domain name
+	grep -qE "${environment}-[a-z]+\.now\.sh" <<<"$deployment" || { \
 		echo 'Error: now deployment did not return a valid domain name'; \
 		exit 1; \
 	}
@@ -109,6 +112,7 @@ then
 	environment='production';
 	deploy $environment;
 	echo -n $environment;
+	# TODO: scale to at least one running instance
 elif grep -qE '^feat/travis-dev$' <<<"$branch";
 then
 	# deployment to staging environment (staging.hike*.*)

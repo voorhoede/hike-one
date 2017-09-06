@@ -18,8 +18,6 @@ set -euo pipefail;
 # 2. now_token: Authentication token for zeit.now
 # 3. dato_api_token: Read-only authentication token for dato CMS
 
-# Returns deployment ID
-
 # Usage: bash deploy-env.sh <branch> <now_token> <dato_api_token>
 
 branch=$1;
@@ -103,21 +101,22 @@ deploy () {
 		# Create an alias for the domain name to the current deployment url
 		now -t "$now_token" alias "$deployment" "$domain";
 	done <./domains.txt; # Read urls from file
+
+	# save deployment id to global variable for future use.
+	deployment_id="$deployment";
 };
 
 # check if travis branch matches patterns.
 if grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"$branch";
 then
 	# branch name matches tag pattern = production deployment
-	environment='production';
-	deploy $environment;
-	echo -n $environment;
-	# TODO: scale to at least one running instance
+	deploy 'production';
+	# Make sure production deployment is always running
+	now -t "$now_token" scale "$deployment_id" 1
 elif grep -qE '^feat/travis-dev$' <<<"$branch";
 then
 	# deployment to staging environment (staging.hike*.*)
-	environment='staging';
-	deploy $environment 1;
+	deploy 'staging' 1;
 	echo -n $environment;
 else
 	# nothing to deploy

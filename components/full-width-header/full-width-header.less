@@ -26,7 +26,7 @@
 
 .full-width-header-inner-container {
 	@media @screen-large {
-		max-width: @column-large-12;
+		max-width: @column-large-10;
 		margin: auto;
 	}
 }
@@ -44,12 +44,11 @@
 	color: @white;
 	
 	@media @screen-medium {
-		width: calc(~'(100vw) - 180px');
 		padding: @spacing-large @spacing-medium;
 	}
 	@media @screen-large {
+		max-width: @column-large-10;
 		flex-direction: row;
-		width: calc(~'( @{container-inner-max-width}) - 280px');
 		padding: @spacing-large @spacing-medium;
 	}
 }

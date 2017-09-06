@@ -14,8 +14,7 @@ import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
-// TODO add correct endpoint for company ref
-import DataService from '../data/current/home.json';
+import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
 
 import cookie from '../components/_helpers/cookie';
 import services from '../data/current/services.json';
@@ -40,7 +39,17 @@ const Service = ({Data, fontsLoaded}) => (
 					title={Data.introTitle}
 					text={Data.introText} />
 
-				<CompanyOverviewSmall services={DataService.serviceItems} />
+				<CompanyOverviewSmall>
+					{ Data.companyReference1.map((service, index) => (
+						<CompanyOverviewItemSmall
+							companyLogo={service.companyLogo.url}
+							referenceCaseLink=''
+							referenceSlug=''
+							text={service.text}
+							key={index}>
+						</CompanyOverviewItemSmall>
+					))}
+				</CompanyOverviewSmall>	
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {

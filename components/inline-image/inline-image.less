@@ -1,4 +1,37 @@
 @import (reference) '../../styles/variables';
+.inline-image.inline-image-large {
+	height: auto;
+	padding: 0;
+	margin-bottom: @spacing-large;
+	color: @grey-caption;
+	max-width: @column-large-9;
+	position: relative;
+	
+	p {
+		margin: @spacing-default*1.5 0;
+		display: block;
+		font-size: @body-text-s;
+		line-height: @line-height-body-s;
+		position: absolute;
+		bottom: -40px;
+		text-align: center;
+		width: 100%;
+	}
+	@media @screen-medium {
+		p {
+			font-size: @body-text-m;
+			line-height: @line-height-body-m;
+		}	
+	}
+	@media @screen-large {
+		p {
+			bottom: -50px;
+			font-size: @body-text-l;
+			line-height: @line-height-body-l;
+		}	
+		height: 630px;
+	}
+}
 
 .inline-image {
 	width: 100%;
@@ -29,6 +62,16 @@
 	}
 	@media @screen-large {
 		padding: 0;		
+	}
+}
+
+.inline-image-container.inline-image-container-large {
+	height: 214px;
+	@media @screen-small {
+		height: auto;
+	}
+	@media @screen-large {
+		height: 630px;
 	}
 }
 

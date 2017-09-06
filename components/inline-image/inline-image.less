@@ -1,0 +1,54 @@
+@import (reference) '../../styles/variables';
+
+.inline-image {
+	width: 100%;
+	padding: 0 @spacing-default*1.5;
+	margin: auto;
+	margin-bottom: @spacing-large;
+	color: @dark-grey;
+	font-weight: @font-weight-normal;
+	text-align: center;
+	p {
+		display: none;
+	}
+	img {
+		height: auto;
+		width: 100%;
+		overflow: hidden;
+	}
+	@media @screen-small {
+		img{
+			height: auto;
+			width: 100%;
+		}
+	}
+	@media @screen-medium {
+		img {
+			width: 100%;
+		}
+		p {
+			margin-top: @spacing-default;
+			display: block;
+		}
+		max-width: @column-large-7;
+		margin-bottom: @spacing-large*2;
+	}
+	@media @screen-large {
+		padding: 0;		
+	}
+}
+
+.inline-image-container {
+	height: 230px;
+	width: 100%;
+	overflow: hidden;
+
+	@media @screen-small {
+		height: auto;
+	}
+
+	@media @screen-medium-large {		
+		height: auto;
+		height: 500px;
+	}
+}

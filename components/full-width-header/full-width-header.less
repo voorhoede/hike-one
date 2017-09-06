@@ -27,7 +27,12 @@
 .full-width-header-inner-container {
 	@media @screen-large {
 		max-width: @column-large-10;
-		margin: auto;
+		margin-right: auto;
+	}
+	@media (min-width: 1440px) {
+		margin-left: auto;
+		position: relative;
+		left: -120px;
 	}
 }
 

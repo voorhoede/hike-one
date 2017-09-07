@@ -11,7 +11,7 @@ import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
 import parseList from'../components/_helpers/parseList';
 
-import SocialMedia from '../components/social-media/social-media';
+import SocialShare from '../components/social-share/social-share';
 import FullWidthHeader from '../components/full-width-header/full-width-header';
 import BodyHeading from '../components/body-heading/body-heading';
 import BodyQuote from '../components/body-quote/body-quote';
@@ -68,11 +68,11 @@ const Update = ({Data, fontsLoaded}) => (
 							);
 					}
 				})}
-				<div className="social-share">
-					<a href="#" target="_blank"><Facebook /></a>
-					<a href="#" target="_blank"><Twitter /></a>
-					<a href="#" target="_blank"><LinkedIn /></a>
-				</div>
+				<SocialShare 
+					facebookLink={'#'}
+					linkedinLink={'#'}
+					twitterLink={'#'}
+				/>
 				<Author 
 					name={Data.author.name}
 					role={Data.author.role}

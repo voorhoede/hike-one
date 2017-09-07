@@ -13,6 +13,7 @@ import BodyQuote from '../components/body-quote/body-quote';
 import BodyText from '../components/body-text/body-text';
 import InlineImage from '../components/inline-image/inline-image';
 import List from '../components/list/list';
+import Author from '../components/author/author';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
 
 const Update = ({Data, fontsLoaded}) => (
@@ -62,13 +63,12 @@ const Update = ({Data, fontsLoaded}) => (
 							);
 					}
 				})}
-
-				<div>
-					<p>{Data.author.name}</p>
-					<p>{Data.author.role}</p>
-					<img src={Data.author.photo.url} />
-					<p>{Data.author.summary}</p>
-				</div>
+				<Author 
+					name={Data.author.name}
+					role={Data.author.role}
+					photoUrl={Data.author.photo.url}
+					summary={Data.authorSummary}
+				/>
 			</article>
 			<Footer />
 		</main>

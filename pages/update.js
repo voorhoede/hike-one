@@ -50,7 +50,7 @@ const Update = ({Data, fontsLoaded}) => (
 									caption={component.caption} />
 							);
 						case 'list':
-							// add helper function here to convert markdown list to an array with items
+							// convert markdown list to an array with items
 							const items = parseList(component.items);
 							return (
 								<List key={index} items={items} />

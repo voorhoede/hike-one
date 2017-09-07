@@ -1,6 +1,6 @@
 function parseList(items){
 	const newArray = [];
-	// create new list on linelinebreaks
+	// create new list on line breaks
 	items = items.replace(/\n/g, ',');
 	items = items.split(',');
 	Object.values(items).map((item, index) => {	

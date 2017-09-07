@@ -1,5 +1,36 @@
 @import (reference) '../../styles/variables';
 
 .list {
+	width: 100%;
+	max-width: @column-large-7;
+	margin: 0 auto @spacing-large auto;
+	padding: 0 @spacing-default*1.5 0 @spacing-default*1.5;
+	list-style: none;
 
+	@media @screen-large {
+		margin-bottom: @spacing-large*2;
+	}
+}
+
+.list-item {
+	margin-bottom: @spacing-small;
+	svg {
+		margin-right: @spacing-small;
+		width: 18px;
+		height: 18px;
+	}
+}
+
+.list-item-text {
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+	font-weight: @font-weight-normal;
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+	@media @screen-large {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
 }

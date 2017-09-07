@@ -15,7 +15,8 @@ import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
 import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
-
+import UpdatesTextColumn from '../components/updates-text-column/updates-text-column';
+import UpdatesTextOverview from '../components/updates-text-overview/updates-text-overview';
 import cookie from '../components/_helpers/cookie';
 import services from '../data/current/services.json';
 
@@ -92,7 +93,30 @@ const Service = ({Data, fontsLoaded}) => (
 							slug={item.slug} />
 					))}
 				</WorkOverview>
-
+				<UpdatesTextOverview>
+					<UpdatesTextColumn
+						links={[
+							{
+								"title": "Your  first Design Sprint: do these 3 things first",
+								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
+							},
+							{
+								"title": "In 5 days from sketch to tested prototype with Design Sprints",
+								"subtext": "17 November 2016 | Ingmar Coenen"
+							},
+						]} />
+					<UpdatesTextColumn
+						links={[
+							{
+								"title": "Your  first Design Sprint: do these 3 things first",
+								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
+							},
+							{
+								"title": "In 5 days from sketch to tested prototype with Design Sprints",
+								"subtext": "17 November 2016 | Ingmar Coenen"
+							},
+						]} />
+				</UpdatesTextOverview>
 				<Contact
 					title="Where will your journey lead us"
 					button="Get in touch" >

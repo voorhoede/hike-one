@@ -1,0 +1,60 @@
+@import (reference) '../../styles/variables.less';
+
+.updates-text-column {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.updates-text-column-item {
+	width: 100%;
+	margin-bottom: @spacing-large;
+
+	a  {
+		color: @black;
+		text-decoration: none;
+		font-weight: @font-weight-bold;
+		font-size: @heading-small-s;
+		line-height: @line-height-header-small-s;
+		display: inline-block;
+		margin-bottom: @spacing-default;
+	
+		svg {
+			width: 35px;
+			height: 35px;
+			vertical-align: middle;
+			fill: @black;
+		}
+	
+		@media @screen-medium {
+			font-size: @heading-small-m;
+			line-height: @line-height-header-small-m;
+		}
+	
+		@media @screen-large {
+			font-size: @heading-small-l;
+			line-height: @line-height-header-small-l;
+		}
+	}
+	p {
+		color: @dark-grey;
+		font-size: @body-text-s;
+		line-height: @line-height-body-small-l;
+		margin: 0;
+		font-weight: @font-weight-normal;
+	
+		@media @screen-medium {
+			font-size:  @body-text-m;
+			line-height: @line-height-body-m;
+		}
+	
+		@media @screen-large {
+			font-size:  @body-text-l;
+			line-height: @line-height-body-l;
+		}
+	}
+	@media @screen-medium {
+		padding-right: @spacing-small;
+	}
+}

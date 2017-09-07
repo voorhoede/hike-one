@@ -1,0 +1,16 @@
+@import (reference) '../../styles/variables.less';
+
+.updates-text-overview {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: @column-large-10;
+	margin-bottom: @spacing-large;
+	padding: @spacing-small;
+	@media @screen-medium {
+		flex-direction: row;
+	}
+	@media @screen-large {
+		padding: 0;
+	}
+}

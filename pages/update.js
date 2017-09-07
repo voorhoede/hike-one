@@ -5,6 +5,7 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
+import parseList from'../components/_helpers/parseList';
 
 import FullWidthHeader from '../components/full-width-header/full-width-header';
 import BodyHeading from '../components/body-heading/body-heading';
@@ -50,10 +51,10 @@ const Update = ({Data, fontsLoaded}) => (
 							);
 						case 'list':
 							// add helper function here to convert markdown list to an array with items
-							// const items = parseList(component.items)
-							{/*return (*/}
-								{/*<List key={index} items={items} />*/}
-							{/*);*/}
+							const items = parseList(component.items);
+							return (
+								<List key={index} items={items} />
+							);
 							return;
 						case 'full_width_image_small':
 							return (

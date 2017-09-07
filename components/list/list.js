@@ -1,6 +1,6 @@
 const List = ({items = [] }) => (
 	<ul className="list">
-		{items.map((item, index) => (
+		{ items.map((item, index) => (
 			<li key={index}> {item} </li>
 		))}
 	</ul>

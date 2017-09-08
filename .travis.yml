@@ -6,11 +6,12 @@ node_js:
 cache:
   directories:
   - node_modules
+install: npm install -g now@7.4.0
 branches:
   only:
-   - feat/travis-dev
+   - master
    - /^v\d+\.\d+\.\d+$/
 notifications:
   email: false
 script:
-  - bash ./deploy-env.sh $TRAVIS_BRANCH $NOW_TOKEN $DATO_API_TOKEN
+  - bash ./deploy.sh $TRAVIS_BRANCH $NOW_TOKEN $DATO_API_TOKEN

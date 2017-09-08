@@ -49,7 +49,7 @@ deploy () {
 	local deployment;
 
 	# Check for errors that might have occurred in now deploy
-	if deployment=$(now deploy -C \
+	if ! deployment=$(now deploy -C \
 		-n "$environment" \
 		-t "$now_token" \
 		-e DATO_API_TOKEN="$dato_api_token" \

@@ -45,13 +45,22 @@ deploy () {
 
 	echo 'Start a now deployment';
 
-	# create a now deployment and save its domain name
+	# create a now deployment and save the web address it returns
 	local deployment;
-	deployment=$(now deploy -C \
+
+	# Check for errors that might have occurred in now deploy
+	if deployment=$(now deploy -C \
 		-n "$environment" \
 		-t "$now_token" \
 		-e DATO_API_TOKEN="$dato_api_token" \
-		-e NODE_ENV="$environment" | sed s#https://##);
+		-e NODE_ENV="$environment")
+	then
+		echo "An error occurred while attempting to do now deploy";
+		exit 1;
+	fi;
+
+	# If successful, strip protocol from url returned from now deploy
+	deployment=$(sed s#https://## <<<"$deployment");
 
 	# Verify that running now deploy returned a domain name
 	grep -qE "${environment}-[a-z]+\.now\.sh" <<<"$deployment" || { \
@@ -115,7 +124,7 @@ then
 	now -t "$now_token" scale "$deployment_id" 1
 elif grep -qE '^feat/travis-dev$' <<<"$branch";
 then
-	# deployment to staging environment (staging.hike*.*)
+	# deployment to staging environment with prefix enabled (staging.hike*.*)
 	deploy 'staging' 1;
 else
 	# nothing to deploy

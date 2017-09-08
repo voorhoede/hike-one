@@ -34,7 +34,9 @@ This will build and then serve the website on:
 Also watches for changes. 
 
 ## Deployment
-[Travis](https://travis-ci.org) handles deployments.
+[Travis](https://travis-ci.org) handles deployments. Travis will install [now](https://zeit.co/now)
+and execute `deploy.sh`, which deploys hike one to the environment 
+determined by the branch name found in `$TRAVIS_BRANCH`.
 
 ### Staging
 Code pushed to the **master** branch at github will trigger a deployment to 

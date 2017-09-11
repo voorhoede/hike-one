@@ -8,8 +8,10 @@ const UpdatesTextColumn = ({ links = []}) => (
 		{links.map((item, i) => {
 			return (
 				<div key={i} className="updates-text-column-item">
-					<Link href={item.href}><a>{item.title} <ArrowRightRound /></a></Link>
-					<p>{item.subtext}</p>
+					<Link href={item.href}>
+						<a className="updates-text-column-link">{item.title} <ArrowRightRound /></a>
+					</Link>
+					<p className="updates-text-column-body">{item.subtext}</p>
 				</div>
 			);
 		})}

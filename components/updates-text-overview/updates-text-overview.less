@@ -6,11 +6,13 @@
 	width: 100%;
 	max-width: @column-large-10;
 	margin-bottom: @spacing-large;
-	padding: @spacing-small;
+	padding: 0 @spacing-small;
+
 	@media @screen-medium {
 		flex-direction: row;
 	}
 	@media @screen-large {
 		padding: 0;
+		margin-bottom: @spacing-large*2;
 	}
 }

@@ -9,7 +9,7 @@ const Contact = ({title = '', button = '', children}) => {
 		<section className="contact">
 			<div className="container-inner">
 				<h3 className="content">{title}</h3>
-				<ButtonPrimaryLink href="#" classes="btn-large content">
+				<ButtonPrimaryLink href="/contact" classes="btn-large content">
 					{button}
 				</ButtonPrimaryLink>
 			</div>

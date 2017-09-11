@@ -62,8 +62,8 @@ const Home = ({fontsLoaded}) => {
 					<FeedsBlock />
 
 					<Contact
-						title="Where will your journey lead us"
-						button="Get in touch" >
+						title={Data.contact.title}
+						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 

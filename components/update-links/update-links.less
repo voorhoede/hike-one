@@ -1,0 +1,49 @@
+@import (reference) '../../styles/variables.less';
+
+.update-links {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: @column-large-10;
+	margin-bottom: @spacing-large;
+
+	.update-link {
+		width: 100%;
+		margin-right: @spacing-default*1.5;
+		margin-bottom: @spacing-large;
+	}
+
+	@media @screen-medium {
+		div.update-link {
+			width: calc(~"50% - 7.5px");
+			margin-right: 0;
+
+			&:nth-child(odd) {
+				margin-right: 7.5px;
+			}
+
+			&:nth-child(even) {
+				margin-left: 7.5px;
+			}
+		}
+
+	}
+	@media @screen-large {
+		padding: 0;
+		margin-bottom: @spacing-large*2;
+
+		div.update-link {
+			width: calc(~"50% - 10px");
+
+			&:nth-child(odd) {
+				margin-right: 10px;
+			}
+
+			&:nth-child(even) {
+				margin-left: 10px;
+			}
+		}
+	}
+}
+
+

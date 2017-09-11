@@ -14,4 +14,4 @@ branches:
 notifications:
   email: false
 script:
-  - bash ./deploy.sh $TRAVIS_BRANCH $NOW_TOKEN $DATO_API_TOKEN
+  - bash ./deploy.sh $TRAVIS_BRANCH

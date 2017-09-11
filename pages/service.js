@@ -15,10 +15,13 @@ import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
 import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
-import UpdatesTextColumn from '../components/updates-text-column/updates-text-column';
-import UpdatesTextOverview from '../components/updates-text-overview/updates-text-overview';
+import UpdateLinks from '../components/update-links/update-links';
+import UpdateLink from '../components/update-link/update-link';
+
 import cookie from '../components/_helpers/cookie';
+import getDateFormat from '../components/_helpers/getDateFormat';
 import services from '../data/current/services.json';
+import updates from '../data/current/update-extracts.json';
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -50,7 +53,7 @@ const Service = ({Data, fontsLoaded}) => (
 							key={index}>
 						</CompanyOverviewItemSmall>
 					))}
-				</CompanyOverviewSmall>	
+				</CompanyOverviewSmall>
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
@@ -93,30 +96,21 @@ const Service = ({Data, fontsLoaded}) => (
 							slug={item.slug} />
 					))}
 				</WorkOverview>
-				<UpdatesTextOverview>
-					<UpdatesTextColumn
-						links={[
-							{
-								"title": "Your  first Design Sprint: do these 3 things first",
-								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
-							},
-							{
-								"title": "In 5 days from sketch to tested prototype with Design Sprints",
-								"subtext": "17 November 2016 | Ingmar Coenen"
-							},
-						]} />
-					<UpdatesTextColumn
-						links={[
-							{
-								"title": "Your  first Design Sprint: do these 3 things first",
-								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
-							},
-							{
-								"title": "In 5 days from sketch to tested prototype with Design Sprints",
-								"subtext": "17 November 2016 | Ingmar Coenen"
-							},
-						]} />
-				</UpdatesTextOverview>
+
+				<UpdateLinks>
+					{ updates.map((update, index) => {
+						if (index < 4) {
+							return (
+								<UpdateLink
+									key={index}
+									title={update.title}
+									author={update.author.name}
+									date={getDateFormat(update.date)} />
+							);
+						}
+					})}
+				</UpdateLinks>
+
 				<Contact
 					title="Where will your journey lead us"
 					button="Get in touch" >

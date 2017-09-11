@@ -1,0 +1,61 @@
+@import (reference) '../../styles/variables';
+
+.update-link {
+	width: 100%;
+	transition: color .3s;
+}
+
+.update-link-title {
+	display: inline-block;
+	color: @black;
+	text-decoration: none;
+	font-weight: @font-weight-bold;
+	font-size: @heading-small-s;
+	line-height: @line-height-header-small-s;
+	transition: color .3s;
+
+	&:hover {
+		color: @red;
+		cursor: pointer;
+
+		svg {
+			fill: @red;
+		}
+	}
+
+	svg {
+		transition: fill .3s;
+		width: 35px;
+		height: 35px;
+		vertical-align: middle;
+		fill: @black;
+	}
+
+	@media @screen-medium {
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}
+
+	@media @screen-large {
+		margin-bottom: @spacing-default;
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-l;
+	}
+}
+
+.update-link-sub {
+	color: @dark-grey;
+	font-size: @body-text-s;
+	line-height: @line-height-body-small-l;
+	margin: 0;
+	font-weight: @font-weight-normal;
+
+	@media @screen-medium {
+		font-size:  @body-text-m;
+		line-height: @line-height-body-m;
+	}
+	@media @screen-large {
+		font-size: @body-text-small-l;
+		line-height: @line-height-body-small-l;
+	}
+}

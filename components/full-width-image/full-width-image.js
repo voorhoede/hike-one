@@ -1,6 +1,7 @@
 import React from 'react';
 import elementIsInView from '../_helpers/isElementInView';
 import setImageParams from '../_helpers/setImageParameters';
+
 class FullWidthImage extends React.Component {
 	constructor() {
 		super();
@@ -154,11 +155,12 @@ class FullWidthImage extends React.Component {
 
 	render() {
 		const {image, index, title, subtitle, overlay} = this.props;
-		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }		
 		const heroImageSmall = `${setImageParams(image, {...imageParameters, w: 768} )}`;
-		const heroImageMedium = `${setImageParams(image, {...imageParameters, w: 1170} )}`;	
+		const heroImageMedium = `${setImageParams(image, {...imageParameters, w: 1170} )}`;
 		const heroImageLarge = `${setImageParams(image, {...imageParameters, w: 1600} )}`;
-		const heroImageExtraLarge = `${setImageParams(image, {...imageParameters, w: 1920} )}`;
+		const heroImageExtraLarge =  `${setImageParams(image, {...imageParameters, w: 1920} )}`;
+		
 		const style ={__html:
 			`<style>
 				.full-width-image-background-${index} {
@@ -190,7 +192,7 @@ class FullWidthImage extends React.Component {
 					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
 					<div className="full-width-image-background"
 						ref={node => this.imageElement = node}
-						style={{ backgroundImage: `url(${image})`}} >
+						style={{ backgroundImage: `url(${setImageParams(image, {...imageParameters } )})`}} >
 					</div>
 					{ overlay && <div className="full-width-image-overlay"></div>}
 				</div>

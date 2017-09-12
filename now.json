@@ -1,4 +1,5 @@
 {
-  "name": "hike-one",
-  "alias": "hike-one"
+  "engines": {
+    "node": "8.4.0"
+  }
 }

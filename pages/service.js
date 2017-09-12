@@ -82,6 +82,12 @@ const Service = ({Data, fontsLoaded}) => (
 					}
 				})}
 
+				<Contact
+					title="Where will your journey lead us"
+					button="Get in touch" >
+					<ContactShapes.variation1Front position="front" />
+				</Contact>
+
 				<TextCenter title={Data.caseExtractTitle} />
 
 				<WorkOverview>
@@ -110,12 +116,6 @@ const Service = ({Data, fontsLoaded}) => (
 						}
 					})}
 				</UpdateLinks>
-
-				<Contact
-					title="Where will your journey lead us"
-					button="Get in touch" >
-					<ContactShapes.variation1Front position="front" />
-				</Contact>
 			</article>
 			<Footer />
 		</main>

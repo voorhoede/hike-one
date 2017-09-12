@@ -40,8 +40,10 @@ const Services = ({fontsLoaded}) => {
 					</TextCenter>
 
 					<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
+
 					<Contact
-						title={Data.contactTitle} button={Data.contactButton}>
+						title={Data.contact.title}
+						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 				</article>

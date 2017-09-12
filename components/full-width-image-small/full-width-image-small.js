@@ -1,15 +1,20 @@
-const fullWidthImageSmall = ({image = '#'}) => (
-	<div className="full-width-image-small"> 
-		<img
-			srcSet={`
-				${image}&auto=format&fm=jpg&fit=max&q90&w=445 445w,
-				${image}&auto=format&fm=jpg&fit=max&q90&w=821 821w,
-				${image}&auto=format&fm=jpg&fit=max&q90&w=1100 1100w,
-				${image}&auto=format&fm=jpg&fit=max&q90&w=1400 1400w,
-				${image}&auto=format&fm=jpg&fit=max&q90&w=1920 1920w`}	
-			alt="" 
-			src={`${image}`} />
-	</div>
-);
+import setImageParams from '../_helpers/setImageParameters';
+
+const fullWidthImageSmall = ({image = '#'}) => {
+	const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+	return (
+		<div className="full-width-image-small"> 
+			<img
+				srcSet={`
+					${setImageParams(image, {...imageParameters, w: 445} )} 445w,
+					${setImageParams(image, {...imageParameters, w: 821} )} 821w,
+					${setImageParams(image, {...imageParameters, w: 1100} )} 1100w,
+					${setImageParams(image, {...imageParameters, w: 1400} )} 1400w,
+					${setImageParams(image, {...imageParameters, w: 1920} )} 1920w`}	
+				alt="" 
+				src={`${image}`} />
+		</div>
+	)
+};
 
 export default fullWidthImageSmall;

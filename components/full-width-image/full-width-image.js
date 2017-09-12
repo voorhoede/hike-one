@@ -1,6 +1,6 @@
 import React from 'react';
 import elementIsInView from '../_helpers/isElementInView';
-
+import setImageParams from '../_helpers/setImageParameters';
 class FullWidthImage extends React.Component {
 	constructor() {
 		super();
@@ -154,10 +154,11 @@ class FullWidthImage extends React.Component {
 
 	render() {
 		const {image, index, title, subtitle, overlay} = this.props;
-		const heroImageSmall = `${image}auto=format&fit=max&q=90&w=768`;
-		const heroImageMedium = `${image}auto=format&fit=max&q=90&w=1170`;
-		const heroImageLarge = `${image}auto=format&fit=max&q=90&w=1600`;
-		const heroImageExtraLarge = `${image}auto=format&fit=max&q=90&w=1920`;
+		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+		const heroImageSmall = `${setImageParams(image, {...imageParameters, w: 768} )}`;
+		const heroImageMedium = `${setImageParams(image, {...imageParameters, w: 1170} )}`;	
+		const heroImageLarge = `${setImageParams(image, {...imageParameters, w: 1600} )}`;
+		const heroImageExtraLarge = `${setImageParams(image, {...imageParameters, w: 1920} )}`;
 		const style ={__html:
 			`<style>
 				.full-width-image-background-${index} {

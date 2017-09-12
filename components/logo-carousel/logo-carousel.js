@@ -1,4 +1,5 @@
 import React from 'react';
+import {TweenLite, TimelineLite, TimelineMax}  from 'gsap';
 
 class LogoCarousel extends React.Component {
 	constructor() {
@@ -14,19 +15,11 @@ class LogoCarousel extends React.Component {
 		var slider = document.querySelector('[data-marquee-slider]');
 		var sliderContent = slider.querySelector('[data-marquee-content]');
 		var sliderContentWidth = sliderContent.getBoundingClientRect().width;
-		var sliderSpeed = slider.dataset.marqueeSlider + 's';
+		var sliderSpeed = slider.dataset.marqueeSlider;
 
-		// Set up css animation
-		var cssAnimation = document.createElement('style');
-		cssAnimation.type = 'text/css';
-		cssAnimation.innerHTML = '@keyframes slide {'+
-			'0% { left: 0; } '+
-			'100% { left: -' + sliderContentWidth + 'px; }'+
-			'}';
-		document.head.appendChild(cssAnimation);
-
-		// Overwrite animation-duration
-		slider.style.animationDuration = sliderSpeed;
+		var carouselAnimation = new TimelineMax({repeat:-1});
+		carouselAnimation.add(TweenLite.to(slider, 1, {ease:Linear.easeNone, left:-sliderContentWidth}))
+						 .duration(sliderSpeed);
 	}
 
 	render() {
@@ -40,7 +33,7 @@ class LogoCarousel extends React.Component {
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img
-										src={`${company.logo.url}&auto=format&fm=png&fit=max&max-w=250`}
+										src={`${company.logo.url}&fm=png&fit=max&max-w=250`}
 										alt={company.name} />
 								</li> )}
 						</ul>
@@ -48,7 +41,7 @@ class LogoCarousel extends React.Component {
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img
-										src={`${company.logo.url}&auto=format&fm=png&fit=max&max-w=250`}
+										src={`${company.logo.url}&fm=png&fit=max&max-w=250`}
 										alt={company.name} />
 								</li> )}
 						</ul>

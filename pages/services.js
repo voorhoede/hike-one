@@ -44,7 +44,6 @@ const Services = ({fontsLoaded}) => {
 					<Contact
 						title={Data.contact.title}
 						button={Data.contact.button} >
-					<ContactShapes.variation1Front position="front" />
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 				</article>

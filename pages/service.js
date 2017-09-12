@@ -15,9 +15,13 @@ import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
 import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
+import UpdateLinks from '../components/update-links/update-links';
+import UpdateLink from '../components/update-link/update-link';
 
 import cookie from '../components/_helpers/cookie';
+import getDateFormat from '../components/_helpers/getDateFormat';
 import services from '../data/current/services.json';
+import updates from '../data/current/update-extracts.json';
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -79,8 +83,8 @@ const Service = ({Data, fontsLoaded}) => (
 				})}
 
 				<Contact
-					title="Where will your journey lead us"
-					button="Get in touch" >
+					title={Data.contact.title}
+					button={Data.contact.button} >
 					<ContactShapes.variation1Front position="front" />
 				</Contact>
 
@@ -99,11 +103,19 @@ const Service = ({Data, fontsLoaded}) => (
 					))}
 				</WorkOverview>
 
-				<Contact
-					title={Data.contact.title}
-					button={Data.contact.button} >
-					<ContactShapes.variation1Front position="front" />
-				</Contact>
+				<UpdateLinks>
+					{ updates.map((update, index) => {
+						if (index < 4) {
+							return (
+								<UpdateLink
+									key={index}
+									title={update.title}
+									author={update.author.name}
+									date={getDateFormat(update.date)} />
+							);
+						}
+					})}
+				</UpdateLinks>
 			</article>
 			<Footer />
 		</main>

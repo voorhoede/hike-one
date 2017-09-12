@@ -68,26 +68,15 @@ class Header extends React.Component {
 	}
 
 	setAnimationTimeline() {
-		this.tlMenu = new TimelineLite({paused: true});
+		this.tlMenu = new TimelineLite();
 		this.tlMenu
-			.set(this.menu, {clearProps:'all'})
-			.set(this.menuList.childNodes, {clearProps: 'all'})
-			.set(this.socialIcons.childNodes, {clearProps: 'all'})
-			.set(this.menuBgTransparent, {clearProps:'all'})
+			.pause()
 			.set(this.menuBg, {clearProps:'all'})
-			.set(this.menuBtnBg, {clearProps: 'all'})
-			.set(this.menuBgSvgFinal, {clearProps: 'all'})
-			.set(this.header, {clearProps:'all'})
-			.set(this.menu, {display: 'block'})
-			.set(this.menuBgTransparent, {display: 'block'})
-			.set(this.menuBg, {opacity: 1})
-			.set(this.menuBtnBg, {opacity: 0})
-			.set(this.menuList.childNodes, {opacity: 0})
-			.set(this.socialIcons.childNodes, {opacity: 0})
+			.set(this.menuList.childNodes, {clearProps:'all'})
 			.set(this.header, {className:'-=animation-is-finished'})
 			.set(this.header, {className:'+=is-open'})
 			.add('startAnimation')
-			.from(this.menuBgTransparent, 0.25, {opacity: 0}, 'startAnimation')
+			.to(this.menuBgTransparent, 0.25, {opacity: 0.4}, 'startAnimation')
 			.to(this.menuBg, 0.25, {
 				scale: this.scale,
 				x: -this.xOffset,
@@ -101,15 +90,15 @@ class Header extends React.Component {
 				right: this.xOffset2,
 				y: this.yOffset,
 			}, '-=0.1')
-			.staggerFrom(this.menuList.childNodes, 0.2, {
-				opacity: 0,
-				x: 30,
-				y: window.matchMedia(`(max-width: ${this.breakpoint})`).matches ? 0 : 10,
+			.staggerTo(this.menuList.childNodes, 0.2, {
+				opacity: 1,
+				x: 0,
+				y: 0,
 				ease: Power3.easeInOut
 			}, 0.05, '-=0.25')
-			.staggerFrom(this.socialIcons.childNodes, 0.15, {
-				x: 20,
-				opacity: 0,
+			.staggerTo(this.socialIcons.childNodes, 0.15, {
+				x: 0,
+				opacity: 1,
 				ease: Power3.easeInOut
 			}, 0.05, '-=0.2')
 			.set(this.header, {className:'+=animation-is-finished'});
@@ -172,12 +161,11 @@ class Header extends React.Component {
 						className="menu-btn"
 						ref={node => this.menuBtn = node}
 						onClick={this.toggleMenu}>
-						<span ref={node => this.menuBtnBg = node}>
-							<svg className="menu-btn-background"
-								 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-							</svg>
-						</span>
+
+						<svg className="menu-btn-background" ref={node => this.menuBtnBg = node}
+							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+						</svg>
 
 						<span className="menu-btn-icon">
 							<Hamburger ref={node => this.hamburger = node} />

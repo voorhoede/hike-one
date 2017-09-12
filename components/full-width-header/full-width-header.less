@@ -139,4 +139,39 @@
 	align-items: center;
 	color: @white;
 	text-decoration: none;
+	
+	svg {
+		animation-duration: .3s;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		animation-name: horizontal-spring-icon-from-left;
+	}
+
+	&:hover {
+		svg {
+			animation-duration: .3s;
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;
+			animation-name: horizontal-spring-icon-to-left;
+			animation-timing-function: ease-in-out;
+		}
+	}
+}
+
+@keyframes horizontal-spring-icon-to-left {
+	83.25% {
+		transform: translateX(-6px);
+	}
+
+	100% {
+		transform: translateX(-5px);
+	}
+}
+@keyframes horizontal-spring-icon-from-left {
+	0% {
+		transform: translateX(-6px);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }

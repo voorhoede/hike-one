@@ -15,9 +15,13 @@ import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
 import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
 import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
+import UpdateLinks from '../components/update-links/update-links';
+import UpdateLink from '../components/update-link/update-link';
 
 import cookie from '../components/_helpers/cookie';
+import getDateFormat from '../components/_helpers/getDateFormat';
 import services from '../data/current/services.json';
+import updates from '../data/current/update-extracts.json';
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -98,6 +102,20 @@ const Service = ({Data, fontsLoaded}) => (
 							slug={item.slug} />
 					))}
 				</WorkOverview>
+
+				<UpdateLinks>
+					{ updates.map((update, index) => {
+						if (index < 4) {
+							return (
+								<UpdateLink
+									key={index}
+									title={update.title}
+									author={update.author.name}
+									date={getDateFormat(update.date)} />
+							);
+						}
+					})}
+				</UpdateLinks>
 			</article>
 			<Footer />
 		</main>

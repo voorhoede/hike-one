@@ -10,8 +10,6 @@ const cases = require('./data/current/cases.json');
 const services = require('./data/current/services.json');
 const updates = require('./data/current/updates.json');
 
-const fs = require('fs');
-
 app.prepare()
 	.then(() => {
 		const server = express();

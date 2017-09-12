@@ -49,7 +49,7 @@ const Service = ({Data, fontsLoaded}) => (
 							key={index}>
 						</CompanyOverviewItemSmall>
 					))}
-				</CompanyOverviewSmall>	
+				</CompanyOverviewSmall>
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
@@ -77,6 +77,12 @@ const Service = ({Data, fontsLoaded}) => (
 							);
 					}
 				})}
+
+				<Contact
+					title="Where will your journey lead us"
+					button="Get in touch" >
+					<ContactShapes.variation1Front position="front" />
+				</Contact>
 
 				<TextCenter title={Data.caseExtractTitle} />
 

@@ -29,6 +29,9 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
 
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import UpdateOverview from '../components/update-overview/update-overview';
+
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
 import cookie from '../components/_helpers/cookie';
@@ -213,24 +216,21 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-
-					<ReadMore
-						highlight={{
-							"image": "/static/images/img-vbh.jpg",
-							"title": "VBH Pivot App",
-							"href": "#",
-							"linkLabel": "View case"
-						}}
-						links={[
-							{
-								"title": "Your  first Design Sprint: do these 3 things first",
-								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
-							},
-							{
-								"title": "In 5 days from sketch to tested prototype with Design Sprints",
-								"subtext": "17 November 2016 | Ingmar Coenen"
-							}
-						]} />
+					<UpdateOverview>
+						{ Data.updateLinks.map((item, index) => (
+							<UpdateExtractSmall
+								key={index}
+								index={index}
+								title={item.title}
+								date={item.date}
+								author={item.author.name}
+								target={item.link}
+								image={item.image.url}
+								category={item.category.name}
+								color={item.themeColor.hex} />
+						))}
+					</UpdateOverview>
+						
 				</div>
 			</article>
 			<Footer />

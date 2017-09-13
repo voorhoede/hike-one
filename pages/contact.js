@@ -9,11 +9,10 @@ import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-import Data from '../data/current/contact.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const Contact = ({fontsLoaded}) => {
+const Contact = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (

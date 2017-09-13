@@ -8,6 +8,7 @@ require('dotenv').config();
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const reloadToken = process.env.TOKEN;
 
 app.prepare()
 	.then(() => {
@@ -18,6 +19,22 @@ app.prepare()
 
 		server.use(cookieParser());
 		server.use('/guide/', express.static('./build/guide/'));
+
+		server.post('/api/reload-data/:token', (req, res) => {
+			if (reloadToken && reloadToken === req.params.token) {
+				dataLoader.reload()
+				.then(newData => {
+					res.json(newData)
+					console.log('Data reloaded.')
+				})
+				.catch(error => {
+					res.status(500).json({ status: 'Error loading data.' })
+					console.error('Error reloading data', error)
+				})
+			} else {
+				res.status(401).json({ status: 'Invalid token.' })
+			}
+		})
 
 		server.get('/api/:model', (req, res) => {
 			const { model } = req.params;

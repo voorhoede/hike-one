@@ -1,14 +1,16 @@
 import React from 'react';
 import Icon from '../icon/icon';
+import setImageParams from '../_helpers/setImageParameters';
 
 const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, children}) => {
 	const childrenArray = React.Children.toArray(children);
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-
-	const heroImageSmall = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=768`;
-	const heroImageMedium = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=1170`;
-	const heroImageLarge = `${heroImage}auto=format&fm=jpg&fit=max&q=90&w=1244`;
+	const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+			
+	const heroImageSmall = `${setImageParams(heroImage, {...imageParameters, w: 768} )}`;
+	const heroImageMedium = `${setImageParams(heroImage, {...imageParameters, w: 1170} )}`;
+	const heroImageLarge = `${setImageParams(heroImage, {...imageParameters, w: 1244} )}`;
 
 	const style ={__html:
 		`<style>

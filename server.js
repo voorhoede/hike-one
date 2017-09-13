@@ -1,58 +1,31 @@
+const apiRouter = require('./lib/api-router');
+const dataLoader = require('./lib/data-loader');
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
 
 const dev = process.env.NODE_ENV !== 'production';
+const port = process.env.PORT || 3000;
 const app = next({ dev });
 const handle = app.getRequestHandler();
+const server = express();
 
-const cases = require('./data/current/cases.json');
-const services = require('./data/current/services.json');
-const updates = require('./data/current/updates.json');
+const startServer = () => server.listen(port, (err) => {
+	if (err) throw err;
+	console.log(`> Ready on http://localhost:${port}`);
+});
 
-app.prepare()
-	.then(() => {
-		const server = express();
+server.use(express.static('./static/root'));
+server.use(cookieParser());
+server.use('/api/', apiRouter)
+server.use('/guide/', express.static('./build/guide/'));
+server.get('/case/:slug', (req, res) => app.render(req, res, '/case', {slug: req.params.slug}));
+server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slug: req.params.slug}));
+server.get('/update/:slug', (req, res) => app.render(req, res, '/update', {slug: req.params.slug}));
+server.get('*', (req, res) => handle(req, res));
 
-		// so we can serve files from the root directory instead of next.js default static folder
-		server.use(express.static('./static/root'));
-
-		server.use(cookieParser());
-		server.use('/guide/', express.static('./build/guide/'));
-
-		server.get('/api/cases/:slug', (req, res) => {
-			const json = cases.find(item => item.slug === req.params.slug);
-			res.json(json);
-		});
-
-		server.get('/api/services/:slug', (req, res) => {
-			const json = services.find(item => item.slug === req.params.slug);
-			res.json(json);
-		});
-
-		server.get('/api/updates/:slug', (req, res) => {
-			const json = updates.find(item => item.slug === req.params.slug);
-			res.json(json);
-		});
-
-		server.get('/case/:slug', (req, res) => {
-			app.render(req, res, '/case', {slug: req.params.slug});
-		});
-
-		server.get('/service/:slug', (req, res) => {
-			app.render(req, res, '/service', {slug: req.params.slug});
-		});
-
-		server.get('/update/:slug', (req, res) => {
-			app.render(req, res, '/update', {slug: req.params.slug});
-		});
-
-		server.get('*', (req, res) => {
-			return handle(req, res);
-		});
-
-		server.listen(3000, (err) => {
-			if (err) throw err;
-			console.log('> Ready on http://localhost:3000');
-		});
-	});
+Promise.all([
+	app.prepare(),
+	dataLoader.load(),
+])
+.then(startServer);

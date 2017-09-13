@@ -13,11 +13,10 @@ import ServicesOverview from '../components/services-overview/services-overview'
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
-import Data from '../data/current/service-overview.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const Services = ({fontsLoaded}) => {
+const Services = ({Data, fontsLoaded}) => {
 	let scrollToTargetClass = 'js-scroll-to-target';
 	return (
 		<Layout title="Hike One - Services" fontsLoaded={fontsLoaded}>
@@ -54,8 +53,10 @@ const Services = ({fontsLoaded}) => {
 };
 
 Services.getInitialProps = async ({req}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const Data = await fetch(`${baseUrl}/api/service-overview`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {fontsLoaded};
+	return { Data, fontsLoaded };
 };
 
 export default Services;

@@ -112,21 +112,24 @@
 	float: left;
 	display: block;
 
-	& > svg {
+	.icon {
 		float: right;
 		position: relative;
 		bottom: @spacing-default;
 		margin-top: 0;
 		padding: 0;
-		height: 35px;
-		width: 35px;
 
-		& > path {
+		svg {
+			height: 35px;
+			width: 35px;
+		}
+
+		path {
 			fill: @white;
 		}
 	}
 
-	& > span {
+	.blog-extract-footer-date {
 		display: block;
 		float: left;
 		font-weight: @font-weight-normal;
@@ -142,7 +145,7 @@
 		bottom: @spacing-default;
 
 
-		& > span {
+		.blog-extract-footer-date {
 			position: absolute;
 			font-size: @body-text-small-m;
 			line-height: @line-height-body-small-m;
@@ -160,13 +163,13 @@
 			height: 25px;
 			right: -15px;
 		}
-		& > span {
+		.blog-extract-footer-date {
 			font-size: @body-text-small-l;
 			line-height: @line-height-body-small-l;
 			display: block;
 		}
-		& > svg {
-			right: 0px;
+		.icon {
+			right: 0;
 		}
 	}
 }

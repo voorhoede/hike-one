@@ -1,5 +1,6 @@
 import React from 'react';
 import "isomorphic-fetch";
+import getDateFormat from '../components/_helpers/getDateFormat';
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -29,8 +30,10 @@ import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
 
-import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
-import UpdateOverview from '../components/update-overview/update-overview';
+import WorkOverview from '../components/work-overview/work-overview';
+import UpdateLinks from '../components/update-links/update-links';
+import UpdateLink from '../components/update-link/update-link';
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
@@ -216,24 +219,35 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-
-					<TextCenter title='Updates' />
-					
-					<UpdateOverview>
-						{ Data.updateLinks.map((item, index) => (
-							<UpdateExtractSmall
+			
+				<WorkOverview>
+					{ Data.caseExtract.map((item, index) => (
+						<CaseExtractSmall
 								key={index}
-								index={index}
 								title={item.title}
-								date={item.date}
-								author={item.author.name}
-								target={item.link}
-								image={item.image.url}
-								category={item.category.name}
-								color={item.themeColor.hex} />
-						))}
-					</UpdateOverview>
-						
+								subtitle={item.headerSubtitle}
+								image={item.headerBackgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug} />
+					))}
+				</WorkOverview>
+				
+				<UpdateLinks>
+					{ Data.updateLinks.map((update, index) => {
+						if (index < 4) {
+							return (
+								<UpdateLink
+									key={index}
+									title={update.title}
+									author={update.author.name}
+									date={getDateFormat(update.date)} />
+							);
+						}
+					})}
+				</UpdateLinks>
+			
+
 				</div>
 			</article>
 			<Footer />

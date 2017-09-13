@@ -9,10 +9,8 @@ import WorkOverview from '../components/work-overview/work-overview';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
-import cases from '../data/current/cases.json';
-import data from '../data/current/work.json';
 
-const work = ({fontsLoaded}) => {
+const work = ({cases, data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
@@ -49,8 +47,12 @@ const work = ({fontsLoaded}) => {
 };
 
 work.getInitialProps = async ({req}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchAll = (models) => Promise.all(models.map(fetchJson));
+	const [ cases, data ] = await fetchAll(['cases', 'work']);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {fontsLoaded};
+	return { cases, data, fontsLoaded };
 };
 
 export default work;

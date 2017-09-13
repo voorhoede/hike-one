@@ -16,11 +16,6 @@ import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 
-import Data from '../data/current/team.json';
-import TeamImage2_1Data from '../data/current/teamImages21.json';
-import TeamImage3_4Data from '../data/current/teamImages34.json';
-import PeopleData from '../data/current/people.json';
-
 import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';
 let scrollToTargetClass = 'js-scroll-to-target';
@@ -109,7 +104,7 @@ const listValues = {
 	]
 }
 
-const Team = ({fontsLoaded}) => {
+const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded }) => {
 	return (
 		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
@@ -166,8 +161,17 @@ const Team = ({fontsLoaded}) => {
 };
 
 Team.getInitialProps = async ({req}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchAll = (models) => Promise.all(models.map(fetchJson));
+	const [Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData] = await fetchAll([
+		'team',
+		'teamImages21',
+		'teamImages34',
+		'people'
+	]);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {fontsLoaded};
+	return { Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded };
 };
 
 

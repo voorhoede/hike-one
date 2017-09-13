@@ -1,14 +1,13 @@
+const dataLoader = require('./lib/data-loader')
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
 
+require('dotenv').config();
+
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
-
-const cases = require('./data/current/cases.json');
-const services = require('./data/current/services.json');
-const updates = require('./data/current/updates.json');
 
 app.prepare()
 	.then(() => {
@@ -20,19 +19,16 @@ app.prepare()
 		server.use(cookieParser());
 		server.use('/guide/', express.static('./build/guide/'));
 
-		server.get('/api/cases/:slug', (req, res) => {
-			const json = cases.find(item => item.slug === req.params.slug);
-			res.json(json);
-		});
+		server.get('/api/:model', (req, res) => {
+			const { model } = req.params;
+			dataLoader.load(model).then(data => res.json(data));
+		})
 
-		server.get('/api/services/:slug', (req, res) => {
-			const json = services.find(item => item.slug === req.params.slug);
-			res.json(json);
-		});
-
-		server.get('/api/updates/:slug', (req, res) => {
-			const json = updates.find(item => item.slug === req.params.slug);
-			res.json(json);
+		server.get('/api/:model/:slug', (req, res) => {
+			const { model, slug } = req.params;
+			dataLoader.load(model)
+				.then(items => items.find(item => item.slug === slug))
+				.then(item => res.json(item));
 		});
 
 		server.get('/case/:slug', (req, res) => {

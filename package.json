@@ -14,7 +14,7 @@
     "build:guide:stories": "build-storybook -c .storybook -o build/guide/",
     "deploy": "npm-run-all --serial deploy:site deploy:guide",
     "deploy:site": "npm-run-all --serial deploy:site:now deploy:site:alias",
-    "deploy:site:now": "now -e DATO_API_TOKEN=@dato_api_token -e NODE_ENV=production",
+    "deploy:site:now": "now -e DATO_API_TOKEN=@dato_api_token -e NODE_ENV=production -e TOKEN=@token -e DATO_URL=@dato_url",
     "deploy:site:alias": "now alias",
     "deploy:guide": "npm-run-all --serial deploy:guide:now deploy:guide:alias",
     "deploy:guide:now": "now deploy build/guide",

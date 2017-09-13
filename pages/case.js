@@ -234,19 +234,14 @@ const Case = ({Data, fontsLoaded}) => (
 				</WorkOverview>
 				
 				<UpdateLinks>
-					{ Data.updateLinks.map((update, index) => {
-						if (index < 4) {
-							return (
-								<UpdateLink
-									key={index}
-									title={update.title}
-									author={update.author.name}
-									date={getDateFormat(update.date)} />
-							);
-						}
-					})}
+					{ Data.updateLinks.map((update, index) => (
+						<UpdateLink
+							key={index}
+							title={update.title}
+							author={update.author.name}
+							date={getDateFormat(update.date)} />
+					))}
 				</UpdateLinks>
-			
 
 				</div>
 			</article>

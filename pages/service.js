@@ -21,7 +21,6 @@ import UpdateLink from '../components/update-link/update-link';
 import cookie from '../components/_helpers/cookie';
 import getDateFormat from '../components/_helpers/getDateFormat';
 import services from '../data/current/services.json';
-import updates from '../data/current/update-extracts.json';
 
 const Service = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
@@ -104,17 +103,13 @@ const Service = ({Data, fontsLoaded}) => (
 				</WorkOverview>
 
 				<UpdateLinks>
-					{ updates.map((update, index) => {
-						if (index < 4) {
-							return (
-								<UpdateLink
-									key={index}
-									title={update.title}
-									author={update.author.name}
-									date={getDateFormat(update.date)} />
-							);
-						}
-					})}
+					{ Data.updateLinks.map((update, index) => (
+						<UpdateLink
+							key={index}
+							title={update.title}
+							author={update.author.name}
+							date={getDateFormat(update.date)} />
+					))}
 				</UpdateLinks>
 			</article>
 			<Footer />

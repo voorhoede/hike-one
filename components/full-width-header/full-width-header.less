@@ -47,23 +47,38 @@
 	min-height: 200px;
 	background: @dark-blue;
 	color: @white;
-	
+
 	@media @screen-medium {
-		padding: @spacing-large @spacing-medium;
+		padding: @spacing-large @spacing-default*1.5;
 	}
 	@media @screen-large {
 		max-width: @column-large-10;
-		flex-direction: row;
 		padding: @spacing-large @spacing-medium;
+	}
+	@media (min-width: 1400px) {
+		flex-direction: row;
 	}
 }
 
 .full-width-header-text-container {
 	display: flex;
 	flex-direction: column;
-	
+	width: 100%;
+	max-width: calc(@column-large-7 - 30px);
+	margin: auto;
+	position: relative;
+
 	@media @screen-large {
-		margin-left: @spacing-small*5;
+		max-width: calc(@column-large-7);
+		position: absolute;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+	}
+
+	@media only screen and (min-width: 1440px) {
+		position: relative;
+		max-width: calc(@column-large-6);
 	}
 }
 
@@ -81,7 +96,7 @@
 	}
 
 	@media @screen-large {
-		width: 175px;
+		width: auto;
 		align-items: flex-start;
 	}
 }
@@ -99,7 +114,7 @@
 	font-weight: @font-weight-bold;
 	color: @white;
 	margin-bottom: @spacing-default;
-	
+
 	@media @screen-medium {
 		font-size: @heading-m;
 		line-height: @line-height-heading-m;
@@ -112,11 +127,11 @@
 }
 
 .full-width-header-author {
-	opacity: 0.5;
+	opacity: 0.75;
 	margin-bottom: 0;
 	font-size: @body-text-s;
 	line-height: @line-height-body-small-l;
-	font-weight: @font-weight-bold;
+	font-weight: @font-weight-normal;
 }
 
 .full-width-header-back-container {
@@ -124,4 +139,39 @@
 	align-items: center;
 	color: @white;
 	text-decoration: none;
+
+	.icon {
+		animation-duration: .3s;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+		animation-name: horizontal-spring-icon-from-left;
+	}
+
+	&:hover {
+		.icon {
+			animation-duration: .3s;
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;
+			animation-name: horizontal-spring-icon-to-left;
+			animation-timing-function: ease-in-out;
+		}
+	}
+}
+
+@keyframes horizontal-spring-icon-to-left {
+	83.25% {
+		transform: translateX(-6px);
+	}
+
+	100% {
+		transform: translateX(-5px);
+	}
+}
+@keyframes horizontal-spring-icon-from-left {
+	0% {
+		transform: translateX(-6px);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }

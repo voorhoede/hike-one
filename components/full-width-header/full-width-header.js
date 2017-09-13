@@ -9,8 +9,8 @@ const FullWidthHeader = ({headerImage='', color='', title='', authorName='', upd
 			<div className="full-width-header-text shadow" style={{backgroundColor:`${color}`}}>
 				<div className="full-width-header-back">
 					<Link href={`/updates`}  as={`/updates`}>
-						<a className="full-width-header-back-container">	
-							<Icon icon="arrowLeft"/>
+						<a className="full-width-header-back-container">
+							<Icon icon="arrowLeft" classes="icon"/>
 							<span className="full-width-header-subtitle">all updates</span>
 						</a>
 					</Link>

@@ -10,7 +10,7 @@ const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, lin
 						<img src={socialImagesInstagram} alt=""/>
 					</div>
 					<div className="image-feed-icon">
-						<Icon icon="instagram" />
+						<Icon icon="instagram" classes="icon" />
 					</div>
 				</div>
 			</a>
@@ -22,7 +22,7 @@ const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, lin
 						<img src={socialImagesDribble} alt=""/>
 					</div>
 					<div className="image-feed-icon">
-						<Icon icon="dribble" />
+						<Icon icon="dribble" classes="icon" />
 					</div>
 				</div>
 			</a>

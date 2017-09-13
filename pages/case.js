@@ -1,5 +1,6 @@
 import React from 'react';
 import "isomorphic-fetch";
+import getDateFormat from '../components/_helpers/getDateFormat';
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -28,6 +29,11 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
+
+import WorkOverview from '../components/work-overview/work-overview';
+import UpdateLinks from '../components/update-links/update-links';
+import UpdateLink from '../components/update-link/update-link';
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter';
@@ -213,24 +219,30 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
+			
+				<WorkOverview>
+					{ Data.caseExtract.map((item, index) => (
+						<CaseExtractSmall
+								key={index}
+								title={item.title}
+								subtitle={item.headerSubtitle}
+								image={item.headerBackgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug} />
+					))}
+				</WorkOverview>
+				
+				<UpdateLinks>
+					{ Data.updateLinks.map((update, index) => (
+						<UpdateLink
+							key={index}
+							title={update.title}
+							author={update.author.name}
+							date={getDateFormat(update.date)} />
+					))}
+				</UpdateLinks>
 
-					<ReadMore
-						highlight={{
-							"image": "/static/images/img-vbh.jpg",
-							"title": "VBH Pivot App",
-							"href": "#",
-							"linkLabel": "View case"
-						}}
-						links={[
-							{
-								"title": "Your  first Design Sprint: do these 3 things first",
-								"subtext": "24 November 2016 | Matthijs Collard & Martijn Pillich"
-							},
-							{
-								"title": "In 5 days from sketch to tested prototype with Design Sprints",
-								"subtext": "17 November 2016 | Ingmar Coenen"
-							}
-						]} />
 				</div>
 			</article>
 			<Footer />

@@ -4,7 +4,7 @@
 .image-feed-image {
 	height: 135px;
 	overflow: hidden;
-	
+
 	@media @screen-small {
 		height: 251px;
 	}
@@ -13,7 +13,7 @@
 		width: 100%;
 		height: 135px;
 		object-fit: cover;
-	
+
 		@media @screen-small {
 			float: left;
 			height: 251px;
@@ -24,29 +24,31 @@
 .image-feed-icon {
 	position: relative;
 	width: 100%;
-	
-	& > svg {
+
+	.icon {
 		position: absolute;
-		right: 0;
-		height: 28px;
-		width: 28px;
 		bottom: 15px;
 		right: 15px;
 
-		& > path {
+		svg {
+			height: 28px;
+			width: 28px;
+		}
+
+		path {
 			fill: @white;
 		}
 	}
 
 	@media @screen-large {
-		& > svg {	
+		.icon {
 			bottom: @spacing-small;
 			right: @spacing-small;
 		}
 	}
 }
 
-.image-feed-container {	
+.image-feed-container {
 	float: left;
 	clear: both;
 	width: 100%;
@@ -58,20 +60,20 @@
 		float: left;
 		width: 50%;
 		padding-right: @spacing-default;
-		
-		&:nth-child(2n) { 
+
+		&:nth-child(2n) {
 			padding-right: 0;
-		}	
+		}
 	}
 
 	@media @screen-small {
-		height: 250px;	
+		height: 250px;
 	}
 
 	@media @screen-large {
 		width: 50%;
 		& > a {
-			&:nth-child(2n) { 
+			&:nth-child(2n) {
 				padding-right: @spacing-default;
 			}
 		}

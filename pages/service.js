@@ -102,17 +102,13 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 				</WorkOverview>
 
 				<UpdateLinks>
-					{ updates.map((update, index) => {
-						if (index < 4) {
-							return (
-								<UpdateLink
-									key={index}
-									title={update.title}
-									author={update.author.name}
-									date={getDateFormat(update.date)} />
-							);
-						}
-					})}
+					{ Data.updateLinks.map((update, index) => (
+						<UpdateLink
+							key={index}
+							title={update.title}
+							author={update.author.name}
+							date={getDateFormat(update.date)} />
+					))}
 				</UpdateLinks>
 			</article>
 			<Footer />

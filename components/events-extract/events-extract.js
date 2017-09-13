@@ -1,6 +1,6 @@
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
-import Icon from '../icon/icon';
+import Location from '../icons/location';
 import Link from 'next/link';
 
 const EventsExtract = ({ subtitle, events}) => (
@@ -21,7 +21,7 @@ const EventsExtract = ({ subtitle, events}) => (
 							<Link href={event.linkLocation}>
 								<a className="events-extract-link">
 									<span className="icon icon-small">
-										<Icon icon="location" />
+										<Location />
 									</span>
 									{event.location}
 								</a>

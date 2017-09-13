@@ -1,4 +1,5 @@
-import Icon from '../icon/icon'
+import React from 'react';
+import Icon from '../icon/icon';
 import TweenLite from "gsap";
 
 class CaseIntro extends React.Component {
@@ -11,11 +12,19 @@ class CaseIntro extends React.Component {
 		this.onScroll = this.onScroll.bind(this);
 		this.animateLayer = this.animateLayer.bind(this);
 		this.setVisability = this.setVisability.bind(this);
+		this.showVideo = this.showVideo.bind(this);
+		this.state = {
+			showVideo : false
+		};
 	}
 
 	componentDidMount() {
 		this.elementBottom = this.element.getBoundingClientRect().bottom;
 		window.addEventListener('scroll', this.onScroll);
+
+		if (this.props.video) {
+			this.video.addEventListener('loadeddata', this.showVideo);
+		}
 	}
 
 	componentWillUnmount() {
@@ -63,16 +72,33 @@ class CaseIntro extends React.Component {
 		TweenLite.to(this.parallaxLayer, 0, styles, {ease: "Linear.easeNone" });
 	}
 
+	showVideo() {
+		this.setState({showVideo: true});
+	}
+
 	render() {
 		const props = this.props;
+		const style ={__html:
+			`<style>
+				.case-header {
+					background-image: url(${props.image});
+				}
+			@media only screen and (min-width: 768px) {
+				.case-header {
+					background-image: none;
+				}
+			}
+			
+		</style>`};
 
 		return (
 			<section
 				ref={node => this.element = node}
-				className="case-header" style={{backgroundImage: `url(${props.image})`}} >
-
+				className={`case-header ${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
-					<video playsInline autoPlay muted loop poster={props.image} className="case-header-video">
+					<video ref={node => this.video = node}
+					   	className="case-header-video"
+						playsInline autoPlay muted loop>
 						<source src={props.video} type="video/mp4" />
 					</video>
 				}
@@ -87,6 +113,7 @@ class CaseIntro extends React.Component {
 						</button>
 					</div>
 				</div>
+				<div dangerouslySetInnerHTML={style}></div>
 			</section>
 		);
 	}

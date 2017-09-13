@@ -7,9 +7,7 @@ import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-import Data from '../data/current/contact.json';
-
-const Contact = ({fontsLoaded}) => {
+const Contact = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
@@ -33,8 +31,10 @@ const Contact = ({fontsLoaded}) => {
 };
 
 Contact.getInitialProps = async ({req}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {fontsLoaded};
+	return {Data, fontsLoaded};
 };
 
 export default Contact;

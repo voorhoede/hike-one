@@ -13,8 +13,8 @@ const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
 				<h3>{subtitle}</h3>
 				<h2>{title}</h2>
 				<div className="blog-extract-footer-container">
-					<span>{date}</span>
-					<Icon icon="arrowRightCircle" />
+					<span className="blog-extract-footer-date">{date}</span>
+					<Icon icon="arrowRightCircle" classes="icon" />
 				</div>
 			</div>
 		</a>

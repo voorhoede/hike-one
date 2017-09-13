@@ -21,8 +21,8 @@ storiesOf('Full width header', module)
 	.addDecorator(withKnobs)
 	.add('full width header with text', () => (
 			<FullWidthHeader
-				color={header.color.hex} 
-				title={header.title}
-				authorName={header.author.name} 
+				color={text('color', header.color.hex)} 
+				title={text('title', header.title)}
+				authorName={text('author', header.author.name)} 
 				updatedDate={header.date} />
 	))

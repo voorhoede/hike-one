@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "prebuild": "rimraf build/ && mkdir build/",
-    "build": "npm-run-all --serial build:css build:next build:guide",
+    "build": "npm-run-all --serial build:dato build:css build:next build:guide",
     "build:dato": "dato dump",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",

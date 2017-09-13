@@ -6,6 +6,7 @@ import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import Footer from '../components/footer/footer';
 import WorkOverview from '../components/work-overview/work-overview';
+import LogoCarousel from '../components/logo-carousel/logo-carousel';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
@@ -39,6 +40,11 @@ const work = ({cases, data, fontsLoaded}) => {
 								slug={item.slug} />
 						))}
 					</WorkOverview>
+
+					<LogoCarousel
+						title={data.companiesTitle}
+						companies={data.companies}
+						animationSpeed={data.animationSpeed}/>
 				</article>
 				<Footer/>
 			</main>

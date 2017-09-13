@@ -99,6 +99,10 @@
 		height: 50px;
 		transition: fill .5s, transform .5s; // hover off
 		fill: @white;
+
+		.is-open & {
+			fill: @black;
+		}
 	}
 
 	&:hover {

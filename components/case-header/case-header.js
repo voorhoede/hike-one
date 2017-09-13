@@ -83,13 +83,14 @@ class CaseIntro extends React.Component {
 				.case-header {
 					background-image: url(${props.image});
 				}
-			@media only screen and (min-width: 768px) {
-				.case-header {
+			${props.video ?
+				`@media only screen and (min-width: 768px) {
+					.case-header {
 					background-image: none;
-				}
-			}
-			
-		</style>`};
+					}
+				}` : '' }
+			}		
+			</style>`};
 
 		return (
 			<section

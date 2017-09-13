@@ -17,11 +17,10 @@ import TextCenter from '../components/text-center/text-center';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
-import Data from '../data/current/home.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const Home = ({fontsLoaded}) => {
+const Home = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
@@ -75,8 +74,10 @@ const Home = ({fontsLoaded}) => {
 };
 
 Home.getInitialProps = async ({req}) => {
+	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const Data = await fetch(`${baseUrl}/api/home`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {fontsLoaded};
+	return {Data, fontsLoaded};
 };
 
 export default Home;

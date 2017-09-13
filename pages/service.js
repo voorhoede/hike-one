@@ -20,10 +20,8 @@ import UpdateLink from '../components/update-link/update-link';
 
 import cookie from '../components/_helpers/cookie';
 import getDateFormat from '../components/_helpers/getDateFormat';
-import services from '../data/current/services.json';
-import updates from '../data/current/update-extracts.json';
 
-const Service = ({Data, fontsLoaded}) => (
+const Service = ({Data, services, updates, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar/>
@@ -124,11 +122,15 @@ const Service = ({Data, fontsLoaded}) => (
 
 Service.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const res = await fetch(`${baseUrl}/api/services/${query.slug}`);
-	const json = await res.json();
-
+	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchAll = (models) => Promise.all(models.map(fetchJson))
+	const [Data, services, updates] = await fetchAll([
+		`services/${query.slug}`,
+		`services`,
+		`update-extracts`
+	]);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data: json, fontsLoaded};
+	return { Data, services, updates, fontsLoaded };
 };
 
 export default Service;

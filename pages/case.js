@@ -240,11 +240,9 @@ const Case = ({Data, fontsLoaded}) => (
 
 Case.getInitialProps = async ({req, query}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const res = await fetch(`${baseUrl}/api/cases/${query.slug}`);
-	const json = await res.json();
-
+	const Data = await fetch(`${baseUrl}/api/cases/${query.slug}`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data: json, fontsLoaded};
+	return {Data, fontsLoaded};
 };
 
 export default Case;

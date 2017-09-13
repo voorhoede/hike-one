@@ -216,6 +216,9 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
+
+					<TextCenter title='Updates' />
+					
 					<UpdateOverview>
 						{ Data.updateLinks.map((item, index) => (
 							<UpdateExtractSmall

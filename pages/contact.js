@@ -2,12 +2,18 @@ import React from 'react';
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
+import OfficeOverview from '../components/office-overview/office-overview';
+import OfficeCard from '../components/office-card/office-card';
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-const Contact = ({Data, fontsLoaded}) => {
+import Data from '../data/current/contact.json';
+import scrollToElement from '../components/_helpers/scrollToElement';
+import cookie from '../components/_helpers/cookie';
+
+const Contact = ({fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
@@ -23,7 +29,20 @@ const Contact = ({Data, fontsLoaded}) => {
 						<PageHeaderShapes.variation1Front position="front" />
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
+
+					<OfficeOverview classes={scrollToTargetClass}>
+						{ Data.office.map((item, index) => (
+							<OfficeCard
+								key={index}
+								location={item.location}
+								address={item.address}
+								postcode={item.postcode}
+								city={item.city}
+								imageUrl={item.image.url} />
+						))}
+					</OfficeOverview>
 				</article>
+
 				<Footer />
 			</main>
 		</Layout>

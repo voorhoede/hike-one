@@ -2,8 +2,9 @@ import React from 'react';
 import {TweenLite, TimelineLite, TimelineMax}  from 'gsap';
 
 class LogoCarousel extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
+		this.animationSpeed = props.animationSpeed;
 		this.animate = this.animate.bind(this);
 	}
 
@@ -12,14 +13,11 @@ class LogoCarousel extends React.Component {
 	}
 
 	animate() {
-		var slider = document.querySelector('[data-marquee-slider]');
-		var sliderContent = slider.querySelector('[data-marquee-content]');
-		var sliderContentWidth = sliderContent.getBoundingClientRect().width;
-		var sliderSpeed = slider.dataset.marqueeSlider;
+		const sliderContentWidth = this.sliderContent.getBoundingClientRect().width;
+		const carouselAnimation = new TimelineMax({repeat:-1});
 
-		var carouselAnimation = new TimelineMax({repeat:-1});
-		carouselAnimation.add(TweenLite.to(slider, 1, {ease:Linear.easeNone, left:-sliderContentWidth}))
-						 .duration(sliderSpeed);
+		carouselAnimation.add(TweenLite.to(this.slider, 1, {ease:Linear.easeNone, left:-sliderContentWidth}))
+						 .duration(this.animationSpeed);
 	}
 
 	render() {
@@ -28,8 +26,8 @@ class LogoCarousel extends React.Component {
 				<h2 className="content">{ this.props.title }</h2>
 
 				<div className="marquee container-inner">
-					<div className="marquee__slider" data-marquee-slider={this.props.animationSpeed}>
-						<ul className="marquee__item list-no-style" data-marquee-content>
+					<div ref={node => this.slider = node} className="marquee-slider">
+						<ul ref={node => this.sliderContent = node} className="marquee-item list-no-style">
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img
@@ -37,7 +35,7 @@ class LogoCarousel extends React.Component {
 										alt={company.name} />
 								</li> )}
 						</ul>
-						<ul className="marquee__item list-no-style">
+						<ul className="marquee-item list-no-style">
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img

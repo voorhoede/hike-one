@@ -1,4 +1,5 @@
 const apiRouter = require('./lib/api-router');
+const dataLoader = require('./lib/data-loader');
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
@@ -23,4 +24,8 @@ server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slu
 server.get('/update/:slug', (req, res) => app.render(req, res, '/update', {slug: req.params.slug}));
 server.get('*', (req, res) => handle(req, res));
 
-app.prepare().then(startServer);
+Promise.all([
+	app.prepare(),
+	dataLoader.load(),
+])
+.then(startServer);

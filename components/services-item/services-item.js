@@ -7,7 +7,7 @@ const ServicesItem = ({data , index}) => (
 	<li className="services-item clearfix">
 		<div className="services-item-info">
 			<h3 className="services-item-heading content">{data.title}</h3>
-			<p className="services-item-text content">{data.text}</p>
+			<p className="services-item-text content" dangerouslySetInnerHTML={{__html: data.text}}></p>
 			<ul className="services-item-tags list-custom">
 				{ data.tags.map((tag, index) => <li key={index} className="content list-custom-item">{ tag.tag }</li>) }
 		   </ul>

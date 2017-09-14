@@ -8,7 +8,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left': '';
 	const imageParameters = { fit: 'max', fm: 'jpg', q: '90' }
-	
+
 	return (
 		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>
 			{parallaxLayerBack}
@@ -55,7 +55,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 				</div>
 				<div className="fifty-fifty-content">
 					<h2 className="fifty-fifty-title content">{title}</h2>
-					<p className="fifty-fifty-text content">{text}</p>
+					<p className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></p>
 				</div>
 			</div>
 			{parallaxLayerFront}

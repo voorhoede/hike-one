@@ -11,7 +11,6 @@ const loadFonts = () => {
 		const gilroyMediumItalic = new FontFaceObserver('gilroy', {weight: 500, style: 'italic'});
 		const gilroyRegular = new FontFaceObserver('gilroy', {weight: 400});
 		const playFairRegular = new FontFaceObserver('playfair', {weight: 'normal'});
-		console.log('here');
 
 		return new Promise((resolve, reject) => {
 			Promise.all([

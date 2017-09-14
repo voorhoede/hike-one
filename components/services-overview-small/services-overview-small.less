@@ -120,11 +120,11 @@
 .services-item-small-content {
 	float: none;
 	width: 100%;
-	max-width: @column-small-3 - 20;
+	padding-left: @spacing-small;
+	margin-left: @spacing-large;
 	text-align: center;
 	color: @black;
-	padding-left: @spacing-small;
-	margin-left: @spacing-large*2;
+	
 
 	.btn-secondary {
 		float:left;
@@ -167,7 +167,7 @@
 
 .services-item-small-heading {
 	margin: 0 0 @spacing-default 0;
-	padding: 0  @spacing-default 0 0;
+	padding: 0  @spacing-large 0 0;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-bold;
@@ -175,10 +175,10 @@
 
 	@media @screen-small {
 		text-align: center;
+		padding: 0;
 	}
 
 	@media @screen-medium {
-		padding: 0;
 		margin-bottom: @spacing-medium;
 		font-size: @body-text-m;
 		line-height: @line-height-body-m;
@@ -197,13 +197,15 @@
 }
 
 .services-item-description {
+	height: auto;
+	padding-right: @spacing-large;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	text-align: left;
-	height: 130px;
 	overflow: hidden;
 
 	@media @screen-small {
+		padding-right: 0;
 		text-align: center;
 	}
 	@media @screen-medium {
@@ -239,6 +241,7 @@
 	float: left;
 	width: 100%;
 	margin-bottom: @spacing-small;
+	padding-right: @spacing-large;
 	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
 	text-align: left;
@@ -247,6 +250,7 @@
 
 	@media @screen-small {
 		text-align: center;
+		padding-right: 0;
 	}
 
 	@media @screen-medium {
@@ -268,8 +272,8 @@ a.service-item-small-subtitle:hover {
 
 .services-item-small-shape {
 	position: absolute;
-	height: 80px;
-	width: 80px;
+	height: 40px;
+	width: 40px;
 
 	@media @screen-small {
 		position: relative;

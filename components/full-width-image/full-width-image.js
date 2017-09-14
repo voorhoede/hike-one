@@ -150,17 +150,17 @@ class FullWidthImage extends React.Component {
 	}
 
 	resetElement() {
-		this.fixedElement.style.transform = `translate3d(0px, -110%, 0px)`;
+		this.fixedElement.style.transform = `translate3d(0px, -200%, 0px)`;
 	}
 
 	render() {
-		const {image, index, title, subtitle, overlay} = this.props;
-		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }		
-		const heroImageSmall = `${setImageParams(image, {...imageParameters, w: 768} )}`;
-		const heroImageMedium = `${setImageParams(image, {...imageParameters, w: 1170} )}`;
-		const heroImageLarge = `${setImageParams(image, {...imageParameters, w: 1600} )}`;
-		const heroImageExtraLarge =  `${setImageParams(image, {...imageParameters, w: 1920} )}`;
-		
+		const {image, index, title, subtitle, overlay, staticImg} = this.props;
+		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 };
+		const heroImageSmall = staticImg ? image :`${setImageParams(image, {...imageParameters, w: 768} )}`;
+		const heroImageMedium = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1170} )}`;
+		const heroImageLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1600} )}`;
+		const heroImageExtraLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1920} )}`;
+
 		const style ={__html:
 			`<style>
 				.full-width-image-background-${index} {
@@ -187,12 +187,12 @@ class FullWidthImage extends React.Component {
         return (
 			<div className="full-width-image"
 				ref={node => this.element = node}>
+				<div dangerouslySetInnerHTML={style}></div>
 				<div className={`full-width-image-inner`}
 					 ref={node => this.fixedElement = node}
-					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
-					<div className="full-width-image-background"
-						ref={node => this.imageElement = node}
-						style={{ backgroundImage: `url(${setImageParams(image, {...imageParameters } )})`}} >
+					 style={{transform: `translate3d(0px, -200%, 0px)`}}>
+					<div className={`full-width-image-background full-width-image-background-${index}`}
+						ref={node => this.imageElement = node}>
 					</div>
 					{ overlay && <div className="full-width-image-overlay"></div>}
 				</div>
@@ -202,7 +202,6 @@ class FullWidthImage extends React.Component {
 						{ subtitle && <p>{subtitle}</p> }
                 	</div>
                 }
-				<div dangerouslySetInnerHTML={style}></div>
             </div>
         );
     }

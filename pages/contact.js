@@ -4,6 +4,7 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import OfficeOverview from '../components/office-overview/office-overview';
 import OfficeCard from '../components/office-card/office-card';
+import TextCenter from '../components/text-center/text-center';
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
@@ -29,6 +30,9 @@ const Contact = ({Data, fontsLoaded}) => {
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
 
+					<TextCenter
+						text={Data.content}/>
+
 					<OfficeOverview classes={scrollToTargetClass}>
 						{ Data.office.map((item, index) => (
 							<OfficeCard
@@ -40,6 +44,7 @@ const Contact = ({Data, fontsLoaded}) => {
 								imageUrl={item.image.url} />
 						))}
 					</OfficeOverview>
+
 				</article>
 
 				<Footer />

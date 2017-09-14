@@ -150,7 +150,7 @@ class FullWidthImage extends React.Component {
 	}
 
 	resetElement() {
-		this.fixedElement.style.transform = `translate3d(0px, -110%, 0px)`;
+		this.fixedElement.style.transform = `translate3d(0px, -200%, 0px)`;
 	}
 
 	render() {
@@ -190,7 +190,7 @@ class FullWidthImage extends React.Component {
 				<div dangerouslySetInnerHTML={style}></div>
 				<div className={`full-width-image-inner`}
 					 ref={node => this.fixedElement = node}
-					 style={{transform: `translate3d(0px, -110%, 0px)`}}>
+					 style={{transform: `translate3d(0px, -200%, 0px)`}}>
 					<div className={`full-width-image-background full-width-image-background-${index}`}
 						ref={node => this.imageElement = node}>
 					</div>

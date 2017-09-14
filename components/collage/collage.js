@@ -43,7 +43,7 @@ const Collage = ({ imageMedium, imageSmall, title = '', text = '', children}) =>
 			</div>
 			<div className="collage-text-container">
 				<h2 className="collage-text-title">{title}</h2>
-				<p className="collage-text-description">{text}</p>
+				<p className="collage-text-description" dangerouslySetInnerHTML={{__html: text}}></p>
 			</div>
 			{parallaxLayerFront}
 		</section>

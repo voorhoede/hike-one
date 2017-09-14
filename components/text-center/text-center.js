@@ -12,7 +12,7 @@ const TextCenter = ({classes = '', title = '', text = '', children}) => {
 				{ title
 					? <h2 className="content">{title}</h2>
 					: '' }
-				<p className="content">{text}</p>
+				<p className="content" dangerouslySetInnerHTML={{__html: text}}></p>
 			</div>
 			{parallaxLayerFront}
 		</section>

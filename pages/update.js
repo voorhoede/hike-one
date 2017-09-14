@@ -1,45 +1,39 @@
 import React from 'react';
 import "isomorphic-fetch";
 
-import Facebook   from '../components/icons/facebook-circle';
-import Twitter 	  from '../components/icons/twitter-circle';
-import LinkedIn   from '../components/icons/linkedin-circle';
-
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
-import parseList from'../components/_helpers/parseList';
 
 import SocialShare from '../components/social-share/social-share';
 import FullWidthHeader from '../components/full-width-header/full-width-header';
-import BodyHeading from '../components/body-heading/body-heading';
 import BodyQuote from '../components/body-quote/body-quote';
-import BodyText from '../components/body-text/body-text';
 import InlineImage from '../components/inline-image/inline-image';
-import List from '../components/list/list';
 import Author from '../components/author/author';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
+import RichBodyText from '../components/rich-body-text/rich-body-text';
 
 const Update = ({Data, fontsLoaded}) => (
 	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
-				<FullWidthHeader 
+				<FullWidthHeader
 					headerImage={Data.headerImage.url}
 					color={Data.color.hex}
 					title={Data.title}
-					authorName={Data.author.name} 
-					updatedDate={Data.date}/>	
+					authorName={Data.author.name}
+					updatedDate={Data.date}/>
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
-						case 'body_heading':
-							return <BodyHeading key={index} title={component.title} />;
+						case 'rich_body_text':
+							return (
+								<RichBodyText content={component.content}/>
+							);
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
-						case 'body_text':
-							return <BodyText key={index} text={component.text} />;
+
 						case 'inline_image':
 							return (
 								<InlineImage
@@ -55,31 +49,24 @@ const Update = ({Data, fontsLoaded}) => (
 									image={component.image.url}
 									caption={component.caption} />
 							);
-						case 'list':
-							// convert markdown list to an array with items
-							const items = parseList(component.items);
-							return (
-								<List key={index} items={items} />
-							);
-							return;
 						case 'full_width_image_small':
 							return (
 								<FullWidthImageSmall key={index} image={component.image.url} />
 							);
 					}
 				})}
-				<SocialShare 
+				<SocialShare
 					facebookLink={'#'}
 					linkedinLink={'#'}
 					twitterLink={'#'}
 				/>
-				<Author 
+				<Author
 					name={Data.author.name}
 					role={Data.author.role}
 					photoUrl={Data.author.photo.url}
 					summary={Data.authorSummary}
 				/>
-				
+
 			</article>
 			<Footer />
 		</main>

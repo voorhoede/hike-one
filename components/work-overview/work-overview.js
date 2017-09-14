@@ -1,5 +1,6 @@
-const WorkOverview = ({classes = '', children}) => (
-	<div className={`work-overview container ${classes}`}>
+const WorkOverview = ({classes = '', children, moreButton=false}) => (
+	<div className={`work-overview container ${classes}
+					${moreButton ? 'work-overview-extra-spacing' : '' }`}>
 		<div className="container-inner">
 		{ children }
 		</div>

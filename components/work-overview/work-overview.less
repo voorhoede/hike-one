@@ -3,6 +3,7 @@
 
 .work-overview {
 	.clearfix;
+	margin-bottom: @spacing-large;
 
 	.case-extract-small {
 		width: 100%;
@@ -21,5 +22,13 @@
 		.case-extract-small:nth-child(even){
 			margin-left: @spacing-default * 2;
 		}
+	}
+}
+
+.work-overview-extra-spacing {
+	margin-bottom: @spacing-large*2;
+
+	@media @screen-large {
+		margin-bottom: 120px;
 	}
 }

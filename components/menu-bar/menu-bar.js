@@ -15,6 +15,7 @@ import {TweenLite, Power3, Power2, TimelineLite, TimelineMax}  from 'gsap';
 class Header extends React.Component {
 	constructor() {
 		super();
+		this.onClickMenu = this.onClickMenu.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.setInitialValues = this.setInitialValues.bind(this);
 		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
@@ -30,12 +31,14 @@ class Header extends React.Component {
 	componentDidMount() {
 		this.setInitialValues();
 		this.setAnimationTimeline();
+		this.menu.addEventListener('click', this.onClickMenu);
 		window.addEventListener('resize', this.onResize);
 	}
 
 	componentWillUnmount() {
-		document.body.classList.remove(this.disableScrollClass);
+		this.menu.removeEventListener('click', this.onClickMenu);
 		window.removeEventListener('resize', this.onResize);
+		document.body.classList.remove(this.disableScrollClass);
 	}
 
 	setInitialValues() {
@@ -102,6 +105,17 @@ class Header extends React.Component {
 				ease: Power3.easeInOut
 			}, 0.05, '-=0.2')
 			.set(this.header, {className:'+=animation-is-finished'});
+	}
+
+	onClickMenu() {
+		// check if browser supports closest
+		// if closest is not menu inner and menu is open:
+		// then close menu
+		if (event.target.closest &&
+			!event.target.closest('.menu-inner') &&
+			this.state.menuIsOpen) {
+			this.toggleMenu();
+		}
 	}
 
 	toggleMenu() {

@@ -5,7 +5,6 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
-import FeedsBlock from '../components/feeds-block/feeds-block';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';

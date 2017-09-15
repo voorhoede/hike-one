@@ -1,0 +1,27 @@
+@import (reference) '../../styles/variables';
+
+.text-center {
+	@media @screen-large {
+		margin-bottom: @spacing-default*12;
+	}
+
+	h2 {
+		font-weight: normal;
+		font-size: @quote-large-s;
+		line-height: @line-height-title-small-s;
+
+		@media @screen-medium {
+			font-size: @quote-large-m;
+			line-height: @line-height-title-small-m;
+		}
+
+		@media @screen-large {
+			font-size: @quote-large-l;
+			line-height: @line-height-title-small-l;
+		}
+	}
+
+	a {
+		font-weight: bold;
+	}
+}

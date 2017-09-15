@@ -4,16 +4,16 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import OfficeOverview from '../components/office-overview/office-overview';
 import OfficeCard from '../components/office-card/office-card';
+import TextCenter from '../components/text-center/text-center';
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
 import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
-import Data from '../data/current/contact.json';
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const Contact = ({fontsLoaded}) => {
+const Contact = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
@@ -30,6 +30,9 @@ const Contact = ({fontsLoaded}) => {
 						<PageHeaderShapes.variation1Back position="back" />
 					</PageHeader>
 
+					<TextCenter
+						text={Data.content}/>
+
 					<OfficeOverview classes={scrollToTargetClass}>
 						{ Data.office.map((item, index) => (
 							<OfficeCard
@@ -42,6 +45,7 @@ const Contact = ({fontsLoaded}) => {
 								imageUrl={item.image.url} />
 						))}
 					</OfficeOverview>
+
 				</article>
 
 				<Footer />

@@ -21,7 +21,7 @@ class FooterLocations extends React.Component {
 					<li>
 						<button onClick={() => this.setState({location:'rtm'})}
 								className={this.state.location === 'rtm' ? 'is-active' : ''}>
-						RTD </button>
+						RTM </button>
 					</li>
 
 					<li>

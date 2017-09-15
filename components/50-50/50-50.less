@@ -2,6 +2,17 @@
 
 .fifty-fifty {
 	position: relative;
+
+	a {
+		&,
+		&:visited {
+			color: @red;
+			text-decoration: none;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .fifty-fifty.container {

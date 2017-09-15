@@ -53,15 +53,24 @@
 
 .marquee-item {
 	display: inline-flex;
-}
 
-.marquee-item li {
-	display: flex;
-	align-items: center;
-	margin: 0 @spacing-small;
-	list-style: none;
+	li {
+		display: flex;
+		align-items: center;
+		margin: 0 @spacing-small;
+		list-style: none;
 
-	@media @screen-medium {
-		margin: 0 @spacing-extra-large;
+		@media @screen-medium {
+			margin: 0 @spacing-extra-large;
+		}
+	}
+
+	img {
+		width: auto;
+		height: 74px;
+
+		@media @screen-medium {
+			height: 94px;
+		}
 	}
 }

@@ -166,6 +166,14 @@ const Team = ({ Data, fontsLoaded }) => {
 						</ImageCompositionSmall>
 					}
 
+					{
+						Data.teamImage916 &&
+						<TeamImage
+							title={Data.teamImage916.title}
+							image={Data.teamImage916.photo.url}
+						/>
+					}
+
 					<Contact
 						title={Data.contact.title}
 						button={Data.contact.button} >

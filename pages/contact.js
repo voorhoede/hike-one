@@ -32,12 +32,12 @@ const Contact = ({Data, fontsLoaded}) => {
 					</PageHeader>
 
 					<TextCenter
-						classes="text-center-font-large"
+						classes={`text-center-font-large ${scrollToTargetClass}`}
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
-					<OfficeOverview classes={scrollToTargetClass}>
+					<OfficeOverview>
 						{ Data.office.map((item, index) => (
 							<OfficeCard
 								key={index}

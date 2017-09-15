@@ -1,5 +1,17 @@
 .logo-carousel {
 	text-align: center;
+
+	h2 {
+		font-size: @heading-small-l;
+
+		@media @screen-medium {
+			font-size: @heading-small-m;
+		}
+
+		@media @screen-large {
+			font-size: @heading-small-l;
+		}
+	}
 }
 
 .marquee {
@@ -41,15 +53,24 @@
 
 .marquee-item {
 	display: inline-flex;
-}
 
-.marquee-item li {
-	display: flex;
-	align-items: center;
-	margin: 0 @spacing-small;
-	list-style: none;
+	li {
+		display: flex;
+		align-items: center;
+		margin: 0 @spacing-medium;
+		list-style: none;
 
-	@media @screen-medium {
-		margin: 0 @spacing-extra-large;
+		@media @screen-medium {
+			margin: 0 @spacing-default*5;
+		}
+	}
+
+	img {
+		width: auto;
+		height: 74px;
+
+		@media @screen-medium {
+			height: 94px;
+		}
 	}
 }

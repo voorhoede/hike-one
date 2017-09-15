@@ -9,7 +9,7 @@ class LogoCarousel extends React.Component {
 	}
 
 	componentDidMount() {
-		window.addEventListener('load', this.animate);
+		this.animate();
 	}
 
 	animate() {

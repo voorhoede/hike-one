@@ -17,6 +17,9 @@ import TextCenter from '../components/text-center/text-center';
 
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import UpdateOverview from '../components/update-overview/update-overview';
+
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
@@ -58,7 +61,20 @@ const Home = ({Data, fontsLoaded}) => {
 						title={Data.eventsTitle}
 						text={Data.eventsIntro} />
 
-					<FeedsBlock />
+					<UpdateOverview>
+						{ Data.updateLinks.map((item, index) => (
+							<UpdateExtractSmall
+								key={index}
+								index={index}
+								title={item.title}
+								date={item.date}
+								author={item.author.name}
+								target={item.link}
+								image={item.image.url}
+								category={item.category.name}
+								color={item.themeColor.hex} />
+						))}
+					</UpdateOverview>
 
 					<Contact
 						title={Data.contact.title}

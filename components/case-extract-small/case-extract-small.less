@@ -22,6 +22,8 @@
 	max-height: 321px;
 	margin: 0 0 @spacing-large 0;
 
+
+
 	& > a {
 		text-decoration: none;
 	}
@@ -85,7 +87,16 @@
 	text-decoration: none;
 	transform-origin: left bottom;
 	transition: transform 0.5s;
-
+	a {
+		&,
+		&:visited {
+			color: @red;
+			text-decoration: none;
+		}
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 	.case-extract-text-dark & {
 		color: @black;
 	}

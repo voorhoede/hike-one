@@ -2,7 +2,18 @@
 	max-width: @column-large-7;
 	margin: 0 auto @spacing-default auto;
 	padding: 0 @spacing-default*1.5 0 @spacing-default*1.5;
-
+	
+	a {
+        &,
+        &:visited {
+            color: @red;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+	}
+	
 	h2 {
 		font-size: @heading-small-s;
 		line-height: @line-height-header-small-s;

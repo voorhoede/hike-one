@@ -16,6 +16,7 @@ import FiftyFifty from '../components/50-50/50-50';
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
+import TeamImage from '../components/team-image/team-image';
 
 import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';

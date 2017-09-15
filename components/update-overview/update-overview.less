@@ -2,12 +2,15 @@
 @import (reference) '../../styles/helpers';
 
 .update-overview {
-	.clearfix;
-
+	.clearfix;	
+	display: flex;	
+	justify-content: center;
+	flex-direction: column;
+	
 	.update-extract-small {
 		width: 100%;
 	}
-
+	
 	@media @screen-medium {
 		.update-extract-small {
 			float: left;
@@ -32,4 +35,9 @@
 			margin-right: @spacing-large;
 		}
 	}
+}
+
+.update-overview-button-centered {
+	display: flex;
+	justify-content: center;
 }

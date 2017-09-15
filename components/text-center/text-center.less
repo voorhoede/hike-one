@@ -6,6 +6,17 @@
     position: relative;
     max-width: @column-small-12;
 
+    a {
+        &,
+        &:visited {
+            color: @red;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
     @media @screen-medium {
         max-width: @column-large-6;
     }

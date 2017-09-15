@@ -55,7 +55,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 				</div>
 				<div className="fifty-fifty-content">
 					<h2 className="fifty-fifty-title content">{title}</h2>
-					<p className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></p>
+					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></div>
 				</div>
 			</div>
 			{parallaxLayerFront}

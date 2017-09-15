@@ -2,6 +2,18 @@
 
 .collage {
 	position: relative;
+	
+	a {
+        &,
+        &:visited {
+            color: @red;
+            text-decoration: none;
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+	}
+	
 	@media @screen-small {
 		display: flex;
 		flex-direction: column;

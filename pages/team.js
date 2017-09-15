@@ -10,8 +10,9 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageCompositionSmall from '../components/image-composition-small/image-composition-small';
 import * as ImageCompositionSmallShapes from '../components/image-composition-small/image-composition-small-shapes';
-import ImageCompositionLarge from '../components/image-composition-large/image-composition-large';
-import * as ImageCompositionLargeShapes from '../components/image-composition-large/image-composition-large-shapes';
+import Collage from '../components/collage/collage';
+import TextCenter from '../components/text-center/text-center';
+import FiftyFifty from '../components/50-50/50-50';
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
@@ -87,24 +88,7 @@ const people = [
 	},
 ];
 
-const TeamImage3_4DummyData = {
-	title: 'Crafting our company bike',
-	photo: {
-		url: '../static/images/tinkering.jpg'
-	}
-};
-
-const listValues = {
-	title: 'Our values',
-	values: [
-		'Do what you love',
-		'Find a way',
-		'Be open and honest',
-		'Get things done'
-	]
-}
-
-const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded }) => {
+const Team = ({ Data, fontsLoaded }) => {
 	return (
 		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
@@ -119,17 +103,15 @@ const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoade
 						<PageHeaderShapes.variation1Back position="back"/>
 					</PageHeader>
 
-					<ImageCompositionSmall
-						classes={scrollToTargetClass}
-						Person={people[0]}
-						TeamImage2_1={TeamImage2_1Data}
-						TeamImage3_4={TeamImage3_4Data}>
-						<ImageCompositionSmallShapes.variation1Front position="front"/>
-						<ImageCompositionSmallShapes.variation1Back position="back"/>
-					</ImageCompositionSmall>
+					<Collage
+						title={Data.collage.title}
+						text={Data.collage.text}
+						imageMedium={Data.collage.imageBig.url}
+						imageSmall={Data.collage.imageSmall.url}>
+					</Collage>
 
 					<ImageCombo>
-						<ImageGallery title={workspace.galleryTitle} items={workspace.galleryItems} />
+						<ImageGallery title={Data.galleryTitle} items={workspace.galleryItems} />
 						<StatisticsBlock
 							color='blue'
 							alignment='text-block-right'
@@ -138,15 +120,50 @@ const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoade
 							jobOpenings={workspace.workspaceOpenings} />
 					</ImageCombo>
 
-					<ImageCompositionLarge
-							TeamImage3_4={TeamImage3_4DummyData}
-							Person1={people[1]}
-							Person2={people[2]}
-							Person3={people[3]}
-							listValues={listValues}>
-							<ImageCompositionLargeShapes.variation1Front position="front"/>
-							<ImageCompositionLargeShapes.variation1Back position="back"/>
-					</ImageCompositionLarge>
+					{ Data.content.map((component, index) => {
+						switch (component.itemType) {
+							case '40_60_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										text={component.text}
+										imageLarge="true"
+										image={component.image.url} >
+									</FiftyFifty>
+								);
+
+							case '40_60_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										contentLeft="true"
+										text={component.text}
+										imageLarge="true"
+										image={component.image.url} >
+									</FiftyFifty>
+								);
+							case 'text_center':
+								return (
+									<TextCenter
+										key={index}
+										title={component.title}
+										text={component.text} />
+								);
+						}
+					})}
+
+					{ Data.imageComposition &&
+						<ImageCompositionSmall
+							classes={scrollToTargetClass}
+							image21={Data.imageComposition.teamImage21}
+							image34={Data.imageComposition.teamImage34Large}
+							image34Small={Data.imageComposition.teamImage34Small} >
+							<ImageCompositionSmallShapes.variation1Front position="front"/>
+							<ImageCompositionSmallShapes.variation1Back position="back"/>
+						</ImageCompositionSmall>
+					}
 
 					<Contact
 						title={Data.contact.title}
@@ -162,16 +179,9 @@ const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoade
 
 Team.getInitialProps = async ({req}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
-	const fetchAll = (models) => Promise.all(models.map(fetchJson));
-	const [Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData] = await fetchAll([
-		'team',
-		'teamImages21',
-		'teamImages34',
-		'people'
-	]);
+	const Data = await fetch(`${baseUrl}/api/team`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded };
+	return { Data, fontsLoaded };
 };
 
 

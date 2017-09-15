@@ -41,6 +41,7 @@ const Contact = ({Data, fontsLoaded}) => {
 								address={item.address}
 								postcode={item.postcode}
 								city={item.city}
+								country={item.country}
 								imageUrl={item.image.url} />
 						))}
 					</OfficeOverview>

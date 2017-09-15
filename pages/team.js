@@ -23,22 +23,6 @@ import scrollToElement from '../components/_helpers/scrollToElement';
 let scrollToTargetClass = 'js-scroll-to-target';
 
 const workspace = {
-	overlay: true,
-	galleryTitle: 'Our work space',
-	galleryItems: [
-		{
-			title: 'AMS',
-			url:'../static/images/office-amsterdam.jpg'
-		},
-		{
-			title: 'RTM',
-			url:'../static/images/office-rotterdam.jpg'
-		},
-		{
-			title: 'EHV',
-			url:'../static/images/office-eindhoven.jpg'
-		}
-	],
 	statisticsSingle: {
 		title:'Digital Fanatics',
 		amount: 62
@@ -60,34 +44,6 @@ const workspace = {
 		target: '#jobopenings'
 	}
 };
-
-const people = [
-	{
-		role: 'Projectmanager',
-		name: 'Rozanne Verhoeven',
-		photo: {
-			url: '../static/images/rozanne.jpg'
-		}
-	},{
-		role: 'Interaction Designer',
-		name: 'Myrthe Geldof',
-		photo: {
-			url: '../static/images/myrthe.jpg'
-		}
-	},{
-		role: 'Interaction Designer',
-		name: 'Steven van Asselt',
-		photo: {
-			url: '../static/images/steven.jpg'
-		}
-	},{
-		role: 'Partner',
-		name: 'Matthijs Collard',
-		photo: {
-			url: '../static/images/matthijs.jpg'
-		}
-	},
-];
 
 const Team = ({ Data, fontsLoaded }) => {
 	return (
@@ -112,7 +68,22 @@ const Team = ({ Data, fontsLoaded }) => {
 					</Collage>
 
 					<ImageCombo>
-						<ImageGallery title={Data.galleryTitle} items={workspace.galleryItems} />
+						<ImageGallery
+							title={Data.galleryTitle}
+							items={[
+								{
+									title: 'AMS',
+									url: Data.amsterdamOffice.url
+								},
+								{
+									title: 'RTM',
+									url: Data.rotterdamOffice.url
+								},
+								{
+									title: 'EHV',
+									url: Data.eindhovenOffice.url
+								}
+							]}/>
 						<StatisticsBlock
 							color='blue'
 							alignment='text-block-right'

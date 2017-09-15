@@ -60,7 +60,7 @@ const Home = ({Data, fontsLoaded}) => {
 						title={Data.eventsTitle}
 						text={Data.eventsIntro} />
 
-					<UpdateOverview>
+					<UpdateOverview toUpdates={true} >
 						{ Data.updateLinks.map((item, index) => (
 							<UpdateExtractSmall
 								key={index}

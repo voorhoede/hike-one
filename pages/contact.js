@@ -5,6 +5,7 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import OfficeOverview from '../components/office-overview/office-overview';
 import OfficeCard from '../components/office-card/office-card';
 import TextCenter from '../components/text-center/text-center';
+import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
@@ -31,9 +32,12 @@ const Contact = ({Data, fontsLoaded}) => {
 					</PageHeader>
 
 					<TextCenter
-						text={Data.content}/>
+						classes={`text-center-font-large ${scrollToTargetClass}`}
+						text={Data.content}>
+						<TextCenterShapes.variation2Back position="back" />
+					</TextCenter>
 
-					<OfficeOverview classes={scrollToTargetClass}>
+					<OfficeOverview>
 						{ Data.office.map((item, index) => (
 							<OfficeCard
 								key={index}

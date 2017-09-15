@@ -45,7 +45,7 @@
     }
 }
 
-.text-center h2 {
+.text-center .text-center-title {
     font-size: @heading-s;
     line-height: @line-height-heading-s;
     font-weight: @font-weight-bold;
@@ -61,12 +61,12 @@
     }
 }
 
-.text-center p {
+.text-center .text-center-text {
     font-size: @body-text-s;
     line-height: @line-height-body-s;
     font-weight: @font-weight-normal;
     color: @darker-gray;
-    
+
     @media @screen-medium {
         font-size: @body-text-m;
         line-height: @line-height-body-m;
@@ -78,7 +78,7 @@
     }
 }
 
-.text-center-font-title h2 {
+.text-center-font-title .text-center-title {
     font-size: @heading-s;
     line-height: @line-height-subtitle-m;
     font-weight: @font-weight-bold;
@@ -90,13 +90,13 @@
     @media @screen-large {
         font-size: @heading-l;
         line-height: @line-height-heading-l;
-    }    
+    }
 }
 
-.text-center-font-large p {
+.text-center-font-large .text-center-text {
     font-size: @subtitle-large-s;
 	line-height: @line-height-subtitle-s;
-    font-weight: @font-weight-light;
+    font-weight: @font-weight-normal;
     color: @darker-gray;
 
 	@media @screen-medium {
@@ -110,7 +110,7 @@
     }
 }
 
-.text-center-font-medium p {
+.text-center-font-medium .text-center-text {
     font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;

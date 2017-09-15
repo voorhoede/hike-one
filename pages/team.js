@@ -15,6 +15,7 @@ import * as ImageCompositionLargeShapes from '../components/image-composition-la
 import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
+import TeamImage from '../components/team-image/team-image';
 
 import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';
@@ -94,6 +95,13 @@ const TeamImage3_4DummyData = {
 	}
 };
 
+const TeamImage9_16DummyData = {
+	title: 'Crafting our company bike',
+	photo: {
+		url: 'https://www.datocms-assets.com/2625/1503415605-header-grafity-kopie1491834535inline.jpg?'
+	}
+};
+
 const listValues = {
 	title: 'Our values',
 	values: [
@@ -104,7 +112,7 @@ const listValues = {
 	]
 }
 
-const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded }) => {
+const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded, TeamImage9_16Data }) => {
 	return (
 		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
@@ -147,6 +155,11 @@ const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoade
 							<ImageCompositionLargeShapes.variation1Front position="front"/>
 							<ImageCompositionLargeShapes.variation1Back position="back"/>
 					</ImageCompositionLarge>
+					
+					<TeamImage
+						image={TeamImage9_16DummyData.photo.url}
+						title={TeamImage9_16DummyData.title}> 
+					</TeamImage>
 
 					<Contact
 						title={Data.contact.title}

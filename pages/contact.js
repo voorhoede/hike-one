@@ -32,6 +32,7 @@ const Contact = ({Data, fontsLoaded}) => {
 					</PageHeader>
 
 					<TextCenter
+						classes="text-center-font-large"
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>

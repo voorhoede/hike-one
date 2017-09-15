@@ -112,7 +112,7 @@ const listValues = {
 	]
 }
 
-const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded, TeamImage9_16Data }) => {
+const Team = ({ Data, TeamImage2_1Data, TeamImage3_4Data, PeopleData, fontsLoaded }) => {
 	return (
 		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">

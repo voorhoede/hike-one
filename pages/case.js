@@ -7,7 +7,7 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import PageHeaderLarge from '../components/page-header/page-header-large';
+import PageHeaderLarge from '../components/page-header-large/page-header-large';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';

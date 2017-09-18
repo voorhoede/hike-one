@@ -19,8 +19,7 @@ const updates = ({data, updatesData, fontsLoaded}) => {
 						<PageHeaderSmallShapes.variation2Front position="front"/>
 						<PageHeaderSmallShapes.variation1Back position="back"/>
 					</PageHeaderSmall>
-					<UpdateOverview 
-						classes="update-overview-no-spacing-bottom">
+					<UpdateOverview>
 						{ updatesData.map((item, index) => (
 							<UpdateExtractSmall
 								key={index}

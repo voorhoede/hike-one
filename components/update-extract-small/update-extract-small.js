@@ -1,26 +1,25 @@
 import getContrastYIQ from '../_helpers/getContrastYIQ';
 import getDateFormat from '../_helpers/getDateFormat';
+import setImageParams from '../_helpers/setImageParameters';
 
 const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index, category = 'update'}) => {
-	const imageSmallScreen = `${image}&fm=jpg&q=90&w=737`;
-	const imageMediumScreen = `${image}&fm=jpg&q=90&w=470&h=332&fit=crop`;
-	const imageLargeScreen = `${image}&fm=jpg&q=90&w=337&h=366&fit=crop`;
+	const imageParameters = { fit: 'crop', fm: 'jpg', q: '90' };
 
 	const style ={__html:
 		`<style>
 			.update-extract-small-image-${index} {
-				background-image: url("${imageSmallScreen}");
+				background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}");
 			}
 			
 			@media only screen and (min-width: 768px) {
 				.update-extract-small-image-${index} {
-					background-image: url("${imageMediumScreen}");
+					background-image: url("${setImageParams(image, { ...imageParameters, w: 470, h:332 })}");
 				}
 			}		
 			
 			@media only screen and (min-width: 1024px) {
 				.update-extract-small-image-${index} {
-					background-image: url("${imageLargeScreen}");
+					background-image: url("${setImageParams(image, { ...imageParameters, w: 337, h:366 })}");
 				}
 			}			
 		</style>`};

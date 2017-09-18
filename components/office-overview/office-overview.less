@@ -19,9 +19,11 @@
 			}
 
 			&:first-child {
-				margin: 0 0 @spacing-extra-large 0;
+				float: none;
+				margin: 0 auto @spacing-extra-large auto;
 				padding: 0;
-				width: 100%;
+				width: auto;
+				max-width: 550px;
 			}
 		}
 
@@ -34,6 +36,7 @@
 			}
 
 			&:first-child {
+				float: left;
 				width: calc(~'100% / 3 - ' @spacing-small);
 			}
 

@@ -38,12 +38,16 @@
 	}
 
 	@media @screen-medium {
-		padding-top: @spacing-small*5;
+		padding-top: @spacing-small*4;
 		overflow: hidden;
 		width: 70vw;
 		height: 200vh;
 		transform-origin: 0 0;
 		transform: rotate(-22deg);
+	}
+
+	@media @screen-large {
+		padding-top: @spacing-small*5;
 	}
 }
 
@@ -54,7 +58,7 @@
 	font-style: normal;
 
 	@media @screen-medium {
-		padding: 0 @spacing-small;
+		padding: 0 @spacing-small * 2;
 	}
 }
 
@@ -67,16 +71,33 @@
 	transform: translateX(30px);
 	opacity: 0;
 
+	&.menu-item-logo {
+		display: none;
+	}
+
 	@media @screen-medium {
 		transform: rotate(22deg) translateX(30px);
 		transform-origin: 0 0;
 		margin-bottom: @spacing-small;
+
+		&.menu-item-logo {
+			display: block;
+			margin-bottom: @spacing-small * 2;
+		}
 	}
 
 	@media @screen-large {
 		font-size: @title-large-m;
 		line-height: @line-height-title-l;
 		text-align: left;
+
+		&.menu-item-logo {
+			margin-bottom: @spacing-default*7;
+		}
+
+		&.menu-item-logo .logo {
+			height: 40px;
+		}
 
 		&.menu-item-last {
 			margin-bottom: @spacing-default*7 + @spacing-small;
@@ -86,9 +107,15 @@
 	@media only screen and (min-width: 1170px) and (max-height: 750px) {
 		font-size: @title-large-s;
 		line-height: @line-height-title-s;
-	}
 
-	@media only screen and (min-width: 1170px) and (max-height: 800px) {
+		&.menu-item-logo {
+			margin-bottom: @spacing-small * 2;
+		}
+
+		&.menu-item-logo .logo {
+			height: 25px;
+		}
+
 		&.menu-item-last {
 			margin-bottom: @spacing-small;
 		}
@@ -118,8 +145,15 @@
 	}
 }
 
-.menu-item-sub a {
-	color: @dark-gray;
+.menu-item-logo {
+	a .logo {
+		transition: opacity .3s; // hover out
+	}
+
+	a:hover .logo {
+		transition: opacity .1s; // hover in
+		opacity: 0.8;
+	}
 }
 
 .menu .menu-social {
@@ -137,24 +171,8 @@
 	}
 }
 
-.menu-item-red a:hover {
+.menu-item a:hover {
 	color: @red;
-}
-
-.menu-item-green a:hover {
-	color: @green;
-}
-
-.menu-item-blue a:hover  {
-	color: @blue;
-}
-
-.menu-item-yellow a:hover {
-	color: @yellow;
-}
-
-.menu-item-sub a:hover {
-	color: @white;
 }
 
 .menu-background {

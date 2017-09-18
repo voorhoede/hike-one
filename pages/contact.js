@@ -41,6 +41,7 @@ const Contact = ({Data, fontsLoaded}) => {
 						{ Data.office.map((item, index) => (
 							<OfficeCard
 								key={index}
+								index={index}
 								location={item.location}
 								address={item.address}
 								postcode={item.postcode}

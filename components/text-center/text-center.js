@@ -8,11 +8,11 @@ const TextCenter = ({classes = '', title = '', text = '', children}) => {
 	return (
 		<section className={`${classes} text-center container`}>
 			{parallaxLayerBack}
-			<div className="container-inner">
+			<div className="container-inner content">
 				{ title
-					? <h2 className="content">{title}</h2>
+					? <h2 className="text-center-title">{title}</h2>
 					: '' }
-				<p className="content" dangerouslySetInnerHTML={{__html: text}}></p>
+				<div className="text-center-text" dangerouslySetInnerHTML={{__html: text}}></div>
 			</div>
 			{parallaxLayerFront}
 		</section>

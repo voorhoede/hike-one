@@ -208,14 +208,14 @@ class Header extends React.Component {
 
 						<div className="menu-inner" ref={node => this.menuInner = node}>
 							<ul className="menu-list" ref={node => this.menuList = node}>
-								<li className="menu-item-red"><Link href="/team"><a>Team</a></Link></li>
-								<li className="menu-item-green"><Link
+								<li className="menu-item-logo"><Link href="/"><a><Logo color="white"/></a></Link></li>
+								<li className="menu-item"><Link href="/team"><a>Team</a></Link></li>
+								<li className="menu-item"><Link
 									href='/service?slug=new-product-design'
 									as="/service/new-product-design"><a >Services</a></Link></li>
-								<li className="menu-item-blue"><Link href="/work"><a>Work</a></Link></li>
-								<li className="menu-item-yellow menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
-								<li className="menu-item-sub"><Link href="/updates"><a>Updates</a></Link></li>
-								<li className="menu-item-sub"><Link href="/playground"><a>Playground</a></Link></li>
+								<li className="menu-item"><Link href="/work"><a>Work</a></Link></li>
+								<li className="menu-item"><Link href="/updates"><a>Updates</a></Link></li>
+								<li className="menu-item menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
 								<li>
 									<div className="menu-social" ref={node => this.socialIcons = node}>
 										<Link href="#"><a><Facebook /></a></Link>

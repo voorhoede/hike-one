@@ -147,7 +147,9 @@ const Team = ({ Data, fontsLoaded }) => {
 
 					<Contact
 						title={Data.contact.title}
-						button={Data.contact.button} >
+						button={Data.contact.button}
+						link={Data.contact.externalLink}
+						target='_blank' >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 				</article>

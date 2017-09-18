@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../icon/icon';
 import TweenLite from "gsap";
 
-class CaseIntro extends React.Component {
+class PageHeaderLarge extends React.Component {
 	constructor() {
 		super();
 		this.range = 400;
@@ -80,12 +80,12 @@ class CaseIntro extends React.Component {
 		const props = this.props;
 		const style ={__html:
 			`<style>
-				.case-header {
+				.page-header-large {
 					background-image: url(${props.image});
 				}
 			${props.video ?
 				`@media only screen and (min-width: 768px) {
-					.case-header {
+					.page-header-large {
 					background-image: none;
 					}
 				}` : '' }
@@ -95,20 +95,20 @@ class CaseIntro extends React.Component {
 		return (
 			<section
 				ref={node => this.element = node}
-				className={`case-header ${this.state.showVideo ? 'show-video': ''}`}>
+				className={`page-header-large ${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
 					<video ref={node => this.video = node}
-					   	className="case-header-video"
+					   	className="page-header-large-video"
 						playsInline autoPlay muted loop>
 						<source src={props.video} type="video/mp4" />
 					</video>
 				}
 
-				<div className="case-header-inner container">
+				<div className="page-header-large-inner container">
 					<div className="case-header-parallax" ref={node => this.parallaxLayer = node}>
-						<h1 className="case-header-title">{props.title}</h1>
-						<p className="case-header-subtitle">{props.subtitle}</p>
-						<button className="case-header-button"
+						<h1 className="page-header-large-title ">{props.title}</h1>
+						<p className="page-header-large-subtitle">{props.subtitle}</p>
+						<button className="page-header-large-button"
 								onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
 							<Icon icon="arrowDownCircle" />
 						</button>
@@ -119,4 +119,4 @@ class CaseIntro extends React.Component {
 		);
 	}
 }
-export default CaseIntro;
+export default PageHeaderLarge;

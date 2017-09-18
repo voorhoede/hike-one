@@ -76,7 +76,14 @@ body.disable-scroll {
 	padding-top: 100px; // gives header a white background
 }
 
-// temp, because we don't have any home page yet
-.article-index {
-	margin-top: @header-height + @header-margin-lg;
+// position content below page header large
+.page-scrolling-content {
+	margin-top: 100vh; // height of header image
+	padding-top: @spacing-default*5;
+	position: relative;
+	background: @white;
+
+	@media @screen-medium {
+		padding-top: @spacing-medium*3;
+	}
 }

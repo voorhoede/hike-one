@@ -7,7 +7,7 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import CaseHeader from '../components/case-header/case-header';
+import PageHeaderLarge from '../components/page-header/page-header-large';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
@@ -73,14 +73,14 @@ const Case = ({Data, fontsLoaded}) => (
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
-				<CaseHeader
+				<PageHeaderLarge
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 					video={Data.headerVideo}
 					title={Data.title}
 					subtitle={Data.headerSubtitle}
 					image={Data.headerBackgroundImage.url} />
 
-				<div className={`${scrollToTargetClass} case-scrolling-content`}>
+				<div className={`${scrollToTargetClass} page-scrolling-content`}>
 					<TextCenter
 						title={Data.introTitle}
 						text={Data.introText}>

@@ -148,7 +148,7 @@ const Team = ({ Data, fontsLoaded }) => {
 					<Contact
 						title={Data.contact.title}
 						button={Data.contact.button}
-						link='https://unitid.homerun.co/'
+						link={Data.contact.externalLink}
 						target='_blank' >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>

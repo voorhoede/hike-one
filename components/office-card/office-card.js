@@ -11,8 +11,6 @@ const OfficeCard = ({
 	locationUrl = '',
 	imageUrl = ''}) => {
 
-	let mapsUrl;
-
 	return (
 		<div className="office-card">
 			<a href={locationUrl} target="_blank">

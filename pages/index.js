@@ -18,7 +18,7 @@ import TextCenter from '../components/text-center/text-center';
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
-import UpdateOverview from '../components/update-overview/update-overview';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
@@ -37,7 +37,7 @@ const Home = ({Data, fontsLoaded}) => {
 					title={Data.headerTitle}
 					subtitle={Data.headerSubtitle}
 					image={Data.headerImage.url} />
-					
+
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
 						<ServicesOverviewSmall
 							title={Data.servicesItemTitle}
@@ -59,7 +59,7 @@ const Home = ({Data, fontsLoaded}) => {
 							title={Data.eventsTitle}
 							text={Data.eventsIntro} />
 
-						<UpdateOverview toUpdates={true} >
+						<UpdateOverviewSmall>
 							{ Data.updateLinks.map((item, index) => (
 								<UpdateExtractSmall
 									key={index}
@@ -72,7 +72,7 @@ const Home = ({Data, fontsLoaded}) => {
 									category={item.category.name}
 									color={item.themeColor.hex} />
 							))}
-						</UpdateOverview>
+						</UpdateOverviewSmall>
 
 						<Contact
 							title={Data.contact.title}

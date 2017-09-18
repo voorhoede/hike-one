@@ -219,7 +219,7 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-			
+
 				<WorkOverview>
 					{ Data.caseExtract.map((item, index) => (
 						<CaseExtractSmall
@@ -232,7 +232,7 @@ const Case = ({Data, fontsLoaded}) => (
 								slug={item.slug} />
 					))}
 				</WorkOverview>
-				
+
 				<UpdateLinks>
 					{ Data.updateLinks.map((update, index) => (
 						<UpdateLink

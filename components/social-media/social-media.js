@@ -1,5 +1,3 @@
-import Link  from 'next/link';
-
 import Facebook   from '../icons/facebook-circle';
 import Twitter 	  from '../icons/twitter-circle';
 import Instagram  from '../icons/instagram-circle';

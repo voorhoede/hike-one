@@ -22,29 +22,6 @@ import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';
 let scrollToTargetClass = 'js-scroll-to-target';
 
-const workspace = {
-	statisticsSingle: {
-		title:'Digital Fanatics',
-		amount: 62
-	},
-	statisticsCombination: [
-		{
-			title:'Digital Designer',
-			amount: 53
-		},{
-			title:'Project Mangers',
-			amount: 8
-		},{
-			title:'Super Heroes',
-			amount: 4
-		}
-	],
-	workspaceOpenings: {
-		title: 'See job openings',
-		target: '#jobopenings'
-	}
-};
-
 const Team = ({ Data, fontsLoaded }) => {
 	return (
 		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
@@ -87,9 +64,26 @@ const Team = ({ Data, fontsLoaded }) => {
 						<StatisticsBlock
 							color='blue'
 							alignment='text-block-right'
-							statisticsSingle={workspace.statisticsSingle}
-							statisticsCombination={workspace.statisticsCombination}
-							jobOpenings={workspace.workspaceOpenings} />
+							summary={{
+								label: Data.statistics.summaryLabel,
+								count: Data.statistics.summaryCount
+							}}
+							groups={[
+								{
+									label: Data.statistics.group1Label,
+									count: Data.statistics.group1Count
+								},{
+									label: Data.statistics.group2Label,
+									count: Data.statistics.group2Count
+								},{
+									label: Data.statistics.group3Label,
+									count: Data.statistics.group3Count
+								}
+							]}
+							link={{
+								target: Data.statistics.linkTarget,
+								label: Data.statistics.linkLabel,
+							}} />
 					</ImageCombo>
 
 					{ Data.content.map((component, index) => {

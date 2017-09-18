@@ -7,7 +7,7 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import ReadMore from '../components/read-more/read-more';
-import PageHeaderLarge from '../components/page-header/page-header-large';
+import PageHeaderLarge from '../components/page-header-large/page-header-large';
 
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
@@ -219,7 +219,7 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-			
+
 				<WorkOverview>
 					{ Data.caseExtract.map((item, index) => (
 						<CaseExtractSmall
@@ -232,7 +232,7 @@ const Case = ({Data, fontsLoaded}) => (
 								slug={item.slug} />
 					))}
 				</WorkOverview>
-				
+
 				<UpdateLinks>
 					{ Data.updateLinks.map((update, index) => (
 						<UpdateLink

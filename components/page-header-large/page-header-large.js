@@ -105,7 +105,7 @@ class PageHeaderLarge extends React.Component {
 				}
 
 				<div className="page-header-large-inner container">
-					<div className="case-header-parallax" ref={node => this.parallaxLayer = node}>
+					<div ref={node => this.parallaxLayer = node}>
 						<h1 className="page-header-large-title ">{props.title}</h1>
 						<p className="page-header-large-subtitle">{props.subtitle}</p>
 						<button className="page-header-large-button"

@@ -93,15 +93,17 @@ body.disable-scroll {
 	padding-top: @spacing-default*5;
 	position: relative;
 	background: @white;
-
-	@media @screen-medium {
-		padding-top: @spacing-medium*3;
-		margin-top: 50vh;
-	}
-	@media @screen-medium-large {
+	@media @screen-small {
 		margin-top: 54vh;
 	}
-	@media @screen-large {
-		margin-top: 50vh;
+	@media @screen-medium {
+		padding-top: @spacing-medium*3;
+		// margin-top: 45vh;
 	}
+	// @media @screen-medium-large {
+	// 	margin-top: 54vh;
+	// }
+	// @media @screen-large {
+	// 	margin-top: 50vh;
+	// }
 }

@@ -9,7 +9,6 @@ import CaseExtractSmall from '../components/case-extract-small/case-extract-smal
 import * as ContactShapes from '../components/contact/contact-shapes';
 import FiftyFifty from '../components/50-50/50-50';
 import PageHeader from '../components/page-header/page-header';
-// import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';

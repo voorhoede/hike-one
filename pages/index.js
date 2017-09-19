@@ -5,12 +5,10 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
-import PageHeaderLarge from '../components/page-header-large/page-header-large';
+import PageHeader from '../components/page-header/page-header';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
-
-import PageHeader from '../components/page-header/page-header';
 
 import TextCenter from '../components/text-center/text-center';
 

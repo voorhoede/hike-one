@@ -8,11 +8,12 @@ import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Footer from '../components/footer/footer';
 
-import PageHeader from '../components/page-header/page-header';
+
 // import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
+import PageHeader from '../components/page-header/page-header';
 
 const Contact = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';

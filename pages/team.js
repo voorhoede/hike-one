@@ -5,7 +5,6 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
-// import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageCompositionSmall from '../components/image-composition-small/image-composition-small';
@@ -56,8 +55,7 @@ const Team = ({ Data, fontsLoaded }) => {
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
-						image={Data.headerImage.url}>
-					</PageHeader>
+						image={Data.headerImage.url}/>
 					<div className={`page-scrolling-content-small`}>
 						<Collage
 							title={Data.collage.title}

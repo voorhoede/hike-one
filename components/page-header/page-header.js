@@ -85,23 +85,23 @@ class PageHeader extends React.Component {
 		
 		const style ={__html:
 			`<style>
-				.page-header-large {
+				.page-header {
 					background-image: url(${heroImageSmall});
 				}
 				@media only screen and (min-width: 768px) {
-					.page-header-large {
+					.page-header {
 						background-image: url(${heroImageMedium});
 					}
 				}
 				@media only screen and (min-width: 1170px) { 
-					.page-header-large {
+					.page-header {
 						background-image: url(${heroImageLarge});
 					}
 				}
 			${props.video ?
 				`@media only screen and (min-width: 768px) {
-					.page-header-large {
-					background-image: none;
+					.page-header {
+						background-image: none;
 					}
 				}` : '' }
 			}		
@@ -110,23 +110,23 @@ class PageHeader extends React.Component {
 		return (
 			<section
 				ref={node => this.element = node}
-				className={`page-header-large
+				className={`page-header
 				${props.type === 'small' ? 'page-header-small' : ''} 
 				${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
 					<video ref={node => this.video = node}
-					   	className="page-header-large-video"
+					   	className="page-header-video"
 						playsInline autoPlay muted loop>
 						<source src={props.video} type="video/mp4" />
 					</video>
 				}
 
-				<div className="page-header-large-inner container">
+				<div className="page-header-inner container">
 					<div ref={node => this.parallaxLayer = node}>
-						<h1 className="page-header-large-title ">{props.title}</h1>
-						<p className="page-header-large-subtitle">{props.subtitle}</p>
-						{props.onClickScrollButton && 
-							<button className={`page-header-large-button 
+						<h1 className="page-header-title ">{props.title}</h1>
+						<p className="page-header-subtitle">{props.subtitle}</p>
+						{ props.onClickScrollButton && 
+							<button className={`page-header-button 
 												${props.type === 'small' ? 
 												'page-header-small-button ' : ''}`}
 									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>

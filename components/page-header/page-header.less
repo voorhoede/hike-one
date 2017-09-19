@@ -1,6 +1,6 @@
 @import (reference) '../../styles/variables';
 
-.page-header-large {
+.page-header {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -13,8 +13,6 @@
 	background-color: @black;
     background-size: cover;
     background-position: center;
-	// padding-top: @header-height + @header-margin-sm;
-	// margin-bottom: @spacing-default*5;
 
 	&::after {
 		content: '';
@@ -27,8 +25,6 @@
 	}
 
 	@media @screen-medium {
-		// margin-bottom: @spacing-default*9;
-
 		&::after {
 			display: none;
 		}
@@ -39,7 +35,7 @@
 	}
 }
 
-.page-header-large-inner {
+.page-header-inner {
 	z-index: 1;
 	display: flex;
 	justify-content: center;
@@ -49,7 +45,7 @@
 	margin-bottom: 0;
 }
 
-.page-header-large-video {
+.page-header-video {
 	display: none;
 	object-fit: cover;
 	width: 100vw;
@@ -69,7 +65,7 @@
 	}
 }
 
-.page-header-large-title {
+.page-header-title {
     color: @white;
     font-weight: @font-weight-bold-extra;
     font-size: @title-giant-s;
@@ -87,7 +83,7 @@
     }
 }
 
-.page-header-large-subtitle {
+.page-header-subtitle {
     color: @white;
     max-width: 800px;
     margin: 0 auto @spacing-small;
@@ -108,7 +104,7 @@
     }
 }
 
-.page-header-large-button {
+.page-header-button {
 	background: none;
 	border: none;
 	padding: @spacing-small @spacing-default*5;
@@ -141,6 +137,7 @@
 
 .page-header-small-button {
 	display: none;
+	
 	@media @screen-medium {
 		display: block;
 		margin: auto;

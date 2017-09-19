@@ -30,7 +30,7 @@ class Layout extends React.Component {
 
 	render() {
 		const {title = 'Hike One', children, seo, keywords} = this.props;
-		const socialImage = seo && seo.image ? seo.image.url : null;
+		const socialImage = seo && seo.image ? seo.image.url : '/static/images/hikeone-default-social.jpg';
 		const description = seo && seo.description.length > 0 ? seo.description : `We guide you to new and better products. Let\'s go!`;
 		const seoTitle = seo && seo.title ? seo.title : title;
 		const seoKeywords = keywords ? keywords : 'Hike One';

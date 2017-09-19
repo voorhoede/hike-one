@@ -21,7 +21,10 @@ import cookie from '../components/_helpers/cookie';
 import getDateFormat from '../components/_helpers/getDateFormat';
 
 const Service = ({Data, services, updates, fontsLoaded}) => (
-	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
+	<Layout title={`Hike One - ${Data.title}`}
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords}>
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
@@ -111,7 +114,9 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 					</UpdateLinks>
 				</div>
 			</article>
-			<Footer />
+			<Footer
+				callToActionLabel={Data.footer.callToActionLabel}
+				callToActionUrl={Data.footer.callToActionUrl} />
 		</main>
 	</Layout>
 );

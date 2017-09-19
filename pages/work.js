@@ -14,7 +14,10 @@ const work = ({cases, data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Case" fontsLoaded={fontsLoaded} >
+		<Layout title="Hike One - Case"
+				fontsLoaded={fontsLoaded}
+				seo={data.seo}
+				keywords={data.keywords}>
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article work">
@@ -33,20 +36,22 @@ const work = ({cases, data, fontsLoaded}) => {
 									key={index}
 									title={item.title}
 									subtitle={item.headerSubtitle}
-									image={item.headerBackgroundImage}
+									image={item.header.backgroundImage}
 									companyName={item.companyName}
 									color={item.caseThemeColor.hex}
 									slug={item.slug} />
 							))}
 						</WorkOverview>
-
+						
 						<LogoCarousel
 							title={data.companiesTitle}
 							companies={data.companies}
 							animationSpeed={data.animationSpeed}/>
 					</div>
 				</article>
-				<Footer/>
+				<Footer
+					callToActionLabel={data.footer.callToActionLabel}
+					callToActionUrl={data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

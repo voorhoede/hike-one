@@ -21,32 +21,12 @@ import cookie from '../components/_helpers/cookie';
 import scrollToElement from '../components/_helpers/scrollToElement';
 let scrollToTargetClass = 'js-scroll-to-target';
 
-const workspace = {
-	statisticsSingle: {
-		title:'Digital Fanatics',
-		amount: 62
-	},
-	statisticsCombination: [
-		{
-			title:'Digital Designer',
-			amount: 53
-		},{
-			title:'Project Mangers',
-			amount: 8
-		},{
-			title:'Super Heroes',
-			amount: 4
-		}
-	],
-	workspaceOpenings: {
-		title: 'See job openings',
-		target: '#jobopenings'
-	}
-};
-
 const Team = ({ Data, fontsLoaded }) => {
 	return (
-		<Layout title="Hike One - Team" fontsLoaded={fontsLoaded}>
+		<Layout title="Hike One - Team"
+				fontsLoaded={fontsLoaded}
+				seo={Data.seo}
+				keywords={Data.keywords}>
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article">
@@ -84,10 +64,27 @@ const Team = ({ Data, fontsLoaded }) => {
 							<StatisticsBlock
 								color='blue'
 								alignment='text-block-right'
-								statisticsSingle={workspace.statisticsSingle}
-								statisticsCombination={workspace.statisticsCombination}
-								jobOpenings={workspace.workspaceOpenings} />
-						</ImageCombo>
+								summary={{
+									label: Data.statistics.summaryLabel,
+									count: Data.statistics.summaryCount
+								}}
+								groups={[
+									{
+										label: Data.statistics.group1Label,
+										count: Data.statistics.group1Count
+									},{
+										label: Data.statistics.group2Label,
+										count: Data.statistics.group2Count
+									},{
+										label: Data.statistics.group3Label,
+										count: Data.statistics.group3Count
+									}
+								]}
+								link={{
+									target: Data.statistics.linkTarget,
+									label: Data.statistics.linkLabel,
+								}} />
+							</ImageCombo>
 
 						{ Data.content.map((component, index) => {
 							switch (component.itemType) {
@@ -101,7 +98,6 @@ const Team = ({ Data, fontsLoaded }) => {
 											image={component.image.url} >
 										</FiftyFifty>
 									);
-
 								case '40_60_text_left':
 									return (
 										<FiftyFifty
@@ -141,15 +137,18 @@ const Team = ({ Data, fontsLoaded }) => {
 								image={Data.teamImage916.photo.url}
 							/>
 						}
-
 						<Contact
 							title={Data.contact.title}
-							button={Data.contact.button} >
+							button={Data.contact.button}
+							link={Data.contact.externalLink}
+							target='_blank' >
 							<ContactShapes.variation1Front position="front" />
 						</Contact>
 					</div>
 				</article>
-				<Footer />
+				<Footer
+					callToActionLabel={Data.footer.callToActionLabel}
+					callToActionUrl={Data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

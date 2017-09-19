@@ -1,13 +1,19 @@
 @import (reference) '../../styles/variables';
 @import (reference) '../../styles/helpers';
 
-.office-overview {
+.update-overview-small {
 	.clearfix;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 
-	.office-card {
-		@media @screen-small {
+	.update-extract-small {
+		width: 100%;
+	}
+
+	@media @screen-small {
+		.update-extract-small {
 			float: left;
-			margin-bottom: @spacing-extra-large;
 			width: calc(~'50% - ' @spacing-small);
 
 			&:nth-child(even) {
@@ -20,19 +26,21 @@
 
 			&:first-child {
 				float: none;
-				margin: 0 auto @spacing-extra-large auto;
+				margin: 0 auto @spacing-large auto;
 				padding: 0;
 				width: auto;
 				max-width: 550px;
 			}
 		}
-
-		@media @screen-medium {
+	}
+	@media @screen-medium-large {
+		.update-extract-small {
+			float: left;
 			width: calc(~'100% / 3 - ' @spacing-small);
 
 			&:nth-child(odd),
 			&:nth-child(even) {
-				margin: 0 @spacing-medium @spacing-extra-large 0;
+				margin: 0 @spacing-medium @spacing-default*7 0;
 			}
 
 			&:first-child {
@@ -45,4 +53,8 @@
 			}
 		}
 	}
+}
+
+.update-overview-button-centered {
+	text-align: center;
 }

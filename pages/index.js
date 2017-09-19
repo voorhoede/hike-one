@@ -15,7 +15,7 @@ import TextCenter from '../components/text-center/text-center';
 import ServicesOverviewSmall from '../components/services-overview-small/services-overview-small';
 
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
-import UpdateOverview from '../components/update-overview/update-overview';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
@@ -24,20 +24,23 @@ const Home = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Home" fontsLoaded={fontsLoaded}>
+		<Layout title="Hike One - Home"
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords}>
 			<main className="main js-main" >
 				<MenuBar color="white" />
-				<article className="article">
+				<article className="article">			
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						video={Data.headerVideo}
-						title={Data.headerTitle}
-						subtitle={Data.headerSubtitle}
-						image={Data.headerImage.url} />
-					
+						video={Data.header.video}
+						title={Data.header.title}
+						subtitle={Data.header.subtitle}
+						image={Data.header.backgroundImage.url}
+						showGradient={Data.header.displayGradient} />
+
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
 						<ServicesOverviewSmall
-							classes={scrollToTargetClass}
 							title={Data.servicesItemTitle}
 							services={Data.serviceItems} />
 
@@ -57,7 +60,7 @@ const Home = ({Data, fontsLoaded}) => {
 							title={Data.eventsTitle}
 							text={Data.eventsIntro} />
 
-						<UpdateOverview toUpdates={true} >
+						<UpdateOverviewSmall>
 							{ Data.updateLinks.map((item, index) => (
 								<UpdateExtractSmall
 									key={index}
@@ -70,7 +73,7 @@ const Home = ({Data, fontsLoaded}) => {
 									category={item.category.name}
 									color={item.themeColor.hex} />
 							))}
-						</UpdateOverview>
+						</UpdateOverviewSmall>
 
 						<Contact
 							title={Data.contact.title}
@@ -79,7 +82,9 @@ const Home = ({Data, fontsLoaded}) => {
 						</Contact>
 					</div>
 				</article>
-				<Footer />
+				<Footer
+					callToActionLabel={Data.footer.callToActionLabel}
+					callToActionUrl={Data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

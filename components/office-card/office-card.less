@@ -25,7 +25,7 @@
 	.image {
 		height: 259px;
 		background-size: cover;
-		background-position: 50% 50%;
+		background-position: center;
 		transition: transform @transition-img-speed;
 
 		@media @screen-medium {
@@ -43,7 +43,7 @@
 .office-card-text {
 	.shadow;
 	position: relative;
-	padding: @spacing-small @spacing-large @spacing-small @spacing-small;
+	padding: @spacing-default @spacing-medium @spacing-default @spacing-default;
 	margin: -82px @spacing-default*1.5 0 @spacing-default*1.5;
 	background-color: @white-grey;
 
@@ -74,6 +74,10 @@
 		}
 	}
 
+	@media @screen-medium-large {
+		padding: @spacing-small @spacing-large @spacing-small @spacing-small;
+	}
+
 	@media @screen-large {
 		h2 {
 			font-size: @body-text-l;
@@ -90,10 +94,14 @@
 .office-card-button {
 	position: absolute;
 	top: 50%;
-	right: @spacing-small;
+	right: @spacing-default;
 	transform: translateY(-50%);
 	width: 15px;
 	height: 15px;
+
+	@media @screen-medium-large {
+		right: @spacing-small;
+	}
 
 	svg {
 		display: block;

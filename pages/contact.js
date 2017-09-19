@@ -7,10 +7,6 @@ import OfficeCard from '../components/office-card/office-card';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Footer from '../components/footer/footer';
-
-
-// import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
-
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 import PageHeader from '../components/page-header/page-header';
@@ -19,7 +15,10 @@ const Contact = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Contact" fontsLoaded={fontsLoaded}>
+		<Layout title="Hike One - Contact"
+				fontsLoaded={fontsLoaded}
+				seo={Data.seo}
+				keywords={Data.keywords}>
 			<main className="main js-main" >
 				<MenuBar color="white" />
 				<article className="article">
@@ -30,6 +29,7 @@ const Contact = ({Data, fontsLoaded}) => {
 						subtitle={Data.headerSubtitle}
 						image={Data.headerImage.url} >
 					</PageHeader>
+					
 					<div className={`page-scrolling-content-small`}>
 						<TextCenter
 							classes={`text-center-font-large ${scrollToTargetClass}`}
@@ -41,17 +41,22 @@ const Contact = ({Data, fontsLoaded}) => {
 							{ Data.office.map((item, index) => (
 								<OfficeCard
 									key={index}
+									index={index}
 									location={item.location}
 									address={item.address}
 									postcode={item.postcode}
 									city={item.city}
+									country={item.country}
+									locationUrl={item.locationUrl}
 									imageUrl={item.image.url} />
 							))}
 						</OfficeOverview>
 					</div>
 				</article>
 
-				<Footer />
+				<Footer
+					callToActionLabel={Data.footer.callToActionLabel}
+					callToActionUrl={Data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

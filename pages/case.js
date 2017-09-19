@@ -69,16 +69,20 @@ let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
 const Case = ({Data, fontsLoaded}) => (
-	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
+	<Layout title={`Hike One - ${Data.title}`}
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords} >
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
 				<PageHeader
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-					video={Data.headerVideo}
-					title={Data.title}
-					subtitle={Data.headerSubtitle}
-					image={Data.headerBackgroundImage.url} />
+					video={Data.header.video}
+					title={Data.header.title}
+					subtitle={Data.header.subtitle}
+					image={Data.header.backgroundImage.url}
+					showGradient={Data.header.displayGradient} />
 
 				<div className={`${scrollToTargetClass} page-scrolling-content`}>
 					<TextCenter
@@ -219,7 +223,7 @@ const Case = ({Data, fontsLoaded}) => (
 						button={Data.contact.button} >
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
-			
+
 				<WorkOverview>
 					{ Data.caseExtract.map((item, index) => (
 						<CaseExtractSmall
@@ -232,7 +236,7 @@ const Case = ({Data, fontsLoaded}) => (
 								slug={item.slug} />
 					))}
 				</WorkOverview>
-				
+
 				<UpdateLinks>
 					{ Data.updateLinks.map((update, index) => (
 						<UpdateLink
@@ -245,7 +249,9 @@ const Case = ({Data, fontsLoaded}) => (
 
 				</div>
 			</article>
-			<Footer />
+			<Footer
+				callToActionLabel={Data.footer.callToActionLabel}
+				callToActionUrl={Data.footer.callToActionUrl} />
 		</main>
 	</Layout>
 );

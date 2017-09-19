@@ -7,16 +7,22 @@ import UpdateExtractSmall from '../components/update-extract-small/update-extrac
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
 
-const updates = ({data, updatesData, fontsLoaded}) => {
+const updates = ({Data, updatesData, fontsLoaded}) => {
 	return (
-		<Layout title="Hike One - Updates" fontsLoaded={fontsLoaded}>
+		<Layout title="Hike One - Updates"
+				fontsLoaded={fontsLoaded}
+				seo={Data.seo}
+				keywords={Data.keywords}>
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
 						type="small"
-						title={data.title}
-						image={data.headerImage.url} />
+						title={Data.title}
+						image={Data.headerImage.url}>
+						<PageHeaderSmallShapes.variation2Front position="front"/>
+						<PageHeaderSmallShapes.variation1Back position="back"/>
+					</PageHeader>
 					
 					<div className={`page-scrolling-content-small`}>
 						<UpdateOverview>
@@ -35,7 +41,9 @@ const updates = ({data, updatesData, fontsLoaded}) => {
 						</UpdateOverview>
 					</div>
 				</article>
-				<Footer />
+				<Footer
+					callToActionLabel={data.footer.callToActionLabel}
+					callToActionUrl={data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);
@@ -45,9 +53,9 @@ updates.getInitialProps = async ({req}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
-	const [ data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
+	const [ Data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { data, updatesData, fontsLoaded };
+	return { Data, updatesData, fontsLoaded };
 };
 
 

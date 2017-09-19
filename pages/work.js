@@ -34,7 +34,7 @@ const work = ({cases, data, fontsLoaded}) => {
 								key={index}
 								title={item.title}
 								subtitle={item.headerSubtitle}
-								image={item.headerBackgroundImage}
+								image={item.header.backgroundImage}
 								companyName={item.companyName}
 								color={item.caseThemeColor.hex}
 								slug={item.slug} />

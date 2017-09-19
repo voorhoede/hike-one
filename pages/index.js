@@ -32,11 +32,12 @@ const Home = ({Data, fontsLoaded}) => {
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeaderLarge
-					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-					video={Data.headerVideo}
-					title={Data.headerTitle}
-					subtitle={Data.headerSubtitle}
-					image={Data.headerImage.url} />
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
+						video={Data.header.video}
+						title={Data.header.title}
+						subtitle={Data.header.subtitle}
+						image={Data.header.backgroundImage.url}
+						showGradient={Data.header.displayGradient} />
 
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
 						<ServicesOverviewSmall

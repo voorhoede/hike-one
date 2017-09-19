@@ -32,7 +32,7 @@ const Update = ({Data, fontsLoaded}) => (
 					switch (component.itemType) {
 						case 'rich_body_text':
 							return (
-								<RichBodyText content={component.content}/>
+								<RichBodyText key={index} content={component.content}/>
 							);
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
@@ -59,9 +59,9 @@ const Update = ({Data, fontsLoaded}) => (
 					}
 				})}
 				<SocialShare
-					facebookLink={'#'}
-					linkedinLink={'#'}
-					twitterLink={'#'}
+					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=http://hike.one/update/${Data.slug}`}
+					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=http://hike.one/update/${Data.slug}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
+					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=http://hike.one/update/${Data.slug}`}
 				/>
 				<Author
 					name={Data.author.name}

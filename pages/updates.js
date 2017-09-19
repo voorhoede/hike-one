@@ -19,11 +19,7 @@ const updates = ({Data, updatesData, fontsLoaded}) => {
 					<PageHeader
 						type="small"
 						title={Data.title}
-						image={Data.headerImage.url}>
-						<PageHeaderSmallShapes.variation2Front position="front"/>
-						<PageHeaderSmallShapes.variation1Back position="back"/>
-					</PageHeader>
-					
+						image={Data.headerImage.url} />
 					<div className={`page-scrolling-content-small`}>
 						<UpdateOverview>
 							{ updatesData.map((item, index) => (
@@ -42,8 +38,8 @@ const updates = ({Data, updatesData, fontsLoaded}) => {
 					</div>
 				</article>
 				<Footer
-					callToActionLabel={data.footer.callToActionLabel}
-					callToActionUrl={data.footer.callToActionUrl} />
+					callToActionLabel={Data.footer.callToActionLabel}
+					callToActionUrl={Data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

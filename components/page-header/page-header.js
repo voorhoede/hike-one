@@ -110,12 +110,14 @@ class PageHeader extends React.Component {
 					<div ref={node => this.parallaxLayer = node}>
 						<h1 className="page-header-large-title ">{props.title}</h1>
 						<p className="page-header-large-subtitle">{props.subtitle}</p>
-						<button className={`page-header-large-button 
-											${props.type === 'small' ? 
-											'page-header-small-button ' : ''}`}
-								onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
-							<Icon icon="arrowDownCircle" />
-						</button>
+						{props.onClickScrollButton && 
+							<button className={`page-header-large-button 
+												${props.type === 'small' ? 
+												'page-header-small-button ' : ''}`}
+									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
+								<Icon icon="arrowDownCircle" />
+							</button>
+						}
 					</div>
 				</div>
 				<div dangerouslySetInnerHTML={style}></div>

@@ -13,8 +13,8 @@
 	background-color: @black;
     background-size: cover;
     background-position: center;
-	padding-top: @header-height + @header-margin-sm;
-	margin-bottom: @spacing-default*5;
+	// padding-top: @header-height + @header-margin-sm;
+	// margin-bottom: @spacing-default*5;
 
 	&::after {
 		content: '';
@@ -27,7 +27,7 @@
 	}
 
 	@media @screen-medium {
-		margin-bottom: @spacing-default*9;
+		// margin-bottom: @spacing-default*9;
 
 		&::after {
 			display: none;
@@ -46,6 +46,7 @@
 	align-items: center;
 	flex-direction: column;
 	height: 100%;
+	margin-bottom: 0;
 }
 
 .page-header-large-video {
@@ -132,7 +133,8 @@
 }
 
 .page-header-small {
-	height: 75vh;
+	// height: 75vh;
+	height: 85vh;
 	@media @screen-small {
 		height: 60vh;
 	}

@@ -27,7 +27,6 @@
 	}
 
 	@media @screen-medium {
-		padding-top: @header-height + @header-margin-lg;
 		margin-bottom: @spacing-default*9;
 
 		&::after {
@@ -41,9 +40,12 @@
 }
 
 .page-header-large-inner {
-    margin-bottom: 0;
 	z-index: 1;
-	padding-bottom: @spacing-medium*2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100%;
 }
 
 .page-header-large-video {

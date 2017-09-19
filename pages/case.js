@@ -78,10 +78,11 @@ const Case = ({Data, fontsLoaded}) => (
 			<article className="article">
 				<PageHeaderLarge
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-					video={Data.headerVideo}
-					title={Data.title}
-					subtitle={Data.headerSubtitle}
-					image={Data.headerBackgroundImage.url} />
+					video={Data.header.video}
+					title={Data.header.title}
+					subtitle={Data.header.subtitle}
+					image={Data.header.backgroundImage.url}
+					showGradient={Data.header.displayGradient} />
 
 				<div className={`${scrollToTargetClass} page-scrolling-content`}>
 					<TextCenter

@@ -95,7 +95,7 @@ class PageHeaderLarge extends React.Component {
 		return (
 			<section
 				ref={node => this.element = node}
-				className={`page-header-large ${this.state.showVideo ? 'show-video': ''}`}>
+				className={`page-header-large ${props.showGradient ? 'show-gradient': ''} ${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
 					<video ref={node => this.video = node}
 					   	className="page-header-large-video"

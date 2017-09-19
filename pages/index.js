@@ -11,7 +11,6 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import TextCenter from '../components/text-center/text-center';
 
@@ -31,12 +30,12 @@ const Home = ({Data, fontsLoaded}) => {
 			<main className="main js-main" >
 				<MenuBar color="white" />
 				<article className="article">
-					<PageHeaderLarge
-					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-					video={Data.headerVideo}
-					title={Data.headerTitle}
-					subtitle={Data.headerSubtitle}
-					image={Data.headerImage.url} />
+					<PageHeader
+						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
+						video={Data.headerVideo}
+						title={Data.headerTitle}
+						subtitle={Data.headerSubtitle}
+						image={Data.headerImage.url} />
 					
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
 						<ServicesOverviewSmall

@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../icon/icon';
 import TweenLite from "gsap";
 
-class PageHeaderLarge extends React.Component {
+class PageHeader extends React.Component {
 	constructor() {
 		super();
 		this.range = 400;
@@ -95,7 +95,9 @@ class PageHeaderLarge extends React.Component {
 		return (
 			<section
 				ref={node => this.element = node}
-				className={`page-header-large ${this.state.showVideo ? 'show-video': ''}`}>
+				className={`page-header-large
+				${props.type === 'small' ? 'page-header-small' : ''} 
+				${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
 					<video ref={node => this.video = node}
 					   	className="page-header-large-video"
@@ -108,7 +110,9 @@ class PageHeaderLarge extends React.Component {
 					<div ref={node => this.parallaxLayer = node}>
 						<h1 className="page-header-large-title ">{props.title}</h1>
 						<p className="page-header-large-subtitle">{props.subtitle}</p>
-						<button className="page-header-large-button"
+						<button className={`page-header-large-button 
+											${props.type === 'small' ? 
+											'page-header-small-button ' : ''}`}
 								onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
 							<Icon icon="arrowDownCircle" />
 						</button>
@@ -119,4 +123,4 @@ class PageHeaderLarge extends React.Component {
 		);
 	}
 }
-export default PageHeaderLarge;
+export default PageHeader;

@@ -2,8 +2,7 @@ import "isomorphic-fetch";
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-import PageHeaderSmall from '../components/page-header-small/page-header-small';
-import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
+import PageHeader from '../components/page-header/page-header';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
@@ -12,27 +11,29 @@ const updates = ({data, updatesData, fontsLoaded}) => {
 	return (
 		<Layout title="Hike One - Updates" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
-				<MenuBar />
+				<MenuBar color="white" />
 				<article className="article">
-					<PageHeaderSmall
-						title={data.title}>
-						<PageHeaderSmallShapes.variation2Front position="front"/>
-						<PageHeaderSmallShapes.variation1Back position="back"/>
-					</PageHeaderSmall>
-					<UpdateOverview>
-						{ updatesData.map((item, index) => (
-							<UpdateExtractSmall
-								key={index}
-								index={index}
-								title={item.title}
-								date={item.date}
-								author={item.author.name}
-								target={item.link}
-								image={item.image.url}
-								category={item.category.name}
-								color={item.themeColor.hex} />
-						))}
-					</UpdateOverview>
+					<PageHeader
+						type="small"
+						title={data.title}
+						image={data.headerImage.url}>
+					</PageHeader>
+					<div className={`page-scrolling-content-small`}>
+						<UpdateOverview>
+							{ updatesData.map((item, index) => (
+								<UpdateExtractSmall
+									key={index}
+									index={index}
+									title={item.title}
+									date={item.date}
+									author={item.author.name}
+									target={item.link}
+									image={item.image.url}
+									category={item.category.name}
+									color={item.themeColor.hex} />
+							))}
+						</UpdateOverview>
+					</div>
 				</article>
 				<Footer />
 			</main>

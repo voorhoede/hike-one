@@ -9,7 +9,7 @@ import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
+// import * as PageHeaderShapes from  '../components/page-header/page-header-shapes';
 
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
@@ -20,35 +20,34 @@ const Contact = ({Data, fontsLoaded}) => {
 	return (
 		<Layout title="Hike One - Contact" fontsLoaded={fontsLoaded}>
 			<main className="main js-main" >
-				<MenuBar color="black" />
+				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
+						type="small"
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.headerTitle}
 						subtitle={Data.headerSubtitle}
-						heroImage={Data.headerImage.url} >
-						<PageHeaderShapes.variation1Front position="front" />
-						<PageHeaderShapes.variation1Back position="back" />
+						image={Data.headerImage.url} >
 					</PageHeader>
+					<div className={`page-scrolling-content-small`}>
+						<TextCenter
+							classes={`text-center-font-large ${scrollToTargetClass}`}
+							text={Data.content}>
+							<TextCenterShapes.variation2Back position="back" />
+						</TextCenter>
 
-					<TextCenter
-						classes={`text-center-font-large ${scrollToTargetClass}`}
-						text={Data.content}>
-						<TextCenterShapes.variation2Back position="back" />
-					</TextCenter>
-
-					<OfficeOverview>
-						{ Data.office.map((item, index) => (
-							<OfficeCard
-								key={index}
-								location={item.location}
-								address={item.address}
-								postcode={item.postcode}
-								city={item.city}
-								imageUrl={item.image.url} />
-						))}
-					</OfficeOverview>
-
+						<OfficeOverview>
+							{ Data.office.map((item, index) => (
+								<OfficeCard
+									key={index}
+									location={item.location}
+									address={item.address}
+									postcode={item.postcode}
+									city={item.city}
+									imageUrl={item.image.url} />
+							))}
+						</OfficeOverview>
+					</div>
 				</article>
 
 				<Footer />

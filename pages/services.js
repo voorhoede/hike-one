@@ -5,7 +5,6 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 
@@ -21,30 +20,29 @@ const Services = ({Data, fontsLoaded}) => {
 	return (
 		<Layout title="Hike One - Services" fontsLoaded={fontsLoaded}>
 			<main className="main js-main">
-				<MenuBar />
+				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
-						heroImage={Data.headerImage.url}>
-						<PageHeaderShapes.variation2Front position="front"/>
-						<PageHeaderShapes.variation1Back position="back"/>
+						image={Data.headerImage.url}>
 					</PageHeader>
+					<div className={`${scrollToTargetClass} page-scrolling-content`}>
+						<TextCenter
+							classes={scrollToTargetClass}
+							text={Data.introText} >
+							<TextCenterShapes.variation2Front position="front" />
+						</TextCenter>
 
-					<TextCenter
-						classes={scrollToTargetClass}
-						text={Data.introText} >
-						<TextCenterShapes.variation2Front position="front" />
-					</TextCenter>
+						<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
 
-					<ServicesOverview title={Data.overviewTitle} items={Data.overviewItems} />
-
-					<Contact
-						title={Data.contact.title}
-						button={Data.contact.button} >
-						<ContactShapes.variation1Front position="front" />
-					</Contact>
+						<Contact
+							title={Data.contact.title}
+							button={Data.contact.button} >
+							<ContactShapes.variation1Front position="front" />
+						</Contact>
+					</div>
 				</article>
 				<Footer />
 			</main>

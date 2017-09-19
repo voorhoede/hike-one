@@ -2,56 +2,126 @@ import React from 'react';
 import Icon from '../icon/icon';
 import setImageParams from '../_helpers/setImageParameters';
 
-const pageHeader = ({heroImage, title = '', subtitle = '', onClickScrollButton, children}) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-	const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
-			
-	const heroImageSmall = `${setImageParams(heroImage, {...imageParameters, w: 768} )}`;
-	const heroImageMedium = `${setImageParams(heroImage, {...imageParameters, w: 1170} )}`;
-	const heroImageLarge = `${setImageParams(heroImage, {...imageParameters, w: 1244} )}`;
+class PageHeader extends React.Component {
+	constructor() {
+		super();
+		this.range = 400;
+		this.speed = -0.25;
+		this.ticking = false;
+		this.isHidden = false;
+		this.onScroll = this.onScroll.bind(this);
+		this.animateLayer = this.animateLayer.bind(this);
+		this.setVisability = this.setVisability.bind(this);
+		this.showVideo = this.showVideo.bind(this);
+		this.state = {
+			showVideo : false
+		};
+	}
 
-	const style ={__html:
-		`<style>
-			.page-header-inner {
-				background-image: url(${heroImageSmall});
-			}
-			@media only screen and (min-width: 768px) {
-				.page-header-inner {
-					background-image: url(${heroImageMedium});
+	componentDidMount() {
+		this.elementBottom = this.element.getBoundingClientRect().bottom;
+		window.addEventListener('scroll', this.onScroll);
+
+		if (this.props.video) {
+			this.video.addEventListener('loadeddata', this.showVideo);
+		}
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('scroll', this.onScroll);
+	}
+
+	onScroll() {
+		// update an animation before the next repaint with requestAnimationFrame
+		if (!this.ticking) {
+			window.requestAnimationFrame(() => {
+				const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
+				this.setVisability(scrolledHeight);
+				this.animateLayer(scrolledHeight);
+				this.ticking = false;
+			});
+		}
+		this.ticking = true;
+	}
+
+	setVisability(scrolledHeight) {
+		// hide or show component so that the footer is visable
+		if (this.elementBottom + 200 <= scrolledHeight) {
+			this.isHidden = true;
+			this.element.classList.add('is-hidden');
+		} else {
+			this.isHidden = false;
+			this.element.classList.remove('is-hidden');
+		}
+	}
+
+	animateLayer(scrolledHeight) {
+		// don't animate when component is hidden
+		if (this.isHidden) { return; }
+
+		// set opacity
+		const opacity =  1 - (scrolledHeight / this.range);
+
+		// set styles to animate
+		const styles = {
+			y: scrolledHeight * this.speed,
+			opacity
+		};
+
+		// animate styles with tweenlight
+		TweenLite.to(this.parallaxLayer, 0, styles, {ease: "Linear.easeNone" });
+	}
+
+	showVideo() {
+		this.setState({showVideo: true});
+	}
+
+	render() {
+		const props = this.props;
+		const style ={__html:
+			`<style>
+				.page-header-large {
+					background-image: url(${props.image});
 				}
-			}
-			@media only screen and (min-width: 1170px) {
-				.page-header-inner {
-					background-image: url(${heroImageLarge});
+			${props.video ?
+				`@media only screen and (min-width: 768px) {
+					.page-header-large {
+					background-image: none;
+					}
+				}` : '' }
+			}		
+			</style>`};
+
+		return (
+			<section
+				ref={node => this.element = node}
+				className={`page-header-large
+				${props.type === 'small' ? 'page-header-small' : ''} 
+				${this.state.showVideo ? 'show-video': ''}`}>
+				{ props.video &&
+					<video ref={node => this.video = node}
+					   	className="page-header-large-video"
+						playsInline autoPlay muted loop>
+						<source src={props.video} type="video/mp4" />
+					</video>
 				}
-			}
-		</style>`};
 
-
-	return (
-		<div className="page-header container">
-			{parallaxLayerBack}
-			<div className="page-header-overlay">
-				<div className="container-inner page-header-inner">
-					<h1 className="page-header-heading content">{title}</h1>
-
-					<button className="page-header-button content"
-							onClick={onClickScrollButton ? onClickScrollButton : null} >
-						<span className="page-header-button-text">{subtitle}</span>
-						<span className="icon">
+				<div className="page-header-large-inner container">
+					<div ref={node => this.parallaxLayer = node}>
+						<h1 className="page-header-large-title ">{props.title}</h1>
+						<p className="page-header-large-subtitle">{props.subtitle}</p>
+						<button className={`page-header-large-button 
+											${props.type === 'small' ? 
+											'page-header-small-button ' : ''}`}
+								onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
 							<Icon icon="arrowDownCircle" />
-						</span>
-					</button>
+						</button>
+					</div>
 				</div>
-			</div>
-			{parallaxLayerFront}
-
-
-			<div dangerouslySetInnerHTML={style} />
-		</div>
-	);
+				<div dangerouslySetInnerHTML={style}></div>
+			</section>
+		);
+	}
 };
 
-export default pageHeader;
+export default PageHeader;

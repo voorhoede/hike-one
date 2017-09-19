@@ -1,64 +1,67 @@
 @import (reference) '../../styles/variables';
-
 .page-header-small {
-	padding: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
 	display: flex;
-	justify-content: center;
-	position: relative;
-	margin-top: -@header-height-s;
+	flex-direction: column;
+	justify-content: flex-end;
+    text-align: center;
+    min-height: 75vh;
+	background-color: @black;
+    background-size: cover;
+    background-position: center;
+	padding-top: @header-height + @header-margin-sm;
+	margin-bottom: @spacing-default*5;
 
-	&.pageheader-no-margin {
-		margin-bottom: 0;
-	}
-
-	 @media @screen-medium {
-		margin-top: -@header-height;
-
-		 &.pageheader-no-margin {
-			 margin-bottom: 0;
-		 }
-	}
-}
-
-.page-header-small-container {
-	&::before {
+	&::after {
 		content: '';
 		position: absolute;
-		transform: rotate(-23deg) translateX(50%);
-		top: -100%;
-		right: 0;
-		bottom: -100%;
+		bottom: 0;
 		left: 0;
-		background: @white-grey;
+		width: 100%;
+		height: 80%;
+		background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 	}
 
-	position: relative;
-	height: 200px;
-	width: 100%;
-	overflow: hidden;
-
 	@media @screen-medium {
-		height: 400px;
+		padding-top: @header-height + @header-margin-lg;
+		margin-bottom: @spacing-default*9;
+		min-height: 60vh;
+		&::after {
+			display: none;
+		}
+
+		&.show-video::after {
+			display: block;
+		}
 	}
 }
 
-.page-header-small-title {
-	width: 100%;
-	text-align: center;
-	position: relative;
-	z-index: 1;
-	font-size: @title-large-s;
-	line-height: @line-height-heading-s;
-	font-weight: @font-weight-bold;
-	padding-top: @spacing-large*2;
+.page-header-small-button {
+	background: none;
+	border: none;
+	padding: @spacing-small @spacing-default*5;
 
-	@media @screen-medium {
-		font-size: @title-large-m;
-		line-height: @line-height-heading-m;
-		padding-top: @spacing-extra-large*3;
+	&:hover {
+		cursor: pointer;
 	}
-	@media @screen-large {
-		font-size: @title-large-l;
-		line-height: @line-height-heading-l;
+
+	svg {
+		display: none;
+		margin: 0 auto;
+		width: 40px;
+
+		@media @screen-small {
+			width: 45px;
+		}
+		@media @screen-medium {
+			display: block;
+		}
+
+		path {
+			fill: @white;
+		}
 	}
 }

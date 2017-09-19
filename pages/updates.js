@@ -34,7 +34,9 @@ const updates = ({data, updatesData, fontsLoaded}) => {
 						))}
 					</UpdateOverview>
 				</article>
-				<Footer />
+				<Footer
+					callToActionLabel={data.footer.callToActionLabel}
+					callToActionUrl={data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

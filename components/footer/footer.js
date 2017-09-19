@@ -50,6 +50,7 @@ class Footer extends React.Component {
 	}
 
 	render() {
+		const { callToActionUrl, callToActionLabel } = this.props;
 		return (
 			<footer ref={node => this.footer = node} className="footer">
 				<div className="container-inner">
@@ -75,8 +76,8 @@ class Footer extends React.Component {
 									<li><Link href="/playground"><a>Playground</a></Link></li>
 								</ul>
 							</div>
-							<a className="footer-join-link" href="https://hikeone.homerun.co/" target="_blank">
-								Up for a new challenge yourself? Join us! <Icon icon="arrowRightCircle" />
+							<a className="footer-join-link" href={ callToActionUrl } target="_blank">
+								{ callToActionLabel } <Icon icon="arrowRightCircle" />
 							</a>
 						</div>
 

@@ -147,7 +147,9 @@ const Team = ({ Data, fontsLoaded }) => {
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 				</article>
-				<Footer />
+				<Footer
+					callToActionLabel={Data.footer.callToActionLabel}
+					callToActionUrl={Data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

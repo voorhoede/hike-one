@@ -15,7 +15,10 @@ const work = ({cases, data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Case" fontsLoaded={fontsLoaded} >
+		<Layout title="Hike One - Case"
+				fontsLoaded={fontsLoaded}
+				seo={data.seo}
+				keywords={data.keywords}>
 			<main className="main js-main">
 				<MenuBar />
 				<article className="article work">

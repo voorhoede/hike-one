@@ -15,7 +15,10 @@ import FullWidthImageSmall from '../components/full-width-image-small/full-width
 import RichBodyText from '../components/rich-body-text/rich-body-text';
 
 const Update = ({Data, fontsLoaded}) => (
-	<Layout title={`Hike One - ${Data.title}`} fontsLoaded={fontsLoaded}>
+	<Layout title={`Hike One - ${Data.title}`}
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords}>
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">

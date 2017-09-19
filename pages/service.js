@@ -29,7 +29,7 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 			<PageHeader
 				type="small"
 				title="Our Services"
-				image={`https://www.datocms-assets.com/2625/1502370433-service-header.jpg`} />
+				image={'https://www.datocms-assets.com/2625/1502370433-service-header.jpg?'} />
 
 				<div className={`page-scrolling-content-small`}>
 					<TabSelector

@@ -2,9 +2,11 @@
 	text-align: center;
 
 	h2 {
+		margin-bottom: @spacing-medium;
 		font-size: @heading-small-l;
 
 		@media @screen-medium {
+			margin-bottom: @spacing-large;
 			font-size: @heading-small-m;
 		}
 
@@ -57,7 +59,7 @@
 	li {
 		display: flex;
 		align-items: center;
-		margin: 0 @spacing-medium;
+		margin: 0 @spacing-default*1.5;
 		list-style: none;
 
 		@media @screen-medium {
@@ -67,10 +69,10 @@
 
 	img {
 		width: auto;
-		height: 74px;
+		height: 50px;
 
 		@media @screen-medium {
-			height: 94px;
+			height: 70px;
 		}
 	}
 }

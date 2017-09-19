@@ -114,7 +114,9 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 					))}
 				</UpdateLinks>
 			</article>
-			<Footer />
+			<Footer
+				callToActionLabel={Data.footer.callToActionLabel}
+				callToActionUrl={Data.footer.callToActionUrl} />
 		</main>
 	</Layout>
 );

@@ -49,7 +49,9 @@ const work = ({cases, data, fontsLoaded}) => {
 						companies={data.companies}
 						animationSpeed={data.animationSpeed}/>
 				</article>
-				<Footer/>
+				<Footer
+					callToActionLabel={data.footer.callToActionLabel}
+					callToActionUrl={data.footer.callToActionUrl} />
 			</main>
 		</Layout>
 	);

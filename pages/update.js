@@ -71,7 +71,9 @@ const Update = ({Data, fontsLoaded}) => (
 				/>
 
 			</article>
-			<Footer />
+			<Footer
+				callToActionLabel={Data.footer.callToActionLabel}
+				callToActionUrl={Data.footer.callToActionUrl} />
 		</main>
 	</Layout>
 );

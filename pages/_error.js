@@ -19,7 +19,9 @@ const Error = ({statusCode, fontsLoaded}) =>  (
 						? `An error ${statusCode} occurred on server`
 						: 'An error occurred on client'} />
 			</article>
-			<Footer />
+			<Footer
+				callToActionLabel="Up for a new challenge yourself? Join us!"
+				callToActionUrl="http://werkenbij.unitid.nl" />
 		</main>
 	</Layout>
 );

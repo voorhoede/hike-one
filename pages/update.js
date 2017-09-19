@@ -14,7 +14,7 @@ import Author from '../components/author/author';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
 import RichBodyText from '../components/rich-body-text/rich-body-text';
 
-const Update = ({Data, fontsLoaded}) => (
+const Update = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
 			fontsLoaded={fontsLoaded}
 			seo={Data.seo}
@@ -32,7 +32,7 @@ const Update = ({Data, fontsLoaded}) => (
 					switch (component.itemType) {
 						case 'rich_body_text':
 							return (
-								<RichBodyText content={component.content}/>
+								<RichBodyText key={index} content={component.content}/>
 							);
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
@@ -59,10 +59,11 @@ const Update = ({Data, fontsLoaded}) => (
 					}
 				})}
 				<SocialShare
-					facebookLink={'#'}
-					linkedinLink={'#'}
-					twitterLink={'#'}
+					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
+					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
+					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
 				/>
+
 				<Author
 					name={Data.author.name}
 					role={Data.author.role}
@@ -78,13 +79,14 @@ const Update = ({Data, fontsLoaded}) => (
 	</Layout>
 );
 
-Update.getInitialProps = async ({req, query}) => {
+Update.getInitialProps = async ({req, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const res = await fetch(`${baseUrl}/api/updates/${query.slug}`);
 	const json = await res.json();
 
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data: json, fontsLoaded};
+	return { Data: json, fontsLoaded, fullUrl};
 };
 
 export default Update;

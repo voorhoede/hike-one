@@ -78,10 +78,25 @@ class PageHeader extends React.Component {
 
 	render() {
 		const props = this.props;
+		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 768} )}`;
+		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1170} )}`;
+		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 1244} )}`;
+		
 		const style ={__html:
 			`<style>
 				.page-header-large {
-					background-image: url(${props.image});
+					background-image: url(${heroImageSmall});
+				}
+				@media only screen and (min-width: 768px) {
+					.page-header-large {
+						background-image: url(${heroImageMedium});
+					}
+				}
+				@media only screen and (min-width: 1170px) { 
+					.page-header-large {
+						background-image: url(${heroImageLarge});
+					}
 				}
 			${props.video ?
 				`@media only screen and (min-width: 768px) {

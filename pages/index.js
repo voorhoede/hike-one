@@ -27,7 +27,10 @@ const Home = ({Data, fontsLoaded}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
-		<Layout title="Hike One - Home" fontsLoaded={fontsLoaded}>
+		<Layout title="Hike One - Home"
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords}>
 			<main className="main js-main" >
 				<MenuBar color="white" />
 				<article className="article">

@@ -4,6 +4,8 @@ import "isomorphic-fetch";
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
+import Contact from '../components/contact/contact';
+import * as ContactShapes from '../components/contact/contact-shapes';
 import cookie from '../components/_helpers/cookie';
 
 import SocialShare from '../components/social-share/social-share';
@@ -14,6 +16,7 @@ import FullWidthImageSmall from '../components/full-width-image-small/full-width
 import RichBodyText from '../components/rich-body-text/rich-body-text';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
+import TextCenter from '../components/text-center/text-center';
 
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -27,8 +30,7 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 					headerImage={Data.headerImage.url}
 					color={Data.color.hex}
 					title={Data.title}
-					authorName={Data.author.name}
-					updatedDate={Data.date} />
+					titleOnly={true} />
 
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
@@ -61,6 +63,14 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 					}
 				})}
 
+				<SocialShare
+					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
+					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
+					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
+				/>
+
+				<TextCenter title={Data.updateLinksTitle} />
+
 				<UpdateOverviewSmall>
 					{ Data.updateLinks.map((item, index) => (
 						<UpdateExtractSmall
@@ -76,11 +86,13 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 					))}
 				</UpdateOverviewSmall>
 
-				<SocialShare
-					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
-					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
-					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
-				/>
+				<Contact
+					title={Data.contact.title}
+					button={Data.contact.button}
+					link={Data.contact.externalLink}
+					target='_blank' >
+					<ContactShapes.variation1Front position="front" />
+				</Contact>
 
 			</article>
 			<Footer

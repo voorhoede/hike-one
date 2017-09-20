@@ -5,7 +5,6 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import ImageCompositionSmall from '../components/image-composition-small/image-composition-small';
@@ -29,126 +28,123 @@ const Team = ({ Data, fontsLoaded }) => {
 				seo={Data.seo}
 				keywords={Data.keywords}>
 			<main className="main js-main">
-				<MenuBar />
+				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
+						isSmall={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
 						subtitle={Data.headerSubtitle}
-						heroImage={Data.headerImage.url}>
-						<PageHeaderShapes.variation2Front position="front"/>
-						<PageHeaderShapes.variation1Back position="back"/>
-					</PageHeader>
+						image={Data.headerImage.url}/>
+					<div className={`page-scrolling-content-small`}>
+						<Collage
+							title={Data.collage.title}
+							text={Data.collage.text}
+							imageMedium={Data.collage.imageBig.url}
+							imageSmall={Data.collage.imageSmall.url}>
+						</Collage>
 
-					<Collage
-						title={Data.collage.title}
-						text={Data.collage.text}
-						imageMedium={Data.collage.imageBig.url}
-						imageSmall={Data.collage.imageSmall.url}>
-					</Collage>
+						<ImageCombo>
+							<ImageGallery
+								title={Data.galleryTitle}
+								items={[
+									{
+										title: 'AMS',
+										url: Data.amsterdamOffice.url
+									},
+									{
+										title: 'RTM',
+										url: Data.rotterdamOffice.url
+									},
+									{
+										title: 'EHV',
+										url: Data.eindhovenOffice.url
+									}
+								]}/>
+							<StatisticsBlock
+								color='blue'
+								alignment='text-block-right'
+								summary={{
+									label: Data.statistics.summaryLabel,
+									count: Data.statistics.summaryCount
+								}}
+								groups={[
+									{
+										label: Data.statistics.group1Label,
+										count: Data.statistics.group1Count
+									},{
+										label: Data.statistics.group2Label,
+										count: Data.statistics.group2Count
+									},{
+										label: Data.statistics.group3Label,
+										count: Data.statistics.group3Count
+									}
+								]}
+								link={{
+									target: Data.statistics.linkTarget,
+									label: Data.statistics.linkLabel,
+								}} />
+							</ImageCombo>
 
-					<ImageCombo>
-						<ImageGallery
-							title={Data.galleryTitle}
-							items={[
-								{
-									title: 'AMS',
-									url: Data.amsterdamOffice.url
-								},
-								{
-									title: 'RTM',
-									url: Data.rotterdamOffice.url
-								},
-								{
-									title: 'EHV',
-									url: Data.eindhovenOffice.url
-								}
-							]}/>
-						<StatisticsBlock
-							color='blue'
-							alignment='text-block-right'
-							summary={{
-								label: Data.statistics.summaryLabel,
-								count: Data.statistics.summaryCount
-							}}
-							groups={[
-								{
-									label: Data.statistics.group1Label,
-									count: Data.statistics.group1Count
-								},{
-									label: Data.statistics.group2Label,
-									count: Data.statistics.group2Count
-								},{
-									label: Data.statistics.group3Label,
-									count: Data.statistics.group3Count
-								}
-							]}
-							link={{
-								target: Data.statistics.linkTarget,
-								label: Data.statistics.linkLabel,
-							}} />
-					</ImageCombo>
+						{ Data.content.map((component, index) => {
+							switch (component.itemType) {
+								case '40_60_text_right':
+									return (
+										<FiftyFifty
+											key={index}
+											title={component.title}
+											text={component.text}
+											imageLarge="true"
+											image={component.image.url} >
+										</FiftyFifty>
+									);
+								case '40_60_text_left':
+									return (
+										<FiftyFifty
+											key={index}
+											title={component.title}
+											contentLeft="true"
+											text={component.text}
+											imageLarge="true"
+											image={component.image.url} >
+										</FiftyFifty>
+									);
+								case 'text_center':
+									return (
+										<TextCenter
+											key={index}
+											title={component.title}
+											text={component.text} />
+									);
+							}
+						})}
 
-					{ Data.content.map((component, index) => {
-						switch (component.itemType) {
-							case '40_60_text_right':
-								return (
-									<FiftyFifty
-										key={index}
-										title={component.title}
-										text={component.text}
-										imageLarge="true"
-										image={component.image.url} >
-									</FiftyFifty>
-								);
-
-							case '40_60_text_left':
-								return (
-									<FiftyFifty
-										key={index}
-										title={component.title}
-										contentLeft="true"
-										text={component.text}
-										imageLarge="true"
-										image={component.image.url} >
-									</FiftyFifty>
-								);
-							case 'text_center':
-								return (
-									<TextCenter
-										key={index}
-										title={component.title}
-										text={component.text} />
-								);
+						{ Data.imageComposition &&
+							<ImageCompositionSmall
+								classes={scrollToTargetClass}
+								image21={Data.imageComposition.teamImage21}
+								image34={Data.imageComposition.teamImage34Large}
+								image34Small={Data.imageComposition.teamImage34Small} >
+								<ImageCompositionSmallShapes.variation1Front position="front"/>
+								<ImageCompositionSmallShapes.variation1Back position="back"/>
+							</ImageCompositionSmall>
 						}
-					})}
 
-					{ Data.imageComposition &&
-						<ImageCompositionSmall
-							classes={scrollToTargetClass}
-							image21={Data.imageComposition.teamImage21}
-							image34={Data.imageComposition.teamImage34Large}
-							image34Small={Data.imageComposition.teamImage34Small} >
-							<ImageCompositionSmallShapes.variation1Front position="front"/>
-							<ImageCompositionSmallShapes.variation1Back position="back"/>
-						</ImageCompositionSmall>
-					}
-
-					{
-						Data.teamImage916 &&
-						<TeamImage
-							title={Data.teamImage916.title}
-							image={Data.teamImage916.photo.url}
-						/>
-					}
-
-					<Contact
-						title={Data.contact.title}
-						button={Data.contact.button}
-						link={Data.contact.externalLink}
-						target='_blank' >
-						<ContactShapes.variation1Front position="front" />
-					</Contact>
+						{
+							Data.teamImage916 &&
+							<TeamImage
+								title={Data.teamImage916.title}
+								image={Data.teamImage916.photo.url}
+							/>
+						}
+						<Contact
+							title={Data.contact.title}
+							button={Data.contact.button}
+							link={Data.contact.externalLink}
+							target='_blank' >
+							<ContactShapes.variation1Front position="front" />
+						</Contact>
+					</div>
 				</article>
 				<Footer
 					callToActionLabel={Data.footer.callToActionLabel}

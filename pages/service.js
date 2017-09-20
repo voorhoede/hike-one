@@ -8,8 +8,7 @@ import Contact from '../components/contact/contact';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import * as ContactShapes from '../components/contact/contact-shapes';
 import FiftyFifty from '../components/50-50/50-50';
-import PageHeaderSmall from '../components/page-header-small/page-header-small';
-import * as PageHeaderSmallShapes from '../components/page-header-small/page-header-small-shapes';
+import PageHeader from '../components/page-header/page-header';
 import TextCenter from '../components/text-center/text-center';
 import WorkOverview from '../components/work-overview/work-overview';
 import TabSelector from '../components/tab-selector/tab-selector';
@@ -27,92 +26,93 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 			seo={Data.seo}
 			keywords={Data.keywords}>
 		<main className="main js-main">
-			<MenuBar/>
+			<MenuBar color="white" />
 			<article className="article">
-				<PageHeaderSmall
-					classes="pageheader-no-margin"
-					title="Our Services">
-					<PageHeaderSmallShapes.variation2Front position="front"/>
-					<PageHeaderSmallShapes.variation1Back position="back"/>
-				</PageHeaderSmall>
 
-				<TabSelector
-					selectedItem={Data.slug}
-					services={services} />
+			<PageHeader
+				isSmall={true}
+				title="Our Services"
+				image={'https://www.datocms-assets.com/2625/1502370433-service-header.jpg?'} />
 
-				<TextCenter
-					title={Data.introTitle}
-					text={Data.introText} />
+				<div className={`page-scrolling-content-small`}>
+					<TabSelector
+						selectedItem={Data.slug}
+						services={services} />
 
-				<CompanyOverviewSmall>
-					{ Data.companyReference1.map((service, index) => (
-						<CompanyOverviewItemSmall
-							companyLogo={service.companyLogo.url}
-							referenceCaseLink=''
-							referenceSlug=''
-							text={service.text}
-							key={index}>
-						</CompanyOverviewItemSmall>
-					))}
-				</CompanyOverviewSmall>
+					<TextCenter
+						title={Data.introTitle}
+						text={Data.introText} />
 
-				{ Data.content.map((component, index) => {
-					switch (component.itemType) {
-						case '40_60_text_right':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									text={component.text}
-									imageLarge="true"
-									image={component.image.url} >
-								</FiftyFifty>
-							);
+					<CompanyOverviewSmall>
+						{ Data.companyReference1.map((service, index) => (
+							<CompanyOverviewItemSmall
+								companyLogo={service.companyLogo.url}
+								referenceCaseLink=''
+								referenceSlug=''
+								text={service.text}
+								key={index}>
+							</CompanyOverviewItemSmall>
+						))}
+					</CompanyOverviewSmall>
 
-						case '40_60_text_left':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									contentLeft="true"
-									text={component.text}
-									imageLarge="true"
-									image={component.image.url} >
-								</FiftyFifty>
-							);
-					}
-				})}
+					{ Data.content.map((component, index) => {
+						switch (component.itemType) {
+							case '40_60_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										text={component.text}
+										imageLarge="true"
+										image={component.image.url} >
+									</FiftyFifty>
+								);
 
-				<Contact
-					title={Data.contact.title}
-					button={Data.contact.button} >
-					<ContactShapes.variation1Front position="front" />
-				</Contact>
+							case '40_60_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										contentLeft="true"
+										text={component.text}
+										imageLarge="true"
+										image={component.image.url} >
+									</FiftyFifty>
+								);
+						}
+					})}
 
-				<TextCenter title={Data.caseExtractTitle} />
+					<Contact
+						title={Data.contact.title}
+						button={Data.contact.button} >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
 
-				<WorkOverview>
-					{ Data.caseExtract.map((item, index) => (
-						<CaseExtractSmall
-							key={index}
-							title={item.title}
-							subtitle={item.headerSubtitle}
-							image={item.headerBackgroundImage}
-							companyName={item.companyName}
-							color={item.caseThemeColor.hex}
-							slug={item.slug} />
-					))}
-				</WorkOverview>
+					<TextCenter title={Data.caseExtractTitle} />
 
-				<UpdateLinks>
-					{ Data.updateLinks.map((update, index) => (
-						<UpdateLink
-							key={index}
-							title={update.title}
-							author={update.author.name}
-							date={getDateFormat(update.date)} />
-					))}
-				</UpdateLinks>
+					<WorkOverview>
+						{ Data.caseExtract.map((item, index) => (
+							<CaseExtractSmall
+								key={index}
+								title={item.title}
+								subtitle={item.headerSubtitle}
+								image={item.headerBackgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug} />
+						))}
+					</WorkOverview>
+
+					<UpdateLinks>
+						{ Data.updateLinks.map((update, index) => (
+							<UpdateLink
+								key={index}
+								title={update.title}
+								author={update.author.name}
+								date={getDateFormat(update.date)} />
+						))}
+					</UpdateLinks>
+				</div>
 			</article>
 			<Footer
 				callToActionLabel={Data.footer.callToActionLabel}

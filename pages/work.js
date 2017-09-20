@@ -2,7 +2,6 @@ import "isomorphic-fetch";
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import Footer from '../components/footer/footer';
 import WorkOverview from '../components/work-overview/work-overview';
@@ -20,34 +19,34 @@ const work = ({cases, data, fontsLoaded}) => {
 				seo={data.seo}
 				keywords={data.keywords}>
 			<main className="main js-main">
-				<MenuBar />
+				<MenuBar color="white" />
 				<article className="article work">
 					<PageHeader
+						isSmall={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={data.title}
 						subtitle={data.headerSubtitle}
-						heroImage={data.headerImage.url}>
-						<PageHeaderShapes.variation2Front position="front"/>
-						<PageHeaderShapes.variation1Back position="back"/>
-					</PageHeader>
+						image={data.headerImage.url} />
 
-					<WorkOverview classes={scrollToTargetClass}>
-						{ cases.map((item, index) => (
-							<CaseExtractSmall
-								key={index}
-								title={item.title}
-								subtitle={item.headerSubtitle}
-								image={item.header.backgroundImage}
-								companyName={item.companyName}
-								color={item.caseThemeColor.hex}
-								slug={item.slug} />
-						))}
-					</WorkOverview>
+					<div className={`page-scrolling-content-small`}>
+						<WorkOverview classes={scrollToTargetClass}>
+							{ cases.map((item, index) => (
+								<CaseExtractSmall
+									key={index}
+									title={item.title}
+									subtitle={item.headerSubtitle}
+									image={item.header.backgroundImage}
+									companyName={item.companyName}
+									color={item.caseThemeColor.hex}
+									slug={item.slug} />
+							))}
+						</WorkOverview>
 
-					<LogoCarousel
-						title={data.companiesTitle}
-						companies={data.companies}
-						animationSpeed={data.animationSpeed}/>
+						<LogoCarousel
+							title={data.companiesTitle}
+							companies={data.companies}
+							animationSpeed={data.animationSpeed}/>
+					</div>
 				</article>
 				<Footer
 					callToActionLabel={data.footer.callToActionLabel}

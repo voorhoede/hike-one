@@ -2,7 +2,7 @@ import Link from 'next/link'
 import setImageParams from '../_helpers/setImageParameters';
 
 const LogoList = ({companies}) => {
-	const imageParameters = { fit: 'max', fm: 'png', q: '90' }
+	const imageParameters = { fit: 'max', fm: 'png', q: 85 }
 
 	return(
 	<ul className="logo-list list-no-style container">

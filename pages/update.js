@@ -13,6 +13,9 @@ import InlineImage from '../components/inline-image/inline-image';
 import Author from '../components/author/author';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
 import RichBodyText from '../components/rich-body-text/rich-body-text';
+import TextCenter from '../components/text-center/text-center';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
 const Update = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -70,6 +73,25 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 					photoUrl={Data.author.photo.url}
 					summary={Data.authorSummary}
 				/>
+
+				<TextCenter
+					classes="text-center-font-medium text-center-spacing-small"
+					title={Data.updateLinksTitle} />
+
+				<UpdateOverviewSmall>
+					{ Data.updateLinks.map((item, index) => (
+						<UpdateExtractSmall
+							key={index}
+							index={index}
+							title={item.title}
+							date={item.date}
+							author={item.author.name}
+							target={item.link}
+							image={item.image.url}
+							category={item.category.name}
+							color={item.themeColor.hex} />
+					))}
+				</UpdateOverviewSmall>
 
 			</article>
 			<Footer

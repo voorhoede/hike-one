@@ -33,8 +33,8 @@ const work = ({cases, data, fontsLoaded}) => {
 							{ cases.map((item, index) => (
 								<CaseExtractSmall
 									key={index}
-									title={item.title}
-									subtitle={item.headerSubtitle}
+									title={item.header.title}
+									subtitle={item.header.subtitle}
 									image={item.header.backgroundImage}
 									companyName={item.companyName}
 									color={item.caseThemeColor.hex}

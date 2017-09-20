@@ -94,9 +94,9 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 						{ Data.caseExtract.map((item, index) => (
 							<CaseExtractSmall
 								key={index}
-								title={item.title}
-								subtitle={item.headerSubtitle}
-								image={item.headerBackgroundImage}
+								title={item.header.title}
+								subtitle={item.header.subtitle}
+								image={item.header.backgroundImage}
 								companyName={item.companyName}
 								color={item.caseThemeColor.hex}
 								slug={item.slug} />

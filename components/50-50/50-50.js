@@ -7,7 +7,7 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left': '';
-	const imageParameters = { fit: 'max', fm: 'jpg', q: '90' }
+	const imageParameters = { fit: 'max', fm: 'jpg', q: 85 }
 
 	return (
 		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>

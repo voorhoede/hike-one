@@ -155,7 +155,7 @@ class FullWidthImage extends React.Component {
 
 	render() {
 		const {image, index, title, subtitle, overlay, staticImg} = this.props;
-		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 };
+		const imageParameters = { fit: 'max', fm: 'jpg', q: 85 };
 		const heroImageSmall = staticImg ? image :`${setImageParams(image, {...imageParameters, w: 768} )}`;
 		const heroImageMedium = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1170} )}`;
 		const heroImageLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1600} )}`;

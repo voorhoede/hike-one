@@ -4,8 +4,8 @@ import Link from 'next/link';
 import setImageParameters from '../_helpers/setImageParameters';
 
 const CaseExtract = ({ headerImage ,title = '', subtitle = '', slug= ''}) => {
-	const headerImageSmall = setImageParameters(headerImage, {w:600 , q: 90, format: 'jpg'});
-	const headerImageLarge = setImageParameters(headerImage, {w:1200 , q: 90, format: 'jpg'});
+	const headerImageSmall = setImageParameters(headerImage, {w:600 , q: 85, fm: 'jpg'});
+	const headerImageLarge = setImageParameters(headerImage, {w:1200 , q: 85, fm: 'jpg'});
 
 	const style ={__html:
 		`<style>

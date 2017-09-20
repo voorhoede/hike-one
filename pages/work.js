@@ -26,7 +26,7 @@ const work = ({cases, data, fontsLoaded}) => {
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={data.title}
 						subtitle={data.headerSubtitle}
-						image={item.header.backgroundImage} />
+						image={data.headerImage.url} />
 
 					<div className={`page-scrolling-content-small`}>
 						<WorkOverview classes={scrollToTargetClass}>

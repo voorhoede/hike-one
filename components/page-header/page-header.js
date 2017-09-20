@@ -111,6 +111,7 @@ class PageHeader extends React.Component {
 			<section
 				ref={node => this.element = node}
 				className={`page-header
+					${props.showGradient ? 'show-gradient': ''}
 					${props.isSmall ? 'page-header-small' : ''} 
 					${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&

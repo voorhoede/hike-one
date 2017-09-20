@@ -11,9 +11,17 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 320px;
+		height: 100px;
 		z-index: 2;
-		background: linear-gradient(147deg, fade(@black, 30%), fade(@black, 0%), fade(@black, 0%));
+		background: linear-gradient(168deg, fade(@black, 30%),
+		fade(@black, 0%), fade(@black, 0%));
+	
+		@media @screen-medium {
+			height: 500px;
+			width: 690px;
+			background: linear-gradient(168deg, fade(@black, 30%),
+			fade(@black, 0%), fade(@black, 0%),fade(@black, 0%), fade(@black, 0%));
+		}
 	}
 }
 
@@ -39,6 +47,7 @@
 .header-logo {
 	display: inline-block;
 	z-index: 3;
+
 	svg {
 		height: 22px;
 		width: 125px;
@@ -55,6 +64,8 @@
 		background: @black;
 		padding: 20px 15px;
 		margin-left: -15px;
+		// position: fixed;
+		// z-index: 4;
 	}
 
 	.is-open & {
@@ -79,7 +90,7 @@
 }
 
 .menu-btn {
-	z-index: 3;
+	z-index: 4;
 	position: fixed;
 	top: 35px;
     right: 25px;

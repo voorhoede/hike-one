@@ -1,7 +1,7 @@
 import setImageParams from '../_helpers/setImageParameters';
 
 const inlineImage= ({image = '#', caption = null, large = false}) => {
-	const imageParameters = { fit: 'crop', fm: 'jpg', q: 85 }
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
 
 	return (
 		<div className={`inline-image ${large ? 'inline-image-large' : ''}`}>

@@ -6,7 +6,7 @@ const ImageCompositionSmall = ({children, classes = '',image21, image34, image34
 	const childrenArray = React.Children.toArray(children);
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-	const imageParameters = { fit: 'max', fm: 'jpg', q: 85 };
+	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
 
 	return (
 		<div className={`image-composition-small ${classes}`}>

@@ -13,7 +13,7 @@ const OfficeCard = ({
 	locationUrl = '',
 	imageUrl = ''}) => {
 
-	const imageParameters = { fit: 'crop', fm: 'jpg', q: 85 };
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 
 	const style ={__html:
 		`<style>

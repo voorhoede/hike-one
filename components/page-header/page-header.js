@@ -78,7 +78,7 @@ class PageHeader extends React.Component {
 
 	render() {
 		const props = this.props;
-		const imageParameters = { fit: 'max', fm: 'jpg', q: 85 }
+		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 768} )}`;
 		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1170} )}`;
 		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 1244} )}`;

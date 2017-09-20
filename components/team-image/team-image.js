@@ -1,7 +1,7 @@
 import setImageParams from '../_helpers/setImageParameters';
 
 const TeamImage = ({image="", title=""}) => {
-	const imageParameters = { fit: 'crop', fm: 'jpg', q: 85 }
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
 
 	return (
 		<div className="image-team team-image">

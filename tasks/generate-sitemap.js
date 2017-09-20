@@ -11,6 +11,7 @@ const urlMap = {
 	services: 'service/',
 	servicesOverview: 'services/',
 	team: 'team/',
+	topics: 'topic/',
 	updates: 'update/',
 	updateOverview: 'updates/',
 	work: 'work/'

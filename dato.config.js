@@ -30,6 +30,8 @@ module.exports = (dato, root) => {
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
+
+		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
 	});
 
 	function mapCollection(collection) {

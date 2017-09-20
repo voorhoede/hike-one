@@ -14,7 +14,7 @@
 	@media @screen-small {
 		.update-extract-small {
 			float: left;
-			width: calc(~'50% - ' @spacing-small);
+			max-width: calc(~'50% - ' @spacing-small);
 
 			&:nth-child(even) {
 				margin-right: @spacing-small;
@@ -29,7 +29,7 @@
 				margin: 0 auto @spacing-large auto;
 				padding: 0;
 				width: auto;
-				max-width: 550px;
+				max-width: 450px;
 			}
 		}
 	}

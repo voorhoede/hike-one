@@ -30,7 +30,7 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 			<article className="article">
 
 			<PageHeader
-				type="small"
+				isSmall={true}
 				title="Our Services"
 				image={'https://www.datocms-assets.com/2625/1502370433-service-header.jpg?'} />
 

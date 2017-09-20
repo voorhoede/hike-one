@@ -23,7 +23,7 @@ const Contact = ({Data, fontsLoaded}) => {
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
-						type="small"
+						isSmall={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.headerTitle}
 						subtitle={Data.headerSubtitle}

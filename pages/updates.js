@@ -17,7 +17,7 @@ const updates = ({Data, updatesData, fontsLoaded}) => {
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
-						type="small"
+						isSmall={true}
 						title={Data.title}
 						image={Data.headerImage.url} />
 					<div className={`page-scrolling-content-small`}>

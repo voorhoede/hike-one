@@ -22,7 +22,7 @@ const work = ({cases, data, fontsLoaded}) => {
 				<MenuBar color="white" />
 				<article className="article work">
 					<PageHeader
-						type="small"
+						isSmall={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={data.title}
 						subtitle={data.headerSubtitle}
@@ -42,7 +42,7 @@ const work = ({cases, data, fontsLoaded}) => {
 									slug={item.slug} />
 							))}
 						</WorkOverview>
-						
+
 						<LogoCarousel
 							title={data.companiesTitle}
 							companies={data.companies}

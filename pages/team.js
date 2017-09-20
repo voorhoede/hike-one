@@ -31,7 +31,7 @@ const Team = ({ Data, fontsLoaded }) => {
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
-						type="small"
+						isSmall={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						title={Data.title}
 						subtitle={Data.headerSubtitle}

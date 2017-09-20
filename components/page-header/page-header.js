@@ -111,8 +111,8 @@ class PageHeader extends React.Component {
 			<section
 				ref={node => this.element = node}
 				className={`page-header
-				${props.type === 'small' ? 'page-header-small' : ''} 
-				${this.state.showVideo ? 'show-video': ''}`}>
+					${props.isSmall ? 'page-header-small' : ''} 
+					${this.state.showVideo ? 'show-video': ''}`}>
 				{ props.video &&
 					<video ref={node => this.video = node}
 					   	className="page-header-video"
@@ -126,9 +126,7 @@ class PageHeader extends React.Component {
 						<h1 className="page-header-title ">{props.title}</h1>
 						<p className="page-header-subtitle">{props.subtitle}</p>
 						{ props.onClickScrollButton && 
-							<button className={`page-header-button 
-												${props.type === 'small' ? 
-												'page-header-small-button ' : ''}`}
+							<button className="page-header-button"
 									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
 								<Icon icon="arrowDownCircle" />
 							</button>

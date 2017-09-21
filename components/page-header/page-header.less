@@ -38,7 +38,7 @@
 .page-header-inner {
 	z-index: 1;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
 	height: 100%;
@@ -55,6 +55,7 @@
 	left: 0;
 	opacity: 0;
 	transition: opacity .3s;
+	z-index: -1;
 
 	.show-video & {
 		opacity: 1;
@@ -141,5 +142,8 @@
 			display: block;
 			margin: auto;
 		}
+	}
+	.page-header-inner {
+		justify-content: center;
 	}
 }

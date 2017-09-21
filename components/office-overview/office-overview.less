@@ -4,41 +4,20 @@
 .office-overview {
 	.clearfix;
 
-	.office-card {
-		@media @screen-small {
-			float: left;
-			margin-bottom: @spacing-extra-large;
-			width: calc(~'50% - ' @spacing-small);
-
-			&:nth-child(even) {
-				margin-right: @spacing-small;
-			}
-
-			&:nth-child(odd) {
-				margin-left: @spacing-small;
-			}
-
-			&:first-child {
-				float: none;
-				margin: 0 auto @spacing-extra-large auto;
-				padding: 0;
-				width: auto;
-				max-width: 450px;
-			}
+	@media @screen-small {
+		.office-card {
+			margin-left: auto;
+			margin-right: auto;
+			width: auto;
+			max-width: 450px;
 		}
+	}
 
-		@media @screen-medium {
+	@media @screen-medium {
+		.office-card {
+			float: left;
+			margin: 0 @spacing-medium @spacing-default*7 0;
 			width: calc(~'100% / 3 - ' @spacing-small);
-
-			&:nth-child(odd),
-			&:nth-child(even) {
-				margin: 0 @spacing-medium @spacing-extra-large 0;
-			}
-
-			&:first-child {
-				float: left;
-				width: calc(~'100% / 3 - ' @spacing-small);
-			}
 
 			&:last-child {
 				margin-right: 0;

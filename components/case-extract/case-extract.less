@@ -1,16 +1,15 @@
 @import (reference) '../../styles/variables';
-
+.case-extract {
+	a { text-decoration: none; }
+}
 .case-extract-inner {
 	padding: 0;
 	position: relative;
-	height: 445px;
 	margin: auto;
-	@media @screen-medium {
+	@media @screen-small {
 		max-width: @column-large-10;
-		height: 660px;
 	}
 	@media @screen-large {
-		height: 100%;
 		padding-top: @spacing-extra-large;
 	}
 }
@@ -21,8 +20,8 @@
 	height: 220px;
 	margin-bottom: @spacing-large;
 
-	@media @screen-medium {
-		height: 440px;
+	@media @screen-small {
+		height: 500px;
 	}
 
 	@media @screen-large {
@@ -34,15 +33,18 @@
 }
 
 .case-extract-text-container {
+	&:hover {
+		transition: transform 0.1s;
+	    transform: scale(1.05);
+	}
+	transition: transform 0.5s;
+	transform: scale(1);
+	display: block;
 	position: relative;
-	top: -89px;
-	text-decoration: none;
-	display: inline-block;
-	max-width: @column-small-4;
+	padding: @spacing-medium @spacing-medium  @spacing-medium  @spacing-medium;
+	margin: -90px @spacing-default 0 @spacing-default;
 	background-color: @red;
 	color: @white;
-	padding: @spacing-medium @spacing-default  @spacing-medium  @spacing-medium;
-	margin: 0 @spacing-default;
 
 	& > h3 {
 		line-height: @line-height-title-s;
@@ -69,11 +71,10 @@
 		opacity: 0.8;
 	}
 
-	@media @screen-medium {
-		max-width: 94%;
-		width: 100%;
-		margin: 0 @spacing-small;
-		top: -90px;
+	@media @screen-small {
+		width: auto;
+		margin: -90px @spacing-small 0 @spacing-small;
+		
 
 		& > h3 {
 			line-height: @line-height-title-m;
@@ -97,7 +98,7 @@
 		padding: 0 @spacing-default*5;
 		width: 100%;
 		padding-top: @spacing-extra-large;
-		max-width: @column-large-4;
+		max-width: 472px;
 		top: 0;
 		margin: 0;
 

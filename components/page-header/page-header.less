@@ -48,11 +48,15 @@
 .page-header-inner {
 	z-index: 1;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
 	height: 100%;
 	margin-bottom: 0;
+
+	.page-header-small & {
+		justify-content: center;
+	}
 }
 
 .page-header-video {
@@ -65,6 +69,7 @@
 	left: 0;
 	opacity: 0;
 	transition: opacity .3s;
+	z-index: -1;
 
 	.show-video & {
 		opacity: 1;

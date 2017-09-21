@@ -6,8 +6,10 @@ import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 
 import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
+
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCenter from '../components/text-center/text-center';
@@ -32,12 +34,16 @@ const Home = ({Data, fontsLoaded}) => {
 				<MenuBar color="white" />
 				<article className="article">			
 					<PageHeader
+						alignToBottom={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 						video={Data.header.video}
 						title={Data.header.title}
 						subtitle={Data.header.subtitle}
 						image={Data.header.backgroundImage.url}
-						showGradient={Data.header.displayGradient} />
+						showGradient={Data.header.displayGradient}>
+						<PageHeaderShapes.variation1Front position="front" />
+						<PageHeaderShapes.variation1Back position="back" />
+					</PageHeader>
 
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
 						<ServicesOverviewSmall
@@ -50,10 +56,12 @@ const Home = ({Data, fontsLoaded}) => {
 							text={Data.caseExtractIntro} />
 
 						<CaseExtract
+							color={Data.caseExtract.case.caseThemeColor.hex}
+							companyName={Data.caseExtract.case.companyName}
 							headerImage={Data.caseExtract.image.url}
 							title={Data.caseExtract.title}
 							subtitle={Data.caseExtract.subtitle}
-							slug="gone-in-60-seconds" />
+							slug={Data.caseExtract.case.slug} />
 
 						<TextCenter
 							classes="text-center-font-medium text-center-spacing-small"

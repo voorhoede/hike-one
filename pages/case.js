@@ -5,8 +5,6 @@ import getDateFormat from '../components/_helpers/getDateFormat';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
-
-import ReadMore from '../components/read-more/read-more';
 import PageHeader from '../components/page-header/page-header';
 
 import TextCenter from '../components/text-center/text-center';
@@ -77,6 +75,7 @@ const Case = ({Data, fontsLoaded}) => (
 			<MenuBar color="white" />
 			<article className="article">
 				<PageHeader
+					alignToBottom={true}
 					onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
 					video={Data.header.video}
 					title={Data.header.title}

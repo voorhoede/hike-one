@@ -23,8 +23,23 @@
 }
 
 .social-share-item {
+	margin-right: @spacing-default;
+
+	&:last-child {
+		margin-right: 0;
+	}
+
 	svg {
-		width: 42px;
-		height: 42px;
+		width: 56px;
+		height: 56px;
+	}
+
+	@media @screen-medium {
+		margin-right: 0;
+
+		svg {
+			width: 42px;
+			height: 42px;
+		}
 	}
 }

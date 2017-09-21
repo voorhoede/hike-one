@@ -56,6 +56,7 @@ const Home = ({Data, fontsLoaded}) => {
 							text={Data.caseExtractIntro} />
 
 						<CaseExtract
+							color={Data.caseExtract.case.caseThemeColor.hex}
 							companyName={Data.caseExtract.case.companyName}
 							headerImage={Data.caseExtract.image.url}
 							title={Data.caseExtract.title}

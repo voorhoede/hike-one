@@ -3,7 +3,7 @@ import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-li
 import Link from 'next/link';
 import setImageParameters from '../_helpers/setImageParameters';
 
-const CaseExtract = ({ headerImage ,title = '', subtitle = '', slug= '', companyName='', color=''}) => {
+const CaseExtract = ({ headerImage ,title = '', subtitle = '', slug= '', companyName=''}) => {
 	const headerImageSmall = setImageParameters(headerImage, {w:600 , q: 85, fm: 'pjpg'});
 	const headerImageLarge = setImageParameters(headerImage, {w:1200 , q: 85, fm: 'pjpg'});
 

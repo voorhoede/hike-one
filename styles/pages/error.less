@@ -2,7 +2,7 @@
 
 .article-error {
 	display: flex;
-
+	height: 100vh;
 	.text-center {
 		align-self: center;
 
@@ -25,6 +25,11 @@
 			}
 		}
 	}
+}
 
-
+// temp fix for bug in nextjs rendering 500 page twice.
+// keep an eye on this 'well explained' github issue for a possible fix
+// https://github.com/zeit/next.js/issues/2964
+#__next .is-500-error {
+	display: none;
 }

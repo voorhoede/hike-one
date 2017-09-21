@@ -16,6 +16,7 @@
 	height: 100vh;
 	background: black;
 	opacity: 0;
+	z-index: 2;
 
 	.is-open & {
 		display: block;
@@ -29,7 +30,7 @@
 	right: 200%;
 	width: 100%;
 	height: 100vh;
-	padding: @spacing-default*1.5 0 0 @spacing-small;
+	padding: 13px 0 0 25px; // make logo's lineup
 	background: transparent;
 	z-index: 4;
 
@@ -70,10 +71,6 @@
 	margin-bottom: @spacing-default * 1.5;
 	transform: translateX(30px);
 	opacity: 0;
-
-	&.menu-item-logo {
-		display: block;
-	}
 
 	@media @screen-medium {
 		transform: rotate(22deg) translateX(30px);

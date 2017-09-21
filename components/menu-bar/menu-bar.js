@@ -163,70 +163,71 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<header ref={node => this.header = node} className="menu-bar show-gradient">
-				<div className="container">
+			<header ref={node => this.header = node} className="menu-bar">
+				<div className="header-logo-wrapper">
 					<Link href="/" >
 						<a className="header-logo">
 							<Logo color={`${this.props.color ? this.props.color : "black"}`} />
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
-					<button
-						className="menu-btn"
-						ref={node => this.menuBtn = node}
-						onClick={this.toggleMenu}>
+				</div>
 
-						<svg className="menu-btn-background" ref={node => this.menuBtnBg = node}
-							 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+				<button
+					className="menu-btn"
+					ref={node => this.menuBtn = node}
+					onClick={this.toggleMenu}>
+
+					<svg className="menu-btn-background" ref={node => this.menuBtnBg = node}
+						 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+						<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+					</svg>
+
+					<span className="menu-btn-icon">
+						<Hamburger ref={node => this.hamburger = node} />
+					</span>
+				</button>
+
+				<div className="menu" ref={node => this.menu = node}>
+					<div ref={node => this.menuBgTransparent = node}
+						className="menu-background-transparent"></div>
+
+						<svg className="menu-background" ref={node => this.menuBg = node}
+							 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+							<polygon points="226, 1.7 494,71 349,307"/>
 						</svg>
 
-						<span className="menu-btn-icon">
-							<Hamburger ref={node => this.hamburger = node} />
-						</span>
-					</button>
+						<svg className="menu-background-final" ref={node => this.menuBgSvgFinal = node}
+							 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+							<polygon points="226, 1.7 494,71 349,307"/>
+						</svg>
 
-					<div className="menu" ref={node => this.menu = node}>
-						<div ref={node => this.menuBgTransparent = node}
-							className="menu-background-transparent"></div>
+						<svg className="menu-background" xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
+							<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+							<rect ref={node => this.menuBgRect = node}
+								  className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
+						</svg>
 
-							<svg className="menu-background" ref={node => this.menuBg = node}
-								 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
-								<polygon points="226, 1.7 494,71 349,307"/>
-							</svg>
-
-							<svg className="menu-background-final" ref={node => this.menuBgSvgFinal = node}
-								 xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
-								<polygon points="226, 1.7 494,71 349,307"/>
-							</svg>
-
-							<svg className="menu-background" xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-								<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
-								<rect ref={node => this.menuBgRect = node}
-									  className="menu-background-rect" x="253.643" y="71.084" fill="transparent" width="96" height="236.025"/>
-							</svg>
-
-						<div className="menu-inner" ref={node => this.menuInner = node}>
-							<ul className="menu-list" ref={node => this.menuList = node}>
-								<li className="menu-item-logo"><Link href="/"><a><Logo color="white"/></a></Link></li>
-								<li className="menu-item"><Link href="/team"><a>Team</a></Link></li>
-								<li className="menu-item"><Link
-									href='/service?slug=new-product-design'
-									as="/service/new-product-design"><a >Services</a></Link></li>
-								<li className="menu-item"><Link href="/work"><a>Work</a></Link></li>
-								<li className="menu-item"><Link href="/updates"><a>Updates</a></Link></li>
-								<li className="menu-item menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
-								<li>
-									<div className="menu-social" ref={node => this.socialIcons = node}>
-										<Link href="#"><a><Facebook /></a></Link>
-										<Link href="#"><a><Twitter /></a></Link>
-										<Link href="#"><a><Instagram /></a></Link>
-										<Link href="#"><a><LinkedIn /></a></Link>
-										<Link href="#"><a><Medium /></a></Link>
-									</div>
-								</li>
-							</ul>
-						</div>
+					<div className="menu-inner" ref={node => this.menuInner = node}>
+						<ul className="menu-list" ref={node => this.menuList = node}>
+							<li className="menu-item-logo"><Link href="/"><a><Logo color="white"/></a></Link></li>
+							<li className="menu-item"><Link href="/team"><a>Team</a></Link></li>
+							<li className="menu-item"><Link
+								href='/service?slug=new-product-design'
+								as="/service/new-product-design"><a >Services</a></Link></li>
+							<li className="menu-item"><Link href="/work"><a>Work</a></Link></li>
+							<li className="menu-item"><Link href="/updates"><a>Updates</a></Link></li>
+							<li className="menu-item menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
+							<li>
+								<div className="menu-social" ref={node => this.socialIcons = node}>
+									<Link href="#"><a><Facebook /></a></Link>
+									<Link href="#"><a><Twitter /></a></Link>
+									<Link href="#"><a><Instagram /></a></Link>
+									<Link href="#"><a><LinkedIn /></a></Link>
+									<Link href="#"><a><Medium /></a></Link>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</header>

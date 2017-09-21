@@ -4,8 +4,8 @@
 	width: 100%;
 	text-align: center;
 	background: @white;
-	
-	&.show-gradient::after {
+
+	&::after {
 		content: '';
 		position: absolute;
 		top: 0;
@@ -15,7 +15,7 @@
 		z-index: 2;
 		background: linear-gradient(168deg, fade(@black, 30%),
 		fade(@black, 0%)  50%);
-	
+
 		@media @screen-medium {
 			height: 200px;
 			width: 690px;
@@ -28,14 +28,10 @@
 	}
 }
 
-.menu-bar .container {
+.header-logo-wrapper {
 	display: flex;
 	padding-left: @spacing-small;
 	padding-top: @spacing-small;
-	height: auto;
-	margin-bottom: 0;
-	position: absolute;
-	width: auto;
 
 	@media @screen-medium {
 		padding-top: @spacing-medium;
@@ -55,16 +51,8 @@
 		height: 22px;
 		width: 125px;
 	}
-	&:visited {
-		color: @black;
-	}
-
-	.logo-body {
-		transition: fill 0.3s;
-	}
 
 	.animation-is-finished & {
-		background: @black;
 		padding: @spacing-small @spacing-default*1.5;
 		margin-left: -15px;
 	}
@@ -75,10 +63,6 @@
 			margin-left: 0;
 			margin-top: 0;
 			background: transparent;
-		}
-
-		.logo.black .logo-body {
-			fill: @white;
 		}
 	}
 
@@ -91,7 +75,7 @@
 }
 
 .menu-btn {
-	z-index: 4;
+	z-index: 5;
 	position: fixed;
 	top: 35px;
     right: 25px;

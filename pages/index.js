@@ -56,10 +56,12 @@ const Home = ({Data, fontsLoaded}) => {
 							text={Data.caseExtractIntro} />
 
 						<CaseExtract
+							color={Data.caseExtract.case.caseThemeColor.hex}
+							companyName={Data.caseExtract.case.companyName}
 							headerImage={Data.caseExtract.image.url}
 							title={Data.caseExtract.title}
 							subtitle={Data.caseExtract.subtitle}
-							slug="gone-in-60-seconds" />
+							slug={Data.caseExtract.case.slug} />
 
 						<TextCenter
 							classes="text-center-font-medium text-center-spacing-small"

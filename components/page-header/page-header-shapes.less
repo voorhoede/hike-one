@@ -5,10 +5,20 @@
 		width: auto;
 		height: 25px;
 		left: 80%;
+		top: 100px;
 		@media @screen-medium {
 			height: 45px;
 			left: 70%;
-			top: -50px;
+			top: -20px;
+		}
+		@media @screen-1440 {
+			top: 15%;
+		}
+		@media @screen-1920 {
+			left: 65%;
+		}
+		@media @screen-2500 {
+			left: 55%;
 		}
 	}
 
@@ -17,10 +27,22 @@
 		max-width: 100%;
 		width: auto;
 		height: 44px;
-		bottom: -57px;
-		left: 5%;
+		top: 50%;
+		left: -5%;
 		@media @screen-medium {
-			height: 100px;
+			height: 62px;
+			left: 10%;
+		}
+		@media @screen-1440 {
+			left: 15%;
+		}
+		@media @screen-1920 {
+			left: 24%;
+			top: 60%;
+		}
+		@media @screen-2500 {
+			left: 30%;
+			top: 46%;
 		}
 	}
 
@@ -28,13 +50,25 @@
 		position: absolute;
 		max-width: 100%;
 		width: auto;
-		height: 100px;
-		left: 50%;
-		top: -100px;
+		height: 68px;
+		right: 50px;
+		bottom: 40px;
 		@media @screen-medium {
-			left: 30%;
-			height: 170px;
-			top: -195px;
+			right: 245px;
+			height: 114px;
+			bottom: 148px;
+		}
+		@media @screen-1440 {
+			right: 33%;
+			bottom: 22%;
+		}
+		@media @screen-1920 {
+			right: 9%;
+			bottom: 14%;
+		}
+		@media @screen-2500 {
+			right: 34%;
+			bottom: 36%;
 		}
 	}
 
@@ -45,9 +79,42 @@
 		display: none;
 
 		@media @screen-medium {
-			display: inline-block;
+			display: block;
+			height: 25px;
+			bottom: 20%;
+			right: 20%;
+		}
+		@media @screen-1440 {
+			bottom: 25%;
+			right: 25%;
+		}
+		@media @screen-1920 {
+			bottom: 10%;
+			right: 18%;
+		}
+		@media @screen-2500 {
+			bottom: 30%;
+			right: 40%;
+		}
+	}
+
+	.shape-circle-1 {
+		position: absolute;
+		display: none;
+		width: auto;
+		
+		@media @screen-medium {	
+			display: block;
+			bottom: 70px;
 			height: 16px;
-			left: 5%;
+			left: 25%;	
+		}
+		@media @screen-1920 {
+			left: 40%;
+		}
+		@media @screen-2500 {
+			left: 40%;
+			top: 70%;
 		}
 	}
 }

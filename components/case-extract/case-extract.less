@@ -5,11 +5,14 @@
 .case-extract-inner {
 	padding: 0;
 	position: relative;
-	height: 445px;
+	height: 465px;
 	margin: auto;
 	@media @screen-small {
 		max-width: @column-large-10;
-		height: 660px;
+		height: 695px;
+	}
+	@media @screen-medium {
+		height: 637px;
 	}
 	@media @screen-large {
 		height: 100%;
@@ -24,7 +27,7 @@
 	margin-bottom: @spacing-large;
 
 	@media @screen-small {
-		height: 440px;
+		height: 500px;
 	}
 
 	@media @screen-large {
@@ -39,7 +42,7 @@
 	display: block;
 	position: relative;
 	top: -89px;
-	padding: @spacing-medium @spacing-default  @spacing-medium  @spacing-medium;
+	padding: @spacing-medium @spacing-medium  @spacing-medium  @spacing-medium;
 	margin: 0 @spacing-default;
 	background-color: @red;
 	color: @white;
@@ -71,9 +74,8 @@
 
 	@media @screen-small {
 		width: auto;
-		margin: 0 auto;
-		margin: 0 @spacing-small;
-		top: -90px;
+		margin: -90px 20px 0 20px;
+		
 
 		& > h3 {
 			line-height: @line-height-title-m;

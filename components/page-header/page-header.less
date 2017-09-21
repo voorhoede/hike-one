@@ -24,6 +24,16 @@
 		background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 	}
 
+	&.page-header-small {
+		height: 85vh;
+	}
+
+	@media @screen-small {
+		&.page-header-small {
+			height: 60vh;
+		}
+	}
+
 	@media @screen-medium {
 		&::after {
 			display: none;
@@ -113,6 +123,10 @@
 		cursor: pointer;
 	}
 
+	.page-header-small & {
+		display: none;
+	}
+
 	svg {
 		display: block;
 		margin: 0 auto;
@@ -124,22 +138,6 @@
 
 		path {
 			fill: @white;
-		}
-	}
-}
-
-.page-header-small {
-	height: 85vh;
-	@media @screen-small {
-		height: 60vh;
-	}
-
-	.page-header-button {
-		display: none;
-		
-		@media @screen-medium {
-			display: block;
-			margin: auto;
 		}
 	}
 }

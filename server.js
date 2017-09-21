@@ -1,5 +1,6 @@
 const apiRouter = require('./lib/api-router');
 const dataLoader = require('./lib/data-loader');
+const getSitemap = require('./lib/sitemap');
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
@@ -15,6 +16,7 @@ const startServer = () => server.listen(port, (err) => {
 	console.log(`> Ready on http://localhost:${port}`);
 });
 
+server.use('/sitemap.xml', getSitemap);
 server.use(express.static('./static/root'));
 server.use(cookieParser());
 server.use('/api/', apiRouter);

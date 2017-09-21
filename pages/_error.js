@@ -23,8 +23,8 @@ const Error = ({statusCode, fontsLoaded, wrapperClass}) =>  (
 			<MenuBar color="black" />
 			<article className="article article-error">
 				<TextCenter
-					title={statusCode === '404' ? content404.title : content500.title }
-					text={statusCode === '404' ? content404.text : content500.text} >
+					title={statusCode === 404 ? content404.title : content500.title }
+					text={statusCode === 404 ? content404.text : content500.text} >
 					<TextCenterShapes.variation3Back position="back" />
 					<TextCenterShapes.variation4Front position="front" />
 				</TextCenter>

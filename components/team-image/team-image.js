@@ -1,11 +1,11 @@
 import setImageParams from '../_helpers/setImageParameters';
 
 const TeamImage = ({image="", title=""}) => {
-	const imageParameters = { fit: 'crop', fm: 'jpg', q: 90 }
-	
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
+
 	return (
 		<div className="image-team team-image">
-			<img 
+			<img
 				srcSet={`
 						${setImageParams(image, { ...imageParameters, h: 350 } )} 250w,
 						${setImageParams(image, { ...imageParameters, h: 450 } )} 480w,
@@ -16,7 +16,7 @@ const TeamImage = ({image="", title=""}) => {
 				src={`${image}`}
 				alt=""
 			/>
-			<span className="image-team-title">{title}</span>	
+			<span className="image-team-title">{title}</span>
 		</div>
 	)
 }

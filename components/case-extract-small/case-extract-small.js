@@ -1,6 +1,7 @@
 import Icon from '../icon/icon';
 import Link from 'next/link';
 import getContrastYIQ from '../_helpers/getContrastYIQ';
+import setImageParameters from '../_helpers/setImageParameters';
 
 const CaseExtractSmall = ({
 	slug = '',
@@ -20,7 +21,7 @@ const CaseExtractSmall = ({
 			<Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
 				<a className="">
 					<div className="case-extract-small-image"
-					style={{backgroundImage: `url(${image.url})`}}></div>
+					style={{backgroundImage: `url(${setImageParameters(image.url, {w:700, fm: 'pjpg', q: 85})})`}}></div>
 					<div className="case-extract-small-bg">
 						<div className="case-extract-small-bg-inner" style={{backgroundColor: color}}></div>
 					</div>

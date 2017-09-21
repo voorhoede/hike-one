@@ -15,9 +15,10 @@ class Footer extends React.Component {
 	}
 
 	componentDidMount() {
+		const { disableParallax } = this.props;
 		this.mainContainer = document.querySelector('.js-main');
 
-		if (typeof window.requestAnimationFrame !== 'undefined' && this.mainContainer) {
+		if (typeof window.requestAnimationFrame !== 'undefined' && this.mainContainer && !disableParallax) {
 			this.footerHeight = this.footer.getBoundingClientRect().height;
 			this.setFixedState();
 			window.addEventListener('resize', this.onResize);

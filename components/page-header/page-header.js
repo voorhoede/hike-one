@@ -82,11 +82,11 @@ class PageHeader extends React.Component {
 		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
-		const imageParameters = { fit: 'max', fm: 'jpg', q: 90 }
+		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 768} )}`;
 		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1170} )}`;
 		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 1244} )}`;
-		
+
 		const style ={__html:
 			`<style>
 				.page-header {
@@ -112,37 +112,36 @@ class PageHeader extends React.Component {
 			</style>`};
 		
 		return (
-			
-				<section
-					ref={node => this.element = node}
-					className={`page-header
-						${props.showGradient ? 'show-gradient': ''}
-						${props.isSmall ? 'page-header-small' : ''} 
-						${this.state.showVideo ? 'show-video': ''}`}>
-					{ parallaxLayerBack }
-					{ props.video &&
-						<video ref={node => this.video = node}
-							className="page-header-video"
-							playsInline autoPlay muted loop>
-							<source src={props.video} type="video/mp4" />
-						</video>
-					}
+			<section
+				ref={node => this.element = node}
+				className={`page-header
+					${props.showGradient ? 'show-gradient': ''}
+					${props.isSmall ? 'page-header-small' : ''} 
+					${this.state.showVideo ? 'show-video': ''}`}>
+				{ parallaxLayerBack }
+				{ props.video &&
+					<video ref={node => this.video = node}
+						className="page-header-video"
+						playsInline autoPlay muted loop>
+						<source src={props.video} type="video/mp4" />
+					</video>
+				}
 
-					<div className="page-header-inner container">
-						<div ref={node => this.parallaxLayer = node}>
-							<h1 className="page-header-title ">{props.title}</h1>
-							<p className="page-header-subtitle">{props.subtitle}</p>
-							{ props.onClickScrollButton && 
-								<button className="page-header-button"
-										onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
-									<Icon icon="arrowDownCircle" />
-								</button>
-							}
-						</div>
+				<div className="page-header-inner container">
+					<div ref={node => this.parallaxLayer = node}>
+						<h1 className="page-header-title ">{props.title}</h1>
+						<p className="page-header-subtitle">{props.subtitle}</p>
+						{ props.onClickScrollButton && 
+							<button className="page-header-button"
+									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
+								<Icon icon="arrowDownCircle" />
+							</button>
+						}
 					</div>
-					<div dangerouslySetInnerHTML={style}></div>
-					{parallaxLayerFront}				
-				</section>
+				</div>
+				<div dangerouslySetInnerHTML={style}></div>
+				{parallaxLayerFront}				
+			</section>
 		);
 	}
 };

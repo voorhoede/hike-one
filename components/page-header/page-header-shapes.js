@@ -1,6 +1,7 @@
 import Parallax from '../parallax/parallax';
 import DiamondBorder from '../shapes/diamond-border/diamond-border';
 import Triangle from '../shapes/triangle/triangle';
+import CircleBorder from '../shapes/circle-border/circle-border';
 
 export const variation1Front = () => (
 	<div className="home-intro-shapes">
@@ -32,7 +33,8 @@ export const variation2Front = () => (
 export const variation1Back = () => (
 	<div className="home-intro-shapes">
 		<Parallax speed="0.875">
-			<DiamondBorder classes="shape-diamond-1" color="purple"/>
+			<CircleBorder classes="shape-circle-1" color="green"/>
+			<DiamondBorder classes="shape-diamond-1" color="yellow"/>
 		</Parallax>
 	</div>
 );

@@ -5,41 +5,55 @@
 	text-align: center;
 	background: @white;
 
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 160px;
+		z-index: 2;
+		background: linear-gradient(168deg, fade(@black, 30%),
+		fade(@black, 0%)  50%);
+
+		@media @screen-medium {
+			height: 200px;
+			width: 690px;
+			background: linear-gradient(161deg, fade(@black, 30%),
+			fade(@black, 0%) 30%);
+		}
+		@media @screen-large {
+			height: 550px;
+		}
+	}
 }
 
-.menu-bar .container {
+.header-logo-wrapper {
 	display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-	height: 60px;
-	margin-bottom: 0;
-	@media @screen-small {
-		margin-bottom: 0;
+	padding-left: @spacing-small;
+	padding-top: @spacing-small;
+
+	@media @screen-medium {
+		padding-top: @spacing-medium;
+		padding-left: @spacing-large;
 	}
-	@media @screen-large {
-		height: 100px;
+	@media (min-width: 1440px) {
+		padding-top: @spacing-medium*2;
+		padding-left: @spacing-large*2;
 	}
 }
 
 .header-logo {
 	display: inline-block;
 	z-index: 3;
-	svg {
-		height: 23px;
-		width: 120px;
-	}
-	&:visited {
-		color: @black;
-	}
 
-	.logo-body {
-		transition: fill 0.3s;
+	svg {
+		height: 22px;
+		width: 125px;
 	}
 
 	.animation-is-finished & {
-		background: @black;
-		padding: 20px 15px;
+		padding: @spacing-small @spacing-default*1.5;
 		margin-left: -15px;
 	}
 
@@ -50,30 +64,20 @@
 			margin-top: 0;
 			background: transparent;
 		}
-
-		.logo.black .logo-body {
-			fill: @white;
-		}
 	}
 
-	@media @screen-medium {
-		svg {
-			height: 30px;
-			width: 130px;
-		}
-	}
 	@media @screen-large {
 		svg {
-			height: 30px;
-			width: 150px;
+		    height: 38px;
+			width: 203px;
 		}
 	}
 }
 
 .menu-btn {
-	z-index: 3;
+	z-index: 5;
 	position: fixed;
-	top: 30px;
+	top: 35px;
     right: 25px;
 	transform: translateY(-50%);
 	font-size: 0;
@@ -129,6 +133,7 @@
 
 	@media @screen-medium {
 		padding: 0;
+		top: 45px;
 	}
 	@media @screen-large {
 		top: 55px;
@@ -145,5 +150,9 @@
 			width: 80px;
 			height: 80px;
 		}
+	}
+	@media (min-width: 1440px) {
+		top: 85px;
+		right: 59px;
 	}
 }

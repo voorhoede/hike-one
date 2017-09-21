@@ -1,7 +1,7 @@
 import setImageParams from '../_helpers/setImageParameters';
 
 const fullWidthImageSmall = ({image = '#'}) => {
-	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+	const imageParameters = { fm: 'pjpg', q: 85 };
 	return (
 		<div className="full-width-image-small">
 			<img
@@ -14,7 +14,7 @@ const fullWidthImageSmall = ({image = '#'}) => {
 				alt=""
 				src={`${image}`} />
 		</div>
-	)
+	);
 };
 
 export default fullWidthImageSmall;

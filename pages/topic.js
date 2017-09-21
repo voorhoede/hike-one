@@ -1,19 +1,20 @@
 import React from 'react';
 import "isomorphic-fetch";
+import cookie from '../components/_helpers/cookie';
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
-import cookie from '../components/_helpers/cookie';
-
 import SocialShare from '../components/social-share/social-share';
 import FullWidthHeader from '../components/full-width-header/full-width-header';
 import BodyQuote from '../components/body-quote/body-quote';
 import InlineImage from '../components/inline-image/inline-image';
 import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
 import RichBodyText from '../components/rich-body-text/rich-body-text';
+import WorkOverview from '../components/work-overview/work-overview';
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import TextCenter from '../components/text-center/text-center';
@@ -69,6 +70,29 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
 				/>
 
+				<Contact
+					title={Data.contact.title}
+					button={Data.contact.button}
+					link={Data.contact.externalLink}
+					target='_blank' >
+					<ContactShapes.variation1Front position="front" />
+				</Contact>
+
+				<TextCenter title={Data.caseLinksTitle} />
+
+				<WorkOverview>
+					{ Data.caseLinks.map((item, index) => (
+						<CaseExtractSmall
+							key={index}
+							title={item.header.title}
+							subtitle={item.header.subtitle}
+							image={item.header.backgroundImage}
+							companyName={item.companyName}
+							color={item.caseThemeColor.hex}
+							slug={item.slug} />
+					))}
+				</WorkOverview>
+
 				<TextCenter title={Data.updateLinksTitle} />
 
 				<UpdateOverviewSmall>
@@ -85,15 +109,6 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							color={item.themeColor.hex} />
 					))}
 				</UpdateOverviewSmall>
-
-				<Contact
-					title={Data.contact.title}
-					button={Data.contact.button}
-					link={Data.contact.externalLink}
-					target='_blank' >
-					<ContactShapes.variation1Front position="front" />
-				</Contact>
-
 			</article>
 			<Footer
 				callToActionLabel={Data.footer.callToActionLabel}

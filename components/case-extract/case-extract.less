@@ -1,11 +1,13 @@
 @import (reference) '../../styles/variables';
-
+.case-extract {
+	a{text-decoration: none;}
+}
 .case-extract-inner {
 	padding: 0;
 	position: relative;
 	height: 445px;
 	margin: auto;
-	@media @screen-medium {
+	@media @screen-small {
 		max-width: @column-large-10;
 		height: 660px;
 	}
@@ -21,7 +23,7 @@
 	height: 220px;
 	margin-bottom: @spacing-large;
 
-	@media @screen-medium {
+	@media @screen-small {
 		height: 440px;
 	}
 
@@ -34,15 +36,13 @@
 }
 
 .case-extract-text-container {
+	display: block;
 	position: relative;
 	top: -89px;
-	text-decoration: none;
-	display: inline-block;
-	max-width: @column-small-4;
-	background-color: @red;
-	color: @white;
 	padding: @spacing-medium @spacing-default  @spacing-medium  @spacing-medium;
 	margin: 0 @spacing-default;
+	background-color: @red;
+	color: @white;
 
 	& > h3 {
 		line-height: @line-height-title-s;
@@ -69,9 +69,9 @@
 		opacity: 0.8;
 	}
 
-	@media @screen-medium {
-		max-width: 94%;
-		width: 100%;
+	@media @screen-small {
+		width: auto;
+		margin: 0 auto;
 		margin: 0 @spacing-small;
 		top: -90px;
 
@@ -97,7 +97,7 @@
 		padding: 0 @spacing-default*5;
 		width: 100%;
 		padding-top: @spacing-extra-large;
-		max-width: @column-large-4;
+		max-width: 472px;
 		top: 0;
 		margin: 0;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';
@@ -32,7 +32,7 @@ const Home = ({Data, fontsLoaded}) => {
 			keywords={Data.keywords}>
 			<main className="main js-main" >
 				<MenuBar color="white" />
-				<article className="article">			
+				<article className="article">
 					<PageHeader
 						alignToBottom={true}
 						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }

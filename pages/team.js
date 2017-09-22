@@ -16,10 +16,7 @@ import StatisticsBlock from '../components/statistics-block/statistics-block';
 import ImageGallery from '../components/image-gallery/image-gallery';
 import ImageCombo from '../components/image-combo/image-combo';
 import TeamImage from '../components/team-image/team-image';
-
 import cookie from '../components/_helpers/cookie';
-import scrollToElement from '../components/_helpers/scrollToElement';
-let scrollToTargetClass = 'js-scroll-to-target';
 
 const Team = ({ Data, fontsLoaded }) => {
 	return (
@@ -32,10 +29,9 @@ const Team = ({ Data, fontsLoaded }) => {
 				<article className="article">
 					<PageHeader
 						isSmall={true}
-						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title={Data.title}
-						subtitle={Data.headerSubtitle}
-						image={Data.headerImage.url}/>
+						title={Data.header.title}
+						subtitle={Data.header.subtitle}
+						image={Data.header.backgroundImage.url} />
 					<div className={`page-scrolling-content-small`}>
 						<Collage
 							title={Data.collage.title}
@@ -121,7 +117,6 @@ const Team = ({ Data, fontsLoaded }) => {
 
 						{ Data.imageComposition &&
 							<ImageCompositionSmall
-								classes={scrollToTargetClass}
 								image21={Data.imageComposition.teamImage21}
 								image34={Data.imageComposition.teamImage34Large}
 								image34Small={Data.imageComposition.teamImage34Small} >

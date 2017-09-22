@@ -23,6 +23,12 @@ const work = ({cases, data, fontsLoaded}) => (
 					image={data.header.backgroundImage.url}/>
 
 				<div className={`page-scrolling-content-small`}>
+
+					<LogoCarousel
+						title={data.companiesTitle}
+						companies={data.companies}
+						animationSpeed={data.animationSpeed}/>
+
 					<WorkOverview>
 						{ cases.map((item, index) => (
 							<CaseExtractSmall
@@ -35,11 +41,6 @@ const work = ({cases, data, fontsLoaded}) => (
 								slug={item.slug} />
 						))}
 					</WorkOverview>
-
-					<LogoCarousel
-						title={data.companiesTitle}
-						companies={data.companies}
-						animationSpeed={data.animationSpeed}/>
 				</div>
 			</article>
 			<Footer

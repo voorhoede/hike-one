@@ -27,9 +27,9 @@ const work = ({cases, data, fontsLoaded}) => (
 				<div className={`page-scrolling-content-small`}>
 
 					<LogoCarousel
-						title={data.companiesTitle}
-						companies={data.companies}
-						animationSpeed={data.animationSpeed}/>
+						title={data.logoCarousel.title}
+						companies={data.logoCarousel.companies}
+						animationSpeed={data.logoCarousel.animationSpeed}/>
 
 					<WorkOverview>
 						{ cases.map((item, index) => (
@@ -43,11 +43,6 @@ const work = ({cases, data, fontsLoaded}) => (
 								slug={item.slug} />
 						))}
 					</WorkOverview>
-
-					<LogoCarousel
-						title={data.companiesTitle}
-						companies={data.companies}
-						animationSpeed={data.animationSpeed}/>
 					<Contact
 						title={data.contact.title}
 						button={data.contact.button} >

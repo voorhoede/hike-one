@@ -18,6 +18,7 @@ import CaseExtractSmall from '../components/case-extract-small/case-extract-smal
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import TextCenter from '../components/text-center/text-center';
+import LogoCarousel from '../components/logo-carousel/logo-carousel';
 
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -61,6 +62,15 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							return (
 								<FullWidthImageSmall key={index} image={component.image.url} />
 							);
+						case 'logo_carousel':
+							return (
+								<LogoCarousel
+									key={index}
+									title={component.title}
+									companies={component.companies}
+									animationSpeed={component.animationSpeed}/>
+							);
+
 					}
 				})}
 

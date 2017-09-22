@@ -60,7 +60,10 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							);
 						case 'full_width_image_small':
 							return (
-								<FullWidthImageSmall key={index} image={component.image.url} />
+								<FullWidthImageSmall
+									key={index}
+									index={index}
+									image={component.image.url} />
 							);
 						case 'logo_carousel':
 							return (

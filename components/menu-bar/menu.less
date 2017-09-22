@@ -16,7 +16,7 @@
 	height: 100vh;
 	background: black;
 	opacity: 0;
-	z-index: 2;
+	z-index: 3;
 
 	.is-open & {
 		display: block;
@@ -32,7 +32,7 @@
 	height: 100vh;
 	padding: 13px 0 0 25px; // make logo's lineup
 	background: transparent;
-	z-index: 4;
+	z-index: 5;
 
 	.is-open & {
 		right: 0;
@@ -175,7 +175,7 @@
 .menu-background {
 	position: fixed;
 	right: 18px;
-	top: 10px;
+	top: 13px;
 	height: 50px;
 	fill: @black;
 	transform-origin: 0 0;
@@ -186,10 +186,20 @@
 		opacity: 1;
 	}
 
+	@media @screen-medium {
+		right: 18px;
+		top: 22px;
+	}
+
 	@media @screen-large {
+		height: 80px;
 		right: 35px;
 		top: 20px;
-		height: 80px;
+	}
+
+	@media @screen-1440 {
+		right: 45px;
+		top: 50px;
 	}
 }
 

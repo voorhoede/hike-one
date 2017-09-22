@@ -43,15 +43,11 @@ class Layout extends React.Component {
 					<title>{ seoTitle }</title>
 					<meta charset="utf-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui" />
-					<meta name="description" content="Hike One" />
 					<meta name="msapplication-TileColor" content="#ffffff" />
 					<meta name="msapplication-TileImage" content="/static/icons/mstile-150x150.png" />
-					<meta name="apple-mobile-web-app-capable" content="yes" />
-					<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 					<meta name="apple-mobile-web-app-title" content="Hike One" />
 					<meta name="application-name" content="Hike One" />
 					<meta name="format-detection" content="telephone=no" />
-					<meta name="theme-color" content="" />
 					<meta name="keywords" content={seoKeywords}/>
 					<meta name="description" content={description} />
 					<meta property="og:site_name" content="www.hike.one"/>

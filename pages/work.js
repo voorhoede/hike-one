@@ -3,6 +3,8 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import Contact from '../components/contact/contact';
+import * as ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import WorkOverview from '../components/work-overview/work-overview';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
@@ -40,6 +42,12 @@ const work = ({cases, data, fontsLoaded}) => (
 						title={data.companiesTitle}
 						companies={data.companies}
 						animationSpeed={data.animationSpeed}/>
+
+					<Contact
+						title={data.contact.title}
+						button={data.contact.button} >
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
 				</div>
 			</article>
 			<Footer

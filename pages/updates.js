@@ -18,8 +18,9 @@ const updates = ({Data, updatesData, fontsLoaded}) => {
 				<article className="article">
 					<PageHeader
 						isSmall={true}
-						title={Data.title}
-						image={Data.headerImage.url} />
+						title={Data.header.title}
+						subtitle={Data.header.subtitle}
+						image={Data.header.backgroundImage.url}/>
 					<div className={`page-scrolling-content-small`}>
 						<UpdateOverview>
 							{ updatesData.map((item, index) => (

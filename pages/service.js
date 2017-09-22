@@ -29,10 +29,11 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 			<MenuBar color="white" />
 			<article className="article">
 
-			<PageHeader
-				isSmall={true}
-				title="Our Services"
-				image={'https://www.datocms-assets.com/2625/1502370433-service-header.jpg?'} />
+				<PageHeader
+					isSmall={true}
+					title={Data.header.title}
+					subtitle={Data.header.subtitle}
+					image={Data.header.backgroundImage.url}/>
 
 				<div className={`page-scrolling-content-small`}>
 					<TabSelector

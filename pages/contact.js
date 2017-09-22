@@ -7,60 +7,54 @@ import OfficeCard from '../components/office-card/office-card';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import Footer from '../components/footer/footer';
-import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 import PageHeader from '../components/page-header/page-header';
 
-const Contact = ({Data, fontsLoaded}) => {
-	const scrollToTargetClass = 'js-scroll-to-target';
+const Contact = ({Data, fontsLoaded}) => (
+	<Layout title="Hike One - Contact"
+			fontsLoaded={fontsLoaded}
+			seo={Data.seo}
+			keywords={Data.keywords}>
+		<main className="main js-main" >
+			<MenuBar color="white" />
+			<article className="article">
+				<PageHeader
+					isSmall={true}
+					title={Data.header.title}
+					subtitle={Data.header.subtitle}
+					image={Data.header.backgroundImage.url}/>
 
-	return (
-		<Layout title="Hike One - Contact"
-				fontsLoaded={fontsLoaded}
-				seo={Data.seo}
-				keywords={Data.keywords}>
-			<main className="main js-main" >
-				<MenuBar color="white" />
-				<article className="article">
-					<PageHeader
-						isSmall={true}
-						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title={Data.headerTitle}
-						subtitle={Data.headerSubtitle}
-						image={Data.headerImage.url} >
-					</PageHeader>
-					
-					<div className={`page-scrolling-content-small`}>
-						<TextCenter
-							classes={`text-center-font-large ${scrollToTargetClass}`}
-							text={Data.content}>
-							<TextCenterShapes.variation2Back position="back" />
-						</TextCenter>
+				<div className={`page-scrolling-content-small`}>
+					<TextCenter
+						classes={`text-center-font-large`}
+						text={Data.content}>
+						<TextCenterShapes.variation2Back position="back" />
+					</TextCenter>
 
-						<OfficeOverview>
-							{ Data.office.map((item, index) => (
-								<OfficeCard
-									key={index}
-									index={index}
-									location={item.location}
-									address={item.address}
-									postcode={item.postcode}
-									city={item.city}
-									country={item.country}
-									locationUrl={item.locationUrl}
-									imageUrl={item.image.url} />
-							))}
-						</OfficeOverview>
-					</div>
-				</article>
+					<OfficeOverview>
+						{ Data.office.map((item, index) => (
+							<OfficeCard
+								key={index}
+								index={index}
+								location={item.location}
+								address={item.address}
+								postcode={item.postcode}
+								city={item.city}
+								country={item.country}
+								locationUrl={item.locationUrl}
+								imageUrl={item.image.url} />
+						))}
+					</OfficeOverview>
+				</div>
+			</article>
 
-				<Footer
-					callToActionLabel={Data.footer.callToActionLabel}
-					callToActionUrl={Data.footer.callToActionUrl} />
-			</main>
-		</Layout>
-	);
-};
+			<Footer
+				callToActionLabel={Data.footer.callToActionLabel}
+				callToActionUrl={Data.footer.callToActionUrl} />
+		</main>
+	</Layout>
+);
+
 
 Contact.getInitialProps = async ({req}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';

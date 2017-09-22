@@ -6,55 +6,49 @@ import CaseExtractSmall from '../components/case-extract-small/case-extract-smal
 import Footer from '../components/footer/footer';
 import WorkOverview from '../components/work-overview/work-overview';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
-
-import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const work = ({cases, data, fontsLoaded}) => {
-	const scrollToTargetClass = 'js-scroll-to-target';
+const work = ({cases, data, fontsLoaded}) => (
+	<Layout title="Hike One - Case"
+			fontsLoaded={fontsLoaded}
+			seo={data.seo}
+			keywords={data.keywords}>
+		<main className="main js-main">
+			<MenuBar color="white" />
+			<article className="article work">
+				<PageHeader
+					isSmall={true}
+					title={data.header.title}
+					subtitle={data.header.subtitle}
+					image={data.header.backgroundImage.url}/>
 
-	return (
-		<Layout title="Hike One - Case"
-				fontsLoaded={fontsLoaded}
-				seo={data.seo}
-				keywords={data.keywords}>
-			<main className="main js-main">
-				<MenuBar color="white" />
-				<article className="article work">
-					<PageHeader
-						isSmall={true}
-						onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
-						title={data.title}
-						subtitle={data.headerSubtitle}
-						image={data.headerImage.url} />
+				<div className={`page-scrolling-content-small`}>
+					<WorkOverview>
+						{ cases.map((item, index) => (
+							<CaseExtractSmall
+								key={index}
+								title={item.header.title}
+								subtitle={item.header.subtitle}
+								image={item.header.backgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug} />
+						))}
+					</WorkOverview>
 
-					<div className={`page-scrolling-content-small`}>
-						<WorkOverview classes={scrollToTargetClass}>
-							{ cases.map((item, index) => (
-								<CaseExtractSmall
-									key={index}
-									title={item.header.title}
-									subtitle={item.header.subtitle}
-									image={item.header.backgroundImage}
-									companyName={item.companyName}
-									color={item.caseThemeColor.hex}
-									slug={item.slug} />
-							))}
-						</WorkOverview>
+					<LogoCarousel
+						title={data.companiesTitle}
+						companies={data.companies}
+						animationSpeed={data.animationSpeed}/>
+				</div>
+			</article>
+			<Footer
+				callToActionLabel={data.footer.callToActionLabel}
+				callToActionUrl={data.footer.callToActionUrl} />
+		</main>
+	</Layout>
+);
 
-						<LogoCarousel
-							title={data.companiesTitle}
-							companies={data.companies}
-							animationSpeed={data.animationSpeed}/>
-					</div>
-				</article>
-				<Footer
-					callToActionLabel={data.footer.callToActionLabel}
-					callToActionUrl={data.footer.callToActionUrl} />
-			</main>
-		</Layout>
-	);
-};
 
 work.getInitialProps = async ({req}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';

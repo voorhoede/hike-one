@@ -110,13 +110,13 @@ class PageHeader extends React.Component {
 				}` : '' }
 			}		
 			</style>`};
-		
+
 		return (
 			<section
 				ref={node => this.element = node}
 				className={`page-header
 					${props.showGradient ? 'show-gradient': ''}
-					${props.isSmall ? 'page-header-small' : ''} 
+					${props.isSmall ? 'page-header-small' : ''}
 					${this.state.showVideo ? 'show-video': ''}`}>
 				{ parallaxLayerBack }
 				{ props.video &&
@@ -130,8 +130,10 @@ class PageHeader extends React.Component {
 				<div className="page-header-inner container">
 					<div ref={node => this.parallaxLayer = node}>
 						<h1 className="page-header-title ">{props.title}</h1>
-						<p className="page-header-subtitle">{props.subtitle}</p>
-						{ props.onClickScrollButton && 
+						{ props.subtitle &&
+							<p className="page-header-subtitle">{props.subtitle}</p>
+						}
+						{ props.onClickScrollButton &&
 							<button className="page-header-button"
 									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
 								<Icon icon="arrowDownCircle" />
@@ -140,7 +142,7 @@ class PageHeader extends React.Component {
 					</div>
 				</div>
 				<div dangerouslySetInnerHTML={style}></div>
-				{parallaxLayerFront}				
+				{parallaxLayerFront}
 			</section>
 		);
 	}

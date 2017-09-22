@@ -44,6 +44,10 @@ const work = ({cases, data, fontsLoaded}) => (
 						))}
 					</WorkOverview>
 
+					<LogoCarousel
+						title={data.companiesTitle}
+						companies={data.companies}
+						animationSpeed={data.animationSpeed}/>
 					<Contact
 						title={data.contact.title}
 						button={data.contact.button} >

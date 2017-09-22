@@ -70,7 +70,8 @@
     "react-dom": "15.6.1",
     "request": "2.81.0",
     "rimraf": "2.6.1",
-    "webpack": "3.5.5"
+    "webpack": "3.5.5",
+    "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
     "ngrok": "2.2.22"

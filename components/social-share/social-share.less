@@ -18,13 +18,49 @@
 		right: 0;
 		top: 240px;
 
-		box-shadow: 0px 10px 100px 0px fade(@black, 15%);
+		box-shadow: 0 10px 100px 0 fade(@black, 15%);
 	}
 }
 
 .social-share-item {
+	margin-right: @spacing-default;
+
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:hover {
+		svg path {
+			transition: fill .1s;
+		}
+
+		.facebook-blue path {
+			fill: darken(@facebook-blue, 10%);
+		}
+		.twitter-blue path {
+			fill: darken(@twitter-blue, 10%);
+		}
+		.linkedin-blue path {
+			fill: darken(@linkedin-blue, 10%);
+		}
+	}
+
 	svg {
-		width: 42px;
-		height: 42px;
+		width: 56px;
+		height: 56px;
+	}
+
+	svg path {
+		transition: fill .3s;
+	}
+
+	@media @screen-medium {
+		margin-right: 0;
+
+		svg {
+			width: 42px;
+			height: 42px;
+		}
 	}
 }

@@ -37,9 +37,9 @@ const work = ({cases, data, fontsLoaded}) => (
 					</WorkOverview>
 
 					<LogoCarousel
-						title={data.companiesTitle}
-						companies={data.companies}
-						animationSpeed={data.animationSpeed}/>
+						title={data.logoCarousel.title}
+						companies={data.logoCarousel.companies}
+						animationSpeed={data.logoCarousel.animationSpeed}/>
 				</div>
 			</article>
 			<Footer

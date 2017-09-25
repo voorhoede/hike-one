@@ -204,12 +204,20 @@
 
 
 .footer .menu-social {
-	width: 70%;
-	margin: 0 auto @spacing-small 0;
+	width: 100%;
+	margin: 0 auto @spacing-half 0;
+
+	@media @screen-small {
+		width: 70%;
+		margin: 0 auto @spacing-small 0;
+	}
 
 	@media @screen-medium {
 		width: 100%;
-		margin: 0 auto @spacing-half 0;
+	}
+
+	@media @screen-large {
+		width: 80%;
 	}
 }
 

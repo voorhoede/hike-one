@@ -4,28 +4,6 @@
 	width: 100%;
 	text-align: center;
 	background: @white;
-
-	&::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 160px;
-		z-index: 2;
-		background: linear-gradient(168deg, fade(@black, 30%),
-		fade(@black, 0%)  50%);
-
-		@media @screen-medium {
-			height: 200px;
-			width: 690px;
-			background: linear-gradient(161deg, fade(@black, 30%),
-			fade(@black, 0%) 30%);
-		}
-		@media @screen-large {
-			height: 550px;
-		}
-	}
 }
 
 .header-logo-wrapper {

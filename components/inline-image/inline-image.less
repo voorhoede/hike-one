@@ -29,8 +29,8 @@
 	font-weight: @font-weight-normal;
 	text-align: center;
 	p {
-		font-size: @body-text-s;
-		line-height: @line-height-body-small-l;
+		font-size: @body-text-small-m;
+		line-height: @line-height-body-small-s;
 	}
 
 	img {
@@ -42,7 +42,8 @@
 	@media @screen-medium {
 		p {
 			margin-top: @spacing-default;
-
+			font-size: @body-text-s;
+			line-height: @line-height-body-small-l;
 		}
 		max-width: @column-large-7;
 		margin-bottom: @spacing-large*2;
@@ -53,7 +54,6 @@
 }
 
 .inline-image-container {
-	height: 230px;
 	width: 100%;
 	overflow: hidden;
 

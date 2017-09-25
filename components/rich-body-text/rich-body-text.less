@@ -1,8 +1,12 @@
 .rich-body-text {
 	max-width: @column-large-7;
-	margin: 0 auto @spacing-default auto;
+	margin: 0 auto @spacing-default * 4 auto;
 	padding: 0 @spacing-default*1.5 0 @spacing-default*1.5;
-	
+
+	@media @screen-medium {
+		margin-bottom: @spacing-large*2;
+	}
+
 	a {
         &,
         &:visited {
@@ -13,7 +17,7 @@
             text-decoration: underline;
         }
 	}
-	
+
 	h2 {
 		font-size: @heading-small-s;
 		line-height: @line-height-header-small-s;
@@ -86,7 +90,6 @@
 		}
 
 		@media @screen-large {
-			margin-bottom: @spacing-large*2;
 			padding-left: 0;
 			font-size: @body-text-l;
 			line-height: @line-height-body-l;

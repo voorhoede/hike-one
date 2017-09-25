@@ -22,8 +22,7 @@ const Team = ({ Data, fontsLoaded }) => {
 	return (
 		<Layout title="Hike One - Team"
 				fontsLoaded={fontsLoaded}
-				seo={Data.seo}
-				keywords={Data.keywords}>
+				seo={Data.seo}>
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article">

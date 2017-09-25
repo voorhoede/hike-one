@@ -13,8 +13,7 @@ import cookie from '../components/_helpers/cookie';
 const work = ({cases, data, fontsLoaded}) => (
 	<Layout title="Hike One - Case"
 			fontsLoaded={fontsLoaded}
-			seo={data.seo}
-			keywords={data.keywords}>
+			seo={data.seo}>
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article work">

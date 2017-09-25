@@ -23,8 +23,7 @@ import LogoCarousel from '../components/logo-carousel/logo-carousel';
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
 			fontsLoaded={fontsLoaded}
-			seo={Data.seo}
-			keywords={Data.keywords}>
+			seo={Data.seo}>
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">

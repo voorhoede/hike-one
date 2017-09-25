@@ -31,11 +31,10 @@ class Layout extends React.Component {
 	}
 
 	render() {
-		const {title = 'Hike One', children, seo, keywords, classes} = this.props;
+		const {title = 'Hike One', children, seo, classes} = this.props;
 		const socialImage = seo && seo.image ? seo.image.url : '/static/images/hikeone-default-social.jpg';
 		const description = seo && seo.description.length > 0 ? seo.description : `We guide you to new and better products. Let\'s go!`;
 		const seoTitle = seo && seo.title ? seo.title : title;
-		const seoKeywords = keywords ? keywords : 'Hike One';
 
 		return (
 			<div>
@@ -48,7 +47,6 @@ class Layout extends React.Component {
 					<meta name="apple-mobile-web-app-title" content="Hike One" />
 					<meta name="application-name" content="Hike One" />
 					<meta name="format-detection" content="telephone=no" />
-					<meta name="keywords" content={seoKeywords}/>
 					<meta name="description" content={description} />
 					<meta property="og:site_name" content="www.hike.one"/>
 					<meta property="og:title" content={seoTitle}/>

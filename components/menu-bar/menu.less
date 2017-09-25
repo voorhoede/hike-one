@@ -72,6 +72,14 @@
 	transform: translateX(30px);
 	opacity: 0;
 
+	&.menu-item-logo {
+		margin-bottom: @spacing-default * 3;
+	}
+
+	&.menu-item-last {
+		margin-bottom: @spacing-default * 3;
+	}
+
 	@media @screen-medium {
 		transform: rotate(22deg) translateX(30px);
 		transform-origin: 0 0;
@@ -155,6 +163,7 @@
 
 .menu .menu-social {
 	display: inline-block;
+	margin-left: -6px;
 
 	a {
 		display: inline-block;

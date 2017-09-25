@@ -99,7 +99,7 @@
 }
 
 .footer-link-list a {
-	transition: color .3s;
+	transition: color @animation-speeld-out;
 	color: @white;
 	text-decoration: none;
 	font-weight: @font-weight-normal;
@@ -118,6 +118,7 @@
 
 	&:hover {
 		color: @red;
+		transition: color @animation-speed-in;
 	}
 }
 
@@ -132,7 +133,7 @@
     margin-bottom: @spacing-medium;
 	border-top: 1px solid #717171;
 	border-bottom: 1px solid #717171;
-	transition: color .3s;
+	transition: color @animation-speeld-out;
 
 	@media @screen-medium {
 	    margin-bottom: @spacing-extra-large;
@@ -148,7 +149,9 @@
 
 	&:hover {
 		color: @red;
+		transition: color @animation-speed-in;
 		span > svg > path {
+			transition: fill @animation-speed-in;
 			fill: @red;
 		}
 	}
@@ -163,7 +166,7 @@
 	height: 35px;
 
 	path {
-		transition: fill .3s;
+		transition: fill @animation-speeld-out;
 		fill: @white;
 	}
 
@@ -192,12 +195,13 @@
 
 .footer-contact-tel,
 .footer-contact-email {
-	transition: color .3s;
+	transition: color @animation-speeld-out;
 	color: @white;
 	text-decoration: none;
 	display:block;
 
 	&:hover {
+		transition: color @animation-speed-in;
 		color: @red;
 	}
 }

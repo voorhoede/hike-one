@@ -93,6 +93,10 @@
 		font-size: @heading-l;
 		line-height: @line-height-heading-l;
 	}
+
+	.full-width-header-text-dark & {
+		color: @black;
+	}
 }
 
 .full-width-header-author {
@@ -102,6 +106,10 @@
 	font-size: @body-text-s;
 	line-height: @line-height-body-small-l;
 	font-weight: @font-weight-normal;
+
+	.full-width-header-text-dark & {
+		color: @black;
+	}
 }
 
 .full-width-header-link {
@@ -131,6 +139,13 @@
 			animation-fill-mode: forwards;
 			animation-name: horizontal-spring-icon-to-left;
 			animation-timing-function: ease-in-out;
+		}
+	}
+
+	.full-width-header-text-dark & {
+		color: @black;
+		.icon {
+			fill: @black;
 		}
 	}
 }

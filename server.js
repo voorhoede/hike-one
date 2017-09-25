@@ -4,6 +4,8 @@ const getSitemap = require('./lib/sitemap');
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
+const shrinkRay = require('shrink-ray');
 
 const dev = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
@@ -16,6 +18,8 @@ const startServer = () => server.listen(port, (err) => {
 	console.log(`> Ready on http://localhost:${port}`);
 });
 
+server.use(helmet());
+server.use(shrinkRay());
 server.use('/sitemap.xml', getSitemap);
 server.use(express.static('./static/root'));
 server.use(cookieParser());

@@ -33,7 +33,7 @@ const FullWidthHeader = ({headerImage='', color='', title='', authorName='', upd
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className="full-width-header-image"></div>
 			<div className="full-width-header-banner" style={{backgroundColor:`${color}`}}>
-				<div className="full-width-header-back" style={{backgroundColor:`${color}`}}>
+				<div className="full-width-header-back" style={{backgroundColor:`${ color}`}}>
 					{ !titleOnly &&
 					<Link href={`/updates`}  as={`/updates`}>
 						<a className="full-width-header-link">

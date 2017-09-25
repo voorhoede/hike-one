@@ -83,9 +83,9 @@ class PageHeader extends React.Component {
 		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
-		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 768} )}`;
-		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1170} )}`;
-		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 1244} )}`;
+		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 1000} )}`;
+		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1500} )}`;
+		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 2000} )}`;
 
 		const style ={__html:
 			`<style>

@@ -151,9 +151,10 @@ const Case = ({Data, fontsLoaded}) => (
 								return (
 									<ImageCombo
 										key={index}
-										classes={ component.textTitle ? 'image-combo-text': ''} >
+										classes={ component.textTitle.length > 1 ? 'image-combo-text': ''} >
 
-										{ component.textTitle &&
+										{ component.textTitle.length > 1 &&
+
 										<TextCard
 											title={component.textTitle}
 											text={component.textContent} />

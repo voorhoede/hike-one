@@ -5,29 +5,27 @@ import getDateFormat from '../_helpers/getDateFormat';
 const FullWidthHeader = ({headerImage='', color='', title='', authorName='', updatedDate='', titleOnly = false}) => (
 	<div className="full-width-header">
 		<div className="full-width-header-image" style={{backgroundImage: `url(${headerImage})`}}></div>
-		<div className="full-width-header-inner-container">
-			<div className="full-width-header-text shadow" style={{backgroundColor:`${color}`}}>
-
+		<div className="full-width-header-banner" style={{backgroundColor:`${color}`}}>
+			<div className="full-width-header-back" style={{backgroundColor:`${color}`}}>
 				{ !titleOnly &&
-				<div className="full-width-header-back">
-					<Link href={`/updates`}  as={`/updates`}>
-						<a className="full-width-header-back-container">
-							<Icon icon="arrowLeft" classes="icon"/>
-							<span className="full-width-header-subtitle">all updates</span>
-						</a>
-					</Link>
-				</div>
+				<Link href={`/updates`}  as={`/updates`}>
+					<a className="full-width-header-link">
+						<Icon icon="arrowLeft" classes="icon"/>
+						<span className="full-width-header-subtitle">all updates</span>
+					</a>
+				</Link>
 				}
-				<div className="full-width-header-text-container">
-					<h1 className="full-width-header-title">{title}</h1>
-					{ !titleOnly &&
-						<span className="full-width-header-author">
-							{authorName} - {`${getDateFormat(updatedDate)}`}
-						</span>
-					}
-				</div>
 			</div>
+			<div className="full-width-header-content" style={{backgroundColor:`${color}`}}>
+				<h1 className="full-width-header-title">{title}</h1>
+				{ !titleOnly &&
+				<span className="full-width-header-author">
+						{authorName} - {`${getDateFormat(updatedDate)}`}
+					</span>
+				}
+			</div>
+			<div></div>
 		</div>
 	</div>
-)
+);
 export default FullWidthHeader;

@@ -1,6 +1,8 @@
 const apiRouter = require('./lib/api-router');
 const dataLoader = require('./lib/data-loader');
 const getSitemap = require('./lib/sitemap');
+const redirection = require('./lib/www-redirect');
+
 const express = require('express');
 const next = require('next');
 const cookieParser = require('cookie-parser');
@@ -22,6 +24,7 @@ server.use(compression());
 server.use(helmet());
 server.use('/sitemap.xml', getSitemap);
 server.use(express.static('./static/root'));
+server.use(redirection);
 server.use(cookieParser());
 server.use('/api/', apiRouter);
 server.use('/guide/', express.static('./build/guide/'));

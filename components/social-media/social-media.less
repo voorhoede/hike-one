@@ -13,7 +13,7 @@
 		height: 50px;
 
 		path {
-			transition: fill .3s;
+			transition: fill @animation-speed-out;
 			fill: @dark-gray;
 		}
 	}
@@ -25,6 +25,7 @@
 
 	&:hover {
 		svg path {
+			transition: fill @animation-speed-in;
 			fill: @white;
 		}
 	}

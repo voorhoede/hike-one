@@ -17,6 +17,14 @@
 	}
 }
 
+.case-extract-small-overlay {
+	width: 100%;
+	height: 100%;
+	background-color: @black;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
 .case-extract-small {
 	position: relative;
 	max-height: 321px;
@@ -40,8 +48,12 @@
 		padding-bottom: 0;
 		max-height: 473px;
 		margin: 0 0 @spacing-large*2 0;
-		
+
 		&:hover {
+
+			.case-extract-small-overlay {
+				opacity: .2;
+			}
 
 			.case-extract-small-text > h4,
 			.case-extract-small-button {
@@ -67,6 +79,7 @@
 
 .case-extract-small-bg {
 	.shadow;
+	position: relative;
 	display: block;
 	height: 150px;
     width: auto;
@@ -75,19 +88,20 @@
 
 .case-extract-small-bg-inner {
 	transform-origin: left bottom;
-	transition: transform 0.5s;
+	transition: transform 0.3s;
 	width: 100%;
 	height: 100%;
 }
 
 .case-extract-small-text {
+	position: relative;
 	padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
 	margin: -150px @spacing-default*1.5 0 @spacing-default*1.5;
 	color: @white;
 	text-decoration: none;
 	transform-origin: left bottom;
-	transition: transform 0.5s;
-	
+	transition: transform 0.3s;
+
 	.case-extract-text-dark & {
 		color: @black;
 	}

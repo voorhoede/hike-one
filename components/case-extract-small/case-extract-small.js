@@ -21,7 +21,9 @@ const CaseExtractSmall = ({
 			<Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
 				<a className="">
 					<div className="case-extract-small-image"
-					style={{backgroundImage: `url(${setImageParameters(image.url, {w:700, fm: 'pjpg', q: 85})})`}}></div>
+					style={{backgroundImage: `url(${setImageParameters(image.url, {w:700, fm: 'pjpg', q: 85})})`}}>
+						<div className="case-extract-small-overlay"></div>
+					</div>
 					<div className="case-extract-small-bg">
 						<div className="case-extract-small-bg-inner" style={{backgroundColor: color}}></div>
 					</div>

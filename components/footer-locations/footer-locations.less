@@ -69,9 +69,10 @@
 		font-size: @body-text-l;
 	}
 
-	transition: color .3s;
+	transition: color @animation-speed-out;
 
 	&:hover {
+		transition: color @animation-speed-in;
 		color: @red;
 	}
 
@@ -123,10 +124,11 @@
 	font-size: @body-text-small-s;
 	line-height: @line-height-body-small-s;
 	font-weight: @font-weight-normal;
-	transition: color .3s;
+	transition: color @animation-speed-out;
 	color: @white;
 
 	&:hover {
+		transition: color @animation-speed-in;
 		color: @red;
 	}
 

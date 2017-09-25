@@ -11,7 +11,7 @@
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	font-weight: @font-weight-normal;
-	transition: background 0.3s ease, color 0.3s ease, transform .3s ease;
+	transition: background @animation-speed-out ease, color @animation-speed-out ease, transform @animation-speed-out ease;
 
 	.fonts-loaded & {
 		font-family: @font-main;
@@ -35,7 +35,7 @@
 		position: absolute;
 		margin-top: 2px;
 		margin-left: 8px;
-		animation-duration: .3s;
+		animation-duration: @animation-speed-out;
 		animation-timing-function: linear;
 		animation-fill-mode: forwards;
 		animation-name: horizontal-spring-icon-from;
@@ -46,7 +46,7 @@
 		}
 
 		svg path {
-			transition: fill 0.3s ease;
+			transition: fill @animation-speed-out ease;
 		}
 	}
 

@@ -1,6 +1,5 @@
 import Icon from '../icon/icon';
 import Link from 'next/link';
-import getContrastYIQ from '../_helpers/getContrastYIQ';
 import setImageParameters from '../_helpers/setImageParameters';
 
 const CaseExtractSmall = ({
@@ -16,8 +15,7 @@ const CaseExtractSmall = ({
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 
 	return (
-		<div className={`case-extract-small
-			${ getContrastYIQ(color) === 'black' ? 'case-extract-text-dark' : '' }`}>
+		<div className="case-extract-small">
 			<Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
 				<a className="">
 					<div className="case-extract-small-image"

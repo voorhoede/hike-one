@@ -31,7 +31,7 @@ const Contact = ({Data, fontsLoaded}) => (
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
-					<OfficeOverview>
+					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (
 							<OfficeCard
 								key={index}

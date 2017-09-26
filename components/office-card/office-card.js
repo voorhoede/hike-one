@@ -50,7 +50,7 @@ const OfficeCard = ({
 				</div>
 
 				<div className="office-card-text">
-					<h2>{location}</h2>
+					<h3>{location}</h3>
 
 					<div className="office-card-address">
 						<span>{address}</span>

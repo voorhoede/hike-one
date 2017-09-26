@@ -244,7 +244,9 @@ const Case = ({Data, fontsLoaded}) => (
 							key={index}
 							title={update.title}
 							author={update.author.name}
-							date={getDateFormat(update.date)} />
+							date={getDateFormat(update.date)}
+							target={update.link}
+							external={update.isExternalLink} />
 					))}
 				</UpdateLinks>
 

@@ -1,4 +1,4 @@
-# hike one 
+# Hike one 
 [![Build Status](https://travis-ci.org/voorhoede/hike-one.svg?branch=master)](https://travis-ci.org/voorhoede/hike-one)
 
 Website for Hike One
@@ -33,31 +33,52 @@ This will build and then serve the website on:
 
 Also watches for changes. 
 
-<!-- uncomment after release -->
-<!-- ## Deployment -->
-<!-- [Travis](https://travis-ci.org) handles deployments. Travis will install [now](https://zeit.co/now) -->
-<!-- and execute `deploy.sh`, which deploys hike one to the environment  -->
-<!-- determined by the branch name found in `$TRAVIS_BRANCH`. -->
+## Deployment
+ [Travis](https://travis-ci.org) handles deployments. Travis will install [now](https://zeit.co/now)
+ and execute `deploy.sh`, which deploys hike one to the environment 
+ determined by the branch name found in `$TRAVIS_BRANCH`.
 
-<!-- ### Staging -->
-<!-- Code pushed to the **master** branch at github will trigger a deployment to  -->
-<!-- [**staging**](https://staging.hikeone.nl) -->
+### Staging
+ Code pushed to the **master** branch at github will trigger a deployment to 
+ [**staging**](https://staging.hike.one)
 
-<!-- ### Production  -->
-<!-- If Travis encounters a new **tag**, a production deployment will happen. -->
+### Production 
+ If Travis encounters a new **tag**, a production deployment will happen to [**production**](https://hike.one)
 
-<!-- 1. Tags need to be explicitly pushed to the git remote. -->
+ 1. Tags need to be explicitly pushed to the git remote.
 
-<!-- ```sh -->
-<!-- # Create a tag -->
-<!-- $ git tag v1.2.3 -->
+ ```sh
+ # Create a tag
+ $ git tag v1.2.3
 
-<!-- # push to remote -->
-<!-- $ git push --tags -->
-<!-- ``` -->
+ # push to remote
+ $ git push --tags
+ ```
 
-<!-- 2.  Tags must match the following pattern: -->
-<!-- **v0.1.2** (Three groups of digits, separated by periods, prefixed with a lowercase letter "v") -->
+ 2.  Tags must match the following pattern:
+ **v0.1.2** (Three groups of digits, separated by periods, prefixed with a lowercase letter "v")
+ 
+## NPM Scripts
+Most important npm scripst
+
+`npm run ...` | Description
+---|---
+`start`| Serves website with production env set (run `npm run build` first)
+`build`| builds website to `/build` folder
+`build:dato` | Get latest data from datoCMS (included in `npm run build`)
+`dev`| Serves website in development mode
+`proxy` | runs a proxy with the help of nrok
+
+ 
+## Technology Stack
+[reactJS](https://facebook.github.io/react/) javascript library for building the UI
+[Nextjs](https://github.com/zeit/next.js/) framework for server rendering reactJS  
+[GSAP](https://greensock.com/) for animations  
+[Less](http://lesscss.org/) as css preprocessor  
+[DatoCMS](https://www.datocms.com/) is used as CMS  
+[Imgix](https://www.imgix.com/) for serving images via datoCMS  
+[Vimeo](https://vimeo.com/home) for serving videos  
+[Travis](https://travis-ci.org) handles deployments 
 
 ## Git Commit Messages
 

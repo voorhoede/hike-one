@@ -34,6 +34,10 @@
 		flex-grow: 1;
 	}
 
+	@media only screen and (min-width: 900px) {
+		width: 95%;
+	}
+
 	@media only screen and (min-width: 950px) {
 		width: 92%;
 	}
@@ -70,7 +74,11 @@
 		align-self: center;
 	}
 
-	@media only screen and (min-width: 950px) {
+	@media only screen and (min-width: 900px) {
+		margin-left: 5%;
+	}
+
+	@media only screen and (min-width: 900px) {
 		margin-left: 8%;
 	}
 
@@ -98,7 +106,7 @@
 
 .full-width-header-title {
 	font-size: @heading-s;
-	line-height: @line-height-subtitle-m;
+	line-height: @line-height-subtitle-s;
 	font-weight: @font-weight-bold;
 	color: @white;
 	margin-bottom: @spacing-default;

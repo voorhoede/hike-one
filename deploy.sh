@@ -12,17 +12,16 @@ set -euo pipefail;
 # The script will wait until the status of a deployment is either 'ready' or
 # 'build_error'
 
-# Required arguments:
+# Required environment variables
+# 1. TRAVIS_BRANCH: the branch name used by travis
+# 2. NOW_TOKEN: Authentication token for zeit.now
+# 3. DATO_API_TOKEN: Read-only authentication token for dato CMS
+# 4. RELOAD_TOKEN: token used to authenticate dato content update calls
+# 5. DATO_URL_STAGING: dato confirmation callback url for staging
+# 6. DATO_URL_PRODUCTION: dato confirmation callback url for production
 
-# 1. branch: the branch name used by travis
-# 2. now_token: Authentication token for zeit.now
-# 3. dato_api_token: Read-only authentication token for dato CMS
+# Usage: bash deploy-env.sh
 
-# Usage: bash deploy-env.sh <branch> <now_token> <dato_api_token>
-
-branch=$1;
-now_token=$2;
-dato_api_token=$3;
 poll_interval=20;
 poll_attempts=40;
 
@@ -35,13 +34,14 @@ poll_attempts=40;
 deployment_status () {
 	local environment=$1
 	local url=$2
-	now -t "$now_token" ls "$1" | grep "$url" | awk '{ print $3 }';
+	now -t "$NOW_TOKEN" ls "$1" | grep "$url" | awk '{ print $3 }';
 }
 
 deploy () {
 	# grab function arguments
 	local environment=$1;
-	local prefix=${2:-0}; # whether to prefix domain with environment or not
+	local url="$2";
+	local prefix=${3:-0}; # whether to prefix domain with environment or not
 
 	echo 'Start a now deployment';
 
@@ -51,9 +51,12 @@ deploy () {
 	# Check for errors that might have occurred in now deploy
 	if ! deployment=$(now deploy -C \
 		-n "$environment" \
-		-t "$now_token" \
-		-e DATO_API_TOKEN="$dato_api_token" \
-		-e NODE_ENV="$environment")
+		-t "$NOW_TOKEN" \
+		-e DATO_API_TOKEN="$DATO_API_TOKEN" \
+		-e RELOAD_TOKEN="$RELOAD_TOKEN" \
+		-e DATO_URL="$url" \
+		-e NODE_ENV="$environment" \
+		-e ENVIRONMENT="$environment")
 	then
 		echo "An error occurred while attempting to do now deploy";
 		exit 1;
@@ -108,7 +111,7 @@ deploy () {
 			domain="${environment}.${domain}";
 		fi
 		# Create an alias for the domain name to the current deployment url
-		now -t "$now_token" alias "$deployment" "$domain";
+		now -t "$NOW_TOKEN" alias "$deployment" "$domain";
 	done <./domains.txt; # Read urls from file
 
 	# save deployment id to global variable for future use.
@@ -116,16 +119,16 @@ deploy () {
 };
 
 # check if travis branch matches patterns.
-if grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"$branch";
+if grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"$TRAVIS_BRANCH";
 then
 	# branch name matches tag pattern = production deployment
-	deploy 'production';
+	deploy 'production' "$DATO_URL_PRODUCTION";
 	# Make sure production deployment is always running
-	now -t "$now_token" scale "$deployment_id" 1
-elif grep -qE '^master$' <<<"$branch";
+	now -t "$NOW_TOKEN" scale "$deployment_id" 1
+elif grep -qE '^master$' <<<"$TRAVIS_BRANCH";
 then
 	# deployment to staging environment with prefix enabled (staging.hike*.*)
-	deploy 'staging' 1;
+	deploy 'staging' "$DATO_URL_STAGING" 1;
 else
 	# nothing to deploy
 	echo 'nothing to deploy' >&2;

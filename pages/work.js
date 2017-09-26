@@ -31,16 +31,20 @@ const work = ({cases, data, fontsLoaded}) => (
 						animationSpeed={data.logoCarousel.animationSpeed}/>
 
 					<WorkOverview>
-						{ cases.map((item, index) => (
-							<CaseExtractSmall
-								key={index}
-								title={item.header.title}
-								subtitle={item.header.subtitle}
-								image={item.header.backgroundImage}
-								companyName={item.companyName}
-								color={item.caseThemeColor.hex}
-								slug={item.slug} />
-						))}
+						{ cases.map((item, index) => {
+							if (item.showInOverview) {
+								return (
+									<CaseExtractSmall
+										key={index}
+										title={item.header.title}
+										subtitle={item.header.subtitle}
+										image={item.header.backgroundImage}
+										companyName={item.companyName}
+										color={item.caseThemeColor.hex}
+										slug={item.slug} />
+								);
+							}
+						})}
 					</WorkOverview>
 					<Contact
 						title={data.contact.title}

@@ -1,4 +1,3 @@
-import getContrastYIQ from '../_helpers/getContrastYIQ';
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 
@@ -25,8 +24,7 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 		</style>`};
 
 	return (
-		<a href={target} target={external ? '_blank': ''} className={`update-extract-small
-			${ getContrastYIQ(color) === 'black' ? 'update-extract-small-text-dark' : '' }`}>
+		<a href={target} target={external ? '_blank': ''} className="update-extract-small">
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`update-extract-small-image-${index} update-extract-small-image`}></div>
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>
@@ -35,8 +33,6 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
 				{ `${getDateFormat(date)}` } - {author}</span>
 			</div>
-
-			<div dangerouslySetInnerHTML={style}></div>
 		</a>
 	);
 };

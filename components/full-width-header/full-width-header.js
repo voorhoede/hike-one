@@ -1,6 +1,5 @@
 import Icon from '../icon/icon';
 import Link from 'next/link';
-import getContrastYIQ from '../_helpers/getContrastYIQ';
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 
@@ -28,8 +27,7 @@ const FullWidthHeader = ({headerImage='', color='', title='', authorName='', upd
 		</style>`};
 
 	return (
-		<div className={`full-width-header
-			${ getContrastYIQ(color) === 'black' ? 'full-width-header-text-dark' : '' }`}>
+		<div className="full-width-header">
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className="full-width-header-image"></div>
 			<div className="full-width-header-banner" style={{backgroundColor:`${color}`}}>

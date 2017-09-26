@@ -78,7 +78,8 @@ const Home = ({Data, fontsLoaded}) => {
 									target={item.link}
 									image={item.image.url}
 									category={item.category.name}
-									color={item.themeColor.hex} />
+									color={item.themeColor.hex}
+									external={item.isExternalLink} />
 							))}
 						</UpdateOverviewSmall>
 

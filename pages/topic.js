@@ -118,7 +118,8 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							target={item.link}
 							image={item.image.url}
 							category={item.category.name}
-							color={item.themeColor.hex} />
+							color={item.themeColor.hex}
+							external={item.isExternalLink} />
 					))}
 				</UpdateOverviewSmall>
 			</article>

@@ -1,7 +1,7 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 
-const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index, category = 'update'}) => {
+const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index, category = 'update', external = false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 
 	const style ={__html:
@@ -24,7 +24,7 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 		</style>`};
 
 	return (
-		<a href={target} target="_blank" className="update-extract-small">
+		<a href={target} target={external ? '_blank': ''} className="update-extract-small">
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`update-extract-small-image-${index} update-extract-small-image`}></div>
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>

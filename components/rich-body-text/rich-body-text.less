@@ -38,7 +38,7 @@
 	}
 
 	ul {
-		padding-left: @spacing-default * 2.5;
+		padding-left: @spacing-default * 3.5;
 		list-style: none;
 		@media @screen-large {
 			margin-bottom: @spacing-large*2;
@@ -46,6 +46,7 @@
 	}
 
 	ul li {
+		position: relative;
 		margin-bottom: @spacing-small;
 		font-size: @body-text-s;
 		line-height: @line-height-body-s;
@@ -57,9 +58,9 @@
 			display: inline-block;
 			width: 18px;
 			height: 18px;
-			position: relative;
-			top: 4px;
-			left: -25px;
+			position: absolute;
+			margin-top: 6px;
+			left: -@spacing-default * 3.5;
 		}
 
 		@media @screen-medium {

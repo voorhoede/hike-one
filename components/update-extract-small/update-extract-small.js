@@ -33,8 +33,6 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
 				{ `${getDateFormat(date)}` } - {author}</span>
 			</div>
-
-			<div dangerouslySetInnerHTML={style}></div>
 		</a>
 	);
 };

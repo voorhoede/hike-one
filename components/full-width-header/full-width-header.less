@@ -34,6 +34,14 @@
 		flex-grow: 1;
 	}
 
+	@media only screen and (min-width: 950px) {
+		width: 92%;
+	}
+
+	@media @screen-medium-large {
+		width: 90%;
+	}
+
 	@media @screen-large {
 		.no-shadow;
 		padding: 0;
@@ -62,10 +70,19 @@
 		align-self: center;
 	}
 
+	@media only screen and (min-width: 950px) {
+		margin-left: 8%;
+	}
+
+	@media @screen-medium-large {
+		margin-left: 10%;
+	}
+
 	@media @screen-large {
 		.shadow;
 		min-height: 200px;
 		max-width: @column-large-7;
+		margin-left: 0;
 		padding-top: @spacing-large;
 		padding-bottom: @spacing-large;
 		padding-right: @spacing-large;

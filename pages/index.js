@@ -1,5 +1,4 @@
  import React from 'react';
- import React from 'react';
 import "isomorphic-fetch";
 
 import Layout from '../components/layout/layout';

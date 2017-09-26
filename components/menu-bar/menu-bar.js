@@ -187,8 +187,8 @@ class Header extends React.Component {
 					onClick={this.toggleMenu}>
 
 					<svg className="menu-btn-background" ref={node => this.menuBtnBg = node}
-						 xmlns="http://www.w3.org/2000/svg" viewBox="225.979 1.727 267.839 305.383">
-						<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 "/>
+						xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 19">
+						<path d="M.446.011l16.287 4.156a.35.35 0 0 1 .214.523L8.16 18.832a.36.36 0 0 1-.634-.052L.026.483A.35.35 0 0 1 .223.026.361.361 0 0 1 .446.01z" />
 					</svg>
 
 					<span className="menu-btn-icon">

@@ -89,9 +89,7 @@ const Service = ({Data, services, updates, fontsLoaded}) => (
 						<ContactShapes.variation1Front position="front" />
 					</Contact>
 
-					<TextCenter title={Data.caseExtractTitle} />
-
-					<WorkOverview>
+					<WorkOverview header={Data.caseExtractTitle}>
 						{ Data.caseExtract.map((item, index) => (
 							<CaseExtractSmall
 								key={index}

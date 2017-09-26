@@ -2,7 +2,6 @@
 
 .update-link {
 	width: 100%;
-	transition: color .3s;
 }
 
 .update-link-title {
@@ -12,19 +11,21 @@
 	font-weight: @font-weight-bold;
 	font-size: @heading-small-s;
 	line-height: @line-height-header-small-s;
-	transition: color .3s;
+	transition: color .5s;
 
 	&:hover {
 		color: @red;
 		cursor: pointer;
+		transition: color .1s;
 
 		svg {
 			fill: @red;
+			transition: fill .1s;
 		}
 	}
 
 	svg {
-		transition: fill .3s;
+		transition: fill .5s;
 		width: 35px;
 		height: 35px;
 		vertical-align: middle;

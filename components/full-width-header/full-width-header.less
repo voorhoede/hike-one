@@ -3,11 +3,15 @@
 
 .full-width-header {
 	width: 100%;
-	margin: -@header-height-s auto @spacing-large*2 auto;
+	margin: -@header-height-s auto @spacing-default*4 auto;
+
+	@media @screen-medium {
+		margin-bottom: @spacing-default*5;
+	}
 
 	@media @screen-large {
 		margin-top: -@header-height;
-		margin-bottom: @spacing-large*3;
+		margin-bottom: @spacing-default*10;
 	}
 }
 

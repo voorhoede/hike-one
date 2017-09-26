@@ -147,13 +147,14 @@ const Case = ({Data, fontsLoaded}) => (
 									</FiftyFifty>
 								);
 							case 'image_combo':
+								const hasTextCard = !!(component.textTitle && component.textTitle.length > 1);
+
 								return (
 									<ImageCombo
 										key={index}
-										classes={component.textTitle && component.textTitle.length > 1 ?
-											'image-combo-text': ''} >
+										classes={hasTextCard ? 'image-combo-text': ''} >
 
-										{component.textTitle && component.textTitle.length > 1 &&
+										{ hasTextCard &&
 
 										<TextCard
 											title={component.textTitle}

@@ -55,7 +55,8 @@ deploy () {
 		-e DATO_API_TOKEN="$DATO_API_TOKEN" \
 		-e RELOAD_TOKEN="$RELOAD_TOKEN" \
 		-e DATO_URL="$url" \
-		-e NODE_ENV="$environment")
+		-e NODE_ENV="$environment" \
+		-e ENVIRONMENT="$environment")
 	then
 		echo "An error occurred while attempting to do now deploy";
 		exit 1;

@@ -31,7 +31,7 @@ class Layout extends React.Component {
 	}
 
 	render() {
-		const {title = 'Hike One', children, seo, classes} = this.props;
+		const {title = 'Hike One', children, seo, classes, url = 'https://hike.one'} = this.props;
 		const socialImage = seo && seo.image ? seo.image.url : '/static/images/hikeone-default-social.jpg';
 		const description = seo && seo.description.length > 0 ? seo.description : `We guide you to new and better products. Let\'s go!`;
 		const seoTitle = seo && seo.title ? seo.title : title;
@@ -48,10 +48,14 @@ class Layout extends React.Component {
 					<meta name="application-name" content="Hike One" />
 					<meta name="format-detection" content="telephone=no" />
 					<meta name="description" content={description} />
-					<meta property="og:site_name" content="www.hike.one"/>
+					<meta property="og:site_name" content="Hike One"/>
 					<meta property="og:title" content={seoTitle}/>
 					<meta property="og:description" content={description} />
+					<meta property="og:type" content="website" />
+					<meta property="og:url" content={url} />
 					<meta property="og:image" content={socialImage} />
+					{ seo && seo.image && <meta property="og:image:width" content={seo.image.width} /> }
+					{ seo && seo.image && <meta property="og:image:height" content={seo.image.height} /> }
 					<meta name="twitter:card" content="summary" />
 					<meta name="twitter:site" content="@hikeone" />
 					<link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png" />

@@ -18,11 +18,12 @@ import ImageCombo from '../components/image-combo/image-combo';
 import TeamImage from '../components/team-image/team-image';
 import cookie from '../components/_helpers/cookie';
 
-const Team = ({ Data, fontsLoaded }) => {
+const Team = ({ Data, fontsLoaded, fullUrl}) => {
 	return (
 		<Layout title="Hike One - Team"
 				fontsLoaded={fontsLoaded}
-				seo={Data.seo}>
+				seo={Data.seo}
+				url={fullUrl}>
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article">
@@ -148,8 +149,9 @@ const Team = ({ Data, fontsLoaded }) => {
 	);
 };
 
-Team.getInitialProps = async ({req}) => {
+Team.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/team`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
 	return { Data, fontsLoaded };

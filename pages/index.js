@@ -22,13 +22,14 @@ import UpdateOverviewSmall from '../components/update-overview-small/update-over
 import scrollToElement from '../components/_helpers/scrollToElement';
 import cookie from '../components/_helpers/cookie';
 
-const Home = ({Data, fontsLoaded}) => {
+const Home = ({Data, fontsLoaded, fullUrl}) => {
 	const scrollToTargetClass = 'js-scroll-to-target';
 
 	return (
 		<Layout title="Hike One - Home"
 			fontsLoaded={fontsLoaded}
-			seo={Data.seo}>
+			seo={Data.seo}
+			url={fullUrl} >
 			<main className="main js-main" >
 				<MenuBar color="white" />
 				<article className="article">
@@ -98,11 +99,12 @@ const Home = ({Data, fontsLoaded}) => {
 	);
 };
 
-Home.getInitialProps = async ({req}) => {
+Home.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/home`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data, fontsLoaded};
+	return {Data, fontsLoaded, fullUrl};
 };
 
 export default Home;

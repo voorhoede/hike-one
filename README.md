@@ -58,6 +58,8 @@ Also watches for changes.
  2.  Tags must match the following pattern:
  **v0.1.2** (Three groups of digits, separated by periods, prefixed with a lowercase letter "v")
  
+ You can follow the build process [here](https://travis-ci.org/voorhoede/hike-one)
+ 
 ## NPM Scripts
 Most important npm scripst
 

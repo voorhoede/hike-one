@@ -66,10 +66,11 @@ const parallaxLayersMap = {
 let componentCounter = {};
 const scrollToTargetClass = 'js-scroll-to-target';
 
-const Case = ({Data, fontsLoaded}) => (
+const Case = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
 			fontsLoaded={fontsLoaded}
-			seo={Data.seo}>
+			seo={Data.seo}
+			url={fullUrl} >
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
@@ -259,11 +260,12 @@ const Case = ({Data, fontsLoaded}) => (
 	</Layout>
 );
 
-Case.getInitialProps = async ({req, query}) => {
+Case.getInitialProps = async ({req, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/cases/${query.slug}`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data, fontsLoaded};
+	return {Data, fontsLoaded, fullUrl};
 };
 
 export default Case;

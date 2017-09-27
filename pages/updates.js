@@ -7,11 +7,12 @@ import UpdateExtractSmall from '../components/update-extract-small/update-extrac
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
 
-const updates = ({Data, updatesData, fontsLoaded}) => {
+const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 	return (
 		<Layout title="Hike One - Updates"
 				fontsLoaded={fontsLoaded}
-				seo={Data.seo}>
+				seo={Data.seo}
+				url={fullUrl} >
 			<main className="main js-main">
 				<MenuBar color="white" />
 				<article className="article">
@@ -46,13 +47,14 @@ const updates = ({Data, updatesData, fontsLoaded}) => {
 	);
 };
 
-updates.getInitialProps = async ({req}) => {
+updates.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const [ Data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data, updatesData, fontsLoaded };
+	return { Data, updatesData, fontsLoaded, fullUrl};
 };
 
 

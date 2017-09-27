@@ -118,15 +118,27 @@ deploy () {
 	deployment_id="$deployment";
 };
 
+robots () {
+	local robots="$1";
+	[ -f "$robots" ] && { \
+		echo "$robots --> robots.txt"; \
+		cp "$robots" robots.txt; \
+	}
+}
+
 # check if travis branch matches patterns.
 if grep -qE '^v[0-9]+\.[0-9]+\.[0-9]+$' <<<"$TRAVIS_BRANCH";
 then
+	# add robots.txt
+	robots 'robots-production.txt';
 	# branch name matches tag pattern = production deployment
 	deploy 'production' "$DATO_URL_PRODUCTION";
 	# Make sure production deployment is always running
 	now -t "$NOW_TOKEN" scale "$deployment_id" 1
 elif grep -qE '^master$' <<<"$TRAVIS_BRANCH";
 then
+	# add robots.txt
+	robots 'robots-staging.txt';
 	# deployment to staging environment with prefix enabled (staging.hike*.*)
 	deploy 'staging' "$DATO_URL_STAGING" 1;
 else

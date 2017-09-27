@@ -23,8 +23,13 @@ class PageHeader extends React.Component {
 		window.addEventListener('scroll', this.onScroll);
 
 		if (this.props.video) {
+			this.video.load();
 			this.video.addEventListener('loadeddata', this.showVideo);
 		}
+	}
+
+	componentWillReceiveProps() {
+		this.setState({showVideo: false});
 	}
 
 	componentWillUnmount() {
@@ -121,9 +126,9 @@ class PageHeader extends React.Component {
 				{ parallaxLayerBack }
 				{ props.video &&
 					<video ref={node => this.video = node}
+					    src={props.video}
 						className="page-header-video"
 						playsInline autoPlay muted loop>
-						<source src={props.video} type="video/mp4" />
 					</video>
 				}
 

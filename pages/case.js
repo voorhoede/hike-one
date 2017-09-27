@@ -27,6 +27,7 @@ import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
 import TextCard from '../components/text-card/text-card';
+import CallToAction from '../components/call-to-action/call-to-action';
 
 import WorkOverview from '../components/work-overview/work-overview';
 import UpdateLinks from '../components/update-links/update-links';
@@ -208,7 +209,6 @@ const Case = ({Data, fontsLoaded, fullUrl}) => (
 										<LogoList companies={component.companies} />
 									</div>
 								);
-
 							case 'text_center':
 								return (
 									<div key={index}>
@@ -216,6 +216,13 @@ const Case = ({Data, fontsLoaded, fullUrl}) => (
 											title={component.title}
 											text={component.text} />
 									</div>
+								);
+							case 'call_to_action':
+								return (
+									<CallToAction
+										key={index}
+										title={component.title}
+										url={component.url} />
 								);
 						}
 					})}

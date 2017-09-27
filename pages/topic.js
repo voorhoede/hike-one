@@ -19,6 +19,7 @@ import UpdateExtractSmall from '../components/update-extract-small/update-extrac
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import TextCenter from '../components/text-center/text-center';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
+import CallToAction from '../components/call-to-action/call-to-action';
 
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -73,6 +74,13 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 									companies={component.companies}
 									animationSpeed={component.animationSpeed}/>
 							);
+						case 'call_to_action':
+								return (
+									<CallToAction
+										key={index}
+										title={component.title}
+										url={component.url} />
+								);
 
 					}
 				})}

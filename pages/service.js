@@ -25,7 +25,7 @@ const Service = ({Data, services, updates, fontsLoaded, fullUrl}) => (
 			fontsLoaded={fontsLoaded}
 			seo={Data.seo}
 			url={fullUrl} >
-		<main className="main js-main">
+		<main className="main js-main service-page">
 			<MenuBar color="white" />
 			<article className="article">
 

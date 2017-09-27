@@ -118,11 +118,12 @@ deploy () {
 	deployment_id="$deployment";
 };
 
+# Move environment specific robots file to the web root
 robots () {
 	local robots="$1";
 	[ -f "$robots" ] && { \
-		echo "$robots --> robots.txt"; \
-		cp "$robots" robots.txt; \
+		echo "$robots --> static/root/robots.txt"; \
+		cp "$robots" ./static/root/robots.txt; \
 	}
 }
 

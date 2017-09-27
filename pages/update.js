@@ -20,7 +20,8 @@ import UpdateOverviewSmall from '../components/update-overview-small/update-over
 const Update = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
 			fontsLoaded={fontsLoaded}
-			seo={Data.seo}>
+			seo={Data.seo}
+			url={fullUrl} >
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">

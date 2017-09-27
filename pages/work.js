@@ -10,10 +10,11 @@ import WorkOverview from '../components/work-overview/work-overview';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
 import cookie from '../components/_helpers/cookie';
 
-const work = ({cases, data, fontsLoaded}) => (
+const work = ({cases, data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Case"
 			fontsLoaded={fontsLoaded}
-			seo={data.seo}>
+			seo={data.seo}
+			url={fullUrl} >
 		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article work">
@@ -61,13 +62,14 @@ const work = ({cases, data, fontsLoaded}) => (
 );
 
 
-work.getInitialProps = async ({req}) => {
+work.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const [ cases, data ] = await fetchAll(['cases', 'work']);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { cases, data, fontsLoaded };
+	return { cases, data, fontsLoaded, fullUrl};
 };
 
 export default work;

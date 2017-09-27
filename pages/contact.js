@@ -10,10 +10,11 @@ import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
 import PageHeader from '../components/page-header/page-header';
 
-const Contact = ({Data, fontsLoaded}) => (
+const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Contact"
 			fontsLoaded={fontsLoaded}
-			seo={Data.seo}>
+			seo={Data.seo}
+			url={fullUrl} >
 		<main className="main js-main" >
 			<MenuBar color="white" />
 			<article className="article">
@@ -55,11 +56,12 @@ const Contact = ({Data, fontsLoaded}) => (
 );
 
 
-Contact.getInitialProps = async ({req}) => {
+Contact.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
+	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data, fontsLoaded};
+	return {Data, fontsLoaded, fullUrl};
 };
 
 export default Contact;

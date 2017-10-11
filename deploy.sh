@@ -58,6 +58,7 @@ deploy () {
 		-e NODE_ENV="$environment" \
 		-e ENVIRONMENT="$environment")
 	then
+                echo "${environment}"
 		echo "An error occurred while attempting to do now deploy";
 		exit 1;
 	fi;
@@ -147,4 +148,3 @@ else
 	echo 'nothing to deploy' >&2;
 	exit 1;
 fi
-

@@ -74,7 +74,6 @@ class Footer extends React.Component {
 									<li><Link href="/work"><a>Work</a></Link></li>
 									<li><Link href="/contact"><a>Contact</a></Link></li>
 									<li><Link href="/updates"><a>Updates</a></Link></li>
-									<li><Link href="/playground"><a>Playground</a></Link></li>
 								</ul>
 							</div>
 							<a className="footer-join-link" href={ callToActionUrl } target="_blank">

@@ -1,13 +1,13 @@
 import setImageParams from '../_helpers/setImageParameters';
 
-const inlineImage= ({image = "#", caption = null, large = false, video = false, videoSrc = "" }) => {
+const inlineImage= ({image = "#", caption = null, large = false, video = "" }) => {
 	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 	return (
 		<div className={`inline-image ${large ? 'inline-image-large' : ''}`}>
 			<div className={`inline-image-container ${large ? 'inline-image-container-large': ''}`}>
-				{ videoSrc &&
-					<video src={`${videoSrc}`} autoPlay muted loop playsInline></video>	
+				{ video &&
+					<video src={`${video}`} autoPlay muted loop playsInline></video>	
 				}	
 				{ image &&
 					<img

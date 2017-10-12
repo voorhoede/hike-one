@@ -44,9 +44,8 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 							return (
 								<InlineImage
 									key={index}
-									image={component.image }
-									video={component.inlineVideo }
-									videoSrc={component.inlineVideoSrc }
+									image={component.image}
+									video={component.inlineVideoSrc}
 									caption={component.caption} />		
 							);
 						case 'inline_image_large':

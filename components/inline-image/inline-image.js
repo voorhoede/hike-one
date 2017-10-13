@@ -1,6 +1,6 @@
 import setImageParams from '../_helpers/setImageParameters';
 
-const inlineImage= ({image = "#", caption = null, large = false, video = "" }) => {
+const inlineImage= ({image = '#', caption = null, large = false, video = ''}) => {
 	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 	return (

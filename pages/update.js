@@ -53,7 +53,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 								<InlineImage
 									key={index}
 									large={true}
-									image={component.image } 
+									image={component.image}
 									caption={component.caption} />
 							);
 						case 'full_width_image_small':

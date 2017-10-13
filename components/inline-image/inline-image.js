@@ -12,10 +12,10 @@ const inlineImage= ({image = '#', caption = null, large = false, video = ''}) =>
 				{ image &&
 					<img
 					srcSet={`
-						${setImageParams(image.url, {...imageParameters, w: 445, h:350} )} 768w,
-						${setImageParams(image.url, {...imageParameters, w: 738, h:400} )} 1024w,
-						${setImageParams(image.url, {...imageParameters, w: 821, h:500} )} 1190w,
-						${setImageParams(image.url, {...imageParameters, w: 1100, h:650} )} 1440w,
+						${setImageParams(image.url, {...imageParameters, w: 800, h:600 } )} 768w,
+						${setImageParams(image.url, {...imageParameters, w: 900, h:768 } )} 1024w,
+						${setImageParams(image.url, {...imageParameters, w: 1000, h:850 } )} 1190w,
+						${setImageParams(image.url, {...imageParameters, w: 1200, h:950 } )} 1440w
 					`}
 					sizes={`
 						(max-width: 320px) calc(100vw - 30px),

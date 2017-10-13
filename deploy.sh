@@ -56,8 +56,10 @@ deploy () {
 		-e RELOAD_TOKEN="$RELOAD_TOKEN" \
 		-e DATO_URL="$url" \
 		-e NODE_ENV="$environment" \
-		-e ENVIRONMENT="$environment")
+		-e ENVIRONMENT="$environment" \
+		--debug)
 	then
+                echo "${environment}"
 		echo "An error occurred while attempting to do now deploy";
 		exit 1;
 	fi;
@@ -147,4 +149,3 @@ else
 	echo 'nothing to deploy' >&2;
 	exit 1;
 fi
-

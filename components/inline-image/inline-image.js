@@ -1,25 +1,30 @@
 import setImageParams from '../_helpers/setImageParameters';
 
-const inlineImage= ({image = '#', caption = null, large = false}) => {
+const inlineImage= ({image = '#', caption = null, large = false, video = ''}) => {
 	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 	return (
 		<div className={`inline-image ${large ? 'inline-image-large' : ''}`}>
 			<div className={`inline-image-container ${large ? 'inline-image-container-large': ''}`}>
-				<img
-				srcSet={`
-					${setImageParams(image, {...imageParameters, w: 800, h:600 } )} 768w,
-					${setImageParams(image, {...imageParameters, w: 900, h:768 } )} 1024w,
-					${setImageParams(image, {...imageParameters, w: 1000, h:850 } )} 1190w,
-					${setImageParams(image, {...imageParameters, w: 1200, h:950 } )} 1440w
-				`}
-				sizes={`
-					(max-width: 320px) calc(100vw - 30px),
-					(max-width: 768px) calc(100vw - 30px),
-					(max-width: 1024px) 790px,
-					821px"`}
-				alt=""
-				src={image}/>
+				{ video &&
+					<video src={`${video}`} autoPlay muted loop playsInline></video>	
+				}	
+				{ image &&
+					<img
+					srcSet={`
+						${setImageParams(image.url, {...imageParameters, w: 800, h:600 } )} 768w,
+						${setImageParams(image.url, {...imageParameters, w: 900, h:768 } )} 1024w,
+						${setImageParams(image.url, {...imageParameters, w: 1000, h:850 } )} 1190w,
+						${setImageParams(image.url, {...imageParameters, w: 1200, h:950 } )} 1440w
+					`}
+					sizes={`
+						(max-width: 320px) calc(100vw - 30px),
+						(max-width: 768px) calc(100vw - 30px),
+						(max-width: 1024px) 790px,
+						821px"`}
+					alt=""
+					src={image.url}/>
+				}
 			</div>
 			{caption && <p>{ caption }</p>}
 		</div>

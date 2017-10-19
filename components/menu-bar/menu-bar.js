@@ -22,6 +22,7 @@ class Header extends React.Component {
 		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
 		this.onResize = this.onResize.bind(this);
 		this.breakpoint = '767px';
+		this.breakpointLarge = '1919px';
 		this.state = {
 			hamburger: false,
 			menuIsOpen: false
@@ -50,7 +51,17 @@ class Header extends React.Component {
 
 		// how much % should the background svg cover.
 		// On smaller screens it should cover 100%. To accomplish this the value is set on 200%
-		const bgCoverPercentage = window.matchMedia(`(max-width: ${this.breakpoint})`).matches ? 2 : 0.7;
+		let bgCoverPercentage = {};
+		if(window.matchMedia(`(min-width: ${this.breakpointLarge})`).matches) {
+			//large screens
+			bgCoverPercentage = 0.47;
+		} else if(window.matchMedia(`(min-width: ${this.breakpoint})`).matches) {
+			//medium screens
+			bgCoverPercentage = 0.7;
+		} else {
+			//small screens
+			bgCoverPercentage = 2;
+		}
 
 		// calculate how large the scale of the background svg should be on this screensize
 		this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width);

@@ -62,6 +62,7 @@ deploy () {
 		exit 1;
 	fi;
 
+	frontwarden $deployment
 	# If successful, strip protocol from url returned from now deploy
 	deployment=$(sed s#https://## <<<"$deployment");
 
@@ -147,4 +148,3 @@ else
 	echo 'nothing to deploy' >&2;
 	exit 1;
 fi
-

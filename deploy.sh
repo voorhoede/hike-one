@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail;
 
 # Deploy script for use in travis. Performs a now deployment to staging
 # environment if the branch name that triggered the build was 'master'.

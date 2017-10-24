@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail;
 
 # Deploy script for use in travis. Performs a now deployment to staging
 # environment if the branch name that triggered the build was 'master'.
@@ -45,10 +46,11 @@ deploy () {
 	echo 'Start a now deployment';
 
 	# create a now deployment and save the web address it returns
-	local deployment;
+	local deployment_url;
+	local deployment_id;
 
 	# Check for errors that might have occurred in now deploy
-	if ! deployment=$(now deploy -C \
+	if ! deployment_url=$(now deploy -C \
 		-n "$environment" \
 		-t "$NOW_TOKEN" \
 		-e DATO_API_TOKEN="$DATO_API_TOKEN" \
@@ -61,12 +63,11 @@ deploy () {
 		exit 1;
 	fi;
 
-	frontwarden $deployment
 	# If successful, strip protocol from url returned from now deploy
-	deployment=$(sed s#https://## <<<"$deployment");
+	deployment_id=$(sed s#https://## <<<"$deployment_url");
 
 	# Verify that running now deploy returned a domain name
-	grep -qE "${environment}-[a-z]+\.now\.sh" <<<"$deployment" || { \
+	grep -qE "${environment}-[a-z]+\.now\.sh" <<<"$deployment_id" || { \
 		echo 'Error: now deployment did not return a valid domain name'; \
 		exit 1; \
 	}
@@ -75,7 +76,7 @@ deploy () {
 	do
 		echo "Checking now deployment status. Attempt #${i}.";
 		local status;
-		status=$(deployment_status "$environment" "$deployment");
+		status=$(deployment_status "$environment" "$deployment_id");
 		# Error if deployment_status returns an empty result
 		[ -z "$status" ] && { \
 			echo "Error: no deployments found for $environment" >&2; \
@@ -99,6 +100,8 @@ deploy () {
 		sleep $poll_interval;
 	done
 
+	frontwarden "$deployment_url";
+
 	# Deployment is ready. Create aliases for domains in domains.txt.
 	while read -r domain
 	do
@@ -111,11 +114,8 @@ deploy () {
 			domain="${environment}.${domain}";
 		fi
 		# Create an alias for the domain name to the current deployment url
-		now -t "$NOW_TOKEN" alias "$deployment" "$domain";
+		now -t "$NOW_TOKEN" alias "$deployment_id" "$domain";
 	done <./domains.txt; # Read urls from file
-
-	# save deployment id to global variable for future use.
-	deployment_id="$deployment";
 };
 
 # Move environment specific robots file to the web root

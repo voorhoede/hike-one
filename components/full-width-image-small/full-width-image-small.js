@@ -11,17 +11,18 @@ const fullWidthImageSmall = ({image = '#', index = 0}) => {
 				.full-width-image-small-${index} {
 					background-image: url(${imageSmall});
 				}
+				
 			@media only screen and (min-width: 500px) {
-				.full-width-image-small-{index} {
+				.full-width-image-small-${index} {
 					background-image: url(${imageMedium});
 				}
 			}
+			
 			@media only screen and (min-width: 1170px) {
 				.full-width-image-small-${index} {
 					background-image: url(${imageLarge});
 				}
 			}
-			
 		</style>`};
 
 	return (

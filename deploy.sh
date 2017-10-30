@@ -47,7 +47,6 @@ deploy () {
 
 	# create a now deployment and save the web address it returns
 	local deployment_url;
-	local deployment_id;
 
 	# Check for errors that might have occurred in now deploy
 	if ! deployment_url=$(now deploy -C \

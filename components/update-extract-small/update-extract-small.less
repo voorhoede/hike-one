@@ -1,17 +1,29 @@
 @import (reference) '../../styles/variables';
 @import (reference) '../../styles/transition';
 
+@hoverInSpeed: .1s;
+@hoverOutSpeed: .5s;
+
 .update-extract-small {
 	height: auto;
 	margin-bottom: @spacing-large;
 	overflow: hidden;
 	text-decoration: none;
 	display: block;
-	transition: transform @transition-img-speed, box-shadow @transition-img-speed;
+	transition: transform @hoverOutSpeed, box-shadow @hoverOutSpeed;
 
 	&:hover {
 		.shadow();
 		transform: scale(1.02);
+		transition: transform @hoverInSpeed, box-shadow @hoverInSpeed;
+
+		.update-extract-small-image:after {
+			transition: opacity @hoverInSpeed;
+		}
+	}
+
+	.update-extract-small-image:after {
+		transition: opacity @hoverOutSpeed;
 	}
 
 	@media @screen-large {
@@ -36,7 +48,6 @@
 		bottom: 0;
 		opacity: 0;
 		background-color: @black;
-		transition: opacity @transition-img-speed;
 	}
 
 	@media @screen-medium {

@@ -45,18 +45,20 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							return <BodyQuote key={index} quote={component.quote}/>;
 
 						case 'inline_image':
+							const image = component.image ? component.image.url : undefined;
 							return (
 								<InlineImage
 									key={index}
-									image={component.image.url}
+									image={image}
 									caption={component.caption} />
 							);
 						case 'inline_image_large':
+							const imageLarge = component.image ? component.image.url : undefined;
 							return (
 								<InlineImage
 									key={index}
 									large={true}
-									image={component.image.url}
+									image={imageLarge}
 									caption={component.caption} />
 							);
 						case 'full_width_image_small':

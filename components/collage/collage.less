@@ -2,7 +2,8 @@
 
 .collage {
 	position: relative;
-	
+	margin-bottom: @spacing-large*2;
+
 	a {
         &,
         &:visited {
@@ -13,7 +14,7 @@
             text-decoration: underline;
         }
 	}
-	
+
 	@media @screen-small {
 		display: flex;
 		flex-direction: column;
@@ -21,18 +22,14 @@
 	@media @screen-medium {
 		display: flex;
 		flex-direction: row;
-		// normal margin bottom plus parallax image offset
-		margin-bottom: 60px + 140px;
 		padding: 0 0;
 	}
 
 	@media @screen-medium-large {
-		margin-bottom: 310px;
+		margin-bottom: @spacing-small*6;
 	}
 
 	@media @screen-large {
-		// normal margin bottom plus parallax image offset
-		margin-bottom: 200px + 150px;
 		padding-top: @spacing-large;
 	}
 }
@@ -42,41 +39,62 @@
 	width: 100%;
 	overflow: hidden;
 
-	@media @screen-small {
-		max-height: 480px;
-		overflow: hidden;
-	}
 	@media @screen-medium {
 		width: 50%;
-		max-height: 740px;
 		overflow: visible;
 	}
 }
 
+.collage-image-container-inner {
+	position:relative;
+}
+
 .collage-image-small {
-	max-height: 326px;
 	position: absolute;
 	display: none;
 	right: -@spacing-default * 3;
 
 	@media @screen-medium {
 		display: block;
-		top: 275px;
+		bottom: 30px;
 		right: -@spacing-default * 4;
 	}
 
 	@media @screen-medium-large {
-		top: 350px;
 		right: -@spacing-default * 8;
+		bottom: 50px;
 	}
 
 	@media @screen-large {
-		top: 400px;
+		bottom: 70px;
 		right: -@spacing-default * 8;
 	}
+}
+
+.collage-image-small-hidden,
+.collage-image-small {
+	max-height: 326px;
 
 	@media only screen and (min-width: 1500px) {
 		max-height: 436px;
+	}
+}
+
+.collage-image-small-hidden {
+	display: none;
+	opacity: 0;
+
+	@media @screen-medium {
+		display: block;
+		margin-top: -30px;
+	}
+
+	@media @screen-medium-large {
+		margin-top: -100px;
+	}
+
+	@media @screen-large {
+		margin-top: -120px;
 	}
 }
 
@@ -89,7 +107,6 @@
 		max-height: 541px;
 	}
 }
-
 
 .collage-text-container {
 	display: flex;
@@ -126,28 +143,35 @@
 
 .collage-text-title {
 	width: 100%;
-	font-size: 30px;
-	line-height: 36px;
 	margin-bottom: 16px;
-	font-weight: @font-weight-bold;
 	color: @darker-gray;
+	font-size: @heading-s;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-heading-s;
 
 	@media @screen-medium {
-		font-size: 46px;
-		line-height: @line-height-heading-l;
+		line-height: @line-height-heading-m;
+		font-size: @heading-m;
 	}
 
 	@media @screen-large {
 		font-size: @heading-l;
+		line-height: @line-height-heading-l;
 	}
 }
 
 .collage-text-description {
 	width: 100%;
-	font-size: 16px;
-	line-height: @line-height-body-small-l;
 	margin-bottom: 16px;
+	color: @darker-gray;
 	font-weight: @font-weight-normal;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+
+	@media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
 
 	@media @screen-large {
 		font-size: @body-text-l;

@@ -2,9 +2,9 @@
   "name": "hike-one",
   "version": "1.0.0",
   "description": "website for Hike One",
-  "main": "src/index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node server.js",
+    "start": "NODE_ENV=production node $npm_package_main",
     "prebuild": "rimraf build/ && mkdir build/",
     "build": "npm-run-all --serial build:dato build:css build:next build:guide",
     "build:dato": "npm-run-all --serial build:dato:local build:dato:dump",
@@ -26,7 +26,7 @@
     "copy:guide:static": "ncp static/ build/guide/static/",
     "copy:guide:root": "ncp static/root/ build/guide/",
     "proxy": "ngrok http 3000",
-    "serve:dev": "node server.js",
+    "serve:dev": "node $npm_package_main",
     "serve:guide": "start-storybook --port 3001 --config-dir .storybook --static-dir ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
     "backupdata": "node tasks/backup-data"

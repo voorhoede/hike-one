@@ -9,12 +9,13 @@ const Data = {
 		photo: {url: 'https://www.datocms-assets.com/2625/1504595643-1502810186-1500560684-bitmap.png?'},
 		summary: 'This is the author summary'
 	}
-}
+};
+
 storiesOf('Author', module)
 	.addDecorator(withKnobs)
 	.add('default', () => (
-		<Author 
-			name={Data.author.name}
+		<Author
+			name={text('name', Data.author.name)}
 			role={Data.author.role}
 			photoUrl={Data.author.photo.url}
 			summary={ text('summary',Data.author.summary)}

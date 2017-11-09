@@ -7,5 +7,5 @@ storiesOf('Body quote', module)
 	.addDecorator(withKnobs)
 	.add('Body quote', () => (
 		<BodyQuote
-			quote={text('quote', '“How can the interaction with a smart lock system make the sharing of access to the house flexible for a B&B host?”')}/>
+			quote={text('quote', 'How can the interaction with a smart lock system make the sharing of access to the house flexible for a B&B host?')}/>
 	));

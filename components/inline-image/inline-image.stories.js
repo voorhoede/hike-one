@@ -2,14 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text} from '@storybook/addon-knobs';
 import InlineImage from './inline-image';
+import Data from '../../data/current/component-guide.json';
 
-const inlineImage = {
-	url: 'https://www.datocms-assets.com/2625/1504595643-1502810186-1500560684-bitmap.png?',
-	caption: 'This is an large inline image with caption'
-}
+const inlineImageData = Data.components.find(item => item.itemType === 'inline_image');
 
-storiesOf('inline image', module)
-	.addDecorator(withKnobs)	
+storiesOf('Inline image', module)
+	.addDecorator(withKnobs)
 	.add('default', () => (
-		<InlineImage image={text('imgsrc', inlineImage.url)} caption={text('caption', 'Een update voor de grootste woning stie van Nederland')}/>
+		<InlineImage
+			image={inlineImageData.image.url}
+			caption={text('caption', inlineImageData.caption)}/>
 	));

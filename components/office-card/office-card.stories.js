@@ -9,13 +9,17 @@ const postcode = '1059AT';
 const city = 'Amsterdam';
 const imageUrl = 'https://www.datocms-assets.com/2625/1505293468-img_case-copy-2.png?';
 
+
 storiesOf('Office card', module)
 	.addDecorator(withKnobs)
 	.add('tab selector', () => (
-		<OfficeCard
-			location={location}
-			address={address}
-			postcode={postcode}
-			city={city}
-			imageUrl={imageUrl} />
+		<div className="office-card-wrapper" style={{'max-width': '300px'}}>
+			<OfficeCard
+				location={location}
+				address={address}
+				postcode={postcode}
+				city={city}
+				imageUrl={imageUrl} />
+		</div>
 	));
+

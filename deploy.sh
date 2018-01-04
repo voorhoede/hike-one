@@ -71,6 +71,8 @@ deploy () {
 		exit 1; \
 	}
 
+	echo "Set up aliasing for $deployment_url";
+
 	for (( i=1; i <= poll_attempts; i++ ))
 	do
 		echo "Checking now deployment status. Attempt #${i}.";

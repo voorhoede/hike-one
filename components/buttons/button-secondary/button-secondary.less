@@ -16,7 +16,7 @@
 
 	.icon svg path {
 		fill: @white;
-		transition: fill @animation-speed-out ease ease;
+		transition: fill @animation-speed ease ease;
 	}
 }
 
@@ -35,7 +35,7 @@
 	&:hover:enabled {
 		color: @white;
 		background: @red;
-		transition: color @animation-speed-in, background @animation-speed-in;
+		transition: color @animation-speed-fast, background @animation-speed-fast;
 
 		.icon svg path {
 			fill: @white;
@@ -48,7 +48,7 @@
 	.btn-basis-hover-state;
 	color: @blue;
 	background-color: @white;
-	transition: color @animation-speed-in, background-color @animation-speed-in;
+	transition: color @animation-speed-fast, background-color @animation-speed-fast;
 
 	.icon svg path {
 		fill: @blue;
@@ -59,7 +59,7 @@
 	.btn-secondary-hover-state;
 	color: @red;
 	background-color: @white;
-	transition: color @animation-speed-in, background-color @animation-speed-in;
+	transition: color @animation-speed-fast, background-color @animation-speed-fast;
 
 	.icon svg path {
 		fill: @red;
@@ -69,7 +69,7 @@
 .btn-secondary-hover-state-green {
 	.btn-secondary-hover-state;
 	color: @green;
-	transition: color @animation-speed-in;
+	transition: color @animation-speed-fast;
 
 	.icon svg path {
 		fill: @green;
@@ -79,7 +79,7 @@
 .btn-secondary-hover-state-purple {
 	.btn-secondary-hover-state;
 	color: @purple;
-	transition: color @animation-speed-in;
+	transition: color @animation-speed-fast;
 
 	.icon svg path {
 		fill: @purple;

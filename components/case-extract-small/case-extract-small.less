@@ -22,7 +22,7 @@
 	height: 100%;
 	background-color: @black;
 	opacity: 0;
-	transition: opacity 0.3s;
+	transition: opacity @animation-speed;
 }
 
 .case-extract-small {
@@ -57,19 +57,19 @@
 			.case-extract-small-button {
 				opacity: 1;
 				display: block;
-				transition: opacity 0.2s;
-				transition-delay: 0.1s;
+				transition: opacity @animation-speed;
+				transition-delay: @animation-speed-fast;
 			}
 
 			.case-extract-small-text {
 				height: auto;
 				transform: translateY(-160px);
-				transition: transform 0.3s;
+				transition: transform @animation-speed;
 			}
 
 			.case-extract-small-bg-inner {
 				transform: scaleY(2);
-				transition: transform 0.3s;
+				transition: transform @animation-speed;
 			}
 		}
 	}
@@ -86,7 +86,7 @@
 
 .case-extract-small-bg-inner {
 	transform-origin: left bottom;
-	transition: transform 0.3s;
+	transition: transform @animation-speed;
 	width: 100%;
 	height: 100%;
 }
@@ -98,7 +98,7 @@
 	color: @white;
 	text-decoration: none;
 	transform-origin: left bottom;
-	transition: transform 0.3s;
+	transition: transform @animation-speed;
 
 	h3 {
 		font-size: @heading-s;
@@ -109,7 +109,7 @@
 
 	h4 {
 		opacity: 0;
-		transition: opacity 0.1s;
+		transition: opacity @animation-speed-fast;
 		display: block;
 		line-height: @line-height-body-s;
 		font-size: @body-text-s;
@@ -158,7 +158,7 @@
 .case-extract-small-button {
 	display: block;
 	opacity: 0;
-	transition: opacity 0.3s;
+	transition: opacity @animation-speed;
 	margin: 0 @spacing-small @spacing-small auto;
 	width: 55px;
 	height: 55px;

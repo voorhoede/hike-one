@@ -70,7 +70,7 @@
 		position: relative;
 		width: 30px;
 		height: 30px;
-		transition: stroke .5s, transform .5s; // hover off
+		transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
 	}
 
 	svg.menu-btn-background {
@@ -79,7 +79,7 @@
 		top: -7px;
 		width: 50px;
 		height: 50px;
-		transition: fill .5s, transform .5s; // hover off
+		transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
 		fill: @white;
 
 		.is-open & {
@@ -91,12 +91,12 @@
 		svg.menu-btn-background {
 			fill: @black;
 			transform: scale(1.2);
-			transition: fill .1s, transform .1s; // hover on
+			transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
 		}
 
 		.menu-btn-icon svg {
 			transform: scale(1.1);
-			transition: stroke .1s, transform .1s; // hover on
+			transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
 			line {
 				stroke: @white;
 			}

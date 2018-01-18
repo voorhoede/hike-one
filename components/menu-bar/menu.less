@@ -138,29 +138,29 @@
 
 	&,
 	svg {
-		transition: color .5s, transform .5s, opacity .5s; // hover/active out
+		transition: color @animation-speed-slow, transform @animation-speed-slow, opacity @animation-speed-slow; // hover/active out
 	}
 
 	&:hover,
 	&:hover svg {
-		transition: color .1s; // hover in
+		transition: color @animation-speed-fast; // hover in
 	}
 
 	&:active,
 	&:active svg {
 		opacity: 0.8;
 		transform: scale(0.98);
-		transition: transform .1s, opacity .1s; // active in
+		transition: transform @animation-speed-fast, opacity @animation-speed-fast; // active in
 	}
 }
 
 .menu-item-logo {
 	a .logo {
-		transition: opacity .3s; // hover out
+		transition: opacity @animation-speed; // hover out
 	}
 
 	a:hover .logo {
-		transition: opacity .1s; // hover in
+		transition: opacity @animation-speed-fast; // hover in
 		opacity: 0.8;
 	}
 }

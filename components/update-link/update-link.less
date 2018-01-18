@@ -11,21 +11,21 @@
 	font-weight: @font-weight-bold;
 	font-size: @heading-small-s;
 	line-height: @line-height-header-small-s;
-	transition: color .5s;
+	transition: color @animation-speed-slow;
 
 	&:hover {
 		color: @red;
 		cursor: pointer;
-		transition: color .1s;
+		transition: color @animation-speed-fast;
 
 		svg {
 			fill: @red;
-			transition: fill .1s;
+			transition: fill @animation-speed-fast;
 		}
 	}
 
 	svg {
-		transition: fill .5s;
+		transition: fill @animation-speed-slow;
 		width: 35px;
 		height: 35px;
 		vertical-align: middle;

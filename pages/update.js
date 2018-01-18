@@ -38,7 +38,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 								<RichBodyText key={index} content={component.content}/>
 							);
 						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote}/>;
+							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee}/>;
 
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined;

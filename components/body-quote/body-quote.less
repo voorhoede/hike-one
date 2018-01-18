@@ -28,3 +28,21 @@
 		line-height: @line-height-title-small-l;
 	}
 }
+
+.body-quote-quotee {
+	display: block;
+	margin-top: @spacing-half;
+	font-size: @body-text-s;
+	line-height: @line-height-body-s;
+
+	@media @screen-medium {
+		margin-top: @spacing-default;
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	@media @screen-large {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
+}

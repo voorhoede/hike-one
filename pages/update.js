@@ -16,6 +16,7 @@ import RichBodyText from '../components/rich-body-text/rich-body-text';
 import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
+import CallToAction from '../components/call-to-action/call-to-action';
 
 const Update = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -64,6 +65,10 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 									key={index}
 									index={index}
 									image={component.image.url} />
+							);
+						case 'call_to_action':
+							return (
+								<CallToAction key={index} title={component.title} url={component.url}/>
 							);
 					}
 				})}

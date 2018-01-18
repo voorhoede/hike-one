@@ -3,7 +3,7 @@
 
 .update-extract-small {
 	height: auto;
-	margin-bottom: @spacing-large;
+	margin-bottom: @spacing-default*1.5;
 	overflow: hidden;
 	text-decoration: none;
 	display: block;
@@ -23,8 +23,12 @@
 		transition: opacity @animation-speed-slow;
 	}
 
-	@media @screen-large {
-		margin-bottom: @spacing-large*2;
+	@media @screen-medium {
+		margin-bottom: @spacing-medium;
+	}
+
+	@media @screen-medium-large {
+		margin-bottom: @spacing-large;
 	}
 }
 

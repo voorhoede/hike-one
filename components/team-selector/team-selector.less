@@ -1,0 +1,58 @@
+@import (reference) '../../styles/variables';
+
+.team-selector {
+    display: flex;
+    position: relative;
+    width: auto;
+    height: 70px;
+    margin: -85px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
+	padding: 0;
+
+    @media @screen-small {
+        margin: -85px auto @container-margin-bottom-l auto;
+		max-width: @column-large-4;
+	}
+
+	@media @screen-medium {
+        height: 90px;
+		margin-top: -135px;
+    }
+}
+
+.team-selector-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: @spacing-small;
+    width: 50%;
+    background: @white;
+	text-decoration: none;
+	color: @black;
+}
+
+.team-selector-item:hover {
+    background: @gray;
+    color: @white;
+}
+
+.team-selector-item.is-selected {
+    background: @blue;
+    color: @white;
+}
+
+.team-selector-item-title {
+    margin-bottom: 0;
+    font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+    line-height: @line-height-body-small-s;
+
+    @media @screen-medium {
+		font-size: @body-text-m;
+		line-height: @line-height-body-small-m;
+    }
+    
+    @media @screen-large {
+		font-size: @body-text-l;
+		line-height: @line-height-body-small-l;
+	}
+}

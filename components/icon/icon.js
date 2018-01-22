@@ -7,6 +7,7 @@ import Dribble from '../icons/dribble';
 import FaceBook from '../icons/facebook-circle';
 import Instagram from '../icons/instagram-circle';
 import Linkedin from '../icons/linkedin-circle';
+import LinkedinNoCircle from '../icons/linkedin';
 import Location from '../icons/location';
 import Medium from '../icons/medium-circle';
 import Twitter from '../icons/twitter';
@@ -24,6 +25,7 @@ const Icon = ({icon = 'arrowDown', classes = ''}) => {
 		faceBook: <FaceBook/>,
 		instagram: <Instagram/>,
 		linkedin: <Linkedin/>,
+		linkedinNoCircle: <LinkedinNoCircle/>,
 		location: <Location/>,
 		medium: <Medium/>,
 		twitter: <Twitter/>,

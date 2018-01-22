@@ -2,7 +2,7 @@ import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const VacancyOverview = ({overview, vacancies}) => (
 	<div className="vacancy-overview container">
-		<h3 className="vacancy-overview-title">{overview.title}</h3>
+		<h2 className="vacancy-overview-title">{overview.title}</h2>
 
 		<p className="vacancy-overview-tagline">{overview.tagline}</p>
 

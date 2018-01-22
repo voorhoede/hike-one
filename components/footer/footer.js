@@ -66,7 +66,10 @@ class Footer extends React.Component {
 						<div className="footer-left">
 							<div className="footer-links">
 								<ul className="footer-link-list">
-									<li><Link href="/team"><a>Team</a></Link></li>
+									<li><Link href="/team?slug=culture"
+											  as="/team/culture">
+										<a>Team</a></Link>
+									</li>
 									<li><Link href='/service?slug=new-product-design'
 											  as="/service/new-product-design">
 										<a>Services</a></Link>

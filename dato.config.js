@@ -32,6 +32,10 @@ module.exports = (dato, root) => {
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
+
+		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies));
+
+		dir.createDataFile('vacancies-overview.json', 'json', dato.vacancyOverview.toMap());
 	});
 
 	function mapCollection(collection) {

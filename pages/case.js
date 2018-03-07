@@ -23,6 +23,8 @@ import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
 import LogoList from '../components/logo-list/logo-list';
 
+import InlineImage from '../components/inline-image/inline-image';
+
 import Contact from '../components/contact/contact';
 import * as ContactShapes from '../components/contact/contact-shapes';
 
@@ -216,6 +218,15 @@ const Case = ({Data, fontsLoaded, fullUrl}) => (
 											title={component.title}
 											text={component.text} />
 									</div>
+								);
+							case 'inline_image':
+								const image = component.image ? component.image.url : undefined;
+								return (
+									<InlineImage
+										key={index}
+										image={image}
+										video={component.inlineVideoSrc}
+										caption={component.caption} />
 								);
 							case 'call_to_action':
 								return (

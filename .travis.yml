@@ -8,7 +8,6 @@ cache:
   - node_modules
 install:
   - npm install -g now@8.3
-  - npm install -g @front-warden/ci-runner-cli
 branches:
   only:
    - master

@@ -101,9 +101,6 @@ deploy () {
 		sleep $poll_interval;
 	done
 
-	# NOTE: temporarily disabled frontwarden
-	# frontwarden "$deployment_url";
-
 	# Deployment is ready. Create aliases for domains in domains.txt.
 	while read -r domain
 	do

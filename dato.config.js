@@ -9,7 +9,7 @@ module.exports = (dato, root) => {
 		dir.createDataFile('teamImages21.json', 'json', teamImages21[0].toMap());
 
 		const peopleData = dato.collectionsByType.people;
-		dir.createDataFile('people.json', 'json', peopleData[0].toMap());
+		dir.createDataFile('people.json', 'json',  mapCollection(peopleData));
 
 		dir.createDataFile(`service-overview.json`, 'json', dato.serviceOverview.toMap());
 
@@ -32,6 +32,10 @@ module.exports = (dato, root) => {
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
+
+		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies));
+
+		dir.createDataFile('vacancies-overview.json', 'json', dato.vacancyOverview.toMap());
 	});
 
 	function mapCollection(collection) {

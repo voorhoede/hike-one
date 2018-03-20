@@ -1,0 +1,112 @@
+.team-members-overview {
+    .clearfix;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 0;
+    list-style: none;
+    max-width: @column-small-12;
+
+    &:after {
+        content: "";
+        flex: auto;
+    }
+
+    .team-member {
+        float: left;
+        width: calc(~"50% - " @spacing-default);
+    }
+
+    .team-member:nth-child(odd) {
+        margin-right: @spacing-default;
+    }
+
+    .team-member:nth-child(even){
+        margin-left: @spacing-default;
+    }
+
+    @media @screen-small {
+        .team-member {
+            width: calc(~"100% / 3 - " @spacing-default*1.5);
+        }
+
+        .team-member:nth-child(odd),
+        .team-member:nth-child(even) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .team-member:nth-child(3n-2) {
+            margin-right: @spacing-default;
+        }
+
+        .team-member:nth-child(3n-1) {
+            margin-right: @spacing-default;
+            margin-left: @spacing-default;
+        }
+
+        .team-member:nth-child(3n) {
+            margin-left: @spacing-default;
+        }
+    }
+
+    @media @screen-medium {
+        .team-member {
+            width: calc(~"25% - " @spacing-default*1.5);
+        }
+
+        .team-member:nth-child(3n-2),
+        .team-member:nth-child(3n-1),
+        .team-member:nth-child(3n) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    
+        .team-member:nth-child(4n-3) {
+            margin-right: @spacing-default;
+        }
+
+        .team-member:nth-child(4n-2),
+        .team-member:nth-child(4n-1) {
+            margin-left: @spacing-default;
+            margin-right: @spacing-default;
+        }
+    
+        .team-member:nth-child(4n) {
+            margin-left: @spacing-default;
+        }
+    }
+
+    @media @screen-medium-large {
+        .team-member {
+            width: calc(~"20% - " @spacing-default*3.5);
+        }
+
+        .team-member:nth-child(4n-3),
+        .team-member:nth-child(4n-2),
+        .team-member:nth-child(4n-1),
+        .team-member:nth-child(4n){
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .team-member:nth-child(5n-4) {
+            margin-right: @spacing-small;
+        }
+
+        .team-member:nth-child(5n-3),
+        .team-member:nth-child(5n-2),
+        .team-member:nth-child(5n-1) {
+            margin-left: @spacing-small;
+            margin-right: @spacing-small;
+        }
+
+        .team-member:nth-child(5n) {
+            margin-left: @spacing-small;
+        }
+    }
+
+    @media @screen-large {
+        max-width: @column-large-12;
+    }
+}

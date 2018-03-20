@@ -229,7 +229,9 @@ class Header extends React.Component {
 					<div className="menu-inner" ref={node => this.menuInner = node}>
 						<ul className="menu-list" ref={node => this.menuList = node}>
 							<li className="menu-item-logo"><Link href="/"><a><Logo color="white"/></a></Link></li>
-							<li className="menu-item"><Link href="/team"><a>Team</a></Link></li>
+							<li className="menu-item"><Link
+								href="/team?slug=culture"
+								as="/team/culture"><a>Team</a></Link></li>
 							<li className="menu-item"><Link
 								href='/service?slug=new-product-design'
 								as="/service/new-product-design"><a >Services</a></Link></li>

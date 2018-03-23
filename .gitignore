@@ -25,4 +25,4 @@ static/data
 
 # env
 .env
-
+.envrc

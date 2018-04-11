@@ -47,6 +47,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 								<InlineImage
 									key={index}
 									image={image}
+									videoControls={true}
 									video={component.inlineVideoSrc}
 									caption={component.caption} />
 							);

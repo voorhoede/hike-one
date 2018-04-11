@@ -51,7 +51,7 @@ class FooterLocations extends React.Component {
 					</div>
 
 					<div className={this.state.location === 'ehv' ? 'is-active' : ''}>
-						<a href="https://www.google.nl/maps/place/Igluu+Eindhoven/@51.440653,5.4720493,17z/data=!3m1!4b1!4m5!3m4!1s0x47c6d91b28155555:0x489358288c7baa01!8m2!3d51.440653!4d5.474238"
+						<a href="https://www.google.com/maps/place/Microlab/@51.444415,5.4577363,17z/data=!3m1!4b1!4m5!3m4!1s0x47c6d9134ac41f57:0x21be6060758879d9!8m2!3d51.444415!4d5.459925"
 						   target="_blank">
 							Kastanjelaan 400 (Microlab) <br />
 							5616 LZ Eindhoven <br />

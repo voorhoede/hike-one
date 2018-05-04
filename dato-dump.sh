@@ -5,7 +5,7 @@
 flag=
 
 [ "$ENVIRONMENT" = staging ] && flag=' --preview';
-cmd="$(printf 'dato dump %s' "$flag")";
+cmd="$(printf 'dato dump%s' "$flag")";
 
 set -x;
 

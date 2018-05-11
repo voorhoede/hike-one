@@ -68,6 +68,7 @@ Most important npm scripst
 `start`| Serves website with production env set (run `npm run build` first)
 `build`| builds website to `/build` folder
 `build:dato` | Get latest data from datoCMS (included in `npm run build`)
+`build:dato:staging` | Get latest data with drafts from datoCMS (included in `npm run build`)
 `dev`| Serves website in development mode
 `proxy` | runs a proxy with the help of nrok
 

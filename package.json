@@ -8,6 +8,7 @@
     "prebuild": "rimraf build/ && mkdir build/",
     "build": "npm-run-all --serial build:dato build:css build:next build:guide",
     "build:dato": "npm-run-all --serial build:dato:local build:dato:dump",
+    "build:dato:staging": "ENVIRONMENT=staging npm run build:dato",
     "build:dato:local": "bash dato-dump.sh",
     "build:dato:dump": "node bin/dump-data",
     "build:next": "next build",

@@ -1,0 +1,24 @@
+.filter {
+	text-align: center;
+}
+
+.filter-item {
+	display: inline;
+	list-style: none;
+}
+
+.filter-item-button {
+	color: @black;
+	background: @white-grey;
+	border: 0;
+	border-radius: @spacing-medium;
+	margin-right: @spacing-medium;
+	margin-bottom: @spacing-small;
+	padding: @spacing-small @spacing-medium;
+	transition: @animation-speed color ease-out, @animation-speed background-color ease-out;
+}
+
+.filter-item-button--active {
+	color: @white;
+	background: @blue;
+}

@@ -22,7 +22,7 @@
             bottom: auto;
         }
 
-        .team-member-role {
+        .team-member-roles {
             display: block;
         }
 
@@ -87,13 +87,24 @@
     }
 }
 
-.team-member-role {
+.team-member-roles {
     display: none;
     position: absolute;
     padding: @spacing-default*1.5;
     bottom: @spacing-default*7;
     width: 100%;
     text-align: center;
+}
+
+.team-member-role {
+	margin: 0;
+	padding: 0;
+}
+
+.team-member-role:not(:last-of-type):after {
+	content: '&';
+	margin-right: @spacing-default*.5;
+	margin-left: @spacing-default*.5;
 }
 
 .team-member-social {

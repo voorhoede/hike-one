@@ -31,7 +31,7 @@ class LogoCarousel extends React.Component {
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img
-										src={`${company.logo.url}&fm=png&fit=max&max-w=250`}
+										src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
 										alt={company.name} />
 								</li> )}
 						</ul>
@@ -39,7 +39,7 @@ class LogoCarousel extends React.Component {
 							{ this.props.companies.map((company, index) =>
 								<li key={index}>
 									<img
-										src={`${company.logo.url}&fm=png&fit=max&max-w=250`}
+										src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
 										alt={company.name} />
 								</li> )}
 						</ul>

@@ -96,6 +96,8 @@ class Footer extends React.Component {
 					</div>
 
 					<p className="footer-copyright">@ Hike One 2017</p>
+					<a className="footer-copyright" href="/static/root/hike-one-privacy-statement-en.pdf">privacy statement</a>
+					<a className="footer-copyright" href="/static/root/hike-one-cookie-statement-nl.pdf">cookie statement</a>
 				</div>
 			</footer>
 		);

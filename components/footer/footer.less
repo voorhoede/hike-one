@@ -232,16 +232,25 @@
 	font-weight: @font-weight-normal;
 	padding-bottom: @spacing-default;
 	margin-bottom: 0;
+	display: inline-block;
 
 	@media @screen-medium {
 		line-height: @line-height-body-small-m;
 		font-size: @body-text-small-m;
 		padding-bottom: 0;
-		display: inline-block;
 	    transform: translateY(-130%);
 	}
 	@media @screen-large {
 		line-height: @line-height-body-small-l;
 		font-size: @body-text-small-l;
 	}
+
+	& + .footer-copyright {
+		margin-left: 20px;
+		text-decoration: none;
+	}
+}
+
+a.footer-copyright {
+	text-decoration: none;
 }

@@ -9,7 +9,7 @@ import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 
 const content404 = {
 	title: `This page is not here`,
-	text: `We lost the page! Don′t worry we know the way ;) Check out <a href="/team">who we are</a> and <a href="/work">what we do</a>`
+	text: `We lost the page! Don′t worry we know the way ;) Check out <a href="/team/culture">who we are</a> and <a href="/work">what we do</a>`
 };
 
 const content500 = {
@@ -31,7 +31,7 @@ const Error = ({statusCode, fontsLoaded, wrapperClass}) =>  (
 			</article>
 			<Footer
 				callToActionLabel="Up for a new challenge yourself? Join us!"
-				callToActionUrl="http://werkenbij.unitid.nl"
+				callToActionUrl="https://hikeone.homerun.co/"
 				disableParallax={true} />
 		</main>
 	</Layout>

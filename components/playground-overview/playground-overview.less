@@ -1,0 +1,55 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.playground-overview {
+	.clearfix;
+
+	.playground-overview-header {
+		margin-bottom: @spacing-default*4;
+		text-align: center;
+		font-size: @heading-s;
+		line-height: @line-height-heading-s;
+	}
+
+	@media @screen-medium {
+		.playground-overview-header {
+			font-size: @heading-m;
+			line-height: @line-height-heading-m;
+		}
+	}
+
+	@media @screen-large {
+		.playground-overview-header {
+			margin-bottom: @spacing-default*6;
+			font-size: @heading-l;
+			line-height: @line-height-heading-l;
+		}
+	}
+
+	.playground-card {
+		margin-bottom: 16px;
+
+		@media @screen-small {
+			display: inline-block;
+			width: calc(~'50% - 8px');
+
+			&:nth-of-type(odd) {
+				margin-right: 16px;
+			}
+		}
+
+		@media @screen-large {
+			width: calc(~'60% - 16px');
+			margin-right: 32px;
+
+			&:nth-of-type(even) {
+				margin-right: 0;
+			}
+
+			&:nth-of-type(4n+2),
+			&:nth-of-type(4n+3) {
+				width: calc(~'40% - 16px');
+			}
+		}
+	}
+}

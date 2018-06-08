@@ -29,9 +29,13 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
+		dir.createDataFile('playground.json', 'json', dato.playground.toMap());
+
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
+
+		dir.createDataFile('playground-topic.json', 'json', mapCollection(dato.playgroundTopics));
 
 		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies));
 

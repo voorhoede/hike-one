@@ -156,10 +156,11 @@ class FullWidthImage extends React.Component {
 	render() {
 		const {image, index, title, subtitle, overlay, staticImg} = this.props;
 		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
-		const heroImageSmall = staticImg ? image :`${setImageParams(image, {...imageParameters, w: 768} )}`;
+		const heroImageSmall = staticImg ? image :`${setImageParams(image, {...imageParameters, w: 950} )}`;
 		const heroImageMedium = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1170} )}`;
 		const heroImageLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1600} )}`;
 		const heroImageExtraLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1920} )}`;
+
 
 		const style ={__html:
 			`<style>
@@ -181,7 +182,7 @@ class FullWidthImage extends React.Component {
 					background-image: url(${heroImageExtraLarge});
 				}
 			}
-			
+
 		</style>`};
 
         return (

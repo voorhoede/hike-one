@@ -1,9 +1,16 @@
-const filter = ({name, data, activeData, clickHandler}) => (
+const filter = ({filter, onFilter}) => (
     <ul className='filter'>
-		{ data.map((item, index) => {
+		{ filter.map((item, index) => {
+			const activeClass = item.isActive ? 'filter-item-button--active' : '';
 			return (
 				<li className='filter-item' key={index}>
-					<button className={`filter-item-button ${(data.length !== activeData.length && activeData.includes(item) ? 'filter-item-button--active' : '')}`} type='button' onClick={() => clickHandler(name, item)}>{item}</button>
+					<button
+						className={`filter-item-button ${activeClass}`}
+						type='button'
+						onClick={() => onFilter(filter, index)}
+					>
+						{item.value}
+					</button>
 				</li>
 			)
 		})}

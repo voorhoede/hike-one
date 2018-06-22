@@ -19,7 +19,6 @@ class TeamMembersOverview extends React.Component {
 
 	onFilterHandler(filter, index) {
 		const array = filter;
-		const item = array[index];
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
 			if(index === filterIndex) {
@@ -38,6 +37,8 @@ class TeamMembersOverview extends React.Component {
 				filter: setAllItemsActive(array)
 			});
 		} else {
+			const item = array[index];
+
 			item.isActive = !item.isActive;
 
 			this.setState({

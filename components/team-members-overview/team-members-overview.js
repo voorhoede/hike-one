@@ -10,49 +10,41 @@ class TeamMembersOverview extends React.Component {
 		const {team} = props;
 
 		this.state = {
-			roles: this.getRoles(team),
-			locations: this.getLocations(team)
+			roles: getRoles(team),
+			locations: getLocations(team)
 		}
 
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
-	getRoles(data) {
-		return data
-			.map(item => {
-				return item.newRoles.map(role => {
-					return {
-						value: role.title,
-						isActive: true
-					}
-				});
-			})
-			.reduce((a, b) => a.concat(b), [])
-			.filter((role, index, roles) => {
-				return roles.findIndex(item => role.value === item.value) == index;
-			});
-	}
-
-	getLocations(data) {
-		return data
-			.map(item => {
-				return {
-					value: item.location.location,
-					isActive: true
-				}
-			})
-			.filter((location, index, locations) => {
-				return locations.findIndex(item => location.value === item.value) == index;
-			});
-	}
-
 	onFilterHandler(filter, index) {
 		const array = filter;
 		const item = array[index];
+		const isFirstItemActive = filter.every(item => item.isActive);
+		const isEveryItemDeactive = filter.every((item, filterIndex) => {
+			if(index === filterIndex) {
+				return item.isActive;
+			}
 
-		item.isActive = !item.isActive;
+			return !item.isActive;
+		});
 
-		this.setState({filter: array});
+		if(isFirstItemActive) {
+			this.setState({
+				filter: setOneItemActive(array, index)
+			});
+		} else if (isEveryItemDeactive) {
+			this.setState({
+				filter: setAllItemsActive(array)
+			});
+		} else {
+			item.isActive = !item.isActive;
+
+			this.setState({
+				filter: array
+			});
+		}
+
 	}
 
 	render() {
@@ -105,6 +97,35 @@ function filterTeam(team, state) {
 	}).filter(teamMember => teamMember);
 }
 
+function getRoles(data) {
+	return data
+		.map(item => {
+			return item.newRoles.map(role => {
+				return {
+					value: role.title,
+					isActive: true
+				}
+			});
+		})
+		.reduce((a, b) => a.concat(b), [])
+		.filter((role, index, roles) => {
+			return roles.findIndex(item => role.value === item.value) == index;
+		});
+}
+
+function getLocations(data) {
+	return data
+		.map(item => {
+			return {
+				value: item.location.location,
+				isActive: true
+			}
+		})
+		.filter((location, index, locations) => {
+			return locations.findIndex(item => location.value === item.value) == index;
+		});
+}
+
 function getActiveLocation(locations, teamMember) {
 	return locations.some(location => {
 		if(!location.isActive) {
@@ -124,6 +145,22 @@ function getActiveRole(roles, teamMember) {
 		return teamMember.newRoles.some(memberRole => {
 			return role.value === memberRole.title;
 		});
+	});
+}
+
+function setOneItemActive(array, index) {
+	return array.map((item, arrayIndex) => {
+		if(index === arrayIndex) {
+			item.isActive = true;
+		} else {
+			item.isActive = false;
+		}
+	});
+}
+
+function setAllItemsActive(array) {
+	return array.map(item => {
+		item.isActive = true;
 	});
 }
 

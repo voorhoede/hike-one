@@ -18,7 +18,7 @@ const filter = ({filter, onFilter}) => {
 				)
 			})}
 		</ul>
-	);
+	)
 };
 
 export default filter;

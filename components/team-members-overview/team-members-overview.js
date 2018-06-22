@@ -29,23 +29,16 @@ class TeamMembersOverview extends React.Component {
 		});
 
 		if(isFirstItemActive) {
-			this.setState({
-				filter: setOneItemActive(array, index)
-			});
+			setOneItemActive(array, index);
 		} else if (isEveryItemDeactive) {
-			this.setState({
-				filter: setAllItemsActive(array)
-			});
+			setAllItemsActive(array);
 		} else {
 			const item = array[index];
 
 			item.isActive = !item.isActive;
-
-			this.setState({
-				filter: array
-			});
 		}
 
+		this.setState({ filter: array });
 	}
 
 	render() {
@@ -81,21 +74,10 @@ class TeamMembersOverview extends React.Component {
 function filterTeam(team, state) {
 	const { roles, locations } = state;
 
-	return team.map(teamMember => {
-		if (teamMember.hide) {
-			return;
-		}
-
-		if(!getActiveLocation(locations, teamMember)) {
-			return;
-		}
-
-		if(!getActiveRole(roles, teamMember)) {
-			return;
-		}
-
-		return teamMember;
-	}).filter(teamMember => teamMember);
+	return team
+		.filter(teamMember => !teamMember.hide)
+		.filter(teamMember => hasActiveLocation(locations, teamMember))
+		.filter(teamMember => hasActiveRole(roles, teamMember));
 }
 
 function getRoles(data) {
@@ -127,7 +109,7 @@ function getLocations(data) {
 		});
 }
 
-function getActiveLocation(locations, teamMember) {
+function hasActiveLocation(locations, teamMember) {
 	return locations.some(location => {
 		if(!location.isActive) {
 			return false;
@@ -137,7 +119,7 @@ function getActiveLocation(locations, teamMember) {
 	});
 }
 
-function getActiveRole(roles, teamMember) {
+function hasActiveRole(roles, teamMember) {
 	return roles.some(role => {
 		if(!role.isActive) {
 			return false;
@@ -150,19 +132,11 @@ function getActiveRole(roles, teamMember) {
 }
 
 function setOneItemActive(array, index) {
-	return array.map((item, arrayIndex) => {
-		if(index === arrayIndex) {
-			item.isActive = true;
-		} else {
-			item.isActive = false;
-		}
-	});
+	array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex);
 }
 
 function setAllItemsActive(array) {
-	return array.map(item => {
-		item.isActive = true;
-	});
+	array.forEach(item => item.isActive = true);
 }
 
 export default TeamMembersOverview;

@@ -1,3 +1,5 @@
+@darken-value: 10%;
+
 .filter {
 	text-align: center;
 }
@@ -9,6 +11,7 @@
 
 .filter-item-button {
 	color: @black;
+	cursor: pointer;
 	background: @white-grey;
 	border: 0;
 	border-radius: @spacing-medium;
@@ -18,7 +21,15 @@
 	transition: @animation-speed color ease-out, @animation-speed background-color ease-out;
 }
 
+.filter-item-button:hover {
+	background: darken(@white-grey, @darken-value);
+}
+
 .filter-item-button--active {
 	color: @white;
 	background: @blue;
+}
+
+.filter-item-button--active:hover {
+	background: darken(@blue, @darken-value);
 }

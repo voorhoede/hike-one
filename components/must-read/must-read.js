@@ -33,7 +33,7 @@ class MustRead extends React.Component {
 				<div className={mustReadShortFade}></div>
 				<ButtonSecondary onClick={this.handleClick} classes="must-read-toggle btn-red-border">{buttonText}</ButtonSecondary>
 			</div>
-		)
+		);
 	}
 }
 

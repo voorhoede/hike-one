@@ -1,0 +1,56 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/shadows';
+
+.context-menu {
+	padding: @spacing-medium;
+	display: inline-block;
+}
+
+.context-menu-title {
+	margin: 0;
+}
+
+.context-menu-wrapper {
+	display: flex;
+	align-items: center;
+}
+
+.context-menu-table {
+	font-size: @body-text-small-m;
+	line-height: @line-height-body-small-m;
+	border-spacing: 0;
+    margin: @spacing-default @spacing-small @spacing-default 0;
+}
+
+.context-menu-table td {
+	padding: @spacing-half;
+}
+
+.context-menu-table-row:nth-child(odd) {
+	background-color: @light-gray;
+}
+
+.context-menu-table-row:nth-child(even) {
+	background-color: @light-grey;
+}
+
+.context-menu-logo-download, .context-menu-logo-download-all {
+	color: @red;
+	text-decoration: none;
+}
+
+.context-menu-logo-download:hover, .context-menu-logo-download-all:hover {
+	text-decoration: underline;
+}
+
+.context-menu-logo-image {
+	width: 100px;
+	height: 100%;
+}
+
+.context-menu-logo-download-all {
+	font-size: @body-text-small-m;
+	line-height: @line-height-body-small-m;
+	display: block;
+	text-align: center;
+}

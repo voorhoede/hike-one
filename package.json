@@ -47,7 +47,7 @@
     "express": "^4.15.3",
     "fontfaceobserver": "^2.0.13",
     "globby": "^6.1.0",
-    "gsap": "^2.0.1",
+    "gsap": "^1.20.2",
     "helmet": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "next": "^3.0.3",

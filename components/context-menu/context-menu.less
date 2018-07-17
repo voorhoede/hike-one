@@ -2,11 +2,25 @@
 @import (reference) '../../styles/shadows';
 
 .context-menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: @spacing-small;
 	padding: @spacing-medium;
 	display: inline-block;
+	background: @white;
+	z-index: 999;
+
+	@media @screen-medium {
+		left: @spacing-large;
+	}
+
+	@media @screen-1440 {
+		left: @spacing-default*8;
+	}
 }
 
 .context-menu-title {
+	font-weight: @font-weight-bold;
 	margin: 0;
 }
 

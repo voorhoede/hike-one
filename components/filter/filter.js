@@ -2,7 +2,7 @@ const filter = ({filter, onFilter}) => {
 	const isFilterVisuallyActive = filter.every(item => item.isActive);
 
     return (
-		<ul className='filter'>
+		<ul className='filter container'>
 			{ filter.map((item, index) => {
 				const activeClass = (item.isActive && !isFilterVisuallyActive) ? 'filter-item-button--active' : '';
 				return (

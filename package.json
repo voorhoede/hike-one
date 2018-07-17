@@ -48,7 +48,7 @@
     "chokidar-cli": "1.2.0",
     "compression": "1.7.0",
     "cookie-parser": "1.4.3",
-    "datocms-client": "0.4.6",
+    "datocms-client": "0.5.4",
     "delay": "2.0.0",
     "dotenv": "4.0.0",
     "express": "4.15.3",

@@ -21,6 +21,7 @@ import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes';
 
 import QuoteBlock from '../components/quote-block/quote-block';
 import FullWidthImage from '../components/full-width-image/full-width-image';
+import FullWidthImageStatic from '../components/full-width-image-static/full-width-image-static';
 import LogoList from '../components/logo-list/logo-list';
 
 import InlineImage from '../components/inline-image/inline-image';
@@ -195,6 +196,15 @@ const Case = ({Data, fontsLoaded, fullUrl}) => (
 							case 'full_width_image':
 								return (
 									<FullWidthImage
+										key={index}
+										index={index}
+										image={component.image.url}
+										title={component.title}
+										subtitle={component.subtitle} />
+								);
+							case 'full_width_image_static':
+								return (
+									<FullWidthImageStatic
 										key={index}
 										index={index}
 										image={component.image.url}

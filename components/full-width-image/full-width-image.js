@@ -175,7 +175,7 @@ class FullWidthImage extends React.Component {
 					background-image: url(${heroImageExtraLarge});
 				}
 			}
-			
+
 		</style>`};
 
         return (

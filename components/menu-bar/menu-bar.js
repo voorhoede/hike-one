@@ -2,7 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo			from '../logo/logo';
-import Hamburger from '../icons/hamburger/hamburger';
+import Hamburger 	from '../icons/hamburger/hamburger';
+import ContextMenu 	from '../context-menu/context-menu';
 
 import Facebook   from '../icons/facebook-circle';
 import Twitter 	  from '../icons/twitter-circle';
@@ -18,6 +19,7 @@ class Header extends React.Component {
 		this.onClickMenu = this.onClickMenu.bind(this);
 		this.onClickMenuList = this.onClickMenuList.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.toggleContextMenu = this.toggleContextMenu.bind(this);
 		this.setInitialValues = this.setInitialValues.bind(this);
 		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
 		this.onResize = this.onResize.bind(this);
@@ -25,7 +27,8 @@ class Header extends React.Component {
 		this.breakpointLarge = '1919px';
 		this.state = {
 			hamburger: false,
-			menuIsOpen: false
+			menuIsOpen: false,
+			contextMenuIsOpen: false
 		};
 		this.disableScrollClass = 'disable-scroll';
 	}
@@ -155,6 +158,12 @@ class Header extends React.Component {
 		this.setState({menuIsOpen : !this.state.menuIsOpen});
 	}
 
+	toggleContextMenu(event) {
+		event.preventDefault();
+
+		this.setState({contextMenuIsOpen: !this.state.contextMenuIsOpen});
+	}
+
 	onResize() {
 		// check if window is actually resized (some phones fire resize event on scroll)
 		const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
@@ -185,11 +194,12 @@ class Header extends React.Component {
 			<header ref={node => this.header = node} className="menu-bar">
 				<div className="header-logo-wrapper">
 					<Link href="/" >
-						<a className="header-logo">
+						<a className="header-logo" onContextMenu={this.toggleContextMenu}>
 							<Logo color={`${this.props.color ? this.props.color : "black"}`} />
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
+					<ContextMenu isOpen={this.state.contextMenuIsOpen} />
 				</div>
 
 				<button

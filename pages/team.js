@@ -10,14 +10,14 @@ import TeamOverview from '../components/team-overview/team-overview';
 import TeamMembersOverview from '../components/team-members-overview/team-members-overview';
 import cookie from '../components/_helpers/cookie';
 
-const Team = ({ tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl}) => (
+const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Team"
 			fontsLoaded={fontsLoaded}
 			seo={TeamOverviewData.seo}
 			url={fullUrl}>
 		<main className="main js-main">
 			<MenuBar color="white" />
-			
+
 			<article className="article">
 				<PageHeader
 					isSmall={true}
@@ -28,9 +28,9 @@ const Team = ({ tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, V
 				<div className={`page-scrolling-content-small`}>
 					<TeamSelector
 						slug={tab} />
-					
+
 					{
-						tab === 'culture' && 
+						tab === 'culture' &&
 						<TeamOverview
 							data={TeamOverviewData} />
 					}
@@ -38,6 +38,7 @@ const Team = ({ tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, V
 					{
 						tab === 'people' &&
 						<TeamMembersOverview
+							peopleTab={PeopleTabData}
 							team={TeamMembersData}
 							vacanciesOverview={VacanciesOverviewData}
 							vacancies={VacanciesData} />
@@ -57,15 +58,16 @@ Team.getInitialProps = async ({req, query, asPath}) => {
 	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const tab = query.slug;
-	const [TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData] = await fetchAll([
+	const [TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData] = await fetchAll([
 		`team`,
+		`people-tab`,
 		`people`,
 		`vacancies-overview`,
 		`vacancies`
 	]);
 
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl };
+	return { tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl };
 };
 
 export default Team;

@@ -28,6 +28,12 @@ server.use(redirection);
 server.use(cookieParser());
 server.use('/api/', apiRouter);
 server.use('/guide/', express.static('./build/guide/'));
+server.get('/10years', (req, res) => {
+	res.redirect(307, 'https://10years.hike.one');
+});
+server.get('/borrel', (req, res) => {
+	res.redirect(307, 'https://events.blackbirdrsvp.com/hike-one-housewarming');
+});
 server.get('/case/:slug', (req, res) => app.render(req, res, '/case', {slug: req.params.slug}));
 server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slug: req.params.slug}));
 server.get('/team/:slug', (req, res) => app.render(req, res, '/team', {slug: req.params.slug}));

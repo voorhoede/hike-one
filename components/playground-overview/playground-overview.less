@@ -38,12 +38,20 @@
 			}
 		}
 
-		@media @screen-large {
-			width: calc(~'60% - 16px');
-			margin-right: 32px;
+		@media @screen-medium {
+			margin-bottom: @spacing-medium;
+		}
 
-			&:nth-of-type(even) {
-				margin-right: 0;
+		@media @screen-medium-large {
+			margin-bottom: @spacing-large;
+		}
+
+		@media @screen-large {
+			margin-bottom: @spacing-default*1.5;
+			width: calc(~'60% - 16px');
+
+			&:nth-of-type(odd) {
+				margin-right: 32px;
 			}
 
 			&:nth-of-type(4n+2),

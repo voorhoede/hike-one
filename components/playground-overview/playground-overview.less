@@ -27,7 +27,7 @@
 	}
 
 	.playground-card {
-		margin-bottom: 16px;
+		margin-bottom: @spacing-default*1.5;
 
 		@media @screen-small {
 			display: inline-block;
@@ -47,7 +47,6 @@
 		}
 
 		@media @screen-large {
-			margin-bottom: @spacing-default*1.5;
 			width: calc(~'60% - 16px');
 
 			&:nth-of-type(odd) {

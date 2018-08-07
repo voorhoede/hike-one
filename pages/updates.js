@@ -57,7 +57,7 @@ updates.getInitialProps = async ({req, asPath}) => {
 	const [ Data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
 	updatesData.sort((a, b) => { return new Date(b.date).getTime() - new Date(a.date).getTime(); });
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data, updatesData, fontsLoaded, fullUrl};
+	return { Data, updatesData, fontsLoaded, fullUrl };
 };
 
 

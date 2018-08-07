@@ -15,9 +15,9 @@ class MustRead extends React.Component {
 	render() {
 		const { mustRead, index } = this.props;
 		const { isCollapsed } = this.state;
-		const buttonText = isCollapsed ? 'See more' : 'See less';
+		const buttonText = isCollapsed ? 'Show more' : 'Show less';
 		const hideItem = isCollapsed ? 'hide': 'show';
-		const mustReadShortFade = isCollapsed ? "must-read-short-fade" : " ";
+		const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' ';
 		return(
 			<div className="must-read">
 				<h1 className="must-read-title">Must read</h1>

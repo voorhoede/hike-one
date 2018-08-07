@@ -2,6 +2,8 @@ module.exports = (dato, root) => {
 	root.directory('data/current', dir => {
 		dir.createDataFile('team.json', 'json', dato.team.toMap());
 
+		dir.createDataFile('people-tab.json', 'json', dato.peopleTab.toMap());
+
 		const teamImages34 = dato.collectionsByType.teamImage34S;
 		dir.createDataFile('teamImages34.json', 'json', teamImages34[0].toMap());
 
@@ -29,9 +31,13 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
+		dir.createDataFile('playground.json', 'json', dato.playground.toMap());
+
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
+
+		dir.createDataFile('playground-topic.json', 'json', mapCollection(dato.playgroundTopics));
 
 		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies));
 

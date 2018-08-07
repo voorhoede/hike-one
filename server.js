@@ -38,6 +38,7 @@ server.get('/case/:slug', (req, res) => app.render(req, res, '/case', {slug: req
 server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slug: req.params.slug}));
 server.get('/team/:slug', (req, res) => app.render(req, res, '/team', {slug: req.params.slug}));
 server.get('/update/:slug', (req, res) => app.render(req, res, '/update', {slug: req.params.slug}));
+server.get('/playground/:slug', (req, res) => app.render(req, res, '/playground-topic', {slug: req.params.slug}));
 server.get('/topic/:slug', (req, res) => app.render(req, res, '/topic', {slug: req.params.slug}));
 server.get('*', (req, res) => handle(req, res));
 

@@ -2,12 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 
 import Logo			from '../logo/logo';
-import Hamburger from '../icons/hamburger/hamburger';
+import Hamburger 	from '../icons/hamburger/hamburger';
+import ContextMenu 	from '../context-menu/context-menu';
 
 import Facebook   from '../icons/facebook-circle';
 import Twitter 	  from '../icons/twitter-circle';
 import LinkedIn   from '../icons/linkedin-circle';
 import Medium 	  from '../icons/medium-circle';
+import Instagram  from '../icons/instagram-circle';
 
 import {TweenLite, Power3, Power2, TimelineLite, TimelineMax}  from 'gsap';
 
@@ -17,6 +19,7 @@ class Header extends React.Component {
 		this.onClickMenu = this.onClickMenu.bind(this);
 		this.onClickMenuList = this.onClickMenuList.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
+		this.toggleContextMenu = this.toggleContextMenu.bind(this);
 		this.setInitialValues = this.setInitialValues.bind(this);
 		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
 		this.onResize = this.onResize.bind(this);
@@ -24,7 +27,8 @@ class Header extends React.Component {
 		this.breakpointLarge = '1919px';
 		this.state = {
 			hamburger: false,
-			menuIsOpen: false
+			menuIsOpen: false,
+			contextMenuIsOpen: false
 		};
 		this.disableScrollClass = 'disable-scroll';
 	}
@@ -154,6 +158,12 @@ class Header extends React.Component {
 		this.setState({menuIsOpen : !this.state.menuIsOpen});
 	}
 
+	toggleContextMenu(event) {
+		event.preventDefault();
+
+		this.setState({contextMenuIsOpen: !this.state.contextMenuIsOpen});
+	}
+
 	onResize() {
 		// check if window is actually resized (some phones fire resize event on scroll)
 		const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
@@ -184,11 +194,12 @@ class Header extends React.Component {
 			<header ref={node => this.header = node} className="menu-bar">
 				<div className="header-logo-wrapper">
 					<Link href="/" >
-						<a className="header-logo">
+						<a className="header-logo" onContextMenu={this.toggleContextMenu}>
 							<Logo color={`${this.props.color ? this.props.color : "black"}`} />
 							<h1 className="a11y-sr-only">Hike one</h1>
 						</a>
 					</Link>
+					<ContextMenu isOpen={this.state.contextMenuIsOpen} />
 				</div>
 
 				<button
@@ -237,6 +248,7 @@ class Header extends React.Component {
 								as="/service/new-product-design"><a >Services</a></Link></li>
 							<li className="menu-item"><Link href="/work"><a>Work</a></Link></li>
 							<li className="menu-item"><Link href="/updates"><a>Updates</a></Link></li>
+							<li className="menu-item"><Link href="/playground"><a>Playground</a></Link></li>
 							<li className="menu-item menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
 							<li>
 								<div className="menu-social" ref={node => this.socialIcons = node}>
@@ -244,6 +256,7 @@ class Header extends React.Component {
 									<a href="https://twitter.com/realhikeone" target="_blank"><Twitter /></a>
 									<a href="https://www.linkedin.com/company/356831/" target="_blank"><LinkedIn /></a>
 									<a href="https://medium.com/@HikeOne" target="_blank"><Medium /></a>
+									<a href="https://www.instagram.com/hike.one/" target="_blank"><Instagram/></a>
 								</div>
 							</li>
 						</ul>

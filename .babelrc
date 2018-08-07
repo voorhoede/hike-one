@@ -1,7 +1,11 @@
 {
-	"sourceMaps": true,
 	"presets": [
 		"next/babel",
-		"stage-0"
+		[
+			"@babel/preset-stage-0",
+			{
+				"decoratorsLegacy": true
+			}
+		]
 	]
 }

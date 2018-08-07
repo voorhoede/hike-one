@@ -28,7 +28,7 @@ const FullWidthImageStatic = ({image = '#', title, subtitle, index = 0}) => {
 	}
 
 	return(
-		<div className="container">
+		<div>
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`full-width-image-static full-width-image-static-${index}`}>
 				{(title || subtitle ) &&

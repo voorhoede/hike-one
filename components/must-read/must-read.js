@@ -24,8 +24,8 @@ class MustRead extends React.Component {
 		return(
 			<div className="must-read">
 				<h1 className="must-read-title">Must read</h1>
-				{mustRead.map((item, index, key) => (
-					<a href={item.link} target={item.isExternalLink ? '_blank' : ''} className={`must-read-item must-read-item${index} ${hideItem}`}>
+				{mustRead.map((item, index) => (
+					<a href={item.link} target={item.isExternalLink ? '_blank' : ''} className={`must-read-item must-read-item${index} ${hideItem}`} key={index}>
 						<h2 className="must-read-item-index">{index + 1}</h2>
 						<div>
 							<h1 className="must-read-item-title">{item.title}</h1>

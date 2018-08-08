@@ -1,7 +1,7 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 
-const UpdateExtractLarge = ({key='', index, title='', date='', image='', color='', target='', category='update', author='', external=false}) => {
+const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', author='', external=false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 	const style ={__html:
 		`<style>

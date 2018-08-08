@@ -34,6 +34,7 @@ poll_attempts=40;
 deployment_status () {
 	local environment=$1
 	local url=$2
+
 	now -t "$NOW_TOKEN" ls "$1" 2>/dev/null | grep "$url" | awk '{ print $5 }';
 }
 
@@ -113,7 +114,7 @@ deploy () {
 			domain="${environment}.${domain}";
 		fi
 		# Create an alias for the domain name to the current deployment url
-		now -t "$NOW_TOKEN" alias "$deployment_id" "$domain";
+		now -t "$NOW_TOKEN" alias set "$deployment_id" "$domain";
 	done <./domains.txt; # Read urls from file
 };
 

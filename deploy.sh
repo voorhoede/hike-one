@@ -34,7 +34,7 @@ poll_attempts=40;
 deployment_status () {
 	local environment=$1
 	local url=$2
-	now -t "$NOW_TOKEN" ls "$1" | grep "$url" | awk '{ print $3 }';
+	now -t "$NOW_TOKEN" ls "$1" 2>/dev/null | grep "$url" | awk '{ print $5 }';
 }
 
 deploy () {

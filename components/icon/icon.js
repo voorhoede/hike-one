@@ -1,8 +1,9 @@
 import ArrowDown from '../icons/arrow-down';
 import ArrowDownCircle from '../icons/arrow-down-circle';
+import ArrowLeft from '../icons/arrow-left';
 import ArrowRightCircle from '../icons/arrow-right-circle';
 import ArrowRight from '../icons/arrow-right';
-import ArrowLeft from '../icons/arrow-left';
+import ArrowUp from '../icons/arrow-up';
 import Dribble from '../icons/dribble';
 import FaceBook from '../icons/facebook-circle';
 import Instagram from '../icons/instagram-circle';
@@ -18,9 +19,10 @@ const Icon = ({icon = 'arrowDown', classes = ''}) => {
 	const icons = {
 		arrowDown: <ArrowDown />,
 		arrowDownCircle: <ArrowDownCircle />,
+		arrowLeft: <ArrowLeft/>,
 		arrowRightCircle: <ArrowRightCircle />,
 		arrowRight: <ArrowRight/>,
-		arrowLeft: <ArrowLeft/>,
+		arrowUp: <ArrowUp/>,
 		dribble: <Dribble/>,
 		faceBook: <FaceBook/>,
 		instagram: <Instagram/>,

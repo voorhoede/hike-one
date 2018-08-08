@@ -18,6 +18,9 @@ class MustRead extends React.Component {
 		const buttonText = isCollapsed ? 'Show more' : 'Show less';
 		const hideItem = isCollapsed ? 'hide': 'show';
 		const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' ';
+		const buttonIcon = isCollapsed ? 'arrowDown' : 'arrowUp'
+		const buttonClass = isCollapsed ? 'arrow-down' : 'arrow-up'
+		
 		return(
 			<div className="must-read">
 				<h1 className="must-read-title">Must read</h1>
@@ -31,7 +34,9 @@ class MustRead extends React.Component {
 					</a>
 				))}
 				<div className={mustReadShortFade}></div>
-				<ButtonSecondary onClick={this.handleClick} classes="must-read-toggle btn-red-border">{buttonText}</ButtonSecondary>
+				<ButtonSecondary onClick={this.handleClick} classes={`must-read-toggle btn-red-border vertical-spring ${buttonClass}`} icon={buttonIcon} >
+					{buttonText}
+				</ButtonSecondary>
 			</div>
 		);
 	}

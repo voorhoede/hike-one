@@ -4,15 +4,21 @@
 .playground-card {
 	position: relative;
 	cursor: pointer;
+	transition: transform @animation-speed-slow, box-shadow @animation-speed-slow;
 
-	@media @screen-large {
-		&:nth-of-type(4n+2),
-		&:nth-of-type(4n+3) {
-			.playground-card-content {
-				width: calc(~'100% - 48px');
-			}
+	&:hover {
+		.shadow();
+		transform: scale(1.02);
+		transition: transform @animation-speed-fast, box-shadow @animation-speed-fast;
+
+		.playground-card:after {
+			transition: opacity @animation-speed-fast;
 		}
 	}
+}
+
+.playground-card:after {
+	transition: opacity @animation-speed-slow;
 }
 
 .playground-card-image {

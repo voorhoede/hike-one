@@ -6,6 +6,7 @@ import PageHeader from '../components/page-header/page-header';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
+import UpdatesExtractLarge from "../components/updates-extract-large/updates-extract-large";
 
 const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 	return (
@@ -23,6 +24,7 @@ const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 						image={Data.header.backgroundImage.url}/>
 					<div className={`page-scrolling-content-small`}>
 						<UpdateOverview>
+							<UpdatesExtractLarge highlights={Data.highlights} mustRead={Data.mustRead} index />
 							{ updatesData.map((item, index) => (
 								<UpdateExtractSmall
 									key={index}
@@ -55,7 +57,7 @@ updates.getInitialProps = async ({req, asPath}) => {
 	const [ Data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
 	updatesData.sort((a, b) => { return new Date(b.date).getTime() - new Date(a.date).getTime(); });
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data,  updatesData, fontsLoaded, fullUrl};
+	return { Data, updatesData, fontsLoaded, fullUrl };
 };
 
 

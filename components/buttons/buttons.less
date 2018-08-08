@@ -31,6 +31,7 @@
 	&:active {
 		transform: scale(0.98);
 	}
+
 	.icon {
 		position: absolute;
 		margin-top: 2px;
@@ -86,6 +87,18 @@
 	}
 }
 
+.btn-secondary-hover-state--vertical {
+	.icon {
+		animation-name: vertical-spring-icon-to;
+	}
+}
+
+.btn-secondary-hover-state--vertical--inverted {
+	.icon {
+		animation-name: vertical-spring-icon-from;
+	}
+}
+
 @keyframes horizontal-spring-icon-to {
 	83.25% {
 		transform: translateX(6px);
@@ -96,12 +109,31 @@
 	}
 }
 
-
 @keyframes horizontal-spring-icon-from {
 	0% {
 		transform: translateX(6px);
 	}
+
 	100% {
 		transform: translateX(0);
+	}
+}
+
+@keyframes vertical-spring-icon-to {
+	83.25% {
+		transform: translateY(4px);
+	}
+
+	100% {
+		transform: translateY(3px);
+	}
+}
+
+@keyframes vertical-spring-icon-from {
+	0% {
+		transform: translateY(4px);
+	}
+	100% {
+		transform: translateY(0);
 	}
 }

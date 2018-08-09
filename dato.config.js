@@ -33,11 +33,13 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('playground.json', 'json', dato.playground.toMap());
 
+		dir.createDataFile('playground-topic.json', 'json', mapCollection(dato.playgroundTopics));
+
+		dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects));
+
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));
 
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics));
-
-		dir.createDataFile('playground-topic.json', 'json', mapCollection(dato.playgroundTopics));
 
 		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies));
 
@@ -50,5 +52,16 @@ module.exports = (dato, root) => {
 			acc.push(mappedData);
 			return acc;
 		}, []);
+	}
+
+	function redirectsToJson(redirects) {
+		return redirects.map(redirect => {
+				const mappedData = redirect.toMap();
+
+				return {
+					"from": mappedData.from,
+					"to": mappedData.to
+				}
+			})
 	}
 };

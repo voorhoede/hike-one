@@ -248,7 +248,6 @@ class Header extends React.Component {
 								as="/service/new-product-design"><a >Services</a></Link></li>
 							<li className="menu-item"><Link href="/work"><a>Work</a></Link></li>
 							<li className="menu-item"><Link href="/updates"><a>Updates</a></Link></li>
-							<li className="menu-item"><Link href="/playground"><a>Playground</a></Link></li>
 							<li className="menu-item menu-item-last"><Link href="/contact"><a>Contact</a></Link></li>
 							<li>
 								<div className="menu-social" ref={node => this.socialIcons = node}>

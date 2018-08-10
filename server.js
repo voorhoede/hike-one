@@ -2,6 +2,7 @@ const apiRouter = require('./lib/api-router');
 const dataLoader = require('./lib/data-loader');
 const getSitemap = require('./lib/sitemap');
 const redirection = require('./lib/www-redirect');
+const datoRedirect = require('./lib/dato-redirect');
 
 const express = require('express');
 const next = require('next');
@@ -25,15 +26,10 @@ server.use(helmet());
 server.use('/sitemap.xml', getSitemap);
 server.use(express.static('./static/root'));
 server.use(redirection);
+server.use(datoRedirect);
 server.use(cookieParser());
 server.use('/api/', apiRouter);
 server.use('/guide/', express.static('./build/guide/'));
-server.get('/10years', (req, res) => {
-	res.redirect(307, 'https://10years.hike.one');
-});
-server.get('/borrel', (req, res) => {
-	res.redirect(307, 'https://events.blackbirdrsvp.com/hike-one-housewarming');
-});
 server.get('/case/:slug', (req, res) => app.render(req, res, '/case', {slug: req.params.slug}));
 server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slug: req.params.slug}));
 server.get('/team/:slug', (req, res) => app.render(req, res, '/team', {slug: req.params.slug}));

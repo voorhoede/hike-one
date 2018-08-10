@@ -55,13 +55,16 @@ module.exports = (dato, root) => {
 	}
 
 	function redirectsToJson(redirects) {
-		return redirects.map(redirect => {
-				const mappedData = redirect.toMap();
+		return redirects.reduce((urls, redirect) => {
+			const { from, to, statusCode } = redirect
 
-				return {
-					"from": mappedData.from,
-					"to": mappedData.to
+			return { 
+				...urls,
+				[from]: { 
+					to,
+					statusCode
 				}
-			})
+			}
+		}, {})
 	}
 };

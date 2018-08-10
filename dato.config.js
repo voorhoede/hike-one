@@ -31,10 +31,6 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
 
-		dir.createDataFile('playground.json', 'json', dato.playground.toMap());
-
-		dir.createDataFile('playground-topic.json', 'json', mapCollection(dato.playgroundTopics));
-
 		dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects));
 
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services));

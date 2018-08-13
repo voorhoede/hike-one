@@ -60,7 +60,7 @@ class TeamMembersOverview extends React.Component {
 			<div className="filters-container">
 				<ButtonSecondary 
 					onClick={this.handleClick} 
-					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle testclass`} 
+					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`} 
 					icon={buttonIcon}>
 					Filters
 				</ButtonSecondary>

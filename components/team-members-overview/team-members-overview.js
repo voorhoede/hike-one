@@ -64,7 +64,7 @@ class TeamMembersOverview extends React.Component {
 					icon={buttonIcon}>
 					Filters
 				</ButtonSecondary>
-				{ filtersAreCollapsed && 
+				{ !filtersAreCollapsed && 
 				<div>
 					<Filter
 						filter={roles}
@@ -77,7 +77,7 @@ class TeamMembersOverview extends React.Component {
 				</div>
 				}
 				
-				<p className="team-members-intro-text container">{peopleTab.introText}</p>
+			{ peopleTab.introText && <p className="team-members-intro-text container">{peopleTab.introText}</p> }
 				<ul className="team-members-overview container">
 					{ filteredTeam.map((teamMember, index) => (
 						<TeamMember key={index} data={teamMember} />

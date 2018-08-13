@@ -13,7 +13,7 @@ class TeamMembersOverview extends React.Component {
 		this.state = {
 			roles: getRoles(team),
 			locations: getLocations(team),
-			filtersAreCollapsed: true,
+			isFilterCollapsed: true,
 		}
 
 		this.handleClick = this.handleClick.bind(this);
@@ -45,17 +45,17 @@ class TeamMembersOverview extends React.Component {
 	}
 
 	handleClick() {
-		const { filtersAreCollapsed } = this.state;
-		this.setState({filtersAreCollapsed: !filtersAreCollapsed});
+		const { isFilterCollapsed } = this.state;
+		this.setState({isFilterCollapsed: !isFilterCollapsed});
 	}
 
 	render() {
 		const {team, peopleTab, vacanciesOverview, vacancies} = this.props;
-		const {roles, locations, filtersAreCollapsed} = this.state;
+		const {roles, locations, isFilterCollapsed} = this.state;
 		const filteredTeam = filterTeam(team, this.state);
-		const buttonIcon = filtersAreCollapsed ? 'arrowDown' : 'arrowUp';
-		const buttonClass = filtersAreCollapsed ? 'arrow-down' : 'arrow-up';
-		const filtersContainerClass = filtersAreCollapsed ? 'hide' : '';
+		const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp';
+		const buttonClass = isFilterCollapsed ? 'arrow-down' : 'arrow-up';
+		const filtersContainerClass = isFilterCollapsed ? 'hide' : '';
 
 		return (
 			<div className="filters">

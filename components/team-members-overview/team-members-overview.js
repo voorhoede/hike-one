@@ -2,6 +2,7 @@ import React from 'react';
 import Filter from '../filter/filter';
 import TeamMember from '../team-member/team-member';
 import VacancyOverview from '../vacancy-overview/vacancy-overview';
+import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
 class TeamMembersOverview extends React.Component {
 	constructor(props) {
@@ -11,9 +12,11 @@ class TeamMembersOverview extends React.Component {
 
 		this.state = {
 			roles: getRoles(team),
-			locations: getLocations(team)
+			locations: getLocations(team),
+			isFilterCollapsed: true,
 		}
 
+		this.handleClick = this.handleClick.bind(this);
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
@@ -41,22 +44,39 @@ class TeamMembersOverview extends React.Component {
 		this.setState({ filter: array });
 	}
 
+	handleClick() {
+		const { isFilterCollapsed } = this.state;
+		this.setState({isFilterCollapsed: !isFilterCollapsed});
+	}
+
 	render() {
 		const {team, peopleTab, vacanciesOverview, vacancies} = this.props;
-		const {roles, locations} = this.state;
+		const {roles, locations, isFilterCollapsed} = this.state;
 		const filteredTeam = filterTeam(team, this.state);
+		const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp';
+		const buttonClass = isFilterCollapsed ? 'arrow-down' : 'arrow-up';
+		const filtersContainerClass = isFilterCollapsed ? 'hide' : '';
 
 		return (
-			<div>
-				<Filter
-					filter={roles}
-					onFilter={this.onFilterHandler}
-				/>
-				<Filter
-					filter={locations}
-					onFilter={this.onFilterHandler}
-				/>
-				<p className="team-members-intro-text container">{peopleTab.introText}</p>
+			<div className="filters">
+				<ButtonSecondary 
+					onClick={this.handleClick} 
+					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`} 
+					icon={buttonIcon}>
+					Filters
+				</ButtonSecondary>
+				<div className={`${filtersContainerClass} filters-container`}>
+					<Filter
+						filter={roles}
+						onFilter={this.onFilterHandler}
+					/>
+					<Filter
+						filter={locations}
+						onFilter={this.onFilterHandler}
+					/>
+				</div>
+				
+			{ peopleTab.introText && <p className="team-members-intro-text container">{peopleTab.introText}</p> }
 				<ul className="team-members-overview container">
 					{ filteredTeam.map((teamMember, index) => (
 						<TeamMember key={index} data={teamMember} />

@@ -117,9 +117,20 @@
     }
 }
 
-.filters-container {
+.filters {
     text-align: center;
+}
+
+.filters-container {
     margin-bottom: @spacing-medium;
+}
+
+.filters-container.hide {
+    display: none;
+
+    @media @screen-medium {
+        display: block;
+    }
 }
 
 .filters-toggle {

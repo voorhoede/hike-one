@@ -55,17 +55,17 @@ class TeamMembersOverview extends React.Component {
 		const filteredTeam = filterTeam(team, this.state);
 		const buttonIcon = filtersAreCollapsed ? 'arrowDown' : 'arrowUp';
 		const buttonClass = filtersAreCollapsed ? 'arrow-down' : 'arrow-up';
+		const filtersContainerClass = filtersAreCollapsed ? 'hide' : '';
 
 		return (
-			<div className="filters-container">
+			<div className="filters">
 				<ButtonSecondary 
 					onClick={this.handleClick} 
 					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`} 
 					icon={buttonIcon}>
 					Filters
 				</ButtonSecondary>
-				{ !filtersAreCollapsed && 
-				<div>
+				<div className={`${filtersContainerClass} filters-container`}>
 					<Filter
 						filter={roles}
 						onFilter={this.onFilterHandler}
@@ -75,7 +75,6 @@ class TeamMembersOverview extends React.Component {
 						onFilter={this.onFilterHandler}
 					/>
 				</div>
-				}
 				
 			{ peopleTab.introText && <p className="team-members-intro-text container">{peopleTab.introText}</p> }
 				<ul className="team-members-overview container">

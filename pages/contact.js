@@ -11,9 +11,63 @@ import cookie from '../components/_helpers/cookie';
 import PageHeader from '../components/page-header/page-header';
 import ContactForm from '../components/contact-form/contact-form';
 
-const dropdownArray = ['Just saying Hi', 'Working at Hike One', 'Doing a project together']
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
+const forms = [{ label: 'Just saying Hi'}, {label: 'Working at Hike One'}, {label: 'Doing a project together' }]
+const dropdownArray = forms.map(item => item.label)
+
+const dropdDownOptions = {
+	formTitle,
+	dropwDownTitle,
+	dropdownArray
+}
+
+const justSayingHi = {
+	label: 'Just saying Hi',
+	fields: [{
+		label: 'My name is',
+		inputType: 'text',
+		placeholder: 'Your name',
+	},
+	{
+		label: 'My email is',
+		inputType: 'email',
+		placeholder: 'Your email'
+	},
+	{
+		label: 'My message',
+		inputType: 'textarea',
+		placeholder: 'Your message here'
+	}]
+}
+const projectTogether = {
+	label: 'Doing a project together',
+	fields: [{
+		label: 'My name is',
+		inputType: 'text',
+		placeholder: 'Your name',
+	},
+	{
+		label: 'My company is',
+		inputType: 'text',
+		placeholder: 'Your company name'
+	},
+	{
+		label: 'My email is',
+		inputType: 'email',
+		placeholder: 'Your email'
+	},
+	{
+		label: 'My phone number is',
+		inputType: 'text',
+		placeholder: 'Your phone number'
+	},
+	{
+		label: 'My message',
+		inputType: 'textarea',
+		placeholder: 'Your message here'
+	}]
+}
 
 const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Contact"
@@ -36,7 +90,7 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
-					<ContactForm dropwDownTitle={dropwDownTitle} dropdownArray={dropdownArray} formTitle={formTitle} />
+					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} />
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (

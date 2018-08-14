@@ -1,5 +1,6 @@
 import ButtonPrimary from '../buttons/button-primary/button-primary'
 import ButtonClean from '../buttons/button-clean/button-clean'
+import SelectDropdown from '../select-dropdown/select-dropdown';
 
 class ContactForm extends React.Component {
 	constructor(props) {
@@ -8,6 +9,12 @@ class ContactForm extends React.Component {
     this.state = { 
       isCollapsed: true,
       selectedItem: '',
+      name: '',
+      company: '',
+      email: '',
+      phoneNumber: null,
+      message: '',
+
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -22,36 +29,37 @@ class ContactForm extends React.Component {
 	handleClick(item) {
     this.setState({ selectedItem: item });
     this.toggleDropdown()
-	}
+  }
+  
+  handleChange = (e) => {
+    this.setState({ 
+      [e.target.name]: e.target.value
+    })
+  }
 
 	render() {
-		const { formTitle, dropwDownTitle, dropdownArray } = this.props;
-    const { isCollapsed, selectedItem } = this.state;
+		const { dropDownOptions } = this.props;
+    const { isCollapsed, selectedItem, name, company, email, phoneNumber, message } = this.state;
     const { toggleDropdown, handleClick } = this;
-		// const hideItem = isCollapsed ? 'hide': 'show';
-		// const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' ';
-		// const buttonIcon = isCollapsed ? 'arrowDown' : 'arrowUp'
 		const activeButtonClass = !isCollapsed ? 'active' : ''
 		
 		return (
-			<div className="contact-form">
-        <div className="select-dropdown">
-          <h2 className="input-label form-title">{formTitle}</h2>
-          <div className="dropdown-header">
-            <ButtonClean classes={`select-btn vertical-spring ${activeButtonClass}`} icon="arrowDown" onClick={toggleDropdown}>
-            {selectedItem || dropwDownTitle}
-            </ButtonClean>
-          </div>
+			<div className="contact-form container">
+        <SelectDropdown dropDownOptions={dropDownOptions} />
+        
+        <form className="form" onSubmit={this.handleSubmit}>
+
+          <label className="label" htmlFor="name">My name is</label>
+          <input type="text" id="name" className="input" name="name" value={name} onChange={this.handleChange} autoFocus="true" />
           
-          { !isCollapsed && 
-            <ul className="dropdown-list">
-            { dropdownArray.map((item, index) => (
-              <li className="list-item" key={index}>
-                <ButtonClean classes="select-item" onClick={() => handleClick(item)}>{item}</ButtonClean>
-              </li>
-            ))}
-            </ul>}
-        </div>
+          <label className="label" htmlFor="email">My email is</label>
+          <input type="email" id="email" className="input" name="email" value={email} onChange={this.handleChange} />
+          
+          <label className="label" htmlFor="message">My message is</label>
+          <textarea id="message" className="input textarea" name="message" value={message} onChange={this.handleChange} />
+
+          <ButtonPrimary onClick={this.handleSubmit} classes="submit-btn">Send</ButtonPrimary>
+        </form>
       </div>
 		);
 	}

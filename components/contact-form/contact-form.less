@@ -3,7 +3,8 @@
 .contact-form {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .select-dropdown {
@@ -20,9 +21,6 @@
 
 .form-title {
   text-align: center;
-}
-
-.dropdown-header {
 }
 
 .dropdown-header,
@@ -91,4 +89,37 @@
   &:focus {
     color: @red;
   }
+}
+
+.form {
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
+  margin-bottom: @spacing-default;
+}
+
+.input {
+  background-color: @light-grey;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  height: 58px;
+  margin-bottom: @spacing-small;
+  font-size: @body-text-s;
+  padding: 0 @spacing-small;
+}
+
+.textarea {
+  min-height: 260px;
+  padding: @spacing-small @spacing-small;
+}
+
+.submit-btn {
+  width: 210px;
+  display: block;
+  margin: 0 auto;
 }

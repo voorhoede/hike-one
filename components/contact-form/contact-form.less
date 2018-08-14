@@ -93,6 +93,10 @@
 
 .form {
   width: 100%;
+  max-width: 763px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 .label {
@@ -100,6 +104,20 @@
   font-size: @heading-small-s;
   font-weight: @font-weight-bold;
   margin-bottom: @spacing-default;
+
+  @media @screen-medium {
+    display: inline-block;
+  }
+}
+
+.input-field {
+  width: 100%;
+  margin-bottom: @spacing-small;
+  
+  @media @screen-medium {
+    width: calc(50% - 15px);
+    display: inline-block;
+  }
 }
 
 .input {
@@ -108,7 +126,6 @@
   border: none;
   box-shadow: none;
   height: 58px;
-  margin-bottom: @spacing-small;
   font-size: @body-text-s;
   padding: 0 @spacing-small;
 }
@@ -122,4 +139,19 @@
   width: 210px;
   display: block;
   margin: 0 auto;
+}
+
+.message-input {
+  @media @screen-medium {
+    flex-grow: 1;
+  }
+}
+
+.extra-input-fields {
+  width: 100%;
+
+  @media @screen-medium {
+    display: flex;
+    justify-content: space-between;
+  }
 }

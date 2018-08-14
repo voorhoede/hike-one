@@ -13,13 +13,13 @@ import ContactForm from '../components/contact-form/contact-form';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
-const forms = [{ label: 'Just saying Hi'}, {label: 'Working at Hike One'}, {label: 'Doing a project together' }]
+const forms = [{ label: 'Just saying Hi', formType: 'personal'}, {label: 'Working at Hike One', formType: 'job-application'}, {label: 'Doing a project together', formType: 'company' }]
 const dropdownArray = forms.map(item => item.label)
 
 const dropdDownOptions = {
 	formTitle,
 	dropwDownTitle,
-	dropdownArray
+	forms
 }
 
 const justSayingHi = {

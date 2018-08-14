@@ -2,32 +2,29 @@ import ButtonClean from '../buttons/button-clean/button-clean'
 
 class SelectDropdown extends React.Component {
 	constructor(props) {
-    super(props);
+    super(props)
     
     this.state = { 
       isCollapsed: true,
-      selectedItem: '',
-
-    };
-
-    this.handleClick = this.handleClick.bind(this);
-    this.toggleDropdown = this.toggleDropdown.bind(this);
+    }
 	}
 
-  toggleDropdown() {
+  toggleDropdown = () => {
     const { isCollapsed } = this.state;
-		this.setState({ isCollapsed: !isCollapsed });
+		this.setState({ isCollapsed: !isCollapsed })
   }
 
-	handleClick(item) {
-    this.setState({ selectedItem: item });
+	handleClick = (item) => {
     this.toggleDropdown()
+    
+    this.props.handleClick(item)
 	}
 
 	render() {
-		const { formTitle, dropwDownTitle, dropdownArray } = this.props.dropDownOptions;
-    const { isCollapsed, selectedItem } = this.state;
-    const { toggleDropdown, handleClick } = this;
+    const { formTitle, dropwDownTitle, forms } = this.props.dropDownOptions
+    const { selectedItem } = this.props
+    const { isCollapsed } = this.state
+    const { toggleDropdown, handleClick } = this
 		const activeButtonClass = !isCollapsed ? 'active' : ''
 		
 		return (
@@ -41,9 +38,9 @@ class SelectDropdown extends React.Component {
         
         { !isCollapsed && 
           <ul className="dropdown-list">
-          { dropdownArray.map((item, index) => (
+          { forms.map((item, index) => (
             <li className="list-item" key={index}>
-              <ButtonClean classes="select-item" onClick={() => handleClick(item)}>{item}</ButtonClean>
+              <ButtonClean classes="select-item" onClick={() => handleClick(item)}>{item.label}</ButtonClean>
             </li>
           ))}
           </ul>}

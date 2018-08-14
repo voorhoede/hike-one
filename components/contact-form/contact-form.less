@@ -121,15 +121,36 @@
 }
 
 .input {
-  background-color: @light-grey;
+  background-color: @white-grey;
   width: 100%;
   border: none;
   box-shadow: none;
   height: 58px;
   font-size: @body-text-s;
   padding: 0 @spacing-small;
+
+  &:focus {
+    outline: none;
+    border-bottom: 2px solid @blue;
+  }
+
+  &:valid {
+    border-bottom: 2px solid @green;
+  }
+
+  &:invalid {
+    border-bottom: 2px solid @red;
+    position: relative;
+  }
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px @white-grey inset;
+}
+
+textarea {
+  resize: none;
+}
 .textarea {
   min-height: 260px;
   padding: @spacing-small @spacing-small;
@@ -155,3 +176,4 @@
     justify-content: space-between;
   }
 }
+

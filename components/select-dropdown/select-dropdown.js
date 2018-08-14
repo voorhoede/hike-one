@@ -21,15 +21,14 @@ class SelectDropdown extends React.Component {
 	}
 
 	render() {
-    const { formTitle, dropwDownTitle, forms } = this.props.dropDownOptions
     const { selectedItem } = this.props
+    const { dropwDownTitle, forms } = this.props.dropDownOptions
     const { isCollapsed } = this.state
     const { toggleDropdown, handleClick } = this
 		const activeButtonClass = !isCollapsed ? 'active' : ''
 		
 		return (
       <div className="select-dropdown">
-        <h2 className="input-label form-title">{formTitle}</h2>
         <div className="dropdown-header">
           <ButtonClean classes={`select-btn ${activeButtonClass}`} icon="arrowDown" onClick={toggleDropdown}>
           {selectedItem || dropwDownTitle}

@@ -13,60 +13,11 @@ import ContactForm from '../components/contact-form/contact-form';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
-const forms = [{ label: 'Just saying Hi', formType: 'personal'}, {label: 'Working at Hike One', formType: 'job-application'}, {label: 'Doing a project together', formType: 'company' }]
-const dropdownArray = forms.map(item => item.label)
+const forms = [{ label: 'Just saying Hi', type: 'personal'}, {label: 'Working at Hike One', type: 'job-application'}, {label: 'Doing a project together', type: 'company' }]
 
 const dropdDownOptions = {
-	formTitle,
 	dropwDownTitle,
 	forms
-}
-
-const justSayingHi = {
-	label: 'Just saying Hi',
-	fields: [{
-		label: 'My name is',
-		inputType: 'text',
-		placeholder: 'Your name',
-	},
-	{
-		label: 'My email is',
-		inputType: 'email',
-		placeholder: 'Your email'
-	},
-	{
-		label: 'My message',
-		inputType: 'textarea',
-		placeholder: 'Your message here'
-	}]
-}
-const projectTogether = {
-	label: 'Doing a project together',
-	fields: [{
-		label: 'My name is',
-		inputType: 'text',
-		placeholder: 'Your name',
-	},
-	{
-		label: 'My company is',
-		inputType: 'text',
-		placeholder: 'Your company name'
-	},
-	{
-		label: 'My email is',
-		inputType: 'email',
-		placeholder: 'Your email'
-	},
-	{
-		label: 'My phone number is',
-		inputType: 'text',
-		placeholder: 'Your phone number'
-	},
-	{
-		label: 'My message',
-		inputType: 'textarea',
-		placeholder: 'Your message here'
-	}]
 }
 
 const Contact = ({Data, fontsLoaded, fullUrl}) => (
@@ -90,7 +41,7 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
-					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} />
+					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} />
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (

@@ -25,7 +25,7 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 			fontsLoaded={fontsLoaded}
 			seo={Data.seo}
 			url={fullUrl} >
-		<main className="main js-main" >
+		<main className="main js-main">
 			<MenuBar color="white" />
 			<article className="article">
 				<PageHeader
@@ -38,7 +38,7 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} />
 
 					<TextCenter
-						classes={`text-center-font-large`}
+						classes={`text-center-font-large contact-text-center`}
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>

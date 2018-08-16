@@ -9,6 +9,7 @@ import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
 import PageHeader from '../components/page-header/page-header';
+import VacancyCard from '../components/vacancy-card/vacancy-card';
 
 const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Contact"
@@ -30,6 +31,8 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
+
+					<VacancyCard data={Data.vacancyCard} />
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (

@@ -58,15 +58,22 @@ class ContactForm extends React.Component {
     return formData
   }
 
+  isFormValid = () => {
+    const { name, email, message } = this.state
+    const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
+    const isNameValid = name.length >= 1
+    const isMessageValid = message.length >= 2
+
+    return isEmailValid && isNameValid && isMessageValid
+  }
+
   handleSubmit = () => {
-    const { name, email, message, company, phoneNumber, itemType } = this.state
     const { personalEmailEndpoint, businessEmailEndpoint } = this.props
     const formData = this.getFormData()
 
-    const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
     let sendFormDataTo = personalEmailEndpoint
 
-    if ((name.length < 1) || !isEmailValid || (message.length < 2)) {
+    if (!this.isFormValid()) {
       return false
     }
 
@@ -81,6 +88,7 @@ class ContactForm extends React.Component {
     })
     .then(res => {
       this.clearForm()
+      
       this.setState({ isSent: true })
       scrollToElement('message-sent')
     })

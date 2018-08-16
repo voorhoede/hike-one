@@ -20,7 +20,7 @@ const dropdDownOptions = {
 	forms
 }
 
-const Contact = ({Data, fontsLoaded, fullUrl, messageSent}) => (
+const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Contact"
 			fontsLoaded={fontsLoaded}
 			seo={Data.seo}
@@ -35,15 +35,13 @@ const Contact = ({Data, fontsLoaded, fullUrl, messageSent}) => (
 					image={Data.header.backgroundImage.url}/>
 
 				<div className={`page-scrolling-content-small`}>
-					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} messageSent={messageSent} />
+					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} />
 
-					{ !messageSent &&
 					<TextCenter
 						classes={`text-center-font-large`}
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
-					}
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (
@@ -70,12 +68,11 @@ const Contact = ({Data, fontsLoaded, fullUrl, messageSent}) => (
 );
 
 Contact.getInitialProps = async ({req, asPath}) => {
-	const messageSent = req && req.params.slug === 'thank-you'
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data, fontsLoaded, fullUrl, messageSent};
+	return {Data, fontsLoaded, fullUrl};
 };
 
 export default Contact;

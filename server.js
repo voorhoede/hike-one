@@ -31,7 +31,6 @@ server.use(cookieParser());
 server.use('/api/', apiRouter);
 server.use('/guide/', express.static('./build/guide/'));
 server.get('/case/:slug', (req, res) => app.render(req, res, '/case', {slug: req.params.slug}));
-server.get('/contact/:slug', (req, res) => app.render(req, res, '/contact', {slug: req.params.slug}));
 server.get('/service/:slug', (req, res) => app.render(req, res, '/service', {slug: req.params.slug}));
 server.get('/team/:slug', (req, res) => app.render(req, res, '/team', {slug: req.params.slug}));
 server.get('/update/:slug', (req, res) => app.render(req, res, '/update', {slug: req.params.slug}));

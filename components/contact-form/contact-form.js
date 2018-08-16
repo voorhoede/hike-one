@@ -149,7 +149,7 @@ class ContactForm extends React.Component {
             />
           </div>
 
-          <input type='hidden' name='_gotcha' style={{ display: 'none' }} />
+          <input type='text' name='_gotcha' style={{ display: 'none' }} />
         </form>
           
         <ButtonPrimary 
@@ -166,8 +166,6 @@ class ContactForm extends React.Component {
           text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
         </TextCenter>
 
-
-        
         <a href='https://hikeone.homerun.co/' className='jobs' target='_blank'>
           <ButtonPrimary classes='btn-primary btn-large content'>
             See all opportunities

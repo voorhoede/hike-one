@@ -32,14 +32,24 @@ class ContactForm extends React.Component {
     })
   }
 
+  setMessageSubject = () => {
+    const { name,company, itemType } = this.state
+
+    const personalMessageSubject = `${name} would like to say hi` 
+    
+    const businessMessageSubject = (company.length > 0) ? 
+    `${name} from ${company} would like to talk about a project together` : 
+    `${name} would like to talk about a project together`
+
+    return (itemType === 'personal') ? personalMessageSubject : businessMessageSubject
+  }
+
   handleSubmit = () => {
     const { name, email, message, company, phoneNumber, itemType } = this.state
     const { personalEmailEndpoint, businessEmailEndpoint } = this.props
 
     const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
-    const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together` : `${name} would like to talk about a project together`
-    const personalMessageSubject = `${name} would like to say hi` 
-    const messageSubject = (itemType === 'business') ? businessMessageSubject : personalMessageSubject
+    const messageSubject = this.setMessageSubject()
     let sendFormDataTo = personalEmailEndpoint
 
     if ((name.length < 1) || !isEmailValid || (message.length < 2)) {
@@ -53,7 +63,7 @@ class ContactForm extends React.Component {
       sendFormDataTo = businessEmailEndpoint
     }
 
-    return fetch(`https://formspree.io/${sendFormDataTo}`, {
+    return fetch(`https://formspree.io/bruna@voorhoede.nl`, {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',

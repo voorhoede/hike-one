@@ -13,7 +13,11 @@ import ContactForm from '../components/contact-form/contact-form';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
-const forms = [{label: 'A project together', type: 'business' }, {label: 'Working at Hike One', type: 'job-application'}, { label: 'Just saying hi', type: 'personal'}]
+const forms = [
+	{ label: 'A project together', type: 'business' },
+	{ label: 'Working at Hike One', type: 'job-application' },
+	{ label: 'Just saying hi', type: 'personal' }
+]
 
 const dropdDownOptions = {
 	dropwDownTitle,
@@ -22,24 +26,32 @@ const dropdDownOptions = {
 
 const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Contact"
-			fontsLoaded={fontsLoaded}
-			seo={Data.seo}
-			url={fullUrl} >
+		fontsLoaded={fontsLoaded}
+		seo={Data.seo}
+		url={fullUrl}>
+		
 		<main className="main js-main">
 			<MenuBar color="white" />
+			
 			<article className="article">
 				<PageHeader
 					isSmall={true}
 					title={Data.header.title}
 					subtitle={Data.header.subtitle}
-					image={Data.header.backgroundImage.url}/>
+					image={Data.header.backgroundImage.url} />
 
 				<div className={`page-scrolling-content-small`}>
-					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} />
+					<ContactForm
+						dropDownOptions={dropdDownOptions}
+						forms={forms}
+						formTitle={formTitle}
+						personalEmailEndpoint={Data.formspreePersonalEndpoint}
+						businessEmailEndpoint={Data.formspreeBusinessEndpoint} />
 
 					<TextCenter
 						classes={`text-center-font-large contact-text-center`}
 						text={Data.content}>
+						
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
 
@@ -72,6 +84,7 @@ Contact.getInitialProps = async ({req, asPath}) => {
 	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
+	
 	return {Data, fontsLoaded, fullUrl};
 };
 

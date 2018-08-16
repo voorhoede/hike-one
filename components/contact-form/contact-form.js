@@ -1,5 +1,4 @@
 import ButtonPrimary from '../buttons/button-primary/button-primary'
-import ButtonClean from '../buttons/button-clean/button-clean'
 import SelectDropdown from '../select-dropdown/select-dropdown'
 import TextCenter from '../text-center/text-center'
 import InputField from '../input-field/input-field'
@@ -35,19 +34,26 @@ class ContactForm extends React.Component {
 
   handleSubmit = () => {
     const { name, email, message, company, phoneNumber, itemType } = this.state
+    const { personalEmailEndpoint, businessEmailEndpoint } = this.props
+
     const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
+    const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together` : `${name} would like to talk about a project together`
+    const personalMessageSubject = `${name} would like to say hi` 
+    const messageSubject = (itemType === 'business') ? businessMessageSubject : personalMessageSubject
+    let sendFormDataTo = personalEmailEndpoint
 
     if ((name.length < 1) || !isEmailValid || (message.length < 2)) {
       return false
     }
 
-    let formData = { name, email, message, }
+    let formData = { _subject: messageSubject, name, email, message, }
 
     if (itemType === 'business') {
       formData = { ...formData, company, phoneNumber, }
+      sendFormDataTo = businessEmailEndpoint
     }
 
-    return fetch('https://formspree.io/bruna@voorhoede.nl', {
+    return fetch(`https://formspree.io/${sendFormDataTo}`, {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',
@@ -108,6 +114,16 @@ class ContactForm extends React.Component {
                 value={name}
               />
 
+              { (itemType === 'business') &&
+              <InputField
+                name='company'
+                label='My company is'
+                type='text'
+                onChange={handleChange}
+                value={company}
+              />
+              }
+
               <InputField
                 name='email'
                 label='My email is'
@@ -116,16 +132,7 @@ class ContactForm extends React.Component {
                 value={email}
               />
 
-            { (itemType === 'business') &&
-            <div className='optional-input-fields'>
-              <InputField
-                name='company'
-                label='My company is'
-                type='text'
-                onChange={handleChange}
-                value={company}
-              />
-
+              { (itemType === 'business') &&
               <InputField
                 name='phoneNumber'
                 label='My phone number is'
@@ -133,7 +140,7 @@ class ContactForm extends React.Component {
                 onChange={handleChange}
                 value={phoneNumber}
               />
-            </div>}
+              }
 
           <div className='input-field message-input'>
             <label className='label' htmlFor='message'>My message is</label>
@@ -148,8 +155,6 @@ class ContactForm extends React.Component {
               onBlur={shouldValidateMessage}
             />
           </div>
-
-          <input type='text' name='_gotcha' style={{ display: 'none' }} />
         </form>
           
         <ButtonPrimary 
@@ -166,11 +171,7 @@ class ContactForm extends React.Component {
           text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
         </TextCenter>
 
-        <a href='https://hikeone.homerun.co/' className='jobs' target='_blank'>
-          <ButtonPrimary classes='btn-primary btn-large content'>
-            See all opportunities
-          </ButtonPrimary>
-        </a>
+        <CallToAction title='See all opportunities' url='https://hikeone.homerun.co/' />
       </div>}
     </div>
     )}

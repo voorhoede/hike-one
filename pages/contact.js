@@ -63,6 +63,7 @@ Contact.getInitialProps = async ({req, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
+	console.log(Data.vacancyCard)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
 	return {Data, fontsLoaded, fullUrl};
 };

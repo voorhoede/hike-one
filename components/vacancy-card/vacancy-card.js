@@ -2,6 +2,10 @@ import ButtonCleanLink from '../buttons/button-clean/button-clean-link'
 
 const VacancyCard = ({ data }) => (
 	<div className="vacancy-card container">
+    <div className="vacancy-card-image">
+      <img src={data.image.url} />
+    </div>
+
 		<h2 className="vacancy-card-title">{data.title}</h2>
 
 		<p className="vacancy-card-tagline">{data.content}</p>

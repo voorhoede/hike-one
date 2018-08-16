@@ -5,17 +5,17 @@
     position: relative;
     width: auto;
     height: 70px;
-    margin: -85px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
+    margin: -85px @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
 	padding: 0;
 
     @media @screen-small {
-        margin: -85px auto @container-margin-bottom-l auto;
+        margin: -85px auto @spacing-medium auto;
 		max-width: @column-large-4;
 	}
 
 	@media @screen-medium {
+        margin: -135px auto @container-margin-bottom-l auto;
         height: 90px;
-		margin-top: -135px;
     }
 }
 

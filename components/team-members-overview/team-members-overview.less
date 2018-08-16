@@ -116,3 +116,28 @@
         max-width: @column-large-12;
     }
 }
+
+.filters {
+    text-align: center;
+}
+
+.filters-container {
+    margin-bottom: @spacing-medium;
+}
+
+.filters-container.hide {
+    display: none;
+
+    @media @screen-medium {
+        display: block;
+    }
+}
+
+.filters-toggle {
+    margin: 0 auto;
+    margin-bottom: @spacing-medium;
+
+    @media @screen-medium {
+        display: none;
+    }
+}

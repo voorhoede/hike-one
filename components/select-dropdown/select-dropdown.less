@@ -2,28 +2,11 @@
 
 @darken-value: 10%;
 
-.contact-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .select-dropdown {
   width: 100%;
   max-width: 367px;
   margin-bottom: @spacing-large;
   position: relative;
-}
-
-.input-label {
-  font-size: @heading-small-s;
-  line-height: @line-height-header-small-s;
-  margin-bottom: @spacing-default;
-}
-
-.form-title {
-  text-align: center;
 }
 
 .dropdown-header,
@@ -32,6 +15,10 @@
   line-height: 60px;
   font-family: @font-main;
   font-size: @label;
+}
+
+.list-item {
+  list-style-type: none;
 }
 
 .dropdown-list {
@@ -43,10 +30,6 @@
   background-color: @white;
   z-index: 1000;
   .shadow;
-}
-
-.list-item {
-  list-style-type: none;
 }
 
 .select-btn {

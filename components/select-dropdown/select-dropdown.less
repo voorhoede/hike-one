@@ -1,5 +1,7 @@
 @import (reference) '../../styles/variables';
 
+@darken-value: 10%;
+
 .contact-form {
   width: 100%;
   display: flex;
@@ -10,7 +12,8 @@
 .select-dropdown {
   width: 100%;
   max-width: 367px;
-  margin-bottom: @spacing-extra-large;
+  margin-bottom: @spacing-large;
+  position: relative;
 }
 
 .input-label {
@@ -32,10 +35,13 @@
 }
 
 .dropdown-list {
+  width: 100%;
+  position: absolute;
   padding: 0;
   padding-bottom: 2rem;
   margin: 0;
   background-color: @white;
+  z-index: 1000;
   .shadow;
 }
 
@@ -54,10 +60,10 @@
   padding-right: @spacing-small;
   display: flex;
   justify-content: space-between;
+  transition: @animation-speed color ease-out, @animation-speed background-color ease-out;
 
   &:hover {
-    background-color: @white-grey;
-    
+    background: darken(@white-grey, @darken-value);
   }
 
   &.active {

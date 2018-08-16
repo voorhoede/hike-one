@@ -13,14 +13,14 @@ import ContactForm from '../components/contact-form/contact-form';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
-const forms = [{ label: 'Just saying Hi', type: 'personal'}, {label: 'Working at Hike One', type: 'job-application'}, {label: 'Doing a project together', type: 'company' }]
+const forms = [{label: 'A project together', type: 'business' }, {label: 'Working at Hike One', type: 'job-application'}, { label: 'Just saying hi', type: 'personal'}]
 
 const dropdDownOptions = {
 	dropwDownTitle,
 	forms
 }
 
-const Contact = ({Data, fontsLoaded, fullUrl}) => (
+const Contact = ({Data, fontsLoaded, fullUrl, messageSent}) => (
 	<Layout title="Hike One - Contact"
 			fontsLoaded={fontsLoaded}
 			seo={Data.seo}
@@ -35,13 +35,15 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 					image={Data.header.backgroundImage.url}/>
 
 				<div className={`page-scrolling-content-small`}>
+					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} messageSent={messageSent} />
+
+					{ !messageSent &&
 					<TextCenter
 						classes={`text-center-font-large`}
 						text={Data.content}>
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
-
-					<ContactForm dropDownOptions={dropdDownOptions} forms={forms} formTitle={formTitle} />
+					}
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (
@@ -67,13 +69,13 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	</Layout>
 );
 
-
 Contact.getInitialProps = async ({req, asPath}) => {
+	const messageSent = req && req.params.slug === 'thank-you'
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
 	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return {Data, fontsLoaded, fullUrl};
+	return {Data, fontsLoaded, fullUrl, messageSent};
 };
 
 export default Contact;

@@ -1,7 +1,10 @@
 import ButtonPrimary from '../buttons/button-primary/button-primary'
 import ButtonClean from '../buttons/button-clean/button-clean'
 import SelectDropdown from '../select-dropdown/select-dropdown'
-import Link from 'next/link'
+import TextCenter from '../text-center/text-center'
+import InputField from '../input-field/input-field'
+import CallToAction from '../call-to-action/call-to-action'
+import scrollToElement from '../_helpers/scrollToElement'
 
 class ContactForm extends React.Component {
 	constructor(props) {
@@ -13,45 +16,15 @@ class ContactForm extends React.Component {
       name: '',
       company: '',
       email: '',
-      phoneNumber: null,
+      phoneNumber: '',
       message: '',
-      messageError: null,
-      nameError: null,
-      emailError: null,
-      isFormVisible: false,
-      isExtraFormVisible: false,
-      isJobCardVisible: false,
+      validateMessage: false,
+      isSent: false,
     };
-	}
+  }
 
 	handleClick = ({ label, type }) => {
     this.setState({ selectedItem: label, itemType: type });
-    this.resetFormVisibility()
-    
-    if (type === 'personal') {
-      this.setState({ isFormVisible: true })
-    }
-
-    if (type === 'company') {
-      this.setState({
-        isFormVisible: true,
-        isExtraFormVisible: true,
-      })
-    }
-
-    if (type === 'job-application') {
-      this.setState({
-        isJobCardVisible: true,
-      })
-    }
-  }
-
-  resetFormVisibility = () => {
-    this.setState({
-      isFormVisible: false,
-      isJobCardVisible: false,
-      isExtraFormVisible: false,
-    })
   }
   
   handleChange = (e) => {
@@ -60,101 +33,159 @@ class ContactForm extends React.Component {
     })
   }
 
-  handleEmailChange = (e) => {
-    this.setState({
-      email: e.target.value
-    })
-
-    this.validateEmail()
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault()
-
+  handleSubmit = () => {
     const { name, email, message, company, phoneNumber, itemType } = this.state
+    const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
 
-    const personalInfo = {
-      name,
-      email,
-      message
+    if ((name.length < 1) || !isEmailValid || (message.length < 2)) {
+      return false
     }
 
-    const companyInfo = {
-      company,
-      phoneNumber
+    let formData = { name, email, message, }
+
+    if (itemType === 'business') {
+      formData = { ...formData, company, phoneNumber, }
     }
 
-    if (itemType === 'personal') {
-      return console.log(personalInfo)
-    }
-
-    if (itemType === 'company') {
-      return console.log({ ...personalInfo, ...companyInfo })
-    }
-
-    console.log('job applicant')
+    return fetch('https://formspree.io/bruna@voorhoede.nl', {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(res => {
+      this.clearForm()
+      this.setState({ isSent: true })
+      scrollToElement('message-sent')
+    })
   }
 
-  goToHomerun = () => {
+  shouldValidateMessage = () => {
+    this.setState({ validateMessage: true })
+  }
 
+  clearForm = () => {
+    this.setState({
+      name: '',
+      email: '',
+      phoneNumber: '',
+      company: '',
+      message: '',
+      validateMessage: false,
+      selectedItem: '',
+      itemType: '',
+    })
   }
 
 	render() {
 		const { dropDownOptions, formTitle } = this.props;
-    const { selectedItem, name, company, email, phoneNumber, message, nameError, emailError, messageError, isFormVisible, isJobCardVisible, isExtraFormVisible } = this.state;
-    const { handleClick, handleChange, handleEmailChange, handleSubmit } = this
-		
-		return (
-			<div className="contact-form container">
-        <h2 className="label form-title">{formTitle}</h2>
-        <SelectDropdown dropDownOptions={dropDownOptions} handleClick={handleClick} selectedItem={selectedItem} />
-        
-        { isFormVisible && 
-        <div>
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="input-field">
-              <label className="label" htmlFor="name">My name is</label>
-              <input type="text" id="name" className="input" name="name" value={name} onChange={handleChange} autoFocus="true" required />
-              <span className="input-error">{nameError}</span>
-            </div>
-            
-            <div className="input-field">
-              <label className="label" htmlFor="email">My email is</label>
-              <input type="email" id="email" className="input" name="email" value={email} onChange={handleChange} required />
-              <span className="input-error">{emailError}</span>
-            </div>
+    const { selectedItem, name, company, email, phoneNumber, message, validateMessage, itemType, isSent } = this.state;
+    const { handleClick, handleChange, shouldValidateMessage, handleSubmit } = this
+    const messageInputClass = validateMessage ? 'should-validate' : ''
+    
+    if (!isSent) {
+      return (
+        <div className='contact-form container'>
+          <h2 className='form-title'>{formTitle}</h2>
+          
+          <SelectDropdown 
+            dropDownOptions={dropDownOptions} 
+            handleClick={handleClick} 
+            selectedItem={selectedItem}
+          />
+          
+          {(itemType === 'personal' || itemType === 'business') && 
+          <div>
+            <form className='form' onSubmit={handleSubmit}>
+              <InputField
+                name='name'
+                label='My name is'
+                type='text'
+                onChange={handleChange}
+                value={name}
+              />
 
-            { isExtraFormVisible &&
-            <div className="extra-input-fields">
-              <div className="input-field">
-                <label className="label" htmlFor="phone-number">My phone number is</label>
-                <input type="tel" id="phone-number" className="input" name="phoneNumber" value={phoneNumber} onChange={handleChange} required />
-              </div>
-              
-              <div className="input-field">
-                <label className="label" htmlFor="company">My company is</label>
-                <input type="text" id="company" className="input" name="company" value={company} onChange={handleChange} required />
-              </div>
+              <InputField
+                name='email'
+                label='My email is'
+                type='email'
+                onChange={handleChange}
+                value={email}
+              />
+
+            { (itemType === 'business') &&
+            <div className='optional-input-fields'>
+              <InputField
+                name='company'
+                label='My company is'
+                type='text'
+                onChange={handleChange}
+                value={company}
+              />
+
+              <InputField
+                name='phoneNumber'
+                label='My phone number is'
+                type='tel'
+                onChange={handleChange}
+                value={phoneNumber}
+              />
             </div>}
 
-            <div className="input-field message-input">
-              <label className="label" htmlFor="message">My message is</label>
-              <textarea id="message" className="input textarea" name="message" value={message} onChange={handleChange} required />
-            </div>
-          </form>
+          <div className='input-field message-input'>
+            <label className='label' htmlFor='message'>My message is</label>
+            
+            <textarea 
+              id='message'
+              className={`input textarea ${messageInputClass}`}
+              name='message'
+              value={message}
+              onChange={handleChange}
+              required
+              onBlur={shouldValidateMessage}
+            />
+          </div>
 
-          <ButtonPrimary onClick={handleSubmit} classes="submit-btn">Send</ButtonPrimary>
-        </div>}
-        { isJobCardVisible && 
-        <div>To do...
-          <Link href="/join-the-team">
-            <ButtonPrimary>Join the team!</ButtonPrimary>
-          </Link>
-        </div>
-        }
+          <input type='hidden' name='_gotcha' style={{ display: 'none' }} />
+        </form>
+          
+        <ButtonPrimary 
+          classes='submit-btn btn-primary btn-large' 
+          onClick={handleSubmit}>
+          Send message
+        </ButtonPrimary>
+      </div>}
+
+      {(itemType === 'job-application') &&
+      <div className='work-with-us'>
+        <TextCenter
+          classes={`text-center-font-large jobs-text`}
+          text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
+        </TextCenter>
+
+
+        
+        <a href='https://hikeone.homerun.co/' className='jobs' target='_blank'>
+          <ButtonPrimary classes='btn-primary btn-large content'>
+            See all opportunities
+          </ButtonPrimary>
+        </a>
+      </div>}
+    </div>
+    )}
+    
+    return (
+      <div className='message-sent container'>
+        <TextCenter
+          classes={`text-center-font-large text-center-spacing-small`}
+          text='<p>Message received!</p><p>We will get back to you shortly</p>'>
+        </TextCenter>
       </div>
-		);
+    )
 	}
 }
 
-export default ContactForm;
+export default ContactForm

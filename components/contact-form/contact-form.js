@@ -68,16 +68,16 @@ class ContactForm extends React.Component {
   }
 
   handleSubmit = () => {
+    const { itemType } = this.state
     const { personalEmailEndpoint, businessEmailEndpoint } = this.props
+    const sendFormDataTo = (itemType === 'personal') ? personalEmailEndpoint : businessEmailEndpoint
     const formData = this.getFormData()
-
-    let sendFormDataTo = personalEmailEndpoint
 
     if (!this.isFormValid()) {
       return false
     }
 
-    return fetch(`https://formspree.io/bruna@voorhoede.nl`, {
+    return fetch(`https://formspree.io/${sendFormDataTo}`, {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',

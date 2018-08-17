@@ -17,6 +17,7 @@ class ContactForm extends React.Component {
       email: '',
       phoneNumber: '',
       message: '',
+      _gotcha: '', // avoids spam by fooling scrapers
       validateMessage: false,
       isSent: false,
     };
@@ -38,8 +39,7 @@ class ContactForm extends React.Component {
     const personalMessageSubject = `${name} would like to say hi` 
     
     const businessMessageSubject = (company.length > 0) ? 
-    `${name} from ${company} would like to talk about a project together` : 
-    `${name} would like to talk about a project together`
+    `${name} from ${company} would like to talk about a project together` : `${name} would like to talk about a project together`
 
     return (itemType === 'personal') ? personalMessageSubject : businessMessageSubject
   }
@@ -59,12 +59,13 @@ class ContactForm extends React.Component {
   }
 
   isFormValid = () => {
-    const { name, email, message } = this.state
+    const { name, email, message, _gotcha } = this.state
     const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
     const isNameValid = name.length >= 1
     const isMessageValid = message.length >= 2
+    const isSpam = _gotcha.length > 0
 
-    return isEmailValid && isNameValid && isMessageValid
+    return isEmailValid && isNameValid && isMessageValid && !isSpam
   }
 
   handleSubmit = () => {
@@ -113,7 +114,7 @@ class ContactForm extends React.Component {
 
 	render() {
 		const { dropDownOptions, formTitle } = this.props;
-    const { selectedItem, name, company, email, phoneNumber, message, validateMessage, itemType, isSent } = this.state;
+    const { selectedItem, name, company, email, phoneNumber, message, _gotcha, validateMessage, itemType, isSent } = this.state;
     const { handleClick, handleChange, shouldValidateMessage, handleSubmit } = this
     const messageInputClass = validateMessage ? 'should-validate' : ''
     
@@ -180,6 +181,8 @@ class ContactForm extends React.Component {
               onBlur={shouldValidateMessage}
             />
           </div>
+          
+          <input type="text" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
         </form>
           
         <ButtonPrimary 
@@ -192,7 +195,7 @@ class ContactForm extends React.Component {
       {(itemType === 'job-application') &&
       <div className='work-with-us'>
         <TextCenter
-          classes={`text-center-font-large jobs-text`}
+          classes='text-center-font-large work-with-us-text'
           text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
         </TextCenter>
 
@@ -204,7 +207,7 @@ class ContactForm extends React.Component {
     return (
       <div className='message-sent container'>
         <TextCenter
-          classes={`text-center-font-large text-center-spacing-small`}
+          classes='text-center-font-large text-center-spacing-small'
           text='<p>Message received!</p><p>We will get back to you shortly</p>'>
         </TextCenter>
       </div>

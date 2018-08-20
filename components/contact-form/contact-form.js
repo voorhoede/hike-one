@@ -34,7 +34,7 @@ class ContactForm extends React.Component {
   }
 
   setMessageSubject = () => {
-    const { name,company, itemType } = this.state
+    const { name, company, itemType } = this.state
 
     const personalMessageSubject = `${name} would like to say hi` 
     

@@ -5,20 +5,20 @@ import InputField from '../input-field/input-field'
 import CallToAction from '../call-to-action/call-to-action'
 import scrollToElement from '../_helpers/scrollToElement'
 
+const initialState = {
+  selectedItem: '',
+  itemType: '',
+  name: '',
+  email: '',
+  phoneNumber: '',
+  company: '',
+  message: '',
+  validateMessage: false,
+}
+
 class ContactForm extends React.Component {
 	constructor(props) {
     super(props)
-
-    const initialState = {
-      selectedItem: '',
-      itemType: '',
-      name: '',
-      email: '',
-      phoneNumber: '',
-      company: '',
-      message: '',
-      validateMessage: false,
-    }
     
     this.state = { 
       ...initialState,
@@ -105,14 +105,8 @@ class ContactForm extends React.Component {
 
   clearForm = () => {
     this.setState({
-      name: '',
-      email: '',
-      phoneNumber: '',
-      company: '',
-      message: '',
-      validateMessage: false,
-      selectedItem: '',
-      itemType: '',
+      ...this.state,
+      ...initialState
     })
   }
 

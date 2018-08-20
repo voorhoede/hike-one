@@ -7,20 +7,24 @@ import scrollToElement from '../_helpers/scrollToElement'
 
 class ContactForm extends React.Component {
 	constructor(props) {
-    super(props);
-    
-    this.state = { 
+    super(props)
+
+    const initialState = {
       selectedItem: '',
       itemType: '',
       name: '',
-      company: '',
       email: '',
       phoneNumber: '',
+      company: '',
       message: '',
-      _gotcha: '', // avoids spam by fooling scrapers
       validateMessage: false,
+    }
+    
+    this.state = { 
+      ...initialState,
+      _gotcha: '', // avoids spam by fooling scrapers
       isSent: false,
-    };
+    }
   }
 
 	handleClick = ({ label, type }) => {

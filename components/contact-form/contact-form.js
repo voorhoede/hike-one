@@ -42,8 +42,8 @@ class ContactForm extends React.Component {
 
     const personalMessageSubject = `${name} would like to say hi` 
     
-    const businessMessageSubject = (company.length > 0) ? 
-    `${name} from ${company} would like to talk about a project together` : `${name} would like to talk about a project together`
+    const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together` 
+                                                        : `${name} would like to talk about a project together`
 
     return (itemType === 'personal') ? personalMessageSubject : businessMessageSubject
   }
@@ -52,8 +52,7 @@ class ContactForm extends React.Component {
     const { name, email, message, company, phoneNumber, itemType } = this.state
     const messageSubject = this.setMessageSubject()
 
-    let formData = { 
-      _subject: messageSubject, name, email, message, }
+    let formData = { _subject: messageSubject, name, email, message, }
 
     if (itemType === 'business') {
       formData = { ...formData, company, phoneNumber, }
@@ -136,6 +135,7 @@ class ContactForm extends React.Component {
                 type='text'
                 onChange={handleChange}
                 value={name}
+                isRequired='true'
               />
 
               { (itemType === 'business') &&
@@ -145,6 +145,7 @@ class ContactForm extends React.Component {
                 type='text'
                 onChange={handleChange}
                 value={company}
+                isRequired='false'
               />
               }
 
@@ -154,6 +155,7 @@ class ContactForm extends React.Component {
                 type='email'
                 onChange={handleChange}
                 value={email}
+                isRequired='true'
               />
 
               { (itemType === 'business') &&
@@ -163,6 +165,7 @@ class ContactForm extends React.Component {
                 type='tel'
                 onChange={handleChange}
                 value={phoneNumber}
+                isRequired='false'
               />
               }
 
@@ -180,7 +183,7 @@ class ContactForm extends React.Component {
             />
           </div>
           
-          <input type="text" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
+          <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
         </form>
           
         <ButtonPrimary 

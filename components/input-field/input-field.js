@@ -3,23 +3,23 @@ class InputField extends React.Component {
     super(props)
 
     this.state = {
-      isRequired: false,
+      shouldValidate: false,
     }
   }
   
-  shouldValidate = () => {
-    const { name } = this.props
-
-    if ((name === 'name') || (name === 'email')) {
-      this.setState({ isRequired: true })
+  onBlur = () => {
+    if (this.props.isRequired === 'true') {
+      this.setState({
+        shouldValidate: true,
+      })
     }
   }
 
 	render() {
-    const { classes, label, name, type, value, onChange } = this.props
-    const { isRequired } = this.state
-    const { shouldValidate } = this
-    const shouldValidateClass = isRequired ? 'should-validate' : ''
+    const { classes, label, name, type, value, onChange, isRequired } = this.props
+    const { shouldValidate } = this.state
+    const { onBlur } = this
+    const shouldValidateClass = shouldValidate ? 'should-validate' : ''
 
 		return (
       <div className='input-field'>
@@ -36,7 +36,7 @@ class InputField extends React.Component {
           onChange={onChange} 
           autoFocus={name === 'name'}
           required={isRequired}
-          onBlur={shouldValidate}
+          onBlur={onBlur}
         />
       </div>
     )

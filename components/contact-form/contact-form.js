@@ -32,7 +32,7 @@ class ContactForm extends React.Component {
   }
   
   handleChange = (e) => {
-    if (this.state[e.target.name]) {
+    if (this.state[e.target.name] !== undefined) {
       this.setState({
         [e.target.name]: e.target.value
       })

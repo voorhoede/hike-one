@@ -1,14 +1,16 @@
+@import './grid';
+
 @darken-value: 10%;
 
 .form {
   width: 100%;
-  max-width: 500px;
+  max-width: @column-small-6;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 
   @media @screen-medium {
-    max-width: 763px;
+    max-width: @column-small-9;
   }
 }
 

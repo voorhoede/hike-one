@@ -32,9 +32,11 @@ class ContactForm extends React.Component {
   }
   
   handleChange = (e) => {
-    this.setState({ 
-      [e.target.name]: e.target.value
-    })
+    if (this.state[e.target.name]) {
+      this.setState({
+        [e.target.name]: e.target.value
+      })
+    }
   }
 
   setMessageSubject = () => {

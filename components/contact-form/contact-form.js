@@ -54,7 +54,7 @@ class ContactForm extends React.Component {
     const { name, email, message, company, phoneNumber, itemType } = this.state
     const messageSubject = this.setMessageSubject()
 
-    let formData = { _subject: messageSubject, name, email, message, }
+    let formData = { _subject: messageSubject, name, email, message, _format: "plain" }
 
     if (itemType === 'business') {
       formData = { ...formData, company, phoneNumber, }

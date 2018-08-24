@@ -1,0 +1,45 @@
+@import '../../styles/forms';
+
+@darken-value: 10%;
+
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: @spacing-large*2;
+}
+
+.message-input {
+  @media @screen-medium {
+    flex-grow: 1;
+  }
+}
+
+.optional-input-fields {
+  width: 100%;
+
+  @media @screen-medium {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.work-with-us {
+  text-align: center;
+
+  .call-to-action {
+    margin-bottom: @spacing-large;
+  }
+}
+
+.work-with-us-text {
+  margin-bottom: @spacing-small !important;
+}
+
+.contact-form {
+  .submit-btn {
+    display: block;
+    margin: 0 auto;
+  }
+}

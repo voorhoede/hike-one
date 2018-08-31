@@ -50,10 +50,10 @@ class UpdateOverview extends React.Component {
 						external={item.isExternalLink}/>
 				))}
 				</div>
-				{ totalPages > pageOffset && 
+				{ totalPages > pageOffset &&
 					<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
 						Show more
-					</ButtonSecondary>}
+					</ButtonSecondary> }
 			</div>
 		)
 	}

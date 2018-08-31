@@ -26,10 +26,10 @@ class UpdateOverview extends React.Component {
 		const { data, updatesData } = this.props
 		const { pageSize, pageOffset } = this.state
 		const itemsInView = pageOffset * pageSize
+		const previousItemsInView = itemsInView - pageSize
 		const items = updatesData.slice(0, itemsInView)
-		const totalPages = Math.ceil(this.props.updatesData / pageSize)
-		const nextItemInPagination = updatesData[itemsInView-1]
-		console.log(nextItemInPagination)
+		const totalPages = Math.ceil(updatesData.length / pageSize)
+		const nextItemInPagination = updatesData[previousItemsInView]
 
 		return (
 			<div className="update-overview container">
@@ -37,7 +37,7 @@ class UpdateOverview extends React.Component {
 				<UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} index />
 				{ items.map((item, index) => (
 					<UpdateExtractSmall
-						class='next-item'
+						classes={item === nextItemInPagination ? 'next-item' : ''}
 						key={index}
 						index={index}
 						title={item.title}
@@ -50,9 +50,10 @@ class UpdateOverview extends React.Component {
 						external={item.isExternalLink}/>
 				))}
 				</div>
-				<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
-					Show more
-				</ButtonSecondary>
+				{ totalPages > pageOffset && 
+					<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
+						Show more
+					</ButtonSecondary>}
 			</div>
 		)
 	}

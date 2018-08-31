@@ -3,7 +3,6 @@ import React from 'react';
 import setImageParams from '../_helpers/setImageParameters';
 
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
-import Icon from '../icon/icon';
 
 const VacancyCard = ({ data }) => {
 	

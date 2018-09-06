@@ -3,10 +3,8 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
-import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
-import UpdatesExtractLarge from "../components/updates-extract-large/updates-extract-large";
 
 const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 	return (
@@ -23,22 +21,7 @@ const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 						subtitle={Data.header.subtitle}
 						image={Data.header.backgroundImage.url}/>
 					<div className={`page-scrolling-content-small`}>
-						<UpdateOverview>
-							<UpdatesExtractLarge highlights={Data.highlights} mustRead={Data.mustRead} index />
-							{ updatesData.map((item, index) => (
-								<UpdateExtractSmall
-									key={index}
-									index={index}
-									title={item.title}
-									date={item.date}
-									author={item.author.name}
-									target={item.link}
-									image={item.image.url}
-									category={item.category.name}
-									color={item.themeColor.hex}
-									external={item.isExternalLink}/>
-							))}
-						</UpdateOverview>
+						<UpdateOverview data={Data} updatesData={updatesData} />
 					</div>
 				</article>
 				<Footer

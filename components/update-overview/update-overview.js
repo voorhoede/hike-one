@@ -9,8 +9,8 @@ class UpdateOverview extends React.Component {
 		super(props)
 		
 		this.state = {
-      pageOffset: 1,
-      pageSize: 6,
+  		pageOffset: 1,
+  		pageSize: 6,
     }
 	}
 

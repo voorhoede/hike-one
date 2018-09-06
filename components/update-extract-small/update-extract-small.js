@@ -1,5 +1,6 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
+import Icon from '../icon/icon';
 
 const updateExtractSmall = ({title='', date='', author='', image='', color='', target='', index, category = 'update', external = false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
@@ -28,7 +29,10 @@ const updateExtractSmall = ({title='', date='', author='', image='', color='', t
 			<div dangerouslySetInnerHTML={style}></div>
 			<div className={`update-extract-small-image-${index} update-extract-small-image`}></div>
 			<div className="update-extract-small-text" style={{backgroundColor: color}}>
-				<div className="update-extract-small-type" style={{color: color}}>{category}</div>
+				<div className="update-extract-small-type" style={{color: color}}>
+					{category}
+					{external && <Icon icon="arrowRight" classes="external-link-icon" style={{stroke: color}} />}
+				</div>
 				<h2 className="update-extract-small-title">{title}</h2>
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
 				{ `${getDateFormat(date)}` } - {author}</span>

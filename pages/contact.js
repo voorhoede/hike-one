@@ -1,15 +1,17 @@
 import React from 'react';
 
+import cookie from '../components/_helpers/cookie';
+
+import ContactForm from '../components/contact-form/contact-form';
+import Footer from '../components/footer/footer';
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import OfficeOverview from '../components/office-overview/office-overview';
 import OfficeCard from '../components/office-card/office-card';
+import PageHeader from '../components/page-header/page-header';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
-import Footer from '../components/footer/footer';
-import cookie from '../components/_helpers/cookie';
-import PageHeader from '../components/page-header/page-header';
-import ContactForm from '../components/contact-form/contact-form';
+import VacancyCard from '../components/vacancy-card/vacancy-card';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
@@ -54,6 +56,8 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 						
 						<TextCenterShapes.variation2Back position="back" />
 					</TextCenter>
+
+					<VacancyCard data={Data.vacancyCard} />
 
 					<OfficeOverview header={Data.officesHeader}>
 						{ Data.office.map((item, index) => (

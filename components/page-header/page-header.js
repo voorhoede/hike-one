@@ -83,7 +83,6 @@ class PageHeader extends React.Component {
 
 	render() {
 		const props = this.props;
-		console.log(props)
 		const childrenArray = React.Children.toArray(props.children);
 		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');

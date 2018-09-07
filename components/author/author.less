@@ -7,18 +7,26 @@
 	padding: @spacing-medium;
 	margin: auto;
 	background: @white-grey;
-	margin-bottom: @spacing-large;
+	margin-bottom: @spacing-medium;
 	display: flex;
 
 	@media @screen-large {
 		padding: @spacing-medium*2;
-		margin-bottom: @spacing-large*2;
+		margin-bottom: @spacing-large;
+	}
+
+	&:last-child {
+		margin-bottom: @spacing-large;
+
+		@media @screen-large {
+			margin-bottom: @spacing-large*2;
+		}
 	}
 }
+
 .author-image {
 	height: 123px;
 	width: 92px;
-	
 }
 
 .author-text {

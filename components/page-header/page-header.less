@@ -57,11 +57,6 @@
 	.page-header-small & {
 		justify-content: center;
 	}
-
-	h1:last-child,
-	p:last-child {
-		margin-bottom: 0;
-	}
 }
 
 .page-header-video {
@@ -86,6 +81,7 @@
 }
 
 .page-header-title {
+	display: block;
     color: @white;
     font-weight: @font-weight-bold-extra;
     font-size: @title-giant-s;
@@ -103,18 +99,8 @@
     }
 }
 
-.page-header-title-link:hover,
-.page-header-title-link:focus,
-.page-header-title-link:active {
-	color: #000;
-}
-
-.page-header-title-link {
-	text-decoration: none;
-	color: #000;
-}
-
 .page-header-subtitle {
+	display: block;
     color: @white;
     max-width: 800px;
     margin: 0 auto @spacing-small;
@@ -133,6 +119,21 @@
         font-size: @subtitle-large-l;
         line-height: @line-height-subtitle-l;
     }
+}
+
+.page-header-title-link,
+.page-header-subtitle-link {
+	display: block;
+	text-decoration: none;
+}
+
+.page-header-title-link:hover,
+.page-header-title-link:focus,
+.page-header-title-link:active,
+.page-header-subtitle-link:hover,
+.page-header-subtitle-link:focus,
+.page-header-subtitle-link:active {
+	color: @white;
 }
 
 .page-header-button {

@@ -1,8 +1,10 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
+import joinAuthorsNames from '../_helpers/joinAuthorsNames';
 
-const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', author='', external=false}) => {
+const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', authors=[], external=false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+
 	const style ={__html:
 		`<style>
 			.update-extract-large-image-${index} {
@@ -30,7 +32,8 @@ const UpdateExtractLarge = ({index, title='', date='', image='', color='', targe
 				<div className="update-extract-large-type" style={{color: color}}>{category}</div>
 				<h2 className="update-extract-large-title">{title}</h2>
 				<span className="update-extract-large-subtitle" style={{backgroundColor: color}}>
-				{ `${getDateFormat(date)}` } - {author}</span>
+					{joinAuthorsNames(authors)} - {`${getDateFormat(date)}`}
+				</span>
 			</div>
 		</a>
 	);

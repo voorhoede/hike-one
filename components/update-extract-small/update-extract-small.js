@@ -1,7 +1,8 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
+import joinAuthorsNames from '../_helpers/joinAuthorsNames';
 
-const updateExtractSmall = ({classes='', title='', date='', author='', image='', color='', target='', index, category = 'update', external = false}) => {
+const updateExtractSmall = ({classes='', title='', date='', authors=[], image='', color='', target='', index, category = 'update', external = false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 
 	const style ={__html:
@@ -31,7 +32,8 @@ const updateExtractSmall = ({classes='', title='', date='', author='', image='',
 				<div className="update-extract-small-type" style={{color: color}}>{category}</div>
 				<h2 className="update-extract-small-title">{title}</h2>
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
-				{ `${getDateFormat(date)}` } - {author}</span>
+					{joinAuthorsNames(authors)} - {`${getDateFormat(date)}`}
+				</span>
 			</div>
 		</a>
 	);

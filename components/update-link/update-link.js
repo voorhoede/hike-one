@@ -1,7 +1,7 @@
 import React from 'react';
 import ArrowRightCircle from '../icons/arrow-right-circle';
 import Link from 'next/link';
-import joinAuthorsNames from '../_helpers/joinAuthorsNames';
+import Authors from '../authors/authors'
 
 const updateLink = ({target='#', title='', authors=[], date='', external = false}) => (
 	<div className="update-link">
@@ -11,7 +11,7 @@ const updateLink = ({target='#', title='', authors=[], date='', external = false
 			   <ArrowRightCircle />
 			</a>
 		</Link>
-		<p className="update-link-sub"><span>{ date }</span> | { joinAuthorsNames(authors) }</p>
+		<p className="update-link-sub"><span>{ date }</span> | <Authors authors={authors} /></p>
 	</div>
 );
 

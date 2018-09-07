@@ -1,5 +1,5 @@
 import ButtonSecondary from '../buttons/button-secondary/button-secondary'
-import joinAuthorsNames from '../_helpers/joinAuthorsNames';
+import Authors from '../authors/authors';
 
 class MustRead extends React.Component {
 	constructor(props) {
@@ -30,7 +30,9 @@ class MustRead extends React.Component {
 						<h2 className="must-read-item-index">{index + 1}</h2>
 						<div>
 							<h1 className="must-read-item-title">{item.title}</h1>
-							<h3 className="must-read-item-author">{joinAuthorsNames(item.authors)}</h3>
+							<h3 className="must-read-item-author">
+								<Authors authors={item.authors} />
+							</h3>
 						</div>
 					</a>
 				))}

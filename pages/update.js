@@ -5,7 +5,6 @@ import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import Footer from '../components/footer/footer';
 import cookie from '../components/_helpers/cookie';
-import joinAuthorsNames from '../components/_helpers/joinAuthorsNames';
 
 import SocialShare from '../components/social-share/social-share';
 import FullWidthHeader from '../components/full-width-header/full-width-header';
@@ -31,7 +30,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 					headerImage={Data.headerImage.url}
 					color={Data.color.hex}
 					title={Data.title}
-					authorName={joinAuthorsNames(Data.authors)}
+					authorName={Data.authors.map(author => author.name).join(', ')}
 					updatedDate={Data.date}/>
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {

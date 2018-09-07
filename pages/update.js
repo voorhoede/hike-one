@@ -30,7 +30,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 					headerImage={Data.headerImage.url}
 					color={Data.color.hex}
 					title={Data.title}
-					authorName={Data.author.name}
+					authorName={Data.authors.map(author => author.name).join(', ')}
 					updatedDate={Data.date}/>
 				{ Data.content.map((component, index) => {
 					switch (component.itemType) {
@@ -79,12 +79,16 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
 				/>
 
-				<Author
-					name={Data.author.name}
-					role={Data.author.role}
-					photoUrl={Data.author.photo.url}
-					summary={Data.authorSummary}
-				/>
+				<div className="authors">
+					{ Data.authors.map(author => {
+						return <Author
+											name={author.name}
+											role={author.role}
+											photoUrl={author.photo.url}
+											summary={author.summary}
+									/>
+					})}
+				</div>
 
 				<TextCenter
 					classes="text-center-font-medium text-center-spacing-small"
@@ -97,7 +101,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 							index={index}
 							title={item.title}
 							date={item.date}
-							author={item.author.name}
+							authors={item.authors}
 							target={item.link}
 							image={item.image.url}
 							category={item.category.name}

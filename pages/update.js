@@ -49,7 +49,6 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 									title={component.title}
 									text={component.text}
 									image={component.image.url}>
-									{ parallaxLayers }
 								</FiftyFifty>
 							);
 						case '50_50_text_left':
@@ -60,7 +59,6 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 									title={component.title}
 									text={component.text}
 									image={component.image.url}>
-									{ parallaxLayers }
 								</FiftyFifty>
 							);
 						case 'inline_image':

@@ -17,6 +17,7 @@ import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import CallToAction from '../components/call-to-action/call-to-action';
+import FiftyFifty from '../components/50-50/50-50';
 
 const Update = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -41,6 +42,27 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee}/>;
 
+						case '50_50_text_right':
+							return (
+								<FiftyFifty
+									key={index}
+									title={component.title}
+									text={component.text}
+									image={component.image.url}>
+									{ parallaxLayers }
+								</FiftyFifty>
+							);
+						case '50_50_text_left':
+							return (
+								<FiftyFifty
+									key={index}
+									contentLeft="true"
+									title={component.title}
+									text={component.text}
+									image={component.image.url}>
+									{ parallaxLayers }
+								</FiftyFifty>
+							);
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined;
 							return (

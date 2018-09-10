@@ -15,7 +15,7 @@ storiesOf('Author', module)
 	.addDecorator(withKnobs)
 	.add('default', () => (
 		<Author
-			name={text('name', Data.author.name)}
+			name={text('name', Data.authors.map(author => author.name).join(', '))}
 			role={Data.author.role}
 			photoUrl={Data.author.photo.url}
 			summary={ text('summary',Data.author.summary)}

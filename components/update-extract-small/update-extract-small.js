@@ -1,8 +1,9 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 import ArrowRightExternalLink from '../icons/arrow-right-external-link';
+import Authors from '../authors/authors';
 
-const updateExtractSmall = ({classes='', title='', date='', author='', image='', color='', target='', index, category = 'update', external = false}) => {
+const updateExtractSmall = ({classes='', title='', date='', authors=[], image='', color='', target='', index, category = 'update', external = false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 
 	const style ={__html:
@@ -10,18 +11,18 @@ const updateExtractSmall = ({classes='', title='', date='', author='', image='',
 			.update-extract-small-image-${index} {
 				background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}");
 			}
-			
+
 			@media only screen and (min-width: 768px) {
 				.update-extract-small-image-${index} {
 					background-image: url("${setImageParams(image, { ...imageParameters, w: 470, h:332 })}");
 				}
-			}		
-			
+			}
+
 			@media only screen and (min-width: 1024px) {
 				.update-extract-small-image-${index} {
 					background-image: url("${setImageParams(image, { ...imageParameters, w: 337, h:366 })}");
 				}
-			}			
+			}
 		</style>`};
 
 	return (
@@ -35,7 +36,8 @@ const updateExtractSmall = ({classes='', title='', date='', author='', image='',
 				</div>
 				<h2 className="update-extract-small-title">{title}</h2>
 				<span className="update-extract-small-subtitle" style={{backgroundColor: color}}>
-				{ `${getDateFormat(date)}` } - {author}</span>
+				<Authors authors={authors} /> - {`${getDateFormat(date)}`}
+				</span>
 			</div>
 		</a>
 	);

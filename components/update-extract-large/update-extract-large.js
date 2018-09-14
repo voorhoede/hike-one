@@ -1,9 +1,11 @@
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 import ArrowRightExternalLink from '../icons/arrow-right-external-link';
+import Authors from '../authors/authors'
 
-const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', author='', external=false}) => {
+const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', authors=[], external=false}) => {
 	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+
 	const style ={__html:
 		`<style>
 			.update-extract-large-image-${index} {
@@ -34,7 +36,8 @@ const UpdateExtractLarge = ({index, title='', date='', image='', color='', targe
 				</div>
 				<h2 className="update-extract-large-title">{title}</h2>
 				<span className="update-extract-large-subtitle" style={{backgroundColor: color}}>
-				{ `${getDateFormat(date)}` } - {author}</span>
+					<Authors authors={authors} /> - {`${getDateFormat(date)}`}
+				</span>
 			</div>
 		</a>
 	);

@@ -14,7 +14,7 @@ const UpdatesExtractLarge = ({highlights, mustRead, index}) => {
 					image={item.image.url}
 					color={item.themeColor.hex}
 					category={item.category.name}
-					author={item.author.name}
+					authors={item.authors}
 					target={item.link}
 					external={item.isExternalLink}/>
 				))}

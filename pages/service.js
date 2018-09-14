@@ -107,7 +107,7 @@ const Service = ({Data, services, updates, fontsLoaded, fullUrl}) => (
 							<UpdateLink
 								key={index}
 								title={update.title}
-								author={update.author.name}
+								authors={update.authors}
 								date={getDateFormat(update.date)}
 								target={update.link}
 								external={update.isExternalLink} />

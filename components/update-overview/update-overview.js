@@ -10,26 +10,26 @@ class UpdateOverview extends React.Component {
 		
 		this.state = {
   		pageOffset: 1,
-  		pageSize: 6,
+			pageSize: 6,
     }
 	}
 
 	handleClick = () => {
-		this.setState({
-			pageOffset: this.state.pageOffset + 1
-		})
+		setTimeout(this.incrementPageOffset, 1000)
+	}
 
-		scrollToElement('next-item')		
+	incrementPageOffset = () => {
+		this.setState({
+			pageOffset: this.state.pageOffset + 1,
+		})
 	}
 
 	render() {
 		const { data, updatesData } = this.props
 		const { pageSize, pageOffset } = this.state
 		const itemsInView = pageOffset * pageSize
-		const previousItemsInView = itemsInView - pageSize
 		const items = updatesData.slice(0, itemsInView)
 		const totalPages = Math.ceil(updatesData.length / pageSize)
-		const nextItemInPagination = updatesData[previousItemsInView]
 
 		return (
 			<div className="update-overview container">
@@ -37,7 +37,6 @@ class UpdateOverview extends React.Component {
 				<UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} index />
 				{ items.map((item, index) => (
 					<UpdateExtractSmall
-						classes={item === nextItemInPagination ? 'next-item' : ''}
 						key={index}
 						index={index}
 						title={item.title}
@@ -53,7 +52,8 @@ class UpdateOverview extends React.Component {
 				{ totalPages > pageOffset &&
 					<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
 						Show more
-					</ButtonSecondary> }
+					</ButtonSecondary>
+				}
 			</div>
 		)
 	}

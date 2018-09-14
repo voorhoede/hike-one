@@ -2,7 +2,6 @@ import React from 'react'
 import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large'
 import UpdateExtractSmall from '../update-extract-small/update-extract-small'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
-import scrollToElement from '../_helpers/scrollToElement'
 
 class UpdateOverview extends React.Component {
 	constructor(props) {

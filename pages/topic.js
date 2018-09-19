@@ -125,7 +125,7 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							index={index}
 							title={item.title}
 							date={item.date}
-							author={item.author.name}
+							authors={item.authors}
 							target={item.link}
 							image={item.image.url}
 							category={item.category.name}

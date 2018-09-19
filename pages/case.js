@@ -272,7 +272,7 @@ const Case = ({Data, fontsLoaded, fullUrl}) => (
 						<UpdateLink
 							key={index}
 							title={update.title}
-							author={update.author.name}
+							author={update.authors.map(author => author.name).join(', ')}
 							date={getDateFormat(update.date)}
 							target={update.link}
 							external={update.isExternalLink} />

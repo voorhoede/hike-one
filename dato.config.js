@@ -29,7 +29,7 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts));
 
-		dir.createDataFile('updates.json', 'json', mapCollection(dato.updates));
+		dir.createDataFile('updates.json', 'json', mapUpdates(dato.tags, dato.updates, dato.updateExtracts));
 
 		dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects));
 
@@ -50,13 +50,44 @@ module.exports = (dato, root) => {
 		}, []);
 	}
 
+	function mapUpdates(tags, updates, updateExtracts) {
+		// TODO remove duplicates articles
+		// order by latest
+		// sort
+		const mappedUpdates = mapCollection(updates)
+		const mappedUpdateExtracts = mapCollection(updateExtracts)
+		const mappedTags = mapCollection(tags)
+
+		const updatesByTag = {}
+		const extractsByTag = {}
+
+		mappedTags.forEach(tag => {
+			extractsByTag[tag.label] = []
+		})
+
+		mappedUpdateExtracts.forEach(update => {
+			update.tags.forEach(tag => {
+				extractsByTag[tag.label].push(update)
+			})
+		})
+
+		return mappedUpdates.map(update => {
+			const related = update.tags.reduce((acc, curr) => {
+				acc.push(...extractsByTag[curr.label])
+				return acc
+			}, [])
+
+			return {...update, relatedUpdates: related }
+		})
+	}
+
 	function redirectsToJson(redirects) {
 		return redirects.reduce((urls, redirect) => {
 			const { from, to, statusCode } = redirect
 
-			return { 
+			return {
 				...urls,
-				[from]: { 
+				[from]: {
 					to,
 					statusCode
 				}

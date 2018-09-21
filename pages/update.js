@@ -95,7 +95,19 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 					title={Data.updateLinksTitle} />
 
 				<UpdateOverviewSmall>
-					{ Data.updateLinks.map((item, index) => (
+					{ Data.relatedUpdates ? Data.relatedUpdates.map((item, index) => (
+						<UpdateExtractSmall
+							key={index}
+							index={index}
+							title={item.title}
+							date={item.date}
+							authors={item.authors}
+							target={item.link}
+							image={item.image.url}
+							category={item.category.name}
+							color={item.themeColor.hex}
+							external={item.isExternalLink} />
+					)) : Data.updateLinks.map((item, index) => (
 						<UpdateExtractSmall
 							key={index}
 							index={index}
@@ -112,7 +124,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 
 			</article>
 			<Footer
-				callToActionLabel={Data.footer.callToActionLabel}
+			callToActionLabel={Data.footer.callToActionLabel}
 				callToActionUrl={Data.footer.callToActionUrl} />
 		</main>
 	</Layout>

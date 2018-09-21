@@ -115,24 +115,27 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							slug={item.slug} />
 					))}
 				</WorkOverview>
+					{ Data.updateLinks.length > 0 &&
+					<div>
+						<TextCenter title={Data.updateLinksTitle} />
 
-				<TextCenter title={Data.updateLinksTitle} />
-
-				<UpdateOverviewSmall>
-					{ Data.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							title={item.title}
-							date={item.date}
-							authors={item.authors}
-							target={item.link}
-							image={item.image.url}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							external={item.isExternalLink} />
-					))}
-				</UpdateOverviewSmall>
+						<UpdateOverviewSmall>
+							{ Data.updateLinks.map((item, index) => (
+								<UpdateExtractSmall
+									key={index}
+									index={index}
+									title={item.title}
+									date={item.date}
+									authors={item.authors}
+									target={item.link}
+									image={item.image.url}
+									category={item.category.name}
+									color={item.themeColor.hex}
+									external={item.isExternalLink} />
+							))}
+						</UpdateOverviewSmall>
+					</div>
+				}
 			</article>
 			<Footer
 				callToActionLabel={Data.footer.callToActionLabel}

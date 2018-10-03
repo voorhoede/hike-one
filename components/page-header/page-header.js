@@ -134,10 +134,15 @@ class PageHeader extends React.Component {
 
 				<div className="page-header-inner container">
 					<div ref={node => this.parallaxLayer = node}>
-						<h1 className="page-header-title ">{props.title}</h1>
+						{ props.onClickScrollButton
+							? <a className="page-header-title-link" href='#' onClick={props.onClickScrollButton}><h1 className="page-header-title ">{props.title}</h1></a>
+							: <h1 className="page-header-title ">{props.title}</h1> }
+						
 						{ props.subtitle &&
-							<p className="page-header-subtitle">{props.subtitle}</p>
-						}
+							props.onClickScrollButton
+								? <a className="page-header-subtitle-link" href='#' onClick={props.onClickScrollButton}><p className="page-header-subtitle">{props.subtitle}</p></a>
+								: <p className="page-header-subtitle">{props.subtitle}</p> }
+						
 						{ props.onClickScrollButton &&
 							<button className="page-header-button"
 									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>

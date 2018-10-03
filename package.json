@@ -40,6 +40,7 @@
   "author": "De Voorhoede",
   "license": "UNLICENSED",
   "dependencies": {
+    "backoff": "^2.5.0",
     "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.7",

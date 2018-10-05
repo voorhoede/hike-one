@@ -45,7 +45,7 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
 						
-							case '50_50_text_right':
+						case '50_50_text_right':
 							return (
 								<FiftyFifty
 									key={index}

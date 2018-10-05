@@ -130,10 +130,15 @@ class ContactForm extends React.Component {
           
           {(itemType === 'personal' || itemType === 'business') && 
           <div>
+             <TextCenter
+              classes='text-center-text'
+              text={`<p>Send us a line using the form below, <a href="mailto:workwith@hike.one?subject=Let's talk about a project together">or e-mail us directly</a></p>`}>
+            </TextCenter>
+
             <form className='form' onSubmit={handleSubmit}>
               <InputField
                 name='name'
-                label='My name is'
+                label='My name is*'
                 type='text'
                 onChange={handleChange}
                 value={name}
@@ -153,7 +158,7 @@ class ContactForm extends React.Component {
 
               <InputField
                 name='email'
-                label='My email is'
+                label='My email is*'
                 type='email'
                 onChange={handleChange}
                 value={email}
@@ -172,7 +177,7 @@ class ContactForm extends React.Component {
               }
 
           <div className='input-field message-input'>
-            <label className='label' htmlFor='message'>My message is</label>
+            <label className='label' htmlFor='message'>My message is*</label>
             
             <textarea 
               id='message'

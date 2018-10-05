@@ -179,7 +179,6 @@ class ContactForm extends React.Component {
 
           <div className='input-field message-input'>
             <label className='label' htmlFor='message'>My message is*</label>
-
             <textarea
               id='message'
               className={`input textarea ${messageInputClass}`}

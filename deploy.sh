@@ -63,7 +63,7 @@ deploy () {
 	fi;
 
 	# If successful, strip protocol from url returned from now deploy
-	deployment_id=$(sed s#https://## <<<"$deployment_url");
+	deployment_id=$(sed 's#https://##' <<<"$deployment_url");
 
 	# Verify that running now deploy returned a domain name
 	grep -qE "${environment}-[a-z]+\.now\.sh" <<<"$deployment_id" || { \

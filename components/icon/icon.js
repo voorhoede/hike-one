@@ -1,4 +1,4 @@
-import ArrowDown from '../icons/arrow-down';
+ import ArrowDown from '../icons/arrow-down';
 import ArrowDownCircle from '../icons/arrow-down-circle';
 import ArrowLeft from '../icons/arrow-left';
 import ArrowRightCircle from '../icons/arrow-right-circle';
@@ -14,6 +14,7 @@ import Medium from '../icons/medium-circle';
 import Twitter from '../icons/twitter';
 import TwitterCircle from '../icons/twitter-circle';
 import Triangle from '../icons/triangle';
+import Spinner from '../icons/spinner'
 
 const Icon = ({icon = 'arrowDown', classes = ''}) => {
 	const icons = {
@@ -32,7 +33,8 @@ const Icon = ({icon = 'arrowDown', classes = ''}) => {
 		medium: <Medium/>,
 		twitter: <Twitter/>,
 		twitterCircle: <TwitterCircle/>,
-		triangle: <Triangle />
+		triangle: <Triangle />,
+		spinner: <Spinner />,
 	};
 
 	return (<span className={classes}>{icons[icon]}</span>);

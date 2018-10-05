@@ -39,7 +39,6 @@
 		animation-duration: @animation-speed;
 		animation-timing-function: linear;
 		animation-fill-mode: forwards;
-		animation-name: horizontal-spring-icon-from;
 
 		svg {
 			width: @icon-size;
@@ -48,6 +47,18 @@
 
 		svg path {
 			transition: fill @animation-speed ease;
+		}
+	}
+
+	&:not(.loading) {
+		.icon {
+			animation-name: horizontal-spring-icon-from;
+		}
+	}
+
+	&.vertical-spring {
+		.icon {
+			animation-name: vertical-spring-icon-from;
 		}
 	}
 
@@ -81,9 +92,11 @@
 .btn-basis-hover-state {
 	cursor: pointer;
 
-	.icon {
-		animation-timing-function: ease-in-out;
-		animation-name: horizontal-spring-icon-to;
+	&:not(.loading) {
+		.icon {
+			animation-timing-function: ease-in-out;
+			animation-name: horizontal-spring-icon-to;
+		}
 	}
 }
 
@@ -136,4 +149,8 @@
 	100% {
 		transform: translateY(0);
 	}
+}
+
+@keyframes spin {
+	100% { transform: rotate(360deg); }
 }

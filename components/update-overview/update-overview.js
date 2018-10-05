@@ -10,16 +10,21 @@ class UpdateOverview extends React.Component {
 		this.state = {
   		pageOffset: 1,
 			pageSize: 6,
+			loading: false,
     }
 	}
 
 	handleClick = () => {
-		setTimeout(this.incrementPageOffset, 1000)
+		this.setState({
+			loading: true,
+		})
+		setTimeout(this.incrementPageOffset, 800)
 	}
 
 	incrementPageOffset = () => {
 		this.setState({
 			pageOffset: this.state.pageOffset + 1,
+			loading: false,
 		})
 	}
 
@@ -37,7 +42,7 @@ class UpdateOverview extends React.Component {
 
 	render() {
 		const { data, updatesData } = this.props
-		const { pageSize, pageOffset } = this.state
+		const { pageSize, pageOffset, loading } = this.state
 		const itemsInView = pageOffset * pageSize
 		const filteredItems = this.filterUpdates()
 		const items = filteredItems.slice(0, itemsInView)
@@ -62,7 +67,7 @@ class UpdateOverview extends React.Component {
 				))}
 				</div>
 				{ totalPages > pageOffset &&
-					<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
+					<ButtonSecondary onClick={this.handleClick} classes={ `btn-large btn-red-border btn-centered spinner ${loading ? 'loading' : 'vertical-spring' }` } icon={ !loading ? 'arrowDown' : 'spinner' } >
 						Show more
 					</ButtonSecondary>
 				}

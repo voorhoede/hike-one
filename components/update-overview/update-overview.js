@@ -33,7 +33,7 @@ class UpdateOverview extends React.Component {
 		let filteredUpdates = [...updatesData]
 
 		data.highlights.forEach(highlight => {
-			console.log(updatesData.find(update => update.title === highlight.title))
+			// filter out items that are already shown as highlights
 			filteredUpdates = filteredUpdates.filter(update => update.title !== highlight.title)
 		})
 

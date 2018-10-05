@@ -1,4 +1,4 @@
- import ArrowDown from '../icons/arrow-down';
+import ArrowDown from '../icons/arrow-down';
 import ArrowDownCircle from '../icons/arrow-down-circle';
 import ArrowLeft from '../icons/arrow-left';
 import ArrowRightCircle from '../icons/arrow-right-circle';

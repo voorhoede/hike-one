@@ -19,8 +19,8 @@ const initialState = {
 class ContactForm extends React.Component {
 	constructor(props) {
     super(props)
-    
-    this.state = { 
+
+    this.state = {
       ...initialState,
       _gotcha: '', // avoids spam by fooling scrapers
       isSent: false,
@@ -30,7 +30,7 @@ class ContactForm extends React.Component {
 	handleClick = ({ label, type }) => {
     this.setState({ selectedItem: label, itemType: type });
   }
-  
+
   handleChange = (e) => {
     if (this.state[e.target.name] !== undefined) {
       this.setState({
@@ -42,9 +42,9 @@ class ContactForm extends React.Component {
   setMessageSubject = () => {
     const { name, company, itemType } = this.state
 
-    const personalMessageSubject = `${name} would like to say hi` 
-    
-    const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together` 
+    const personalMessageSubject = `${name} would like to say hi`
+
+    const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together`
                                                         : `${name} would like to talk about a project together`
 
     return (itemType === 'personal') ? personalMessageSubject : businessMessageSubject
@@ -94,7 +94,7 @@ class ContactForm extends React.Component {
     })
     .then(res => {
       this.clearForm()
-      
+
       this.setState({ isSent: true })
       scrollToElement('message-sent')
     })
@@ -116,24 +116,25 @@ class ContactForm extends React.Component {
     const { selectedItem, name, company, email, phoneNumber, message, _gotcha, validateMessage, itemType, isSent } = this.state;
     const { handleClick, handleChange, shouldValidateMessage, handleSubmit } = this
     const messageInputClass = validateMessage ? 'should-validate' : ''
-    
+
     if (!isSent) {
       return (
         <div className='contact-form container'>
           <h2 className='form-title'>{formTitle}</h2>
-          
-          <SelectDropdown 
-            dropDownOptions={dropDownOptions} 
-            handleClick={handleClick} 
+
+          <SelectDropdown
+            dropDownOptions={dropDownOptions}
+            handleClick={handleClick}
             selectedItem={selectedItem}
           />
-          
-          {(itemType === 'personal' || itemType === 'business') && 
+
+          {(itemType === 'personal' || itemType === 'business') &&
           <div>
+            { itemType === 'business' &&
              <TextCenter
               classes='text-center-text'
               text={`<p>Send us a line using the form below, <a href="mailto:workwith@hike.one?subject=Let's talk about a project together">or e-mail us directly</a></p>`}>
-            </TextCenter>
+            </TextCenter> }
 
             <form className='form' onSubmit={handleSubmit}>
               <InputField
@@ -178,8 +179,8 @@ class ContactForm extends React.Component {
 
           <div className='input-field message-input'>
             <label className='label' htmlFor='message'>My message is*</label>
-            
-            <textarea 
+
+            <textarea
               id='message'
               className={`input textarea ${messageInputClass}`}
               name='message'
@@ -189,12 +190,12 @@ class ContactForm extends React.Component {
               onBlur={shouldValidateMessage}
             />
           </div>
-          
+
           <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
         </form>
-          
-        <ButtonPrimary 
-          classes='submit-btn btn-primary btn-large' 
+
+        <ButtonPrimary
+          classes='submit-btn btn-primary btn-large'
           onClick={handleSubmit}>
           Send message
         </ButtonPrimary>
@@ -211,7 +212,7 @@ class ContactForm extends React.Component {
       </div>}
     </div>
     )}
-    
+
     return (
       <div className='message-sent container'>
         <TextCenter

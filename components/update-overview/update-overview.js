@@ -6,7 +6,7 @@ import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 class UpdateOverview extends React.Component {
 	constructor(props) {
 		super(props)
-		
+
 		this.state = {
   		pageOffset: 1,
 			pageSize: 6,
@@ -23,11 +23,24 @@ class UpdateOverview extends React.Component {
 		})
 	}
 
+	filterUpdates = () => {
+		const { data, updatesData } = this.props
+		let filteredUpdates = [...updatesData]
+
+		data.highlights.forEach(highlight => {
+			console.log(updatesData.find(update => update.title === highlight.title))
+			filteredUpdates = filteredUpdates.filter(update => update.title !== highlight.title)
+		})
+
+		return filteredUpdates
+	}
+
 	render() {
 		const { data, updatesData } = this.props
 		const { pageSize, pageOffset } = this.state
 		const itemsInView = pageOffset * pageSize
-		const items = updatesData.slice(0, itemsInView)
+		const filteredItems = this.filterUpdates()
+		const items = filteredItems.slice(0, itemsInView)
 		const totalPages = Math.ceil(updatesData.length / pageSize)
 
 		return (

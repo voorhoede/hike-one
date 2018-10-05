@@ -43,5 +43,4 @@ updates.getInitialProps = async ({req, asPath}) => {
 	return { Data, updatesData, fontsLoaded, fullUrl };
 };
 
-
 export default updates;

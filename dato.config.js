@@ -54,9 +54,9 @@ module.exports = (dato, root) => {
 		return redirects.reduce((urls, redirect) => {
 			const { from, to, statusCode } = redirect
 
-			return { 
+			return {
 				...urls,
-				[from]: { 
+				[from]: {
 					to,
 					statusCode
 				}

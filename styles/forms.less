@@ -8,6 +8,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin: 0 auto;
 
   @media @screen-medium {
     max-width: @column-small-9;
@@ -25,7 +26,7 @@
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
-  
+
 	@media @screen-large {
     font-size: @heading-l;
     line-height: @line-height-heading-l;
@@ -35,11 +36,15 @@
 .input-field {
   margin-bottom: @spacing-small;
   width: 100%;
-  
+
   @media @screen-medium {
     display: inline-block;
     width: calc(50% - 15px);
   }
+}
+
+.input-field-full-width {
+  flex-basis: 100%;
 }
 
 .label {
@@ -82,4 +87,13 @@ input:-webkit-autofill {
   min-height: 260px;
   padding: @spacing-small @spacing-small;
   display: block;
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-right-aligned {
+  margin-left: auto;
 }

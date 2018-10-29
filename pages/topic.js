@@ -21,6 +21,7 @@ import TextCenter from '../components/text-center/text-center';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
 import CallToAction from '../components/call-to-action/call-to-action';
 import FiftyFifty from '../components/50-50/50-50';
+import MailchimpForm from '../components/mailchimp-form/mailchimp-form'
 
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -44,7 +45,7 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							);
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
-						
+
 						case '50_50_text_right':
 							return (
 								<FiftyFifty
@@ -106,6 +107,10 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 
 					}
 				})}
+				{ Data.hassubscriptionform &&
+					<MailchimpForm url={process.env.MAILCHIMP_URL}>
+						<ContactShapes.variation1Front position="front" />
+					</MailchimpForm> }
 
 				<SocialShare
 					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}

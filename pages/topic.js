@@ -107,10 +107,7 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 
 					}
 				})}
-				{ Data.hassubscriptionform &&
-					<MailchimpForm url={process.env.MAILCHIMP_URL}>
-						<ContactShapes.variation1Front position="front" />
-					</MailchimpForm> }
+				{ Data.hasSubscriptionForm && <MailchimpForm /> }
 
 				<SocialShare
 					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}

@@ -11,7 +11,9 @@
 	margin-bottom: @spacing-small;
 
 	&:hover:enabled {
-		.btn-secondary-hover-state;
+		&:not(.vertical-spring) {
+			.btn-secondary-hover-state;
+		}
 	}
 
 	.icon svg path {

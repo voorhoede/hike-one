@@ -45,6 +45,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 						case '50_50_text_right':
 							return (
 								<FiftyFifty
+									classes='fifty-fifty-update'
 									key={index}
 									title={component.title}
 									text={component.text}
@@ -54,6 +55,7 @@ const Update = ({Data, fontsLoaded, fullUrl}) => (
 						case '50_50_text_left':
 							return (
 								<FiftyFifty
+									classes='fifty-fifty-update'
 									key={index}
 									contentLeft="true"
 									title={component.title}

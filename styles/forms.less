@@ -97,3 +97,38 @@ input:-webkit-autofill {
 .btn-right-aligned {
   margin-left: auto;
 }
+
+.mailchimp-form {
+  max-width: @column-large-7;
+  margin: 0 auto @spacing-default * 4 auto;
+  padding: @spacing-small @spacing-large;
+
+  &.background-color {
+    background-color: @light-grey;
+  }
+
+  .form-title {
+    font-size: @heading-small-s;
+    line-height: @line-height-header-small-s;
+    font-weight: @font-weight-bold;
+    color: @darker-gray;
+    margin-bottom: @spacing-small;
+
+    @media @screen-medium {
+      font-size: @heading-small-m;
+      line-height: @line-height-header-small-m;
+    }
+
+    @media @screen-large {
+      padding-left: 0;
+      font-size: @heading-small-l;
+      line-height: @line-height-header-small-l;
+    }
+  }
+
+  .form-description {
+    font-size: @heading-small-s;
+    margin-bottom: @spacing-medium;
+    text-align: center;
+  }
+}

@@ -1,12 +1,12 @@
 import React from 'react'
 
-const MailchimpForm = ({ title='', description='', buttonLabel, backgroundColor=false }) => (
-  <div id="mc_embed_signup" className={`mailchimp-form ${backgroundColor ? 'background-color' : ''}`}>
+const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackgroundColor }) => (
+  <div id="mc_embed_signup" className={`mailchimp-form ${hasBackgroundColor ? 'background-color' : ''}`}>
     <p className="form-title">{ title }</p>
-    <p className="form-description">{ description }</p>
+    <span className="form-description">{ description }</span>
 
     <form
-      action='https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&amp;id=5088a72738'
+      action={`https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&amp;id=${listId}`}
       method="POST"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"

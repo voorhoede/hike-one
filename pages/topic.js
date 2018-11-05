@@ -109,10 +109,11 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
                 <MailchimpForm
                   key={index}
                   title={component.form.title}
+                  listId={component.form.listId}
                   description={component.form.description}
-                  buttonLabel={component.form.button} />
+                  buttonLabel={component.form.button}
+                  hasBackgroundColor={component.form.hasBackgroundColor} />
               );
-
           }
         })}
         { Data.hasSubscriptionForm && <MailchimpForm /> }
@@ -179,6 +180,8 @@ Topic.getInitialProps = async ({req, query, asPath}) => {
   const fullUrl = `${baseUrl}${asPath}`;
   const res = await fetch(`${baseUrl}/api/topics/${query.slug}`);
   const json = await res.json();
+  const form = json.content.find(item => item.itemType === 'subscription_form')
+  console.log(form)
 
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
   return { Data: json, fontsLoaded, fullUrl};

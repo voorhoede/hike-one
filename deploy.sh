@@ -45,7 +45,9 @@ if [[ "$TRAVIS_BRANCH" =~ ^feat/plek-pr$ ]]; then
 	echo 'we do a production deploy here'
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION")
 
-	npx plek deploy "now deploy -n woopty \
+	npx plek deploy "now deploy \
+		-n woopty \
+		-t $NOW_TOKEN \
 		-e DATO_API_TOKEN=$DATO_API_TOKEN \
 		-e RELOAD_TOKEN=$RELOAD_TOKEN \
 		-e DATO_URL=$webhook_url \

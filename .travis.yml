@@ -6,12 +6,9 @@ node_js:
 cache:
   directories:
   - node_modules
-install:
-  - npm install -g now@11.3.8
 branches:
   only:
-   - master
-   - /^v\d+\.\d+\.\d+$/
+    - feat/plek-test
 notifications:
   email: false
 script:

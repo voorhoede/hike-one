@@ -55,7 +55,7 @@ elif [ "$TRAVIS_BRANCH" == master ]; then
 else
 	echo 'we do a pull request build';
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING");
-	npx plek deploy staging.hike.one --app 'staging' -- -e DATO_API_TOKEN="$DATO_API_TOKEN" \
+	npx plek now staging.hike.one --app 'staging' -- -e DATO_API_TOKEN="$DATO_API_TOKEN" \
 		-e RELOAD_TOKEN="$RELOAD_TOKEN" \
 		-e DATO_URL="$webhook_url" \
 		-e ENVIRONMENT='staging';

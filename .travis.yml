@@ -9,7 +9,11 @@ cache:
 branches:
   only:
     - feat/plek-test
+    - /^v\d+\.\d+\.\d+$/
+    - master
 notifications:
   email: false
+install:
+  - bash ./scripts/install-dependencies.sh
 script:
   - bash ./deploy.sh

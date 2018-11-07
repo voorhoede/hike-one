@@ -27,39 +27,36 @@ get_webhook_url () {
 }
 
 get_domain_names () {
-	prefix="${1:-}";
 	names='';
 	i=1;
 	len=$(wc -l domains.txt | awk '{print $1}');
 	while read -r domain; do
-		if [ -z "$prefix" ]; then
-			domain="${domain}, www.${domain}";
-		else
-			domain="${prefix}.${domain}";
-		fi
-		names="$names $domain";
+		names="$names ${domain}, www.${domain}";
 		[[ i -ne len ]] && names="${names}, ";
 		(( i++ ))
 	done < domains.txt
 	echo -n "$names";
 }
 
-tag_pattern='^v[0-9]+\.[0-9]+\.[0-9]+$';
+main_domain="$(head -n1 domains.txt)";
 
-if [[ "$TRAVIS_BRANCH" =~ $tag_pattern ]]; then
+if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION")
 	# deployment_id=$(npx plek deploy "now deploy")
 	echo 'we do a production deploy here'
 elif [ "$TRAVIS_BRANCH" == master ]; then
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING")
-else
-	echo 'we do a pull request build';
-	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING");
-	npx plek now staging.hike.one --app 'staging' -- -e DATO_API_TOKEN="$DATO_API_TOKEN" \
+	npx plek now "staging.${main_domain}" --app 'staging' -- \
+		-e DATO_API_TOKEN="$DATO_API_TOKEN" \
 		-e RELOAD_TOKEN="$RELOAD_TOKEN" \
 		-e DATO_URL="$webhook_url" \
 		-e ENVIRONMENT='staging';
-
+else
+	echo 'we do a pull request build';
+	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING");
+	npx plek now "$main_domain" --app 'pr' -- \
+		-e DATO_API_TOKEN="$DATO_API_TOKEN" \
+		-e ENVIRONMENT='pr';
 fi
 # yolo party
 # echo $(get_domain_names staging)

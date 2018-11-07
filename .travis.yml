@@ -9,6 +9,7 @@ cache:
 branches:
   only:
     - feat/plek-test
+    - feat/plek-pr
     - /^v\d+\.\d+\.\d+$/
     - master
 notifications:

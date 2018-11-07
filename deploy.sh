@@ -4,7 +4,7 @@ set -euo pipefail;
 # TODO:
 # - build master = staging
 # - build tag = production
-# - build pull requests
+# x build pull requests
 # - different aliases for staging and production (check travis branch)
 # - output the correct robots file
 
@@ -31,7 +31,7 @@ get_domain_names () {
 	i=1;
 	len=$(wc -l domains.txt | awk '{print $1}');
 	while read -r domain; do
-		names="$names ${domain}, www.${domain}";
+		names="$names '${domain}', 'www.${domain}'";
 		[[ i -ne len ]] && names="${names}, ";
 		(( i++ ))
 	done < domains.txt
@@ -40,10 +40,19 @@ get_domain_names () {
 
 main_domain="$(head -n1 domains.txt)";
 
-if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-	webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION")
-	# deployment_id=$(npx plek deploy "now deploy")
+# if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [[ "$TRAVIS_BRANCH" =~ ^feat/plek-pr$ ]]; then
 	echo 'we do a production deploy here'
+	webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION")
+
+	npx plek deploy "now deploy -n woopty \
+		-e DATO_API_TOKEN=$DATO_API_TOKEN \
+		-e RELOAD_TOKEN=$RELOAD_TOKEN \
+		-e DATO_URL=$webhook_url \
+		-e ENVIRONMENT=production";
+
+	jp -f now.json "merge(@, { alias: to_array([ $(get_domain_names) ]), name: 'woopty' })" > now-prod.json
+	now -t "$NOW_TOKEN" -A now-prod.json alias
 elif [ "$TRAVIS_BRANCH" == master ]; then
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING")
 	npx plek now "staging.${main_domain}" --app 'staging' -- \
@@ -60,4 +69,4 @@ else
 fi
 # yolo party
 # echo $(get_domain_names staging)
-# jp -f now.json "merge(@, { alias: to_array([ $(echo -n get_domain_names) ]) })"
+

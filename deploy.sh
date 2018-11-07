@@ -60,6 +60,6 @@ else
 		-e DATO_URL="$webhook_url" \
 		-e ENVIRONMENT='staging';
 fi
-
+# yolo
 # echo $(get_domain_names staging)
 # jp -f now.json "merge(@, { alias: to_array([ $(echo -n get_domain_names) ]) })"

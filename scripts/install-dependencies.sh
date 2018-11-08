@@ -12,7 +12,7 @@ jp_url='https://github.com/jmespath/jp/releases/download/0.1.3/jp-linux-amd64';
 if [ ! -x "$jp" ]; then
 	# Create directory, download & install jmespath as jp
 	mkdir -p "$localbin";
-	wget "$jp_url" -O "$jp" && chmod +x "$jp";
+	wget "$jp_url" -qO "$jp" && chmod +x "$jp";
 fi
 
 # install plek

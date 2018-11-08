@@ -10,7 +10,7 @@ const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackg
       method="POST"
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
-      className="validate form subscription-form" target="_blank"
+      className="validate" target="_blank"
       noValidate="">
       <div className="mc-field-group input-field input-field-full-width">
         <label htmlFor="mce-EMAIL" className="label">Email Address <span className="asterisk">*</span></label>
@@ -27,13 +27,13 @@ const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackg
         <input type="text" name="b_9fcf53aac8cfc03a445bd4e2f_5088a72738" value="" tabIndex="-1" />
       </div>
 
-      <div className="clear btn-right-aligned">
+      <div className="clear">
         <input
           type="submit"
           value={buttonLabel}
           name="subscribe"
           id="mc-embedded-subscribe"
-          className="button btn-primary submit-btn btn-large" />
+          className="button btn-primary submit-btn btn-large btn-right-aligned" />
       </div>
     </form>
   </div>

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail;
-
 # hike.one deploy script
 
 # Deploy script for use in travis that uses https://github.com/voorhoede/plek
@@ -16,6 +15,9 @@ set -euo pipefail;
 # 4. RELOAD_TOKEN: token used to authenticate dato content update calls
 # 5. DATO_ENV_ID_STAGING: dato env id for staging
 # 6. DATO_ENV_ID_PRODUCTION: dato env id for production
+
+# Add custom executable install dir to PATH
+PATH="${PATH}:${LOCAL_BIN}";
 
 # Create the url that the application should call after a successful dato
 # content deployment

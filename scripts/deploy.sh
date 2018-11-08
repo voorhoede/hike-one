@@ -16,9 +16,6 @@ set -euo pipefail;
 # 5. DATO_ENV_ID_STAGING: dato env id for staging
 # 6. DATO_ENV_ID_PRODUCTION: dato env id for production
 
-# Add custom executable install dir to PATH
-PATH="${PATH}:${LOCAL_BIN}";
-
 # Create the url that the application should call after a successful dato
 # content deployment
 get_webhook_url () {

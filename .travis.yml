@@ -5,6 +5,7 @@ node_js:
   - '8'
 env:
   - LOCAL_BIN="${TRAVIS_BUILD_DIR}/local/bin"
+  - PATH="${PATH}:${LOCAL_BIN}"
 cache:
   npm: true
   directories:

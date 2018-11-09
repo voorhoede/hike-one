@@ -1,8 +1,7 @@
 {
   "name": "hike-one",
-  "version": "1.0.0",
+  "version": "2.13.1",
   "description": "website for Hike One",
-  "private": "true",
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
@@ -79,6 +78,7 @@
     "ngrok": "^3.0.1",
     "now": "^11.3.8",
     "npm-run-all": "^4.0.2",
+    "plek": "^3.1.0",
     "rimraf": "^2.6.2"
   }
 }

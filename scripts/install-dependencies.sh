@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -u;
+
 # jmespath is required to extend the base now.json config with additional
 # properties that differ per build environment.
 
@@ -15,5 +17,11 @@ if [ ! -x "$jp" ]; then
 	wget "$jp_url" -qO "$jp" && chmod +x "$jp";
 fi
 
-# install plek
-npm install plek@3;
+# temporarily remove package.json to avoid installing project dependencies
+mv package.json disabled-package.json;
+
+# install plek; the only package required to deploy the project.
+npm install --no-save plek@3;
+
+# restore package.json
+mv disabled-package.json package.json;

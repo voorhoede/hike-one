@@ -39,8 +39,9 @@ Deployments with [plek](https://github.com/voorhoede/plek) and
 `./scripts/deploy.sh`.
 
 ### Pull request
-Pull requests are build each time a new pull request is created or an existing 
+Pull requests are built each time a new pull request is created or an existing 
 PR is updated. The pull request number is in the url. e.g.: `pr-303.hike.one`.
+You can click through to the pull request URL from the PR page in github.
 
 ### Staging
  Code pushed to the **master** branch at github will trigger a deployment to 

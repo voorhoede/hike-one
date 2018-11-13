@@ -49,6 +49,7 @@
     "express": "^4.15.3",
     "fontfaceobserver": "^2.0.13",
     "globby": "^8.0.1",
+    "graphql-request": "^1.8.2",
     "gsap": "^2.0.1",
     "helmet": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",

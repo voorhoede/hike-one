@@ -1,3 +1,5 @@
+const getData = require('./lib/graphql')
+
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
     dir.createDataFile('team.json', 'json', dato.team.toMap())

@@ -1,9 +1,9 @@
 import React from 'react'
 
-const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackgroundColor }) => (
-  <div id="mc_embed_signup" className={`mailchimp-form ${hasBackgroundColor ? 'background-color' : ''}`}>
-    <p className="form-title">{ title }</p>
-    <span className="form-description">{ description }</span>
+const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasShadow }) => (
+  <div id="mc_embed_signup" className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`}>
+    <p className="form-title">{title}</p>
+    <span className="form-description">{description}</span>
 
     <form
       action={`https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&amp;id=${listId}`}
@@ -11,7 +11,8 @@ const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackg
       id="mc-embedded-subscribe-form"
       name="mc-embedded-subscribe-form"
       className="validate" target="_blank"
-      noValidate="">
+      noValidate=""
+    >
       <div className="mc-field-group input-field input-field-full-width">
         <label htmlFor="mce-EMAIL" className="label">Email Address <span className="asterisk">*</span></label>
         <input type="email" name="EMAIL" className="required email input" id="mce-EMAIL" />
@@ -33,7 +34,8 @@ const MailchimpForm = ({ title='', description='', listId, buttonLabel, hasBackg
           value={buttonLabel}
           name="subscribe"
           id="mc-embedded-subscribe"
-          className="button btn-primary submit-btn btn-large btn-right-aligned" />
+          className="button btn-primary submit-btn btn-large btn-right-aligned"
+        />
       </div>
     </form>
   </div>

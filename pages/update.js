@@ -1,143 +1,144 @@
-import React from 'react';
-import "isomorphic-fetch";
+import React from 'react'
+import "isomorphic-fetch"
 
-import Layout from '../components/layout/layout';
-import MenuBar from '../components/menu-bar/menu-bar';
-import Footer from '../components/footer/footer';
-import cookie from '../components/_helpers/cookie';
+import cookie from '../components/_helpers/cookie'
 
-import SocialShare from '../components/social-share/social-share';
-import FullWidthHeader from '../components/full-width-header/full-width-header';
-import BodyQuote from '../components/body-quote/body-quote';
-import InlineImage from '../components/inline-image/inline-image';
-import Author from '../components/author/author';
-import FullWidthImageSmall from '../components/full-width-image-small/full-width-image-small';
-import RichBodyText from '../components/rich-body-text/rich-body-text';
-import TextCenter from '../components/text-center/text-center';
-import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
-import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
-import CallToAction from '../components/call-to-action/call-to-action';
+import {
+  Author,
+  BodyQuote,
+  CallToAction,
+  Footer,
+  FullWidthHeader,
+  FullWidthImageSmall,
+  InlineImage,
+  Layout,
+  MenuBar,
+  RichBodyText,
+  SocialShare,
+  TextCenter,
+  UpdateExtractSmall,
+  UpdateOverviewSmall,
+} from '../components'
 
-const Update = ({Data, fontsLoaded, fullUrl}) => (
-	<Layout title={`Hike One - ${Data.title}`}
-			fontsLoaded={fontsLoaded}
-			seo={Data.seo}
-			url={fullUrl} >
-		<main className="main js-main">
-			<MenuBar color="white" />
-			<article className="article">
-				<FullWidthHeader
-					headerImage={Data.headerImage.url}
-					color={Data.color.hex}
-					title={Data.title}
-					authorName={Data.authors.map(author => author.name).join(', ')}
-					updatedDate={Data.date}/>
-				{ Data.content.map((component, index) => {
-					switch (component.itemType) {
-						case 'rich_body_text':
-							return (
-								<RichBodyText key={index} content={component.content}/>
-							);
-						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee}/>;
+const Update = ({ Data, fontsLoaded, fullUrl }) => (
+  <Layout
+    title={`Hike One - ${Data.title}`}
+    fontsLoaded={fontsLoaded}
+    seo={Data.seo}
+    url={fullUrl}
+  >
+    <main className="main js-main">
+      <MenuBar color="white" />
 
-						case 'inline_image':
-							const image = component.image ? component.image.url : undefined;
-							return (
-								<InlineImage
-									key={index}
-									image={image}
-									videoControls={true}
-									video={component.inlineVideoSrc}
-									caption={component.caption} />
-							);
-						case 'inline_image_large':
-							const imageLarge = component.image ? component.image.url : undefined;
-							return (
-								<InlineImage
-									key={index}
-									large={true}
-									image={imageLarge}
-									caption={component.caption} />
-							);
-						case 'full_width_image_small':
-							return (
-								<FullWidthImageSmall
-									key={index}
-									index={index}
-									image={component.image.url} />
-							);
-						case 'call_to_action':
-							return (
-								<CallToAction key={index} title={component.title} url={component.url}/>
-							);
-					}
-				})}
-				<SocialShare
-					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
-					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
-					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
-				/>
+      <article className="article">
+        <FullWidthHeader
+          headerImage={Data.headerImage.url}
+          color={Data.color.hex}
+          title={Data.title}
+          authorName={Data.authors.map(author => author.name).join(', ')}
+          updatedDate={Data.date}
+        />
 
-				<div className="authors">
-					{ Data.authors.map(author => {
-						return <Author
-											name={author.name}
-											role={author.role}
-											photoUrl={author.photo.url}
-											summary={author.summary}
-									/>
-					})}
-				</div>
+        {Data.content.map((component, index) => {
+          switch (component.itemType) {
+            case 'rich_body_text':
+              return <RichBodyText key={index} content={component.content} />
 
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={Data.updateLinksTitle} />
+            case 'body_quote':
+              return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
 
-				<UpdateOverviewSmall>
-					{ Data.relatedUpdates ? Data.relatedUpdates.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							title={item.title}
-							date={item.date}
-							authors={item.authors}
-							target={item.link}
-							image={item.image.url}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							external={item.isExternalLink} />
-					)) : Data.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							title={item.title}
-							date={item.date}
-							authors={item.authors}
-							target={item.link}
-							image={item.image.url}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							external={item.isExternalLink} />
-					))}
-				</UpdateOverviewSmall>
+            case 'inline_image':
+              const image = component.image ? component.image.url : undefined
+              return (
+                <InlineImage
+                  key={index}
+                  image={image}
+                  videoControls={true}
+                  video={component.inlineVideoSrc}
+                  caption={component.caption}
+                />
+              )
 
-			</article>
-			<Footer
-			callToActionLabel={Data.footer.callToActionLabel}
-				callToActionUrl={Data.footer.callToActionUrl} />
-		</main>
-	</Layout>
-);
+            case 'inline_image_large':
+              const imageLarge = component.image ? component.image.url : undefined
+              return (
+                <InlineImage
+                  key={index}
+                  large={true}
+                  image={imageLarge}
+                  caption={component.caption}
+                />
+              )
+            case 'full_width_image_small':
+              return (
+                <FullWidthImageSmall
+                  key={index}
+                  index={index}
+                  image={component.image.url}
+                />
+              )
+            case 'call_to_action':
+              return <CallToAction key={index} title={component.title} url={component.url} />
+          }
+        })}
 
-Update.getInitialProps = async ({req, query, asPath}) => {
-	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const fullUrl = `${baseUrl}${asPath}`;
-	const res = await fetch(`${baseUrl}/api/updates/${query.slug}`);
-	const json = await res.json();
+        <SocialShare
+          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
+          linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
+          twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
+        />
 
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data: json, fontsLoaded, fullUrl};
-};
+        <div className="authors">
+          {Data.authors.map((author, index) => (
+            <Author
+              key={index}
+              name={author.name}
+              role={author.role}
+              photoUrl={author.photo.url}
+              summary={author.summary}
+            />
+          ))}
+        </div>
 
-export default Update;
+        <TextCenter
+          classes="text-center-font-medium text-center-spacing-small"
+          title={Data.updateLinksTitle}
+        />
+
+        <UpdateOverviewSmall>
+          {Data.relatedUpdates.map((item, index) => (
+            <UpdateExtractSmall
+              key={index}
+              index={index}
+              title={item.title}
+              date={item.date}
+              authors={item.authors}
+              target={item.link}
+              image={item.image.url}
+              category={item.category.name}
+              color={item.themeColor.hex}
+              external={item.isExternalLink}
+            />
+          ))}
+        </UpdateOverviewSmall>
+      </article>
+
+      <Footer
+        callToActionLabel={Data.footer.callToActionLabel}
+        callToActionUrl={Data.footer.callToActionUrl}
+      />
+    </main>
+  </Layout>
+)
+
+Update.getInitialProps = async ({ req, query, asPath }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fullUrl = `${baseUrl}${asPath}`
+  const res = await fetch(`${baseUrl}/api/updates/${query.slug}`)
+  const json = await res.json()
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+
+  return { Data: json, fontsLoaded, fullUrl}
+}
+
+export default Update

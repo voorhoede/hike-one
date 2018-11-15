@@ -1,8 +1,10 @@
-const getData = require('./lib/graphql')
+const { uniq } = require('lodash')
 
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
     dir.createDataFile('team.json', 'json', dato.team.toMap())
+
+    dir.createDataFile('tags.json', 'json', mapCollection(dato.tags))
 
     dir.createDataFile('people-tab.json', 'json', dato.peopleTab.toMap())
 
@@ -31,7 +33,7 @@ module.exports = (dato, root) => {
 
     dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts))
 
-    dir.createDataFile('updates.json', 'json', mapUpdates(dato.tags, dato.updates, dato.updateExtracts))
+    dir.createDataFile('updates.json', 'json', mapUpdates(dato.tags, dato.updates))
 
     dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))
 
@@ -52,35 +54,47 @@ module.exports = (dato, root) => {
     }, [])
   }
 
-  function mapUpdates(tags, updates, updateExtracts) {
-    // TODO remove duplicates articles
-    // order by latest
-    // sort
+  function mapUpdates(tags, updates) {
     const mappedUpdates = mapCollection(updates)
-    const mappedUpdateExtracts = mapCollection(updateExtracts)
     const mappedTags = mapCollection(tags)
+    const updatesByTag = getUpdatesByTagId(mappedTags, mappedUpdates)
 
-    const updatesByTag = {}
-    const extractsByTag = {}
+    return mappedUpdates.reduce((arr, update) => {
+      const ids = update.tags.reduce((acc, tag) => {
+        acc.push(...updatesByTag[tag.id])
+        return uniq(acc)
+      }, []).filter(updateId => updateId !== update.id)
 
-    mappedTags.forEach(tag => {
-      extractsByTag[tag.label] = []
-    })
+      const updateExtracts = ids.map(id => {
+        const data = mappedUpdates.find(up => up.id === id)
+        return data.updateExtract
+      }).slice(0, 3)
 
-    mappedUpdateExtracts.forEach(update => {
-      update.tags.forEach(tag => {
-        extractsByTag[tag.label].push(update)
-      })
-    })
+      arr.push({ ...update, relatedUpdates: updateExtracts })
+      return arr
+    }, [])
+  }
 
-    return mappedUpdates.map(update => {
-      const related = update.tags.reduce((acc, curr) => {
-        acc.push(...extractsByTag[curr.label])
-        return acc
-      }, [])
+  function getUpdatesByTagId(tags, updates) {
+    const updatesByTag = tags.reduce((obj, tag) => {
+      const filteredUpdates = updates.filter(update => {
+        const ids = update.tags.map(item => item.id)
 
-      return {...update, relatedUpdates: related }
-    })
+        if (ids.includes(tag.id)) {
+          return update
+        }
+      }).sort((a, b) => {
+        if (a.date > b.date) { return -1 }
+        if (a.date < b.date) { return 1 }
+        return 0
+      }).slice(0, 3)
+
+      obj[tag.id] = filteredUpdates.map(item => item.id)
+
+      return obj
+    }, {})
+
+    return updatesByTag
   }
 
   function redirectsToJson(redirects) {

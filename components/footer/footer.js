@@ -99,9 +99,6 @@ class Footer extends React.Component {
           <a className="footer-copyright" href="/static/root/hike-one-privacy-statement-en.pdf">privacy statement</a>
           <a className="footer-copyright" href="/static/root/hike-one-cookie-statement-nl.pdf">cookie statement</a>
         </div>
-        <script dangerouslySetInnerHTML={{__html: '_linkedin_partner_id = "361124"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id);' }}></script>
-        <script dangerouslySetInnerHTML={{__html: '(function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})();'}}></script>
-        <noscript><img height="1" width="1" style={{ display: 'none' }} alt="img" src="https://dc.ads.linkedin.com/collect/?pid=361124&fmt=gif" /></noscript>
       </footer>
     );
   }

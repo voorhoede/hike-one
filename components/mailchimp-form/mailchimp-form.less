@@ -1,0 +1,54 @@
+@import (reference) '../../styles/variables';
+
+.mailchimp-form {
+  max-width: @column-large-7;
+  margin: 0 auto @spacing-default * 4 auto;
+  padding: @spacing-medium @spacing-large;
+
+  .form-title {
+    font-size: @heading-small-s;
+    line-height: @line-height-header-small-s;
+    font-weight: @font-weight-bold;
+    color: @darker-gray;
+    margin-bottom: @spacing-small;
+
+    @media @screen-medium {
+      font-size: @heading-small-m;
+      line-height: @line-height-header-small-m;
+    }
+
+    @media @screen-large {
+      padding-left: 0;
+      font-size: @heading-small-l;
+      line-height: @line-height-header-small-l;
+    }
+  }
+
+  .submit-btn {
+    margin-bottom: 0;
+  }
+}
+
+.btn-right-aligned {
+  margin-left: auto;
+}
+
+.form-description {
+  font-size: @body-text-s;
+  margin-bottom: @spacing-medium;
+  display: block;
+
+  @media @screen-medium {
+    font-size: @subtitle-large-s;
+  }
+}
+
+.mailchimp-form .btn-right-aligned {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.mailchimp-form .input-field {
+  width: 100%;
+}

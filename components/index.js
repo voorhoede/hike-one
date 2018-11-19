@@ -1,4 +1,5 @@
 import BodyQuote from './body-quote/body-quote'
+import ButtonPrimaryLink from './buttons/button-primary/button-primary-link'
 import CallToAction from './call-to-action/call-to-action'
 import CaseExtractSmall from './case-extract-small/case-extract-small'
 import Contact from './contact/contact'
@@ -15,12 +16,14 @@ import MenuBar from './menu-bar/menu-bar'
 import RichBodyText from './rich-body-text/rich-body-text'
 import SocialShare from './social-share/social-share'
 import TextCenter from './text-center/text-center'
+import * as TextCenterShapes from './text-center/text-center-shapes'
 import UpdateExtractSmall from './update-extract-small/update-extract-small'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small'
 import WorkOverview from './work-overview/work-overview'
 
 export {
   BodyQuote,
+  ButtonPrimaryLink,
   CallToAction,
   CaseExtractSmall,
   Contact,
@@ -37,6 +40,7 @@ export {
   RichBodyText,
   SocialShare,
   TextCenter,
+  TextCenterShapes,
   UpdateExtractSmall,
   UpdateOverviewSmall,
   WorkOverview,

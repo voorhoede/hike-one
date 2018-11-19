@@ -20,6 +20,7 @@ import UpdateOverviewSmall from '../components/update-overview-small/update-over
 import TextCenter from '../components/text-center/text-center';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
 import CallToAction from '../components/call-to-action/call-to-action';
+import FiftyFifty from '../components/50-50/50-50';
 
 const Topic = ({Data, fontsLoaded, fullUrl}) => (
 	<Layout title={`Hike One - ${Data.title}`}
@@ -44,6 +45,25 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote}/>;
 
+						case '50_50_text_right':
+							return (
+								<FiftyFifty
+									key={index}
+									title={component.title}
+									text={component.text}
+									image={component.image.url}>
+								</FiftyFifty>
+							);
+						case '50_50_text_left':
+							return (
+								<FiftyFifty
+									key={index}
+									contentLeft="true"
+									title={component.title}
+									text={component.text}
+									image={component.image.url}>
+								</FiftyFifty>
+							);
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined;
 							return (
@@ -115,24 +135,27 @@ const Topic = ({Data, fontsLoaded, fullUrl}) => (
 							slug={item.slug} />
 					))}
 				</WorkOverview>
+					{ Data.updateLinks.length > 0 &&
+					<div>
+						<TextCenter title={Data.updateLinksTitle} />
 
-				<TextCenter title={Data.updateLinksTitle} />
-
-				<UpdateOverviewSmall>
-					{ Data.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							title={item.title}
-							date={item.date}
-							authors={item.authors}
-							target={item.link}
-							image={item.image.url}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							external={item.isExternalLink} />
-					))}
-				</UpdateOverviewSmall>
+						<UpdateOverviewSmall>
+							{ Data.updateLinks.map((item, index) => (
+								<UpdateExtractSmall
+									key={index}
+									index={index}
+									title={item.title}
+									date={item.date}
+									authors={item.authors}
+									target={item.link}
+									image={item.image.url}
+									category={item.category.name}
+									color={item.themeColor.hex}
+									external={item.isExternalLink} />
+							))}
+						</UpdateOverviewSmall>
+					</div>
+				}
 			</article>
 			<Footer
 				callToActionLabel={Data.footer.callToActionLabel}

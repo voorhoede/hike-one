@@ -34,9 +34,14 @@ This will build and then serve the website on:
 Also watches for changes. 
 
 ## Deployment
- [Travis](https://travis-ci.org) handles deployments. Travis will install [now](https://zeit.co/now)
- and execute `deploy.sh`, which deploys hike one to the environment 
- determined by the branch name found in `$TRAVIS_BRANCH`.
+Deployments with [plek](https://github.com/voorhoede/plek) and 
+[travis ci](https://travis-ci.org/), controlled by a bash script 
+`./scripts/deploy.sh`.
+
+### Pull request
+Pull requests are built each time a new pull request is created or an existing 
+PR is updated. The pull request number is in the url. e.g.: `pr-303.hike.one`.
+You can click through to the pull request URL from the PR page in github.
 
 ### Staging
  Code pushed to the **master** branch at github will trigger a deployment to 

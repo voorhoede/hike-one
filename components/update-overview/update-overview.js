@@ -2,34 +2,51 @@ import React from 'react'
 import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large'
 import UpdateExtractSmall from '../update-extract-small/update-extract-small'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
-import scrollToElement from '../_helpers/scrollToElement'
 
 class UpdateOverview extends React.Component {
 	constructor(props) {
 		super(props)
-		
+
 		this.state = {
   		pageOffset: 1,
-  		pageSize: 6,
+			pageSize: 6,
+			loading: false,
     }
 	}
 
 	handleClick = () => {
 		this.setState({
-			pageOffset: this.state.pageOffset + 1
+			loading: true,
+		})
+		setTimeout(this.incrementPageOffset, 800)
+	}
+
+	incrementPageOffset = () => {
+		this.setState({
+			pageOffset: this.state.pageOffset + 1,
+			loading: false,
+		})
+	}
+
+	filterUpdates = () => {
+		const { data, updatesData } = this.props
+		let filteredUpdates = [...updatesData]
+
+		data.highlights.forEach(highlight => {
+			// filter out items that are already shown as highlights
+			filteredUpdates = filteredUpdates.filter(update => update.title !== highlight.title)
 		})
 
-		scrollToElement('next-item')		
+		return filteredUpdates
 	}
 
 	render() {
 		const { data, updatesData } = this.props
-		const { pageSize, pageOffset } = this.state
+		const { pageSize, pageOffset, loading } = this.state
 		const itemsInView = pageOffset * pageSize
-		const previousItemsInView = itemsInView - pageSize
-		const items = updatesData.slice(0, itemsInView)
+		const filteredItems = this.filterUpdates()
+		const items = filteredItems.slice(0, itemsInView)
 		const totalPages = Math.ceil(updatesData.length / pageSize)
-		const nextItemInPagination = updatesData[previousItemsInView]
 
 		return (
 			<div className="update-overview container">
@@ -37,7 +54,6 @@ class UpdateOverview extends React.Component {
 				<UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} index />
 				{ items.map((item, index) => (
 					<UpdateExtractSmall
-						classes={item === nextItemInPagination ? 'next-item' : ''}
 						key={index}
 						index={index}
 						title={item.title}
@@ -51,9 +67,10 @@ class UpdateOverview extends React.Component {
 				))}
 				</div>
 				{ totalPages > pageOffset &&
-					<ButtonSecondary onClick={this.handleClick} classes={'btn-large btn-red-border btn-centered vertical-spring'} icon={'arrowDown'} >
+					<ButtonSecondary onClick={this.handleClick} classes={ `btn-large btn-red-border btn-centered spinner ${loading ? 'loading' : 'vertical-spring' }` } icon={ !loading ? 'arrowDown' : 'spinner' } >
 						Show more
-					</ButtonSecondary> }
+					</ButtonSecondary>
+				}
 			</div>
 		)
 	}

@@ -2,17 +2,22 @@ language: node_js
 git:
   depth: 1
 node_js:
-- '8'
+  - '8'
+env:
+  global:
+    - LOCAL_BIN="${TRAVIS_BUILD_DIR}/local/bin"
+    - PATH="${PATH}:${LOCAL_BIN}"
 cache:
+  npm: true
   directories:
-  - node_modules
-install:
-  - npm install -g now@11.3.8
+    - "$LOCAL_BIN"
 branches:
   only:
-   - master
-   - /^v\d+\.\d+\.\d+$/
+    - /^v\d+\.\d+\.\d+$/
+    - master
 notifications:
   email: false
+install:
+  - bash ./scripts/install-dependencies.sh
 script:
-  - bash ./deploy.sh
+  - bash ./scripts/deploy.sh

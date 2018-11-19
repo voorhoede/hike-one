@@ -1,8 +1,7 @@
 {
   "name": "hike-one",
-  "version": "1.0.0",
+  "version": "2.13.1",
   "description": "website for Hike One",
-  "private": "true",
   "main": "server.js",
   "scripts": {
     "start": "NODE_ENV=production node server.js",
@@ -40,11 +39,13 @@
   "author": "De Voorhoede",
   "license": "UNLICENSED",
   "dependencies": {
+    "axios": "^0.18.0",
+    "backoff": "^2.5.0",
     "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.7",
     "datocms-client": "0.6.1",
-    "delay": "^4.0.0",
+    "delay": "^4.0.1",
     "dotenv": "^6.0.0",
     "express": "^4.15.3",
     "fontfaceobserver": "^2.0.13",
@@ -78,6 +79,7 @@
     "ngrok": "^3.0.1",
     "now": "^11.3.8",
     "npm-run-all": "^4.0.2",
+    "plek": "^3.1.0",
     "rimraf": "^2.6.2"
   }
 }

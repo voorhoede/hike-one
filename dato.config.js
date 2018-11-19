@@ -39,6 +39,8 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('services.json', 'json', mapCollection(dato.services))
 
+		dir.createDataFile('thank-you.json', 'json', dato.thankYouPage.toMap())
+
 		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics))
 
 		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies))
@@ -55,26 +57,25 @@ module.exports = (dato, root) => {
 	}
 
 	function mapUpdates(tags, updates) {
-	const mappedUpdates = mapCollection(updates)
-	const mappedTags = mapCollection(tags)
-	const updatesByTag = getUpdatesByTagId(mappedTags, mappedUpdates)
+		const mappedUpdates = mapCollection(updates)
+		const mappedTags = mapCollection(tags)
+		const updatesByTag = getUpdatesByTagId(mappedTags, mappedUpdates)
 
-	return mappedUpdates.reduce((arr, update) => {
-		const ids = update.tags.reduce((acc, tag) => {
-			acc.push(...updatesByTag[tag.id])
-			return uniq(acc)
-		}, []).filter(updateId => updateId !== update.id)
+		return mappedUpdates.reduce((arr, update) => {
+			const ids = update.tags.reduce((acc, tag) => {
+				acc.push(...updatesByTag[tag.id])
+				return uniq(acc)
+			}, []).filter(updateId => updateId !== update.id)
 
-		const updateExtracts = ids.map(id => {
-			const data = mappedUpdates.find(item => item.id === id)
+			const updateExtracts = ids.map(id => {
+				const data = mappedUpdates.find(item => item.id === id)
+				return data.updateExtract
+			}).slice(0, 3)
 
-			return data.updateExtract
-		}).slice(0, 3)
+			arr.push({ ...update, relatedUpdates: updateExtracts })
 
-		arr.push({ ...update, relatedUpdates: updateExtracts })
-
-		return arr
-	}, [])
+			return arr
+		}, [])
 	}
 
 	function getUpdatesByTagId(tags, updates) {
@@ -101,9 +102,9 @@ module.exports = (dato, root) => {
 
 	function redirectsToJson(redirects) {
 		return redirects.reduce((urls, redirect) => {
-			const { from, to, statusCode } = redirect
+		const { from, to, statusCode } = redirect
 
-			return {
+		return {
 			...urls,
 			[from]: {
 				to,

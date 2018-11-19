@@ -1,0 +1,29 @@
+@import (reference) '../../styles/variables';
+
+.article-thank-you {
+  height: 100vh;
+  text-align: center;
+
+  .text-center {
+    align-self: center;
+
+    .text-center-text {
+      font-size: @subtitle-large-s;
+      line-height: @line-height-subtitle-s;
+    }
+
+    @media @screen-medium {
+      .text-center-text {
+        font-size: @subtitle-large-m;
+        line-height: @line-height-subtitle-m;
+      }
+    }
+
+    @media @screen-large {
+      .text-center-text {
+        font-size: @subtitle-large-l;
+        line-height: @line-height-subtitle-l;
+      }
+    }
+  }
+}

@@ -66,11 +66,13 @@ module.exports = (dato, root) => {
       }, []).filter(updateId => updateId !== update.id)
 
       const updateExtracts = ids.map(id => {
-        const data = mappedUpdates.find(up => up.id === id)
+        const data = mappedUpdates.find(item => item.id === id)
+
         return data.updateExtract
       }).slice(0, 3)
 
       arr.push({ ...update, relatedUpdates: updateExtracts })
+
       return arr
     }, [])
   }

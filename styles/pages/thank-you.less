@@ -1,29 +1,36 @@
 @import (reference) '../../styles/variables';
 
 .article-thank-you {
-  height: 100vh;
-  text-align: center;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-  .text-center {
-    align-self: center;
+	.text-center {
+		align-self: center;
 
-    .text-center-text {
-      font-size: @subtitle-large-s;
-      line-height: @line-height-subtitle-s;
-    }
+		.text-center-text {
+			font-size: @subtitle-large-s;
+			line-height: @line-height-subtitle-s;
+		}
 
-    @media @screen-medium {
-      .text-center-text {
-        font-size: @subtitle-large-m;
-        line-height: @line-height-subtitle-m;
-      }
-    }
+		@media @screen-medium {
+			.text-center-text {
+				font-size: @subtitle-large-m;
+				line-height: @line-height-subtitle-m;
+			}
+		}
 
-    @media @screen-large {
-      .text-center-text {
-        font-size: @subtitle-large-l;
-        line-height: @line-height-subtitle-l;
-      }
-    }
-  }
+		@media @screen-large {
+			.text-center-text {
+				font-size: @subtitle-large-l;
+				line-height: @line-height-subtitle-l;
+			}
+		}
+	}
+
+	.btn-centered {
+		justify-self: center;
+	}
 }

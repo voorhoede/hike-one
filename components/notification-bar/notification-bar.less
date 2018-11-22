@@ -1,0 +1,24 @@
+.notification-bar {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+
+  .text {
+    margin-right: @spacing-default;
+  }
+
+  .call-to-action {
+    text-decoration: none;
+    color: @red;
+
+    .icon {
+      margin-left: 5px;
+      svg path {
+        fill: @red;
+      }
+    }
+  }
+}

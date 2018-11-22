@@ -134,7 +134,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									description={component.subscriptionForm.description}
 									inputFields={component.subscriptionForm.extraInputFields}
 									buttonLabel={component.subscriptionForm.button}
-									hasShadow={component.subscriptionForm.hasShadow}
+									hasShadow={false}
 								/>
 							)
 					}
@@ -146,14 +146,16 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
 				/>
 
-				<Contact
-					title={Data.contact.title}
-					button={Data.contact.button}
-					link={Data.contact.externalLink}
-					target="_blank"
-				>
-					<ContactShapes.variation1Front position="front" />
-				</Contact>
+				{Data.contact && (
+					<Contact
+						title={Data.contact.title}
+						button={Data.contact.button}
+						link={Data.contact.externalLink}
+						target="_blank"
+					>
+						<ContactShapes.variation1Front position="front" />
+					</Contact>
+				)}
 
 				<TextCenter title={Data.caseLinksTitle} />
 

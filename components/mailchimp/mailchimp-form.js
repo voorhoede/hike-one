@@ -2,14 +2,13 @@ import React from 'react'
 import MailchimpInput from './mailchimp-input'
 
 const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLabel, hasShadow }) => (
-	<div id="mc_embed_signup" className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`}>
+	<div className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`}>
 		<p className="form-title">{title}</p>
 		<span className="form-description">{description}</span>
 
 		<form
 			action={`https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&amp;id=${listId}`}
 			method="POST"
-			id="mc-embedded-subscribe-form"
 			name="mc-embedded-subscribe-form"
 			className="form"
 			target="_blank"
@@ -39,7 +38,6 @@ const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLa
 				type="submit"
 				value={buttonLabel}
 				name="subscribe"
-				id="mc-embedded-subscribe"
 				className="button btn-primary submit-btn btn-large btn-right-aligned"
 			/>
 		</form>

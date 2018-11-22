@@ -11,7 +11,7 @@ import FullWidthImageSmall from './full-width-image-small/full-width-image-small
 import InlineImage from './inline-image/inline-image'
 import Layout from './layout/layout'
 import LogoCarousel from './logo-carousel/logo-carousel'
-import MailchimpForm from './mailchimp-form/mailchimp-form'
+import MailchimpForm from './mailchimp/mailchimp-form'
 import MenuBar from './menu-bar/menu-bar'
 import RichBodyText from './rich-body-text/rich-body-text'
 import SocialShare from './social-share/social-share'
@@ -22,26 +22,26 @@ import UpdateOverviewSmall from './update-overview-small/update-overview-small'
 import WorkOverview from './work-overview/work-overview'
 
 export {
-  BodyQuote,
-  ButtonPrimaryLink,
-  CallToAction,
-  CaseExtractSmall,
-  Contact,
-  ContactShapes,
-  FiftyFifty,
-  Footer,
-  FullWidthHeader,
-  FullWidthImageSmall,
-  InlineImage,
-  Layout,
-  LogoCarousel,
-  MailchimpForm,
-  MenuBar,
-  RichBodyText,
-  SocialShare,
-  TextCenter,
-  TextCenterShapes,
-  UpdateExtractSmall,
-  UpdateOverviewSmall,
-  WorkOverview,
+	BodyQuote,
+	ButtonPrimaryLink,
+	CallToAction,
+	CaseExtractSmall,
+	Contact,
+	ContactShapes,
+	FiftyFifty,
+	Footer,
+	FullWidthHeader,
+	FullWidthImageSmall,
+	InlineImage,
+	Layout,
+	LogoCarousel,
+	MailchimpForm,
+	MenuBar,
+	RichBodyText,
+	SocialShare,
+	TextCenter,
+	TextCenterShapes,
+	UpdateExtractSmall,
+	UpdateOverviewSmall,
+	WorkOverview,
 }

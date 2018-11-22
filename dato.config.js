@@ -54,7 +54,7 @@ module.exports = (dato, root) => {
 
 	function mapTopics(collection) {
 		return collection.reduce((acc,item) => {
-			const mappedData = item.toMap(10)
+			const mappedData = item.toMap(5)
 			acc.push(mappedData)
 			return acc
 		}, [])

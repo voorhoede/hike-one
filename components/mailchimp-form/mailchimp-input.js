@@ -1,0 +1,19 @@
+
+import fields from './mailchimp.config'
+
+const MailchimpInput = ({ name, label, required, classes='' }) => (
+	<div className={`mc-field-group input-field ${classes}`}>
+		<label htmlFor={`mce-${fields[name].id}"`} className="label">
+			{label} {required ? <span className="asterisk">*</span> : null}
+		</label>
+		<input
+			type={fields[name].type}
+			name={fields[name].id}
+			id={`mce-${fields[name].id}"`}
+			className={`input ${required ? 'required' : ''}`}
+			required={required}
+		/>
+	</div>
+)
+
+export default MailchimpInput

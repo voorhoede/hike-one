@@ -13,6 +13,7 @@ import Layout from './layout/layout'
 import LogoCarousel from './logo-carousel/logo-carousel'
 import MailchimpForm from './mailchimp/mailchimp-form'
 import MenuBar from './menu-bar/menu-bar'
+import NotificationBar from './notification-bar/notification-bar'
 import RichBodyText from './rich-body-text/rich-body-text'
 import SocialShare from './social-share/social-share'
 import TextCenter from './text-center/text-center'
@@ -37,6 +38,7 @@ export {
 	LogoCarousel,
 	MailchimpForm,
 	MenuBar,
+	NotificationBar,
 	RichBodyText,
 	SocialShare,
 	TextCenter,

@@ -29,6 +29,12 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 			url={fullUrl}
 		>
 			<main className="main js-main" >
+				<NotificationBar
+					color={Data.notificationBar.color}
+					text={Data.notificationBar.text}
+					callToActionLabel={Data.notificationBar.callToActionLabel}
+					callToActionUrl={Data.notificationBar.callToActionUrl}
+				/>
 				<MenuBar color="white" />
 				<article className="article">
 					<PageHeader
@@ -45,13 +51,6 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 					</PageHeader>
 
 					<div className={`${scrollToTargetClass} page-scrolling-content`}>
-						<NotificationBar
-							color={Data.notificationBar.color}
-							text={Data.notificationBar.text}
-							callToActionLabel={Data.notificationBar.callToActionLabel}
-							callToActionUrl={Data.notificationBar.callToActionUrl}
-						/>
-
 						<ServicesOverviewSmall
 							title={Data.servicesItemTitle}
 							services={Data.serviceItems}
@@ -106,6 +105,7 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 				<Footer
 					callToActionLabel={Data.footer.callToActionLabel}
 					callToActionUrl={Data.footer.callToActionUrl}
+					notificationBar={Data.notificationBar}
 				/>
 			</main>
 		</Layout>

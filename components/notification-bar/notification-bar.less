@@ -1,22 +1,38 @@
 .notification-bar {
+  font-size: @subtitle-small-s;
+  padding: @spacing-default;
   width: 100%;
-  height: 80px;
+  height: 60px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  opacity: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  transform: translateY(60px);
+  z-index: 10000;
+  transition: all .3s ease;
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   .text {
-    margin-right: @spacing-default;
+    // margin-right: @spacing-default;
+    line-height: 1.4;
   }
 
   .call-to-action {
     text-decoration: none;
     color: @red;
 
-    .icon {
-      margin-left: 5px;
-      svg path {
+    .icon svg {
+      width: 20px;
+      height: 16px;
+      path {
         fill: @red;
       }
     }

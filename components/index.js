@@ -1,3 +1,4 @@
+import Author from './author/author'
 import BodyQuote from './body-quote/body-quote'
 import ButtonPrimaryLink from './buttons/button-primary/button-primary-link'
 import CallToAction from './call-to-action/call-to-action'
@@ -22,6 +23,7 @@ import UpdateOverviewSmall from './update-overview-small/update-overview-small'
 import WorkOverview from './work-overview/work-overview'
 
 export {
+	Author,
 	BodyQuote,
 	ButtonPrimaryLink,
 	CallToAction,

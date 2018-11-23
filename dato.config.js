@@ -37,7 +37,7 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('thank-you.json', 'json', dato.thankYouPage.toMap())
 
-		dir.createDataFile('topics.json', 'json', mapTopics(dato.topics))
+		dir.createDataFile('topics.json', 'json', mapCollection(dato.topics))
 
 		dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies))
 
@@ -45,14 +45,6 @@ module.exports = (dato, root) => {
 	})
 
 	function mapCollection(collection) {
-		return collection.reduce((acc,item) => {
-			const mappedData = item.toMap()
-			acc.push(mappedData)
-			return acc
-		}, [])
-	}
-
-	function mapTopics(collection) {
 		return collection.reduce((acc,item) => {
 			const mappedData = item.toMap(5)
 			acc.push(mappedData)

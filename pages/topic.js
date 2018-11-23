@@ -46,14 +46,10 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 				{Data.content.map(( component, index ) => {
 					switch (component.itemType) {
 						case 'rich_body_text':
-							return (
-								<RichBodyText key={index} content={component.content} />
-							)
+							return <RichBodyText key={index} content={component.content} />
 
 						case 'body_quote':
-							return (
-								<BodyQuote key={index} quote={component.quote} />
-							)
+							return <BodyQuote key={index} quote={component.quote} />
 
 						case '50_50_text_right':
 							return (
@@ -98,13 +94,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 							)
 
 						case 'full_width_image_small':
-							return (
-								<FullWidthImageSmall
-									key={index}
-									index={index}
-									image={component.image.url}
-								/>
-							)
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
 
 						case 'logo_carousel':
 							return (
@@ -117,13 +107,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 							)
 
 						case 'call_to_action':
-							return (
-								<CallToAction
-									key={index}
-									title={component.title}
-									url={component.url}
-								/>
-							)
+							return <CallToAction key={index} title={component.title} url={component.url} />
 
 						case 'subscription_form':
 							return component.subscriptionForm && (
@@ -134,7 +118,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									description={component.subscriptionForm.description}
 									inputFields={component.subscriptionForm.extraInputFields}
 									buttonLabel={component.subscriptionForm.button}
-									hasShadow={false}
+									hasShadow={component.subscriptionForm.hasShadow}
 								/>
 							)
 					}

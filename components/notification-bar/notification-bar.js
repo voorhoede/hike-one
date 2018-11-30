@@ -34,15 +34,13 @@ class NotificationBar extends Component {
 
 		return (
 			<div className={`notification-bar ${this.state.isVisible ? 'visible' : ''}`} style={{ backgroundColor: color }}>
-				<span className="text">{text + ' '}
-					<Link href={callToActionUrl}>
-						<a className="call-to-action">
-							{callToActionLabel}
-							<Icon icon="arrowRight" classes="icon icon-small" />
-						</a>
-					</Link>
-				</span>
-				<Cross />
+				<span className="text">{text}</span>
+				<Link href={callToActionUrl}>
+					<a className="call-to-action">
+						{callToActionLabel}
+						<Icon icon="arrowRight" classes="icon icon-small" />
+					</a>
+				</Link>
 			</div>
 		)
 	}

@@ -1,27 +1,18 @@
 .notification-bar {
-  font-size: @subtitle-small-s;
+  font-size: @body-text-m;
   padding: @spacing-default;
   width: 100%;
   height: 60px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  opacity: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  transform: translateY(60px);
   z-index: 10000;
   transition: all .3s ease;
-  &.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 
   .text {
-    // margin-right: @spacing-default;
     line-height: 1.4;
   }
 
@@ -35,6 +26,10 @@
       path {
         fill: @red;
       }
+    }
+
+    .icon-small svg {
+      top: 3px;
     }
   }
 }

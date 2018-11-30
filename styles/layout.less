@@ -80,26 +80,12 @@ body.disable-scroll {
 // position content below page header large
 .page-scrolling-content {
 	margin-top: 100vh; // height of header image
-	padding-top: @spacing-default*5;
 	position: relative;
 	background: @white;
-	&.has-notification-bar {
-		padding-top: 0;
-	}
-
-	@media @screen-medium {
-		padding-top: @spacing-default*14;
-
-		&.has-notification-bar {
-			padding-top: 0;
-		}
-	}
 }
 
-.content-wrapper {
+.page-scrolling-content:not(.has-notification-bar) {
 	padding-top: @spacing-default*5;
-	position: relative;
-	background: @white;
 
 	@media @screen-medium {
 		padding-top: @spacing-default*14;

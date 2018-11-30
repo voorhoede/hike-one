@@ -52,7 +52,7 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 							callToActionUrl={Data.notificationBar.callToActionUrl}
 						/>
 
-						<div class="content-wrapper">
+						{/* <div class="content-wrapper"> */}
 							<ServicesOverviewSmall
 								title={Data.servicesItemTitle}
 								services={Data.serviceItems}
@@ -103,7 +103,7 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 								<ContactShapes.variation1Front position="front" />
 							</Contact>
 						</div>
-					</div>
+					{/* </div> */}
 				</article>
 				<Footer
 					callToActionLabel={Data.footer.callToActionLabel}

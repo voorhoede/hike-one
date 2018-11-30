@@ -5,6 +5,7 @@ import CallToAction from './call-to-action/call-to-action'
 import CaseExtractSmall from './case-extract-small/case-extract-small'
 import Contact from './contact/contact'
 import * as ContactShapes from './contact/contact-shapes'
+import CookieNotification from './cookie-notification/cookie-notification'
 import FiftyFifty from './50-50/50-50'
 import Footer from './footer/footer'
 import FullWidthHeader from './full-width-header/full-width-header'
@@ -30,6 +31,7 @@ export {
 	CaseExtractSmall,
 	Contact,
 	ContactShapes,
+	CookieNotification,
 	FiftyFifty,
 	Footer,
 	FullWidthHeader,

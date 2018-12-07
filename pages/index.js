@@ -1,13 +1,12 @@
 import "isomorphic-fetch"
-
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
-import { CookieNotification } from '../components'
 
 import {
 	CaseExtract,
 	Contact,
 	ContactShapes,
+	CookieBar,
 	Footer,
 	Layout,
 	MenuBar,
@@ -110,8 +109,9 @@ const Home = ({ Data, fontsLoaded, fullUrl, acceptedCookies }) => {
 					notificationBar={Data.notificationBar}
 				/>
 			</main>
+
 			{!acceptedCookies && (
-				<CookieNotification
+				<CookieBar
 					text={Data.cookieNotification.text}
 					callToActionLabel={Data.cookieNotification.callToActionLabel}
 					callToActionUrl={Data.cookieNotification.callToActionUrl}

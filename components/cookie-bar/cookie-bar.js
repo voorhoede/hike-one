@@ -14,8 +14,6 @@ class CookieBar extends Component {
   setCookie = () => {
     cookie('accepted-cookies', true, 100)
     this.setState({ accepted: true })
-
-    this.props.accept()
   }
 
   render() {

@@ -1,0 +1,36 @@
+@import (reference) '../../styles/variables';
+
+.cookie-notification {
+  position: fixed;
+  top: 0;
+  padding: @spacing-default*1.5;
+  width: 100%;
+  z-index: @layer-popup;
+  font-size: @body-text-small-s;
+  color: @white;
+  background-color: rgba(0,0,0,.8);
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.cookie-link {
+  color: @white;
+  text-decoration: none;
+  border-bottom: 1px solid @white;
+}
+
+.btn-cookie {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 0;
+  border: none;
+  color: @white;
+  background-color: transparent;
+}
+
+.cookie-content {
+  margin-top: 0;
+  margin-bottom: @spacing-default;
+}

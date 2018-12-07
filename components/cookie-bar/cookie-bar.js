@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import Link from 'next/link'
 import cookie from '../_helpers/cookie'
 
-class CookieNotification extends Component {
+class CookieBar extends Component {
   constructor(props) {
     super(props)
 
@@ -11,14 +10,12 @@ class CookieNotification extends Component {
       accepted: false,
     }
   }
+
   setCookie = () => {
     cookie('accepted-cookies', true, 100)
     this.setState({ accepted: true })
-  }
 
-  componentDidMount() {
-    const element = ReactDOM.findDOMNode(this.content);
-    console.log(element.offsetHeight)
+    this.props.accept()
   }
 
   render() {
@@ -26,11 +23,13 @@ class CookieNotification extends Component {
 
     return (
       <div className={`cookie-notification ${ this.state.accepted ? 'hidden' : '' }`} ref={r => this.content = r}>
-        <span>{text + ' '}</span>
-        <Link href={callToActionUrl}>
-          <a>{callToActionLabel}</a>
-        </Link>
-        <button onClick={this.setCookie}>
+        <p className="cookie-content">
+          {text + ' '}
+          <Link href={callToActionUrl}>
+            <a className="cookie-link">{callToActionLabel}</a>
+          </Link>
+        </p>
+        <button onClick={this.setCookie} className="btn-clear btn-cookie">
           {button}
         </button>
       </div>
@@ -38,4 +37,4 @@ class CookieNotification extends Component {
   }
 }
 
-export default CookieNotification
+export default CookieBar

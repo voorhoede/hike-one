@@ -1,24 +1,19 @@
 .notification-bar {
-  font-size: @body-text-m;
-  padding: @spacing-default;
-  width: 100%;
-  height: 60px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: @spacing-default*5;
+  padding: @spacing-default;
+  font-size: @body-text-m;
   font-weight: bold;
+  text-align: center;
+  width: 100%;
   z-index: 10000;
   transition: all .3s ease;
-  margin-bottom: @spacing-default*5;
 
   @media @screen-medium {
 		margin-bottom: @spacing-default*14;
-	}
-
-  .text {
-    line-height: 1.4;
   }
 
   .call-to-action {

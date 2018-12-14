@@ -6,7 +6,6 @@ import {
 	CaseExtract,
 	Contact,
 	ContactShapes,
-	CookieBar,
 	Footer,
 	Layout,
 	MenuBar,
@@ -19,7 +18,7 @@ import {
 	UpdateOverviewSmall,
 } from '../components'
 
-const Home = ({ Data, fontsLoaded, fullUrl, acceptedCookies }) => {
+const Home = ({ Data, fontsLoaded, fullUrl }) => {
 	const scrollToTargetClass = 'js-scroll-to-target'
 
 	return (
@@ -109,15 +108,6 @@ const Home = ({ Data, fontsLoaded, fullUrl, acceptedCookies }) => {
 					notificationBar={Data.notificationBar}
 				/>
 			</main>
-
-			{!acceptedCookies && (
-				<CookieBar
-					text={Data.cookieNotification.text}
-					callToActionLabel={Data.cookieNotification.callToActionLabel}
-					callToActionUrl={Data.cookieNotification.callToActionUrl}
-					button={Data.cookieNotification.button}
-				/>
-			)}
 		</Layout>
 	)
 }
@@ -127,9 +117,8 @@ Home.getInitialProps = async ({ req, asPath }) => {
 	const fullUrl = `${baseUrl}${asPath}`
 	const Data = await fetch(`${baseUrl}/api/home`).then(res => res.json())
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-	const acceptedCookies = req ? req.cookies['accepted-cookies'] : cookie('accepted-cookies')
 
-	return { Data, fontsLoaded, fullUrl, acceptedCookies }
+	return { Data, fontsLoaded, fullUrl }
 }
 
 export default Home

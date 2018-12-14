@@ -20,14 +20,14 @@ class CookieBar extends Component {
     const { text, callToActionLabel, callToActionUrl, button } = this.props
 
     return (
-      <div className={`cookie-notification ${ this.state.accepted ? 'hidden' : '' }`} ref={r => this.content = r}>
-        <p className="cookie-content">
+      <div className={`cookie-bar ${ this.state.accepted ? 'hidden' : '' }`}>
+        <p className="cookie-bar-text">
           {text + ' '}
           <Link href={callToActionUrl}>
-            <a className="cookie-link">{callToActionLabel}</a>
+            <a className="cookie-bar-link">{callToActionLabel}</a>
           </Link>
         </p>
-        <button onClick={this.setCookie} className="btn-clear btn-cookie">
+        <button onClick={this.setCookie} className="btn-clear btn-secondary cookie-bar-btn">
           {button}
         </button>
       </div>

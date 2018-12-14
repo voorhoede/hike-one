@@ -163,9 +163,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										key={index}
 										classes={hasTextCard ? 'image-combo-text': ''}
 									>
-										{hasTextCard && (
-											<TextCard title={component.textTitle} text={component.textContent} />
-										)}
+										{hasTextCard && <TextCard title={component.textTitle} text={component.textContent} />}
 
 										<FullWidthImage
 											image={component.image.url}

@@ -8,6 +8,7 @@ import Collage from '../components/collage/collage'
 import * as CollageShapes from '../components/collage/collage-shapes'
 import Contact from './contact/contact'
 import * as ContactShapes from './contact/contact-shapes'
+import CookieBar from './cookie-bar/cookie-bar'
 import FiftyFifty from './50-50/50-50'
 import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes'
 import Footer from './footer/footer'
@@ -40,8 +41,6 @@ import UpdateLinks from '../components/update-links/update-links'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small'
 import WorkOverview from './work-overview/work-overview'
 
-
-
 export {
 	Author,
 	BodyQuote,
@@ -53,6 +52,7 @@ export {
 	CollageShapes,
 	Contact,
 	ContactShapes,
+	CookieBar,
 	FiftyFifty,
 	FiftyFiftyShapes,
 	Footer,

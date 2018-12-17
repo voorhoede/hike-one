@@ -1,5 +1,4 @@
 import "isomorphic-fetch"
-
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
 

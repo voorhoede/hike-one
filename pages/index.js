@@ -44,12 +44,14 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 					</PageHeader>
 
 					<div className={`${scrollToTargetClass} ${Data.notificationBar && 'has-notification-bar'} page-scrolling-content`}>
-						<NotificationBar
-							color={Data.notificationBar.color}
-							text={Data.notificationBar.text}
-							callToActionLabel={Data.notificationBar.callToActionLabel}
-							callToActionUrl={Data.notificationBar.callToActionUrl}
-						/>
+						{Data.notificationBar && (
+							<NotificationBar
+								color={Data.notificationBar.color}
+								text={Data.notificationBar.text}
+								callToActionLabel={Data.notificationBar.callToActionLabel}
+								callToActionUrl={Data.notificationBar.callToActionUrl}
+							/>
+						)}
 
 						<ServicesOverviewSmall
 							title={Data.servicesItemTitle}

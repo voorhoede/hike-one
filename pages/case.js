@@ -95,7 +95,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 						let itemType = component.itemType
 
 						if (component.itemType === '50_50') {
-							if (component.textPosition === 'text left') {
+							if (component.textLeft) {
 								itemType = '50_50_text_left'
 							} else {
 								itemType = '50_50_text_right'
@@ -143,7 +143,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 								return (
 									<FiftyFifty
 										key={index}
-										contentLeft={component.textPosition === 'text left'}
+										contentLeft={component.textLeft}
 										title={component.title}
 										text={component.text}
 										image={component.image.url}

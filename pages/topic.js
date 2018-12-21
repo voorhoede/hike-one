@@ -55,7 +55,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 							return (
 								<FiftyFifty
 									key={index}
-									contentLeft={component.textPosition === 'text left'}
+									contentLeft={component.textLeft}
 									title={component.title}
 									text={component.text}
 									image={component.image.url}

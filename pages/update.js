@@ -52,7 +52,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 								<FiftyFifty
 									classes='fifty-fifty-update'
 									key={index}
-									contentLeft={component.textPosition === 'text left'}
+									contentLeft={component.textLeft}
 									title={component.title}
 									text={component.text}
 									image={component.image.url}

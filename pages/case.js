@@ -92,7 +92,16 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 					</TextCenter>
 
 					{Data.components.map((component, index) => {
-						const itemType = component.itemType
+						let itemType = component.itemType
+
+						if (component.itemType === '50_50') {
+							if (component.textPosition === 'text left') {
+								itemType = '50_50_text_left'
+							} else {
+								itemType = '50_50_text_right'
+							}
+						}
+
 						// set component count
 						componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap)
 						const count = componentCounter[itemType]
@@ -124,6 +133,19 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft="true"
 										text={component.text}
 										imageLarge="true"
+										image={component.image.url}
+									>
+										{ parallaxLayers }
+									</FiftyFifty>
+								)
+
+							case '50_50':
+								return (
+									<FiftyFifty
+										key={index}
+										contentLeft={component.textPosition === 'text left'}
+										title={component.title}
+										text={component.text}
 										image={component.image.url}
 									>
 										{ parallaxLayers }

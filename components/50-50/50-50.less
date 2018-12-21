@@ -137,7 +137,9 @@
 
 .fifty-fifty-content-left {
 	.container-inner {
-		flex-direction: row-reverse;
+		@media @screen-medium {
+			flex-direction: row-reverse;
+		}
 	}
 	.fifty-fifty-title,
 	.fifty-fifty-text {

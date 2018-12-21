@@ -102,7 +102,7 @@ class PageHeader extends React.Component {
 						background-image: url(${heroImageMedium});
 					}
 				}
-				@media only screen and (min-width: 1170px) { 
+				@media only screen and (min-width: 1170px) {
 					.page-header {
 						background-image: url(${heroImageLarge});
 					}
@@ -113,7 +113,7 @@ class PageHeader extends React.Component {
 						background-image: none;
 					}
 				}` : '' }
-			}		
+			}
 			</style>`};
 
 		return (
@@ -137,12 +137,12 @@ class PageHeader extends React.Component {
 						{ props.onClickScrollButton
 							? <a className="page-header-title-link" href='#' onClick={props.onClickScrollButton}><h1 className="page-header-title ">{props.title}</h1></a>
 							: <h1 className="page-header-title ">{props.title}</h1> }
-						
+
 						{ props.subtitle &&
 							props.onClickScrollButton
 								? <a className="page-header-subtitle-link" href='#' onClick={props.onClickScrollButton}><p className="page-header-subtitle">{props.subtitle}</p></a>
 								: <p className="page-header-subtitle">{props.subtitle}</p> }
-						
+
 						{ props.onClickScrollButton &&
 							<button className="page-header-button"
 									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>

@@ -1,0 +1,71 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/grid';
+
+.mailchimp-form {
+	margin: 0 auto @spacing-large auto;
+	padding: 0 @spacing-default*1.5;
+	&.shadow {
+		padding: @spacing-medium @spacing-large;
+		margin: 0 auto @spacing-extra-large auto;
+	}
+
+	@media @screen-medium {
+		max-width: @column-large-6;
+	}
+
+	@media @screen-medium-large {
+		max-width: @column-large-7;
+	}
+
+	.form-title {
+		font-size: @heading-small-s;
+		line-height: @line-height-header-small-s;
+		font-weight: @font-weight-bold;
+		color: @darker-gray;
+		margin-bottom: @spacing-small;
+
+		@media @screen-medium {
+			font-size: @heading-small-m;
+			line-height: @line-height-header-small-m;
+		}
+
+		@media @screen-large {
+			padding-left: 0;
+			font-size: @heading-small-l;
+			line-height: @line-height-header-small-l;
+		}
+	}
+
+	.form {
+		max-width: @column-large-7;
+	}
+
+	.submit-btn {
+		margin-bottom: 0;
+	}
+}
+
+.btn-right-aligned {
+	margin-left: auto;
+}
+
+.form-description {
+	font-size: @body-text-s;
+	margin-bottom: @spacing-medium;
+	display: block;
+
+	@media @screen-medium {
+		font-size: @subtitle-large-s;
+	}
+}
+
+.mailchimp-form .btn-right-aligned {
+	display: block;
+	margin-left: auto;
+	margin-right: 0;
+}
+
+.mailchimp-form .input-field-full-width {
+	display: block;
+	width: 100%;
+}

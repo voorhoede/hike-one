@@ -1,0 +1,74 @@
+@import (reference) '../../styles/variables';
+
+.cookie-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	padding: @spacing-default*1.5;
+	width: 100%;
+	z-index: @layer-popup;
+	font-size: @body-text-small-s;
+	color: @white;
+	background-color: rgba(0,0,0,.8);
+	animation: slide-up .3s ease;
+
+	&.hidden {
+		animation: slide-down .3s ease forwards;
+	}
+
+	@media @screen-medium {
+		justify-content: center;
+	}
+}
+
+.cookie-bar-text {
+	margin: 0;
+	margin-right: @spacing-small;
+	font-family: @font-main;
+	font-weight: 500;
+
+	@media @screen-large {
+		font-size: @body-text-small-m;
+	}
+}
+
+.cookie-bar-link {
+	color: @white;
+	text-decoration: none;
+	border-bottom: 1px solid @white;
+}
+
+.cookie-bar-btn {
+	padding: @spacing-half @spacing-default*1.5;
+	margin: 0 @spacing-default;
+
+	&:hover {
+		color: @black !important;
+	}
+}
+
+@keyframes slide-up {
+	0% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-down {
+	0% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translateY(100%);
+		opacity: 0;
+	}
+}

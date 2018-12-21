@@ -7,11 +7,13 @@ import {
 	Author,
 	BodyQuote,
 	CallToAction,
+	FiftyFifty,
 	Footer,
 	FullWidthHeader,
 	FullWidthImageSmall,
 	InlineImage,
 	Layout,
+	MailchimpForm,
 	MenuBar,
 	RichBodyText,
 	SocialShare,
@@ -47,6 +49,29 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
 
+						case '50_50_text_right':
+							return (
+								<FiftyFifty
+									classes='fifty-fifty-update'
+									key={index}
+									title={component.title}
+									text={component.text}
+									image={component.image.url}
+								/>
+							)
+
+						case '50_50_text_left':
+							return (
+								<FiftyFifty
+									classes='fifty-fifty-update'
+									key={index}
+									contentLeft="true"
+									title={component.title}
+									text={component.text}
+									image={component.image.url}
+								/>
+							)
+
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined
 							return (
@@ -69,16 +94,25 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									caption={component.caption}
 								/>
 							)
+
 						case 'full_width_image_small':
-							return (
-								<FullWidthImageSmall
-									key={index}
-									index={index}
-									image={component.image.url}
-								/>
-							)
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
+
 						case 'call_to_action':
 							return <CallToAction key={index} title={component.title} url={component.url} />
+
+						case 'subscription_form':
+							return (
+								<MailchimpForm
+									key={index}
+									title={component.subscriptionForm.title}
+									listId={component.subscriptionForm.listId}
+									description={component.subscriptionForm.description}
+									inputFields={component.subscriptionForm.extraInputFields}
+									buttonLabel={component.subscriptionForm.button}
+									hasShadow={component.subscriptionForm.hasShadow}
+								/>
+							)
 					}
 				})}
 
@@ -89,15 +123,16 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 				/>
 
 				<div className="authors">
-					{Data.authors.map((author, index) => (
-						<Author
-							key={index}
-							name={author.name}
-							role={author.role}
-							photoUrl={author.photo.url}
-							summary={author.summary}
-						/>
-					))}
+					{Data.authors.map(author => {
+						return (
+							<Author
+								name={author.name}
+								role={author.role}
+								photoUrl={author.photo.url}
+								summary={author.summary}
+							/>
+						)
+					})}
 				</div>
 
 				<TextCenter

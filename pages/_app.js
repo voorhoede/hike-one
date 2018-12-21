@@ -31,6 +31,7 @@ export default class MyApp extends App {
             callToActionLabel={cookieBar.callToActionLabel}
             callToActionUrl={cookieBar.callToActionUrl}
             button={cookieBar.button}
+            fontsLoaded={pageProps.fontsLoaded}
           />
         )}
       </Container>

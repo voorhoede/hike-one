@@ -47,6 +47,18 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
 
+						case '50_50':
+							return (
+								<FiftyFifty
+									classes='fifty-fifty-update'
+									key={index}
+									contentLeft={component.textPosition === 'text left'}
+									title={component.title}
+									text={component.text}
+									image={component.image.url}
+								/>
+							)
+
 						case '50_50_text_right':
 							return (
 								<FiftyFifty

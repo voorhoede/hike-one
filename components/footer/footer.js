@@ -103,7 +103,7 @@ class Footer extends React.Component {
 
 					<p className="footer-copyright">@ Hike One 2017</p>
 					<a className="footer-copyright" href="/topic/privacy-statement">privacy statement</a>
-					<a className="footer-copyright" href="/topic/cookie-statement">cookie statement</a>
+					<a className="footer-copyright" href="/topic/cookie-policy">cookie policy</a>
 				</div>
 			</footer>
 		)

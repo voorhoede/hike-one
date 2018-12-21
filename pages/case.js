@@ -246,6 +246,17 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 									/>
 								)
 
+							case 'inline_image_large':
+								const imageLarge = component.image ? component.image.url : undefined
+								return (
+									<InlineImage
+										key={index}
+										large={true}
+										image={imageLarge}
+										caption={component.caption}
+									/>
+								)
+
 							case 'call_to_action':
 								return <CallToAction key={index} title={component.title} url={component.url} />
 						}

@@ -9,7 +9,6 @@
 	padding: @spacing-default*1.5;
 	width: 100%;
 	z-index: @layer-popup;
-	font-family: @font-main-fallback;
 	font-size: @body-text-small-s;
 	color: @white;
 	background-color: rgba(0,0,0,.8);
@@ -17,10 +16,6 @@
 
 	&.hidden {
 		animation: slide-down .3s ease forwards;
-	}
-
-	&.fonts-loaded {
-		font-family: @font-main;
 	}
 
 	@media @screen-medium {
@@ -31,6 +26,7 @@
 .cookie-bar-text {
 	margin: 0;
 	margin-right: @spacing-small;
+	font-family: @font-main;
 	font-weight: 500;
 
 	@media @screen-large {
@@ -47,6 +43,7 @@
 .cookie-bar-btn {
 	padding: @spacing-half @spacing-default*1.5;
 	margin: 0 @spacing-default;
+	font-family: @font-main;
 
 	&:hover {
 		color: @black !important;

@@ -79,7 +79,7 @@ elif [ "$TRAVIS_BRANCH" == master ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; the
 	deployment='staging';
 	disallow_robots;
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING");
-	create_now_config "$deployment" "regions: ["bru1"]";
+	create_now_config "$deployment" "regions: ["bru"]";
 
 	# Staging deployment is reachable at staging.hike.one. The default alias
 	# given to plek is sufficient
@@ -93,7 +93,7 @@ else
 	echo 'Build a pull request';
 	deployment='pr';
 	disallow_robots;
-	create_now_config "$deployment" "regions: ["bru1"]";
+	create_now_config "$deployment" "regions: ["bru"]";
 
 	npx plek now "$main_domain" --app "$deployment" -- \
 		-e DATO_API_TOKEN="$DATO_API_TOKEN" \

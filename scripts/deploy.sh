@@ -41,7 +41,13 @@ disallow_robots () {
 }
 
 # Write a now.json config file with environment specific overrides
-create_now_config () {
+create_now_config_1 () {
+	local deployment="$1";
+	local query="merge(@, { name: '$deployment' })";
+	jp "$query" <<< "$now_config" > now.json;
+}
+
+create_now_config_2 () {
 	local deployment="$1";
 	local overrides="$2";
 	local query="merge(@, { name: '$deployment', $overrides })";
@@ -59,7 +65,7 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 	echo 'Build production environment';
 	deployment='production';
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION");
-	create_now_config "$deployment" "alias: to_array([ $(get_domain_names) ])";
+	create_now_config_2 "$deployment" "alias: to_array([ $(get_domain_names) ])";
 
 	# A custom plek deployment is performed here because the production website
 	# has to be reachable at multiple (sub)domain names. More elaborate
@@ -79,7 +85,7 @@ elif [ "$TRAVIS_BRANCH" == master ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; the
 	deployment='staging';
 	disallow_robots;
 	webhook_url=$(get_webhook_url "$DATO_ENV_ID_STAGING");
-	create_now_config "$deployment" "version: 2";
+	create_now_config_1 "$deployment";
 
 	# Staging deployment is reachable at staging.hike.one. The default alias
 	# given to plek is sufficient
@@ -93,7 +99,7 @@ else
 	echo 'Build a pull request';
 	deployment='pr';
 	disallow_robots;
-	create_now_config "$deployment" "version: 2";
+	create_now_config "$deployment";
 
 	npx plek now "$main_domain" --app "$deployment" -- \
 		-e DATO_API_TOKEN="$DATO_API_TOKEN" \

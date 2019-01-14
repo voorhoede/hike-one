@@ -99,7 +99,7 @@ else
 	echo 'Build a pull request';
 	deployment='pr';
 	disallow_robots;
-	create_now_config "$deployment";
+	create_now_config_1 "$deployment";
 
 	npx plek now "$main_domain" --app "$deployment" -- \
 		-e DATO_API_TOKEN="$DATO_API_TOKEN" \

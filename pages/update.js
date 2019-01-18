@@ -123,6 +123,13 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									hasShadow={component.subscriptionForm.hasShadow}
 								/>
 							)
+
+						case 'anchor_link':
+							return (
+								<Link href={`${component.link}#${component.form.listId}`} key={index}>
+									<a className="anchor-link">{component.text}</a>
+								</Link>
+							)
 					}
 				})}
 

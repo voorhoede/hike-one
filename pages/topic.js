@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import 'isomorphic-fetch'
 
 import cookie from '../components/_helpers/cookie'
@@ -131,6 +132,13 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									buttonLabel={component.subscriptionForm.button}
 									hasShadow={component.subscriptionForm.hasShadow}
 								/>
+							)
+
+						case 'anchor_link':
+							return (
+								<Link href={`${component.link}#${component.form.listId}`} key={index}>
+									<a className="anchor-link">{component.text}</a>
+								</Link>
 							)
 					}
 				})}

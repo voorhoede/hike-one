@@ -281,6 +281,13 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 
 							case 'call_to_action':
 								return <CallToAction key={index} title={component.title} url={component.url} />
+
+							case 'anchor_link':
+								return (
+									<Link href={`${component.link}#${component.form.listId}`} key={index}>
+										<a className="anchor-link">{component.text}</a>
+									</Link>
+								)
 						}
 					})}
 

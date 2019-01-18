@@ -129,7 +129,8 @@
 		padding: 0;
 	}
 
-	img {
+	img,
+	video {
 		width: 100%;
 		height: auto;
 	}
@@ -156,8 +157,10 @@
 
 .fifty-fifty-update .fifty-fifty-content {
 	padding-right: 0;
-	padding-left: @spacing-default*7;
 
+	@media @screen-medium {
+		padding-left: @spacing-default*7;
+	}
 }
 
 .fifty-fifty-update.fifty-fifty-content-left .fifty-fifty-content {

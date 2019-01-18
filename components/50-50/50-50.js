@@ -1,19 +1,25 @@
-import React from 'react';
-import setImageParams from '../_helpers/setImageParameters';
+import React from 'react'
+import setImageParams from '../_helpers/setImageParameters'
 
-const FiftyFifty = ({classes = '', image, title = '', text = '', children, imageLarge, contentLeft}) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
-	const contentPosClass = contentLeft ? 'fifty-fifty-content-left': '';
-	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLarge, contentLeft, video='', videoControls=false }) => {
+	const childrenArray = React.Children.toArray(children)
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
+	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : ''
+	const contentPosClass = contentLeft ? 'fifty-fifty-content-left': ''
+	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 	return (
 		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>
 			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-image">
+					{video && videoControls &&
+						<video className="content" src={`${video}`} controls></video>
+					}
+					{video && !videoControls &&
+						<video className="content" src={`${video}`} autoPlay muted loop playsInline></video>
+					}
 					{!imageLarge &&
 					<img className="content"
 						 srcSet={`
@@ -54,13 +60,13 @@ const FiftyFifty = ({classes = '', image, title = '', text = '', children, image
 					}
 				</div>
 				<div className="fifty-fifty-content">
-					{ title && <h2 className="fifty-fifty-title content">{title}</h2> }
+					{title && <h2 className="fifty-fifty-title content">{title}</h2>}
 					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></div>
 				</div>
 			</div>
 			{parallaxLayerFront}
 		</section>
-	);
-};
+	)
+}
 
-export default FiftyFifty;
+export default FiftyFifty

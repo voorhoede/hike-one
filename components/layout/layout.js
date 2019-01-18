@@ -62,7 +62,7 @@ class Layout extends React.Component {
 					<link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" sizes="16x16" />
 					<link rel="stylesheet" href="/static/styles/index.css" />
 					<link rel="manifest" href="/manifest.json" />
-					<GoogleTagManagerConfig id="GTM-5KJ6PKN"/>
+					<GoogleTagManagerConfig />
 				</Head>
 				<div className={`${this.state.fontsLoaded} ${classes}`}>
 					{ children }

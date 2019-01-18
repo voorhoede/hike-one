@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "prebuild": "rimraf build/ && mkdir build/",
-    "build": "npm-run-all --serial build:dato build:css build:next build:guide",
+    "build": "npm-run-all --serial build:dato build:css build:next",
     "build:dato": "npm-run-all --serial build:dato:local build:dato:dump",
     "build:dato:staging": "ENVIRONMENT=staging npm run build:dato",
     "build:dato:local": "bash dato-dump.sh",

@@ -17,6 +17,8 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile(`home.json`, 'json', dato.home.toMap())
 
+		dir.createDataFile(`cookie-bar.json`, 'json', dato.cookieBar.toMap())
+
 		dir.createDataFile('cases.json', 'json', mapCollection(dato.cases))
 
 		dir.createDataFile('component-guide.json', 'json', dato.componentGuide.toMap())

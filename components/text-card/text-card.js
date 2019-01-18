@@ -1,8 +1,8 @@
-const TextCard = ({title = '', text = ''}) => (
+const TextCard = ({ title='', text='' }) => (
 	<div className="text-card shadow">
 		<h2>{title}</h2>
-		<p dangerouslySetInnerHTML={{__html: text}}></p>
+		<div dangerouslySetInnerHTML={{__html: text}}></div>
 	</div>
-);
+)
 
-export default TextCard;
+export default TextCard

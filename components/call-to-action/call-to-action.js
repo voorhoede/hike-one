@@ -1,5 +1,3 @@
-import { TextCenter } from '../'
-
 const CallToAction = ({ title='', url='', bgColor, buttonText='' }) => {
 	return (
 		<div className="call-to-action container-inner" style={{ backgroundColor: bgColor }}>

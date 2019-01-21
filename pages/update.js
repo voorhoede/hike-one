@@ -116,7 +116,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									title={component.title}
 									buttonText={component.buttonText}
 									url={component.url}
-									bgColor={component.bgColor}
+									bgColor={component.bgColor.hex}
 								/>
 							)
 

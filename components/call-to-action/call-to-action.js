@@ -1,9 +1,10 @@
-const CallToAction = ({title='', url=''}) => {
+const CallToAction = ({ title='', url='', bgColor, buttonText='' }) => {
 	return (
-		<div className="call-to-action container">
-			<a href={url} className="call-to-action-button btn-primary btn-large content" target="_blank">{title}</a>
+		<div className="call-to-action container-inner" style={{ backgroundColor: bgColor }}>
+			{title && <p className="call-to-action-title">{title}</p>}
+			<a href={url} className="call-to-action-button btn-primary btn-large content" target="_blank">{buttonText}</a>
 		</div>
 	)
 }
 
-export default CallToAction;
+export default CallToAction

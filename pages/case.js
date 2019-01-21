@@ -287,7 +287,9 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										title={component.title}
 										buttonText={component.buttonText}
 										url={component.url}
-										bgColor={component.bgColor.hex}
+										bgColor={component.bgColor && component.bgColor.hex}
+										titleWhite={component.titleWhite}
+										fullWidth={component.fullWidth}
 									/>
 								)
 						}

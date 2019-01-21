@@ -1,7 +1,7 @@
 import React from 'react'
 import setImageParams from '../_helpers/setImageParameters'
 
-const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLarge, contentLeft, video='', videoControls=false }) => {
+const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLarge, contentLeft, video='' }) => {
 	const childrenArray = React.Children.toArray(children)
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
 	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
@@ -13,18 +13,9 @@ const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLa
 		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>
 			{parallaxLayerBack}
 			<div className="container-inner">
-				{video &&
-				<div className="fifty-fifty-video">
-					{videoControls &&
-						<video className="content" src={`${video}`} controls></video>
-					}
-					{!videoControls &&
-						<video className="content" src={`${video}`} autoPlay muted loop playsInline></video>
-					}
-				</div>}
+				<div className="fifty-fifty-media">
+					{video && <video className="content" src={`${video}`} controls></video>}
 
-				{image || imageLarge &&
-				<div className="fifty-fifty-image">
 					{!imageLarge &&
 					<img className="content"
 						 srcSet={`
@@ -63,7 +54,7 @@ const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLa
 						 src={`${setImageParams(image, { ...imageParameters, w: 750 } )}`}
 						 alt="" />
 					}
-				</div>}
+				</div>
 				<div className="fifty-fifty-content">
 					{title && <h2 className="fifty-fifty-title content">{title}</h2>}
 					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></div>

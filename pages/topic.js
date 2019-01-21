@@ -51,6 +51,18 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} />
 
+						case '50_50':
+							return (
+								<FiftyFifty
+									key={index}
+									contentLeft={component.textLeft}
+									title={component.title}
+									text={component.text}
+									image={component.image && component.image.url}
+									video={component.videoSrc}
+								/>
+							)
+
 						case '50_50_text_right':
 							return (
 								<FiftyFifty

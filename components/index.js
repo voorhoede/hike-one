@@ -12,6 +12,7 @@ import CookieBar from './cookie-bar/cookie-bar'
 import FiftyFifty from './50-50/50-50'
 import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes'
 import Footer from './footer/footer'
+import FooterLocations from './footer-locations/footer-locations'
 import FullWidthHeader from './full-width-header/full-width-header'
 import FullWidthImage from '../components/full-width-image/full-width-image'
 import FullWidthImageSmall from './full-width-image-small/full-width-image-small'
@@ -21,6 +22,7 @@ import ImageCombo from '../components/image-combo/image-combo'
 import * as ImageComboShapes from '../components/image-combo/image-combo-shapes'
 import InlineImage from './inline-image/inline-image'
 import Layout from './layout/layout'
+import Logo from './logo/logo'
 import LogoCarousel from './logo-carousel/logo-carousel'
 import LogoList from '../components/logo-list/logo-list'
 import MailchimpForm from './mailchimp/mailchimp-form'
@@ -31,6 +33,7 @@ import * as PageHeaderShapes from './page-header/page-header-shapes'
 import QuoteBlock from '../components/quote-block/quote-block'
 import RichBodyText from './rich-body-text/rich-body-text'
 import ServicesOverviewSmall from './services-overview-small/services-overview-small'
+import SocialMedia from './social-media/social-media'
 import SocialShare from './social-share/social-share'
 import TextCard from '../components/text-card/text-card'
 import TextCenter from './text-center/text-center'
@@ -56,6 +59,7 @@ export {
 	FiftyFifty,
 	FiftyFiftyShapes,
 	Footer,
+	FooterLocations,
 	FullWidthHeader,
 	FullWidthImage,
 	FullWidthImageSmall,
@@ -65,6 +69,7 @@ export {
 	ImageComboShapes,
 	InlineImage,
 	Layout,
+	Logo,
 	LogoCarousel,
 	LogoList,
 	MailchimpForm,
@@ -75,6 +80,7 @@ export {
 	QuoteBlock,
 	RichBodyText,
 	ServicesOverviewSmall,
+	SocialMedia,
 	SocialShare,
 	TextCard,
 	TextCenter,

@@ -48,7 +48,8 @@
 }
 
 .fifty-fifty-content,
-.fifty-fifty-image {
+.fifty-fifty-image,
+.fifty-fifty-video {
 	display: inline-block;
 	width: 100%;
 	vertical-align: top;
@@ -119,7 +120,8 @@
 	}
 }
 
-.fifty-fifty-image {
+.fifty-fifty-image,
+.fifty-fifty-video {
 	padding-bottom: @spacing-default*2;
 
 	@media @screen-medium {
@@ -132,6 +134,7 @@
 	img,
 	video {
 		width: 100%;
+		max-width: 100%;
 		height: auto;
 	}
 }

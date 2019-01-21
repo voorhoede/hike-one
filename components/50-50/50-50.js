@@ -13,13 +13,18 @@ const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLa
 		<section className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}>
 			{parallaxLayerBack}
 			<div className="container-inner">
-				<div className="fifty-fifty-image">
-					{video && videoControls &&
+				{video &&
+				<div className="fifty-fifty-video">
+					{videoControls &&
 						<video className="content" src={`${video}`} controls></video>
 					}
-					{video && !videoControls &&
+					{!videoControls &&
 						<video className="content" src={`${video}`} autoPlay muted loop playsInline></video>
 					}
+				</div>}
+
+				{image || imageLarge &&
+				<div className="fifty-fifty-image">
 					{!imageLarge &&
 					<img className="content"
 						 srcSet={`
@@ -58,7 +63,7 @@ const FiftyFifty = ({ classes='', image='', title='', text='', children, imageLa
 						 src={`${setImageParams(image, { ...imageParameters, w: 750 } )}`}
 						 alt="" />
 					}
-				</div>
+				</div>}
 				<div className="fifty-fifty-content">
 					{title && <h2 className="fifty-fifty-title content">{title}</h2>}
 					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{__html: text}}></div>

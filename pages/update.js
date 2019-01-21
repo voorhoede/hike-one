@@ -42,7 +42,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 				{Data.content.map((component, index) => {
 					switch (component.itemType) {
 						case 'rich_body_text':
-							return <RichBodyText key={index} content={component.content} />
+							return <RichBodyText key={index} content={component.content} textCenter={component.centered} />
 
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />

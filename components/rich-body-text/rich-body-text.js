@@ -1,9 +1,7 @@
-import React from 'react';
-
-const RichBodyText = ({content = ''}) => (
-	<div className="rich-body-text"
+const RichBodyText = ({ content='', textCenter }) => (
+	<div className={`rich-body-text ${textCenter ? 'text-center' : ''}`}
 		dangerouslySetInnerHTML={{__html: content}}>
 	</div>
-);
+)
 
-export default RichBodyText;
+export default RichBodyText

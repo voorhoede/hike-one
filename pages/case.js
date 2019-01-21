@@ -146,7 +146,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft={component.textLeft}
 										title={component.title}
 										text={component.text}
-										image={component.image.url}
+										image={component.image && component.image.url}
+										video={component.videoSrc}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>

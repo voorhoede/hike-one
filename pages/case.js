@@ -281,7 +281,17 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 								)
 
 							case 'call_to_action':
-								return <CallToAction key={index} title={component.title} url={component.url} />
+								return (
+									<CallToAction
+										key={index}
+										title={component.title}
+										buttonText={component.buttonText}
+										url={component.url}
+										bgColor={component.bgColor && component.bgColor.hex}
+										titleWhite={component.titleWhite}
+										fullWidth={component.fullWidth}
+									/>
+								)
 						}
 					})}
 

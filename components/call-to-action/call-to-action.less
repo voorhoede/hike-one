@@ -1,10 +1,27 @@
 .call-to-action {
 	text-align: center;
 	margin-bottom: 80px;
-	padding: @spacing-medium;
+	padding: @spacing-small;
+
+	&.call-to-action-bg-color {
+		padding: @spacing-default*4.5;
+
+		@media @screen-medium {
+			padding: @spacing-default*5;
+		}
+
+		@media @screen-medium-large {
+			padding: @spacing-extra-large;
+		}
+	}
 
 	@media @screen-medium-large {
 		margin-bottom: 120px;
+		padding: @spacing-large;
+	}
+
+	p {
+		margin-top: 0;
 	}
 
 	.call-to-action-title {
@@ -25,5 +42,9 @@
 			font-size: @heading-l;
 			line-height: @line-height-heading-l;
 		}
+	}
+
+	.call-to-action-button {
+		margin-bottom: 0;
 	}
 }

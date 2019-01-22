@@ -1,8 +1,10 @@
 const CallToAction = ({ title='', url='', bgColor='', buttonText='', fullWidth=false, titleWhite=false }) => {
 const textColorClass = titleWhite ? 'title-white' : ''
+const containerClass = fullWidth ? 'container' : 'container-inner'
+const bgClass = bgColor ? 'call-to-action-bg-color' : ''
 
 	return (
-		<div className={`call-to-action ${fullWidth ? 'container' : 'container-inner'}`} style={{ backgroundColor: bgColor }}>
+		<div className={`call-to-action ${containerClass} ${bgClass}`} style={{ backgroundColor: bgColor }}>
 			{title &&
 				<p className={`call-to-action-title ${textColorClass}`}>
 					{title}

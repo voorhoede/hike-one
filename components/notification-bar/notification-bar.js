@@ -5,7 +5,7 @@ const NotificationBar = ({ color, callToActionLabel, callToActionUrl, text }) =>
 	<div className="notification-bar" style={{ backgroundColor: color }}>
 		<span>{text}</span>
 		<Link href={callToActionUrl}>
-			<a className="call-to-action">
+			<a className="call-to-action-link">
 				{callToActionLabel}
 				<Icon icon="arrowRight" classes="icon icon-small" />
 			</a>

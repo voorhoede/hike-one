@@ -2,7 +2,6 @@ import 'core-js/fn/array/find'
 import React from 'react'
 import Head from 'next/head'
 import loadFonts from '../_helpers/fontLoader'
-import GoogleTagManagerMain from '../google-tag-manager/google-tag-manager-main'
 import GoogleTagManagerConfig from '../google-tag-manager/google-tag-manager-config'
 
 class Layout extends React.Component {
@@ -63,8 +62,7 @@ class Layout extends React.Component {
 					<link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" sizes="16x16" />
 					<link rel="stylesheet" href="/static/styles/index.css" />
 					<link rel="manifest" href="/manifest.json" />
-					<GoogleTagManagerMain id="UA-55852885-2"/>
-					<GoogleTagManagerConfig id="UA-55852885-2"/>
+					<GoogleTagManagerConfig />
 				</Head>
 				<div className={`${this.state.fontsLoaded} ${classes}`}>
 					{ children }
@@ -73,6 +71,7 @@ class Layout extends React.Component {
 				<script dangerouslySetInnerHTML={{__html: '_linkedin_partner_id = "361124"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id);' }}></script>
 				<script dangerouslySetInnerHTML={{__html: '(function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})();'}}></script>
 				<noscript><img height="1" width="1" style={{ display: 'none' }} alt="img" src="https://dc.ads.linkedin.com/collect/?pid=361124&fmt=gif" /></noscript>
+				<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KJ6PKN" height="0" width="0" style={{display: 'none', visibility: 'hidden'}}></iframe></noscript>
 			</div>
 		)
 	}

@@ -146,7 +146,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft={component.textLeft}
 										title={component.title}
 										text={component.text}
-										image={component.image.url}
+										image={component.image && component.image.url}
+										video={component.videoSrc}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -280,14 +281,24 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 								)
 
 							case 'call_to_action':
-								return <CallToAction key={index} title={component.title} url={component.url} />
-
-							case 'anchor_link':
 								return (
-									<Link href={`${component.link}#cta`} key={index}>
-										<a className="anchor-link">{component.text}</a>
-									</Link>
+									<CallToAction
+										key={index}
+										title={component.title}
+										buttonText={component.buttonText}
+										url={component.url}
+										bgColor={component.bgColor && component.bgColor.hex}
+										titleWhite={component.titleWhite}
+										fullWidth={component.fullWidth}
+									/>
 								)
+
+								case 'anchor_link':
+									return (
+										<Link href={`${component.link}#cta`} key={index}>
+											<a className="anchor-link">{component.text}</a>
+										</Link>
+									)
 						}
 					})}
 

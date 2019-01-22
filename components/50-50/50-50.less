@@ -48,7 +48,7 @@
 }
 
 .fifty-fifty-content,
-.fifty-fifty-image {
+.fifty-fifty-media {
 	display: inline-block;
 	width: 100%;
 	vertical-align: top;
@@ -65,7 +65,7 @@
 			padding-right: 0;
 		}
 
-		.fifty-fifty-image {
+		.fifty-fifty-media {
 			width: 60%;
 		}
 	}
@@ -119,7 +119,7 @@
 	}
 }
 
-.fifty-fifty-image {
+.fifty-fifty-media {
 	padding-bottom: @spacing-default*2;
 
 	@media @screen-medium {
@@ -129,8 +129,10 @@
 		padding: 0;
 	}
 
-	img {
+	img,
+	video {
 		width: 100%;
+		max-width: 100%;
 		height: auto;
 	}
 }
@@ -156,8 +158,10 @@
 
 .fifty-fifty-update .fifty-fifty-content {
 	padding-right: 0;
-	padding-left: @spacing-default*7;
 
+	@media @screen-medium {
+		padding-left: @spacing-default*7;
+	}
 }
 
 .fifty-fifty-update.fifty-fifty-content-left .fifty-fifty-content {

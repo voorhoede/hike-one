@@ -47,7 +47,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 				{Data.content.map(( component, index ) => {
 					switch (component.itemType) {
 						case 'rich_body_text':
-							return <RichBodyText key={index} content={component.content} />
+							return <RichBodyText key={index} content={component.content} textCenter={component.centered} />
 
 						case 'body_quote':
 							return <BodyQuote key={index} quote={component.quote} />
@@ -59,7 +59,8 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									contentLeft={component.textLeft}
 									title={component.title}
 									text={component.text}
-									image={component.image.url}
+									image={component.image && component.image.url}
+									video={component.videoSrc}
 								/>
 							)
 
@@ -119,7 +120,17 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 							)
 
 						case 'call_to_action':
-							return <CallToAction key={index} title={component.title} url={component.url} />
+							return (
+								<CallToAction
+									key={index}
+									title={component.title}
+									buttonText={component.buttonText}
+									url={component.url}
+									bgColor={component.bgColor && component.bgColor.hex}
+									titleWhite={component.titleWhite}
+									fullWidth={component.fullWidth}
+								/>
+							)
 
 						case 'subscription_form':
 							return component.subscriptionForm && (

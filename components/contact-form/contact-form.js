@@ -207,7 +207,7 @@ class ContactForm extends React.Component {
 					text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
 				</TextCenter>
 
-				<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' />
+				<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true}/>
 			</div>}
 		</div>
 		)}

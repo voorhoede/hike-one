@@ -292,13 +292,6 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										fullWidth={component.fullWidth}
 									/>
 								)
-
-								case 'anchor_link':
-									return (
-										<Link href={`${component.link}#cta`} key={index}>
-											<a className="anchor-link">{component.text}</a>
-										</Link>
-									)
 						}
 					})}
 

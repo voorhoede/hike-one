@@ -2,7 +2,7 @@ import React from 'react'
 import MailchimpInput from './mailchimp-input'
 
 const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLabel, hasShadow }) => (
-	<div className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`} id={listId}>
+	<div className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`} id="cta">
 		<p className="form-title">{title}</p>
 		<span className="form-description">{description}</span>
 

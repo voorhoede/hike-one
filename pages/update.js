@@ -126,7 +126,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 
 						case 'anchor_link':
 							return (
-								<Link href={`${component.link}#${component.form.listId}`} key={index}>
+								<Link href={`${component.link}#cta`} key={index}>
 									<a className="anchor-link">{component.text}</a>
 								</Link>
 							)

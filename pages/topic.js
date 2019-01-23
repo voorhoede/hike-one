@@ -38,6 +38,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 			<article className="article">
 				<FullWidthHeader
 					headerImage={Data.headerImage.url}
+					headerImageLarger={Data.headerImageLarger}
 					color={Data.color.hex}
 					title={Data.title}
 					titleOnly={true}

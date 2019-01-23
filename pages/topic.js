@@ -128,6 +128,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									bgColor={component.bgColor && component.bgColor.hex}
 									titleWhite={component.titleWhite}
 									fullWidth={component.fullWidth}
+									isExternalLink={component.isExternalLink}
 								/>
 							)
 

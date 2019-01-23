@@ -64,7 +64,7 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 	# A custom plek deployment is performed here because the production website
 	# has to be reachable at multiple (sub)domain names. More elaborate
 	# aliasing is required.
-	npx plek deploy "now deploy \
+	npx plek deploy "npx now deploy \
 		-n $deployment \
 		-t $NOW_TOKEN \
 		-e DATO_API_TOKEN=$DATO_API_TOKEN \

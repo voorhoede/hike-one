@@ -1,10 +1,8 @@
-const { uniq } = require('lodash')
+const { uniq, sortBy, flattenDeep } = require('lodash')
 
 module.exports = (dato, root) => {
 	root.directory('data/current', dir => {
 		dir.createDataFile('team.json', 'json', dato.team.toMap())
-
-		dir.createDataFile('tags.json', 'json', mapCollection(dato.tags))
 
 		dir.createDataFile('people-tab.json', 'json', dato.peopleTab.toMap())
 
@@ -35,7 +33,11 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts))
 
-		dir.createDataFile('updates.json', 'json', mapUpdates(dato.tags, dato.updates))
+		const mappedUpdates = mapCollection(dato.updates)
+		const mappedTags = mapCollection(dato.tags)
+
+		const updatesByTagId = getUpdatesByTagId(mappedTags, mappedUpdates)
+		dir.createDataFile('updates.json', 'json', mapUpdates(mappedUpdates, updatesByTagId))
 
 		dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))
 
@@ -58,48 +60,31 @@ module.exports = (dato, root) => {
 		}, [])
 	}
 
-	function mapUpdates(tags, updates) {
-		const mappedUpdates = mapCollection(updates)
-		const mappedTags = mapCollection(tags)
-		const updatesByTag = getUpdatesByTagId(mappedTags, mappedUpdates)
+	function mapUpdates(updates, updatesByTagId) {
+		return updates.map(update => {
+			const sortedUpdates = update.tags.map(tag => {
+				const filteredUpdates = updatesByTagId[tag.id].filter(item => ((item !== null) && (update.id !== item.id) && (item.updateExtract !== null)))
+				return sortBy(filteredUpdates, ['date']).reverse()
+			})
 
-		return mappedUpdates.reduce((arr, update) => {
-			const ids = update.tags.reduce((acc, tag) => {
-				acc.push(...updatesByTag[tag.id])
-				return uniq(acc)
-			}, []).filter(updateId => updateId !== update.id)
-
-			const updateExtracts = ids.map(id => {
-				const data = mappedUpdates.find(item => item.id === id)
-				return data.updateExtract
-			}).slice(0, 3)
-
-			arr.push({ ...update, relatedUpdates: updateExtracts })
-
-			return arr
-		}, [])
+			const relatedUpdates = uniq(flattenDeep(sortedUpdates)).slice(0, 3)
+			return update = { ...update, relatedUpdates }
+		})
 	}
 
-	function getUpdatesByTagId(tags, updates) {
-		const updatesByTag = tags.reduce((obj, tag) => {
-			const filteredUpdates = updates.filter(update => {
-				const ids = update.tags.map(item => item.id)
+	function getUpdatesByTagId(mappedTags, mappedUpdates) {
+		const tagsById = {}
+		const updates = mappedUpdates.map(update => {
+			const tags = update.tags.map(tag => tag.id)
+			return { id: update.id, tags, date: update.date, updateExtract: update.updateExtract }
+		})
 
-				if (ids.includes(tag.id)) {
-					return update
-				}
-			}).sort((a, b) => {
-				if (a.date > b.date) { return -1 }
-				if (a.date < b.date) { return 1 }
-				return 0
-			}).slice(0, 3)
+		mappedTags.map(tag => {
+			const relatedUpdates = updates.filter(update => update.tags.includes(tag.id))
+			tagsById[tag.id] = [ ...relatedUpdates ]
+		})
 
-			obj[tag.id] = filteredUpdates.map(item => item.id)
-
-			return obj
-		}, {})
-
-		return updatesByTag
+		return tagsById
 	}
 
 	function redirectsToJson(redirects) {

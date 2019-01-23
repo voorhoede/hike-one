@@ -165,18 +165,18 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 				/>
 
 				<UpdateOverviewSmall>
-					{Data.relatedUpdates.map((item, index) => (
+					{Data.relatedUpdates.length && Data.relatedUpdates.map((item, index) => (
 						<UpdateExtractSmall
 							key={index}
 							index={index}
-							title={item.title}
-							date={item.date}
-							authors={item.authors}
-							target={item.link}
-							image={item.image.url}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							external={item.isExternalLink}
+							title={item.updateExtract.title}
+							date={item.updateExtract.date}
+							authors={item.updateExtract.authors}
+							target={item.updateExtract.link}
+							image={item.updateExtract.image.url}
+							category={item.updateExtract.category.name}
+							color={item.updateExtract.themeColor.hex}
+							external={item.updateExtract.isExternalLink}
 						/>
 					))}
 				</UpdateOverviewSmall>

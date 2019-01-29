@@ -72,7 +72,7 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 		-e DATO_URL=$webhook_url \
 		-e ENVIRONMENT=$deployment";
 
-	now -t "$NOW_TOKEN" alias;
+	npx now -t "$NOW_TOKEN" alias;
 # Staging is deployed from master, pull requests targeting master are ignored
 elif [ "$TRAVIS_BRANCH" == master ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
 	echo 'Build staging environment';

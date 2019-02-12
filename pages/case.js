@@ -1,7 +1,7 @@
 import React from 'react'
 import "isomorphic-fetch"
-import Router from 'next/router'
 
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import scrollToElement from '../components/_helpers/scrollToElement'
@@ -341,34 +341,11 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 Case.getInitialProps = async ({ req, res, query, asPath }) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	let apiResponse
-	let Data = {}
-	
-	try {
-		if(query.slug) {
-			apiResponse = await fetch(`${baseUrl}/api/cases/${query.slug}`)
-		
-			if(!apiResponse.ok) {
-				if (res) {
-					res.writeHead(303, {
-						Location: '/error'
-					})
+	let Data = await getData(baseUrl, query.slug, res)
 
-					res.end()
-				} else {
-					return Router.push('/error')
-				}
-			}
-		}
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-		Data = await apiResponse.json()
-	} catch(err) {
-		return err
-	}
-
-		const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-	
-		return { Data, fontsLoaded, fullUrl }
+	return { Data, fontsLoaded, fullUrl }
 }
 
 export default Case

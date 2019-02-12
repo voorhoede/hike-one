@@ -61,7 +61,7 @@ class FooterLocations extends React.Component {
           <div className={this.state.location === 'ehv' ? 'is-active' : ''}>
             <a href="https://www.google.com/maps/place/Microlab/@51.444415,5.4577363,17z/data=!3m1!4b1!4m5!3m4!1s0x47c6d9134ac41f57:0x21be6060758879d9!8m2!3d51.444415!4d5.459925"
                target="_blank">
-              040 30 464 85 <br />
+              040 30 467 92<br />
               Kastanjelaan 400 (Microlab) <br />
               5616 LZ Eindhoven <br />
               The Netherlands

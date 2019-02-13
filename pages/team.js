@@ -9,6 +9,7 @@ import TeamSelector from '../components/team-selector/team-selector';
 import TeamOverview from '../components/team-overview/team-overview';
 import TeamMembersOverview from '../components/team-members-overview/team-members-overview';
 import cookie from '../components/_helpers/cookie';
+import getData, {handleError} from '../lib/get-data'
 
 const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Team"
@@ -52,12 +53,17 @@ const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, Vacancies
 	</Layout>
 );
 
-Team.getInitialProps = async ({req, query, asPath}) => {
+Team.getInitialProps = async ({req, res, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
-	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchJson = (model) => getData(baseUrl, model, res)
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const tab = query.slug;
+	//check if slug is not equal to people or culture it will redirect to error page
+	if (!/^(?:people|culture)$/.test(tab)) {
+		return handleError(res)
+	}
+
 	const [TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData] = await fetchAll([
 		`team`,
 		`people-tab`,

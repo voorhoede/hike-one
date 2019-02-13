@@ -87,7 +87,7 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 Contact.getInitialProps = async ({req, res, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
-	const data = getData(baseUrl, 'contact', res)
+	const data = await getData(baseUrl, 'contact', res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
 	
 	return {Data: data, fontsLoaded, fullUrl};

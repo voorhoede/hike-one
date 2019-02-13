@@ -341,8 +341,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 Case.getInitialProps = async ({ req, res, query, asPath }) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	const slug = `cases/${query.slug}`
-	const data = await getData(baseUrl, slug, res)
+	const data = await getData(baseUrl, `cases/${query.slug}`, res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
 	return { Data: data, fontsLoaded, fullUrl }

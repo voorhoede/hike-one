@@ -17,6 +17,7 @@ import {
 	UpdateExtractSmall,
 	UpdateOverviewSmall,
 } from '../components'
+import getData from "../lib/get-data";
 
 const Home = ({ Data, fontsLoaded, fullUrl }) => {
 	const scrollToTargetClass = 'js-scroll-to-target'
@@ -114,13 +115,13 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
 	)
 }
 
-Home.getInitialProps = async ({ req, asPath }) => {
+Home.getInitialProps = async ({ req, res, asPath }) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	const Data = await fetch(`${baseUrl}/api/home`).then(res => res.json())
+	const data = getData(baseUrl, 'home', res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-	return { Data, fontsLoaded, fullUrl }
+	return { Data: data, fontsLoaded, fullUrl }
 }
 
 export default Home

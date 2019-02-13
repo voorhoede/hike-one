@@ -5,6 +5,7 @@ import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
 import UpdateOverview from '../components/update-overview/update-overview';
 import cookie from '../components/_helpers/cookie';
+import getData from "../lib/get-data";
 
 const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 	return (
@@ -32,10 +33,10 @@ const updates = ({Data, updatesData, fontsLoaded, fullUrl}) => {
 	);
 };
 
-updates.getInitialProps = async ({req, asPath}) => {
+updates.getInitialProps = async ({req, res, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
-	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchJson = (model) => getData(baseUrl, model, res)
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const [ Data, updatesData ] = await fetchAll(['update-overview', 'update-extracts']);
 	updatesData.sort((a, b) => { return new Date(b.date).getTime() - new Date(a.date).getTime(); });

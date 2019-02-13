@@ -12,6 +12,7 @@ import PageHeader from '../components/page-header/page-header';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import VacancyCard from '../components/vacancy-card/vacancy-card';
+import getData from '../lib/get-data';
 
 const formTitle = 'Lets talk about...'
 const dropwDownTitle = 'Choose one'
@@ -83,13 +84,13 @@ const Contact = ({Data, fontsLoaded, fullUrl}) => (
 	</Layout>
 );
 
-Contact.getInitialProps = async ({req, asPath}) => {
+Contact.getInitialProps = async ({req, res, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
-	const Data = await fetch(`${baseUrl}/api/contact`).then(res => res.json());
+	const data = getData(baseUrl, 'contact', res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
 	
-	return {Data, fontsLoaded, fullUrl};
+	return {Data: data, fontsLoaded, fullUrl};
 };
 
 export default Contact;

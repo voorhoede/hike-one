@@ -11,6 +11,8 @@ import {
 	TextCenterShapes,
 } from '../components'
 
+import getData from '../lib/get-data';
+
 const ThankYou = ({ page, fontsLoaded }) => (
 	<Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded}>
 		<main className="main js-main">
@@ -38,10 +40,10 @@ const ThankYou = ({ page, fontsLoaded }) => (
 	</Layout>
 )
 
-ThankYou.getInitialProps = async ({ req }) => {
+ThankYou.getInitialProps = async ({ req, res }) => {
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-	const page = await fetch(`${baseUrl}/api/thank-you`).then(res => res.json())
+	const page = await getData(baseUrl, `${baseUrl}/api/thank-you`, res)
 
 	return { page, fontsLoaded }
 }

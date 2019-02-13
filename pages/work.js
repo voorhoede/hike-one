@@ -9,6 +9,7 @@ import Footer from '../components/footer/footer';
 import WorkOverview from '../components/work-overview/work-overview';
 import LogoCarousel from '../components/logo-carousel/logo-carousel';
 import cookie from '../components/_helpers/cookie';
+import getData from '../lib/get-data'
 
 const work = ({cases, data, fontsLoaded, fullUrl}) => (
 	<Layout title="Hike One - Case"
@@ -62,10 +63,10 @@ const work = ({cases, data, fontsLoaded, fullUrl}) => (
 );
 
 
-work.getInitialProps = async ({req, asPath}) => {
+work.getInitialProps = async ({req, res, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
-	const fetchJson = (model) => fetch(`${baseUrl}/api/${model}`).then(res => res.json());
+	const fetchJson = (model) => getData(baseUrl, model, res)
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const [ cases, data ] = await fetchAll(['cases', 'work']);
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');

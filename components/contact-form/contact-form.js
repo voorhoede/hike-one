@@ -2,7 +2,8 @@ import ButtonPrimary from '../buttons/button-primary/button-primary'
 import SelectDropdown from '../select-dropdown/select-dropdown'
 import TextCenter from '../text-center/text-center'
 import InputField from '../input-field/input-field'
-import CallToAction from '../call-to-action/call-to-action'
+// import CallToAction from '../call-to-action/call-to-action'
+import HomerunWidget from '../homerun-widget/homerun-widget'
 import scrollToElement from '../_helpers/scrollToElement'
 
 const initialState = {

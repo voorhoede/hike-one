@@ -10,9 +10,8 @@ const filter = ({filter, onFilter}) => {
 					<li className='filter-item' key={index}>
 							<button
 								className={`filter-item-button ${activeClass}`}
-								onClick={() => { 
-									window.history.pushState('filter', 'filter', `/team/people?filter=${item.value}`);
-									onFilter(filter, index)
+								onClick={() => {
+									onFilter(filter, index, (item.isActive && !isFilterVisuallyActive) )
 								}}
 							>
 								{item.value}

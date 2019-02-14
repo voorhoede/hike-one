@@ -14,19 +14,16 @@ class TeamMembersOverview extends React.Component {
 			roles: getRoles(team),
 			locations: getLocations(team),
 			isFilterCollapsed: true,
+			listActiveFilters: []
 		}
-		
-		this.state.roles.find((item, index) => {
-			if(item.value === queryParam) {
-				setOneItemActive(this.state.roles, index)
-			}
-		})
-		
+
+		this.handleQueryParams(queryParam)
+
 		this.handleClick = this.handleClick.bind(this);
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
-	onFilterHandler(filter, index) {
+	onFilterHandler(filter, index, active) {
 		const array = filter;
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
@@ -45,7 +42,62 @@ class TeamMembersOverview extends React.Component {
 			const item = array[index];
 			item.isActive = !item.isActive;
 		}
+
+		let activeFilters = this.state.listActiveFilters
+		let url = '/team/people?'
+
+		if(!active) {
+			if(!activeFilters.includes(index)) {
+				activeFilters.push(index)
+			}
+
+			activeFilters.forEach(i => {
+				if(!url.includes(array[i].value)) { url += `filter=${array[i].value}&`}
+			})
+
+			window.history.pushState(null, null, `${encodeURI(url)}`)
+		} else if(activeFilters.includes(index)) {
+			activeFilters = activeFilters.filter(value => value !== index)
+			if(activeFilters.length > 0) {
+				activeFilters.forEach((indexFilter) => {
+					if(indexFilter) {
+						return window.history.pushState(null, null,
+							`${encodeURI(`/team/people?filter=${array[indexFilter].value}&`)}`)
+					}
+				})
+			} else {
+				window.history.pushState(null, null, `/team/people`);
+			}
+		}
+
 		this.setState({ filter: array });
+	}
+
+	handleQueryParams(queryParam) {
+		const updateRoles = queryParam instanceof Array ?
+			//make it work with multiple filters
+			queryParam.forEach((param) => {
+				this.state.roles.find((item, index) => {
+					if(item.value === param) {
+						// this.state.listActiveFilters.push(index)
+						return setOneItemActive(this.state.roles, index)
+					}
+				})
+			})
+			:	this.state.roles.find((item, index) => {
+					if(item.value === queryParam ) {
+						return setOneItemActive(this.state.roles, index)
+					}
+				})
+
+
+		if(!updateRoles) {
+			this.state.locations.find((item, index) => {
+				if(item.value === queryParam ) {
+					setOneItemActive(this.state.locations, index)
+				}
+			})
+		}
 	}
 
 	handleClick() {
@@ -63,9 +115,9 @@ class TeamMembersOverview extends React.Component {
 
 		return (
 			<div className="filters">
-				<ButtonSecondary 
-					onClick={this.handleClick} 
-					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`} 
+				<ButtonSecondary
+					onClick={this.handleClick}
+					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`}
 					icon={buttonIcon}>
 					Filters
 				</ButtonSecondary>
@@ -79,7 +131,7 @@ class TeamMembersOverview extends React.Component {
 						onFilter={this.onFilterHandler}
 					/>
 				</div>
-				
+
 			{ peopleTab.introText && <p className="team-members-intro-text container">{peopleTab.introText}</p> }
 				<ul className="team-members-overview container">
 					{ filteredTeam.map((teamMember, index) => (
@@ -156,7 +208,7 @@ function hasActiveRole(roles, teamMember) {
 }
 
 function setOneItemActive(array, index) {
-	array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex);
+	array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex)
 }
 
 function setAllItemsActive(array) {

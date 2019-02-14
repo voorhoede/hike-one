@@ -8,14 +8,20 @@ class TeamMembersOverview extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const {team} = props;
+		const {team, queryParam} = props;
 
 		this.state = {
 			roles: getRoles(team),
 			locations: getLocations(team),
 			isFilterCollapsed: true,
 		}
-
+		
+		this.state.roles.find((item, index) => {
+			if(item.value === queryParam) {
+				setOneItemActive(this.state.roles, index)
+			}
+		})
+		
 		this.handleClick = this.handleClick.bind(this);
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
@@ -37,10 +43,8 @@ class TeamMembersOverview extends React.Component {
 			setAllItemsActive(array);
 		} else {
 			const item = array[index];
-
 			item.isActive = !item.isActive;
 		}
-
 		this.setState({ filter: array });
 	}
 

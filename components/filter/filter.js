@@ -5,15 +5,18 @@ const filter = ({filter, onFilter}) => {
 		<ul className='filter container'>
 			{ filter.map((item, index) => {
 				const activeClass = (item.isActive && !isFilterVisuallyActive) ? 'filter-item-button--active' : '';
+
 				return (
 					<li className='filter-item' key={index}>
-						<button
-							className={`filter-item-button ${activeClass}`}
-							type='button'
-							onClick={() => onFilter(filter, index)}
-						>
-							{item.value}
-						</button>
+							<button
+								className={`filter-item-button ${activeClass}`}
+								onClick={() => { 
+									window.history.pushState('filter', 'filter', `/team/people?filter=${item.value}`);
+									onFilter(filter, index)
+								}}
+							>
+								{item.value}
+							</button>
 					</li>
 				)
 			})}

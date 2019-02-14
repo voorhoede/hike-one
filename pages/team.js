@@ -11,7 +11,7 @@ import TeamMembersOverview from '../components/team-members-overview/team-member
 import cookie from '../components/_helpers/cookie';
 import getData, {handleError} from '../lib/get-data'
 
-const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl}) => (
+const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (
 	<Layout title="Hike One - Team"
 			fontsLoaded={fontsLoaded}
 			seo={TeamOverviewData.seo}
@@ -42,7 +42,8 @@ const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, Vacancies
 							peopleTab={PeopleTabData}
 							team={TeamMembersData}
 							vacanciesOverview={VacanciesOverviewData}
-							vacancies={VacanciesData} />
+							vacancies={VacanciesData}
+							queryParam={queryParam} />
 					}
 				</div>
 			</article>
@@ -56,6 +57,7 @@ const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, Vacancies
 Team.getInitialProps = async ({req, res, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
 	const fullUrl = `${baseUrl}${asPath}`;
+	const queryParam = req && req.query && req.query.filter
 	const fetchJson = (model) => getData(baseUrl, model, res)
 	const fetchAll = (models) => Promise.all(models.map(fetchJson));
 	const tab = query.slug;
@@ -73,7 +75,7 @@ Team.getInitialProps = async ({req, res, query, asPath}) => {
 	]);
 
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl };
+	return { tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam };
 };
 
 export default Team;

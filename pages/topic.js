@@ -216,7 +216,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 Topic.getInitialProps = async ({req, res, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	const data = await getData(baseUrl, `topic/${query.slug}`, res)
+	const data = await getData(baseUrl, `topics/${query.slug}`, res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
 	return { Data: data, fontsLoaded, fullUrl }

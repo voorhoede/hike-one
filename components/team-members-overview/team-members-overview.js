@@ -23,9 +23,10 @@ class TeamMembersOverview extends React.Component {
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
-	onFilterHandler(filter, index, active) {
+	onFilterHandler(filter, index, active, value) {
 		let array = filter;
-		this.setQueryParams(array, index, active)
+		console.log(value)
+		this.setQueryParams(array, index, active, value)
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
 			if(index === filterIndex) {
@@ -48,56 +49,77 @@ class TeamMembersOverview extends React.Component {
 	}
 
 	handleQueryParams(queryParam) {
-		const updateRoles =
-			queryParam instanceof Array
-			? ( queryParam.forEach(param => {
-					this.state.roles.find((item,index) => {
+		queryParam instanceof Array
+		? ( queryParam.forEach(param => {
+			this.state.roles.find((item,index) => {
+				if(item.value === param) {
+					this.state.listActiveFilters.push({
+						index: index,
+						type:'roles'
+					})
+					setMultipleItemsActive(this.state.roles, this.state.listActiveFilters)
+				} else {
+					this.state.locations.find((item,index) => {
 						if(item.value === param) {
-							this.state.listActiveFilters.push(index)
+							this.state.listActiveFilters.push({
+								index: index,
+								type:'locations'
+							})
+							setMultipleItemsActive(this.state.locations, this.state.listActiveFilters)
 						}
 					})
-				}),
-				setMultipleItemsActive(this.state.roles, this.state.listActiveFilters))
-			: this.state.roles.find((item, index) => {
-					if(item.value === queryParam) {
-						return setOneItemActive(this.state.roles, index)
-					}
-				})
-
-		if(!updateRoles) {
-			this.state.locations.find((item, index) => {
-				if(item.value === queryParam) {
-					return setOneItemActive(this.state.locations, index)
 				}
 			})
-		}
+		}))
+		: this.state.roles.find((item, index) => {
+			if(item.value === queryParam) {
+				this.state.listActiveFilters.push({
+					index: index,
+					type: 'roles'
+				})
+				return setOneItemActive(this.state.roles, index)
+			} else {
+				this.state.locations.find((item, index) => {
+					if(item.value === queryParam) {
+						this.state.listActiveFilters.push({
+							index: index,
+							type: 'locations'
+						})
+						return setOneItemActive(this.state.locations, index)
+					}
+				})
+			}
+		})
 	}
 
-	setQueryParams(filter, index, active) {
+	setQueryParams(filter, index, active, value) {
 		let activeFilters = this.state.listActiveFilters
 		const url = '/team/people?'
 
 		if(!active) {
 			let newUrl = ''
+
 			if(!activeFilters.includes(index)) {
-				activeFilters.push(index)
+				activeFilters.push({
+					index: index,
+					type: 'roles'
+				})
 			}
 
 			activeFilters.forEach(i => {
-				if(!url.includes(filter[i].value)) {
-					newUrl = newUrl += `filter=${filter[i].value}&`
+				if(!url.includes(filter[i.index].value)) {
+					newUrl = newUrl += `filter=${filter[i.index].value}&`
 				}
 			})
 
 			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 		} else {
+			this.state.listActiveFilters = this.state.listActiveFilters.filter(value => value.index !== index)
+			const updatedFilters = [...new Set(this.state.listActiveFilters)]
 			let newUrl = ''
 
-			this.state.listActiveFilters = this.state.listActiveFilters.filter(value => value !== index)
-			const updatedFilters = [...new Set(this.state.listActiveFilters)]
-
 			updatedFilters.forEach(i => {
-				newUrl = newUrl += `filter=${filter[i].value}&`
+				newUrl = newUrl += `filter=${filter[i.index].value}&`
 			})
 
 			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
@@ -227,7 +249,7 @@ function setMultipleItemsActive(array, indexes) {
 	setAllItemsNonActive(array)
 	indexes.forEach(activeIndex => {
 		array.forEach((item,index) => {
-			if(index === activeIndex) {
+			if(index === activeIndex.index) {
 				item.isActive = true
 			}
 		})

@@ -18,13 +18,14 @@ class TeamMembersOverview extends React.Component {
 		}
 
 		this.handleQueryParams(queryParam)
-
+		this.setQueryParams = this.setQueryParams.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
 	onFilterHandler(filter, index, active) {
-		const array = filter;
+		let array = filter;
+		this.setQueryParams(array, index, active)
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
 			if(index === filterIndex) {
@@ -43,60 +44,63 @@ class TeamMembersOverview extends React.Component {
 			item.isActive = !item.isActive;
 		}
 
+		this.setState({ filter: array });
+	}
+
+	handleQueryParams(queryParam) {
+		const updateRoles =
+			queryParam instanceof Array
+			? ( queryParam.forEach(param => {
+					this.state.roles.find((item,index) => {
+						if(item.value === param) {
+							this.state.listActiveFilters.push(index)
+						}
+					})
+				}),
+				setMultipleItemsActive(this.state.roles, this.state.listActiveFilters))
+			: this.state.roles.find((item, index) => {
+					if(item.value === queryParam) {
+						return setOneItemActive(this.state.roles, index)
+					}
+				})
+
+		if(!updateRoles) {
+			this.state.locations.find((item, index) => {
+				if(item.value === queryParam) {
+					return setOneItemActive(this.state.locations, index)
+				}
+			})
+		}
+	}
+
+	setQueryParams(filter, index, active) {
 		let activeFilters = this.state.listActiveFilters
-		let url = '/team/people?'
+		const url = '/team/people?'
 
 		if(!active) {
+			let newUrl = ''
 			if(!activeFilters.includes(index)) {
 				activeFilters.push(index)
 			}
 
 			activeFilters.forEach(i => {
-				if(!url.includes(array[i].value)) { url += `filter=${array[i].value}&`}
-			})
-
-			window.history.pushState(null, null, `${encodeURI(url)}`)
-		} else if(activeFilters.includes(index)) {
-			activeFilters = activeFilters.filter(value => value !== index)
-			if(activeFilters.length > 0) {
-				activeFilters.forEach((indexFilter) => {
-					if(indexFilter) {
-						return window.history.pushState(null, null,
-							`${encodeURI(`/team/people?filter=${array[indexFilter].value}&`)}`)
-					}
-				})
-			} else {
-				window.history.pushState(null, null, `/team/people`);
-			}
-		}
-
-		this.setState({ filter: array });
-	}
-
-	handleQueryParams(queryParam) {
-		const updateRoles = queryParam instanceof Array ?
-			//make it work with multiple filters
-			queryParam.forEach((param) => {
-				this.state.roles.find((item, index) => {
-					if(item.value === param) {
-						// this.state.listActiveFilters.push(index)
-						return setOneItemActive(this.state.roles, index)
-					}
-				})
-			})
-			:	this.state.roles.find((item, index) => {
-					if(item.value === queryParam ) {
-						return setOneItemActive(this.state.roles, index)
-					}
-				})
-
-
-		if(!updateRoles) {
-			this.state.locations.find((item, index) => {
-				if(item.value === queryParam ) {
-					setOneItemActive(this.state.locations, index)
+				if(!url.includes(filter[i].value)) {
+					newUrl = newUrl += `filter=${filter[i].value}&`
 				}
 			})
+
+			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
+		} else {
+			let newUrl = ''
+
+			this.state.listActiveFilters = this.state.listActiveFilters.filter(value => value !== index)
+			const updatedFilters = [...new Set(this.state.listActiveFilters)]
+
+			updatedFilters.forEach(i => {
+				newUrl = newUrl += `filter=${filter[i].value}&`
+			})
+
+			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 		}
 	}
 
@@ -213,6 +217,21 @@ function setOneItemActive(array, index) {
 
 function setAllItemsActive(array) {
 	array.forEach(item => item.isActive = true);
+}
+
+function setAllItemsNonActive(array) {
+	array.forEach(item => item.isActive = false);
+}
+
+function setMultipleItemsActive(array, indexes) {
+	setAllItemsNonActive(array)
+	indexes.forEach(activeIndex => {
+		array.forEach((item,index) => {
+			if(index === activeIndex) {
+				item.isActive = true
+			}
+		})
+	})
 }
 
 export default TeamMembersOverview;

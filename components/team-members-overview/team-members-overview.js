@@ -65,10 +65,9 @@ class TeamMembersOverview extends React.Component {
 
 		if(!active) {
 			newUrl = `filter=${filter[index].value}`
-			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
-		} else {
-			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 		}
+
+		window.history.replaceState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 	}
 
 	handleClick() {

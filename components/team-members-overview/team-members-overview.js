@@ -13,8 +13,7 @@ class TeamMembersOverview extends React.Component {
 		this.state = {
 			roles: getRoles(team),
 			locations: getLocations(team),
-			isFilterCollapsed: true,
-			listActiveFilters: []
+			isFilterCollapsed: true
 		}
 
 		this.handleQueryParams(queryParam)
@@ -23,10 +22,8 @@ class TeamMembersOverview extends React.Component {
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
-	onFilterHandler(filter, index, active, value) {
-		let array = filter;
-		console.log(value)
-		this.setQueryParams(array, index, active, value)
+	onFilterHandler(filter, index, active) {
+		this.setQueryParams(filter, index, active)
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
 			if(index === filterIndex) {
@@ -37,54 +34,24 @@ class TeamMembersOverview extends React.Component {
 		});
 
 		if(isFirstItemActive) {
-			setOneItemActive(array, index);
+			setOneItemActive(filter, index);
 		} else if (isEveryItemDeactive) {
-			setAllItemsActive(array);
+			setAllItemsActive(filter);
 		} else {
-			const item = array[index];
+			const item = filter[index];
 			item.isActive = !item.isActive;
 		}
 
-		this.setState({ filter: array });
+		this.setState({ filter: filter });
 	}
 
 	handleQueryParams(queryParam) {
-		queryParam instanceof Array
-		? ( queryParam.forEach(param => {
-			this.state.roles.find((item,index) => {
-				if(item.value === param) {
-					this.state.listActiveFilters.push({
-						index: index,
-						type:'roles'
-					})
-					setMultipleItemsActive(this.state.roles, this.state.listActiveFilters)
-				} else {
-					this.state.locations.find((item,index) => {
-						if(item.value === param) {
-							this.state.listActiveFilters.push({
-								index: index,
-								type:'locations'
-							})
-							setMultipleItemsActive(this.state.locations, this.state.listActiveFilters)
-						}
-					})
-				}
-			})
-		}))
-		: this.state.roles.find((item, index) => {
+		this.state.roles.find((item, index) => {
 			if(item.value === queryParam) {
-				this.state.listActiveFilters.push({
-					index: index,
-					type: 'roles'
-				})
 				return setOneItemActive(this.state.roles, index)
 			} else {
 				this.state.locations.find((item, index) => {
 					if(item.value === queryParam) {
-						this.state.listActiveFilters.push({
-							index: index,
-							type: 'locations'
-						})
 						return setOneItemActive(this.state.locations, index)
 					}
 				})
@@ -92,36 +59,14 @@ class TeamMembersOverview extends React.Component {
 		})
 	}
 
-	setQueryParams(filter, index, active, value) {
-		let activeFilters = this.state.listActiveFilters
+	setQueryParams(filter, index, active) {
 		const url = '/team/people?'
+		let newUrl = ''
 
 		if(!active) {
-			let newUrl = ''
-
-			if(!activeFilters.includes(index)) {
-				activeFilters.push({
-					index: index,
-					type: 'roles'
-				})
-			}
-
-			activeFilters.forEach(i => {
-				if(!url.includes(filter[i.index].value)) {
-					newUrl = newUrl += `filter=${filter[i.index].value}&`
-				}
-			})
-
+			newUrl = `filter=${filter[index].value}`
 			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 		} else {
-			this.state.listActiveFilters = this.state.listActiveFilters.filter(value => value.index !== index)
-			const updatedFilters = [...new Set(this.state.listActiveFilters)]
-			let newUrl = ''
-
-			updatedFilters.forEach(i => {
-				newUrl = newUrl += `filter=${filter[i.index].value}&`
-			})
-
 			window.history.pushState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 		}
 	}
@@ -234,26 +179,11 @@ function hasActiveRole(roles, teamMember) {
 }
 
 function setOneItemActive(array, index) {
-	array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex)
+	array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex);
 }
 
 function setAllItemsActive(array) {
 	array.forEach(item => item.isActive = true);
-}
-
-function setAllItemsNonActive(array) {
-	array.forEach(item => item.isActive = false);
-}
-
-function setMultipleItemsActive(array, indexes) {
-	setAllItemsNonActive(array)
-	indexes.forEach(activeIndex => {
-		array.forEach((item,index) => {
-			if(index === activeIndex.index) {
-				item.isActive = true
-			}
-		})
-	})
 }
 
 export default TeamMembersOverview;

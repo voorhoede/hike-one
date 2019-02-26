@@ -5,13 +5,12 @@ const filter = ({filter, onFilter}) => {
 		<ul className='filter container'>
 			{ filter.map((item, index) => {
 				const activeClass = (item.isActive && !isFilterVisuallyActive) ? 'filter-item-button--active' : '';
-				const value = item.value
 				return (
 					<li className='filter-item' key={index}>
 							<button
 								className={`filter-item-button ${activeClass}`}
 								onClick={() => {
-									onFilter(filter, index, (item.isActive && !isFilterVisuallyActive), value)
+									onFilter(filter, index, (item.isActive && !isFilterVisuallyActive))
 								}}
 							>
 								{item.value}

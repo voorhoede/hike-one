@@ -9,6 +9,7 @@ import PageHeader from '../components/page-header/page-header';
 import TeamSelector from '../components/team-selector/team-selector';
 import TeamOverview from '../components/team-overview/team-overview';
 import TeamMembersOverview from '../components/team-members-overview/team-members-overview';
+import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
 import cookie from '../components/_helpers/cookie';
 import getData, {handleError} from '../lib/get-data'
 
@@ -42,10 +43,12 @@ const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, Vacancies
 						<TeamMembersOverview
 							peopleTab={PeopleTabData}
 							team={TeamMembersData}
-							vacanciesOverview={VacanciesOverviewData}
-							vacancies={VacanciesData}
 							queryParam={queryParam} />
 					}
+
+					<VacancyOverview
+						overview={VacanciesOverviewData}
+						vacancies={VacanciesData} />
 				</div>
 			</article>
 			<Footer

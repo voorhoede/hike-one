@@ -1,7 +1,6 @@
 import React from 'react';
 import Filter from '../filter/filter';
 import TeamMember from '../team-member/team-member';
-import VacancyOverview from '../vacancy-overview/vacancy-overview';
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
 class TeamMembersOverview extends React.Component {
@@ -76,7 +75,7 @@ class TeamMembersOverview extends React.Component {
 	}
 
 	render() {
-		const {team, peopleTab, vacanciesOverview, vacancies} = this.props;
+		const {team, peopleTab} = this.props;
 		const {roles, locations, isFilterCollapsed} = this.state;
 		const filteredTeam = filterTeam(team, this.state);
 		const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp';
@@ -108,10 +107,6 @@ class TeamMembersOverview extends React.Component {
 						<TeamMember key={index} data={teamMember} />
 					))}
 				</ul>
-
-				<VacancyOverview
-					overview={vacanciesOverview}
-					vacancies={vacancies} />
 			</div>
 		)
 	}

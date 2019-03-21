@@ -1,6 +1,5 @@
 import React from 'react';
 import "isomorphic-fetch";
-import cheerio from 'cheerio'
 
 import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -12,6 +11,14 @@ import TeamMembersOverview from '../components/team-members-overview/team-member
 import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
 import cookie from '../components/_helpers/cookie';
 import getData, {handleError} from '../lib/get-data'
+
+let scrapeJobs
+
+if (!process.browser) {
+	scrapeJobs = import('../lib/job-scraper/server')
+} else {
+	scrapeJobs = import('../lib/job-scraper/browser')
+}
 
 const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (
 	<Layout title="Hike One - Team"
@@ -72,22 +79,7 @@ Team.getInitialProps = async ({req, res, query, asPath}) => {
 
 	const VacanciesData = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 		.then(response => response.text())
-		.then(str => {
-			let list = []
-			let $ = cheerio.load(str)
-
-			$('.homerun-widget__vacancy').each((index, element) => {
-				list.push({
-					url: $(element).attr('href'),
-					title: $('.homerun-widget__vacancy__title', element).text(),
-					duration: $('.homerun-widget__vacancy__type', element).text(),
-					location: $('.homerun-widget__vacancy__department', element).text()
-				})
-			})
-
-			return list
-		})
-
+		.then(await scrapeJobs)
 
 		const [TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
 		`team`,

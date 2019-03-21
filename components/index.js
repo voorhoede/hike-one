@@ -21,6 +21,8 @@ import Icon from './icon/icon'
 import ImageCombo from '../components/image-combo/image-combo'
 import * as ImageComboShapes from '../components/image-combo/image-combo-shapes'
 import InlineImage from './inline-image/inline-image'
+import InlineVideo from './inline-video/inline-video'
+import InlineMedia from './inline-media/inline-media'
 import Layout from './layout/layout'
 import Logo from './logo/logo'
 import LogoCarousel from './logo-carousel/logo-carousel'
@@ -68,6 +70,8 @@ export {
 	ImageCombo,
 	ImageComboShapes,
 	InlineImage,
+	InlineMedia,
+	InlineVideo,
 	Layout,
 	Logo,
 	LogoCarousel,

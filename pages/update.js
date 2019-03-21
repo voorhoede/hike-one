@@ -12,7 +12,7 @@ import {
 	Footer,
 	FullWidthHeader,
 	FullWidthImageSmall,
-	InlineImage,
+	InlineMedia,
 	Layout,
 	MailchimpForm,
 	MenuBar,
@@ -87,7 +87,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									image={image}
 									videoControls={true}
@@ -99,7 +99,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image_large':
 							const imageLarge = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									large={true}
 									image={imageLarge}

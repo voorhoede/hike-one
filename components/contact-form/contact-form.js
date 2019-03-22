@@ -5,85 +5,88 @@ import InputField from '../input-field/input-field'
 import CallToAction from '../call-to-action/call-to-action'
 import scrollToElement from '../_helpers/scrollToElement'
 
-const initialState = {
-	selectedItem: '',
-	itemType: '',
-	name: '',
-	email: '',
-	phoneNumber: '',
-	company: '',
-	message: '',
-	validateMessage: false,
-}
-
 class ContactForm extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			...initialState,
+			selectedItemId: '',
+			currentForm: null,
 			_gotcha: '', // avoids spam by fooling scrapers
 			isSent: false,
+			formData: {},
 		}
 	}
 
-	handleClick = ({ label, type }) => {
-		this.setState({ selectedItem: label, itemType: type });
+	handleClick = id => {
+		this.setState({
+			selectedItemId: id,
+			currentForm: this.props.form.forms.find(form => form.id === id),
+		});
 	}
 
-	handleChange = (e) => {
-		if (this.state[e.target.name] !== undefined) {
-			this.setState({
-				[e.target.name]: e.target.value
+	handleChange = e => {
+		this.setState({
+			formData: {
+				...this.state.formData,
+				[e.target.name]: e.target.value,
+			}
+		})
+	}
+
+	formatEmailSubject = () => {
+		const subject = this.state.currentForm.emailMessageSubject
+
+		return subject
+			.split(' ')
+			.map(word => {
+				if (word.indexOf('[') !== -1) {
+					const name = word.substring(1, word.length -1)
+
+					return this.state.formData[name]
+				}
+
+				return word
 			})
-		}
-	}
-
-	setMessageSubject = () => {
-		const { name, company, itemType } = this.state
-
-		const personalMessageSubject = `${name} would like to say hi`
-
-		const businessMessageSubject = (company.length > 0) ? `${name} from ${company} would like to talk about a project together`
-																												: `${name} would like to talk about a project together`
-
-		return (itemType === 'personal') ? personalMessageSubject : businessMessageSubject
+			.join(' ')
 	}
 
 	getFormData = () => {
-		const { name, email, message, company, phoneNumber, itemType } = this.state
-		const messageSubject = this.setMessageSubject()
-
-		let formData = { _subject: messageSubject, name, email, message, _format: "plain" }
-
-		if (itemType === 'business') {
-			formData = { ...formData, company, phoneNumber, }
-		}
+		const emailSubject = this.formatEmailSubject()
+		const formData = { _subject: emailSubject, _format: "plain", ...this.state.formData }
 
 		return formData
 	}
 
 	isFormValid = () => {
-		const { name, email, message, _gotcha } = this.state
-		const isEmailValid = /(.+)@(.+){2,}\.(.+){2,}/.test(email)
-		const isNameValid = name.length >= 1
-		const isMessageValid = message.length >= 2
+		const { currentForm, _gotcha } = this.state
+		const isValid = currentForm.formFields
+			.filter(field => field.required)
+			.map(field => field.name)
+			.map(name => {
+				if (name === 'email') {
+					return /(.+)@(.+){2,}\.(.+){2,}/.test(this.state.formData[name])
+				}
+
+				return this.state.formData[name].length >= 2
+			})
+			.indexOf(false) === -1
+
 		const isSpam = _gotcha.length > 0
 
-		return isEmailValid && isNameValid && isMessageValid && !isSpam
+		return isValid && !isSpam
 	}
 
-	handleSubmit = () => {
-		const { itemType } = this.state
-		const { personalEmailEndpoint, businessEmailEndpoint } = this.props
-		const sendFormDataTo = (itemType === 'personal') ? personalEmailEndpoint : businessEmailEndpoint
-		const formData = this.getFormData()
+	handleSubmit = e => {
+		e.preventDefault()
 
 		if (!this.isFormValid()) {
 			return false
 		}
 
-		return fetch(`https://formspree.io/${sendFormDataTo}`, {
+		const formData = this.getFormData()
+
+		return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
 			method: 'POST',
 			mode: 'cors',
 			credentials: 'same-origin',
@@ -92,7 +95,7 @@ class ContactForm extends React.Component {
 			},
 			body: JSON.stringify(formData)
 		})
-		.then(res => {
+		.then(() => {
 			this.clearForm()
 
 			this.setState({ isSent: true })
@@ -100,123 +103,74 @@ class ContactForm extends React.Component {
 		})
 	}
 
-	shouldValidateMessage = () => {
-		this.setState({ validateMessage: true })
-	}
-
 	clearForm = () => {
 		this.setState({
-			...this.state,
-			...initialState
+			selectedItemId: '',
+			currentForm: null,
+			_gotcha: '', // avoids spam by fooling scrapers
+			formData: {},
 		})
 	}
 
 	render() {
-		const { dropDownOptions, formTitle } = this.props;
-		const { selectedItem, name, company, email, phoneNumber, message, _gotcha, validateMessage, itemType, isSent } = this.state;
-		const { handleClick, handleChange, shouldValidateMessage, handleSubmit } = this
-		const messageInputClass = validateMessage ? 'should-validate' : ''
+		const { form } = this.props;
+		const { _gotcha, isSent, currentForm } = this.state;
+		const { handleClick, handleChange, handleSubmit } = this
+		const { forms, title, subtitle, selectInputLabel, thankYouMessage } = form
+		const selectedItemLabel = currentForm ? currentForm.title : null
+
+		console.log(currentForm)
 
 		if (!isSent) {
 			return (
 				<div className='contact-form container'>
-					<h2 className='form-title'>{formTitle}</h2>
+					<h2 className='form-title'>{title}</h2>
 
 					<SelectDropdown
-						dropDownOptions={dropDownOptions}
+						label={selectInputLabel}
+						options={[...forms]}
 						handleClick={handleClick}
-						selectedItem={selectedItem}
+						selectedItem={selectedItemLabel}
 					/>
 
-					{(itemType === 'personal' || itemType === 'business') &&
-					<div>
-						{ itemType === 'business' &&
-						 <TextCenter
-							classes='text-center-text'
-							text={`<p>Send us a line using the form below, <a href="mailto:workwith@hike.one?subject=Let's talk about a project together">or e-mail us directly</a></p>`}>
-						</TextCenter> }
+					{currentForm && (
+						<div>
+							<TextCenter
+								classes='text-center-text'
+								text={`<p>Send us a line using the form below, <a href="mailto:workwith@hike.one?subject=Let's talk about a project together">or e-mail us directly</a></p>`}>
+							</TextCenter>
 
-						<form className='form' onSubmit={handleSubmit}>
-							<InputField
-								name='name'
-								label='My name is*'
-								type='text'
-								onChange={handleChange}
-								value={name}
-								isRequired='true'
-							/>
+							<form className='form' onSubmit={handleSubmit}>
+								{currentForm.formFields.map((field, index) => (
+									<InputField
+										key={field.id}
+										name={field.name}
+										label={field.label}
+										type={field.inputType}
+										onChange={handleChange}
+										value={this.state[field.name]}
+										isRequired={field.required}
+										autoFocus={index === 0}
+										formLength={currentForm.formFields.length}
+									/>
+								))}
 
-							{ (itemType === 'business') &&
-							<InputField
-								name='company'
-								label='My company is'
-								type='text'
-								onChange={handleChange}
-								value={company}
-								isRequired='false'
-							/>
-							}
-
-							<InputField
-								name='email'
-								label='My email is*'
-								type='email'
-								onChange={handleChange}
-								value={email}
-								isRequired='true'
-							/>
-
-							{ (itemType === 'business') &&
-							<InputField
-								name='phoneNumber'
-								label='My phone number is'
-								type='tel'
-								onChange={handleChange}
-								value={phoneNumber}
-								isRequired='false'
-							/>
-							}
-
-					<div className='input-field message-input'>
-						<label className='label' htmlFor='message'>My message is*</label>
-						<textarea
-							id='message'
-							className={`input textarea ${messageInputClass}`}
-							name='message'
-							value={message}
-							onChange={handleChange}
-							required
-							onBlur={shouldValidateMessage}
-						/>
-					</div>
-
-					<input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
-				</form>
-
-				<ButtonPrimary
-					classes='submit-btn btn-primary btn-large'
-					onClick={handleSubmit}>
-					Send message
-				</ButtonPrimary>
-			</div>}
-
-			{(itemType === 'job-application') &&
-			<div className='work-with-us'>
-				<TextCenter
-					classes='text-center-font-large work-with-us-text'
-					text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
-				</TextCenter>
-
-				<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true}/>
-			</div>}
-		</div>
-		)}
+								<input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
+							</form>
+							<ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={handleSubmit}>
+								{currentForm.submitButtonLabel}
+							</ButtonPrimary>
+						</div>
+					)}
+				</div>
+			)
+		}
 
 		return (
 			<div className='message-sent container'>
 				<TextCenter
 					classes='text-center-font-large text-center-spacing-small'
-					text='<p>Message received!</p><p>We will get back to you shortly</p>'>
+					text={thankYouMessage}>
 				</TextCenter>
 			</div>
 		)

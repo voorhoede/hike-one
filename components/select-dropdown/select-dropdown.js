@@ -14,10 +14,10 @@ class SelectDropdown extends React.Component {
 		this.setState({ isCollapsed: !isCollapsed })
 	}
 
-	handleClick = (id) => {
+	handleClick = (id, title) => {
 		this.toggleDropdown()
 
-		this.props.handleClick(id)
+		this.props.handleClick(id, title)
 	}
 
 	render() {
@@ -43,7 +43,7 @@ class SelectDropdown extends React.Component {
 							<li className="list-item" key={option.id}>
 								<ButtonClean
 									classes="select-item"
-									onClick={() => this.handleClick(option.id)}
+									onClick={() => this.handleClick(option.id, option.title)}
 								>
 									{option.title}
 								</ButtonClean>

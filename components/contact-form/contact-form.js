@@ -1,9 +1,13 @@
-import ButtonPrimary from '../buttons/button-primary/button-primary'
-import SelectDropdown from '../select-dropdown/select-dropdown'
-import TextCenter from '../text-center/text-center'
-import InputField from '../input-field/input-field'
-import CallToAction from '../call-to-action/call-to-action'
 import scrollToElement from '../_helpers/scrollToElement'
+
+import {
+	ButtonPrimary,
+	SelectDropdown,
+	TextCenter,
+	InputField,
+	CallToAction
+} from '../'
+
 
 class ContactForm extends React.Component {
 	constructor(props) {
@@ -15,14 +19,16 @@ class ContactForm extends React.Component {
 			_gotcha: '', // avoids spam by fooling scrapers
 			isSent: false,
 			formData: {},
+
 		}
 	}
 
-	handleClick = id => {
+	handleClick = (id, label) => {
 		this.setState({
 			selectedItemId: id,
+			selectedItemLabel: label,
 			currentForm: this.props.form.forms.find(form => form.id === id),
-		});
+		})
 	}
 
 	handleChange = e => {
@@ -114,12 +120,10 @@ class ContactForm extends React.Component {
 
 	render() {
 		const { form } = this.props;
-		const { _gotcha, isSent, currentForm } = this.state;
+		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state;
 		const { handleClick, handleChange, handleSubmit } = this
-		const { forms, title, subtitle, selectInputLabel, thankYouMessage } = form
-		const selectedItemLabel = currentForm ? currentForm.title : null
-
-		console.log(currentForm)
+		const { title, selectInputLabel, thankYouMessage } = form
+		const forms = [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
 
 		if (!isSent) {
 			return (
@@ -133,11 +137,22 @@ class ContactForm extends React.Component {
 						selectedItem={selectedItemLabel}
 					/>
 
+					{(selectedItemId === 'job-application') && (
+						<div className='work-with-us'>
+							<TextCenter
+								classes='text-center-font-large work-with-us-text'
+								text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
+							</TextCenter>
+
+							<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true}/>
+						</div>
+					)}
+
 					{currentForm && (
 						<div>
 							<TextCenter
 								classes='text-center-text'
-								text={`<p>Send us a line using the form below, <a href="mailto:workwith@hike.one?subject=Let's talk about a project together">or e-mail us directly</a></p>`}>
+								text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}>
 							</TextCenter>
 
 							<form className='form' onSubmit={handleSubmit}>
@@ -153,7 +168,7 @@ class ContactForm extends React.Component {
 										autoFocus={index === 0}
 										formLength={currentForm.formFields.length}
 									/>
-								))}
+									))}
 
 								<input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
 							</form>

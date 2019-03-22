@@ -8,6 +8,7 @@ import Collage from '../components/collage/collage'
 import * as CollageShapes from '../components/collage/collage-shapes'
 import Contact from './contact/contact'
 import * as ContactShapes from './contact/contact-shapes'
+import ContactForm from '../components/contact-form/contact-form'
 import CookieBar from './cookie-bar/cookie-bar'
 import FiftyFifty from './50-50/50-50'
 import * as FiftyFiftyShapes from '../components/50-50/50-50-shapes'
@@ -28,6 +29,8 @@ import LogoList from '../components/logo-list/logo-list'
 import MailchimpForm from './mailchimp/mailchimp-form'
 import MenuBar from './menu-bar/menu-bar'
 import NotificationBar from './notification-bar/notification-bar'
+import OfficeCard from '../components/office-card/office-card'
+import OfficeOverview from '../components/office-overview/office-overview'
 import PageHeader from './page-header/page-header'
 import * as PageHeaderShapes from './page-header/page-header-shapes'
 import QuoteBlock from '../components/quote-block/quote-block'
@@ -42,6 +45,7 @@ import UpdateExtractSmall from './update-extract-small/update-extract-small'
 import UpdateLink from '../components/update-link/update-link'
 import UpdateLinks from '../components/update-links/update-links'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small'
+import VacancyCard from '../components/vacancy-card/vacancy-card'
 import WorkOverview from './work-overview/work-overview'
 
 export {
@@ -55,6 +59,7 @@ export {
 	CollageShapes,
 	Contact,
 	ContactShapes,
+	ContactForm,
 	CookieBar,
 	FiftyFifty,
 	FiftyFiftyShapes,
@@ -75,6 +80,8 @@ export {
 	MailchimpForm,
 	MenuBar,
 	NotificationBar,
+	OfficeCard,
+	OfficeOverview,
 	PageHeader,
 	PageHeaderShapes,
 	QuoteBlock,
@@ -89,5 +96,6 @@ export {
 	UpdateLink,
 	UpdateLinks,
 	UpdateOverviewSmall,
+	VacancyCard,
 	WorkOverview,
 }

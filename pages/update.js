@@ -90,8 +90,6 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 								<InlineMedia
 									key={index}
 									image={image}
-									videoControls={true}
-									video={component.inlineVideoSrc}
 									caption={component.caption}
 								/>
 							)

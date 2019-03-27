@@ -8,8 +8,8 @@
     .clearfix;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
+    grid-column-gap: @spacing-small;
+    grid-row-gap: @spacing-small;
     max-width: @column-small-12;
     margin-bottom: 0;
     list-style: none;
@@ -24,8 +24,8 @@
 
     @media @screen-medium-large {
         grid-template-columns: repeat(5, 1fr);
-        grid-gap: 40px;
-        grid-row-gap: 40px;
+        grid-gap: @spacing-large;
+        grid-row-gap: @spacing-large;
     }
 
     @media @screen-large {

@@ -33,7 +33,7 @@ class InlineVideo extends Component {
 		const videoRatio = this.ratio()
 
 		return (
-			<div className="inline-video" style={{ paddingBottom: `${videoRatio}%` }}>
+			<div className={`inline-video ${this.props.classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
 				<iframe
 					className="video"
 					src={this.videoSrc()}

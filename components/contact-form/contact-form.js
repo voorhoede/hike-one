@@ -2,10 +2,10 @@ import scrollToElement from '../_helpers/scrollToElement'
 
 import {
 	ButtonPrimary,
-	SelectDropdown,
-	TextCenter,
+	CallToAction,
 	InputField,
-	CallToAction
+	SelectDropdown,
+	TextCenter
 } from '../'
 
 
@@ -19,7 +19,6 @@ class ContactForm extends React.Component {
 			_gotcha: '', // avoids spam by fooling scrapers
 			isSent: false,
 			formData: {},
-
 		}
 	}
 
@@ -91,8 +90,9 @@ class ContactForm extends React.Component {
 		}
 
 		const formData = this.getFormData()
+		const { formspreeEndpoint } = this.state.currentForm
 
-		return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
+		return fetch(`https://formspree.io/${formspreeEndpoint}`, {
 			method: 'POST',
 			mode: 'cors',
 			credentials: 'same-origin',
@@ -119,9 +119,8 @@ class ContactForm extends React.Component {
 	}
 
 	render() {
-		const { form } = this.props;
-		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state;
-		const { handleClick, handleChange, handleSubmit } = this
+		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state
+		const { form } = this.props
 		const { title, selectInputLabel, thankYouMessage } = form
 		const forms = [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
 
@@ -133,7 +132,7 @@ class ContactForm extends React.Component {
 					<SelectDropdown
 						label={selectInputLabel}
 						options={[...forms]}
-						handleClick={handleClick}
+						handleClick={this.handleClick}
 						selectedItem={selectedItemLabel}
 					/>
 
@@ -141,10 +140,10 @@ class ContactForm extends React.Component {
 						<div className='work-with-us'>
 							<TextCenter
 								classes='text-center-font-large work-with-us-text'
-								text='Are you creative, smart, experimental, curious and result-driven? Join our team!'>
-							</TextCenter>
+								text='Are you creative, smart, experimental, curious and result-driven? Join our team!'
+							/>
 
-							<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true}/>
+							<CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true} />
 						</div>
 					)}
 
@@ -152,27 +151,27 @@ class ContactForm extends React.Component {
 						<div>
 							<TextCenter
 								classes='text-center-text'
-								text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}>
-							</TextCenter>
+								text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}
+							/>
 
-							<form className='form' onSubmit={handleSubmit}>
+							<form className='form' onSubmit={this.handleSubmit}>
 								{currentForm.formFields.map((field, index) => (
 									<InputField
 										key={field.id}
 										name={field.name}
 										label={field.label}
 										type={field.inputType}
-										onChange={handleChange}
+										onChange={this.handleChange}
 										value={this.state[field.name]}
 										isRequired={field.required}
 										autoFocus={index === 0}
 										formLength={currentForm.formFields.length}
 									/>
-									))}
+								))}
 
-								<input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={handleChange} />
+								<input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
 							</form>
-							<ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={handleSubmit}>
+							<ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
 								{currentForm.submitButtonLabel}
 							</ButtonPrimary>
 						</div>
@@ -185,8 +184,8 @@ class ContactForm extends React.Component {
 			<div className='message-sent container'>
 				<TextCenter
 					classes='text-center-font-large text-center-spacing-small'
-					text={thankYouMessage}>
-				</TextCenter>
+					text={thankYouMessage}
+				/>
 			</div>
 		)
 	}

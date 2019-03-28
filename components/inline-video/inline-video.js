@@ -10,10 +10,10 @@ class InlineVideo extends Component {
 
 		switch (provider) {
 			case 'vimeo':
-				return `https://player.vimeo.com/video/${providerUid}?autoplay=1&muted=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}`
+				return `https://player.vimeo.com/video/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&muted=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}`
 
 			case 'youtube':
-				return `https://www.youtube.com/embed/${providerUid}?autoplay=1&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
+				return `https://www.youtube.com/embed/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
 
 				default:
 				console.error(`unsupported video provider: ${provider}`);
@@ -33,7 +33,7 @@ class InlineVideo extends Component {
 		const videoRatio = this.ratio()
 
 		return (
-			<div className="inline-video" style={{ paddingBottom: `${videoRatio}%` }}>
+			<div className={`inline-video ${this.props.classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
 				<iframe
 					className="video"
 					src={this.videoSrc()}

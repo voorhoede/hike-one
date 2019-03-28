@@ -61,7 +61,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									title={component.title}
 									text={component.text}
 									image={component.image && component.image.url}
-									video={component.videoSrc}
+									video={component.video}
 								/>
 							)
 

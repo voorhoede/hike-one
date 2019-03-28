@@ -23,6 +23,8 @@ import Icon from './icon/icon'
 import ImageCombo from './image-combo/image-combo'
 import * as ImageComboShapes from './image-combo/image-combo-shapes'
 import InlineImage from './inline-image/inline-image'
+import InlineMedia from './inline-media/inline-media'
+import InlineVideo from './inline-video/inline-video'
 import InputField from './input-field/input-field'
 import Layout from './layout/layout'
 import Logo from './logo/logo'
@@ -77,6 +79,8 @@ export {
 	ImageCombo,
 	ImageComboShapes,
 	InlineImage,
+	InlineMedia,
+	InlineVideo,
 	InputField,
 	Layout,
 	Logo,

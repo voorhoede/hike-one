@@ -21,7 +21,7 @@ import {
 	FullWidthImageStatic,
 	ImageCombo,
 	ImageComboShapes,
-	InlineImage,
+	InlineMedia,
 	Layout,
 	LogoList,
 	MenuBar,
@@ -262,22 +262,32 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 								const image = component.image ? component.image.url : undefined
 
 								return (
-									<InlineImage
+									<InlineMedia
 										key={index}
 										image={image}
-										video={component.inlineVideoSrc}
 										caption={component.caption}
 									/>
 								)
 
 							case 'inline_image_large':
 								const imageLarge = component.image ? component.image.url : undefined
+
 								return (
-									<InlineImage
+									<InlineMedia
 										key={index}
 										large={true}
 										image={imageLarge}
 										caption={component.caption}
+									/>
+								)
+
+							case 'video':
+								return (
+									<InlineMedia
+										key={index}
+										video={component}
+										caption={component.caption}
+										large={component.large}
 									/>
 								)
 

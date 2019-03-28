@@ -1,5 +1,6 @@
 @import (reference) '../../styles/variables';
-.inline-image.inline-image-large {
+
+.inline-media.inline-media-large {
 	height: auto;
 	padding: 0;
 	margin-bottom: @spacing-large;
@@ -20,7 +21,7 @@
 	}
 }
 
-.inline-image {
+.inline-media {
 	width: 100%;
 	padding: 0 @spacing-default*1.5;
 	margin: auto;
@@ -28,6 +29,7 @@
 	color: @dark-grey;
 	font-weight: @font-weight-normal;
 	text-align: center;
+
 	p {
 		font-size: @body-text-small-m;
 		line-height: @line-height-body-small-s;
@@ -53,13 +55,10 @@
 	}
 }
 
-.inline-image-container {
+.inline-media-container {
 	width: 100%;
+	height: auto;
 	overflow: hidden;
-	
-	video {
-		width: 100%;
-	}
 
 	@media @screen-small {
 		height: auto;

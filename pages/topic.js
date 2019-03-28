@@ -14,7 +14,7 @@ import {
 	Footer,
 	FullWidthHeader,
 	FullWidthImageSmall,
-	InlineImage,
+	InlineMedia,
 	Layout,
 	LogoCarousel,
 	MailchimpForm,
@@ -89,7 +89,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									image={image}
 									caption={component.caption}
@@ -99,7 +99,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image_large':
 							const imageLarge = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									large={true}
 									image={imageLarge}

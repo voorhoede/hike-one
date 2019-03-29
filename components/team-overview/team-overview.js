@@ -1,6 +1,4 @@
 import Collage from '../collage/collage';
-import Contact from '../contact/contact';
-import * as ContactShapes from '../contact/contact-shapes';
 import FiftyFifty from '../50-50/50-50';
 import ImageCombo from '../image-combo/image-combo';
 import ImageCompositionSmall from '../image-composition-small/image-composition-small';
@@ -111,14 +109,6 @@ const teamOverview = ({data}) => (
                 image={data.teamImage916.photo.url}
             />
         }
-
-        <Contact
-            title={data.contact.title}
-            button={data.contact.button}
-            link={data.contact.externalLink}
-            target='_blank' >
-            <ContactShapes.variation1Front position="front" />
-        </Contact>
     </div>
 );
 

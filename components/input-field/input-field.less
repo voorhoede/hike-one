@@ -6,6 +6,10 @@
   font-weight: @font-weight-bold;
   margin-bottom: @spacing-default;
 
+  &.required:after {
+    content: ' *';
+  }
+
   @media @screen-medium {
     display: inline-block;
   }
@@ -14,11 +18,15 @@
 .input-field {
   width: 100%;
   margin-bottom: @spacing-small;
-  
+
   @media @screen-medium {
     width: calc(50% - 15px);
     display: inline-block;
   }
+}
+
+.input-field-full-width {
+  flex-basis: 100%;
 }
 
 .input {
@@ -45,27 +53,15 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px @white-grey inset;
 }
 
-textarea {
-  resize: none;
-}
-
 .textarea {
+  resize: none;
   min-height: 260px;
   padding: @spacing-small @spacing-small;
   display: block;
 }
 
-.message-input {
+.textarea-input {
   @media @screen-medium {
     flex-grow: 1;
-  }
-}
-
-.optional-input-fields {
-  width: 100%;
-
-  @media @screen-medium {
-    display: flex;
-    justify-content: space-between;
   }
 }

@@ -6,38 +6,53 @@ class InputField extends React.Component {
       shouldValidate: false,
     }
   }
-  
+
   onBlur = () => {
-    if (this.props.isRequired === 'true') {
-      this.setState({
-        shouldValidate: true,
-      })
+    if (this.props.isRequired) {
+      this.setState({ shouldValidate: true })
     }
   }
 
 	render() {
-    const { classes, label, name, type, value, onChange, isRequired } = this.props
+    const { label, name, type, value, onChange, isRequired, autoFocus, formLength, id } = this.props
     const { shouldValidate } = this.state
     const { onBlur } = this
     const shouldValidateClass = shouldValidate ? 'should-validate' : ''
+    const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%'} : {}
+
 
 		return (
-      <div className='input-field'>
-        <label className='label' htmlFor={name}>
+      <div className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`} style={{ ...styles }}>
+        <label className={`label ${ isRequired ? 'required' : ''}`} htmlFor={name}>
           {label}
         </label>
-        
-        <input 
-          type={type}
-          id={name}
-          className={`input ${classes} ${shouldValidateClass}`} 
-          name={name}
-          value={value} 
-          onChange={onChange} 
-          autoFocus={name === 'name'}
-          required={isRequired}
-          onBlur={onBlur}
-        />
+
+        {type === 'textarea' ? (
+          <textarea
+            key={id}
+            id={name}
+            className={`input textarea ${shouldValidateClass}`}
+            name={name}
+            value={value}
+            onChange={onChange}
+            autoFocus={autoFocus}
+            onBlur={onBlur}
+            required={isRequired}
+          />
+        ) : (
+          <input
+            key={id}
+            type={type}
+            id={name}
+            className={`input ${shouldValidateClass}`}
+            name={name}
+            value={value}
+            onChange={onChange}
+            autoFocus={autoFocus}
+            onBlur={onBlur}
+            required={isRequired}
+          />
+        )}
       </div>
     )
 	}

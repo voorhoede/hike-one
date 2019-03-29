@@ -20,10 +20,22 @@
 	background-position: center;
 	width: 100%;
 	height: 40vh;
+
 	@media @screen-small {
 		height: 50vh;
 	}
 
+	&.image-large {
+		height: 35vh;
+
+		@media @screen-small {
+			height: 50vh;
+		}
+
+		@media @screen-large {
+			height: 75vh;
+		}
+	}
 }
 
 .full-width-header-banner {

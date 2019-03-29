@@ -1,27 +1,28 @@
 import React from 'react';
 import Filter from '../filter/filter';
 import TeamMember from '../team-member/team-member';
-import VacancyOverview from '../vacancy-overview/vacancy-overview';
 import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
 class TeamMembersOverview extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const {team} = props;
+		const {team, queryParam} = props;
 
 		this.state = {
 			roles: getRoles(team),
 			locations: getLocations(team),
-			isFilterCollapsed: true,
+			isFilterCollapsed: true
 		}
 
+		this.handleQueryParams(queryParam)
+		this.setQueryParams = this.setQueryParams.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.onFilterHandler = this.onFilterHandler.bind(this)
 	}
 
-	onFilterHandler(filter, index) {
-		const array = filter;
+	onFilterHandler(filter, index, active) {
+		this.setQueryParams(filter, index, active)
 		const isFirstItemActive = filter.every(item => item.isActive);
 		const isEveryItemDeactive = filter.every((item, filterIndex) => {
 			if(index === filterIndex) {
@@ -32,16 +33,40 @@ class TeamMembersOverview extends React.Component {
 		});
 
 		if(isFirstItemActive) {
-			setOneItemActive(array, index);
+			setOneItemActive(filter, index);
 		} else if (isEveryItemDeactive) {
-			setAllItemsActive(array);
+			setAllItemsActive(filter);
 		} else {
-			const item = array[index];
-
+			const item = filter[index];
 			item.isActive = !item.isActive;
 		}
 
-		this.setState({ filter: array });
+		this.setState({ filter: filter });
+	}
+
+	handleQueryParams(queryParam) {
+		this.state.roles.find((item, index) => {
+			if(item.value === queryParam) {
+				return setOneItemActive(this.state.roles, index)
+			} else {
+				this.state.locations.find((item, index) => {
+					if(item.value === queryParam) {
+						return setOneItemActive(this.state.locations, index)
+					}
+				})
+			}
+		})
+	}
+
+	setQueryParams(filter, index, active) {
+		const url = '/team/people?'
+		let newUrl = ''
+
+		if(!active) {
+			newUrl = `filter=${filter[index].value}`
+		}
+
+		window.history.replaceState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
 	}
 
 	handleClick() {
@@ -50,7 +75,7 @@ class TeamMembersOverview extends React.Component {
 	}
 
 	render() {
-		const {team, peopleTab, vacanciesOverview, vacancies} = this.props;
+		const {team, peopleTab} = this.props;
 		const {roles, locations, isFilterCollapsed} = this.state;
 		const filteredTeam = filterTeam(team, this.state);
 		const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp';
@@ -59,9 +84,9 @@ class TeamMembersOverview extends React.Component {
 
 		return (
 			<div className="filters">
-				<ButtonSecondary 
-					onClick={this.handleClick} 
-					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`} 
+				<ButtonSecondary
+					onClick={this.handleClick}
+					classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`}
 					icon={buttonIcon}>
 					Filters
 				</ButtonSecondary>
@@ -75,17 +100,13 @@ class TeamMembersOverview extends React.Component {
 						onFilter={this.onFilterHandler}
 					/>
 				</div>
-				
+
 			{ peopleTab.introText && <p className="team-members-intro-text container">{peopleTab.introText}</p> }
 				<ul className="team-members-overview container">
 					{ filteredTeam.map((teamMember, index) => (
 						<TeamMember key={index} data={teamMember} />
 					))}
 				</ul>
-
-				<VacancyOverview
-					overview={vacanciesOverview}
-					vacancies={vacancies} />
 			</div>
 		)
 	}

@@ -7,9 +7,8 @@
     "start": "NODE_ENV=production node server.js",
     "prebuild": "rimraf build/ && mkdir build/",
     "build": "npm-run-all --serial build:dato build:css build:next",
-    "build:dato": "npm-run-all --serial build:dato:local build:dato:dump",
+    "build:dato": "npm run build:dato:dump",
     "build:dato:staging": "ENVIRONMENT=staging npm run build:dato",
-    "build:dato:local": "bash dato-dump.sh",
     "build:dato:dump": "node bin/dump-data",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
@@ -27,7 +26,7 @@
     "copy:guide:static": "ncp static/ build/guide/static/",
     "copy:guide:root": "ncp static/root/ build/guide/",
     "proxy": "ngrok http 3000",
-    "serve:dev": "node server.js",
+    "serve:dev": "nodemon server.js",
     "serve:guide": "start-storybook --port 3001 --config-dir .storybook --static-dir ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
     "backupdata": "node tasks/backup-data"
@@ -41,6 +40,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "backoff": "^2.5.0",
+    "cheerio": "^1.0.0-rc.2",
     "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.7",
@@ -77,9 +77,9 @@
     "gulp-sourcemaps": "^2.6.0",
     "ncp": "^2.0.0",
     "ngrok": "^3.0.1",
+    "nodemon": "^1.18.10",
     "now": "^11.3.8",
     "npm-run-all": "^4.0.2",
-    "plek": "3.1.0",
     "rimraf": "^2.6.2"
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import "isomorphic-fetch"
 
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import scrollToElement from '../components/_helpers/scrollToElement'
@@ -20,7 +21,7 @@ import {
 	FullWidthImageStatic,
 	ImageCombo,
 	ImageComboShapes,
-	InlineImage,
+	InlineMedia,
 	Layout,
 	LogoList,
 	MenuBar,
@@ -119,7 +120,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										title={component.title}
 										text={component.text}
 										imageLarge="true"
-										image={component.image.url}
+										image={component.image && component.image.url}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -133,7 +134,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft="true"
 										text={component.text}
 										imageLarge="true"
-										image={component.image.url}
+										image={component.image && component.image.url}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -147,9 +148,9 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										title={component.title}
 										text={component.text}
 										image={component.image && component.image.url}
-										video={component.videoSrc}
+										video={component.video}
 									>
-										{ parallaxLayers }
+										{parallaxLayers}
 									</FiftyFifty>
 								)
 
@@ -159,7 +160,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										key={index}
 										title={component.title}
 										text={component.text}
-										image={component.image.url}
+										image={component.image && component.image.url}
+										video={component.video}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -172,7 +174,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft="true"
 										title={component.title}
 										text={component.text}
-										image={component.image.url}
+										image={component.image && component.image.url}
+										video={component.video}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -189,7 +192,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										{hasTextCard && <TextCard title={component.textTitle} text={component.textContent} />}
 
 										<FullWidthImage
-											image={component.image.url}
+											image={component.image && component.image.url}
 											index={index}
 										/>
 
@@ -225,7 +228,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 									<FullWidthImage
 										key={index}
 										index={index}
-										image={component.image.url}
+										image={component.image && component.image.url}
 										title={component.title}
 										subtitle={component.subtitle}
 									/>
@@ -236,7 +239,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 									<FullWidthImageStatic
 										key={index}
 										index={index}
-										image={component.image.url}
+										image={component.image && component.image.url}
 										title={component.title}
 										subtitle={component.subtitle}
 									/>
@@ -261,22 +264,32 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 								const image = component.image ? component.image.url : undefined
 
 								return (
-									<InlineImage
+									<InlineMedia
 										key={index}
 										image={image}
-										video={component.inlineVideoSrc}
 										caption={component.caption}
 									/>
 								)
 
 							case 'inline_image_large':
 								const imageLarge = component.image ? component.image.url : undefined
+
 								return (
-									<InlineImage
+									<InlineMedia
 										key={index}
 										large={true}
 										image={imageLarge}
 										caption={component.caption}
+									/>
+								)
+
+							case 'video':
+								return (
+									<InlineMedia
+										key={index}
+										video={component}
+										caption={component.caption}
+										large={component.large}
 									/>
 								)
 
@@ -336,13 +349,14 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 	</Layout>
 )
 
-Case.getInitialProps = async ({ req, query, asPath }) => {
+
+Case.getInitialProps = async ({ req, res, query, asPath }) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	const Data = await fetch(`${baseUrl}/api/cases/${query.slug}`).then(res => res.json())
+	const data = await getData(baseUrl, `cases/${query.slug}`, res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-	return { Data, fontsLoaded, fullUrl }
+	return { Data: data, fontsLoaded, fullUrl }
 }
 
 export default Case

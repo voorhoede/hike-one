@@ -25,7 +25,7 @@ module.exports = (dato, root) => {
 
 		dir.createDataFile('component-guide.json', 'json', dato.componentGuide.toMap())
 
-		dir.createDataFile(`contact.json`, 'json', dato.contactPage.toMap())
+		dir.createDataFile(`contact.json`, 'json', dato.contactPage.toMap(5))
 
 		dir.createDataFile('work.json', 'json', dato.work.toMap())
 

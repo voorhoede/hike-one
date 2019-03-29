@@ -1,6 +1,7 @@
 import React from 'react'
 import 'isomorphic-fetch'
 
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 
 import {
@@ -13,7 +14,7 @@ import {
 	Footer,
 	FullWidthHeader,
 	FullWidthImageSmall,
-	InlineImage,
+	InlineMedia,
 	Layout,
 	LogoCarousel,
 	MailchimpForm,
@@ -38,6 +39,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 			<article className="article">
 				<FullWidthHeader
 					headerImage={Data.headerImage.url}
+					headerImageLarger={Data.headerImageLarger}
 					color={Data.color.hex}
 					title={Data.title}
 					titleOnly={true}
@@ -59,7 +61,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 									title={component.title}
 									text={component.text}
 									image={component.image && component.image.url}
-									video={component.videoSrc}
+									video={component.video}
 								/>
 							)
 
@@ -87,7 +89,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image':
 							const image = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									image={image}
 									caption={component.caption}
@@ -97,7 +99,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 						case 'inline_image_large':
 							const imageLarge = component.image ? component.image.url : undefined
 							return (
-								<InlineImage
+								<InlineMedia
 									key={index}
 									large={true}
 									image={imageLarge}
@@ -211,14 +213,13 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
 	</Layout>
 )
 
-Topic.getInitialProps = async ({req, query, asPath}) => {
+Topic.getInitialProps = async ({req, res, query, asPath}) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
 	const fullUrl = `${baseUrl}${asPath}`
-	const res = await fetch(`${baseUrl}/api/topics/${query.slug}`)
-	const json = await res.json()
+	const data = await getData(baseUrl, `topics/${query.slug}`, res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-	return { Data: json, fontsLoaded, fullUrl }
+	return { Data: data, fontsLoaded, fullUrl }
 }
 
 export default Topic

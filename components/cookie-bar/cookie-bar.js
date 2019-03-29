@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Link from 'next/link'
 import cookie from '../_helpers/cookie'
+import Router from 'next/router'
 
 class CookieBar extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class CookieBar extends Component {
 
     this.state = {
       accepted: false,
-    }
+	}
+	Router.onRouteChangeStart = () => this.setCookie()
   }
 
   setCookie = () => {

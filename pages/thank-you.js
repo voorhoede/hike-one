@@ -13,8 +13,8 @@ import {
 
 import getData from '../lib/get-data';
 
-const ThankYou = ({ page, fontsLoaded }) => (
-	<Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded}>
+const ThankYou = ({ page, fontsLoaded,fullUrl }) => (
+	<Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded} url={fullUrl}>
 		<main className="main js-main">
 			<MenuBar color="black" />
 
@@ -40,12 +40,13 @@ const ThankYou = ({ page, fontsLoaded }) => (
 	</Layout>
 )
 
-ThankYou.getInitialProps = async ({ req, res }) => {
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+ThankYou.getInitialProps = async ({ req, res, asPath }) => {
 	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-	const page = await getData(baseUrl, `${baseUrl}/api/thank-you`, res)
+	const fullUrl = `${baseUrl}${asPath}`
+	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+	const page = await getData(baseUrl, 'thank-you', res)
 
-	return { page, fontsLoaded }
+	return { page, fontsLoaded, fullUrl }
 }
 
 export default ThankYou

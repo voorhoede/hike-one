@@ -1,4 +1,4 @@
-const { uniq, sortBy, flattenDeep } = require('lodash')
+require('dotenv').config()
 
 module.exports = (dato, root) => {
 	root.directory('data/current', dir => {
@@ -13,7 +13,7 @@ module.exports = (dato, root) => {
 		dir.createDataFile('teamImages21.json', 'json', teamImages21[0].toMap())
 
 		const peopleData = dato.collectionsByType.people
-		dir.createDataFile('people.json', 'json',	mapCollection(peopleData))
+		dir.createDataFile('people.json', 'json', mapCollection(peopleData))
 
 		dir.createDataFile(`service-overview.json`, 'json', dato.serviceOverview.toMap())
 
@@ -34,10 +34,7 @@ module.exports = (dato, root) => {
 		dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts))
 
 		const mappedUpdates = mapCollection(dato.updates)
-		const mappedTags = mapCollection(dato.tags)
-
-		const updatesByTagId = getUpdatesByTagId(mappedTags, mappedUpdates)
-		dir.createDataFile('updates.json', 'json', mapUpdates(mappedUpdates, updatesByTagId))
+		dir.createDataFile('updates.json', 'json', formatUpdates(mappedUpdates))
 
 		dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))
 
@@ -60,31 +57,68 @@ module.exports = (dato, root) => {
 		}, [])
 	}
 
-	function mapUpdates(updates, updatesByTagId) {
-		return updates.map(update => {
-			const sortedUpdates = update.tags.map(tag => {
-				const filteredUpdates = updatesByTagId[tag.id].filter(item => ((item !== null) && (update.id !== item.id) && (item.updateExtract !== null)))
-				return sortBy(filteredUpdates, ['date']).reverse()
-			})
+	async function formatUpdates(allUpdates) {
+		const formatAll = () => Promise.all(allUpdates.map(getRelatedUpdates))
+		const updates = await formatAll()
 
-			const relatedUpdates = uniq(flattenDeep(sortedUpdates)).slice(0, 3)
-			return update = { ...update, relatedUpdates }
-		})
+		return updates
 	}
 
-	function getUpdatesByTagId(mappedTags, mappedUpdates) {
-		const tagsById = {}
-		const updates = mappedUpdates.map(update => {
-			const tags = update.tags.map(tag => tag.id)
-			return { id: update.id, tags, date: update.date, updateExtract: update.updateExtract }
-		})
+	function getRelatedUpdates(update) {
+		const tags = update.tags.map(tag => Number(tag.id))
+		const id = update.id
 
-		mappedTags.map(tag => {
-			const relatedUpdates = updates.filter(update => update.tags.includes(tag.id))
-			tagsById[tag.id] = [ ...relatedUpdates ]
-		})
+		const query = `query relatedUpdates($tags: [ItemId], $id: ItemId!) {
+			allUpdates(
+				orderBy: [date_DESC],
+				filter: {
+					tags: { anyIn: $tags },
+					id: { neq: $id },
+					updateExtract: { exists: true }
+				},
+				first: 3
+			) {
+				updateExtract {
+					title,
+					id,
+					image {
+						url,
+					}
+					themeColor {
+						hex,
+					},
+					category {
+						name,
+					},
+					date,
+					authors {
+						name,
+					},
+					link,
+					isExternalLink,
+				}
+			}
+		}`
 
-		return tagsById
+		return fetch('https://graphql.datocms.com/', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': `Bearer ${process.env.DATO_API_TOKEN}`,
+			},
+			body: JSON.stringify({
+				query: query,
+				variables: { tags, id }
+			})
+		})
+		.then(res => res.json())
+		.then(res => {
+			const relatedUpdates = res.data.allUpdates.map(update => update.updateExtract)
+
+			return { ...update, relatedUpdates }
+		})
+		.catch((error) => console.log(error))
 	}
 
 	function redirectsToJson(redirects) {

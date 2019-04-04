@@ -164,18 +164,18 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 				/>
 
 				<UpdateOverviewSmall>
-					{Data.relatedUpdates.length && Data.relatedUpdates.map((item, index) => (
+					{Data.relatedUpdates.length && Data.relatedUpdates.map((updateExtract, index) => (
 						<UpdateExtractSmall
 							key={index}
 							index={index}
-							title={item.updateExtract.title}
-							date={item.updateExtract.date}
-							authors={item.updateExtract.authors}
-							target={item.updateExtract.link}
-							image={item.updateExtract.image.url}
-							category={item.updateExtract.category.name}
-							color={item.updateExtract.themeColor.hex}
-							external={item.updateExtract.isExternalLink}
+							title={updateExtract.title}
+							date={updateExtract.date}
+							authors={updateExtract.authors}
+							target={updateExtract.link}
+							image={updateExtract.image.url}
+							category={updateExtract.category.name}
+							color={updateExtract.themeColor.hex}
+							external={updateExtract.isExternalLink}
 						/>
 					))}
 				</UpdateOverviewSmall>
@@ -195,6 +195,7 @@ Update.getInitialProps = async ({ req, res, query, asPath }) => {
 	const data = await getData(baseUrl, `updates/${query.slug}`, res)
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
+	console.log(data)
 	return { Data: data, fontsLoaded, fullUrl}
 }
 

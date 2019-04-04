@@ -68,7 +68,7 @@ const teamOverview = ({data}) => (
                             title={component.title}
                             text={component.text}
                             imageLarge="true"
-                            image={component.image.url} >
+                            image={component.image} >
                         </FiftyFifty>
                     );
                 case '40_60_text_left':
@@ -79,7 +79,7 @@ const teamOverview = ({data}) => (
                             contentLeft="true"
                             text={component.text}
                             imageLarge="true"
-                            image={component.image.url} >
+                            image={component.image} >
                         </FiftyFifty>
                     );
                 case 'text_center':

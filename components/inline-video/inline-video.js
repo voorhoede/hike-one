@@ -23,8 +23,8 @@ class InlineVideo extends Component {
 
 	ratio = () => {
 		const { width, height } = this.props.video
-		const maxRatio = 1.5
-		const videoHeight = Math.min(height * maxRatio, height)
+		const maxRatio = 1.3
+		const videoHeight = Math.min(width * maxRatio, height)
 
 		return (videoHeight / width) * 100
 	}

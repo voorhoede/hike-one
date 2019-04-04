@@ -56,7 +56,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									contentLeft={component.textLeft}
 									title={component.title}
 									text={component.text}
-									image={component.image && component.image.url}
+									image={component.image}
 									video={component.video}
 								/>
 							)
@@ -68,7 +68,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									key={index}
 									title={component.title}
 									text={component.text}
-									image={component.image.url}
+									image={component.image}
 								/>
 							)
 
@@ -80,7 +80,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
 									contentLeft="true"
 									title={component.title}
 									text={component.text}
-									image={component.image.url}
+									image={component.image}
 								/>
 							)
 

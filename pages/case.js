@@ -120,7 +120,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										title={component.title}
 										text={component.text}
 										imageLarge="true"
-										image={component.image && component.image.url}
+										image={component.image}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -134,7 +134,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft="true"
 										text={component.text}
 										imageLarge="true"
-										image={component.image && component.image.url}
+										image={component.image}
 									>
 										{ parallaxLayers }
 									</FiftyFifty>
@@ -147,7 +147,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft={component.textLeft}
 										title={component.title}
 										text={component.text}
-										image={component.image && component.image.url}
+										image={component.image}
 										video={component.video}
 									>
 										{parallaxLayers}
@@ -160,7 +160,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										key={index}
 										title={component.title}
 										text={component.text}
-										image={component.image && component.image.url}
+										image={component.image}
 										video={component.video}
 									>
 										{ parallaxLayers }
@@ -174,7 +174,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
 										contentLeft="true"
 										title={component.title}
 										text={component.text}
-										image={component.image && component.image.url}
+										image={component.image}
 										video={component.video}
 									>
 										{ parallaxLayers }

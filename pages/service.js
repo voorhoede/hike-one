@@ -66,7 +66,7 @@ const Service = ({Data, services, updates, fontsLoaded, fullUrl}) => (
 										title={component.title}
 										text={component.text}
 										imageLarge="true"
-										image={component.image.url} >
+										image={component.image} >
 									</FiftyFifty>
 								);
 
@@ -78,7 +78,7 @@ const Service = ({Data, services, updates, fontsLoaded, fullUrl}) => (
 										contentLeft="true"
 										text={component.text}
 										imageLarge="true"
-										image={component.image.url} >
+										image={component.image} >
 									</FiftyFifty>
 								);
 						}

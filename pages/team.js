@@ -20,7 +20,7 @@ if (!process.browser) {
 	scrapeJobs = import('../lib/job-scraper/browser')
 }
 
-const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (
+const Team = ({ tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (
 	<Layout title="Hike One - Team"
 			fontsLoaded={fontsLoaded}
 			seo={TeamOverviewData.seo}
@@ -48,7 +48,7 @@ const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, Vacancies
 					{
 						tab === 'people' &&
 						<TeamMembersOverview
-							peopleTab={PeopleTabData}
+							introText={TeamMembersOverview.peopleTabIntro}
 							team={TeamMembersData}
 							queryParam={queryParam} />
 					}
@@ -81,15 +81,14 @@ Team.getInitialProps = async ({req, res, query, asPath}) => {
 		.then(response => response.text())
 		.then(await scrapeJobs)
 
-		const [TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
+		const [TeamOverviewData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
 		`team`,
-		`people-tab`,
 		`people`,
 		`vacancies-overview`,
 	]);
 
 	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam };
+	return { tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam };
 };
 
 export default Team;

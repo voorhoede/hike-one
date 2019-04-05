@@ -1,3 +1,5 @@
+const { sortBy } = require('lodash')
+
 module.exports = (dato, root) => {
 	root.directory('data/current', dir => {
 		dir.createDataFile('team.json', 'json', dato.team.toMap())
@@ -9,7 +11,7 @@ module.exports = (dato, root) => {
 		dir.createDataFile('teamImages21.json', 'json', teamImages21[0].toMap())
 
 		const peopleData = dato.collectionsByType.people
-		dir.createDataFile('people.json', 'json',  mapCollection(peopleData))
+		dir.createDataFile('people.json', 'json',  sortBy(mapCollection(peopleData), 'name'))
 
 		dir.createDataFile(`service-overview.json`, 'json', dato.serviceOverview.toMap())
 

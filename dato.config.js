@@ -4,8 +4,6 @@ module.exports = (dato, root) => {
 	root.directory('data/current', dir => {
 		dir.createDataFile('team.json', 'json', dato.team.toMap())
 
-		dir.createDataFile('people-tab.json', 'json', dato.peopleTab.toMap())
-
 		const teamImages34 = dato.collectionsByType.teamImage34S
 		dir.createDataFile('teamImages34.json', 'json', teamImages34[0].toMap())
 

@@ -15,9 +15,9 @@ import getData, {handleError} from '../lib/get-data'
 let scrapeJobs
 
 if (!process.browser) {
-	scrapeJobs = import('../lib/job-scraper/server')
+    scrapeJobs = require('../lib/job-scraper/server')
 } else {
-	scrapeJobs = import('../lib/job-scraper/browser')
+    scrapeJobs = require('../lib/job-scraper/browser')
 }
 
 const Team = ({ tab, TeamOverviewData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (

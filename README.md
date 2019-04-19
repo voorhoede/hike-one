@@ -21,6 +21,9 @@ Serve the website
 The site will now be served on   
 `http://localhost:3000`
 
+## Content
+Dato CMS has the site's content, Log in at https://hike-one-1.admin.datocms.com
+
 ## Development
 
 First Build:  

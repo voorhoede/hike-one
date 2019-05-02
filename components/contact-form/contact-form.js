@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import scrollToElement from '../_helpers/scrollToElement'
 
 import {
@@ -190,6 +191,10 @@ class ContactForm extends React.Component {
       </div>
     )
   }
+}
+
+ContactForm.propTypes = {
+  form: PropTypes.object.isRequired,
 }
 
 export default ContactForm

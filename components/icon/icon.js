@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ArrowDown from '../icons/arrow-down'
 import ArrowDownCircle from '../icons/arrow-down-circle'
 import ArrowLeft from '../icons/arrow-left'
@@ -17,28 +18,33 @@ import TwitterCircle from '../icons/twitter-circle'
 import Triangle from '../icons/triangle'
 import Spinner from '../icons/spinner'
 
-const Icon = ({ icon='arrowDown', classes='' }) => {
+const Icon = ({ icon = 'arrowDown', classes = '' }) => {
   const icons = {
     arrowDown: <ArrowDown />,
     arrowDownCircle: <ArrowDownCircle />,
-    arrowLeft: <ArrowLeft/>,
+    arrowLeft: <ArrowLeft />,
     arrowRightCircle: <ArrowRightCircle />,
-    arrowRight: <ArrowRight/>,
-    arrowUp: <ArrowUp/>,
-    dribble: <Dribble/>,
-    faceBook: <FaceBook/>,
-    instagram: <Instagram/>,
-    linkedin: <Linkedin/>,
-    linkedinNoCircle: <LinkedinNoCircle/>,
-    location: <Location/>,
-    medium: <Medium/>,
-    twitter: <Twitter/>,
-    twitterCircle: <TwitterCircle/>,
+    arrowRight: <ArrowRight />,
+    arrowUp: <ArrowUp />,
+    dribble: <Dribble />,
+    faceBook: <FaceBook />,
+    instagram: <Instagram />,
+    linkedin: <Linkedin />,
+    linkedinNoCircle: <LinkedinNoCircle />,
+    location: <Location />,
+    medium: <Medium />,
+    twitter: <Twitter />,
+    twitterCircle: <TwitterCircle />,
     triangle: <Triangle />,
     spinner: <Spinner />,
   }
 
-  return (<span className={classes}>{icons[icon]}</span>)
+  return <span className={classes}>{icons[icon]}</span>
+}
+
+Icon.propTypes = {
+  icon: PropTypes.string.isRequired,
+  classes: PropTypes.string.isRequired,
 }
 
 export default Icon

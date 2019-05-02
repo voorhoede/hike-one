@@ -11,7 +11,6 @@ export const WithText1Front = () => (
   </div>
 )
 
-
 export const WithoutText1Front = () => (
   <div className="image-combo-shapes-2">
     <Parallax speed="1.25">
@@ -20,5 +19,3 @@ export const WithoutText1Front = () => (
     </Parallax>
   </div>
 )
-
-

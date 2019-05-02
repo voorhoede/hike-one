@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import elementIsInView from '../_helpers/isElementInView'
 import setImageParams from '../_helpers/setImageParameters'
 
@@ -25,7 +26,6 @@ class FullWidthImage extends React.Component {
   componentDidMount() {
     // only add animation when requestAnimationFrame is supported
     if (typeof window.requestAnimationFrame !== 'undefined') {
-
       // wait until image is loaded
       const backgroundImage = this.getBackgroundImage()
 
@@ -35,7 +35,6 @@ class FullWidthImage extends React.Component {
           this.setInitialValues()
           this.setEvents()
         }
-
       } else {
         // background image load complete
         this.setInitialValues()
@@ -72,7 +71,7 @@ class FullWidthImage extends React.Component {
   }
 
   animateLayers() {
-    if (!elementIsInView(this.element) ) {
+    if (!elementIsInView(this.element)) {
       if (!this.elementReset) {
         this.resetElement()
       }
@@ -82,9 +81,11 @@ class FullWidthImage extends React.Component {
     }
 
     this.elementReset = false
-    this.elementTop = this.elementTop ? this.elementTop : this.element.getBoundingClientRect().top + window.pageYOffset
+    this.elementTop = this.elementTop
+      ? this.elementTop
+      : this.element.getBoundingClientRect().top + window.pageYOffset
     const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
-    const yOffsetFixed = this.elementTop -scrolledHeight
+    const yOffsetFixed = this.elementTop - scrolledHeight
     const yOffsetImage = -(this.elementTop + -scrolledHeight) * this.speed
     this.setLayerOffsets(yOffsetFixed, yOffsetImage)
   }
@@ -143,7 +144,7 @@ class FullWidthImage extends React.Component {
 
   getBackgroundImage() {
     const src = window.getComputedStyle(this.imageElement).backgroundImage
-    const url = src.match(/\((.*?)\)/)[1].replace(/('|")/g,'')
+    const url = src.match(/\((.*?)\)/)[1].replace(/('|")/g, '')
     const img = new Image()
     img.src = url
     return img
@@ -154,51 +155,67 @@ class FullWidthImage extends React.Component {
   }
 
   render() {
-    const {image, index, title, subtitle, overlay, staticImg} = this.props
+    const { image, index, title, subtitle, overlay, staticImg } = this.props
     const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
-    const heroImageMedium = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1170} )}`
-    const heroImageLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1600} )}`
-    const heroImageExtraLarge = staticImg ? image : `${setImageParams(image, {...imageParameters, w: 1920} )}`
+    const heroImageMedium = staticImg
+      ? image
+      : `${setImageParams(image, { ...imageParameters, w: 1170 })}`
+    const heroImageLarge = staticImg
+      ? image
+      : `${setImageParams(image, { ...imageParameters, w: 1600 })}`
+    const heroImageExtraLarge = staticImg
+      ? image
+      : `${setImageParams(image, { ...imageParameters, w: 1920 })}`
 
-    const style ={__html:
-      `<style>
+    const style = {
+      __html: `<style>
         .full-width-image-background-${index} {
           background-image: url(${heroImageMedium})
         }
-      @media only screen and (min-width: 768px) {
-        .full-width-image-background-${index} {
-          background-image: url(${heroImageLarge})
+        @media only screen and (min-width: 768px) {
+          .full-width-image-background-${index} {
+            background-image: url(${heroImageLarge})
+          }
         }
-      }
-      @media only screen and (min-width: 1170px) {
-        .full-width-image-background-${index} {
-          background-image: url(${heroImageExtraLarge})
+        @media only screen and (min-width: 1170px) {
+          .full-width-image-background-${index} {
+            background-image: url(${heroImageExtraLarge})
+          }
         }
-      }
-
-    </style>`}
-
-        return (
-      <div className="full-width-image"
-        ref={node => this.element = node}>
-        <div dangerouslySetInnerHTML={style}></div>
-        <div className={`full-width-image-inner`}
-           ref={node => this.fixedElement = node}
-           style={{transform: `translate3d(0px, -200%, 0px)`}}>
-          <div className={`full-width-image-background full-width-image-background-${index}`}
-            ref={node => this.imageElement = node}>
-          </div>
-          { overlay && <div className="full-width-image-overlay"></div>}
-        </div>
-                {(title || subtitle ) &&
-          <div className="full-width-image-text">
-                      { title && <h2>{title}</h2> }
-            { subtitle && <p>{subtitle}</p> }
-                  </div>
-                }
-            </div>
-        )
+      </style>`,
     }
+
+    return (
+      <div className="full-width-image" ref={node => (this.element = node)}>
+        <div dangerouslySetInnerHTML={style} />
+        <div
+          className={`full-width-image-inner`}
+          ref={node => (this.fixedElement = node)}
+          style={{ transform: `translate3d(0px, -200%, 0px)` }}>
+          <div
+            className={`full-width-image-background full-width-image-background-${index}`}
+            ref={node => (this.imageElement = node)}
+          />
+          {overlay && <div className="full-width-image-overlay" />}
+        </div>
+        {(title || subtitle) && (
+          <div className="full-width-image-text">
+            {title && <h2>{title}</h2>}
+            {subtitle && <p>{subtitle}</p>}
+          </div>
+        )}
+      </div>
+    )
+  }
+}
+
+FullWidthImage.propTypes = {
+  image: PropTypes.string.isRequired,
+  index: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  overlay: PropTypes.boolean.isRequired,
+  staticImg: PropTypes.boolean.isRequired,
 }
 
 export default FullWidthImage

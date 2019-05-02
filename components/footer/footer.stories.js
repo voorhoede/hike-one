@@ -7,5 +7,5 @@ storiesOf('Footer', module)
     <Footer
       callToActionLabel="Up for a new challenge? Join us!"
       callToActionUrl="http://werkenbij.unitid.nl"
-    ></Footer>
+    />
   ))

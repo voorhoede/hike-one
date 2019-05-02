@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import Link from 'next/link'
 import Icon from '../icon/icon'
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
-import Link from 'next/link'
 import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtract = ({
@@ -12,17 +13,14 @@ const CaseExtract = ({
   companyName = '',
   color = '',
 }) => {
-  const headerImageSmall = setImageParameters(headerImage, { w: 600, q: 85, fm: 'pjpg' })
-  const headerImageLarge = setImageParameters(headerImage, { w: 1200, q: 85, fm: 'pjpg' })
-
   const style = {
     __html: `<style>
-        .case-extract-image-container {
-          background-image: url(${headerImageSmall})
-        }
+      .case-extract-image-container {
+        background-image: url(${setImageParameters(headerImage, { w: 600, q: 85, fm: 'pjpg' })})
+      }
       @media only screen and (min-width: 768px) {
         .case-extract-image-container {
-          background-image: url(${headerImageLarge})
+          background-image: url(${setImageParameters(headerImage, { w: 1200, q: 85, fm: 'pjpg' })})
         }
       }
     </style>`,
@@ -61,6 +59,15 @@ const CaseExtract = ({
       </div>
     </section>
   )
+}
+
+CaseExtract.propTypes = {
+  headerImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  companyName: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
 }
 
 export default CaseExtract

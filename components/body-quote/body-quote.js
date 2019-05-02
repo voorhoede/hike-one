@@ -1,10 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const bodyQuote = ({quote = '', quotee = ''}) => (
+const BodyQuote = ({ quote = '', quotee = '' }) => (
   <blockquote className="body-quote">
-    "{quote}"
+    &quot;{quote}&quot;
     <cite className="body-quote-quotee">{quotee}</cite>
   </blockquote>
-);
+)
 
-export default bodyQuote;
+BodyQuote.propTypes = {
+  quote: PropTypes.string.isRequired,
+  quotee: PropTypes.string.isRequired,
+}
+
+export default BodyQuote

@@ -1,31 +1,31 @@
-import React from 'react';
+import React from 'react'
 
-import setImageParams from '../_helpers/setImageParameters';
+import setImageParams from '../_helpers/setImageParameters'
 
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
 
 const VacancyCard = ({ data }) => {
   
-  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   
   const style ={__html:
     `<style>
       .vacancy-card-image {
-        background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h:200 })}");
+        background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h:200 })}")
       }
 
       @media only screen and (min-width: 768px) {
         .vacancy-card-image {
-          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 400, h:339 })}");
+          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 400, h:339 })}")
         }
       }
 
       @media only screen and (min-width: 1024px) {
         .vacancy-card-image {
-          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h:360 })}");
+          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h:360 })}")
         }
       }
-    </style>`};
+    </style>`}
 
   return (
     <div className="container">

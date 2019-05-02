@@ -8,6 +8,6 @@ const PlaygroundOverview = ({classes='', title='', children}) => (
       { children }
     </div>
   </div>
-);
+)
 
-export default PlaygroundOverview;
+export default PlaygroundOverview

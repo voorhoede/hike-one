@@ -1,16 +1,17 @@
 import React from 'react'
-import Icon from '../icon/icon';
-import Link from 'next/link';
+import PropTypes from 'prop-types'
+import Icon from '../icon/icon'
+import Link from 'next/link'
 
 const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
   <Link href={link}>
     <a className="blog-extract">
       <div className="blog-extract-image-container">
-        <img src={blogImage} alt=""/>
+        <img src={blogImage} alt="" />
       </div>
 
       <div className="blog-extract-text-container">
-        <div className="blog-extract-triangle"></div>
+        <div className="blog-extract-triangle" />
         <h3>{subtitle}</h3>
         <h2>{title}</h2>
         <div className="blog-extract-footer-container">
@@ -20,7 +21,14 @@ const BlogExtract = ({ blogImage, title, subtitle, date, link }) => (
       </div>
     </a>
   </Link>
-);
+)
 
+BlogExtract.propTypes = {
+  blogImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+}
 
-export default BlogExtract;
+export default BlogExtract

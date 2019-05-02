@@ -23,6 +23,6 @@ const Cube = ({shadow}) => (
       </g>
     </svg>
   </div>
-);
+)
 
-export default Cube;
+export default Cube

@@ -7,7 +7,7 @@ const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLa
     <span className="form-description">{description}</span>
 
     <form
-      action={`https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&amp;id=${listId}`}
+      action={`https://unitid.us9.list-manage.com/subscribe/post?u=9fcf53aac8cfc03a445bd4e2f&ampid=${listId}`}
       method="POST"
       name="mc-embedded-subscribe-form"
       className="form"

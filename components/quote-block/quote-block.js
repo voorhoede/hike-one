@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const QuoteBlock = ({color = '', alignment='', quote = '', citeImage, citeName = '', citeTitle = ''}) => (
   <blockquote className={`text-block ${color} ${alignment}`}>
@@ -15,7 +15,7 @@ const QuoteBlock = ({color = '', alignment='', quote = '', citeImage, citeName =
       </div>
     </cite>
   </blockquote>
-);
+)
 
 
-export default QuoteBlock;
+export default QuoteBlock

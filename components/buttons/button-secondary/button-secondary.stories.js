@@ -1,37 +1,37 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, select, text, boolean} from '@storybook/addon-knobs';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { withKnobs, select, text, boolean} from '@storybook/addon-knobs'
 
-import ButtonSecondary from '../button-secondary/button-secondary';
-import ButtonSecondaryLink from '../button-secondary/button-secondary-link';
-import ButtonSecondaryMock from '../button-secondary/button-secondary-mock';
+import ButtonSecondary from '../button-secondary/button-secondary'
+import ButtonSecondaryLink from '../button-secondary/button-secondary-link'
+import ButtonSecondaryMock from '../button-secondary/button-secondary-mock'
 
 const ButtonDecorator = (storyFn) => (
   <div style={{ padding: '10px', backgroundColor: '#00aae9', height: '100vh'}} className="js-background">
     { storyFn() }
   </div>
-);
+)
 
 storiesOf('Buttons', module)
   .addDecorator(withKnobs)
   .addDecorator(ButtonDecorator)
   .add('Button Secondary', () => {
-    const textValue = text('Button Text', 'Secondary Button');
-    const largeValue = boolean('Large', false);
-    const largeClass = largeValue ? 'btn-large' : '';
-    const withIcon = boolean('With Icon', false);
-    const icon = withIcon ? 'arrowRight' : null;
+    const textValue = text('Button Text', 'Secondary Button')
+    const largeValue = boolean('Large', false)
+    const largeClass = largeValue ? 'btn-large' : ''
+    const withIcon = boolean('With Icon', false)
+    const icon = withIcon ? 'arrowRight' : null
     const types = {
       'button': 'button',
       'link': 'link',
       'mock': 'mock'
-    };
-    const type = select('Type', types, 'button');
+    }
+    const type = select('Type', types, 'button')
 
-    let disabled = false;
+    let disabled = false
     if (type === 'button') {
-      disabled = boolean('Disabled', false);
+      disabled = boolean('Disabled', false)
     }
 
     const colorOptions = {
@@ -40,7 +40,7 @@ storiesOf('Buttons', module)
       'btn-purple': 'purple',
       'btn-green': 'green',
       '': 'default',
-    };
+    }
 
     const backgroundColors = {
       'btn-red': '#fe595b',
@@ -48,14 +48,14 @@ storiesOf('Buttons', module)
       'btn-purple': '#8314bb',
       'btn-green': '#45d33c',
       '': '#00aae9'
-    };
+    }
 
-    const colorClass = select('Color', colorOptions, '');
-    const classes = `${colorClass} ${largeClass}`;
-    const backgroundColor = backgroundColors[colorClass];
-    const wrapper = document.querySelector('.js-background');
+    const colorClass = select('Color', colorOptions, '')
+    const classes = `${colorClass} ${largeClass}`
+    const backgroundColor = backgroundColors[colorClass]
+    const wrapper = document.querySelector('.js-background')
     if (wrapper) {
-      wrapper.style.backgroundColor = backgroundColor;
+      wrapper.style.backgroundColor = backgroundColor
     }
 
     return (
@@ -76,6 +76,6 @@ storiesOf('Buttons', module)
         </ButtonSecondaryMock>
         }
       </div>
-    );
-  });
+    )
+  })
 

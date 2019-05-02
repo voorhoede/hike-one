@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '../icon/icon';
-import setImageParameters from '../_helpers/setImageParameters';
+import Icon from '../icon/icon'
+import setImageParameters from '../_helpers/setImageParameters'
 
 const teamMember = ({data}) => (
     <li className="team-member" style={{backgroundImage: `url(${setImageParameters(data.photo.url, {w:700, fm: 'pjpg', q: 85})})`}}>
@@ -14,6 +14,6 @@ const teamMember = ({data}) => (
       </div>
         </div>
     </li>
-);
+)
 
-export default teamMember;
+export default teamMember

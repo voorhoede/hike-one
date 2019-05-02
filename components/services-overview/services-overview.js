@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
-import ServicesItem from '../services-item/services-item';
-import ShapesFront from './services-overview-shapes-front';
+import ServicesItem from '../services-item/services-item'
+import ShapesFront from './services-overview-shapes-front'
 
 const ServicesOverview = ({title = '', items = []}) => (
   <section className="services-overview">
@@ -14,6 +14,6 @@ const ServicesOverview = ({title = '', items = []}) => (
     </div>
     <ShapesFront />
   </section>
-);
+)
 
-export default ServicesOverview;
+export default ServicesOverview

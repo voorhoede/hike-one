@@ -23,7 +23,7 @@ const TrailTraingle = ({shadow}) => (
       </g>
     </svg>
   </div>
-);
+)
 
 
-export default TrailTraingle;
+export default TrailTraingle

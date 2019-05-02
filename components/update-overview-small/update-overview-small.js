@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
 
 const UpdateOverviewSmall = ({children}) => (
   <div className="update-overview-small container">
@@ -12,6 +12,6 @@ const UpdateOverviewSmall = ({children}) => (
       </ButtonSecondaryLink>
     </div>
   </div>
-);
+)
 
-export default UpdateOverviewSmall;
+export default UpdateOverviewSmall

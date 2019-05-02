@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text} from '@storybook/addon-knobs';
-import TabSelector from './tab-selector';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text} from '@storybook/addon-knobs'
+import TabSelector from './tab-selector'
 
 const productData = {
   title: 'New product design',
@@ -28,4 +28,4 @@ storiesOf('Tab selector', module)
       product={productData}
       design={designData}
       training={trainingData}/>
-  ));
+  ))

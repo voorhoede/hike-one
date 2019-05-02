@@ -1,7 +1,7 @@
 import React from 'react'
-import Parallax from '../parallax/parallax';
-import CircleBorder from '../shapes/circle-border/circle-border';
-import DiamondBorder from '../shapes/diamond-border/diamond-border';
+import Parallax from '../parallax/parallax'
+import CircleBorder from '../shapes/circle-border/circle-border'
+import DiamondBorder from '../shapes/diamond-border/diamond-border'
 
 const ShapesBack = () => {
   return (
@@ -11,7 +11,7 @@ const ShapesBack = () => {
         <DiamondBorder classes="shape-diamond-1" color="yellow"/>
       </Parallax>
     </div>
-  );
-};
+  )
+}
 
-export default ShapesBack;
+export default ShapesBack

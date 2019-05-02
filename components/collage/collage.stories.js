@@ -1,11 +1,11 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text } from '@storybook/addon-knobs'
 
-import Data from '../../data/current/component-guide.json';
-import Collage from './collage';
+import Data from '../../data/current/component-guide.json'
+import Collage from './collage'
 
-const item = Data.components.find(item => item.itemType === 'collage');
+const item = Data.components.find(item => item.itemType === 'collage')
 
 storiesOf('Collage', module)
   .addDecorator(withKnobs)
@@ -16,4 +16,4 @@ storiesOf('Collage', module)
       imageMedium={item.imageBig.url}
       imageSmall={item.imageSmall.url} >
     </Collage>
-  ));
+  ))

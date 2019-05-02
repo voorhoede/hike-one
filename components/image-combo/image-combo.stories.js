@@ -1,13 +1,13 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text, select } from '@storybook/addon-knobs'
 
-import Data from '../../data/current/component-guide.json';
-import QuoteBlock from '../quote-block/quote-block';
-import StatisticsBlock from '../statistics-block/statistics-block';
-import TextCard from '../text-card/text-card';
-import ImageCombo from '../image-combo/image-combo';
-import FullWidthImage from '../full-width-image/full-width-image';
+import Data from '../../data/current/component-guide.json'
+import QuoteBlock from '../quote-block/quote-block'
+import StatisticsBlock from '../statistics-block/statistics-block'
+import TextCard from '../text-card/text-card'
+import ImageCombo from '../image-combo/image-combo'
+import FullWidthImage from '../full-width-image/full-width-image'
 
 const workspace = {
   overlay: true,
@@ -34,9 +34,9 @@ const workspace = {
     title: 'See job openings',
     target: '#jobopenings'
   }
-};
+}
 
-const item = Data.components.find(item => item.itemType === 'image_combo');
+const item = Data.components.find(item => item.itemType === 'image_combo')
 
 storiesOf('Image Combo', module)
   .addDecorator(withKnobs)

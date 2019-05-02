@@ -1,13 +1,13 @@
 import React from 'react'
-import Collage from '../collage/collage';
-import FiftyFifty from '../50-50/50-50';
-import ImageCombo from '../image-combo/image-combo';
-import ImageCompositionSmall from '../image-composition-small/image-composition-small';
-import * as ImageCompositionSmallShapes from '../image-composition-small/image-composition-small-shapes';
-import ImageGallery from '../image-gallery/image-gallery';
-import StatisticsBlock from '../statistics-block/statistics-block';
-import TeamImage from '../team-image/team-image';
-import TextCenter from '../text-center/text-center';
+import Collage from '../collage/collage'
+import FiftyFifty from '../50-50/50-50'
+import ImageCombo from '../image-combo/image-combo'
+import ImageCompositionSmall from '../image-composition-small/image-composition-small'
+import * as ImageCompositionSmallShapes from '../image-composition-small/image-composition-small-shapes'
+import ImageGallery from '../image-gallery/image-gallery'
+import StatisticsBlock from '../statistics-block/statistics-block'
+import TeamImage from '../team-image/team-image'
+import TextCenter from '../text-center/text-center'
 
 const teamOverview = ({data}) => (
     <div>
@@ -71,7 +71,7 @@ const teamOverview = ({data}) => (
                             imageLarge="true"
                             image={component.image} >
                         </FiftyFifty>
-                    );
+                    )
                 case '40_60_text_left':
                     return (
                         <FiftyFifty
@@ -82,14 +82,14 @@ const teamOverview = ({data}) => (
                             imageLarge="true"
                             image={component.image} >
                         </FiftyFifty>
-                    );
+                    )
                 case 'text_center':
                     return (
                         <TextCenter
                             key={index}
                             title={component.title}
                             text={component.text} />
-                    );
+                    )
             }
         })}
 
@@ -111,6 +111,6 @@ const teamOverview = ({data}) => (
             />
         }
     </div>
-);
+)
 
-export default teamOverview;
+export default teamOverview

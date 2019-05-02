@@ -1,6 +1,6 @@
 import React from 'react'
-import Parallax from '../parallax/parallax';
-import Triangle from '../shapes/triangle/triangle';
+import Parallax from '../parallax/parallax'
+import Triangle from '../shapes/triangle/triangle'
 
 export const WithText1Front = () => (
   <div className="image-combo-shapes-1">
@@ -9,7 +9,7 @@ export const WithText1Front = () => (
       <Triangle classes="shape-triangle-2" color="green" />
     </Parallax>
   </div>
-);
+)
 
 
 export const WithoutText1Front = () => (
@@ -19,6 +19,6 @@ export const WithoutText1Front = () => (
       <Triangle classes="shape-triangle-2" color="purple" />
     </Parallax>
   </div>
-);
+)
 
 

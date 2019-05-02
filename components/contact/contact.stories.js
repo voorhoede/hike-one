@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text} from '@storybook/addon-knobs';
-import Contact from './contact';
-import * as ContactShapes from './contact-shapes';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text} from '@storybook/addon-knobs'
+import Contact from './contact'
+import * as ContactShapes from './contact-shapes'
 
 storiesOf('Contact', module)
   .addDecorator(withKnobs)
@@ -12,4 +12,4 @@ storiesOf('Contact', module)
       button={text('Button', 'Get in touch')} >
       <ContactShapes.variation1Front position="front" />
     </Contact>
-  ));
+  ))

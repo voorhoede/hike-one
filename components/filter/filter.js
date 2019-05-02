@@ -1,12 +1,12 @@
 import React from 'react'
 
 const filter = ({filter, onFilter}) => {
-  const isFilterVisuallyActive = filter.every(item => item.isActive);
+  const isFilterVisuallyActive = filter.every(item => item.isActive)
 
     return (
     <ul className='filter container'>
       { filter.map((item, index) => {
-        const activeClass = (item.isActive && !isFilterVisuallyActive) ? 'filter-item-button--active' : '';
+        const activeClass = (item.isActive && !isFilterVisuallyActive) ? 'filter-item-button--active' : ''
         return (
           <li className='filter-item' key={index}>
               <button
@@ -22,6 +22,6 @@ const filter = ({filter, onFilter}) => {
       })}
     </ul>
   )
-};
+}
 
-export default filter;
+export default filter

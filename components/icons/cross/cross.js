@@ -6,7 +6,7 @@ const Cross = () => (
     <path d="M59.09,61.09a2,2,0,0,1-1.41-.59L19.49,22.32a2,2,0,0,1,2.83-2.83L60.51,57.68a2,2,0,0,1-1.41,3.41Z"/>
     <line x1="39" y1="40" x2="41" y2="40" fill="none" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="4"/>
   </svg>
-);
+)
 
 
-export default Cross;
+export default Cross

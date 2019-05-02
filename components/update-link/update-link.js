@@ -1,6 +1,6 @@
-import React from 'react';
-import ArrowRightCircle from '../icons/arrow-right-circle';
-import Link from 'next/link';
+import React from 'react'
+import ArrowRightCircle from '../icons/arrow-right-circle'
+import Link from 'next/link'
 import Authors from '../authors/authors'
 
 const updateLink = ({target='#', title='', authors=[], date='', external = false}) => (
@@ -13,6 +13,6 @@ const updateLink = ({target='#', title='', authors=[], date='', external = false
     </Link>
     <p className="update-link-sub"><span>{ date }</span> | <Authors authors={authors} /></p>
   </div>
-);
+)
 
-export default updateLink;
+export default updateLink

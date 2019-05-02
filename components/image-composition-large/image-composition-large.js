@@ -1,12 +1,12 @@
 
-import React from 'react';
-import Icon from '../icon/icon';
-import setImageParams from '../_helpers/setImageParameters';
+import React from 'react'
+import Icon from '../icon/icon'
+import setImageParams from '../_helpers/setImageParameters'
 
 const ImageCompositionLarge = ({children, TeamImage3_4, Person1, Person2, Person3, listValues}) => {
-  const childrenArray = React.Children.toArray(children);
-  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-  const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+  const childrenArray = React.Children.toArray(children)
+  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+  const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
   const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
   return (
@@ -123,7 +123,7 @@ const ImageCompositionLarge = ({children, TeamImage3_4, Person1, Person2, Person
       </div>
       {parallaxLayerFront}
     </div>
-  );
-};
+  )
+}
 
-export default ImageCompositionLarge;
+export default ImageCompositionLarge

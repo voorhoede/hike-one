@@ -19,4 +19,4 @@ const InlineMedia = ({ image=null, large=false, video=null, caption='' }) => (
   </div>
 )
 
-export default InlineMedia;
+export default InlineMedia

@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '../icon/icon';
-import Link from 'next/link';
+import Icon from '../icon/icon'
+import Link from 'next/link'
 
 const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, linkInstagram}) => (
   <div className="image-feed-container">
@@ -29,6 +29,6 @@ const ImageFeed = ({socialImagesInstagram, socialImagesDribble, linkDribble, lin
       </a>
     </Link>
   </div>
-);
+)
 
-export default ImageFeed;
+export default ImageFeed

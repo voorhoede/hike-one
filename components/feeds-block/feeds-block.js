@@ -1,12 +1,12 @@
 import React from 'react'
-import BlogExtract from '../blog-extract/blog-extract';
-import ImageFeed from '../image-feed/image-feed';
-import TwitterExtract from '../twitter-extract/twitter-extract';
-import EventsExtract from '../events-extract/events-extract';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary';
+import BlogExtract from '../blog-extract/blog-extract'
+import ImageFeed from '../image-feed/image-feed'
+import TwitterExtract from '../twitter-extract/twitter-extract'
+import EventsExtract from '../events-extract/events-extract'
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary'
 
 
-import Data from '../../dummy-data/home/home.json';
+import Data from '../../dummy-data/home/home.json'
 
 const feedsBlock = () => (
   <div className="feeds-block container">
@@ -43,7 +43,7 @@ const feedsBlock = () => (
       </div>
     </div>
   </div>
-);
+)
 
 
-export default feedsBlock;
+export default feedsBlock

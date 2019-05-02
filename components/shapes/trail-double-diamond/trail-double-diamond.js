@@ -26,6 +26,6 @@ const TrailDoubleDiamond = ({shadow}) => (
       </g>
     </svg>
   </div>
-);
+)
 
-export default TrailDoubleDiamond;
+export default TrailDoubleDiamond

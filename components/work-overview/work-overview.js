@@ -8,6 +8,6 @@ const WorkOverview = ({classes = '', header = '', children, moreButton=false}) =
     { children }
     </div>
   </div>
-);
+)
 
-export default WorkOverview;
+export default WorkOverview

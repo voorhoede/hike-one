@@ -1,5 +1,5 @@
 import React from 'react'
-import setImageParams from '../_helpers/setImageParameters';
+import setImageParams from '../_helpers/setImageParameters'
 
 const TeamImage = ({image="", title=""}) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
@@ -22,4 +22,4 @@ const TeamImage = ({image="", title=""}) => {
   )
 }
 
-export default TeamImage;
+export default TeamImage

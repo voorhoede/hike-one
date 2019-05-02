@@ -16,7 +16,7 @@ class InlineVideo extends Component {
         return `https://www.youtube.com/embed/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
 
         default:
-        console.error(`unsupported video provider: ${provider}`);
+        console.error(`unsupported video provider: ${provider}`)
         return ''
     }
   }

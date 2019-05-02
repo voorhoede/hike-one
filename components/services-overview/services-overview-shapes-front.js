@@ -1,6 +1,6 @@
 import React from 'react'
-import Parallax from '../parallax/parallax';
-import Triangle from '../shapes/triangle/triangle';
+import Parallax from '../parallax/parallax'
+import Triangle from '../shapes/triangle/triangle'
 
 const ShapesFront = () => {
   return (
@@ -9,7 +9,7 @@ const ShapesFront = () => {
         <Triangle classes="shape-triangle-1" color="red" />
       </Parallax>
     </div>
-  );
-};
+  )
+}
 
-export default ShapesFront;
+export default ShapesFront

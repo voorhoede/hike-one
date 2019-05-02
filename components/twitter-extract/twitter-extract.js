@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from '../icon/icon';
+import Icon from '../icon/icon'
 
 const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccount, linkTwitterPost }) => (
   <div className="twitter-extract">
@@ -22,7 +22,7 @@ const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccoun
       </a>
     </div>
   </div>
-);
+)
 
 
-export default TwitterExtract;
+export default TwitterExtract

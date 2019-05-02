@@ -1,8 +1,8 @@
 import React from 'react'
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
-import Link from 'next/link';
+import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
+import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
+import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
+import Link from 'next/link'
 
 const TabSelector = ({services, selectedItem}) => (
   <div className="tab-selector container shadow">
@@ -43,6 +43,6 @@ const TabSelector = ({services, selectedItem}) => (
       </a>
     </Link>
   </div>
-);
+)
 
-export default TabSelector;
+export default TabSelector

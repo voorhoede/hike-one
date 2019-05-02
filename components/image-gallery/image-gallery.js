@@ -1,22 +1,22 @@
-import React from 'react';
-import FullWidthImage from '../full-width-image/full-width-image';
+import React from 'react'
+import FullWidthImage from '../full-width-image/full-width-image'
 
 class ImageGallery extends React.Component{
   constructor() {
-    super();
-    this.showImage = this.showImage.bind(this);
+    super()
+    this.showImage = this.showImage.bind(this)
     this.state = {
       imageIndex: 0
-    };
+    }
   }
 
   showImage(index) {
-    this.setState({imageIndex: index});
+    this.setState({imageIndex: index})
   }
 
   render() {
-    const { items, title } = this.props;
-    const { imageIndex } = this.state;
+    const { items, title } = this.props
+    const { imageIndex } = this.state
     return (
       <div className="image-gallery">
         { items.map(
@@ -48,7 +48,7 @@ class ImageGallery extends React.Component{
           )}
         </div>
       </div>
-    );
+    )
   }
 }
-export default ImageGallery;
+export default ImageGallery

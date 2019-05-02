@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import cookie from '../_helpers/cookie'
 import Router from 'next/router'
@@ -9,8 +10,8 @@ class CookieBar extends Component {
 
     this.state = {
       accepted: false,
-  }
-  Router.onRouteChangeStart = () => this.setCookie()
+    }
+    Router.onRouteChangeStart = () => this.setCookie()
   }
 
   setCookie = () => {
@@ -36,6 +37,13 @@ class CookieBar extends Component {
       </div>
     )
   }
+}
+
+CookieBar.propTypes = {
+  text: PropTypes.string.isRequired,
+  callToActionLabel: PropTypes.string.isRequired,
+  callToActionUrl: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired,
 }
 
 export default CookieBar

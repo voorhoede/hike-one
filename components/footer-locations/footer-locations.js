@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 class FooterLocations extends React.Component {
   constructor() {
-    super();
+    super()
     this.state = {
       location: 'ams'
-    };
+    }
   }
 
   render() {
@@ -69,8 +69,8 @@ class FooterLocations extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default FooterLocations;
+export default FooterLocations

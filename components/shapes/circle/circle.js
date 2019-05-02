@@ -23,6 +23,6 @@ const Circle = ({shadow}) => (
       </g>
     </svg>
   </div>
-);
+)
 
-export default Circle;
+export default Circle

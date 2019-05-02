@@ -1,38 +1,38 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, select, text, boolean} from '@storybook/addon-knobs';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { withKnobs, select, text, boolean} from '@storybook/addon-knobs'
 
-import ButtonPrimary from '../button-primary/button-primary';
-import ButtonPrimaryLink from '../button-primary/button-primary-link';
-import ButtonPrimaryMock from '../button-primary/button-primary-mock';
+import ButtonPrimary from '../button-primary/button-primary'
+import ButtonPrimaryLink from '../button-primary/button-primary-link'
+import ButtonPrimaryMock from '../button-primary/button-primary-mock'
 
 const ButtonDecorator = (storyFn) => (
   <div style={{ margin: '10px' }}>
     { storyFn() }
   </div>
-);
+)
 
-const stories = storiesOf('Buttons', module);
-stories.addDecorator(withKnobs);
+const stories = storiesOf('Buttons', module)
+stories.addDecorator(withKnobs)
 
 stories.addDecorator(ButtonDecorator)
   .add('Button Primary', () => {
-    const textValue = text('Button Text', 'Primary Button');
-    const largeValue = boolean('Large', false);
-    const largeClass = largeValue ? 'btn-large' : '';
-    const withIcon = boolean('With Icon', false);
-    const icon = withIcon ? 'arrowRight' : null;
+    const textValue = text('Button Text', 'Primary Button')
+    const largeValue = boolean('Large', false)
+    const largeClass = largeValue ? 'btn-large' : ''
+    const withIcon = boolean('With Icon', false)
+    const icon = withIcon ? 'arrowRight' : null
     const types = {
       'button': 'button',
       'link': 'link',
       'mock': 'mock'
-    };
-    const type = select('Type', types, 'button');
+    }
+    const type = select('Type', types, 'button')
 
-    let disabled = false;
+    let disabled = false
     if (type === 'button') {
-      disabled = boolean('Disabled', false);
+      disabled = boolean('Disabled', false)
     }
 
     return (
@@ -53,6 +53,6 @@ stories.addDecorator(ButtonDecorator)
         </ButtonPrimaryMock>
         }
       </div>
-    );
-  });
+    )
+  })
 

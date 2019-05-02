@@ -1,93 +1,93 @@
-import React from 'react';
-import Link from 'next/link';
+import React from 'react'
+import Link from 'next/link'
 
-import Logo      from '../logo/logo';
-import Hamburger   from '../icons/hamburger/hamburger';
-import ContextMenu   from '../context-menu/context-menu';
+import Logo      from '../logo/logo'
+import Hamburger   from '../icons/hamburger/hamburger'
+import ContextMenu   from '../context-menu/context-menu'
 
-import Facebook   from '../icons/facebook-circle';
-import Twitter     from '../icons/twitter-circle';
-import LinkedIn   from '../icons/linkedin-circle';
-import Medium     from '../icons/medium-circle';
-import Instagram  from '../icons/instagram-circle';
+import Facebook   from '../icons/facebook-circle'
+import Twitter     from '../icons/twitter-circle'
+import LinkedIn   from '../icons/linkedin-circle'
+import Medium     from '../icons/medium-circle'
+import Instagram  from '../icons/instagram-circle'
 
-import {TweenLite, Power3, Power2, TimelineLite, TimelineMax}  from 'gsap';
+import {TweenLite, Power3, Power2, TimelineLite, TimelineMax}  from 'gsap'
 
 class Header extends React.Component {
   constructor() {
-    super();
-    this.onClickMenu = this.onClickMenu.bind(this);
-    this.onClickMenuList = this.onClickMenuList.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
-    this.toggleContextMenu = this.toggleContextMenu.bind(this);
-    this.setInitialValues = this.setInitialValues.bind(this);
-    this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
-    this.onResize = this.onResize.bind(this);
-    this.breakpoint = '767px';
-    this.breakpointLarge = '1919px';
+    super()
+    this.onClickMenu = this.onClickMenu.bind(this)
+    this.onClickMenuList = this.onClickMenuList.bind(this)
+    this.toggleMenu = this.toggleMenu.bind(this)
+    this.toggleContextMenu = this.toggleContextMenu.bind(this)
+    this.setInitialValues = this.setInitialValues.bind(this)
+    this.setAnimationTimeline = this.setAnimationTimeline.bind(this)
+    this.onResize = this.onResize.bind(this)
+    this.breakpoint = '767px'
+    this.breakpointLarge = '1919px'
     this.state = {
       hamburger: false,
       menuIsOpen: false,
       contextMenuIsOpen: false
-    };
-    this.disableScrollClass = 'disable-scroll';
+    }
+    this.disableScrollClass = 'disable-scroll'
   }
 
   componentDidMount() {
-    this.setInitialValues();
-    this.setAnimationTimeline();
-    this.menu.addEventListener('click', this.onClickMenu);
-    this.menuList.addEventListener('click', this.onClickMenuList);
-    window.addEventListener('resize', this.onResize);
+    this.setInitialValues()
+    this.setAnimationTimeline()
+    this.menu.addEventListener('click', this.onClickMenu)
+    this.menuList.addEventListener('click', this.onClickMenuList)
+    window.addEventListener('resize', this.onResize)
   }
 
   componentWillUnmount() {
-    this.menu.removeEventListener('click', this.onClickMenu);
-    window.removeEventListener('resize', this.onResize);
-    document.body.classList.remove(this.disableScrollClass);
+    this.menu.removeEventListener('click', this.onClickMenu)
+    window.removeEventListener('resize', this.onResize)
+    document.body.classList.remove(this.disableScrollClass)
   }
 
   setInitialValues() {
-    this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
-    const svgBgRect = this.menuBg.getBoundingClientRect();
-    const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
+    this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
+    const svgBgRect = this.menuBg.getBoundingClientRect()
+    const svgBgHelperRect = this.menuBgRect.getBoundingClientRect()
 
     // how much % should the background svg cover.
     // On smaller screens it should cover 100%. To accomplish this the value is set on 200%
-    let bgCoverPercentage = {};
+    let bgCoverPercentage = {}
     if(window.matchMedia(`(min-width: ${this.breakpointLarge})`).matches) {
       //large screens
-      bgCoverPercentage = 0.47;
+      bgCoverPercentage = 0.47
     } else if(window.matchMedia(`(min-width: ${this.breakpoint})`).matches) {
       //medium screens
-      bgCoverPercentage = 0.7;
+      bgCoverPercentage = 0.7
     } else {
       //small screens
-      bgCoverPercentage = 2;
+      bgCoverPercentage = 2
     }
 
     // calculate how large the scale of the background svg should be on this screensize
-    this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
+    this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width)
 
-    this.svgHeight = svgBgRect.height * this.scale;
-    this.svgWidth = svgBgRect.width * this.scale;
+    this.svgHeight = svgBgRect.height * this.scale
+    this.svgWidth = svgBgRect.width * this.scale
 
     // calculate offset from top for background svg after scaling
-    const yDiff = svgBgRect.top - svgBgHelperRect.top;
-    this.yOffset = Math.round(yDiff * this.scale);
+    const yDiff = svgBgRect.top - svgBgHelperRect.top
+    this.yOffset = Math.round(yDiff * this.scale)
 
     // calculate offset from right for background svg after scaling
-    const xDiff = ( svgBgHelperRect.right - svgBgRect.left);
-    const xOffsetHelperRect = (xDiff / svgBgRect.width);
-    this.xOffset = Math.round((svgBgRect.width * this.scale) * xOffsetHelperRect + svgBgRect.width);
+    const xDiff = ( svgBgHelperRect.right - svgBgRect.left)
+    const xOffsetHelperRect = (xDiff / svgBgRect.width)
+    this.xOffset = Math.round((svgBgRect.width * this.scale) * xOffsetHelperRect + svgBgRect.width)
 
     // calculate offset from right for background svg that is placed after animation is done
-    const xDiff2 = (svgBgHelperRect.right - svgBgRect.right);
-    this.xOffset2 = Math.round(xDiff2 * this.scale);
+    const xDiff2 = (svgBgHelperRect.right - svgBgRect.right)
+    this.xOffset2 = Math.round(xDiff2 * this.scale)
   }
 
   setAnimationTimeline() {
-    this.tlMenu = new TimelineLite();
+    this.tlMenu = new TimelineLite()
     this.tlMenu
       .pause()
       .set(this.menuBg, {clearProps:'all'})
@@ -120,7 +120,7 @@ class Header extends React.Component {
         opacity: 1,
         ease: Power3.easeInOut
       }, 0.05, '-=0.2')
-      .set(this.header, {className:'+=animation-is-finished'});
+      .set(this.header, {className:'+=animation-is-finished'})
   }
 
   onClickMenu() {
@@ -130,62 +130,62 @@ class Header extends React.Component {
     if (event.target.closest &&
       !event.target.closest('.menu-inner') &&
       this.state.menuIsOpen) {
-      this.toggleMenu();
+      this.toggleMenu()
     }
   }
 
   onClickMenuList(event) {
     if (event.target.tagName.toLowerCase() === 'a') {
-      this.toggleMenu();
+      this.toggleMenu()
     }
   }
 
   toggleMenu() {
-    document.body.classList.toggle(this.disableScrollClass);
+    document.body.classList.toggle(this.disableScrollClass)
 
     if (this.state.menuIsOpen) {
       this.tlMenu
         .timeScale(2)
-        .reverse();
-      this.hamburger.reverseAnimation();
+        .reverse()
+      this.hamburger.reverseAnimation()
     } else {
       this.tlMenu
         .timeScale(1)
-        .play();
-      this.hamburger.playAnimation();
+        .play()
+      this.hamburger.playAnimation()
     }
 
-    this.setState({menuIsOpen : !this.state.menuIsOpen});
+    this.setState({menuIsOpen : !this.state.menuIsOpen})
   }
 
   toggleContextMenu(event) {
-    event.preventDefault();
+    event.preventDefault()
 
-    this.setState({contextMenuIsOpen: !this.state.contextMenuIsOpen});
+    this.setState({contextMenuIsOpen: !this.state.contextMenuIsOpen})
   }
 
   onResize() {
     // check if window is actually resized (some phones fire resize event on scroll)
-    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
+    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
 
     if (this.state.menuIsOpen && this.windowWidth !== newWindowWidth) {
       // close menu
       this.tlMenu
         .timeScale(10)
-        .reverse();
+        .reverse()
       // revert hamburger icon
-      this.hamburger.reverseAnimation();
-      document.body.classList.remove(this.disableScrollClass);
-      this.setState({menuIsOpen: false});
+      this.hamburger.reverseAnimation()
+      document.body.classList.remove(this.disableScrollClass)
+      this.setState({menuIsOpen: false})
     }
 
     if (this.windowWidth !== newWindowWidth) {
       // add debounce for resize so it fires only add the end of resize
-      clearTimeout(this.resizeTimer);
+      clearTimeout(this.resizeTimer)
       this.resizeTimer = setTimeout(() => {
-        this.setInitialValues();
-        this.setAnimationTimeline();
-      }, 250);
+        this.setInitialValues()
+        this.setAnimationTimeline()
+      }, 250)
     }
   }
 
@@ -262,8 +262,8 @@ class Header extends React.Component {
           </div>
         </div>
       </header>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header

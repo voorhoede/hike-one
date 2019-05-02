@@ -1,6 +1,6 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Footer from './footer';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import Footer from './footer'
 
 storiesOf('Footer', module)
   .add('footer', () => (
@@ -8,4 +8,4 @@ storiesOf('Footer', module)
       callToActionLabel="Up for a new challenge? Join us!"
       callToActionUrl="http://werkenbij.unitid.nl"
     ></Footer>
-  ));
+  ))

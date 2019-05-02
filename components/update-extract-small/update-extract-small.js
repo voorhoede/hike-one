@@ -1,30 +1,30 @@
 import React from 'react'
-import getDateFormat from '../_helpers/getDateFormat';
-import setImageParams from '../_helpers/setImageParameters';
-import ArrowRightExternalLink from '../icons/arrow-right-external-link';
-import Authors from '../authors/authors';
+import getDateFormat from '../_helpers/getDateFormat'
+import setImageParams from '../_helpers/setImageParameters'
+import ArrowRightExternalLink from '../icons/arrow-right-external-link'
+import Authors from '../authors/authors'
 
 const updateExtractSmall = ({classes='', title='', date='', authors=[], image='', color='', target='', index, category = 'update', external = false}) => {
-  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
 
   const style ={__html:
     `<style>
       .update-extract-small-image-${index} {
-        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}");
+        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}")
       }
 
       @media only screen and (min-width: 768px) {
         .update-extract-small-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 470, h:332 })}");
+          background-image: url("${setImageParams(image, { ...imageParameters, w: 470, h:332 })}")
         }
       }
 
       @media only screen and (min-width: 1024px) {
         .update-extract-small-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 337, h:366 })}");
+          background-image: url("${setImageParams(image, { ...imageParameters, w: 337, h:366 })}")
         }
       }
-    </style>`};
+    </style>`}
 
   return (
     <a href={target} target={external ? '_blank': ''} className={`update-extract-small ${classes}`}>
@@ -41,7 +41,7 @@ const updateExtractSmall = ({classes='', title='', date='', authors=[], image=''
         </span>
       </div>
     </a>
-  );
-};
+  )
+}
 
-export default updateExtractSmall;
+export default updateExtractSmall

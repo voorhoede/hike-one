@@ -1,7 +1,7 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text} from '@storybook/addon-knobs';
-import CaseExtractSmall from './case-extract-small';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text} from '@storybook/addon-knobs'
+import CaseExtractSmall from './case-extract-small'
 
 storiesOf('Case extract small', module)
   .addDecorator(withKnobs)
@@ -16,4 +16,4 @@ storiesOf('Case extract small', module)
         subtitle={text('Subtitle', 'Een update voor de grootste woning stie van Nederland')}>
       </CaseExtractSmall>
     </div>
-  ));
+  ))

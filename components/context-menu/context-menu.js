@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const ContactMenu = ({isOpen}) => (
-  <section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden' }`}>
+const ContactMenu = ({ isOpen }) => (
+  <section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden'}`}>
     <p className="context-menu-title">Are you looking for our logo?</p>
     <div className="context-menu-wrapper">
       <table className="context-menu-table">
@@ -18,10 +19,14 @@ const ContactMenu = ({isOpen}) => (
           </tr>
         </tbody>
       </table>
-      <img className="context-menu-logo-image" src="../../static/images/logo-black.png" alt="logo black"/>
+      <img className="context-menu-logo-image" src="../../static/images/logo-black.png" alt="logo black" />
     </div>
     <a className="context-menu-logo-download-all" href="../../static/images/hike-one-logo.zip" download>Download all logos</a>
   </section>
-);
+)
 
-export default ContactMenu;
+ContactMenu.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+}
+
+export default ContactMenu

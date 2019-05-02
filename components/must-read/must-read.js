@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary'
-import Authors from '../authors/authors';
+import Authors from '../authors/authors'
 
 class MustRead extends Component {
   constructor(props) {
-    super(props);
-        this.state = {isCollapsed: true};
-    this.handleClick = this.handleClick.bind(this);
+    super(props)
+        this.state = {isCollapsed: true}
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick() {
-    const { isCollapsed } = this.state;
-    this.setState({isCollapsed: !isCollapsed});
+    const { isCollapsed } = this.state
+    this.setState({isCollapsed: !isCollapsed})
   }
 
   render() {
-    const { mustRead, index } = this.props;
-    const { isCollapsed } = this.state;
-    const buttonText = isCollapsed ? 'Show more' : 'Show less';
-    const hideItem = isCollapsed ? 'hide': 'show';
-    const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' ';
+    const { mustRead, index } = this.props
+    const { isCollapsed } = this.state
+    const buttonText = isCollapsed ? 'Show more' : 'Show less'
+    const hideItem = isCollapsed ? 'hide': 'show'
+    const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' '
     const buttonIcon = isCollapsed ? 'arrowDown' : 'arrowUp'
     const buttonClass = isCollapsed ? 'arrow-down' : 'arrow-up'
     
@@ -42,8 +42,8 @@ class MustRead extends Component {
           {buttonText}
         </ButtonSecondary>
       </div>
-    );
+    )
   }
 }
 
-export default MustRead;
+export default MustRead

@@ -1,21 +1,34 @@
 import React from 'react'
-import Icon from '../../icon/icon';
+import PropTypes from 'prop-types'
+import Icon from '../../icon/icon'
 
-const ButtonSecondary = ({classes = '', onClick = null, children = '', icon = '', disabled = false}) => (
+const ButtonSecondary = ({
+  classes = '',
+  onClick = null,
+  children = '',
+  icon = '',
+  disabled = false,
+}) => (
   <button
     onClick={onClick}
     className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}
-    disabled={disabled} >
-    { children }
+    disabled={disabled}>
+    {children}
 
-    { icon &&
-    <span className="icon">
-      <Icon icon={icon}/>
-    </span>
-    }
+    {icon && (
+      <span className="icon">
+        <Icon icon={icon} />
+      </span>
+    )}
   </button>
-);
+)
 
+ButtonSecondary.propTypes = {
+  classes: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  icon: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
+}
 
-
-export default ButtonSecondary;
+export default ButtonSecondary

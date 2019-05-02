@@ -1,5 +1,6 @@
 import React from 'react'
-import Icon from '../../icon/icon';
+import PropTypes from 'prop-types'
+import Icon from '../../icon/icon'
 
 const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disabled = false }) => (
   <button
@@ -14,6 +15,14 @@ const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disab
     </span>
     }
   </button>
-);
+)
 
-export default ButtonPrimary;
+ButtonPrimary.propTypes = {
+  classes: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+  icon: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
+}
+
+export default ButtonPrimary

@@ -1,9 +1,10 @@
-import React from 'react';
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
+import React from 'react'
+import PropTypes from 'prop-types'
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link'
 
-const Contact = ({title = '', button = '', link = false, target = '',  children}) => {
-  const childrenArray = React.Children.toArray(children);
-  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+const Contact = ({ title = '', button = '', link = false, target = '', children }) => {
+  const childrenArray = React.Children.toArray(children)
+  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
 
   return (
     <section className="contact">
@@ -12,13 +13,21 @@ const Contact = ({title = '', button = '', link = false, target = '',  children}
         <ButtonPrimaryLink
           href={`${link ? link : '/contact'}`}
           target={target}
-          classes="btn-large content" >
+          classes="btn-large content">
           {button}
         </ButtonPrimaryLink>
       </div>
-      { parallaxLayerFront }
+      {parallaxLayerFront}
     </section>
-  );
-};
+  )
+}
 
-export default Contact;
+Contact.propTypes = {
+  title: PropTypes.string.isRequired,
+  button: PropTypes.string.isRequired,
+  link: PropTypes.bool.isRequired,
+  target: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}
+
+export default Contact

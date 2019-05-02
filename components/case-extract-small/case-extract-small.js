@@ -1,30 +1,32 @@
 import React from 'react'
-import Icon from '../icon/icon';
-import Link from 'next/link';
-import setImageParameters from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import Icon from '../icon/icon'
+import Link from 'next/link'
+import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtractSmall = ({
   slug = '',
   color = '',
   companyName = '',
-  title= '',
+  title = '',
   subtitle = '',
   image = '',
-  children }) => {
-
-  const childrenArray = React.Children.toArray(children);
-  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+  children,
+}) => {
+  const childrenArray = React.Children.toArray(children)
+  const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
 
   return (
     <div className="case-extract-small">
       <Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
-        <a className="">
-          <div className="case-extract-small-image"
-          style={{backgroundImage: `url(${setImageParameters(image.url, {w:700, fm: 'pjpg', q: 85})})`}}>
-            <div className="case-extract-small-overlay"></div>
+        <a>
+          <div
+            className="case-extract-small-image"
+            style={{ backgroundImage: `url(${setImageParameters(image.url, { w: 700, fm: 'pjpg', q: 85 })})` }}>
+            <div className="case-extract-small-overlay" />
           </div>
           <div className="case-extract-small-bg">
-            <div className="case-extract-small-bg-inner" style={{backgroundColor: color}}></div>
+            <div className="case-extract-small-bg-inner" style={{ backgroundColor: color }} />
           </div>
           <div className="case-extract-small-text">
             <span>{companyName}</span>
@@ -32,14 +34,23 @@ const CaseExtractSmall = ({
             <h4>{subtitle}</h4>
           </div>
           <div className="case-extract-small-button">
-            <Icon icon="arrowRightCircle"/>
+            <Icon icon="arrowRightCircle" />
           </div>
         </a>
       </Link>
-      { parallaxLayerFront }
+      {parallaxLayerFront}
     </div>
-  );
-};
+  )
+}
 
+CaseExtractSmall.propTypes = {
+  slug: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  companyName: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}
 
-export default CaseExtractSmall;
+export default CaseExtractSmall

@@ -1,8 +1,8 @@
 import React from 'react'
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
-import Parallax from '../parallax/parallax';
+import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
+import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
+import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
+import Parallax from '../parallax/parallax'
 
 const ServicesItem = ({data , index}) => (
   <li className="services-item clearfix">
@@ -22,7 +22,7 @@ const ServicesItem = ({data , index}) => (
       </Parallax>
     </div>
   </li>
-);
+)
 
 
 export default ServicesItem

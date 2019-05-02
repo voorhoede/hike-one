@@ -1,6 +1,6 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import SocialShare from './social-share';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import SocialShare from './social-share'
 
 storiesOf('Social share', module)
   .add('default', () => (
@@ -8,4 +8,4 @@ storiesOf('Social share', module)
       facebookLink={'#'}
       linkedinLink={'#'}
       twitterLink={'#'} />
-  ));
+  ))

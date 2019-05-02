@@ -1,17 +1,17 @@
 import React from 'react'
-import Link from 'next/link';
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle';
-import Triangle from '../shapes/triangle/triangle';
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
+import Link from 'next/link'
+import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
+import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
+import Triangle from '../shapes/triangle/triangle'
+import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
 
-const shapesList = ['diamond', 'doubleDiamond', 'triangle'];
+const shapesList = ['diamond', 'doubleDiamond', 'triangle']
 const shapes = {
   diamond: <TrailDiamond />,
   triangle: <TrailTriangle />,
   doubleDiamond: <TrailDoubleDiamond />
-};
+}
 
 const ServicesOverviewSmall = ({services, title='', classes=''}) => (
   <div className={`services-overview-small container clearfix ${classes}`}>
@@ -25,7 +25,7 @@ const ServicesOverviewSmall = ({services, title='', classes=''}) => (
     {
       Object.values(services)
         .map((item, index) => {
-          item.shape = shapesList[index];
+          item.shape = shapesList[index]
           return (
             <div key={index} className={`services-item-small`}>
               <div className={`services-item-small-shape shadow`}>{ shapes[item.shape] }</div>
@@ -57,11 +57,11 @@ const ServicesOverviewSmall = ({services, title='', classes=''}) => (
                 </ButtonSecondaryLink>
               </div>
             </div>
-          );
+          )
         })
     }
     </div>
   </div>
-);
+)
 
-export default ServicesOverviewSmall;
+export default ServicesOverviewSmall

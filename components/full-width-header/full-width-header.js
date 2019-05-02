@@ -14,16 +14,16 @@ const FullWidthHeader = ({ headerImage='', color='', title='', authorName='', up
   const style ={__html:
     `<style>
       .full-width-header-image {
-        background-image: url(${heroImageSmall});
+        background-image: url(${heroImageSmall})
       }
       @media only screen and (min-width: 768px) {
         .full-width-header-image {
-          background-image: url(${heroImageMedium});
+          background-image: url(${heroImageMedium})
         }
       }
       @media only screen and (min-width: 1170px) {
         .full-width-header-image {
-          background-image: url(${heroImageLarge});
+          background-image: url(${heroImageLarge})
         }
       }
     </style>`}

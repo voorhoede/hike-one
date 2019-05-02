@@ -32,6 +32,6 @@ const StatisticsBlock = ({color = '', alignment='', summary='', groups=[], link=
         }
       </div>
   </div>
-);
+)
 
-export default StatisticsBlock;
+export default StatisticsBlock

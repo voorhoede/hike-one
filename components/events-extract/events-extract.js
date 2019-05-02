@@ -1,8 +1,8 @@
 import React from 'react'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
-import ButtonCleanLink from '../buttons/button-clean/button-clean-link';
-import Location from '../icons/location';
-import Link from 'next/link';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
+import ButtonCleanLink from '../buttons/button-clean/button-clean-link'
+import Location from '../icons/location'
+import Link from 'next/link'
 
 const EventsExtract = ({ subtitle, events}) => (
 
@@ -33,7 +33,7 @@ const EventsExtract = ({ subtitle, events}) => (
             </ButtonSecondaryLink>
             <div className="events-extract-divider"></div>
           </div>
-        );
+        )
       })
     }
     <div className="events-extract-footer">
@@ -42,7 +42,7 @@ const EventsExtract = ({ subtitle, events}) => (
       </ButtonCleanLink>
     </div>
   </div>
-);
+)
 
 
-export default EventsExtract;
+export default EventsExtract

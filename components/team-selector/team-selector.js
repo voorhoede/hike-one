@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link';
+import Link from 'next/link'
 
 const TeamSelector = ({slug}) => (
   <div className="team-selector container shadow">
@@ -22,6 +22,6 @@ const TeamSelector = ({slug}) => (
       </a>
     </Link>
   </div>
-);
+)
 
-export default TeamSelector;
+export default TeamSelector

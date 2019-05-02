@@ -1,5 +1,5 @@
 import React from 'react'
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link'
 
 const VacancyOverview = ({overview, vacancies}) => (
   <div className="vacancy-overview container">
@@ -18,7 +18,7 @@ const VacancyOverview = ({overview, vacancies}) => (
               <span>{vacancy.location}</span>
             </a>
           </li>
-                );
+                )
             })
         }
     </ul>  
@@ -30,6 +30,6 @@ const VacancyOverview = ({overview, vacancies}) => (
       {overview.callToActionTitle}
     </ButtonPrimaryLink>
   </div>
-);
+)
 
-export default VacancyOverview;
+export default VacancyOverview

@@ -1,8 +1,8 @@
 import React from 'react'
-import Parallax from '../parallax/parallax';
-import DiamondBorder from '../shapes/diamond-border/diamond-border';
-import Triangle from '../shapes/triangle/triangle';
-import CircleBorder from '../shapes/circle-border/circle-border';
+import Parallax from '../parallax/parallax'
+import DiamondBorder from '../shapes/diamond-border/diamond-border'
+import Triangle from '../shapes/triangle/triangle'
+import CircleBorder from '../shapes/circle-border/circle-border'
 
 export const variation1Front = () => (
   <div className="home-intro-shapes">
@@ -17,7 +17,7 @@ export const variation1Front = () => (
       <Triangle classes="shape-triangle-6" color="blue" />
     </Parallax>
   </div>
-);
+)
 
 
 export const variation2Front = () => (
@@ -30,7 +30,7 @@ export const variation2Front = () => (
       <Triangle classes="shape-triangle-3" color="purple" />
     </Parallax>
   </div>
-);
+)
 
 
 
@@ -41,4 +41,4 @@ export const variation1Back = () => (
       <DiamondBorder classes="shape-diamond-1" color="yellow"/>
     </Parallax>
   </div>
-);
+)

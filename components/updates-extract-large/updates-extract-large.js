@@ -1,6 +1,6 @@
 import React from 'react'
-import UpdateExtractLarge from "../update-extract-large/update-extract-large";
-import MustRead from "../must-read/must-read";
+import UpdateExtractLarge from "../update-extract-large/update-extract-large"
+import MustRead from "../must-read/must-read"
 
 const UpdatesExtractLarge = ({highlights, mustRead, index}) => {
   return (
@@ -22,7 +22,7 @@ const UpdatesExtractLarge = ({highlights, mustRead, index}) => {
       </div>
       <MustRead mustRead={mustRead} />
     </div>
-  );
-};
+  )
+}
 
-export default UpdatesExtractLarge;
+export default UpdatesExtractLarge

@@ -8,6 +8,6 @@ const OfficeOverview = ({classes = '', header = '', children}) => (
       { children }
     </div>
   </div>
-);
+)
 
-export default OfficeOverview;
+export default OfficeOverview

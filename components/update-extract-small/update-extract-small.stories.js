@@ -1,8 +1,8 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text} from '@storybook/addon-knobs';
-import UpdateExtractSmall from './update-extract-small';
-import MockImageData from '../../data/current/home.json';
+import React from 'react'
+import { storiesOf } from '@storybook/react'
+import { withKnobs, text} from '@storybook/addon-knobs'
+import UpdateExtractSmall from './update-extract-small'
+import MockImageData from '../../data/current/home.json'
 
 storiesOf('Update extract', module)
   .addDecorator(withKnobs)
@@ -14,4 +14,4 @@ storiesOf('Update extract', module)
       name={text('Name', 'Nick Hoogendoorn')} 
       color={text('Color', '#E45052')}>
     </UpdateExtractSmall>
-  ));
+  ))

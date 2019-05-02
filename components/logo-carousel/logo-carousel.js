@@ -1,23 +1,23 @@
-import React from 'react';
-import {TweenLite, TimelineLite, TimelineMax}  from 'gsap';
+import React from 'react'
+import {TweenLite, TimelineLite, TimelineMax}  from 'gsap'
 
 class LogoCarousel extends React.Component {
   constructor(props) {
-    super();
-    this.animationSpeed = props.animationSpeed;
-    this.animate = this.animate.bind(this);
+    super()
+    this.animationSpeed = props.animationSpeed
+    this.animate = this.animate.bind(this)
   }
 
   componentDidMount() {
-    this.animate();
+    this.animate()
   }
 
   animate() {
-    const sliderContentWidth = this.sliderContent.getBoundingClientRect().width;
-    const carouselAnimation = new TimelineMax({repeat:-1});
+    const sliderContentWidth = this.sliderContent.getBoundingClientRect().width
+    const carouselAnimation = new TimelineMax({repeat:-1})
 
     carouselAnimation.add(TweenLite.to(this.slider, 1, {ease:Linear.easeNone, left:-sliderContentWidth}))
-             .duration(this.animationSpeed);
+             .duration(this.animationSpeed)
   }
 
   render() {
@@ -46,9 +46,9 @@ class LogoCarousel extends React.Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 
 }
 
-export default LogoCarousel;
+export default LogoCarousel

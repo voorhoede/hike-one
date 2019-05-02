@@ -1,3 +1,3 @@
 module.exports = {
-	distDir: 'build/next'
-};
+  distDir: 'build/next'
+}

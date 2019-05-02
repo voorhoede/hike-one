@@ -8,8 +8,8 @@ import FullWidthImageSmall from './full-width-image-small';
 const item = Data.components.find(item => item.itemType === 'full_width_image')
 
 storiesOf('Full width image small', module)
-	.addDecorator(withKnobs)
-	.add('default', () => (
-			<FullWidthImageSmall
-				image={item.image.url} />
-	));
+  .addDecorator(withKnobs)
+  .add('default', () => (
+      <FullWidthImageSmall
+        image={item.image.url} />
+  ));

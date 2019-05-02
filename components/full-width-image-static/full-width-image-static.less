@@ -1,27 +1,27 @@
 @import (reference) '../../styles/variables';
 
 .full-width-image-static {
-	display: block;
-	height: 214px;
+  display: block;
+  height: 214px;
     position: relative;
-	overflow: hidden;
+  overflow: hidden;
     margin: @spacing-large auto;
-	background-size: cover;
-	background-position: center;
+  background-size: cover;
+  background-position: center;
 
-	@media @screen-small {
-		height: 300px;
-	}
+  @media @screen-small {
+    height: 300px;
+  }
 
     @media @screen-medium {
-		height: 400px;
-	}
+    height: 400px;
+  }
 
     @media @screen-large {
         height: 610px;
         margin: @spacing-large*2 auto;
         max-width: @max-width-image;
-	}
+  }
 }
 
 .full-width-image-static-text {

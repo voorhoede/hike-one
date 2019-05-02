@@ -9,8 +9,8 @@ class CookieBar extends Component {
 
     this.state = {
       accepted: false,
-	}
-	Router.onRouteChangeStart = () => this.setCookie()
+  }
+  Router.onRouteChangeStart = () => this.setCookie()
   }
 
   setCookie = () => {

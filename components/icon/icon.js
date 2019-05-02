@@ -18,27 +18,27 @@ import Triangle from '../icons/triangle'
 import Spinner from '../icons/spinner'
 
 const Icon = ({ icon='arrowDown', classes='' }) => {
-	const icons = {
-		arrowDown: <ArrowDown />,
-		arrowDownCircle: <ArrowDownCircle />,
-		arrowLeft: <ArrowLeft/>,
-		arrowRightCircle: <ArrowRightCircle />,
-		arrowRight: <ArrowRight/>,
-		arrowUp: <ArrowUp/>,
-		dribble: <Dribble/>,
-		faceBook: <FaceBook/>,
-		instagram: <Instagram/>,
-		linkedin: <Linkedin/>,
-		linkedinNoCircle: <LinkedinNoCircle/>,
-		location: <Location/>,
-		medium: <Medium/>,
-		twitter: <Twitter/>,
-		twitterCircle: <TwitterCircle/>,
-		triangle: <Triangle />,
-		spinner: <Spinner />,
-	}
+  const icons = {
+    arrowDown: <ArrowDown />,
+    arrowDownCircle: <ArrowDownCircle />,
+    arrowLeft: <ArrowLeft/>,
+    arrowRightCircle: <ArrowRightCircle />,
+    arrowRight: <ArrowRight/>,
+    arrowUp: <ArrowUp/>,
+    dribble: <Dribble/>,
+    faceBook: <FaceBook/>,
+    instagram: <Instagram/>,
+    linkedin: <Linkedin/>,
+    linkedinNoCircle: <LinkedinNoCircle/>,
+    location: <Location/>,
+    medium: <Medium/>,
+    twitter: <Twitter/>,
+    twitterCircle: <TwitterCircle/>,
+    triangle: <Triangle />,
+    spinner: <Spinner />,
+  }
 
-	return (<span className={classes}>{icons[icon]}</span>)
+  return (<span className={classes}>{icons[icon]}</span>)
 }
 
 export default Icon

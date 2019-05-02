@@ -6,20 +6,20 @@ const textColorClass = titleWhite ? 'title-white' : ''
 const containerClass = fullWidth ? 'container' : 'container-inner'
 const bgClass = bgColor ? 'call-to-action-bg-color' : ''
 
-	return (
-		<div className={`call-to-action ${containerClass} ${bgClass}`} style={{ backgroundColor: bgColor }}>
-			{title &&
-				<p className={`call-to-action-title ${textColorClass}`}>
-					{title}
-				</p>
-			}
-			<Link href={url}>
-				<a className="call-to-action-button btn-primary btn-large content" target={isExternalLink ? '_blank' : ''}>
-					{buttonText}
-				</a>
-			</Link>
-		</div>
-	)
+  return (
+    <div className={`call-to-action ${containerClass} ${bgClass}`} style={{ backgroundColor: bgColor }}>
+      {title &&
+        <p className={`call-to-action-title ${textColorClass}`}>
+          {title}
+        </p>
+      }
+      <Link href={url}>
+        <a className="call-to-action-button btn-primary btn-large content" target={isExternalLink ? '_blank' : ''}>
+          {buttonText}
+        </a>
+      </Link>
+    </div>
+  )
 }
 
 export default CallToAction

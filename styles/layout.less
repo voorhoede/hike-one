@@ -1,108 +1,108 @@
 @import (reference) 'variables';
 
 html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: @font-main-fallback;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: @font-main-fallback;
 
-	.fonts-loaded {
-		font-family: @font-main;
-	}
+  .fonts-loaded {
+    font-family: @font-main;
+  }
 }
 
 body.disable-scroll {
-	overflow: hidden;
-	max-height: 100vh;
+  overflow: hidden;
+  max-height: 100vh;
 
-	@media @screen-medium {
-		overflow: auto;
-		max-height: none;
-	}
+  @media @screen-medium {
+    overflow: auto;
+    max-height: none;
+  }
 }
 
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .container {
-	display: block;
-	width: 100%;
-	padding: 0 @spacing-default*1.5;
-	margin: 0 0 @container-margin-bottom-s;
+  display: block;
+  width: 100%;
+  padding: 0 @spacing-default*1.5;
+  margin: 0 0 @container-margin-bottom-s;
 
-	@media @screen-small {
-		max-width: @container-max-width;
-		padding: 0 @spacing-small;
-		margin: 0 auto @container-margin-bottom-l;
-	}
+  @media @screen-small {
+    max-width: @container-max-width;
+    padding: 0 @spacing-small;
+    margin: 0 auto @container-margin-bottom-l;
+  }
 }
 
 .container-inner {
-	width: 100%;
-	margin: 0 auto;
-	@media @screen-small {
-		max-width: @container-inner-max-width;
-	}
+  width: 100%;
+  margin: 0 auto;
+  @media @screen-small {
+    max-width: @container-inner-max-width;
+  }
 }
 
 .container.container-inner {
     margin: @spacing-small 0;
 
     @media @screen-small {
-		margin: 0 auto @spacing-container;
-	}
+    margin: 0 auto @spacing-container;
+  }
 }
 
 .main {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 // makes content (text, buttons, etc) to always be above the front parallax layer
 .content {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .article {
-	position: relative;
-	z-index:1;
-	max-width: none;
-	background: @white;
-	margin-top: -100px; // gives header a white background
-	padding-top: 100px; // gives header a white background
-	padding-bottom: 1px; // fix  collapsed margin of last child
+  position: relative;
+  z-index:1;
+  max-width: none;
+  background: @white;
+  margin-top: -100px; // gives header a white background
+  padding-top: 100px; // gives header a white background
+  padding-bottom: 1px; // fix  collapsed margin of last child
 }
 
 // position content below page header large
 .page-scrolling-content {
-	margin-top: 100vh; // height of header image
-	position: relative;
-	background: @white;
+  margin-top: 100vh; // height of header image
+  position: relative;
+  background: @white;
 }
 
 .page-scrolling-content:not(.has-notification-bar) {
-	padding-top: @spacing-default*5;
+  padding-top: @spacing-default*5;
 
-	@media @screen-medium {
-		padding-top: @spacing-default*14;
-	}
+  @media @screen-medium {
+    padding-top: @spacing-default*14;
+  }
 }
 
 .page-scrolling-content-small {
-	margin-top: 65vh;
-	padding-top: @spacing-default*5;
-	position: relative;
-	background: @white;
+  margin-top: 65vh;
+  padding-top: @spacing-default*5;
+  position: relative;
+  background: @white;
 
-	@media @screen-small {
-		margin-top: 50vh;
-	}
+  @media @screen-small {
+    margin-top: 50vh;
+  }
 
-	@media @screen-medium {
-		padding-top: @spacing-medium*3;
-	}
+  @media @screen-medium {
+    padding-top: @spacing-medium*3;
+  }
 }

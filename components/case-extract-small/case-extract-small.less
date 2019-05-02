@@ -2,177 +2,177 @@
 @import (reference) '../../styles/shadows';
 
 .case-extract-small-image {
-	background-size: cover;
-	height: 282px;
-	background-position: 50% 50%;
+  background-size: cover;
+  height: 282px;
+  background-position: 50% 50%;
 
-	@media @screen-medium {
-		height: 300px;
-	}
-	@media @screen-medium-large {
-		height: 350px;
-	}
-	@media @screen-large {
-		height: 433px;
-	}
+  @media @screen-medium {
+    height: 300px;
+  }
+  @media @screen-medium-large {
+    height: 350px;
+  }
+  @media @screen-large {
+    height: 433px;
+  }
 }
 
 .case-extract-small-overlay {
-	width: 100%;
-	height: 100%;
-	background-color: @black;
-	opacity: 0;
-	transition: opacity @animation-speed;
+  width: 100%;
+  height: 100%;
+  background-color: @black;
+  opacity: 0;
+  transition: opacity @animation-speed;
 }
 
 .case-extract-small {
-	position: relative;
-	max-height: 321px;
-	margin: 0 0 @spacing-large 0;
+  position: relative;
+  max-height: 321px;
+  margin: 0 0 @spacing-large 0;
 
-	& > a {
-		text-decoration: none;
-	}
+  & > a {
+    text-decoration: none;
+  }
 
-	@media @screen-medium {
-		max-height: 340px;
-	}
+  @media @screen-medium {
+    max-height: 340px;
+  }
 
-	@media @screen-medium-large {
-		max-height: 390px;
-	}
+  @media @screen-medium-large {
+    max-height: 390px;
+  }
 
-	@media @screen-large {
-		padding-bottom: 0;
-		max-height: 473px;
-		margin: 0 0 @spacing-large*2 0;
+  @media @screen-large {
+    padding-bottom: 0;
+    max-height: 473px;
+    margin: 0 0 @spacing-large*2 0;
 
-		&:hover {
+    &:hover {
 
-			.case-extract-small-overlay {
-				opacity: .2;
-			}
+      .case-extract-small-overlay {
+        opacity: .2;
+      }
 
-			.case-extract-small-text > h4,
-			.case-extract-small-button {
-				opacity: 1;
-				display: block;
-				transition: opacity @animation-speed;
-				transition-delay: @animation-speed-fast;
-			}
+      .case-extract-small-text > h4,
+      .case-extract-small-button {
+        opacity: 1;
+        display: block;
+        transition: opacity @animation-speed;
+        transition-delay: @animation-speed-fast;
+      }
 
-			.case-extract-small-text {
-				height: auto;
-				transform: translateY(-160px);
-				transition: transform @animation-speed;
-			}
+      .case-extract-small-text {
+        height: auto;
+        transform: translateY(-160px);
+        transition: transform @animation-speed;
+      }
 
-			.case-extract-small-bg-inner {
-				transform: scaleY(2);
-				transition: transform @animation-speed;
-			}
-		}
-	}
+      .case-extract-small-bg-inner {
+        transform: scaleY(2);
+        transition: transform @animation-speed;
+      }
+    }
+  }
 }
 
 .case-extract-small-bg {
-	.shadow;
-	position: relative;
-	display: block;
-	height: 150px;
+  .shadow;
+  position: relative;
+  display: block;
+  height: 150px;
     width: auto;
     margin: -110px @spacing-default * 1.5 0 @spacing-default * 1.5;
 }
 
 .case-extract-small-bg-inner {
-	transform-origin: left bottom;
-	transition: transform @animation-speed;
-	width: 100%;
-	height: 100%;
+  transform-origin: left bottom;
+  transition: transform @animation-speed;
+  width: 100%;
+  height: 100%;
 }
 
 .case-extract-small-text {
-	position: relative;
-	padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
-	margin: -150px @spacing-default*1.5 0 @spacing-default*1.5;
-	color: @white;
-	text-decoration: none;
-	transform-origin: left bottom;
-	transition: transform @animation-speed;
+  position: relative;
+  padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
+  margin: -150px @spacing-default*1.5 0 @spacing-default*1.5;
+  color: @white;
+  text-decoration: none;
+  transform-origin: left bottom;
+  transition: transform @animation-speed;
 
-	h3 {
-		font-size: @heading-s;
-		line-height: @line-height-subtitle-m;
-		font-weight: @font-weight-bold;
-		margin-bottom:  @spacing-default;
-	}
+  h3 {
+    font-size: @heading-s;
+    line-height: @line-height-subtitle-m;
+    font-weight: @font-weight-bold;
+    margin-bottom:  @spacing-default;
+  }
 
-	h4 {
-		opacity: 0;
-		transition: opacity @animation-speed-fast;
-		display: block;
-		line-height: @line-height-body-s;
-		font-size: @body-text-s;
-		margin-bottom: @spacing-medium;
-		font-weight: @font-weight-normal;
-	}
+  h4 {
+    opacity: 0;
+    transition: opacity @animation-speed-fast;
+    display: block;
+    line-height: @line-height-body-s;
+    font-size: @body-text-s;
+    margin-bottom: @spacing-medium;
+    font-weight: @font-weight-normal;
+  }
 
-	span {
-		display: block;
-		margin-bottom: @spacing-default/2;
-		font-style: italic;
-		font-weight: @font-weight-normal;
-		font-size:  @body-text-s;
-		line-height: @line-height-body-s;
-		opacity: 0.8;
-		text-decoration: none;
-	}
+  span {
+    display: block;
+    margin-bottom: @spacing-default/2;
+    font-style: italic;
+    font-weight: @font-weight-normal;
+    font-size:  @body-text-s;
+    line-height: @line-height-body-s;
+    opacity: 0.8;
+    text-decoration: none;
+  }
 
-	@media @screen-medium {
-		h3 {
-			line-height: @line-height-title-s;
-			font-size: @title-large-s;
-		}
-		h4 {
-			line-height: @line-height-body-m;
-			font-size: @body-text-m;
-		}
-		span {
-			line-height: @line-height-body-m;
-			font-size: @body-text-m;
-		}
-	}
+  @media @screen-medium {
+    h3 {
+      line-height: @line-height-title-s;
+      font-size: @title-large-s;
+    }
+    h4 {
+      line-height: @line-height-body-m;
+      font-size: @body-text-m;
+    }
+    span {
+      line-height: @line-height-body-m;
+      font-size: @body-text-m;
+    }
+  }
 
-	@media @screen-large {
-		h4 {
-			line-height: @line-height-body-l;
-			font-size: @body-text-l;
-		}
-		span {
-			line-height: @line-height-body-l;
-			font-size: @body-text-l;
-		}
-	}
+  @media @screen-large {
+    h4 {
+      line-height: @line-height-body-l;
+      font-size: @body-text-l;
+    }
+    span {
+      line-height: @line-height-body-l;
+      font-size: @body-text-l;
+    }
+  }
 }
 
 .case-extract-small-button {
-	display: block;
-	opacity: 0;
-	transition: opacity @animation-speed;
-	margin: 0 @spacing-small @spacing-small auto;
-	width: 55px;
-	height: 55px;
+  display: block;
+  opacity: 0;
+  transition: opacity @animation-speed;
+  margin: 0 @spacing-small @spacing-small auto;
+  width: 55px;
+  height: 55px;
     position: absolute;
     bottom: 0;
-	right: 15px;
+  right: 15px;
 
-	svg {
-		margin-top: 0;
-		width: 55px;
-		height: 55px;
+  svg {
+    margin-top: 0;
+    width: 55px;
+    height: 55px;
 
-		path {
-			fill: @white;
-		}
-	}
+    path {
+      fill: @white;
+    }
+  }
 }

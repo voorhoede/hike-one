@@ -2,80 +2,80 @@
 
 
 .image-feed-image {
-	height: 135px;
-	overflow: hidden;
+  height: 135px;
+  overflow: hidden;
 
-	@media @screen-small {
-		height: 251px;
-	}
+  @media @screen-small {
+    height: 251px;
+  }
 
-	& > img {
-		width: 100%;
-		height: 135px;
-		object-fit: cover;
+  & > img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
 
-		@media @screen-small {
-			float: left;
-			height: 251px;
-		}
-	}
+    @media @screen-small {
+      float: left;
+      height: 251px;
+    }
+  }
 }
 
 .image-feed-icon {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 
-	.icon {
-		position: absolute;
-		bottom: 15px;
-		right: 15px;
+  .icon {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
 
-		svg {
-			height: 28px;
-			width: 28px;
-		}
+    svg {
+      height: 28px;
+      width: 28px;
+    }
 
-		path {
-			fill: @white;
-		}
-	}
+    path {
+      fill: @white;
+    }
+  }
 
-	@media @screen-large {
-		.icon {
-			bottom: @spacing-small;
-			right: @spacing-small;
-		}
-	}
+  @media @screen-large {
+    .icon {
+      bottom: @spacing-small;
+      right: @spacing-small;
+    }
+  }
 }
 
 .image-feed-container {
-	float: left;
-	clear: both;
-	width: 100%;
-	height: 135px;
-	margin-bottom: @spacing-default;
+  float: left;
+  clear: both;
+  width: 100%;
+  height: 135px;
+  margin-bottom: @spacing-default;
 
-	& > a {
-		display: block;
-		float: left;
-		width: 50%;
-		padding-right: @spacing-default;
+  & > a {
+    display: block;
+    float: left;
+    width: 50%;
+    padding-right: @spacing-default;
 
-		&:nth-child(2n) {
-			padding-right: 0;
-		}
-	}
+    &:nth-child(2n) {
+      padding-right: 0;
+    }
+  }
 
-	@media @screen-small {
-		height: 250px;
-	}
+  @media @screen-small {
+    height: 250px;
+  }
 
-	@media @screen-large {
-		width: 50%;
-		& > a {
-			&:nth-child(2n) {
-				padding-right: @spacing-default;
-			}
-		}
-	}
+  @media @screen-large {
+    width: 50%;
+    & > a {
+      &:nth-child(2n) {
+        padding-right: @spacing-default;
+      }
+    }
+  }
 }

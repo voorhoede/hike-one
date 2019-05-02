@@ -8,12 +8,12 @@ import Collage from './collage';
 const item = Data.components.find(item => item.itemType === 'collage');
 
 storiesOf('Collage', module)
-	.addDecorator(withKnobs)
-	.add('collage', () => (
-		<Collage
-			title={text('Title', item.title)}
-			text={text('Text', item.text)}
-			imageMedium={item.imageBig.url}
-			imageSmall={item.imageSmall.url} >
-		</Collage>
-	));
+  .addDecorator(withKnobs)
+  .add('collage', () => (
+    <Collage
+      title={text('Title', item.title)}
+      text={text('Text', item.text)}
+      imageMedium={item.imageBig.url}
+      imageSmall={item.imageSmall.url} >
+    </Collage>
+  ));

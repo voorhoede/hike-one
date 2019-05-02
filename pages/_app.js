@@ -4,7 +4,7 @@ import { CookieBar } from '../components'
 import cookie from '../components/_helpers/cookie'
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     const { req } = ctx
     let pageProps = {}
 
@@ -19,7 +19,7 @@ export default class MyApp extends App {
     return { pageProps, acceptedCookies, cookieBar }
   }
 
-  render () {
+  render() {
     const { Component, pageProps, acceptedCookies, cookieBar } = this.props
 
     return (

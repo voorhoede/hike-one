@@ -1,30 +1,30 @@
 import React from 'react'
-import getDateFormat from '../_helpers/getDateFormat';
-import setImageParams from '../_helpers/setImageParameters';
-import ArrowRightExternalLink from '../icons/arrow-right-external-link';
+import getDateFormat from '../_helpers/getDateFormat'
+import setImageParams from '../_helpers/setImageParameters'
+import ArrowRightExternalLink from '../icons/arrow-right-external-link'
 import Authors from '../authors/authors'
 
 const UpdateExtractLarge = ({index, title='', date='', image='', color='', target='', category='update', authors=[], external=false}) => {
-  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
 
   const style ={__html:
     `<style>
       .update-extract-large-image-${index} {
-        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}");
+        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h:200 })}")
       }
 
       @media only screen and (min-width: 768px) {
         .update-extract-large-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 600, h:500 })}");
+          background-image: url("${setImageParams(image, { ...imageParameters, w: 600, h:500 })}")
         }
       }
 
       @media only screen and (min-width: 1024px) {
         .update-extract-large-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 700, h:500 })}");
+          background-image: url("${setImageParams(image, { ...imageParameters, w: 700, h:500 })}")
         }
       }
-    </style>`};
+    </style>`}
 
   return (
     <a href={target} target={external ? '_blank' : ''} className="update-extract-large">
@@ -41,7 +41,7 @@ const UpdateExtractLarge = ({index, title='', date='', image='', color='', targe
         </span>
       </div>
     </a>
-  );
-};
+  )
+}
 
 export default UpdateExtractLarge

@@ -1,5 +1,6 @@
 import React from 'react'
-import "isomorphic-fetch"
+import PropTypes from 'prop-types'
+import 'isomorphic-fetch'
 
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
@@ -24,11 +25,11 @@ import {
 } from '../components'
 
 const Update = ({ Data, fontsLoaded, fullUrl }) => (
-  <Layout title={`Hike One - ${Data.title}`}
+  <Layout
+    title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
     seo={Data.seo}
-    url={fullUrl}
-  >
+    url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
 
@@ -43,7 +44,13 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
         {Data.content.map((component, index) => {
           switch (component.itemType) {
             case 'rich_body_text':
-              return <RichBodyText key={index} content={component.content} textCenter={component.centered} />
+              return (
+                <RichBodyText
+                  key={index}
+                  content={component.content}
+                  textCenter={component.centered}
+                />
+              )
 
             case 'body_quote':
               return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
@@ -51,7 +58,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
             case '50_50':
               return (
                 <FiftyFifty
-                  classes='fifty-fifty-update'
+                  classes="fifty-fifty-update"
                   key={index}
                   contentLeft={component.textLeft}
                   title={component.title}
@@ -64,7 +71,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
             case '50_50_text_right':
               return (
                 <FiftyFifty
-                  classes='fifty-fifty-update'
+                  classes="fifty-fifty-update"
                   key={index}
                   title={component.title}
                   text={component.text}
@@ -75,7 +82,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
             case '50_50_text_left':
               return (
                 <FiftyFifty
-                  classes='fifty-fifty-update'
+                  classes="fifty-fifty-update"
                   key={index}
                   contentLeft="true"
                   title={component.title}
@@ -85,22 +92,20 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
               )
 
             case 'inline_image':
-              const image = component.image ? component.image.url : undefined
               return (
                 <InlineMedia
                   key={index}
-                  image={image}
+                  image={component.image ? component.image.url : undefined}
                   caption={component.caption}
-                />
+                 />
               )
 
             case 'inline_image_large':
-              const imageLarge = component.image ? component.image.url : undefined
               return (
                 <InlineMedia
                   key={index}
                   large={true}
-                  image={imageLarge}
+                  image={component.image ? component.image.url : undefined}
                   caption={component.caption}
                 />
               )
@@ -144,9 +149,10 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
         />
 
         <div className="authors">
-          {Data.authors.map(author => {
+          {Data.authors.map((author, index) => {
             return (
               <Author
+                key={index}
                 name={author.name}
                 role={author.role}
                 photoUrl={author.photo.url}
@@ -193,7 +199,13 @@ Update.getInitialProps = async ({ req, res, query, asPath }) => {
   const data = await getData(baseUrl, `updates/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-  return { Data: data, fontsLoaded, fullUrl}
+  return { Data: data, fontsLoaded, fullUrl }
+}
+
+Update.propTypes = {
+  Data: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default Update

@@ -1,5 +1,6 @@
 import React from 'react'
-import "isomorphic-fetch"
+import PropTypes from 'prop-types'
+import 'isomorphic-fetch'
 
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
@@ -38,25 +39,20 @@ import {
 // object with parallax shape layer variations for every type of component
 // combined with the componentCounter object a specific variantion is chosen for each component
 const parallaxLayersMap = {
-  '40_60_text_right': [
-    [<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1"/>]
+  '40_60_text_right': [[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1" />]],
+  '40_60_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
+  '50_50_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
+  '50_50_text_right': [[<FiftyFiftyShapes.TextRight1Back position="back" key="1" />]],
+  image_combo: [
+    [<ImageComboShapes.WithText1Front position="front" key="1" />],
+    [<ImageComboShapes.WithoutText1Front position="front" key="1" />],
   ],
-  '40_60_text_left': [
-    [<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
+  collage: [
+    [
+      <CollageShapes.variation1Front position="front" key="1" />,
+      <CollageShapes.variation1Back position="back" key="2" />,
+    ],
   ],
-  '50_50_text_left': [
-    [<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1"/>]
-  ],
-  '50_50_text_right': [
-    [<FiftyFiftyShapes.TextRight1Back position="back" key="1"/>]
-  ],
-  'image_combo':[
-    [<ImageComboShapes.WithText1Front position="front" key="1"/>],
-    [<ImageComboShapes.WithoutText1Front position="front" key="1"/>]
-  ],
-  'collage': [
-    [<CollageShapes.variation1Front position="front" key="1" />, <CollageShapes.variation1Back position="back" key="2"/>]
-  ]
 }
 
 // object that counts how many times a component is used on this page
@@ -69,14 +65,13 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
     seo={Data.seo}
-    url={fullUrl}
-  >
-  <main className="main js-main">
-    <MenuBar color="white" />
+    url={fullUrl}>
+    <main className="main js-main">
+      <MenuBar color="white" />
       <article className="article">
         <PageHeader
           alignToBottom={true}
-          onClickScrollButton={() => scrollToElement(scrollToTargetClass) }
+          onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
           video={Data.header.video}
           title={Data.header.title}
           subtitle={Data.header.subtitle}
@@ -85,10 +80,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
         />
 
         <div className={`${scrollToTargetClass} page-scrolling-content`}>
-          <TextCenter
-            title={Data.introTitle}
-            text={Data.introText}
-          >
+          <TextCenter title={Data.introTitle} text={Data.introText}>
             <TextCenterShapes.variation1Back position="back" />
           </TextCenter>
 
@@ -120,9 +112,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     title={component.title}
                     text={component.text}
                     imageLarge="true"
-                    image={component.image}
-                  >
-                    { parallaxLayers }
+                    image={component.image}>
+                    {parallaxLayers}
                   </FiftyFifty>
                 )
 
@@ -134,9 +125,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     contentLeft="true"
                     text={component.text}
                     imageLarge="true"
-                    image={component.image}
-                  >
-                    { parallaxLayers }
+                    image={component.image}>
+                    {parallaxLayers}
                   </FiftyFifty>
                 )
 
@@ -148,8 +138,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     title={component.title}
                     text={component.text}
                     image={component.image}
-                    video={component.video}
-                  >
+                    video={component.video}>
                     {parallaxLayers}
                   </FiftyFifty>
                 )
@@ -161,9 +150,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     title={component.title}
                     text={component.text}
                     image={component.image}
-                    video={component.video}
-                  >
-                    { parallaxLayers }
+                    video={component.video}>
+                    {parallaxLayers}
                   </FiftyFifty>
                 )
 
@@ -175,38 +163,33 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     title={component.title}
                     text={component.text}
                     image={component.image}
-                    video={component.video}
-                  >
-                    { parallaxLayers }
+                    video={component.video}>
+                    {parallaxLayers}
                   </FiftyFifty>
                 )
 
               case 'image_combo':
-                const hasTextCard = !!(component.textTitle && component.textTitle.length > 1)
-
                 return (
-                  <ImageCombo
-                    key={index}
-                    classes={hasTextCard ? 'image-combo-text': ''}
-                  >
-                    {hasTextCard && <TextCard title={component.textTitle} text={component.textContent} />}
+                  <ImageCombo key={index} classes={!(component.textTitle && component.textTitle.length > 1) ? 'image-combo-text' : ''}>
+                    {!(component.textTitle && component.textTitle.length > 1) && (
+                      <TextCard title={component.textTitle} text={component.textContent} />
+                    )}
 
-                    <FullWidthImage
-                      image={component.image && component.image.url}
-                      index={index}
-                    />
+                    <FullWidthImage image={component.image && component.image.url} index={index} />
 
                     {component.quoteAuthorTitle && (
                       <QuoteBlock
-                        color={component.quoteColor.color }
-                        alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'}
+                        color={component.quoteColor.color}
+                        alignment={
+                          component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'
+                        }
                         quote={component.quote}
                         citeName={component.quoteAuthorName}
                         citeTitle={component.quoteAuthorTitle}
                         citeImage={component.quoteAuthorImage.url}
                       />
                     )}
-                    { parallaxLayers }
+                    {parallaxLayers}
                   </ImageCombo>
                 )
 
@@ -217,9 +200,8 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     title={component.title}
                     text={component.text}
                     imageMedium={component.imageBig.url}
-                    imageSmall={component.imageSmall.url}
-                  >
-                    { parallaxLayers }
+                    imageSmall={component.imageSmall.url}>
+                    {parallaxLayers}
                   </Collage>
                 )
 
@@ -261,24 +243,20 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                 )
 
               case 'inline_image':
-                const image = component.image ? component.image.url : undefined
-
                 return (
                   <InlineMedia
                     key={index}
-                    image={image}
+                    image={component.image ? component.image.url : undefined}
                     caption={component.caption}
                   />
                 )
 
               case 'inline_image_large':
-                const imageLarge = component.image ? component.image.url : undefined
-
                 return (
                   <InlineMedia
                     key={index}
                     large={true}
-                    image={imageLarge}
+                    image={component.image ? component.image.url : undefined}
                     caption={component.caption}
                   />
                 )
@@ -349,7 +327,6 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
   </Layout>
 )
 
-
 Case.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fullUrl = `${baseUrl}${asPath}`
@@ -357,6 +334,12 @@ Case.getInitialProps = async ({ req, res, query, asPath }) => {
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
   return { Data: data, fontsLoaded, fullUrl }
+}
+
+Case.propTypes = {
+  Data: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default Case

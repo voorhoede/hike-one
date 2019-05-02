@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
 
 import getData from '../lib/get-data'
@@ -28,11 +29,11 @@ import {
 } from '../components'
 
 const Topic = ({ Data, fontsLoaded, fullUrl }) => (
-  <Layout title={`Hike One - ${Data.title}`}
+  <Layout
+    title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
     seo={Data.seo}
-    url={fullUrl}
-  >
+    url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
 
@@ -45,10 +46,16 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
           titleOnly={true}
         />
 
-        {Data.content.map(( component, index ) => {
+        {Data.content.map((component, index) => {
           switch (component.itemType) {
             case 'rich_body_text':
-              return <RichBodyText key={index} content={component.content} textCenter={component.centered} />
+              return (
+                <RichBodyText
+                  key={index}
+                  content={component.content}
+                  textCenter={component.centered}
+                />
+              )
 
             case 'body_quote':
               return <BodyQuote key={index} quote={component.quote} />
@@ -87,22 +94,20 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
               )
 
             case 'inline_image':
-              const image = component.image ? component.image.url : undefined
               return (
                 <InlineMedia
                   key={index}
-                  image={image}
+                  image={component.image ? component.image.url : undefined}
                   caption={component.caption}
                 />
               )
 
             case 'inline_image_large':
-              const imageLarge = component.image ? component.image.url : undefined
               return (
                 <InlineMedia
                   key={index}
                   large={true}
-                  image={imageLarge}
+                  image={component.image ? component.image.url : undefined}
                   caption={component.caption}
                 />
               )
@@ -135,16 +140,18 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
               )
 
             case 'subscription_form':
-              return component.subscriptionForm && (
-                <MailchimpForm
-                  key={index}
-                  title={component.subscriptionForm.title}
-                  listId={component.subscriptionForm.listId}
-                  description={component.subscriptionForm.description}
-                  inputFields={component.subscriptionForm.extraInputFields}
-                  buttonLabel={component.subscriptionForm.button}
-                  hasShadow={component.subscriptionForm.hasShadow}
-                />
+              return (
+                component.subscriptionForm && (
+                  <MailchimpForm
+                    key={index}
+                    title={component.subscriptionForm.title}
+                    listId={component.subscriptionForm.listId}
+                    description={component.subscriptionForm.description}
+                    inputFields={component.subscriptionForm.extraInputFields}
+                    buttonLabel={component.subscriptionForm.button}
+                    hasShadow={component.subscriptionForm.hasShadow}
+                  />
+                )
               )
           }
         })}
@@ -160,8 +167,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
             title={Data.contact.title}
             button={Data.contact.button}
             link={Data.contact.externalLink}
-            target="_blank"
-          >
+            target="_blank">
             <ContactShapes.variation1Front position="front" />
           </Contact>
         )}
@@ -182,7 +188,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
           ))}
         </WorkOverview>
 
-        {Data.updateLinks.length > 0 &&
+        {Data.updateLinks.length > 0 && (
           <div>
             <TextCenter title={Data.updateLinksTitle} />
 
@@ -202,7 +208,8 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
                 />
               ))}
             </UpdateOverviewSmall>
-          </div>}
+          </div>
+        )}
       </article>
 
       <Footer
@@ -213,13 +220,19 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
   </Layout>
 )
 
-Topic.getInitialProps = async ({req, res, query, asPath}) => {
+Topic.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fullUrl = `${baseUrl}${asPath}`
   const data = await getData(baseUrl, `topics/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
   return { Data: data, fontsLoaded, fullUrl }
+}
+
+Topic.propTypes = {
+  Data: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default Topic

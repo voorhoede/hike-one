@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
 
@@ -13,15 +13,11 @@ import {
   PageHeader,
   TextCenter,
   TextCenterShapes,
-  VacancyCard
+  VacancyCard,
 } from '../components'
 
 const Contact = ({ Data, fontsLoaded, fullUrl }) => (
-  <Layout title="Hike One - Contact"
-    fontsLoaded={fontsLoaded}
-    seo={Data.seo}
-    url={fullUrl}>
-
+  <Layout title="Hike One - Contact" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
 
@@ -36,10 +32,7 @@ const Contact = ({ Data, fontsLoaded, fullUrl }) => (
         <div className={`page-scrolling-content-small`}>
           <ContactForm form={Data.contactForm} />
 
-          <TextCenter
-            classes={`text-center-font-large contact-text-center`}
-            text={Data.content}
-          >
+          <TextCenter classes={`text-center-font-large contact-text-center`} text={Data.content}>
             <TextCenterShapes.variation2Back position="back" />
           </TextCenter>
 
@@ -77,7 +70,13 @@ Contact.getInitialProps = async ({ req, res, asPath }) => {
   const data = await getData(baseUrl, 'contact', res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-  return {Data: data, fontsLoaded, fullUrl}
+  return { Data: data, fontsLoaded, fullUrl }
+}
+
+Contact.propTypes = {
+  Data: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default Contact

@@ -1,9 +1,9 @@
 import React from 'react'
-import Parallax from '../parallax/parallax';
-import RectangleBorder from '../shapes/rectangle-border/rectangle-border';
-import DiamondBorder from '../shapes/diamond-border/diamond-border';
-import CircleBorder from '../shapes/circle-border/circle-border';
-import Triangle from '../shapes/triangle/triangle';
+import Parallax from '../parallax/parallax'
+import RectangleBorder from '../shapes/rectangle-border/rectangle-border'
+import DiamondBorder from '../shapes/diamond-border/diamond-border'
+import CircleBorder from '../shapes/circle-border/circle-border'
+import Triangle from '../shapes/triangle/triangle'
 
 export const variation1Back = () => (
   <div className="text-center-shapes-1" >
@@ -11,7 +11,7 @@ export const variation1Back = () => (
       <RectangleBorder classes="shape-rectangle-1" color="purple"/>
     </Parallax>
   </div>
-);
+)
 
 export const variation2Back = () => (
   <div className="text-center-shapes-2">
@@ -21,7 +21,7 @@ export const variation2Back = () => (
       <CircleBorder  classes="shape-circle-2" color="purple" />
     </Parallax>
   </div>
-);
+)
 
 export const variation3Back = () => (
   <div className="text-center-shapes-3">
@@ -32,7 +32,7 @@ export const variation3Back = () => (
       <CircleBorder  classes="shape-circle-2" color="purple" />
     </Parallax>
   </div>
-);
+)
 
 
 export const variation2Front = () => (
@@ -41,7 +41,7 @@ export const variation2Front = () => (
       <Triangle classes="shape-triangle-1" color="red" />
     </Parallax>
   </div>
-);
+)
 
 
 export const variation3Front = () => (
@@ -50,7 +50,7 @@ export const variation3Front = () => (
       <Triangle classes="shape-triangle-1" color="red" />
     </Parallax>
   </div>
-);
+)
 
 export const variation4Front = () => (
   <div className="text-center-shapes-5">
@@ -62,4 +62,4 @@ export const variation4Front = () => (
       <Triangle classes="shape-triangle-5" color="red" />
     </Parallax>
   </div>
-);
+)

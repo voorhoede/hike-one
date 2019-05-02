@@ -1,4 +1,6 @@
-import "isomorphic-fetch"
+import React from 'react'
+import PropTypes from 'prop-types'
+import 'isomorphic-fetch'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
 
@@ -17,18 +19,14 @@ import {
   UpdateExtractSmall,
   UpdateOverviewSmall,
 } from '../components'
-import getData from "../lib/get-data";
+import getData from '../lib/get-data'
 
 const Home = ({ Data, fontsLoaded, fullUrl }) => {
   const scrollToTargetClass = 'js-scroll-to-target'
 
   return (
-    <Layout title="Hike One - Home"
-      fontsLoaded={fontsLoaded}
-      seo={Data.seo}
-      url={fullUrl}
-    >
-      <main className="main js-main" >
+    <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
+      <main className="main js-main">
         <MenuBar color="white" />
         <article className="article">
           <PageHeader
@@ -38,8 +36,7 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
             title={Data.header.title}
             subtitle={Data.header.subtitle}
             image={Data.header.backgroundImage.url}
-            showGradient={Data.header.displayGradient}
-          >
+            showGradient={Data.header.displayGradient}>
             <PageHeaderShapes.variation1Front position="front" />
             <PageHeaderShapes.variation1Back position="back" />
           </PageHeader>
@@ -97,10 +94,7 @@ const Home = ({ Data, fontsLoaded, fullUrl }) => {
               ))}
             </UpdateOverviewSmall>
 
-            <Contact
-              title={Data.contact.title}
-              button={Data.contact.button}
-            >
+            <Contact title={Data.contact.title} button={Data.contact.button}>
               <ContactShapes.variation1Front position="front" />
             </Contact>
           </div>
@@ -122,6 +116,12 @@ Home.getInitialProps = async ({ req, res, asPath }) => {
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
   return { Data: data, fontsLoaded, fullUrl }
+}
+
+Home.propTypes = {
+  Data: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default Home

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const WorkOverview = ({classes = '', header = '', children, moreButton=false}) => (
 	<div className={`work-overview container ${classes}
 					${moreButton ? 'work-overview-extra-spacing' : '' }`}>

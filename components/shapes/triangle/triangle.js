@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Triangle = ({color = '', classes = ''}) => (
 	<svg className={`${color} ${classes} shape-triangle`}
 		xmlns="http://www.w3.org/2000/svg" width="96" height="109" viewBox="0 0 96 109" >

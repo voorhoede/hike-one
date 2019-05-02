@@ -1,3 +1,4 @@
+import React from 'react'
 
 const StatisticsBlock = ({color = '', alignment='', summary='', groups=[], link=''}) => (
 	<div className={`text-block ${color} ${alignment}`}>

@@ -1,7 +1,8 @@
+import React, { Component } from 'react'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary'
 import Authors from '../authors/authors';
 
-class MustRead extends React.Component {
+class MustRead extends Component {
 	constructor(props) {
 		super(props);
         this.state = {isCollapsed: true};

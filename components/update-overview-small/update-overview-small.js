@@ -1,3 +1,4 @@
+import React from 'react'
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 
 const UpdateOverviewSmall = ({children}) => (

@@ -1,3 +1,4 @@
+import React from 'react'
 import Facebook   from '../icons/facebook-circle';
 import Twitter 	  from '../icons/twitter-circle';
 import LinkedIn   from '../icons/linkedin-circle';

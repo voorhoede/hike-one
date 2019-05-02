@@ -1,3 +1,4 @@
+import React from 'react'
 import UpdateExtractLarge from "../update-extract-large/update-extract-large";
 import MustRead from "../must-read/must-read";
 

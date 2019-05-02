@@ -1,3 +1,5 @@
+import React from 'react'
+
 const filter = ({filter, onFilter}) => {
 	const isFilterVisuallyActive = filter.every(item => item.isActive);
 

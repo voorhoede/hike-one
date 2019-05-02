@@ -1,3 +1,4 @@
+import React from 'react'
 import scrollToElement from '../_helpers/scrollToElement'
 
 import {

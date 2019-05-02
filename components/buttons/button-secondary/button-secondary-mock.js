@@ -1,3 +1,4 @@
+import React from 'react'
 import Icon from '../../icon/icon';
 
 const ButtonSecondaryMock = ({classes = '', children = '', icon = ''}) => (

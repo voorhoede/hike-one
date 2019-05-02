@@ -1,3 +1,4 @@
+import React from 'react'
 import getDateFormat from '../_helpers/getDateFormat';
 import setImageParams from '../_helpers/setImageParameters';
 import ArrowRightExternalLink from '../icons/arrow-right-external-link';

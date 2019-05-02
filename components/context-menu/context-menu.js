@@ -1,3 +1,5 @@
+import React from 'react'
+
 const ContactMenu = ({isOpen}) => (
 	<section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden' }`}>
 		<p className="context-menu-title">Are you looking for our logo?</p>

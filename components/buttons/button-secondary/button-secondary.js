@@ -1,3 +1,4 @@
+import React from 'react'
 import Icon from '../../icon/icon';
 
 const ButtonSecondary = ({classes = '', onClick = null, children = '', icon = '', disabled = false}) => (

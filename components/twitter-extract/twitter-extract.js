@@ -1,3 +1,4 @@
+import React from 'react'
 import Icon from '../icon/icon';
 
 const TwitterExtract = ({ twitterImage, subtitle, title, date, linkTwitterAccount, linkTwitterPost }) => (

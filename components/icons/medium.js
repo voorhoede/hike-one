@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Medium = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
 		<path d="M53.93,58.52l13.64,6.8a3.28,3.28,0,0,0,1.63.45A1.75,1.75,0,0,0,71,63.84V30.71Z"/>

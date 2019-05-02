@@ -1,3 +1,4 @@
+import React from 'react'
 import fields from './mailchimp.config'
 
 const MailchimpInput = ({ name, label, required, classes='' }) => (

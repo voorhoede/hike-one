@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link';
 import TrailDiamond from '../shapes/trail-diamond/trail-diamond';
 import TrailTriangle from '../shapes/trail-triangle/trail-triangle';

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Cube = ({shadow}) => (
 	<div className="shape">
 		<svg className="shape-cube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">

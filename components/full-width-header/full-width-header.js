@@ -1,3 +1,4 @@
+import React from 'react'
 import Icon from '../icon/icon'
 import Link from 'next/link'
 import getDateFormat from '../_helpers/getDateFormat'

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const OfficeOverview = ({classes = '', header = '', children}) => (
 	<div className={`office-overview container ${classes}`}>
 

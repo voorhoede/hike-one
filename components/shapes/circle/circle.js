@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Circle = ({shadow}) => (
 	<div className="shape">
 		<svg className="shape-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 400">

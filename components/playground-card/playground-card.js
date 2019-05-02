@@ -1,3 +1,4 @@
+import React from 'react'
 import setImageParams from '../_helpers/setImageParameters';
 import Icon from '../icon/icon';
 import Link from 'next/link';

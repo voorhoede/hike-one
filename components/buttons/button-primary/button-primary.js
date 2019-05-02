@@ -1,3 +1,4 @@
+import React from 'react'
 import Icon from '../../icon/icon';
 
 const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disabled = false }) => (

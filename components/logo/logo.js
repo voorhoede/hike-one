@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Logo = ({color = 'white'}) => (
 	<svg className={`logo ${color}`} height="22" xmlns="http://www.w3.org/2000/svg" viewBox="50 50.01 685.14 129.44">
 		<polygon fill="#FE595B" points="156.13,50.01 170.78,96.02 195.48,63.62 "/>

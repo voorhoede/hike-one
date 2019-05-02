@@ -1,3 +1,5 @@
+import React from 'react'
+
 const diamondBorder= ({color = '', classes = ''}) => (
 	<svg className={`${color} ${classes} shape-diamond-border`}
 		xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">

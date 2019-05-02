@@ -1,3 +1,5 @@
+import React from 'react'
+
 const bodyQuote = ({quote = '', quotee = ''}) => (
 	<blockquote className="body-quote">
 		"{quote}"

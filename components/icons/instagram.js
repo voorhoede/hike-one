@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Instagram = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
 		<ellipse cx="40" cy="41" rx="9.25" ry="9.27"/>

@@ -1,3 +1,4 @@
+import React from 'react'
 import setImageParams from '../_helpers/setImageParameters';
 
 const fullWidthImageSmall = ({image = '#', index = 0}) => {

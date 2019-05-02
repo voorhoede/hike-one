@@ -1,3 +1,4 @@
+import React from 'react'
 import { InlineVideo, InlineImage } from '../'
 
 const InlineMedia = ({ image=null, large=false, video=null, caption='' }) => (

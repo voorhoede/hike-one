@@ -1,3 +1,4 @@
+import React from 'react'
 import Parallax from '../parallax/parallax';
 import DiamondBorder from '../shapes/diamond-border/diamond-border';
 import CircleBorder from '../shapes/circle-border/circle-border';

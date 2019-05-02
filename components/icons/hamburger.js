@@ -1,3 +1,5 @@
+import React from 'react'
+
 const Hamburger = () => (
 	<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
 		<path d="M67,26H13a2,2,0,0,1,0-4H67a2,2,0,0,1,0,4Z"/>

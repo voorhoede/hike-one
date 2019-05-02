@@ -1,3 +1,5 @@
+import React from 'react'
+
 const ImageCombo = ({classes, children}) => {
 	const childrenArray = React.Children.toArray(children);
 	const childrenRest = childrenArray.filter(child => child.props.position !== 'front' || child.props.position !== 'back');

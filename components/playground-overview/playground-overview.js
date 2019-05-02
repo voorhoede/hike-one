@@ -1,3 +1,5 @@
+import React from 'react'
+
 const PlaygroundOverview = ({classes='', title='', children}) => (
 	<div className={`playground-overview container ${classes}`}>
 

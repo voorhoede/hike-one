@@ -1,3 +1,4 @@
+import React from 'react'
 import BlogExtract from '../blog-extract/blog-extract';
 import ImageFeed from '../image-feed/image-feed';
 import TwitterExtract from '../twitter-extract/twitter-extract';

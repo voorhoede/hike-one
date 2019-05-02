@@ -1,3 +1,4 @@
+import React from 'react'
 import Link from 'next/link'
 
 const CallToAction = ({ title='', url='', bgColor='', buttonText='', fullWidth=false, titleWhite=false, isExternalLink=false }) => {

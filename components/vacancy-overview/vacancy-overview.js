@@ -1,3 +1,4 @@
+import React from 'react'
 import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const VacancyOverview = ({overview, vacancies}) => (

@@ -1,3 +1,5 @@
+import React from 'react'
+
 const rectangleBorder= (color, classes) => (
 	<svg className={`${color} ${classes} shape-rectangle-border`}
 		xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">

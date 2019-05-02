@@ -1,3 +1,4 @@
+import React from 'react'
 import Collage from '../collage/collage';
 import FiftyFifty from '../50-50/50-50';
 import ImageCombo from '../image-combo/image-combo';

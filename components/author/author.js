@@ -1,3 +1,4 @@
+import React from 'react'
 import setImageParams from '../_helpers/setImageParameters';
 
 const Author = ({name='', role='', photoUrl='', summary=''}) => {

@@ -23,7 +23,7 @@ const StatisticsBlock = ({color = '', alignment='', summary='', groups=[], link=
             </div>
             { link &&
               <div className="statistics-call-to-action">
-                <a href={link.target} target="_blank" className="btn-secondary">
+                <a href={link.target} target="_blank" rel="noopener noreferrer" className="btn-secondary">
                   <span>{link.label}</span>
                 </a>
               </div>

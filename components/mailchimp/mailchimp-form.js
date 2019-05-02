@@ -12,7 +12,7 @@ const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLa
       name="mc-embedded-subscribe-form"
       className="form"
       target="_blank"
-    >
+      rel="noopener noreferrer">
       {inputFields.map((input, index) => (
         <MailchimpInput
           label={input.label}

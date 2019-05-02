@@ -44,7 +44,7 @@ const OfficeCard = ({
 
   return (
     <div className="office-card">
-      <a href={locationUrl} target="_blank">
+      <a href={locationUrl} target="_blank" rel="noopener noreferrer">
         <div className="office-card-image">
           <div className={`image office-image-${index}`}></div>
         </div>

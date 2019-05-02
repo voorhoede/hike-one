@@ -85,7 +85,7 @@ class Footer extends React.Component {
                   </li>
                 </ul>
               </div>
-              <a className="footer-join-link" href={callToActionUrl} target="_blank">
+              <a className="footer-join-link" href={callToActionUrl} target="_blank" rel="noopener noreferrer">
                 { callToActionLabel } <Icon icon="arrowRightCircle" />
               </a>
             </div>

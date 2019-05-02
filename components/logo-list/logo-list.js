@@ -9,7 +9,7 @@ const LogoList = ({ companies }) => {
       {companies.map((company, index) =>
         <li key={index}>
           {company.website ? (
-            <a href={company.website} target="_blank">
+            <a href={company.website} target="_blank" rel="noopener noreferrer">
               <img
                 src={`${setImageParams(company.logo.url, { ...imageParameters, 'max-w': 250} )}`}
                 alt={company.name}

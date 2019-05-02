@@ -1,10 +1,10 @@
 import React from 'react'
-import {TweenLite, TimelineLite, TimelineMax}  from 'gsap'
+import PropTypes from 'prop-types'
+import { TweenLite, TimelineMax } from 'gsap'
 
 class LogoCarousel extends React.Component {
   constructor(props) {
-    super()
-    this.animationSpeed = props.animationSpeed
+    super(props)
     this.animate = this.animate.bind(this)
   }
 
@@ -13,42 +13,49 @@ class LogoCarousel extends React.Component {
   }
 
   animate() {
+    const { animationSpeed } = this.props
     const sliderContentWidth = this.sliderContent.getBoundingClientRect().width
-    const carouselAnimation = new TimelineMax({repeat:-1})
+    const carouselAnimation = new TimelineMax({ repeat: -1 })
 
-    carouselAnimation.add(TweenLite.to(this.slider, 1, {ease:Linear.easeNone, left:-sliderContentWidth}))
-             .duration(this.animationSpeed)
+    carouselAnimation
+      .add(TweenLite.to(this.slider, 1, { left: -sliderContentWidth }))
+      .duration(animationSpeed)
   }
 
   render() {
-    return(
+    const { companies, title } = this.props
+
+    return (
       <div className="logo-carousel container clearfix">
-        <h2 className="content">{ this.props.title }</h2>
+        <h2 className="content">{title}</h2>
 
         <div className="marquee container-inner">
-          <div ref={node => this.slider = node} className="marquee-slider">
-            <ul ref={node => this.sliderContent = node} className="marquee-item list-no-style">
-              { this.props.companies.map((company, index) =>
+          <div ref={node => (this.slider = node)} className="marquee-slider">
+            <ul ref={node => (this.sliderContent = node)} className="marquee-item list-no-style">
+              {companies.map((company, index) => (
                 <li key={index}>
-                  <img
-                    src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
-                    alt={company.name} />
-                </li> )}
+                  <img src={`${company.logo.url}?fm=png&fit=max&max-w=250`} alt={company.name} />
+                </li>
+              ))}
             </ul>
             <ul className="marquee-item list-no-style">
-              { this.props.companies.map((company, index) =>
+              {companies.map((company, index) => (
                 <li key={index}>
-                  <img
-                    src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
-                    alt={company.name} />
-                </li> )}
+                  <img src={`${company.logo.url}?fm=png&fit=max&max-w=250`} alt={company.name} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
     )
   }
+}
 
+LogoCarousel.propTypes = {
+  title: PropTypes.string.isRequired,
+  companies: PropTypes.array.isRequired,
+  animationSpeed: PropTypes.number.isRequired,
 }
 
 export default LogoCarousel

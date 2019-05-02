@@ -1,8 +1,16 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import MailchimpInput from './mailchimp-input'
 
-const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLabel, hasShadow }) => (
-  <div className={`mailchimp-form ${ hasShadow ? 'shadow' : '' }`} id="cta">
+const MailchimpForm = ({
+  title = '',
+  description = '',
+  inputFields,
+  listId,
+  buttonLabel,
+  hasShadow,
+}) => (
+  <div className={`mailchimp-form ${hasShadow ? 'shadow' : ''}`} id="cta">
     <p className="form-title">{title}</p>
     <span className="form-description">{description}</span>
 
@@ -43,5 +51,14 @@ const MailchimpForm = ({ title='', description='', inputFields, listId, buttonLa
     </form>
   </div>
 )
+
+MailchimpForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  inputFields: PropTypes.array.isRequired,
+  listId: PropTypes.string.isRequired,
+  buttonLabel: PropTypes.string.isRequired,
+  hasShadow: PropTypes.bool.isRequired,
+}
 
 export default MailchimpForm

@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import getParallaxYOffset from '../_helpers/getParallaxYOffset'
 import isElementInView from '../_helpers/isElementInView'
 import TweenLite from 'gsap'
 
-class parallax extends React.Component {
+class Parallax extends React.Component {
   constructor(props) {
     super()
     this.onScroll = this.onScroll.bind(this)
@@ -61,7 +62,7 @@ class parallax extends React.Component {
 
     // apply offset
     this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`
-     // show layers only after offset to prevent jumping animations
+    // show layers only after offset to prevent jumping animations
     this.element.style.visibility = 'visible'
   }
 
@@ -77,10 +78,10 @@ class parallax extends React.Component {
   }
 
   getYOffset() {
-    const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0
+    const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
 
     // only animate element when in view
-    if (!isElementInView(this.containerEl))  {
+    if (!isElementInView(this.containerEl)) {
       return
     }
 
@@ -100,20 +101,28 @@ class parallax extends React.Component {
       this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`
     } else {
       // use tweenlite for a smooth parallax effect
-      TweenLite.to(this.element, this.duration, {y: yOffset}, {ease: "Linear.easeNone" })
+      TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' })
     }
   }
 
   render() {
     return (
-      <div ref={(node) => this.containerEl = node } className="parallax-layer-container">
-        <div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
-          { this.props.children }
+      <div ref={node => (this.containerEl = node)} className="parallax-layer-container">
+        <div
+          ref={node => (this.element = node)}
+          className="parallax-layer"
+          style={{ visibility: 'hidden' }}>
+          {this.props.children}
         </div>
-
       </div>
     )
   }
 }
 
-export default parallax
+Parallax.propTypes = {
+  speed: PropTypes.number.isRequired,
+  duration: PropTypes.number.isRequired,
+  children: PropTypes.node,
+}
+
+export default Parallax

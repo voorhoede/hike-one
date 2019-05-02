@@ -6,9 +6,9 @@ import CircleBorder from '../shapes/circle-border/circle-border'
 import Triangle from '../shapes/triangle/triangle'
 
 export const variation1Back = () => (
-  <div className="text-center-shapes-1" >
+  <div className="text-center-shapes-1">
     <Parallax speed="0.875">
-      <RectangleBorder classes="shape-rectangle-1" color="purple"/>
+      <RectangleBorder classes="shape-rectangle-1" color="purple" />
     </Parallax>
   </div>
 )
@@ -16,9 +16,9 @@ export const variation1Back = () => (
 export const variation2Back = () => (
   <div className="text-center-shapes-2">
     <Parallax speed="0.875">
-      <DiamondBorder classes="shape-diamond-1" color="yellow"/>
-      <CircleBorder  classes="shape-circle-1" color="green"/>
-      <CircleBorder  classes="shape-circle-2" color="purple" />
+      <DiamondBorder classes="shape-diamond-1" color="yellow" />
+      <CircleBorder classes="shape-circle-1" color="green" />
+      <CircleBorder classes="shape-circle-2" color="purple" />
     </Parallax>
   </div>
 )
@@ -26,14 +26,13 @@ export const variation2Back = () => (
 export const variation3Back = () => (
   <div className="text-center-shapes-3">
     <Parallax speed="0.875">
-      <DiamondBorder classes="shape-diamond-1" color="purple"/>
-      <DiamondBorder classes="shape-diamond-2" color="yellow"/>
-      <CircleBorder  classes="shape-circle-1" color="green"/>
-      <CircleBorder  classes="shape-circle-2" color="purple" />
+      <DiamondBorder classes="shape-diamond-1" color="purple" />
+      <DiamondBorder classes="shape-diamond-2" color="yellow" />
+      <CircleBorder classes="shape-circle-1" color="green" />
+      <CircleBorder classes="shape-circle-2" color="purple" />
     </Parallax>
   </div>
 )
-
 
 export const variation2Front = () => (
   <div className="text-center-shapes-2">
@@ -42,7 +41,6 @@ export const variation2Front = () => (
     </Parallax>
   </div>
 )
-
 
 export const variation3Front = () => (
   <div className="text-center-shapes-4">

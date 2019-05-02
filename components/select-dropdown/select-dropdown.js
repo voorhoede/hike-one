@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ButtonClean from '../buttons/button-clean/button-clean'
 
 class SelectDropdown extends React.Component {
@@ -17,7 +18,6 @@ class SelectDropdown extends React.Component {
 
   handleClick = (id, title) => {
     this.toggleDropdown()
-
     this.props.handleClick(id, title)
   }
 
@@ -32,29 +32,34 @@ class SelectDropdown extends React.Component {
           <ButtonClean
             classes={`select-btn ${activeButtonClass}`}
             icon="arrowDown"
-            onClick={this.toggleDropdown}
-          >
+            onClick={this.toggleDropdown}>
             {selectedItem || label}
           </ButtonClean>
         </div>
 
-        {!isCollapsed &&
+        {!isCollapsed && (
           <ul className="dropdown-list">
             {options.map(option => (
               <li className="list-item" key={option.id}>
                 <ButtonClean
                   classes="select-item"
-                  onClick={() => this.handleClick(option.id, option.title)}
-                >
+                  onClick={() => this.handleClick(option.id, option.title)}>
                   {option.title}
                 </ButtonClean>
               </li>
             ))}
           </ul>
-        }
+        )}
       </div>
     )
   }
+}
+
+SelectDropdown.propTypes = {
+  selectedItem: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  options: PropTypes.array.isRequired,
+  handleClick: PropTypes.func.isRequired,
 }
 
 export default SelectDropdown

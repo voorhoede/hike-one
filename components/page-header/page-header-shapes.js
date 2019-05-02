@@ -19,7 +19,6 @@ export const variation1Front = () => (
   </div>
 )
 
-
 export const variation2Front = () => (
   <div className="home-intro-shapes">
     <Parallax speed="1.25">
@@ -32,13 +31,11 @@ export const variation2Front = () => (
   </div>
 )
 
-
-
 export const variation1Back = () => (
   <div className="home-intro-shapes">
     <Parallax speed="1.2">
-      <CircleBorder classes="shape-circle-1" color="green"/>
-      <DiamondBorder classes="shape-diamond-1" color="yellow"/>
+      <CircleBorder classes="shape-circle-1" color="green" />
+      <DiamondBorder classes="shape-diamond-1" color="yellow" />
     </Parallax>
   </div>
 )

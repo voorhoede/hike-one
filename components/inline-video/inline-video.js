@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class InlineVideo extends Component {
-  binaryBoolean = value => (value) ? 1 : 0
+  binaryBoolean = value => (value ? 1 : 0)
 
   videoSrc = () => {
     const { autoplay, loop } = this.props
@@ -15,8 +16,8 @@ class InlineVideo extends Component {
       case 'youtube':
         return `https://www.youtube.com/embed/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
 
-        default:
-        console.error(`unsupported video provider: ${provider}`)
+      default:
+        console.error(`unsupported video provider: ${provider}`) // eslint-disable-line no-console
         return ''
     }
   }
@@ -30,21 +31,29 @@ class InlineVideo extends Component {
   }
 
   render() {
+    const { classes } = this.props
     const videoRatio = this.ratio()
 
     return (
-      <div className={`inline-video ${this.props.classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
+      <div className={`inline-video ${classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
         <iframe
           className="video"
           src={this.videoSrc()}
           frameBorder="0"
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
-          allowFullScreen>
-        </iframe>
+          allowFullScreen
+        />
       </div>
     )
   }
 }
 
+InlineVideo.propTypes = {
+  video: PropTypes.object.isRequired,
+  autoplay: PropTypes.string.isRequired,
+  mute: PropTypes.string.isRequired,
+  loop: PropTypes.string.isRequired,
+  classes: PropTypes.string.isRequired,
+}
 export default InlineVideo

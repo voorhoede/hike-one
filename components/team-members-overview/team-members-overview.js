@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Filter from '../filter/filter'
 import TeamMember from '../team-member/team-member'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary'
@@ -7,12 +8,12 @@ class TeamMembersOverview extends React.Component {
   constructor(props) {
     super(props)
 
-    const {team, queryParam} = props
+    const { team, queryParam } = props
 
     this.state = {
       roles: getRoles(team),
       locations: getLocations(team),
-      isFilterCollapsed: true
+      isFilterCollapsed: true,
     }
 
     this.handleQueryParams(queryParam)
@@ -25,14 +26,14 @@ class TeamMembersOverview extends React.Component {
     this.setQueryParams(filter, index, active)
     const isFirstItemActive = filter.every(item => item.isActive)
     const isEveryItemDeactive = filter.every((item, filterIndex) => {
-      if(index === filterIndex) {
+      if (index === filterIndex) {
         return item.isActive
       }
 
       return !item.isActive
     })
 
-    if(isFirstItemActive) {
+    if (isFirstItemActive) {
       setOneItemActive(filter, index)
     } else if (isEveryItemDeactive) {
       setAllItemsActive(filter)
@@ -46,11 +47,11 @@ class TeamMembersOverview extends React.Component {
 
   handleQueryParams(queryParam) {
     this.state.roles.find((item, index) => {
-      if(item.value === queryParam) {
+      if (item.value === queryParam) {
         return setOneItemActive(this.state.roles, index)
       } else {
         this.state.locations.find((item, index) => {
-          if(item.value === queryParam) {
+          if (item.value === queryParam) {
             return setOneItemActive(this.state.locations, index)
           }
         })
@@ -62,7 +63,7 @@ class TeamMembersOverview extends React.Component {
     const url = '/team/people?'
     let newUrl = ''
 
-    if(!active) {
+    if (!active) {
       newUrl = `filter=${filter[index].value}`
     }
 
@@ -71,12 +72,12 @@ class TeamMembersOverview extends React.Component {
 
   handleClick() {
     const { isFilterCollapsed } = this.state
-    this.setState({isFilterCollapsed: !isFilterCollapsed})
+    this.setState({ isFilterCollapsed: !isFilterCollapsed })
   }
 
   render() {
-    const {team, introText} = this.props
-    const {roles, locations, isFilterCollapsed} = this.state
+    const { team, introText } = this.props
+    const { roles, locations, isFilterCollapsed } = this.state
     const filteredTeam = filterTeam(team, this.state)
     const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp'
     const buttonClass = isFilterCollapsed ? 'arrow-down' : 'arrow-up'
@@ -91,19 +92,13 @@ class TeamMembersOverview extends React.Component {
           Filters
         </ButtonSecondary>
         <div className={`${filtersContainerClass} filters-container`}>
-          <Filter
-            filter={roles}
-            onFilter={this.onFilterHandler}
-          />
-          <Filter
-            filter={locations}
-            onFilter={this.onFilterHandler}
-          />
+          <Filter filter={roles} onFilter={this.onFilterHandler} />
+          <Filter filter={locations} onFilter={this.onFilterHandler} />
         </div>
 
-      { introText && <p className="team-members-intro-text container">{introText}</p> }
+        {introText && <p className="team-members-intro-text container">{introText}</p>}
         <ul className="team-members-overview container">
-          { filteredTeam.map((teamMember, index) => (
+          {filteredTeam.map((teamMember, index) => (
             <TeamMember key={index} data={teamMember} />
           ))}
         </ul>
@@ -127,7 +122,7 @@ function getRoles(data) {
       return item.newRoles.map(role => {
         return {
           value: role.title,
-          isActive: true
+          isActive: true,
         }
       })
     })
@@ -142,7 +137,7 @@ function getLocations(data) {
     .map(item => {
       return {
         value: item.location.location,
-        isActive: true
+        isActive: true,
       }
     })
     .filter((location, index, locations) => {
@@ -152,7 +147,7 @@ function getLocations(data) {
 
 function hasActiveLocation(locations, teamMember) {
   return locations.some(location => {
-    if(!location.isActive) {
+    if (!location.isActive) {
       return false
     }
 
@@ -162,7 +157,7 @@ function hasActiveLocation(locations, teamMember) {
 
 function hasActiveRole(roles, teamMember) {
   return roles.some(role => {
-    if(!role.isActive) {
+    if (!role.isActive) {
       return false
     }
 
@@ -173,11 +168,17 @@ function hasActiveRole(roles, teamMember) {
 }
 
 function setOneItemActive(array, index) {
-  array.forEach((item, arrayIndex) => item.isActive = index === arrayIndex)
+  array.forEach((item, arrayIndex) => (item.isActive = index === arrayIndex))
 }
 
 function setAllItemsActive(array) {
-  array.forEach(item => item.isActive = true)
+  array.forEach(item => (item.isActive = true))
+}
+
+TeamMembersOverview.propTypes = {
+  team: PropTypes.array.isRequired,
+  queryParam: PropTypes.string.isRequired,
+  introText: PropTypes.string.isRequired,
 }
 
 export default TeamMembersOverview

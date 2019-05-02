@@ -5,5 +5,5 @@ import Data from '../../data/current/home.json'
 
 storiesOf('Service overview small', module)
   .add('service overview small', () => (
-    <ServicesOverviewSmall title={Data.servicesItemTitle}  services={Data.serviceItems} />
+    <ServicesOverviewSmall title={Data.servicesItemTitle} services={Data.serviceItems} />
   ))

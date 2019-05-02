@@ -4,8 +4,8 @@ import Link from 'next/link'
 import { Logo, FooterLocations, SocialMedia, Icon } from '../'
 
 class Footer extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.ticking = false
     this.onResize = this.onResize.bind(this)
     this.setFixedState = this.setFixedState.bind(this)

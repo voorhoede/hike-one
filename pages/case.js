@@ -70,7 +70,6 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
       <MenuBar color="white" />
       <article className="article">
         <PageHeader
-          alignToBottom={true}
           onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
           video={Data.header.video}
           title={Data.header.title}

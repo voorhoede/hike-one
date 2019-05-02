@@ -1,12 +1,12 @@
 import React from 'react'
-import UpdateExtractLarge from "../update-extract-large/update-extract-large"
-import MustRead from "../must-read/must-read"
+import PropTypes from 'prop-types'
+import UpdateExtractLarge from '../update-extract-large/update-extract-large'
+import MustRead from '../must-read/must-read'
 
-const UpdatesExtractLarge = ({highlights, mustRead, index}) => {
-  return (
-    <div className="updates-highlights">
-      <div className="updates-extract-large">
-        {highlights.map((item, index) => (
+const UpdatesExtractLarge = ({ highlights, mustRead }) => (
+  <div className="updates-highlights">
+    <div className="updates-extract-large">
+      {highlights.map((item, index) => (
         <UpdateExtractLarge
           key={index}
           index={index}
@@ -17,12 +17,17 @@ const UpdatesExtractLarge = ({highlights, mustRead, index}) => {
           category={item.category.name}
           authors={item.authors}
           target={item.link}
-          external={item.isExternalLink}/>
-        ))}
-      </div>
-      <MustRead mustRead={mustRead} />
+          external={item.isExternalLink}
+        />
+      ))}
     </div>
-  )
+    <MustRead mustRead={mustRead} />
+  </div>
+)
+
+UpdatesExtractLarge.propTypes = {
+  highlights: PropTypes.array.isRequired,
+  mustRead: PropTypes.bool.isRequired,
 }
 
 export default UpdatesExtractLarge

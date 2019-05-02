@@ -3,8 +3,8 @@ import elementIsInView from '../_helpers/isElementInView'
 import setImageParams from '../_helpers/setImageParameters'
 
 class FullWidthImage extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.setImageBottomOffset = this.setImageBottomOffset.bind(this)
     this.setInitialValues = this.setInitialValues.bind(this)
     this.setInitialOffset = this.setInitialOffset.bind(this)

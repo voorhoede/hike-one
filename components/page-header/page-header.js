@@ -1,20 +1,20 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Icon from '../icon/icon'
 import setImageParams from '../_helpers/setImageParameters'
 
 class PageHeader extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.range = 400
     this.speed = -0.25
     this.ticking = false
     this.isHidden = false
     this.onScroll = this.onScroll.bind(this)
-    this.animateLayer = this.animateLayer.bind(this)
     this.setVisability = this.setVisability.bind(this)
     this.showVideo = this.showVideo.bind(this)
     this.state = {
-      showVideo : false
+      showVideo: false,
     }
   }
 
@@ -29,7 +29,7 @@ class PageHeader extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setState({showVideo: false})
+    this.setState({ showVideo: false })
   }
 
   componentWillUnmount() {
@@ -40,9 +40,8 @@ class PageHeader extends React.Component {
     // update an animation before the next repaint with requestAnimationFrame
     if (!this.ticking) {
       window.requestAnimationFrame(() => {
-        const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0
+        const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
         this.setVisability(scrolledHeight)
-        this.animateLayer(scrolledHeight)
         this.ticking = false
       })
     }
@@ -60,102 +59,109 @@ class PageHeader extends React.Component {
     }
   }
 
-  animateLayer(scrolledHeight) {
-    // don't animate when component is hidden
-    if (this.isHidden) { return }
-
-    // set opacity
-    const opacity =  1 - (scrolledHeight / this.range)
-
-    // set styles to animate
-    const styles = {
-      y: scrolledHeight * this.speed,
-      opacity
-    }
-
-    // animate styles with tweenlight
-    TweenLite.to(this.parallaxLayer, 0, styles, {ease: "Linear.easeNone" })
-  }
-
   showVideo() {
-    this.setState({showVideo: true})
+    this.setState({ showVideo: true })
   }
 
   render() {
-    const props = this.props
-    const childrenArray = React.Children.toArray(props.children)
+    const {
+      title,
+      subtitle,
+      video,
+      image,
+      onClickScrollButton,
+      showGradient,
+      isSmall,
+      children,
+    } = this.props
+    const childrenArray = React.Children.toArray(children)
     let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
     let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
 
     const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
-    const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 1000} )}`
-    const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1500} )}`
-    const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 2000} )}`
-
-    const style ={__html:
-      `<style>
+    const style = {
+      __html: `<style>
         .page-header {
-          background-image: url(${heroImageSmall})
+          background-image: url("${setImageParams(image, { ...imageParameters, w: 1000 })}");
         }
         @media only screen and (min-width: 768px) {
           .page-header {
-            background-image: url(${heroImageMedium})
+            background-image: url(${setImageParams(image, { ...imageParameters, w: 1500 })}");
           }
         }
         @media only screen and (min-width: 1170px) {
           .page-header {
-            background-image: url(${heroImageLarge})
+            background-image: url(${setImageParams(image, { ...imageParameters, w: 2000 })}");
           }
         }
-      ${props.video ?
-        `@media only screen and (min-width: 768px) {
-          .page-header {
-            background-image: none
-          }
-        }` : '' }
+        ${video ? `@media only screen and (min-width: 768px) { .page-header { background-image: none; } }` : ''}
       }
-      </style>`}
+      </style>`,
+    }
 
     return (
       <section
-        ref={node => this.element = node}
+        ref={node => (this.element = node)}
         className={`page-header
-          ${props.showGradient ? 'show-gradient': ''}
-          ${props.isSmall ? 'page-header-small' : ''}
-          ${this.state.showVideo ? 'show-video': ''}`}>
-        { parallaxLayerBack }
-        { props.video &&
-          <video ref={node => this.video = node}
-              src={props.video}
+          ${showGradient ? 'show-gradient' : ''}
+          ${isSmall ? 'page-header-small' : ''}
+          ${this.state.showVideo ? 'show-video' : ''}`}>
+        {parallaxLayerBack}
+        {video && (
+          <video
+            ref={node => (this.video = node)}
+            src={video}
             className="page-header-video"
-            playsInline autoPlay muted loop>
-          </video>
-        }
+            playsInline
+            autoPlay
+            muted
+            loop
+          />
+        )}
 
         <div className="page-header-inner container">
-          <div ref={node => this.parallaxLayer = node}>
-            { props.onClickScrollButton
-              ? <a className="page-header-title-link" href='#' onClick={props.onClickScrollButton}><h1 className="page-header-title ">{props.title}</h1></a>
-              : <h1 className="page-header-title ">{props.title}</h1> }
+          <div ref={node => (this.parallaxLayer = node)}>
+            {onClickScrollButton ? (
+              <a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
+                <h1 className="page-header-title ">{title}</h1>
+              </a>
+            ) : (
+              <h1 className="page-header-title ">{title}</h1>
+            )}
 
-            { props.subtitle &&
-              props.onClickScrollButton
-                ? <a className="page-header-subtitle-link" href='#' onClick={props.onClickScrollButton}><p className="page-header-subtitle">{props.subtitle}</p></a>
-                : <p className="page-header-subtitle">{props.subtitle}</p> }
+            {subtitle && onClickScrollButton ? (
+              <a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
+                <p className="page-header-subtitle">{subtitle}</p>
+              </a>
+            ) : (
+              <p className="page-header-subtitle">{subtitle}</p>
+            )}
 
-            { props.onClickScrollButton &&
-              <button className="page-header-button"
-                  onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
+            {onClickScrollButton && (
+              <button
+                className="page-header-button"
+                onClick={onClickScrollButton ? onClickScrollButton : null}>
                 <Icon icon="arrowDownCircle" />
               </button>
-            }
+            )}
           </div>
         </div>
-        <div dangerouslySetInnerHTML={style}></div>
+        <div dangerouslySetInnerHTML={style} />
         {parallaxLayerFront}
       </section>
     )
   }
+}
+
+PageHeader.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  video: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  onClickScrollButton: PropTypes.func.isRequired,
+  showGradient: PropTypes.bool.isRequired,
+  isSmall: PropTypes.bool.isRequired,
+  children: PropTypes.node,
 }
 
 export default PageHeader

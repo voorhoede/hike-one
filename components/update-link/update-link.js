@@ -1,18 +1,29 @@
 import React from 'react'
-import ArrowRightCircle from '../icons/arrow-right-circle'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
+import ArrowRightCircle from '../icons/arrow-right-circle'
 import Authors from '../authors/authors'
 
-const updateLink = ({target='#', title='', authors=[], date='', external = false}) => (
+const UpdateLink = ({ target = '#', title = '', authors = [], date = '', external = false }) => (
   <div className="update-link">
-    <Link href={ target }>
-      <a className="update-link-title"
-         target={external ? '_blank' : ''}>{ title }
-         <ArrowRightCircle />
+    <Link href={target}>
+      <a className="update-link-title" target={external ? '_blank' : ''} rel="noopener noreferrer">
+        {title}
+        <ArrowRightCircle />
       </a>
     </Link>
-    <p className="update-link-sub"><span>{ date }</span> | <Authors authors={authors} /></p>
+    <p className="update-link-sub">
+      <span>{date}</span> | <Authors authors={authors} />
+    </p>
   </div>
 )
 
-export default updateLink
+UpdateLink.propTypes = {
+  target: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  authors: PropTypes.array.isRequired,
+  date: PropTypes.string.isRequired,
+  external: PropTypes.bool.isRequired,
+}
+
+export default UpdateLink

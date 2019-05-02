@@ -2,8 +2,8 @@ import React from 'react'
 import {Power2, TimelineMax}  from 'gsap'
 
 class Hamburger extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.playAnimation = this.playAnimation.bind(this)
     this.reverseAnimation = this.reverseAnimation.bind(this)
   }

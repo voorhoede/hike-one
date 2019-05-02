@@ -1,31 +1,32 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, text} from '@storybook/addon-knobs'
+import { withKnobs } from '@storybook/addon-knobs'
 import TabSelector from './tab-selector'
 
 const productData = {
   title: 'New product design',
   color: 'blue',
-  target: '#newproductdesign'
+  target: '#newproductdesign',
 }
 
 const designData = {
   title: 'UX / UI Design',
   color: 'green',
-  target: '#design'
+  target: '#design',
 }
 
 const trainingData = {
   title: 'Training & Academy',
   color: 'purple',
-  target: '#training'
+  target: '#training',
 }
 
 storiesOf('Tab selector', module)
   .addDecorator(withKnobs)
   .add('tab selector', () => (
-    <TabSelector 
+    <TabSelector
       product={productData}
       design={designData}
-      training={trainingData}/>
+      training={trainingData}
+    />
   ))

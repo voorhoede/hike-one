@@ -17,7 +17,7 @@ export const BackLayer1 = () => {
   return (
     <div className="services-overview-small-shapes">
       <Parallax speed="0.875">
-        <DiamondBorder classes="shape-diamond-1" color="green"/>
+        <DiamondBorder classes="shape-diamond-1" color="green" />
       </Parallax>
     </div>
   )

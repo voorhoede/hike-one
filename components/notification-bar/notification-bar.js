@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { Icon } from '../'
 
@@ -13,5 +14,12 @@ const NotificationBar = ({ color, callToActionLabel, callToActionUrl, text }) =>
     </Link>
   </div>
 )
+
+NotificationBar.propTypes = {
+  color: PropTypes.string.isRequired,
+  callToActionLabel: PropTypes.string.isRequired,
+  callToActionUrl: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+}
 
 export default NotificationBar

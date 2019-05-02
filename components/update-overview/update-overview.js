@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large'
 import UpdateExtractSmall from '../update-extract-small/update-extract-small'
 import ButtonSecondary from '../buttons/button-secondary/button-secondary'
@@ -51,29 +52,40 @@ class UpdateOverview extends React.Component {
     return (
       <div className="update-overview container">
         <div className="container-inner">
-        <UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} index />
-        { items.map((item, index) => (
-          <UpdateExtractSmall
-            key={index}
-            index={index}
-            title={item.title}
-            date={item.date}
-            authors={item.authors}
-            target={item.link}
-            image={item.image.url}
-            category={item.category.name}
-            color={item.themeColor.hex}
-            external={item.isExternalLink}/>
-        ))}
+          <UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} />
+          {items.map((item, index) => (
+            <UpdateExtractSmall
+              key={index}
+              index={index}
+              title={item.title}
+              date={item.date}
+              authors={item.authors}
+              target={item.link}
+              image={item.image.url}
+              category={item.category.name}
+              color={item.themeColor.hex}
+              external={item.isExternalLink}
+            />
+          ))}
         </div>
-        { totalPages > pageOffset &&
-          <ButtonSecondary onClick={this.handleClick} classes={ `btn-large btn-red-border btn-centered spinner ${loading ? 'loading' : 'vertical-spring' }` } icon={ !loading ? 'arrowDown' : 'spinner' } >
+        {totalPages > pageOffset && (
+          <ButtonSecondary
+            onClick={this.handleClick}
+            classes={`btn-large btn-red-border btn-centered spinner ${
+              loading ? 'loading' : 'vertical-spring'
+            }`}
+            icon={!loading ? 'arrowDown' : 'spinner'}>
             Show more
           </ButtonSecondary>
-        }
+        )}
       </div>
     )
   }
+}
+
+UpdateOverview.propTypes = {
+  data: PropTypes.object.isRequired,
+  updatesData: PropTypes.array.isRequired,
 }
 
 export default UpdateOverview

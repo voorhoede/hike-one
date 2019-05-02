@@ -7,11 +7,11 @@ const teamMember = ({data}) => (
         <div className="team-member-overlay">
             <h3 className="team-member-name">{data.name}</h3>
 
-			<div className="team-member-roles">
-				{data.newRoles.map((role, index) => (
-					<p className="team-member-role" key={index}>{role.title}</p>
-				))}
-			</div>
+      <div className="team-member-roles">
+        {data.newRoles.map((role, index) => (
+          <p className="team-member-role" key={index}>{role.title}</p>
+        ))}
+      </div>
         </div>
     </li>
 );

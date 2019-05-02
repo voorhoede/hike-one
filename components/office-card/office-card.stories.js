@@ -11,15 +11,15 @@ const imageUrl = 'https://www.datocms-assets.com/2625/1505293468-img_case-copy-2
 
 
 storiesOf('Office card', module)
-	.addDecorator(withKnobs)
-	.add('tab selector', () => (
-		<div className="office-card-wrapper" style={{'max-width': '300px'}}>
-			<OfficeCard
-				location={location}
-				address={address}
-				postcode={postcode}
-				city={city}
-				imageUrl={imageUrl} />
-		</div>
-	));
+  .addDecorator(withKnobs)
+  .add('tab selector', () => (
+    <div className="office-card-wrapper" style={{'max-width': '300px'}}>
+      <OfficeCard
+        location={location}
+        address={address}
+        postcode={postcode}
+        city={city}
+        imageUrl={imageUrl} />
+    </div>
+  ));
 

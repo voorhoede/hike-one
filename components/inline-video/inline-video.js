@@ -42,9 +42,9 @@ class InlineVideo extends Component {
           mozallowfullscreen="true"
           allowFullScreen>
         </iframe>
-  		</div>
-		)
-	}
+      </div>
+    )
+  }
 }
 
 export default InlineVideo

@@ -7,10 +7,10 @@ import Data from '../../data/current/component-guide.json';
 const logoCarouselData = Data.components.find(item => item.itemType === 'logo_carousel');
 
 storiesOf('Logo carousel', module)
-	.addDecorator(withKnobs)
-	.add('logo carousel', () => (
-		<LogoCarousel
-			title={text('title', logoCarouselData.title)}
-			animationSpeed={logoCarouselData.animationSpeed}
-			companies={logoCarouselData.companies} />
-	));
+  .addDecorator(withKnobs)
+  .add('logo carousel', () => (
+    <LogoCarousel
+      title={text('title', logoCarouselData.title)}
+      animationSpeed={logoCarouselData.animationSpeed}
+      companies={logoCarouselData.companies} />
+  ));

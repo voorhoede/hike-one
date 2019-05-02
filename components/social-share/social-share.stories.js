@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import SocialShare from './social-share';
 
 storiesOf('Social share', module)
-	.add('default', () => (
-		<SocialShare
-			facebookLink={'#'}
-			linkedinLink={'#'}
-			twitterLink={'#'} />
-	));
+  .add('default', () => (
+    <SocialShare
+      facebookLink={'#'}
+      linkedinLink={'#'}
+      twitterLink={'#'} />
+  ));

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ContactMenu = ({ isOpen }) => (
+const ContextMenu = ({ isOpen }) => (
   <section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden'}`}>
     <p className="context-menu-title">Are you looking for our logo?</p>
     <div className="context-menu-wrapper">
@@ -25,8 +25,8 @@ const ContactMenu = ({ isOpen }) => (
   </section>
 )
 
-ContactMenu.propTypes = {
+ContextMenu.propTypes = {
   isOpen: PropTypes.bool.isRequired,
 }
 
-export default ContactMenu
+export default ContextMenu

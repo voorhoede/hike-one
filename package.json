@@ -30,7 +30,9 @@
     "serve:guide": "start-storybook --port 3001 --config-dir .storybook --static-dir ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
     "backupdata": "node tasks/backup-data",
-    "lint": "eslint ./components/**/*.js"
+    "lint": "npm-run-all --parallel lint:*",
+    "lint:js": "eslint ./components/**/*.js ./pages/**/*.js",
+    "lint:css": "stylelint './components/**/*.less'"
   },
   "repository": {
     "type": "git",
@@ -68,7 +70,6 @@
     "@storybook/addon-actions": "^3.2.14",
     "@storybook/addon-knobs": "^3.2.14",
     "@storybook/react": "^3.2.14",
-    "@svgr/cli": "4.2.0",
     "babel-eslint": "10.0.1",
     "chalk": "^2.1.0",
     "chokidar-cli": "^1.2.0",
@@ -89,6 +90,8 @@
     "nodemon": "^1.18.10",
     "now": "^11.3.8",
     "npm-run-all": "^4.0.2",
+    "stylelint": "10.0.1",
+    "stylelint-config-standard": "18.3.0",
     "rimraf": "^2.6.2"
   }
 }

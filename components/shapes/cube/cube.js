@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Cube = ({shadow}) => (
+const Cube = ({ shadow }) => (
   <div className="shape">
     <svg className="shape-cube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">
       { shadow &&
@@ -24,5 +25,9 @@ const Cube = ({shadow}) => (
     </svg>
   </div>
 )
+
+Cube.propTypes = {
+  shadow: PropTypes.bool,
+}
 
 export default Cube

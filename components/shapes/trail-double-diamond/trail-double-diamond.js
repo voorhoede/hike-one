@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const TrailDoubleDiamond = ({shadow}) => (
+const TrailDoubleDiamond = ({ shadow }) => (
   <div className="shape">
     <svg className="shape-trail-double-diamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">
       { shadow &&
@@ -27,5 +28,9 @@ const TrailDoubleDiamond = ({shadow}) => (
     </svg>
   </div>
 )
+
+TrailDoubleDiamond.propTypes = {
+  shadow: PropTypes.bool,
+}
 
 export default TrailDoubleDiamond

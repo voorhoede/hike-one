@@ -12,8 +12,6 @@
     "build:dato:dump": "node bin/dump-data",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",
-    "build:guide": "npm-run-all --serial build:guide:stories copy:guide:*",
-    "build:guide:stories": "build-storybook -c .storybook -o build/guide/",
     "deploy": "npm-run-all --serial deploy:site deploy:guide",
     "deploy:site": "npm-run-all --serial deploy:site:now deploy:site:alias",
     "deploy:site:now": "now -e DATO_API_TOKEN=@dato_api_token -e NODE_ENV=production -e TOKEN=@token -e DATO_URL=@dato_url",
@@ -22,17 +20,15 @@
     "deploy:guide:now": "now deploy build/guide",
     "deploy:guide:alias": "cd build/guide/ && now alias",
     "dev": "npm-run-all --parallel watch:css serve:dev",
-    "copy:guide:config": "ncp .storybook/now.json build/guide/now.json",
     "copy:guide:static": "ncp static/ build/guide/static/",
     "copy:guide:root": "ncp static/root/ build/guide/",
     "proxy": "ngrok http 3000",
     "serve:dev": "nodemon server.js",
-    "serve:guide": "start-storybook --port 3001 --config-dir .storybook --static-dir ./",
     "watch:css": "chokidar '**/*.less' --command 'npm run build:css'",
     "backupdata": "node tasks/backup-data",
     "lint": "npm-run-all --parallel lint:*",
     "lint:js": "eslint ./components/**/*.js ./pages/**/*.js",
-    "lint:css": "stylelint './components/**/*.less'"
+    "lint:css": "stylelint './components/**/*.less' './styles/**/*.less' --syntax less"
   },
   "repository": {
     "type": "git",
@@ -67,9 +63,6 @@
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "@storybook/addon-actions": "^3.2.14",
-    "@storybook/addon-knobs": "^3.2.14",
-    "@storybook/react": "^3.2.14",
     "babel-eslint": "10.0.1",
     "chalk": "^2.1.0",
     "chokidar-cli": "^1.2.0",

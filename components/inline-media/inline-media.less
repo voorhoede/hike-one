@@ -1,66 +1,66 @@
 @import (reference) '../../styles/variables';
 
 .inline-media.inline-media-large {
-	height: auto;
-	padding: 0;
-	margin-bottom: @spacing-large;
-	color: @grey-caption;
-	max-width: @column-large-9;
+  height: auto;
+  padding: 0;
+  margin-bottom: @spacing-large;
+  color: @grey-caption;
+  max-width: @column-large-9;
 
-	p {
-		margin: @spacing-default*1.5 0;
-		display: block;
-		font-size: @body-text-s;
-		line-height: @line-height-body-s;
-		text-align: center;
-		width: 100%;
-	}
+  p {
+    margin: @spacing-default*1.5 0;
+    display: block;
+    font-size: @body-text-s;
+    line-height: @line-height-body-s;
+    text-align: center;
+    width: 100%;
+  }
 
-	@media @screen-large {
-		margin-bottom: @spacing-large*2;
-	}
+  @media @screen-large {
+    margin-bottom: @spacing-large*2;
+  }
 }
 
 .inline-media {
-	width: 100%;
-	padding: 0 @spacing-default*1.5;
-	margin: auto;
-	margin-bottom: @spacing-large;
-	color: @dark-grey;
-	font-weight: @font-weight-normal;
-	text-align: center;
+  width: 100%;
+  padding: 0 @spacing-default*1.5;
+  margin: auto;
+  margin-bottom: @spacing-large;
+  color: @dark-grey;
+  font-weight: @font-weight-normal;
+  text-align: center;
 
-	p {
-		font-size: @body-text-small-m;
-		line-height: @line-height-body-small-s;
-	}
+  p {
+    font-size: @body-text-small-m;
+    line-height: @line-height-body-small-s;
+  }
 
-	img {
-		height: auto;
-		width: 100%;
-		overflow: hidden;
-	}
+  img {
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
 
-	@media @screen-medium {
-		p {
-			margin-top: @spacing-default;
-			font-size: @body-text-s;
-			line-height: @line-height-body-small-l;
-		}
-		max-width: @column-large-7;
-		margin-bottom: @spacing-large*2;
-	}
-	@media @screen-large {
-		padding: 0;
-	}
+  @media @screen-medium {
+    p {
+      margin-top: @spacing-default;
+      font-size: @body-text-s;
+      line-height: @line-height-body-small-l;
+    }
+    max-width: @column-large-7;
+    margin-bottom: @spacing-large*2;
+  }
+  @media @screen-large {
+    padding: 0;
+  }
 }
 
 .inline-media-container {
-	width: 100%;
-	height: auto;
-	overflow: hidden;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 
-	@media @screen-small {
-		height: auto;
-	}
+  @media @screen-small {
+    height: auto;
+  }
 }

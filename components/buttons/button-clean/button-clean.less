@@ -1,58 +1,58 @@
 @import (reference) '../../../styles/variables';
 
 .btn-clean {
-	font-family: @font-main-fallback;
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	font-weight: @font-weight-normal;
-	background: none;
-	text-decoration: none;
-	border: none;
-	padding: 0;
-	display: block;
-	color: @white;
+  font-family: @font-main-fallback;
+  font-size: @body-text-s;
+  line-height: @line-height-body-s;
+  font-weight: @font-weight-normal;
+  background: none;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  display: block;
+  color: @white;
 
-	.fonts-loaded & {
-		font-family: @font-main;
-	}
+  .fonts-loaded & {
+    font-family: @font-main;
+  }
 
-	&:hover {
-		background: transparent;
-		cursor: pointer;
-	}
+  &:hover {
+    background: transparent;
+    cursor: pointer;
+  }
 
-	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-	}
+  @media @screen-medium {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-	@media @screen-large {
-		font-size: @body-text-l;
-		line-height: @line-height-body-l;
-	}
+  @media @screen-large {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 
-	.icon {
-		margin-left: 18px;
+  .icon {
+    margin-left: 18px;
 
-		svg {
-			vertical-align: middle;
-			width: 19px;
-			height: 19px;
-		}
+    svg {
+      vertical-align: middle;
+      width: 19px;
+      height: 19px;
+    }
 
-		svg path {
-			fill: @white;
-			transition: fill @animation-speed-fast ease ease;
-		}
-	}
+    svg path {
+      fill: @white;
+      transition: fill @animation-speed-fast ease ease;
+    }
+  }
 }
 
 .btn-clean.btn-red {
-	color: @red;
+  color: @red;
 
-	.icon {
-		svg path {
-			fill: @red;
-		}
-	}
+  .icon {
+    svg path {
+      fill: @red;
+    }
+  }
 }

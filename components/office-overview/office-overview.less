@@ -2,46 +2,46 @@
 @import (reference) '../../styles/helpers';
 
 .office-overview {
-	.clearfix;
+  .clearfix;
 
-	.office-overview-header {
-		margin-bottom: @spacing-default*4;
-		text-align: center;
-		font-size: @heading-s;
-		line-height: @line-height-heading-s;
-	}
+  .office-overview-header {
+    margin-bottom: @spacing-default*4;
+    text-align: center;
+    font-size: @heading-s;
+    line-height: @line-height-heading-s;
+  }
 
-	@media @screen-small {
-		.office-card {
-			margin-left: auto;
-			margin-right: auto;
-			width: auto;
-			max-width: 450px;
-		}
-	}
+  @media @screen-small {
+    .office-card {
+      margin-left: auto;
+      margin-right: auto;
+      width: auto;
+      max-width: 450px;
+    }
+  }
 
-	@media @screen-medium {
-		.office-overview-header {
-			font-size: @heading-m;
-			line-height: @line-height-heading-m;
-		}
+  @media @screen-medium {
+    .office-overview-header {
+      font-size: @heading-m;
+      line-height: @line-height-heading-m;
+    }
 
-		.office-card {
-			float: left;
-			margin: 0 @spacing-medium @spacing-default*7 0;
-			width: calc(~'100% / 3 - ' @spacing-small);
+    .office-card {
+      float: left;
+      margin: 0 @spacing-medium @spacing-default*7 0;
+      width: calc(~'100% / 3 - ' @spacing-small);
 
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-	}
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 
-	@media @screen-large {
-		.office-overview-header {
-			margin-bottom: @spacing-default*6;
-			font-size: @heading-l;
-			line-height: @line-height-heading-l;
-		}
-	}
+  @media @screen-large {
+    .office-overview-header {
+      margin-bottom: @spacing-default*6;
+      font-size: @heading-l;
+      line-height: @line-height-heading-l;
+    }
+  }
 }

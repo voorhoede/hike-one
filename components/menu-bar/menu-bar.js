@@ -1,14 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import Logo from '../logo/logo'
-import Hamburger from '../icons/hamburger/hamburger'
-import ContextMenu from '../context-menu/context-menu'
-import Facebook from '../icons/facebook-circle'
-import Twitter from '../icons/twitter-circle'
-import LinkedIn from '../icons/linkedin-circle'
-import Medium from '../icons/medium-circle'
-import Instagram from '../icons/instagram-circle'
+import { ContextMenu, Facebook, Hamburger, Instagram, LinkedIn, Logo, Medium, Twitter } from '../'
 import { Power3, TimelineLite } from 'gsap'
 
 class MenuBar extends React.Component {

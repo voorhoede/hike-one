@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import Icon from '../icon/icon'
+import { Icon } from '../'
 import getDateFormat from '../_helpers/getDateFormat'
 import setImageParams from '../_helpers/setImageParameters'
 

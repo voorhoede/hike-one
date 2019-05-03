@@ -1,8 +1,5 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import CircleBorder from '../shapes/circle-border/circle-border'
-import DiamondBorder from '../shapes/diamond-border/diamond-border'
-import Triangle from '../shapes/triangle/triangle'
+import { CircleBorder, DiamondBorder, Parallax, Triangle } from '../'
 
 export const TextRightSmall1Front = () => (
   <div className="fifty-fifty-shapes-1">

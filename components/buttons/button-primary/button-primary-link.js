@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import Icon from '../../icon/icon'
+import { Icon } from '../../'
 
 const PrimaryButtonLink = ({
   classes = '',

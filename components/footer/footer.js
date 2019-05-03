@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { Logo, FooterLocations, SocialMedia, Icon } from '../'
+import { FooterLocations, Icon, Logo, SocialMedia } from '../'
 
 class Footer extends React.Component {
   constructor(props) {

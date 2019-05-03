@@ -1,8 +1,5 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import DiamondBorder from '../shapes/diamond-border/diamond-border'
-import Triangle from '../shapes/triangle/triangle'
-import CircleBorder from '../shapes/circle-border/circle-border'
+import { CircleBorder, DiamondBorder, Parallax, Triangle } from '../'
 
 export const variation1Front = () => (
   <div className="home-intro-shapes">

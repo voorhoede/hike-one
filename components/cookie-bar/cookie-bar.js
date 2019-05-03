@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import cookie from '../_helpers/cookie'
 import Router from 'next/router'
+import cookie from '../_helpers/cookie'
 
 class CookieBar extends Component {
   constructor(props) {

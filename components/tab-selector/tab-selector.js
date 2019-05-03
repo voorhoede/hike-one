@@ -1,9 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from '../'
 
 const TabSelector = ({ services, selectedItem }) => (
   <div className="tab-selector container shadow">

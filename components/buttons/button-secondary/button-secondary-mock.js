@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../../icon/icon'
+import { Icon } from '../../'
 
 const ButtonSecondaryMock = ({ classes = '', children = '', icon = '' }) => (
   <div className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}>

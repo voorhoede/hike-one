@@ -1,6 +1,5 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import Triangle from '../shapes/triangle/triangle'
+import { Parallax, Triangle } from '../'
 
 export const WithText1Front = () => (
   <div className="image-combo-shapes-1">

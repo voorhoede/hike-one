@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../icon/icon'
 import Link from 'next/link'
+import { Icon } from '../'
 import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtractSmall = ({

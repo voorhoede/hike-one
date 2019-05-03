@@ -1,9 +1,11 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import RectangleBorder from '../shapes/rectangle-border/rectangle-border'
-import DiamondBorder from '../shapes/diamond-border/diamond-border'
-import CircleBorder from '../shapes/circle-border/circle-border'
-import Triangle from '../shapes/triangle/triangle'
+import {
+  CircleBorder,
+  DiamondBorder,
+  Parallax,
+  RectangleBorder,
+  Triangle
+} from '../'
 
 export const variation1Back = () => (
   <div className="text-center-shapes-1">

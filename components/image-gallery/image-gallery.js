@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FullWidthImage from '../full-width-image/full-width-image'
+import { FullWidthImage } from '../'
 
 class ImageGallery extends React.Component {
   constructor(props) {

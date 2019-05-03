@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import ArrowRightCircle from '../icons/arrow-right-circle'
-import Authors from '../authors/authors'
+import { ArrowRightCircle, Authors } from '../'
 
 const UpdateLink = ({ target = '#', title = '', authors = [], date = '', external = false }) => (
   <div className="update-link">

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../icon/icon'
+import { Icon } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
 class PageHeader extends React.Component {

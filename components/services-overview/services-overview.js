@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ServicesItem from '../services-item/services-item'
+import { ServicesItem } from '../'
 import ShapesFront from './services-overview-shapes-front'
 
 const ServicesOverview = ({ title = '', items = [] }) => (

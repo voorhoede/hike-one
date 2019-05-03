@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import UpdateExtractLarge from '../update-extract-large/update-extract-large'
-import MustRead from '../must-read/must-read'
+import { MustRead, UpdateExtractLarge } from '../'
 
 const UpdatesExtractLarge = ({ highlights, mustRead }) => (
   <div className="updates-highlights">

@@ -1,7 +1,5 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import DiamondBorder from '../shapes/diamond-border/diamond-border'
-import Triangle from '../shapes/triangle/triangle'
+import { DiamondBorder, Parallax, Triangle } from '../'
 
 export const FrontLayer1 = () => {
   return (

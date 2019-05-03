@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '../../icon/icon'
+import { Icon } from '../../'
 
 const ButtonClean = ({ classes = '', onClick = null, children, icon }) => (
   <button onClick={onClick} className={`btn-clean ${classes}`}>

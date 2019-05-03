@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large'
-import UpdateExtractSmall from '../update-extract-small/update-extract-small'
-import ButtonSecondary from '../buttons/button-secondary/button-secondary'
+import { ButtonSecondary, UpdateExtractSmall, UpdatesExtractLarge } from '../'
 
 class UpdateOverview extends React.Component {
   constructor(props) {

@@ -2,8 +2,8 @@ import 'core-js/fn/array/find'
 import React from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
+import { GoogleTagManagerConfig } from '../'
 import loadFonts from '../_helpers/fontLoader'
-import GoogleTagManagerConfig from '../google-tag-manager/google-tag-manager-config'
 
 class Layout extends React.Component {
   constructor(props) {

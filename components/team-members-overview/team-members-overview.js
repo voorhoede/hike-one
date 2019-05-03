@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Filter from '../filter/filter'
-import TeamMember from '../team-member/team-member'
-import ButtonSecondary from '../buttons/button-secondary/button-secondary'
+import { ButtonSecondary, Filter, TeamMember } from '../'
 
 class TeamMembersOverview extends React.Component {
   constructor(props) {

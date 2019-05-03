@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link'
+import { ButtonPrimaryLink } from '../'
 
 const Contact = ({ title = '', button = '', link = false, target = '', children }) => {
   const childrenArray = React.Children.toArray(children)

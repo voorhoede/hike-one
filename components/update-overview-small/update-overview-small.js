@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
+import { ButtonSecondaryLink } from '../'
 
 const UpdateOverviewSmall = ({ children }) => (
   <div className="update-overview-small container">

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ButtonClean from '../buttons/button-clean/button-clean'
+import { ButtonClean } from '../'
 
 class SelectDropdown extends React.Component {
   constructor(props) {

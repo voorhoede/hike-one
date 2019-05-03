@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Parallax from '../parallax/parallax'
+import { Parallax } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
 const Collage = ({ imageMedium, imageSmall, title = '', text = '', children }) => {

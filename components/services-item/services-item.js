@@ -1,9 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
-import Parallax from '../parallax/parallax'
+import { Parallax, TrailDoubleDiamond, TrailDiamond, TrailTriangle } from '../'
 
 const ServicesItem = ({ data, index }) => (
   <li className="services-item clearfix">

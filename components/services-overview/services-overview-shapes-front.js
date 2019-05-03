@@ -1,6 +1,5 @@
 import React from 'react'
-import Parallax from '../parallax/parallax'
-import Triangle from '../shapes/triangle/triangle'
+import { Parallax, Triangle } from '../'
 
 const ShapesFront = () => {
   return (

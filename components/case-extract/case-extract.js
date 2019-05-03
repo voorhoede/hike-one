@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import Icon from '../icon/icon'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
+import { Icon } from '../'
+import { ButtonSecondaryLink } from '../'
 import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtract = ({

@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import TrailDiamond from '../shapes/trail-diamond/trail-diamond'
-import TrailTriangle from '../shapes/trail-triangle/trail-triangle'
-import Triangle from '../shapes/triangle/triangle'
-import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
+import { ButtonSecondaryLink, TrailDiamond, TrailDoubleDiamond, Triangle, TrailTriangle } from '../'
 
 const shapesList = ['diamond', 'doubleDiamond', 'triangle']
 const shapes = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ButtonSecondaryLink } from '../'
 import setImageParams from '../_helpers/setImageParameters'
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
 
 const VacancyCard = ({ data }) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }

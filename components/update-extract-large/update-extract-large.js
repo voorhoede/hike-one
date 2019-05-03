@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Authors, ArrowRightExternalLink } from '../'
 import getDateFormat from '../_helpers/getDateFormat'
 import setImageParams from '../_helpers/setImageParameters'
-import ArrowRightExternalLink from '../icons/arrow-right-external-link'
-import Authors from '../authors/authors'
 
 const UpdateExtractLarge = ({
   index,

@@ -6,17 +6,17 @@
 
   .office-overview-header {
     margin-bottom: @spacing-default*4;
-    text-align: center;
     font-size: @heading-s;
     line-height: @line-height-heading-s;
+    text-align: center;
   }
 
   @media @screen-small {
     .office-card {
-      margin-left: auto;
-      margin-right: auto;
       width: auto;
       max-width: 450px;
+      margin-right: auto;
+      margin-left: auto;
     }
   }
 
@@ -27,9 +27,9 @@
     }
 
     .office-card {
-      float: left;
-      margin: 0 @spacing-medium @spacing-default*7 0;
       width: calc(~'100% / 3 - ' @spacing-small);
+      margin: 0 @spacing-medium @spacing-default*7 0;
+      float: left;
 
       &:last-child {
         margin-right: 0;

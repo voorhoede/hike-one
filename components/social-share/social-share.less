@@ -2,21 +2,21 @@
 
 .social-share {
   display:flex;
-  width: 100%;
-  justify-content: center;
-  margin-bottom: @spacing-large;
   z-index: 1;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: @spacing-large;
 
   @media @screen-medium {
+    position: fixed;
+    top: 240px;
+    right: 0;
     flex-direction: column;
     align-items: center;
-    position: fixed;
     width: 56px;
     height: 150px;
     padding: @spacing-default;
     background: @white;
-    right: 0;
-    top: 240px;
 
     box-shadow: 0 10px 100px 0 fade(@black, 15%);
   }

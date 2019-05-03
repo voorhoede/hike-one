@@ -1,19 +1,19 @@
 @import (reference) '../../styles/variables';
 
 .inline-media.inline-media-large {
-  height: auto;
-  padding: 0;
-  margin-bottom: @spacing-large;
-  color: @grey-caption;
   max-width: @column-large-9;
+  height: auto;
+  margin-bottom: @spacing-large;
+  padding: 0;
+  color: @grey-caption;
 
   p {
-    margin: @spacing-default*1.5 0;
     display: block;
+    width: 100%;
+    margin: @spacing-default*1.5 0;
     font-size: @body-text-s;
     line-height: @line-height-body-s;
     text-align: center;
-    width: 100%;
   }
 
   @media @screen-large {
@@ -23,9 +23,9 @@
 
 .inline-media {
   width: 100%;
-  padding: 0 @spacing-default*1.5;
   margin: auto;
   margin-bottom: @spacing-large;
+  padding: 0 @spacing-default*1.5;
   color: @dark-grey;
   font-weight: @font-weight-normal;
   text-align: center;
@@ -36,8 +36,8 @@
   }
 
   img {
-    height: auto;
     width: 100%;
+    height: auto;
     overflow: hidden;
   }
 

@@ -1,17 +1,17 @@
 @import (reference) '../../styles/variables';
 
 .must-read {
+  width: 100%;
   max-width: 450px;
   margin: @spacing-large 0;
-  width: 100%;
   padding: @spacing-default;
 
   @media @screen-medium{
     width: calc(~"(50% - 15px)");
-    vertical-align: top;
-    margin-left: @spacing-medium;
     margin-top: 0;
+    margin-left: @spacing-medium;
     padding: 0 @spacing-medium;
+    vertical-align: top;
   }
 
   @media @screen-medium-large {
@@ -31,28 +31,28 @@
 
 .must-read-item {
   display: flex;
-  border-bottom: 1px solid @dark-grey;
   margin-bottom: @spacing-small;
-  text-decoration: none;
+  border-bottom: 1px solid @dark-grey;
   color: @black;
+  text-decoration: none;
 
   &:hover {
+    transition: color @animation-speed-fast;
     color: @red;
     cursor: pointer;
-    transition: color @animation-speed-fast;
   }
 }
 
 .must-read-item:last-of-type {
-  border-bottom: none;
   margin-bottom: 0;
+  border-bottom: none;
 }
 
 .must-read-item-index {
+  margin: 0 @spacing-small 0 0;
+  color: @red;
   font-size: @heading-m;
   line-height: @line-height-heading-m;
-  color: @red;
-  margin: 0 @spacing-small 0 0;
   @media @screen-medium-large {
     font-size: @heading-l;
     line-height: @line-height-heading-l;
@@ -60,9 +60,9 @@
 }
 
 .must-read-item-title {
+  margin-bottom: 0;
   font-size: @body-text-m;
   line-height: @line-height-body-m;
-  margin-bottom: 0;
   @media @screen-medium-large {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
@@ -70,17 +70,17 @@
 }
 
 .must-read-item-author {
-  font-size: @body-text-s;
-  line-height: @line-height-body-s;
-  font-weight: @font-weight-normal;
-  color: @dark-grey;
   margin: @spacing-half 0 @spacing-small 0;
+  color: @dark-grey;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 }
 
 .must-read-toggle {
   display: block;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 
   @media @screen-medium {
     display: none;
@@ -88,13 +88,13 @@
 }
 
 .must-read-short-fade {
+  position: relative;
+  z-index: 2;
   height: 100px;
   margin-top: -100px;
   background: 0 0;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.001)),to(white));
   background: linear-gradient(rgba(255,255,255,.001), white);
-  z-index: 2;
-  position: relative;
 
   @media @screen-medium {
     display: none;

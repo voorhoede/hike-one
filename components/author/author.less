@@ -1,18 +1,18 @@
 @import (reference) '../../styles/variables';
 
 .author {
+  display: flex;
   width: 100%;
   max-width: @column-large-7;
   height: 100%;
-  padding: @spacing-medium;
   margin: auto;
-  background: @white-grey;
   margin-bottom: @spacing-medium;
-  display: flex;
+  padding: @spacing-medium;
+  background: @white-grey;
 
   @media @screen-large {
-    padding: @spacing-medium*2;
     margin-bottom: @spacing-large;
+    padding: @spacing-medium*2;
   }
 
   &:last-child {
@@ -25,8 +25,8 @@
 }
 
 .author-image {
-  height: 123px;
   width: 92px;
+  height: 123px;
 }
 
 .author-text {
@@ -39,12 +39,12 @@
   }
 }
 
-.author-name {
-  font-size: @heading-small-s;
-  line-height: @line-height-header-small-s; 
+.author-name { 
   margin-top: 0;
   margin-bottom: @spacing-default;
+  font-size: @heading-small-s;
   font-weight: @font-weight-bold;
+  line-height: @line-height-header-small-s;
 
   @media @screen-medium {
     font-size: @heading-small-m;
@@ -57,12 +57,12 @@
 }
 
 .author-role {
-  font-size: @body-text-s;
-  line-height: @line-height-body-s;
   margin-top: 0;
   margin-bottom: @spacing-default;
   color: @dark-grey;
+  font-size: @body-text-s;
   font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
   @media @screen-medium {
     font-size: @body-text-m;
@@ -75,12 +75,12 @@
 }
 
 .author-summary {
-  font-size: @body-text-small-s;
-  line-height: @line-height-body-small-s;
   margin-top: 0;
   margin-bottom: 0;
   color: @darker-gray;
+  font-size: @body-text-small-s;
   font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
 
   @media @screen-medium {
     font-size: @body-text-small-m;

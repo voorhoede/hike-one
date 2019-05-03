@@ -2,17 +2,17 @@
 
 .cookie-bar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: fixed;
-  bottom: 0;
-  padding: @spacing-default*1.5;
-  width: 100%;
   z-index: @layer-popup;
-  font-size: @body-text-small-s;
-  color: @white;
-  background-color: rgba(0,0,0,.8);
+  bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: @spacing-default*1.5;
   animation: slide-up .3s ease;
+  background-color: rgba(0,0,0,.8);
+  color: @white;
+  font-size: @body-text-small-s;
 
   &.hidden {
     animation: slide-down .3s ease forwards;
@@ -35,14 +35,14 @@
 }
 
 .cookie-bar-link {
+  border-bottom: 1px solid @white;
   color: @white;
   text-decoration: none;
-  border-bottom: 1px solid @white;
 }
 
 .cookie-bar-btn {
-  padding: @spacing-half @spacing-default*1.5;
   margin: 0 @spacing-default;
+  padding: @spacing-half @spacing-default*1.5;
   font-family: @font-main;
 
   &:hover {

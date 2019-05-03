@@ -15,8 +15,8 @@
     object-fit: cover;
 
     @media @screen-small {
-      float: left;
       height: 251px;
+      float: left;
     }
   }
 }
@@ -27,12 +27,12 @@
 
   .icon {
     position: absolute;
-    bottom: 15px;
     right: 15px;
+    bottom: 15px;
 
     svg {
-      height: 28px;
       width: 28px;
+      height: 28px;
     }
 
     path {
@@ -42,24 +42,24 @@
 
   @media @screen-large {
     .icon {
-      bottom: @spacing-small;
       right: @spacing-small;
+      bottom: @spacing-small;
     }
   }
 }
 
 .image-feed-container {
-  float: left;
-  clear: both;
   width: 100%;
   height: 135px;
   margin-bottom: @spacing-default;
+  float: left;
+  clear: both;
 
   & > a {
     display: block;
-    float: left;
     width: 50%;
     padding-right: @spacing-default;
+    float: left;
 
     &:nth-child(2n) {
       padding-right: 0;

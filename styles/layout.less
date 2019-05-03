@@ -1,13 +1,13 @@
 @import (reference) 'variables';
 
 html, body {
-  height: 100%;
   width: 100%;
-  padding: 0;
+  height: 100%;
   margin: 0;
+  padding: 0;
+  font-family: @font-main-fallback;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: @font-main-fallback;
 
   .fonts-loaded {
     font-family: @font-main;
@@ -15,12 +15,12 @@ html, body {
 }
 
 body.disable-scroll {
-  overflow: hidden;
   max-height: 100vh;
+  overflow: hidden;
 
   @media @screen-medium {
-    overflow: auto;
     max-height: none;
+    overflow: auto;
   }
 }
 
@@ -31,13 +31,13 @@ body.disable-scroll {
 .container {
   display: block;
   width: 100%;
-  padding: 0 @spacing-default*1.5;
   margin: 0 0 @container-margin-bottom-s;
+  padding: 0 @spacing-default*1.5;
 
   @media @screen-small {
     max-width: @container-max-width;
-    padding: 0 @spacing-small;
     margin: 0 auto @container-margin-bottom-l;
+    padding: 0 @spacing-small;
   }
 }
 
@@ -71,16 +71,16 @@ body.disable-scroll {
   position: relative;
   z-index:1;
   max-width: none;
-  background: @white;
   margin-top: -100px; // gives header a white background
   padding-top: 100px; // gives header a white background
   padding-bottom: 1px; // fix  collapsed margin of last child
+  background: @white;
 }
 
 // position content below page header large
 .page-scrolling-content {
-  margin-top: 100vh; // height of header image
   position: relative;
+  margin-top: 100vh; // height of header image
   background: @white;
 }
 
@@ -93,9 +93,9 @@ body.disable-scroll {
 }
 
 .page-scrolling-content-small {
+  position: relative;
   margin-top: 65vh;
   padding-top: @spacing-default*5;
-  position: relative;
   background: @white;
 
   @media @screen-small {

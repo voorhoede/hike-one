@@ -1,24 +1,24 @@
 .notification-bar {
   display: flex;
+  z-index: @layer-overlay;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
   margin-bottom: @spacing-default*5;
   padding: @spacing-default;
+  transition: all .3s ease;
   font-size: @body-text-m;
   font-weight: bold;
   text-align: center;
-  width: 100%;
-  z-index: @layer-overlay;
-  transition: all .3s ease;
 
   @media @screen-medium {
     margin-bottom: @spacing-default*14;
   }
 
   .call-to-action-link {
-    text-decoration: none;
     color: @red;
+    text-decoration: none;
 
     .icon svg {
       width: 20px;

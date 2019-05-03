@@ -2,8 +2,8 @@
 @import (reference) 'transition';
 
 .image-person {
-  overflow: hidden;
   display: inline-block;
+  overflow: hidden;
 
   &:hover {
     .image-person-text {
@@ -14,35 +14,35 @@
 
 .image-person-text {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   position: absolute;
   top: 0;
-  opacity: 0;
+  flex-direction: column;
+  justify-content: flex-end;
   width: 100%;
   height: 100%;
   padding: 0 8% 15% 8%;
-  text-align: center;
-  color: @white;
   transition: opacity @animation-speed;
+  opacity: 0;
+  color: @white;
+  text-align: center;
 }
 
 .image-person-title {
-  float: left;
   width: 100%;
-  text-align: center;
+  float: left;
   font-size: @body-text-l;
-  line-height: @line-height-body-s;
   font-weight: @font-weight-bold;
+  line-height: @line-height-body-s;
+  text-align: center;
 }
 
 .image-person-subtitle {
-  float: left;
   width: 100%;
-  text-align: center;
+  float: left;
   font-size: @body-text-small-l;
-  line-height: @line-height-body-small-l;
   font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-l;
+  text-align: center;
 }
 
 .image-team {
@@ -57,9 +57,9 @@
     position: absolute;
     bottom: @spacing-default * 3;
     left: @spacing-default * 3;
+    color: @white;
     font-size: @body-text-small-l;
     font-weight: @font-weight-bold;
     line-height: @line-height-body-small-l;
-    color: @white;
   }
 }

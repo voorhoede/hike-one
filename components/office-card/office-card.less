@@ -24,9 +24,9 @@
 
   .image {
     height: 259px;
-    background-size: cover;
-    background-position: center;
     transition: transform @transition-img-speed;
+    background-position: center;
+    background-size: cover;
 
     @media @screen-medium {
       height: 320px;
@@ -43,8 +43,8 @@
 .office-card-text {
   .shadow;
   position: relative;
-  padding: @spacing-default @spacing-medium @spacing-default @spacing-default;
   margin: -82px @spacing-default*1.5 0 @spacing-default*1.5;
+  padding: @spacing-default @spacing-medium @spacing-default @spacing-default;
   background-color: @white-grey;
 
   h3 {
@@ -95,9 +95,9 @@
   position: absolute;
   top: 50%;
   right: @spacing-default;
-  transform: translateY(-50%);
   width: 15px;
   height: 15px;
+  transform: translateY(-50%);
 
   @media @screen-medium-large {
     right: @spacing-small;

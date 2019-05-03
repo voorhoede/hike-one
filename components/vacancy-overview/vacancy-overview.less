@@ -1,7 +1,7 @@
 .vacancy-overview {
-  padding-top: @spacing-default*4;
     position: relative;
     max-width: @column-small-12;
+  padding-top: @spacing-default*4;
     text-align: center;
     
     @media @screen-medium {
@@ -20,18 +20,18 @@
 }
 
 .vacancy-overview-title {
-  font-size: @title-large-s;
-  line-height: @line-height-title-s;
   margin-bottom: @spacing-small;
-  font-weight: @font-weight-bold;
   color: @darker-gray;
+  font-size: @title-large-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-title-s;
 
   @media @screen-medium {
-    font-size: @title-large-m;
-    line-height: @line-height-title-m;
-    padding-top: @spacing-default*8;
     max-width: 800px;
     margin: 0 auto @spacing-large;
+    padding-top: @spacing-default*8;
+    font-size: @title-large-m;
+    line-height: @line-height-title-m;
   }
   @media @screen-large {
     max-width: @column-large-10;
@@ -78,8 +78,8 @@
 .vacancy-overview-list-item a {
     display: block;
     color: @darker-gray;
-    text-decoration: none;
     font-size: @body-text-s;
+    text-decoration: none;
 
     @media @screen-medium {
         display: flex;
@@ -96,8 +96,8 @@
     margin-bottom: @spacing-half;    
 
     @media @screen-medium {
-        flex: 0 0 50%;
         display: inline-block;
+        flex: 0 0 50%;
         margin-bottom: 0;
         text-align: left;
     }

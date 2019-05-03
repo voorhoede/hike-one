@@ -1,9 +1,9 @@
 @import (reference) '../../styles/variables';
 
 .twitter-extract {
-  float: right;
   width: 100%;
   margin-bottom: @spacing-default;
+  float: right;
   text-decoration: none;
   
   @media @screen-small {
@@ -32,23 +32,23 @@
 }
 
 .twitter-extract-text {
-  float: left;
-  width: 100%;
   position: relative;
+  width: 100%;
   padding: @spacing-default*1.5 @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
+  float: left;
   background: @blue;
   color: @white;
   
   a {
-    text-decoration: none;
     color: @white;
+    text-decoration: none;
 
     svg {
-      width: 28px;
-      height : 28px;
       position: absolute;
       right: 15px; 
       bottom: 22px;
+      width: 28px;
+      height : 28px;
 
       path {
         fill: @white;
@@ -68,11 +68,11 @@
 }
 
 .twitter-extract-subtitle {
-  font-style: italic;
-  font-size: @subtitle-small-s;
   margin-bottom: @spacing-small;
-  font-weight: @font-weight-normal;
   opacity: 0.6;
+  font-size: @subtitle-small-s;
+  font-style: italic;
+  font-weight: @font-weight-normal;
 
   @media @screen-medium {
     margin-bottom: @spacing-small;
@@ -89,8 +89,8 @@
 
 .twitter-extract-title {
   margin-bottom: @spacing-default;
-  font-weight: @font-weight-bold;
   font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
   line-height: @line-height-header-small-s;
 
   @media @screen-medium {
@@ -107,14 +107,14 @@
 
 .twitter-extract-date {
   font-size: @body-text-small-s;
-  line-height: @line-height-body-small-s;
   font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
 
   @media @screen-medium {
     position: absolute;
     bottom: @spacing-small;
-    font-weight: @font-weight-normal;
     font-size: @body-text-small-m;
+    font-weight: @font-weight-normal;
     line-height: @line-height-body-small-m;
   }
   @media @screen-large {
@@ -124,16 +124,16 @@
 }
 
 .twitter-extract-image {
-  height: 220px;
   width: 100%;
+  height: 220px;
   float: left;
 
   @media @screen-small {
     height: 200px;    
   }
   @media @screen-large {
-    height: 246px;
     width: 50%;
+    height: 246px;
   }
 
   a > img {
@@ -142,8 +142,8 @@
     object-fit: cover;
   
     @media @screen-small {
-      float: left;
       height: 200px;
+      float: left;
     }
 
     @media @screen-large {
@@ -164,9 +164,9 @@
     top: 20px;
     left: -20px;
     width: 0; 
-    height: 0; 
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
+    height: 0;
     border-top: 20px solid @blue;
+    border-right: 20px solid transparent; 
+    border-left: 20px solid transparent;
   }
 }

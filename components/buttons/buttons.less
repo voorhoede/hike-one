@@ -5,22 +5,22 @@
 .btn-basis {
   display: inline-block;
   padding: @spacing-default @spacing-medium;
-  text-decoration: none;
+  transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
   border-radius: 100px;
   font-family: @font-main-fallback;
   font-size: @body-text-s;
-  line-height: @line-height-body-s;
   font-weight: @font-weight-normal;
-  transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
+  line-height: @line-height-body-s;
+  text-decoration: none;
 
   .fonts-loaded & {
     font-family: @font-main;
   }
 
   @media @screen-medium {
+    padding: @spacing-default @spacing-large;
     font-size: @body-text-m;
     line-height: @line-height-body-m;
-    padding: @spacing-default @spacing-large;
   }
 
   &:disabled,
@@ -71,8 +71,8 @@
   }
 
   &.btn-large {
-    font-weight: @font-weight-bold;
     padding: @spacing-default @spacing-large;
+    font-weight: @font-weight-bold;
 
     @media @screen-medium {
       padding: 18px @spacing-default*5;
@@ -94,8 +94,8 @@
 
   &:not(.loading) {
     .icon {
-      animation-timing-function: ease-in-out;
       animation-name: horizontal-spring-icon-to;
+      animation-timing-function: ease-in-out;
     }
   }
 }

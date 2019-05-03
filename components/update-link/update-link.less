@@ -6,30 +6,30 @@
 
 .update-link-title {
   display: inline-block;
-  color: @black;
-  text-decoration: none;
-  font-weight: @font-weight-bold;
-  font-size: @heading-small-s;
-  line-height: @line-height-header-small-s;
   transition: color @animation-speed-slow;
+  color: @black;
+  font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-header-small-s;
+  text-decoration: none;
 
   &:hover {
+    transition: color @animation-speed-fast;
     color: @red;
     cursor: pointer;
-    transition: color @animation-speed-fast;
 
     svg {
-      fill: @red;
       transition: fill @animation-speed-fast;
+      fill: @red;
     }
   }
 
   svg {
-    transition: fill @animation-speed-slow;
     width: 35px;
     height: 35px;
-    vertical-align: middle;
+    transition: fill @animation-speed-slow;
     fill: @black;
+    vertical-align: middle;
   }
 
   @media @screen-medium {
@@ -45,11 +45,11 @@
 }
 
 .update-link-sub {
+  margin: 0;
   color: @dark-grey;
   font-size: @body-text-s;
-  line-height: @line-height-body-small-l;
-  margin: 0;
   font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-l;
 
   @media @screen-medium {
     font-size:  @body-text-m;

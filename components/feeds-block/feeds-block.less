@@ -1,9 +1,9 @@
 @import (reference) '../../styles/variables';
 
 .feeds-block {
+  display: inline-block;
   width: 100%;
   padding: 0;
-  display: inline-block;
   overflow: hidden;
 
   & > .container-inner {
@@ -11,12 +11,12 @@
   }
 
   @media @screen-large {
-    max-width: @column-large-12;
-    float: none;
-    margin: auto;
-    height: 912px;
     display: block;
+    max-width: @column-large-12;
+    height: 912px;
+    margin: auto;
     margin-bottom: @spacing-large*2;
+    float: none;
 
     & > .container-inner {
       max-width: @column-large-12;
@@ -25,24 +25,24 @@
 }
 
 .feeds-link-container {
-  float: left;
-  margin: @spacing-small 0;
-  width: 100%;
-  text-align: center;
-  top: 0;
   position: relative;
+  top: 0;
+  width: 100%;
+  margin: @spacing-small 0;
+  float: left;
+  text-align: center;
 
   @media @screen-medium {
     margin: @spacing-large 0;
   }
 
   @media @screen-large {
-    top: -277px;
     position: relative;
+    top: -277px;
   }
 }
 
 .feeds-link {
-  position: relative;
   display: inline-block;
+  position: relative;
 }

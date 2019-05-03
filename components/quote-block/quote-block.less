@@ -16,20 +16,20 @@
 
 .quote-cite-content {
     display: inline-block;
-    vertical-align: top;
     width: calc(~"100% - (70px + 1rem)");
     font-family: @font-main-fallback;
     font-size: @body-text-s;
     line-height: @line-height-body-s;
+    vertical-align: top;
 
   .fonts-loaded & {
     font-family: @font-main
   }
 
     @media @screen-medium {
+        width: calc(~"100% - (100px + 2rem)");
         font-size: @body-text-m;
         line-height: @line-height-body-m;
-        width: calc(~"100% - (100px + 2rem)");
     }
 
     @media @screen-large {
@@ -39,12 +39,12 @@
 }
 
 .quote-cite img {
-    object-fit: cover;
     width: 70px;
     height: 70px;
-    border-radius: 50%;
     margin-right: @spacing-small;
+    border-radius: 50%;
     vertical-align: top;
+    object-fit: cover;
 
     @media @screen-medium {
         width: 100px;
@@ -55,11 +55,11 @@
 
 .quote-cite-name {
     margin-bottom: 0;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-bold;
-    font-style: normal;
     color: @white;
+    font-size: @body-text-s;
+    font-style: normal;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-body-s;
 
     @media @screen-medium {
         font-size: @body-text-m;
@@ -73,11 +73,11 @@
 }
 
 .quote-cite-title {
-    font-style: italic;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-normal;
     color: @white;
+    font-size: @body-text-s;
+    font-style: italic;
+    font-weight: @font-weight-normal;
+    line-height: @line-height-body-s;
 
     @media @screen-medium {
         font-size: @body-text-m;

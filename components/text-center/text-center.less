@@ -1,10 +1,10 @@
 @import (reference) '../../styles/variables';
 
 .text-center {
-    text-align: center;
-    margin-bottom: @spacing-default*8;
     position: relative;
     max-width: @column-small-12;
+    margin-bottom: @spacing-default*8;
+    text-align: center;
 
     a {
         &,
@@ -42,8 +42,8 @@
 .text-center-spacing-small {
     margin-bottom: @spacing-default*3;
     @media @screen-small {
-        padding-top: @spacing-large;
         margin-bottom: @spacing-large*2;
+        padding-top: @spacing-large;
     }
 }
 
@@ -74,10 +74,10 @@
 }
 
 .text-center .text-center-title {
-    font-size: @heading-s;
-    line-height: @line-height-heading-s;
-    font-weight: @font-weight-bold;
     color: @darker-gray;
+    font-size: @heading-s;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-heading-s;
 
     @media @screen-medium {
         font-size: @heading-m;
@@ -90,10 +90,10 @@
 }
 
 .text-center .text-center-text {
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-normal;
     color: @darker-gray;
+    font-size: @body-text-s;
+    font-weight: @font-weight-normal;
+    line-height: @line-height-body-s;
 
     @media @screen-medium {
         font-size: @body-text-m;
@@ -108,8 +108,8 @@
 
 .text-center-font-title .text-center-title {
     font-size: @heading-s;
-    line-height: @line-height-subtitle-m;
     font-weight: @font-weight-bold;
+    line-height: @line-height-subtitle-m;
 
     @media @screen-medium {
         font-size: @heading-m;
@@ -122,31 +122,31 @@
 }
 
 .text-center-font-large .text-center-text {
-    font-size: @subtitle-large-s;
-  line-height: @line-height-subtitle-s;
-    font-weight: @font-weight-normal;
     color: @darker-gray;
+    font-size: @subtitle-large-s;
+    font-weight: @font-weight-normal;
+  line-height: @line-height-subtitle-s;
 
   @media @screen-medium {
-    line-height: @line-height-subtitle-m;
     font-size: @subtitle-large-m;
+    line-height: @line-height-subtitle-m;
     }
 
     @media @screen-large {
-        line-height: @line-height-subtitle-l;
         font-size: @subtitle-large-l;
+        line-height: @line-height-subtitle-l;
     }
 }
 
 .text-center-font-medium .text-center-text {
-    font-size: @body-text-s;
-  line-height: @line-height-body-s;
-  font-weight: @font-weight-normal;
     color: @darker-gray;
+    font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
   @media @screen-medium {
-    line-height: @line-height-body-m;
     font-size: @body-text-m;
+    line-height: @line-height-body-m;
     }
     @media @screen-large {
         font-size: @body-text-l;

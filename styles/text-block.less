@@ -3,14 +3,14 @@
 
 .text-block {
   .shadow;
+    margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+    padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
     background-color: @blue;
     color: @white;
-    padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
     font-family: @font-alt-fallback;
-    font-weight: @font-weight-normal;
     font-size: @subtitle-large-s;
+    font-weight: @font-weight-normal;
     line-height: 35px;
-    margin: 0 0 @spacing-default*5 @spacing-default*1.5;
 
   .fonts-loaded & {
     font-family: @font-alt;
@@ -76,17 +76,17 @@
 }
 
 .text-block-right {
-  margin-left: @spacing-default*1.5;
   margin-right: 0;
+  margin-left: @spacing-default*1.5;
 
   @media @screen-large {
     margin-left: auto;
   }
 }
 .text-block-subtitle {
-    font-size: @text-medium-m;
     opacity: 0.6;
-    font-weight: @font-weight-normal;
+    font-size: @text-medium-m;
     font-style: italic;
+    font-weight: @font-weight-normal;
     line-height: @line-height-body-m;
 }

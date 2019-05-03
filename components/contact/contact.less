@@ -1,10 +1,10 @@
 @import (reference) '../../styles/variables';
 
 .contact {
-  text-align: center;
+  position: relative;
   padding-top: @spacing-default*4;
   padding-bottom: @spacing-default*12;
-  position: relative;
+  text-align: center;
 
   @media @screen-small {
     padding-bottom: @spacing-default*20;
@@ -12,18 +12,18 @@
 }
 
 .contact h3 {
-  font-size: @title-large-s;
-  line-height: @line-height-title-s;
   margin-bottom: @spacing-medium;
-  font-weight: @font-weight-bold;
   color: @darker-gray;
+  font-size: @title-large-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-title-s;
 
   @media @screen-medium {
-    font-size: @title-large-m;
-    line-height: @line-height-title-m;
-    padding-top: @spacing-default*8;
     max-width: 800px;
     margin: 0 auto @spacing-large*2;
+    padding-top: @spacing-default*8;
+    font-size: @title-large-m;
+    line-height: @line-height-title-m;
   }
   @media @screen-large {
     max-width: @column-large-10;
@@ -34,8 +34,8 @@
 
 .contact .btn-secondary {
   display: block;
-  margin: 0 auto;
   max-width: 300px;
+  margin: 0 auto;
   font-weight: @font-weight-bold;
 }
 

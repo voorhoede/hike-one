@@ -1,50 +1,50 @@
 @import (reference) '../../styles/variables';
 
 .text-card {
-  background: @white;
-    margin-right: @spacing-default*1.5;
   position: relative;
+    margin-right: @spacing-default*1.5;
     padding: @spacing-large @spacing-large @spacing-large @spacing-default*1.5;
+  background: @white;
 
     @media @screen-small {
         margin-right: @spacing-default*9;
     }
 
     @media @screen-medium {
+        max-width: @column-large-4;
         margin-right: 50vw;
         padding: @spacing-default*5;
-        max-width: @column-large-4;
     }
     @media @screen-medium-large {
         max-width: @column-large-6;
     }
     // 1200 because if 1170 the text will stick to the side when the media querie just activated
     @media only screen and (min-width: 1200px)  {
-        padding: @spacing-default*11 @spacing-default*10;
         margin-left: calc(~'(100vw - @{container-inner-max-width}) / 2 - 110px'); // -110px for padding left. To align the text to the grid
+        padding: @spacing-default*11 @spacing-default*10;
     }
 }
 
 .text-card h2 {
-    font-size: @heading-s;
-    line-height: @line-height-header-small-s;
-    font-weight: @font-weight-bold;
     color: @darker-gray;
+    font-size: @heading-s;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-header-small-s;
     @media @screen-medium {
         font-size: @heading-m;
         line-height: @line-height-heading-m;
     }
     @media @screen-large {
+        margin-bottom: @spacing-medium;
         font-size: @heading-l;
         line-height: @line-height-heading-l;
-        margin-bottom: @spacing-medium;
     }
 }
 
 .text-card p {
-    font-weight: @font-weight-normal;
     color: @darker-gray;
     font-size: @body-text-s;
+    font-weight: @font-weight-normal;
     line-height: @line-height-body-s;
 
     @media @screen-medium {

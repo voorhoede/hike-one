@@ -3,14 +3,14 @@
 .menu-bar {
   position: relative;
   width: 100%;
-  text-align: center;
   background: @white;
+  text-align: center;
 }
 
 .header-logo-wrapper {
   display: flex;
-  padding-left: @spacing-small;
   padding-top: @spacing-small;
+  padding-left: @spacing-small;
 
   @media @screen-medium {
     padding-top: @spacing-medium;
@@ -27,45 +27,45 @@
   z-index: 3;
 
   svg {
-    height: 22px;
     width: 125px;
+    height: 22px;
   }
 
   .animation-is-finished & {
-    padding: @spacing-small @spacing-default*1.5;
     margin-left: -15px;
+    padding: @spacing-small @spacing-default*1.5;
   }
 
   .is-open & {
     @media @screen-medium {
-      padding: 0;
-      margin-left: 0;
       margin-top: 0;
+      margin-left: 0;
+      padding: 0;
       background: transparent;
     }
   }
 
   @media @screen-large {
     svg {
-        height: 38px;
       width: 203px;
+        height: 38px;
     }
   }
 }
 
 .menu-btn {
-  z-index: 6;
   position: fixed;
+  z-index: 6;
   top: 35px;
     right: 25px;
-  transform: translateY(-50%);
-  font-size: 0;
-  background: transparent;
-  border: none;
-    padding: 0;
   margin: 0;
-  cursor: pointer;
+    padding: 0;
+  transform: translateY(-50%);
+  border: none;
   outline: none;
+  background: transparent;
+  font-size: 0;
+  cursor: pointer;
 
   .menu-btn-icon svg {
     position: relative;
@@ -76,8 +76,8 @@
 
   svg.menu-btn-background {
     position: absolute;
-    left: -10px;
     top: -7px;
+    left: -10px;
     width: 50px;
     height: 50px;
     transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
@@ -90,9 +90,9 @@
 
   &:hover {
     svg.menu-btn-background {
-      fill: @black;
       transform: scale(1.2);
       transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
+      fill: @black;
     }
 
     .menu-btn-icon svg {
@@ -120,8 +120,8 @@
     }
 
     svg.menu-btn-background {
-      left: -21px;
       top: -15px;
+      left: -21px;
       width: 80px;
       height: 80px;
     }

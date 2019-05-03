@@ -1,18 +1,18 @@
 @import (reference) '../../styles/variables';
 
 .page-header {
+  display: flex;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
-  display: flex;
+  left: 0;
   flex-direction: column;
   justify-content: flex-end;
-  text-align: center;
   height: 100vh;
   background-color: @black;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
+  text-align: center;
 
   &.show-gradient::after {
     content: '';
@@ -46,11 +46,11 @@
 }
 
 .page-header-inner {
-  z-index: 1;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  z-index: 1;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
   height: 100%;
   margin-bottom: 0;
 
@@ -61,15 +61,15 @@
 
 .page-header-video {
   display: none;
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
   position: fixed;
+  z-index: -1;
   top: 0;
   left: 0;
-  opacity: 0;
+  width: 100vw;
+  height: 100vh;
   transition: opacity @animation-speed;
-  z-index: -1;
+  opacity: 0;
+  object-fit: cover;
 
   .show-video & {
     opacity: 1;
@@ -83,8 +83,8 @@
 .page-header-title {
   display: block;
   color: @white;
-  font-weight: @font-weight-bold-extra;
   font-size: @title-giant-s;
+  font-weight: @font-weight-bold-extra;
   line-height: @line-height-giant-s;
 
   @media @screen-medium {
@@ -101,17 +101,17 @@
 
 .page-header-subtitle {
   display: block;
-  color: @white;
   max-width: 800px;
   margin: 0 auto @spacing-small;
+  color: @white;
   font-size: @subtitle-large-s;
   font-weight: @font-weight-light;
   line-height: @line-height-subtitle-s;
 
   @media @screen-medium {
+    margin-bottom: @spacing-default;
     font-size: @subtitle-large-m;
     line-height: @line-height-subtitle-m;
-    margin-bottom: @spacing-default;
   }
 
   @media @screen-large {
@@ -137,9 +137,9 @@
 }
 
 .page-header-button {
-  background: none;
-  border: none;
   padding: 0px @spacing-default*5 @spacing-default*6.5 @spacing-default*5;
+  border: none;
+  background: none;
 
   &:hover {
     cursor: pointer;
@@ -155,8 +155,8 @@
 
   svg {
     display: block;
-    margin: 0 auto;
     width: 40px;
+    margin: 0 auto;
 
     @media @screen-small {
       width: 45px;

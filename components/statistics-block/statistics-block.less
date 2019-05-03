@@ -3,9 +3,9 @@
 .statistics {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     font-family: @font-main-fallback;
-    align-items: center;
 
   .fonts-loaded & {
     font-family: @font-main;
@@ -18,22 +18,22 @@
 
 .statistics-large {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     padding-right: 0;
     text-align: center;
-    width: 100%;
-    justify-content: center;
-    flex-direction: column;
 
     @media @screen-large {
-        max-width: 332px;
         width: 100%;
+        max-width: 332px;
         padding-right: @spacing-medium*2;
     }
 }
 
 .statistics-title-large {
-    font-weight: @font-weight-bold;
     font-size: @subtitle-large-s;
+    font-weight: @font-weight-bold;
     line-height: @line-height-header-small-s;
 
     @media @screen-medium {
@@ -48,37 +48,37 @@
 }
 
 .statistics-amount-large {
+    padding-bottom: @spacing-default;
     font-size: 132px;
     font-weight: @font-weight-bold-extra;
     line-height: @line-height-giant-l;
-    padding-bottom: @spacing-default;
 
     @media @screen-large {
-        font-size: 198px;
         padding-bottom: @spacing-default*2.5;
+        font-size: 198px;
     }
 }
 
 .statistics-large-divider {
     margin-bottom: @spacing-medium;
-    padding-bottom: @spacing-medium;
     padding-top: @spacing-medium;
+    padding-bottom: @spacing-medium;
     border-right: 0;
     border-bottom: 2px solid rgba(255,255,255, 0.3);
 
 
     @media @screen-large {
         height: 290px;
-        border-bottom: 0;
         border-right: 2px solid rgba(255,255,255, 0.3);
+        border-bottom: 0;
     }
 }
 
 .statistic-combination {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
 .statistic-combination-items {
@@ -89,10 +89,10 @@
 
 .statistics-normal {
     display: flex;
-    max-width: 720px;
-    width: 100%;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 720px;
     @media @screen-large {
        margin-left: 90px;
     }
@@ -115,10 +115,10 @@
 }
 
 .statistics-amount-normal {
-    font-size: @line-height-giant-subtitle;
-    line-height: @line-height-header-small-l;
-    font-weight: @font-weight-bold-extra;
     margin-bottom: @spacing-default;
+    font-size: @line-height-giant-subtitle;
+    font-weight: @font-weight-bold-extra;
+    line-height: @line-height-header-small-l;
 
     @media @screen-medium {
         line-height: @line-height-title-l;
@@ -130,16 +130,16 @@
 
 .statistics-call-to-action {
     display: flex;
-    width: 100%;
     justify-content: center;
+    width: 100%;
     margin-top: @spacing-small*2;
     margin-bottom: @spacing-small;
 
     & > a {
-        background: transparent;
-        color: @white;
         padding: @spacing-default @spacing-medium*2;
         border: 2px solid @white;
+        background: transparent;
+        color: @white;
         @media @screen-large {
             margin-left: @spacing-medium*3;
             padding: @spacing-default @spacing-medium;

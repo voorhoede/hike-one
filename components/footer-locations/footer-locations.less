@@ -11,8 +11,8 @@
 }
 
 .footer-locations-list li {
-  position: relative;
   display: inline-block;
+  position: relative;
   margin-left: 30px;
   color: @white;
 
@@ -51,14 +51,16 @@
 }
 
 .footer-locations-list button {
-  font-size: @body-text-s;
-  color: @white;
-  text-transform: uppercase;
-  border: none;
-  background: transparent;
-  padding: 0;
   position: relative;
   top: 4px;
+  padding: 0;
+
+  transition: color @animation-speed-slow;
+  border: none;
+  background: transparent;
+  color: @white;
+  font-size: @body-text-s;
+  text-transform: uppercase;
   cursor: pointer;
 
   @media @screen-medium {
@@ -68,8 +70,6 @@
   @media @screen-large {
     font-size: @body-text-l;
   }
-
-  transition: color @animation-speed-slow;
 
   &:hover {
     transition: color @animation-speed-fast;
@@ -81,11 +81,11 @@
   }
 
   &.is-active {
-    font-weight: @font-weight-bold;
     border-bottom: none;
-    font-size: @heading-small-l;
-    line-height: @line-height-header-small-s;
     color: @white;
+    font-size: @heading-small-l;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-header-small-s;
     text-decoration: underline;
 
     @media @screen-medium {
@@ -121,11 +121,11 @@
 
 .footer-locations-info a {
   margin-bottom: 0;
-  font-size: @body-text-small-s;
-  line-height: @line-height-body-small-s;
-  font-weight: @font-weight-normal;
   transition: color @animation-speed-slow;
   color: @white;
+  font-size: @body-text-small-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
 
   &:hover {
     transition: color @animation-speed-fast;

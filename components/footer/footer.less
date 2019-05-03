@@ -2,9 +2,9 @@
 @import (reference) '../../styles/helpers';
 
 .footer {
-  background: @black;
   margin: 0;
   padding: @spacing-default*5 0 0 0;
+  background: @black;
   color: @white;
 
   @media @screen-medium {
@@ -13,13 +13,13 @@
 }
 
 .footer.is-fixed {
+  display: flex;
   position: fixed;
+  z-index: 0;
   bottom: 0;
   left: 0;
-  width: 100%;
-  z-index: 0;
-  display: flex;
   align-items: flex-end;
+  width: 100%;
 }
 
 .footer .container-inner {
@@ -33,16 +33,16 @@
 }
 
 .footer-logo {
-  margin-bottom: @spacing-medium;
   display: block;
+  margin-bottom: @spacing-medium;
   @media @screen-medium {
     margin-bottom: @spacing-extra-large;
   }
 
   @media @screen-large {
     svg {
-      height: 46px;
       width: 240px;
+      height: 46px;
     }
   }
 }
@@ -50,8 +50,8 @@
 .footer-left {
   @media @screen-medium {
     display: inline-block;
-    vertical-align: top;
     width: 50%;
+    vertical-align: top;
   }
 }
 
@@ -59,33 +59,33 @@
   @media @screen-medium {
 
     display: inline-flex;
-    vertical-align: top;
+    flex-direction: column;
+    justify-content: space-between;
     width: 30%;
     min-width: 300px;
     max-width: 370px;
     margin-left: auto;
-    flex-direction: column;
-    justify-content: space-between;
+    vertical-align: top;
   }
 }
 
 .footer-links {
-  max-height: 160px;
   display: flex;
+  max-height: 160px;
   margin-bottom: @spacing-small;
 }
 
 .footer-link-list {
   .list-no-style;
-  column-count: 2;
-  column-fill: auto;
   margin-bottom: @spacing-small;
+  column-fill: auto;
+  column-count: 2;
 
   @media @screen-medium {
     display: inline-block;
-    vertical-align: top;
       max-width: 400px;
     margin-bottom: @spacing-small;
+    vertical-align: top;
   }
 }
 
@@ -101,10 +101,10 @@
 .footer-link-list a {
   transition: color @animation-speed-slow;
   color: @white;
-  text-decoration: none;
-  font-weight: @font-weight-normal;
   font-size: @body-text-s;
+  font-weight: @font-weight-normal;
   line-height: @line-height-body-s;
+  text-decoration: none;
 
   @media @screen-medium {
     font-size: @body-text-m;
@@ -117,23 +117,23 @@
   }
 
   &:hover {
-    color: @red;
     transition: color @animation-speed-fast;
+    color: @red;
   }
 }
 
 .footer-join-link {
-  font-size: @heading-small-s;
-  line-height: @line-height-heading-s;
-  font-weight: @font-weight-bold;
-  color: @white;
-  text-decoration: none;
     display: block;
-  padding: @spacing-small 0;
     margin-bottom: @spacing-medium;
+  padding: @spacing-small 0;
+  transition: color @animation-speed-slow;
   border-top: 1px solid #717171;
   border-bottom: 1px solid #717171;
-  transition: color @animation-speed-slow;
+  color: @white;
+  font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-heading-s;
+  text-decoration: none;
 
   @media @screen-medium {
       margin-bottom: @spacing-extra-large;
@@ -148,8 +148,8 @@
   }
 
   &:hover {
-    color: @red;
     transition: color @animation-speed-fast;
+    color: @red;
     span > svg > path {
       transition: fill @animation-speed-fast;
       fill: @red;
@@ -158,12 +158,12 @@
 }
 
 .footer-join-link svg {
-  box-sizing: content-box;
-  vertical-align: middle;
   display: inline-block;
-  margin-left: @spacing-half;
+  box-sizing: content-box;
   width: 35px;
   height: 35px;
+  margin-left: @spacing-half;
+  vertical-align: middle;
 
   path {
     transition: fill @animation-speed-slow;
@@ -176,16 +176,16 @@
 }
 
 .footer-contact {
-  font-size: @heading-small-s;
-  line-height: @line-height-header-small-s;
-  font-weight: @font-weight-bold;
-  color: @white;
   margin-bottom: @spacing-medium;
+  color: @white;
+  font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-header-small-s;
 
   @media @screen-medium {
+    margin-bottom: @spacing-default*11;
     font-size: @heading-small-m;
     line-height: @line-height-header-small-m;
-    margin-bottom: @spacing-default*11;
   }
   @media @screen-large {
     font-size: @heading-small-l;
@@ -195,10 +195,10 @@
 
 .footer-contact-tel,
 .footer-contact-email {
+  display:block;
   transition: color @animation-speed-slow;
   color: @white;
   text-decoration: none;
-  display:block;
 
   &:hover {
     transition: color @animation-speed-fast;
@@ -226,23 +226,23 @@
 }
 
 .footer-copyright {
+  display: inline-block;
+  margin-bottom: 0;
+  padding-bottom: @spacing-default;
   color: @dark-gray;
-  line-height: @line-height-body-small-s;
   font-size: @body-text-small-s;
   font-weight: @font-weight-normal;
-  padding-bottom: @spacing-default;
-  margin-bottom: 0;
-  display: inline-block;
+  line-height: @line-height-body-small-s;
 
   @media @screen-medium {
-    line-height: @line-height-body-small-m;
-    font-size: @body-text-small-m;
     padding-bottom: 0;
       transform: translateY(-130%);
+    font-size: @body-text-small-m;
+    line-height: @line-height-body-small-m;
   }
   @media @screen-large {
-    line-height: @line-height-body-small-l;
     font-size: @body-text-small-l;
+    line-height: @line-height-body-small-l;
   }
 
   & + .footer-copyright {

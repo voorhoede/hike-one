@@ -2,13 +2,13 @@
 @import (reference) '../../styles/shadows';
 
 .context-menu {
+  display: inline-block;
   position: absolute;
+  z-index: 999;
   top: calc(100% + 4px);
   left: @spacing-small;
   padding: @spacing-medium;
-  display: inline-block;
   background: @white;
-  z-index: 999;
 
   @media @screen-medium {
     left: @spacing-large;
@@ -20,8 +20,8 @@
 }
 
 .context-menu-title {
-  font-weight: @font-weight-bold;
   margin: 0;
+  font-weight: @font-weight-bold;
 }
 
 .context-menu-wrapper {
@@ -30,10 +30,10 @@
 }
 
 .context-menu-table {
+    margin: @spacing-default @spacing-small @spacing-default 0;
+  border-spacing: 0;
   font-size: @body-text-small-m;
   line-height: @line-height-body-small-m;
-  border-spacing: 0;
-    margin: @spacing-default @spacing-small @spacing-default 0;
 }
 
 .context-menu-table td {
@@ -63,8 +63,8 @@
 }
 
 .context-menu-logo-download-all {
+  display: block;
   font-size: @body-text-small-m;
   line-height: @line-height-body-small-m;
-  display: block;
   text-align: center;
 }

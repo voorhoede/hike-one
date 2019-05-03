@@ -3,8 +3,8 @@
 
 .playground-card {
   position: relative;
-  cursor: pointer;
   transition: transform @animation-speed-slow, box-shadow @animation-speed-slow;
+  cursor: pointer;
 
   &:hover {
     .shadow();
@@ -22,8 +22,8 @@
 }
 
 .playground-card-image {
-  height: 240px;
   width: 100%;
+  height: 240px;
   background-repeat: no-repeat;
   background-size: cover;
 
@@ -41,20 +41,20 @@
 
   @media @screen-large {
     position: absolute;
-    bottom: 24px;
     right: 24px;
-    padding: 24px;
+    bottom: 24px;
     width: 50%;
+    padding: 24px;
   }
 }
 
 .playground-card-title {
-  font-size: 1.375rem;
   margin-bottom: 0;
+  font-size: 1.375rem;
 
   @media @screen-large {
-    font-size: 2.125rem;
     margin-bottom: 8px;
+    font-size: 2.125rem;
   }
 }
 

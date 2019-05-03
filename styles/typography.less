@@ -1,14 +1,14 @@
 @import 'variables';
 
 body {
+    color: @black;
     font-size: @text-medium-s;
     line-height: @line-height-body-s;
-    color: @black;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: @font-weight-bold;
     margin: 0 0 @spacing-small 0;
+    font-weight: @font-weight-bold;
 }
 
 h1 {
@@ -30,10 +30,10 @@ h3 {
 }
 
 .subtitle {
-    font-size: @title-small-l;
-    line-height: @line-height-heading-l;
-    font-weight: 600;
     color: @gray;
+    font-size: @title-small-l;
+    font-weight: 600;
+    line-height: @line-height-heading-l;
 }
 
 .section-header {
@@ -49,8 +49,8 @@ h3 {
 }
 
 .list-custom {
-    font-weight: @font-weight-normal;
     font-style: italic;
+    font-weight: @font-weight-normal;
     list-style: none;
 
     .list-custom-item {
@@ -63,9 +63,9 @@ h3 {
             left: -20px;
             width: 4px;
             height: 4px;
-            background-color: @red;
-            border-radius: 50%;
             transform: translateY(-50%);
+            border-radius: 50%;
+            background-color: @red;
         }
     }
 }

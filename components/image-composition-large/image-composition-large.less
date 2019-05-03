@@ -4,20 +4,20 @@
   .clearfix;
   display: flex;
   justify-content: center;
-  padding: 0 @spacing-default*1.5;
   margin-bottom: @spacing-large*2;
+  padding: 0 @spacing-default*1.5;
 
   @media @screen-medium-large {
-    padding: 0;
     margin-bottom: @spacing-small*6;
+    padding: 0;
   }
 
   .image-team,
   .image-person {
-    float: left;
     width: calc(~"50vw - 30px");
     height: calc(~"(50vw - 30px) * 1.25");
     margin-bottom: @spacing-default * 1.5;
+    float: left;
   }
 
   .image-team {
@@ -67,44 +67,44 @@
   .image-composition-img-4 {
     margin-left: 7.5px;
     @media @screen-medium-large {
-      clear: both;
       margin-top: @spacing-small * 2;
       margin-left: @column-large-1 + @gutterLarge;
+      clear: both;
     }
   }
 }
 
 .image-composition-text {
-  width: 100%;
   position: relative;
-  float: left;
+  width: 100%;
   margin-right: @spacing-default*1.5;
   margin-left: 0;
   padding: @spacing-small*2 @spacing-default @spacing-medium*2 @spacing-small*2;
+  float: left;
   background-color: @purple;
   color: @white;
 
   @media @screen-medium-large {
-    margin-left: @spacing-small * 2;
-    margin-top: -135px;
     width: 56%;
     max-width: 550px;
+    margin-top: -135px;
+    margin-left: @spacing-small * 2;
   }
 }
 
 .image-composition-text-title {
+  opacity: 0.7;
   font-size: @heading-small-s;
   font-style: italic;
-  opacity: 0.7;
 }
 
 .image-composition-text-list {
-  list-style: none;
-  padding-left: 0;
   margin-top: @spacing-small;
+  padding-left: 0;
   font-size: @heading-small-s;
   font-weight: @font-weight-bold;
   line-height: @line-height-header-small-s;
+  list-style: none;
 
   @media @screen-medium {
     font-size: @heading-small-m;

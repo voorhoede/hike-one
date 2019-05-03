@@ -1,9 +1,9 @@
 @import (reference) '../../styles/variables';
 
 .blog-extract {
-  float: left;
   width: 100%;
   margin-bottom: @spacing-default;
+  float: left;
   text-decoration: none;
 
   @media @screen-small {
@@ -13,8 +13,8 @@
 }
 
 .blog-extract-image-container {
-  height: 220px;
   width: 100%;
+  height: 220px;
   float: left;
 
   @media @screen-small {
@@ -22,8 +22,8 @@
   }
 
   @media @screen-large {
-    height: 256px;
     width: 100%;
+    height: 256px;
   }
 
   & > img {
@@ -32,8 +32,8 @@
     object-fit: cover;
 
     @media @screen-small {
-      float: left;
       height: 200px;
+      float: left;
     }
 
     @media @screen-large {
@@ -43,31 +43,31 @@
 }
 
 .blog-extract-text-container {
-  float: left;
-  width: 100%;
   position: relative;
+  width: 100%;
+  height: 100%;
   padding: 0 @spacing-default*1.5 @spacing-default*1.5 @spacing-default*1.5;
+  float: left;
+  background: @green;
   color: @white;
   text-align: left;
-  height: 100%;
-  background: @green;
 
   & > h3 {
+    margin-bottom: @spacing-default;
+    padding-top: @spacing-small;
+    opacity: 0.8;
     color: @white;
     font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    padding-top: @spacing-small;
-    margin-bottom: @spacing-default;
-    font-weight: @font-weight-normal;
     font-style: italic;
-    opacity: 0.8;
+    font-weight: @font-weight-normal;
+    line-height: @line-height-body-s;
   }
 
   & > h2 {
-    line-height: @line-height-header-small-s;
+    margin-bottom: @spacing-default;
     font-size: @heading-small-s;
     font-weight: @font-weight-bold;
-    margin-bottom: @spacing-default;
+    line-height: @line-height-header-small-s;
   }
 
   @media @screen-medium {
@@ -75,9 +75,9 @@
     min-height: 233px;
     padding: 0 @spacing-small;
     & > h2 {
-      line-height: @line-height-header-small-m;
-      font-size: @heading-small-m;
       margin-bottom: @spacing-extra-large;
+      font-size: @heading-small-m;
+      line-height: @line-height-header-small-m;
     }
     & > h3 {
       font-size: @body-text-m;
@@ -86,42 +86,42 @@
   }
 
   @media @screen-large {
-    padding: 0 @spacing-small @spacing-small @spacing-medium;
     height: 100%;
     min-height: 266px;
+    padding: 0 @spacing-small @spacing-small @spacing-medium;
 
     & > h3 {
-      font-size: @body-text-l;
-      line-height: @line-height-body-l;
-      font-style: italic;
-      padding-top: @spacing-large;
       margin-bottom: @spacing-medium;
+      padding-top: @spacing-large;
+      font-size: @body-text-l;
+      font-style: italic;
+      line-height: @line-height-body-l;
     }
     & > h2 {
-      line-height: @line-height-header-small-l;
       margin-bottom: @spacing-large;
       font-size: @heading-small-l;
+      line-height: @line-height-header-small-l;
     }
   }
 }
 
 .blog-extract-footer-container {
+  display: block;
   position: relative;
   width: 100%;
-  text-align: left;
   float: left;
-  display: block;
+  text-align: left;
 
   .icon {
-    float: right;
     position: relative;
     bottom: @spacing-default;
     margin-top: 0;
     padding: 0;
+    float: right;
 
     svg {
-      height: 35px;
       width: 35px;
+      height: 35px;
     }
 
     path {
@@ -132,17 +132,17 @@
   .blog-extract-footer-date {
     display: block;
     float: left;
-    font-weight: @font-weight-normal;
-    font-size: @body-text-small-s;
-    line-height: @line-height-body-small-s;
     color: @white;
+    font-size: @body-text-small-s;
+    font-weight: @font-weight-normal;
+    line-height: @line-height-body-small-s;
   }
 
   @media @screen-medium {
     position: absolute;
+    bottom: @spacing-default;
     left: 0;
     padding: 0 @spacing-small;
-    bottom: @spacing-default;
 
 
     .blog-extract-footer-date {
@@ -154,19 +154,19 @@
 
   @media @screen-large {
     position: absolute;
-    left: 0;
     bottom: 15px;
+    left: 0;
     width: 100%;
     padding: 0 @spacing-medium;
 
     & > button {
-      height: 25px;
       right: -15px;
+      height: 25px;
     }
     .blog-extract-footer-date {
+      display: block;
       font-size: @body-text-small-l;
       line-height: @line-height-body-small-l;
-      display: block;
     }
     .icon {
       right: 0;

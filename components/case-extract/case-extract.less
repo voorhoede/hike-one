@@ -1,14 +1,18 @@
 @import (reference) '../../styles/variables';
+
 .case-extract {
   a { text-decoration: none; }
 }
+
 .case-extract-inner {
   position: relative;
   margin: auto;
   padding: 0;
+
   @media @screen-small {
     max-width: @column-large-10;
   }
+
   @media @screen-large {
     padding-top: @spacing-extra-large;
   }
@@ -33,10 +37,6 @@
 }
 
 .case-extract-text-container {
-  &:hover {
-      transform: scale(1.05);
-    transition: transform @animation-speed-fast;
-  }
   display: block;
   position: relative;
   margin: -90px @spacing-default 0 @spacing-default;
@@ -46,8 +46,13 @@
   background-color: @red;
   color: @white;
 
+  &:hover {
+    transform: scale(1.05);
+    transition: transform @animation-speed-fast;
+  }
+
   & > h3 {
-    margin-bottom:  @spacing-default;
+    margin-bottom: @spacing-default;
     font-size: @title-large-s;
     font-weight: @font-weight-bold;
     line-height: @line-height-title-s;
@@ -63,9 +68,9 @@
   & > span {
     display: block;
     margin-bottom: @spacing-default/2;
-    opacity: 0.8;
+    opacity: .8;
     color: @white;
-    font-size:  @body-text-s;
+    font-size: @body-text-s;
     font-style: italic;
     font-weight: @font-weight-normal;
     line-height: @line-height-body-s;
@@ -74,7 +79,6 @@
   @media @screen-small {
     width: auto;
     margin: -90px @spacing-small 0 @spacing-small;
-    
 
     & > h3 {
       font-size: @title-large-m;
@@ -87,7 +91,7 @@
     }
 
     & > span {
-      font-size:  @body-text-m;
+      font-size: @body-text-m;
       line-height: @line-height-body-m;
     }
   }
@@ -123,7 +127,7 @@
 }
 
 .case-extract-button-container {
-  margin: 0 0 0 0;
+  margin: 0;
 
   svg {
     width: 40px;
@@ -150,10 +154,9 @@
   text-align: center;
 }
 
-.case-extract-link  {
+.case-extract-link {
   display: inline-block;
   position: relative;
   margin-top: @spacing-large;
   padding: 0 @spacing-small;
 }
-

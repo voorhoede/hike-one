@@ -9,9 +9,11 @@
   @media @screen-medium {
     height: 300px;
   }
+
   @media @screen-medium-large {
     height: 350px;
   }
+
   @media @screen-large {
     height: 433px;
   }
@@ -30,10 +32,6 @@
   max-height: 321px;
   margin: 0 0 @spacing-large 0;
 
-  & > a {
-    text-decoration: none;
-  }
-
   @media @screen-medium {
     max-height: 340px;
   }
@@ -48,7 +46,6 @@
     padding-bottom: 0;
 
     &:hover {
-
       .case-extract-small-overlay {
         opacity: .2;
       }
@@ -73,15 +70,20 @@
       }
     }
   }
+
+  & > a {
+    text-decoration: none;
+  }
 }
 
 .case-extract-small-bg {
   .shadow;
+
   display: block;
   position: relative;
-    width: auto;
+  width: auto;
   height: 150px;
-    margin: -110px @spacing-default * 1.5 0 @spacing-default * 1.5;
+  margin: -110px @spacing-default * 1.5 0 @spacing-default * 1.5;
 }
 
 .case-extract-small-bg-inner {
@@ -101,7 +103,7 @@
   text-decoration: none;
 
   h3 {
-    margin-bottom:  @spacing-default;
+    margin-bottom: @spacing-default;
     font-size: @heading-s;
     font-weight: @font-weight-bold;
     line-height: @line-height-subtitle-m;
@@ -120,8 +122,8 @@
   span {
     display: block;
     margin-bottom: @spacing-default/2;
-    opacity: 0.8;
-    font-size:  @body-text-s;
+    opacity: .8;
+    font-size: @body-text-s;
     font-style: italic;
     font-weight: @font-weight-normal;
     line-height: @line-height-body-s;
@@ -133,10 +135,12 @@
       font-size: @title-large-s;
       line-height: @line-height-title-s;
     }
+
     h4 {
       font-size: @body-text-m;
       line-height: @line-height-body-m;
     }
+
     span {
       font-size: @body-text-m;
       line-height: @line-height-body-m;
@@ -148,6 +152,7 @@
       font-size: @body-text-l;
       line-height: @line-height-body-l;
     }
+
     span {
       font-size: @body-text-l;
       line-height: @line-height-body-l;
@@ -157,9 +162,9 @@
 
 .case-extract-small-button {
   display: block;
-    position: absolute;
+  position: absolute;
   right: 15px;
-    bottom: 0;
+  bottom: 0;
   width: 55px;
   height: 55px;
   margin: 0 @spacing-small @spacing-small auto;

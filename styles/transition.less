@@ -1,12 +1,12 @@
 @transition-img-speed: @animation-speed;
-@transition-img-opacity: 0.1;
+@transition-img-opacity: .1;
 @transition-img-scale: 1.05;
 
 .transition-img-hover {
   position: relative;
   transition: transform @transition-img-speed;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     top: 0;
@@ -21,7 +21,7 @@
   &:hover {
     transform: scale(@transition-img-scale);
 
-    &:before {
+    &::before {
       opacity: @transition-img-opacity;
     }
   }

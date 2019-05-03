@@ -1,30 +1,30 @@
 @import (reference) '../../styles/variables';
 
 .full-width-image {
-    position: relative;
-    width: 100%;
-    height: @full-width-image-height-s;
-    margin-bottom: @spacing-default*8;
+  position: relative;
+  width: 100%;
+  height: @full-width-image-height-s;
+  margin-bottom: @spacing-default*8;
   overflow: hidden;
 
-    @media @screen-medium {
-        height: @full-width-image-height-m;
-        margin-bottom: @spacing-default*9;
-    }
+  @media @screen-medium {
+    height: @full-width-image-height-m;
+    margin-bottom: @spacing-default*9;
+  }
 
-    @media @screen-large {
-        max-width: @max-width-image;
-        height: @full-width-image-height-l;
-        margin: @spacing-large auto @spacing-default*8 auto;
-    }
+  @media @screen-large {
+    max-width: @max-width-image;
+    height: @full-width-image-height-l;
+    margin: @spacing-large auto @spacing-default*8 auto;
+  }
 }
 
 .full-width-image-overlay {
-    position: relative;
-    z-index: 9;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
 }
 
 .full-width-image-inner {
@@ -39,14 +39,14 @@
   }
 
   @media @screen-large {
-        max-width: @max-width-image;
-        height: 800px;
-        margin: auto;
+    max-width: @max-width-image;
+    height: 800px;
+    margin: auto;
   }
 }
 
 .full-width-image-background {
-    position: absolute;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
@@ -57,54 +57,55 @@
 }
 
 .full-width-image-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    max-width: @column-large-8;
-    padding: 0 1rem;
-    transform: translate(-50%, -50%);
-    color: @white;
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: @column-large-8;
+  padding: 0 1rem;
+  transform: translate(-50%, -50%);
+  color: @white;
+  text-align: center;
 
-    @media @screen-medium {
-        max-width: @column-small-8;
-    }
-    @media @screen-large {
-        max-width: @column-large-10;
-    }
+  @media @screen-medium {
+    max-width: @column-small-8;
+  }
+
+  @media @screen-large {
+    max-width: @column-large-10;
+  }
 }
 
 .full-width-image-text h2 {
-    margin-bottom: @spacing-medium;
-    font-size: @title-giant-s;
-    font-weight: @font-weight-bold-extra;
-    line-height: @line-height-giant-s;
+  margin-bottom: @spacing-medium;
+  font-size: @title-giant-s;
+  font-weight: @font-weight-bold-extra;
+  line-height: @line-height-giant-s;
 
-    @media @screen-medium {
-        font-size: @title-giant-m;
-        line-height: @line-height-giant-m;
-    }
+  @media @screen-medium {
+    font-size: @title-giant-m;
+    line-height: @line-height-giant-m;
+  }
 
-    @media @screen-large {
-        margin-bottom: @spacing-default*5;
-        font-size: @title-giant-l;
-        line-height: @line-height-giant-l;
-    }
+  @media @screen-large {
+    margin-bottom: @spacing-default*5;
+    font-size: @title-giant-l;
+    line-height: @line-height-giant-l;
+  }
 }
 
 .full-width-image-text p {
-    font-size: @body-text-s;
-    font-weight: @font-weight-normal;
-    line-height: @line-height-body-s;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
-    @media @screen-medium {
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-medium {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
+
+  @media @screen-large {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
-

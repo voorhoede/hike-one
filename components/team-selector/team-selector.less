@@ -1,57 +1,57 @@
 @import (reference) '../../styles/variables';
 
 .team-selector {
-    display: flex;
-    position: relative;
-    width: auto;
-    height: 70px;
-    margin: -85px @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
+  display: flex;
+  position: relative;
+  width: auto;
+  height: 70px;
+  margin: -85px @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
   padding: 0;
 
-    @media @screen-small {
+  @media @screen-small {
     max-width: @column-large-4;
-        margin: -85px auto @spacing-medium auto;
+    margin: -85px auto @spacing-medium auto;
   }
 
   @media @screen-medium {
-        height: 90px;
-        margin: -135px auto @container-margin-bottom-l auto;
-    }
+    height: 90px;
+    margin: -135px auto @container-margin-bottom-l auto;
+  }
 }
 
 .team-selector-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    padding: @spacing-small;
-    background: @white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: @spacing-small;
+  background: @white;
   color: @black;
   text-decoration: none;
 }
 
 .team-selector-item:hover {
-    background: @red;
-    color: @white;
+  background: @red;
+  color: @white;
 }
 
 .team-selector-item.is-selected {
-    background: @blue;
-    color: @white;
+  background: @blue;
+  color: @white;
 }
 
 .team-selector-item-title {
-    margin-bottom: 0;
-    font-size: @body-text-s;
+  margin-bottom: 0;
+  font-size: @body-text-s;
   font-weight: @font-weight-normal;
-    line-height: @line-height-body-small-s;
+  line-height: @line-height-body-small-s;
 
-    @media @screen-medium {
+  @media @screen-medium {
     font-size: @body-text-m;
     line-height: @line-height-body-small-m;
-    }
-    
-    @media @screen-large {
+  }
+
+  @media @screen-large {
     font-size: @body-text-l;
     line-height: @line-height-body-small-l;
   }

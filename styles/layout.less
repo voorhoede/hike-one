@@ -1,5 +1,9 @@
 @import (reference) 'variables';
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -24,10 +28,6 @@ body.disable-scroll {
   }
 }
 
-* {
-  box-sizing: border-box;
-}
-
 .container {
   display: block;
   width: 100%;
@@ -44,15 +44,16 @@ body.disable-scroll {
 .container-inner {
   width: 100%;
   margin: 0 auto;
+
   @media @screen-small {
     max-width: @container-inner-max-width;
   }
 }
 
 .container.container-inner {
-    margin: @spacing-small 0;
+  margin: @spacing-small 0;
 
-    @media @screen-small {
+  @media @screen-small {
     margin: 0 auto @spacing-container;
   }
 }
@@ -69,7 +70,7 @@ body.disable-scroll {
 
 .article {
   position: relative;
-  z-index:1;
+  z-index: 1;
   max-width: none;
   margin-top: -100px; // gives header a white background
   padding-top: 100px; // gives header a white background

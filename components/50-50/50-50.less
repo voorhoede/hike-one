@@ -9,6 +9,7 @@
       color: @red;
       text-decoration: none;
     }
+
     &:hover {
       text-decoration: underline;
     }
@@ -17,6 +18,7 @@
 
 .fifty-fifty.container {
   margin: 0 auto @spacing-large*2 auto;
+
   @media @screen-medium-large {
     margin: 0 auto @spacing-small*6 auto;
     padding: 0;
@@ -32,6 +34,7 @@
     flex-direction: row;
     margin: 0 auto 0 auto;
   }
+
   @media @screen-medium-large {
     margin: 0 auto 0 auto;
     padding: 0;
@@ -42,6 +45,7 @@
   @media @screen-medium {
     padding: 0 @spacing-default*4;
   }
+
   @media @screen-medium-large {
     padding: 0 @spacing-small*5 0 @spacing-large*2;
   }
@@ -97,13 +101,14 @@
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
+
   @media @screen-large {
     font-size: @heading-l;
     line-height: @line-height-heading-l;
   }
 }
 
-.fifty-fifty-text  {
+.fifty-fifty-text {
   color: @darker-gray;
   font-size: @body-text-s;
   font-weight: @font-weight-normal;
@@ -113,6 +118,7 @@
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
+
   @media @screen-large {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
@@ -125,6 +131,7 @@
   @media @screen-medium {
     padding: 0 @spacing-small;
   }
+
   @media @screen-medium-large {
     padding: 0;
   }
@@ -143,6 +150,7 @@
       flex-direction: row-reverse;
     }
   }
+
   .fifty-fifty-title,
   .fifty-fifty-text {
     @media @screen-medium {

@@ -19,12 +19,12 @@
     padding: @spacing-large @spacing-medium @spacing-medium @spacing-medium;
     text-align: left;
   }
-
 }
+
 .events-extract-subheader {
   width: 100%;
   margin-bottom: 0;
-  opacity: 0.6;
+  opacity: .6;
   font-size: @body-text-s;
   font-style: italic;
   font-weight: @font-weight-normal;
@@ -50,14 +50,6 @@
   line-height: normal;
   text-align: center;
 
-  &:first-of-type {
-    padding-bottom: 0;
-  }
-
-  a {
-    margin-bottom: 35px;
-  }
-
   @media @screen-small {
     width: 50%;
     float: left;
@@ -81,6 +73,14 @@
       float: right;
     }
   }
+
+  &:first-of-type {
+    padding-bottom: 0;
+  }
+
+  a {
+    margin-bottom: 35px;
+  }
 }
 
 .events-extract-header {
@@ -96,6 +96,7 @@
       line-height: @line-height-header-small-m;
     }
   }
+
   @media @screen-large {
     a {
       margin-bottom: @spacing-small;
@@ -116,33 +117,32 @@
   line-height: @line-height-body-small-s;
 
   @media @screen-medium {
-     font-size: @body-text-small-m;
+    font-size: @body-text-small-m;
     line-height: @line-height-body-small-m;
   }
+
   @media @screen-large {
-     font-size: @body-text-small-l;
+    font-size: @body-text-small-l;
     line-height: @line-height-body-small-l;
   }
-
 }
 
 .events-extract-link {
   color: white;
   text-decoration: none;
+
   a {
     font-size: @body-text-s;
     line-height: @line-height-body-s;
+
+    @media @screen-large {
+      font-size: @body-text-m;
+      line-height: @line-height-body-l;
+    }
   }
 
   svg path {
     fill: @white;
-  }
-
-  @media @screen-large {
-    a {
-      font-size: @body-text-m;
-      line-height: @line-height-body-l;
-    }
   }
 }
 
@@ -160,6 +160,7 @@
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
+
   @media @screen-large {
     margin-bottom: @spacing-default*1.5;
     font-size: @body-text-l;
@@ -172,22 +173,22 @@
   width: 100%;
   text-align: center;
 
-  a {
-    position: relative;
-    margin: 0 auto;
-  }
-
   @media @screen-small {
-    float:left;
+    float: left;
     border-top: 1px solid @white;
-
-    a {
-      margin: @spacing-small auto 0 auto;
-    }
   }
 
   @media @screen-large {
     border-top: 0;
+  }
+
+  a {
+    position: relative;
+    margin: 0 auto;
+
+    @media @screen-small {
+      margin: @spacing-small auto 0 auto;
+    }
   }
 }
 

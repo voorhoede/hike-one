@@ -1,97 +1,97 @@
 .team-member {
-    position: relative;
-    height: 0;
-    padding-bottom: 125%;
-    transition: transform @transition-img-speed;
-    background-position: center;
-    background-size: cover;
-    color: @white;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
+  position: relative;
+  height: 0;
+  padding-bottom: 125%;
+  transition: transform @transition-img-speed;
+  background-position: center;
+  background-size: cover;
+  color: @white;
+  font-size: @body-text-s;
+  line-height: @line-height-body-s;
+
+  &:hover {
+    transform: scale(1.1);
+
+    .team-member-overlay {
+      background-color: rgba(11, 110, 152, .7);
+    }
+
+    .team-member-name {
+      top: 0;
+      bottom: auto;
+    }
+
+    .team-member-roles {
+      display: block;
+    }
+
+    .team-member-social {
+      display: block;
+    }
+  }
+
+  @media @screen-small {
+    padding-bottom: 130%;
+  }
+
+  @media @screen-medium {
+    padding-bottom: 134%;
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
+
+  @media @screen-medium-large {
+    padding-bottom: 136%;
 
     &:hover {
-        transform: scale(1.1);
-
-        .team-member-overlay {
-            background-color: rgba(11, 110, 152, 0.7);
-        }
-
-        .team-member-name {
-            top: 0;
-            bottom: auto;
-        }
-
-        .team-member-roles {
-            display: block;
-        }
-
-        .team-member-social {
-            display: block;
-        }
+      transform: scale(1.15);
     }
+  }
 
-    @media @screen-small {
-        padding-bottom: 130%;
-    }
-
-    @media @screen-medium {
-        padding-bottom: 134%;
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
-
-    @media @screen-medium-large {
-        padding-bottom: 136%;
-
-        &:hover {
-            transform: scale(1.15);
-        }
-    }
-
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-large {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .team-member-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: background-color @transition-img-speed;
-    background-color: rgba(0, 0, 0, 10%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color @transition-img-speed;
+  background-color: rgba(0, 0, 0, 10%);
 }
 
 .team-member-name {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    margin-bottom: 0;
-    padding: @spacing-default*1.5;
-    font-size: @text-medium-s;
-    line-height: @line-height-body-s;
-    text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding: @spacing-default*1.5;
+  font-size: @text-medium-s;
+  line-height: @line-height-body-s;
+  text-align: center;
 
-    @media @screen-medium {
-        font-size: @text-medium-m;
-        line-height: @line-height-body-m;
-    }
+  @media @screen-medium {
+    font-size: @text-medium-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @text-medium-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-large {
+    font-size: @text-medium-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .team-member-roles {
-    display: none;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: @spacing-default*1.5;
-    text-align: center;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: @spacing-default*1.5;
+  text-align: center;
 }
 
 .team-member-role {
@@ -106,7 +106,7 @@
   }
 }
 
-.team-member-role:not(:last-of-type):after {
+.team-member-role:not(:last-of-type)::after {
   content: '&';
   margin-right: @spacing-default*.5;
   margin-left: @spacing-default*.5;

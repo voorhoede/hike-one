@@ -1,22 +1,24 @@
 .vacancy-overview {
-    position: relative;
-    max-width: @column-small-12;
+  position: relative;
+  max-width: @column-small-12;
   padding-top: @spacing-default*4;
-    text-align: center;
-    
-    @media @screen-medium {
-        max-width: @column-large-6;
-    }
-    @media @screen-medium-large {
-        max-width: @column-large-7;
-    }
-    @media @screen-large {
-        max-width: @column-large-10;
-    }
-}
+  text-align: center;
 
-.vacancy-overview .btn-primary:last-child {
+  @media @screen-medium {
+    max-width: @column-large-6;
+  }
+
+  @media @screen-medium-large {
+    max-width: @column-large-7;
+  }
+
+  @media @screen-large {
+    max-width: @column-large-10;
+  }
+
+  .btn-primary:last-child {
     margin-bottom: 0;
+  }
 }
 
 .vacancy-overview-title {
@@ -33,6 +35,7 @@
     font-size: @title-large-m;
     line-height: @line-height-title-m;
   }
+
   @media @screen-large {
     max-width: @column-large-10;
     font-size: @title-large-l;
@@ -41,74 +44,74 @@
 }
 
 .vacancy-overview-tagline {
-    margin-bottom: @spacing-large;
-    font-size: @subtitle-large-s;
+  margin-bottom: @spacing-large;
+  font-size: @subtitle-large-s;
 
-    @media @screen-medium {
-        margin-bottom: @spacing-large*2;
-        font-size: @subtitle-large-m;
-    }
+  @media @screen-medium {
+    margin-bottom: @spacing-large*2;
+    font-size: @subtitle-large-m;
+  }
 
-    @media @screen-large {
-        font-size: @subtitle-large-l;
-    }
+  @media @screen-large {
+    font-size: @subtitle-large-l;
+  }
 }
 
 .vacancy-overview-list {
-    margin: 0 0 @spacing-large 0;
-    padding: 0;
-    list-style: none;
+  margin: 0 0 @spacing-large 0;
+  padding: 0;
+  list-style: none;
 
-    @media @screen-medium {
-        margin-bottom: @spacing-large*2;
-    }
+  @media @screen-medium {
+    margin-bottom: @spacing-large*2;
+  }
 }
 
 .vacancy-overview-list-item {
-    margin-top: @spacing-small;
-    padding: @spacing-small;
-    background: @white;
-    box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .17);
+  margin-top: @spacing-small;
+  padding: @spacing-small;
+  background: @white;
+  box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .17);
 
-    &:first-child {
-        margin-top: 0;
-    }
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .vacancy-overview-list-item a {
-    display: block;
-    color: @darker-gray;
-    font-size: @body-text-s;
-    text-decoration: none;
+  display: block;
+  color: @darker-gray;
+  font-size: @body-text-s;
+  text-decoration: none;
 
-    @media @screen-medium {
-        display: flex;
-        justify-content: space-between;
-        font-size: @body-text-m;
-    }
+  @media @screen-medium {
+    display: flex;
+    justify-content: space-between;
+    font-size: @body-text-m;
+  }
 
-    @media @screen-large {
-        font-size: @body-text-l;
-    }
+  @media @screen-large {
+    font-size: @body-text-l;
+  }
 }
 
 .vacancy-overview-list-item h4 {
-    margin-bottom: @spacing-half;    
+  margin-bottom: @spacing-half;
 
-    @media @screen-medium {
-        display: inline-block;
-        flex: 0 0 50%;
-        margin-bottom: 0;
-        text-align: left;
-    }
+  @media @screen-medium {
+    display: inline-block;
+    flex: 0 0 50%;
+    margin-bottom: 0;
+    text-align: left;
+  }
 }
 
 .vacancy-overview-list-item span {
-    margin: 0 @spacing-default;
+  margin: 0 @spacing-default;
 
-    @media @screen-medium {
-        flex: 1 1 25%;
-        margin: 0;
-        text-align: left;
-    }
+  @media @screen-medium {
+    flex: 1 1 25%;
+    margin: 0;
+    text-align: left;
+  }
 }

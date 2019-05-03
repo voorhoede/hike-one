@@ -11,15 +11,16 @@
 
   &:hover {
     .shadow();
+
     transform: scale(1.02);
     transition: transform @animation-speed-fast, box-shadow @animation-speed-fast;
 
-    .update-extract-small-image:after {
+    .update-extract-small-image::after {
       transition: opacity @animation-speed-fast;
     }
   }
 
-  .update-extract-small-image:after {
+  .update-extract-small-image::after {
     transition: opacity @animation-speed-slow;
   }
 
@@ -40,7 +41,7 @@
   background-position: center;
   background-size: cover;
 
-  &:after {
+  &::after {
     content: '';
     position: absolute;
     top: 0;
@@ -66,6 +67,7 @@
   @media @screen-medium {
     height: 130px;
   }
+
   @media @screen-large {
     height: 152px;
     padding: @spacing-medium;
@@ -84,6 +86,7 @@
     margin-top: 0;
     margin-bottom: @spacing-small;
   }
+
   @media @screen-large {
     font-size: @body-text-l;
     line-height: @line-height-body-small-l;
@@ -91,11 +94,10 @@
 }
 
 .update-extract-small-subtitle {
-    position: absolute;
+  position: absolute;
   bottom: 0;
-    width: calc(~'100% - ' @spacing-default*4);
-    padding: @spacing-default*1.5 0 @spacing-small 0;
-
+  width: calc(~"100% - " @spacing-default*4);
+  padding: @spacing-default*1.5 0 @spacing-small 0;
   color: @white;
   font-size: @body-text-small-s;
   font-weight: normal;
@@ -105,8 +107,9 @@
     font-size: @body-text-small-m;
     line-height: @line-height-body-small-m;
   }
+
   @media @screen-large {
-    width: calc(~'100% - ' @spacing-default*6);
+    width: calc(~"100% - " @spacing-default*6);
     padding-top: @spacing-default*1.5;
     font-size: @body-text-small-l;
     line-height: @line-height-body-small-l;
@@ -117,7 +120,7 @@
   position: absolute;
   top: -10px;
   left: 20px;
-  padding: 0px 8px;
+  padding: 0 8px;
   background: @white;
   color: @black;
   font-size: @label-s;
@@ -129,7 +132,7 @@
   @media @screen-medium {
     top: -10px;
     left: 30px;
-    padding: 0px 8px;
+    padding: 0 8px;
     font-size: @subtitle-small-s;
     letter-spacing: 3px;
   }

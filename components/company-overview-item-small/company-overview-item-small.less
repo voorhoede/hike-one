@@ -8,14 +8,14 @@
   height: 50px;
   margin-bottom: @spacing-default;
 
+  @media @screen-large {
+    height: 70px;
+  }
+
   img {
     max-width: 100%;
     height: auto;
     max-height: 100%;
-  }
-
-  @media @screen-large {
-    height: 70px;
   }
 }
 
@@ -24,10 +24,11 @@
   padding: 0 @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
 
   @media @screen-medium {
-    width: calc(100%/3);
+    width: calc(100% / 3);
     height: 130px;
     padding: 0 @spacing-medium;
   }
+
   @media @screen-large {
     padding: 0 @spacing-large;
   }
@@ -37,7 +38,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-bottom: 0;
   margin-bottom: 0;
   color: @dark-grey;
   font-size: @body-text-small-s;

@@ -30,14 +30,14 @@
 }
 
 .context-menu-table {
-    margin: @spacing-default @spacing-small @spacing-default 0;
+  margin: @spacing-default @spacing-small @spacing-default 0;
   border-spacing: 0;
   font-size: @body-text-small-m;
   line-height: @line-height-body-small-m;
-}
 
-.context-menu-table td {
-  padding: @spacing-half;
+  td {
+    padding: @spacing-half;
+  }
 }
 
 .context-menu-table-row:nth-child(odd) {
@@ -48,13 +48,14 @@
   background-color: @light-grey;
 }
 
-.context-menu-logo-download, .context-menu-logo-download-all {
+.context-menu-logo-download,
+.context-menu-logo-download-all {
   color: @red;
   text-decoration: none;
-}
 
-.context-menu-logo-download:hover, .context-menu-logo-download-all:hover {
-  text-decoration: underline;
+  &hover {
+    text-decoration: underline;
+  }
 }
 
 .context-menu-logo-image {

@@ -35,6 +35,7 @@
 .footer-logo {
   display: block;
   margin-bottom: @spacing-medium;
+
   @media @screen-medium {
     margin-bottom: @spacing-extra-large;
   }
@@ -57,7 +58,6 @@
 
 .footer-right {
   @media @screen-medium {
-
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
@@ -77,13 +77,14 @@
 
 .footer-link-list {
   .list-no-style;
+
   margin-bottom: @spacing-small;
   column-fill: auto;
   column-count: 2;
 
   @media @screen-medium {
     display: inline-block;
-      max-width: 400px;
+    max-width: 400px;
     margin-bottom: @spacing-small;
     vertical-align: top;
   }
@@ -91,10 +92,6 @@
 
 .footer-link-list li {
   display: inline-block;
-  width: 50%;
-}
-
-.footer-link-list li {
   width: 100%;
 }
 
@@ -123,8 +120,8 @@
 }
 
 .footer-join-link {
-    display: block;
-    margin-bottom: @spacing-medium;
+  display: block;
+  margin-bottom: @spacing-medium;
   padding: @spacing-small 0;
   transition: color @animation-speed-slow;
   border-top: 1px solid #717171;
@@ -136,8 +133,8 @@
   text-decoration: none;
 
   @media @screen-medium {
-      margin-bottom: @spacing-extra-large;
-      padding: @spacing-large*2 0;
+    margin-bottom: @spacing-extra-large;
+    padding: @spacing-large*2 0;
     font-size: @heading-small-m;
     line-height: @line-height-heading-m;
   }
@@ -150,6 +147,7 @@
   &:hover {
     transition: color @animation-speed-fast;
     color: @red;
+
     span > svg > path {
       transition: fill @animation-speed-fast;
       fill: @red;
@@ -165,13 +163,13 @@
   margin-left: @spacing-half;
   vertical-align: middle;
 
+  @media @screen-medium {
+    vertical-align: sub;
+  }
+
   path {
     transition: fill @animation-speed-slow;
     fill: @white;
-  }
-
-  @media @screen-medium {
-    vertical-align: sub;
   }
 }
 
@@ -187,6 +185,7 @@
     font-size: @heading-small-m;
     line-height: @line-height-header-small-m;
   }
+
   @media @screen-large {
     font-size: @heading-small-l;
     line-height: @line-height-header-small-l;
@@ -195,7 +194,7 @@
 
 .footer-contact-tel,
 .footer-contact-email {
-  display:block;
+  display: block;
   transition: color @animation-speed-slow;
   color: @white;
   text-decoration: none;
@@ -205,7 +204,6 @@
     color: @red;
   }
 }
-
 
 .footer .menu-social {
   width: 100%;
@@ -236,10 +234,11 @@
 
   @media @screen-medium {
     padding-bottom: 0;
-      transform: translateY(-130%);
+    transform: translateY(-130%);
     font-size: @body-text-small-m;
     line-height: @line-height-body-small-m;
   }
+
   @media @screen-large {
     font-size: @body-text-small-l;
     line-height: @line-height-body-small-l;

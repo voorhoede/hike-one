@@ -5,15 +5,14 @@
 
 .btn-secondary {
   .btn-basis;
+
   margin-bottom: @spacing-small;
   border: 1px solid @white;
   background-color: transparent;
   color: @white;
 
-  &:hover:enabled {
-    &:not(.vertical-spring) {
-      .btn-secondary-hover-state;
-    }
+  &:hover:enabled:not(.vertical-spring) {
+    .btn-secondary-hover-state;
   }
 
   .icon svg path {
@@ -74,6 +73,7 @@
 // this allows to include button hover states in other components
 .btn-secondary-hover-state {
   .btn-basis-hover-state;
+
   transition: color @animation-speed-fast, background-color @animation-speed-fast;
   background-color: @white;
   color: @blue;
@@ -85,6 +85,7 @@
 
 .btn-secondary-hover-state-red {
   .btn-secondary-hover-state;
+
   transition: color @animation-speed-fast, background-color @animation-speed-fast;
   background-color: @white;
   color: @red;
@@ -96,6 +97,7 @@
 
 .btn-secondary-hover-state-green {
   .btn-secondary-hover-state;
+
   transition: color @animation-speed-fast;
   color: @green;
 
@@ -106,6 +108,7 @@
 
 .btn-secondary-hover-state-purple {
   .btn-secondary-hover-state;
+
   transition: color @animation-speed-fast;
   color: @purple;
 

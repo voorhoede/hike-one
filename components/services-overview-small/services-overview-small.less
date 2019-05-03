@@ -13,6 +13,7 @@
     padding-bottom: @spacing-large*3.5;
   }
 }
+
 .service-overview-small-triangle {
   display: flex;
   position: absolute;
@@ -21,16 +22,16 @@
   width: 100%;
   height: 100%;
 
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: @white-grey;
-  }
-
   @media @screen-large {
     top: 75px;
     width: 100%;
     height: 90%;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    fill: @white-grey;
   }
 }
 
@@ -92,7 +93,7 @@
     margin-bottom: 0;
     padding-top: 0;
     float: left;
-    
+
     &:first-child {
       padding-right: @spacing-small;
     }
@@ -110,12 +111,12 @@
       padding-left: @spacing-small;
     }
   }
+
   @media @screen-large {
     height: auto;
     padding-right: 20px;
     padding-left: 20px;
   }
-
 }
 
 .services-item-small-content {
@@ -125,15 +126,14 @@
   float: none;
   color: @black;
   text-align: center;
-  
 
   .btn-secondary {
     margin-bottom: 0;
-    float:left;
+    float: left;
 
     @media @screen-small {
       margin-right: auto;
-      margin-left:auto;
+      margin-left: auto;
       float: none;
     }
   }
@@ -159,6 +159,7 @@
       padding: 0 @spacing-default;
     }
   }
+
   @media @screen-large {
     height: 100%;
     max-height: 215px;
@@ -185,12 +186,12 @@
     line-height: @line-height-body-m;
     text-align: center;
   }
+
   @media @screen-large {
-    font-size:@heading-small-l;
+    font-size: @heading-small-l;
     line-height: @line-height-header-small-l;
   }
 }
-
 
 .service-item-small-image-container {
   width: 100%;
@@ -209,6 +210,7 @@
     padding-right: 0;
     text-align: center;
   }
+
   @media @screen-medium {
     height: 125px;
   }
@@ -221,14 +223,14 @@
 }
 
 .service-item-small-logo {
-    width: auto;
+  width: auto;
   height: 35px;
   margin-bottom: @spacing-default;
   float: left;
 
   @media @screen-small {
     margin-right: auto;
-    margin-left:auto;
+    margin-left: auto;
     float: none;
   }
 
@@ -264,7 +266,6 @@
     margin-bottom: @spacing-large;
     font-size: @body-text-small-l;
     line-height: @line-height-body-small-l;
-  
   }
 }
 

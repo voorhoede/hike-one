@@ -3,6 +3,11 @@
   padding: @spacing-small;
   text-align: center;
 
+  @media @screen-medium-large {
+    margin-bottom: 120px;
+    padding: @spacing-large;
+  }
+
   &.call-to-action-bg-color {
     padding: @spacing-default*4.5;
 
@@ -15,11 +20,6 @@
     }
   }
 
-  @media @screen-medium-large {
-    margin-bottom: 120px;
-    padding: @spacing-large;
-  }
-
   p {
     margin-top: 0;
   }
@@ -30,17 +30,18 @@
     font-weight: @font-weight-bold;
     line-height: @line-height-heading-s;
 
-    &.title-white {
-      color: @white;
-    }
-
     @media @screen-medium {
       font-size: @heading-m;
       line-height: @line-height-heading-m;
     }
+
     @media @screen-large {
       font-size: @heading-l;
       line-height: @line-height-heading-l;
+    }
+
+    &.title-white {
+      color: @white;
     }
   }
 

@@ -45,6 +45,7 @@
     transform: rotate(-22deg);
     transform-origin: 0 0;
   }
+
   @media @screen-1920 {
     width: 47vw;
   }
@@ -148,9 +149,9 @@
 
   &:active,
   &:active svg {
-    transform: scale(0.98);
+    transform: scale(.98);
     transition: transform @animation-speed-fast, opacity @animation-speed-fast; // active in
-    opacity: 0.8;
+    opacity: .8;
   }
 }
 
@@ -161,7 +162,7 @@
 
   a:hover .logo {
     transition: opacity @animation-speed-fast; // hover in
-    opacity: 0.8;
+    opacity: .8;
   }
 }
 
@@ -225,4 +226,3 @@
   transform-origin: 0 0;
   fill: @black;
 }
-

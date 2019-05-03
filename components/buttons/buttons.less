@@ -13,10 +13,6 @@
   line-height: @line-height-body-s;
   text-decoration: none;
 
-  .fonts-loaded & {
-    font-family: @font-main;
-  }
-
   @media @screen-medium {
     padding: @spacing-default @spacing-large;
     font-size: @body-text-m;
@@ -29,7 +25,11 @@
   }
 
   &:active {
-    transform: scale(0.98);
+    transform: scale(.98);
+  }
+
+  .fonts-loaded & {
+    font-family: @font-main;
   }
 
   .icon {
@@ -146,6 +146,7 @@
   0% {
     transform: translateY(4px);
   }
+
   100% {
     transform: translateY(0);
   }

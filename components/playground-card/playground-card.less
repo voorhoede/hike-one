@@ -8,16 +8,17 @@
 
   &:hover {
     .shadow();
+
     transform: scale(1.02);
     transition: transform @animation-speed-fast, box-shadow @animation-speed-fast;
 
-    .playground-card:after {
+    .playground-card::after {
       transition: opacity @animation-speed-fast;
     }
   }
 }
 
-.playground-card:after {
+.playground-card::after {
   transition: opacity @animation-speed-slow;
 }
 
@@ -33,7 +34,7 @@
 }
 
 .playground-card-content {
-  width: calc(~'100% - 32px');
+  width: calc(~"100% - 32px");
   margin-top: -64px;
   margin-left: 16px;
   padding: 16px 12px;

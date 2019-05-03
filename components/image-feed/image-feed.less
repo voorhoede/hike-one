@@ -1,6 +1,5 @@
 @import (reference) '../../styles/variables';
 
-
 .image-feed-image {
   height: 135px;
   overflow: hidden;
@@ -72,10 +71,9 @@
 
   @media @screen-large {
     width: 50%;
-    & > a {
-      &:nth-child(2n) {
-        padding-right: @spacing-default;
-      }
+
+    & > a:nth-child(2n) {
+      padding-right: @spacing-default;
     }
   }
 }

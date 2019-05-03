@@ -6,6 +6,7 @@
 
 .team-members-overview {
   .clearfix;
+
   display: grid;
   grid-column-gap: @spacing-small;
   grid-row-gap: @spacing-small;
@@ -32,8 +33,8 @@
     max-width: @column-large-12;
   }
 
-  &:after {
-    content: "";
+  &::after {
+    content: '';
     flex: auto;
   }
 

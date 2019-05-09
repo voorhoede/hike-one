@@ -8,4 +8,4 @@ const HamburgerClose = () => (
   </svg>
 )
 
-export default  HamburgerClose
+export default HamburgerClose

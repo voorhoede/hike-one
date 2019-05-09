@@ -1,5 +1,5 @@
-import {Power2, TimelineMax}  from 'gsap'
 import React, { Component } from 'react'
+import { Power2, TimelineMax } from 'gsap'
 
 class Hamburger extends Component {
   constructor(props) {

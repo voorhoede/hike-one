@@ -8,16 +8,16 @@ import TextCenter from '../components/text-center/text-center'
 import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 
 const content404 = {
-  title: `This page is not here`,
-  text: `We lost the page! Don′t worry we know the way ) Check out <a href="/team/culture">who we are</a> and <a href="/work">what we do</a>`,
+  title: 'This page is not here',
+  text: 'We lost the page! Don′t worry we know the way ) Check out <a href="/team/culture">who we are</a> and <a href="/work">what we do</a>',
 }
 
 const content500 = {
-  title: `Whoops, something went wrong`,
-  text: `Don′t worry we′ll be back as soon as we can. In the mean time, feel free to call <a href="tel:+31202044577">+31 20 204 45 77</a> or send us a message on <a href="mailto:hello@hike.one">hello@hike.one</a>`,
+  title: 'Whoops, something went wrong',
+  text: 'Don′t worry we′ll be back as soon as we can. In the mean time, feel free to call <a href="tel:+31202044577">+31 20 204 45 77</a> or send us a message on <a href="mailto:hello@hike.one">hello@hike.one</a>',
 }
 
-const Error = ({ statusCode, fontsLoaded, wrapperClass }) => (
+const Error = ({ statusCode = 0, fontsLoaded = '', wrapperClass = '' }) => (
   <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} classes={wrapperClass}>
     <main className="main js-main">
       <MenuBar color="black" />

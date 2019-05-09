@@ -88,9 +88,9 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
     .then(await scrapeJobs)
 
   const [TeamOverviewData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
-    `team`,
-    `people`,
-    `vacancies-overview`,
+    'team',
+    'people',
+    'vacancies-overview',
   ])
 
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')

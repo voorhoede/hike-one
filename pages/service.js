@@ -127,12 +127,9 @@ Service.getInitialProps = async ({ req, res, query, asPath }) => {
   const fullUrl = `${baseUrl}${asPath}`
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const [data, services, updates] = await fetchAll([
-    `services/${query.slug}`,
-    `services`,
-    `update-extracts`,
-  ])
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const [data, services, updates] = await fetchAll([ `services/${query.slug}`, 'services', 'update-extracts' ])
+
   return { Data: data, services, updates, fontsLoaded, fullUrl }
 }
 

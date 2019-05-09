@@ -13,17 +13,17 @@ module.exports = (dato, root) => {
     const peopleData = dato.collectionsByType.people
     dir.createDataFile('people.json', 'json',  sortBy(mapCollection(peopleData), 'name'))
 
-    dir.createDataFile(`service-overview.json`, 'json', dato.serviceOverview.toMap())
+    dir.createDataFile('service-overview.json', 'json', dato.serviceOverview.toMap())
 
-    dir.createDataFile(`home.json`, 'json', dato.home.toMap())
+    dir.createDataFile('home.json', 'json', dato.home.toMap())
 
-    dir.createDataFile(`cookie-bar.json`, 'json', dato.cookieBar.toMap())
+    dir.createDataFile('cookie-bar.json', 'json', dato.cookieBar.toMap())
 
     dir.createDataFile('cases.json', 'json', mapCollection(dato.cases))
 
     dir.createDataFile('component-guide.json', 'json', dato.componentGuide.toMap())
 
-    dir.createDataFile(`contact.json`, 'json', dato.contactPage.toMap(5))
+    dir.createDataFile('contact.json', 'json', dato.contactPage.toMap(5))
 
     dir.createDataFile('work.json', 'json', dato.work.toMap())
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import scrollToElement from '../_helpers/scrollToElement'
 
@@ -11,7 +11,7 @@ import {
 } from '../'
 
 
-class ContactForm extends React.Component {
+class ContactForm extends Component {
   constructor(props) {
     super(props)
 

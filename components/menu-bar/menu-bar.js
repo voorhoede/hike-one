@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { ContextMenu, Facebook, Hamburger, Instagram, LinkedIn, Logo, Medium, Twitter } from '../'
 import { Power3, TimelineLite } from 'gsap'
 
-class MenuBar extends React.Component {
+class MenuBar extends Component {
   constructor(props) {
     super(props)
     this.onClickMenu = this.onClickMenu.bind(this)

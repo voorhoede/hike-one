@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { FooterLocations, Icon, Logo, SocialMedia } from '../'
 
-class Footer extends React.Component {
+class Footer extends Component {
   constructor(props) {
     super(props)
     this.ticking = false

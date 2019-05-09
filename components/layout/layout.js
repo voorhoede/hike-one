@@ -1,11 +1,11 @@
 import 'core-js/fn/array/find'
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'
 import { GoogleTagManagerConfig } from '../'
 import loadFonts from '../_helpers/fontLoader'
 
-class Layout extends React.Component {
+class Layout extends Component {
   constructor(props) {
     super(props)
     this.state = {

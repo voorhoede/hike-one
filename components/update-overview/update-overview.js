@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ButtonSecondary, UpdateExtractSmall, UpdatesExtractLarge } from '../'
 
-class UpdateOverview extends React.Component {
+class UpdateOverview extends Component {
   constructor(props) {
     super(props)
 

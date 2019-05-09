@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ButtonSecondary, Filter, TeamMember } from '../'
 
-class TeamMembersOverview extends React.Component {
+class TeamMembersOverview extends Component {
   constructor(props) {
     super(props)
 

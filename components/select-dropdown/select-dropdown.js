@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ButtonClean } from '../'
 
-class SelectDropdown extends React.Component {
+class SelectDropdown extends Component {
   constructor(props) {
     super(props)
 

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
-class PageHeader extends React.Component {
+class PageHeader extends Component {
   constructor(props) {
     super(props)
     this.range = 400

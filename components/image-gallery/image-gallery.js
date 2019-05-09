@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { FullWidthImage } from '../'
 
-class ImageGallery extends React.Component {
+class ImageGallery extends Component {
   constructor(props) {
     super(props)
     this.showImage = this.showImage.bind(this)

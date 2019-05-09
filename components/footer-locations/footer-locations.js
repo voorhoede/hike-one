@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-class FooterLocations extends React.Component {
+class FooterLocations extends Component {
   constructor(props) {
     super(props)
     this.state = {

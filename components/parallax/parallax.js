@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import getParallaxYOffset from '../_helpers/getParallaxYOffset'
 import isElementInView from '../_helpers/isElementInView'
 import TweenLite from 'gsap'
 
-class Parallax extends React.Component {
+class Parallax extends Component {
   constructor(props) {
     super()
     this.onScroll = this.onScroll.bind(this)

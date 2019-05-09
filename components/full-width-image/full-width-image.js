@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import elementIsInView from '../_helpers/isElementInView'
 import setImageParams from '../_helpers/setImageParameters'
 
-class FullWidthImage extends React.Component {
+class FullWidthImage extends Component {
   constructor(props) {
     super(props)
     this.setImageBottomOffset = this.setImageBottomOffset.bind(this)

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TweenLite, TimelineMax } from 'gsap'
 
-class LogoCarousel extends React.Component {
+class LogoCarousel extends Component {
   constructor(props) {
     super(props)
     this.animate = this.animate.bind(this)

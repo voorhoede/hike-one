@@ -1,7 +1,7 @@
-import React from 'react'
 import {Power2, TimelineMax}  from 'gsap'
+import React, { Component } from 'react'
 
-class Hamburger extends React.Component {
+class Hamburger extends Component {
   constructor(props) {
     super(props)
     this.playAnimation = this.playAnimation.bind(this)

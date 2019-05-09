@@ -94,6 +94,9 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             }
 
+            const image = component.image ? component.image.url : undefined
+            const hasTextCard = !!(component.textTitle && component.textTitle.length > 1)
+
             // set component count
             componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap)
             const count = componentCounter[itemType]
@@ -169,8 +172,8 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
               case 'image_combo':
                 return (
-                  <ImageCombo key={index} classes={!(component.textTitle && component.textTitle.length > 1) ? 'image-combo-text' : ''}>
-                    {!(component.textTitle && component.textTitle.length > 1) && (
+                  <ImageCombo key={index} classes={hasTextCard ? 'image-combo-text': ''}>
+                    {hasTextCard && (
                       <TextCard title={component.textTitle} text={component.textContent} />
                     )}
 
@@ -178,10 +181,8 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
                     {component.quoteAuthorTitle && (
                       <QuoteBlock
-                        color={component.quoteColor.color}
-                        alignment={
-                          component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'
-                        }
+                        color={component.quoteColor.color }
+                        alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'}
                         quote={component.quote}
                         citeName={component.quoteAuthorName}
                         citeTitle={component.quoteAuthorTitle}
@@ -245,7 +246,7 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                 return (
                   <InlineMedia
                     key={index}
-                    image={component.image ? component.image.url : undefined}
+                    image={image}
                     caption={component.caption}
                   />
                 )
@@ -255,7 +256,7 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                   <InlineMedia
                     key={index}
                     large={true}
-                    image={component.image ? component.image.url : undefined}
+                    image={image}
                     caption={component.caption}
                   />
                 )

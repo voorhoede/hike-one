@@ -6,7 +6,7 @@ import { ButtonSecondaryLink } from '../'
 import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtract = ({
-  headerImage,
+  headerImage = '',
   title = '',
   subtitle = '',
   slug = '',
@@ -62,12 +62,12 @@ const CaseExtract = ({
 }
 
 CaseExtract.propTypes = {
-  headerImage: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  companyName: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  headerImage: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  slug: PropTypes.string,
+  companyName: PropTypes.string,
+  color: PropTypes.string,
 }
 
 export default CaseExtract

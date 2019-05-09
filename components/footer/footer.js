@@ -129,9 +129,9 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  callToActionUrl: PropTypes.string.isRequired,
-  callToActionLabel: PropTypes.string.isRequired,
-  disableParallax: PropTypes.bool.isRequired,
+  callToActionUrl: PropTypes.string,
+  callToActionLabel: PropTypes.string,
+  disableParallax: PropTypes.bool,
 }
 
 export default Footer

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from '../'
 
-const TabSelector = ({ services, selectedItem }) => (
+const TabSelector = ({ services = [], selectedItem = '' }) => (
   <div className="tab-selector container shadow">
     <Link href={`/service?slug=${services[0].slug}`} as={`/service/${services[0].slug}`} prefetch>
       <a className={`tab-selector-item tab-selector-item-blue ${selectedItem === `${services[0].slug}` ? 'is-selected' : ''}`}>
@@ -33,8 +33,8 @@ const TabSelector = ({ services, selectedItem }) => (
 )
 
 TabSelector.propTypes = {
-  services: PropTypes.array.isRequired,
-  selectedItem: PropTypes.string.isRequired,
+  services: PropTypes.array,
+  selectedItem: PropTypes.string,
 }
 
 export default TabSelector

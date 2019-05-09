@@ -5,12 +5,12 @@ import { InlineVideo } from '../'
 
 const FiftyFifty = ({
   classes = '',
-  image = null,
+  image = {},
   title = '',
   text = '',
   children,
-  imageLarge,
-  contentLeft,
+  imageLarge = false,
+  contentLeft = false,
   video = null,
 }) => {
   const childrenArray = React.Children.toArray(children)
@@ -88,13 +88,13 @@ const FiftyFifty = ({
 
 FiftyFifty.propTypes = {
   classes: PropTypes.node,
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  image: PropTypes.object,
+  title: PropTypes.string,
+  text: PropTypes.string,
   children: PropTypes.node,
-  imageLarge: PropTypes.boolean,
-  contentLeft: PropTypes.boolean,
-  video: PropTypes.node,
+  imageLarge: PropTypes.bool,
+  contentLeft: PropTypes.bool,
+  video: PropTypes.object,
 }
 
 export default FiftyFifty

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Parallax } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
-const Collage = ({ imageMedium, imageSmall, title = '', text = '', children }) => {
+const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', children }) => {
   const childrenArray = React.Children.toArray(children)
   const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
   const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
@@ -69,10 +69,10 @@ const Collage = ({ imageMedium, imageSmall, title = '', text = '', children }) =
 }
 
 Collage.propTypes = {
-  imageMedium: PropTypes.object.isRequired,
-  imageSmall: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  imageMedium: PropTypes.string,
+  imageSmall: PropTypes.string,
+  title: PropTypes.string,
+  text: PropTypes.string,
   children: PropTypes.node,
 }
 

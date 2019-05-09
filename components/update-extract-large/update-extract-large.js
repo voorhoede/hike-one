@@ -57,16 +57,16 @@ const UpdateExtractLarge = ({
 }
 
 UpdateExtractLarge.propTypes = {
-  classes: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  authors: PropTypes.array.isRequired,
-  image: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  target: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  category: PropTypes.string.isRequired,
-  external: PropTypes.bool.isRequired,
+  classes: PropTypes.string,
+  title: PropTypes.string,
+  date: PropTypes.string,
+  authors: PropTypes.array,
+  image: PropTypes.string,
+  color: PropTypes.string,
+  target: PropTypes.string,
+  index: PropTypes.number,
+  category: PropTypes.string,
+  external: PropTypes.bool,
 }
 
 export default UpdateExtractLarge

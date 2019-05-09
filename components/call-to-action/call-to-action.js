@@ -32,13 +32,13 @@ const CallToAction = ({
 }
 
 CallToAction.propTypes = {
-  title: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  bgColor: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired,
-  fullWidth: PropTypes.bool.isRequired,
-  titleWhite: PropTypes.bool.isRequired,
-  isExternalLink: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  url: PropTypes.string,
+  bgColor: PropTypes.string,
+  buttonText: PropTypes.string,
+  fullWidth: PropTypes.bool,
+  titleWhite: PropTypes.bool,
+  isExternalLink: PropTypes.bool,
 }
 
 export default CallToAction

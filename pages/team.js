@@ -22,14 +22,14 @@ if (!process.browser) {
 }
 
 const Team = ({
-  tab,
-  TeamOverviewData,
-  TeamMembersData,
-  VacanciesOverviewData,
-  VacanciesData,
-  fontsLoaded,
-  fullUrl,
-  queryParam,
+  tab = '',
+  TeamOverviewData = {},
+  TeamMembersData = [],
+  VacanciesOverviewData = {},
+  VacanciesData = [],
+  fontsLoaded = '',
+  fullUrl = '',
+  queryParam = '',
 }) => (
   <Layout
     title="Hike One - Team"
@@ -109,10 +109,10 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
 Team.propTypes = {
   tab: PropTypes.string,
   TeamOverviewData: PropTypes.object,
-  TeamMembersData: PropTypes.object,
+  TeamMembersData: PropTypes.array,
   VacanciesOverviewData: PropTypes.object,
-  VacanciesData: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  VacanciesData: PropTypes.array,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
   queryParam: PropTypes.string,
 }

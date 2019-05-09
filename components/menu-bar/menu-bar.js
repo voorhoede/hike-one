@@ -278,7 +278,7 @@ class MenuBar extends Component {
 }
 
 MenuBar.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 }
 
 export default MenuBar

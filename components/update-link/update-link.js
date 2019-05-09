@@ -18,11 +18,11 @@ const UpdateLink = ({ target = '#', title = '', authors = [], date = '', externa
 )
 
 UpdateLink.propTypes = {
-  target: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  authors: PropTypes.array.isRequired,
-  date: PropTypes.string.isRequired,
-  external: PropTypes.bool.isRequired,
+  target: PropTypes.string,
+  title: PropTypes.string,
+  authors: PropTypes.array,
+  date: PropTypes.string,
+  external: PropTypes.bool,
 }
 
 export default UpdateLink

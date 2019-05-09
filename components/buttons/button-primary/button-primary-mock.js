@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../../'
 
-const ButtonPrimaryMock = ({ classes = '', children = '', icon }) => (
+const ButtonPrimaryMock = ({ classes = '', children, icon }) => (
   <div className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}>
     <span className="btn-primary-text">{children}</span>
 
@@ -15,9 +15,9 @@ const ButtonPrimaryMock = ({ classes = '', children = '', icon }) => (
 )
 
 ButtonPrimaryMock.propTypes = {
-  classes: PropTypes.string.isRequired,
+  classes: PropTypes.string,
   children: PropTypes.node,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
 }
 
 export default ButtonPrimaryMock

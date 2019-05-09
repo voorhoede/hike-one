@@ -10,7 +10,7 @@ const CaseExtractSmall = ({
   companyName = '',
   title = '',
   subtitle = '',
-  image = '',
+  image = {},
   children,
 }) => {
   const childrenArray = React.Children.toArray(children)
@@ -44,12 +44,12 @@ const CaseExtractSmall = ({
 }
 
 CaseExtractSmall.propTypes = {
-  slug: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  companyName: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  slug: PropTypes.string,
+  color: PropTypes.string,
+  companyName: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  image: PropTypes.object,
   children: PropTypes.node,
 }
 

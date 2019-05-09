@@ -7,7 +7,7 @@ const ButtonSecondaryLink = ({
   classes = '',
   href,
   hrefAs = null,
-  children = '',
+  children,
   icon,
   target = '',
 }) => (
@@ -24,12 +24,12 @@ const ButtonSecondaryLink = ({
 )
 
 ButtonSecondaryLink.propTypes = {
-  classes: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  hrefAs: PropTypes.func.isRequired,
+  classes: PropTypes.string,
+  href: PropTypes.string,
+  hrefAs: PropTypes.string,
   children: PropTypes.node,
-  icon: PropTypes.string.isRequired,
-  target: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  target: PropTypes.string,
 }
 
 export default ButtonSecondaryLink

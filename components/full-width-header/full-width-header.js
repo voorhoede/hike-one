@@ -63,13 +63,13 @@ const FullWidthHeader = ({
 }
 
 FullWidthHeader.propTypes = {
-  headerImage: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  authorName: PropTypes.string.isRequired,
-  updatedDate: PropTypes.string.isRequired,
-  titleOnly: PropTypes.bool.isRequired,
-  headerImageLarger: PropTypes.string.isRequired,
+  headerImage: PropTypes.string,
+  color: PropTypes.string,
+  title: PropTypes.string,
+  authorName: PropTypes.string,
+  updatedDate: PropTypes.string,
+  titleOnly: PropTypes.bool,
+  headerImageLarger: PropTypes.string,
 }
 
 export default FullWidthHeader

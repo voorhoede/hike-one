@@ -210,12 +210,12 @@ class FullWidthImage extends Component {
 }
 
 FullWidthImage.propTypes = {
-  image: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  overlay: PropTypes.boolean.isRequired,
-  staticImg: PropTypes.boolean.isRequired,
+  image: PropTypes.string,
+  index: PropTypes.number,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  overlay: PropTypes.bool,
+  staticImg: PropTypes.bool,
 }
 
 export default FullWidthImage

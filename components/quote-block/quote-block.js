@@ -22,12 +22,12 @@ const QuoteBlock = ({
 )
 
 QuoteBlock.propTypes = {
-  color: PropTypes.string.isRequired,
-  alignment: PropTypes.string.isRequired,
-  quote: PropTypes.string.isRequired,
-  citeImage: PropTypes.string.isRequired,
-  citeName: PropTypes.string.isRequired,
-  citeTitle: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  alignment: PropTypes.string,
+  quote: PropTypes.string,
+  citeImage: PropTypes.string,
+  citeName: PropTypes.string,
+  citeTitle: PropTypes.string,
 }
 
 export default QuoteBlock

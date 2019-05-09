@@ -8,7 +8,7 @@ const LinkedinCircle = ({ color = '' }) => (
 )
 
 LinkedinCircle.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 }
 
 export default LinkedinCircle

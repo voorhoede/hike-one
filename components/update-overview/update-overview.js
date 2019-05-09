@@ -82,8 +82,8 @@ class UpdateOverview extends Component {
 }
 
 UpdateOverview.propTypes = {
-  data: PropTypes.object.isRequired,
-  updatesData: PropTypes.array.isRequired,
+  data: PropTypes.object,
+  updatesData: PropTypes.array,
 }
 
 export default UpdateOverview

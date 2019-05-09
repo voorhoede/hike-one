@@ -55,7 +55,7 @@ class MustRead extends Component {
 }
 
 MustRead.propTypes = {
-  mustRead: PropTypes.array.isRequired,
+  mustRead: PropTypes.array,
 }
 
 export default MustRead

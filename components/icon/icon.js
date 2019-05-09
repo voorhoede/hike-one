@@ -43,8 +43,8 @@ const Icon = ({ icon = 'arrowDown', classes = '' }) => {
 }
 
 Icon.propTypes = {
-  icon: PropTypes.string.isRequired,
-  classes: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  classes: PropTypes.string,
 }
 
 export default Icon

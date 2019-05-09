@@ -8,7 +8,7 @@ const ArrowRightExternalLink = ({ fill = '' }) => (
 )
 
 ArrowRightExternalLink.propTypes = {
-  fill: PropTypes.string.isRequired,
+  fill: PropTypes.string,
 }
 
 export default ArrowRightExternalLink

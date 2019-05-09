@@ -20,10 +20,10 @@ const Author = ({ name = '', role = '', photoUrl = '', summary = '' }) => {
 }
 
 Author.propTypes = {
-  name: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  photoUrl: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  role: PropTypes.string,
+  photoUrl: PropTypes.string,
+  summary: PropTypes.string,
 }
 
 export default Author

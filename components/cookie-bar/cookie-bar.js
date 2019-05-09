@@ -40,10 +40,10 @@ class CookieBar extends Component {
 }
 
 CookieBar.propTypes = {
-  text: PropTypes.string.isRequired,
-  callToActionLabel: PropTypes.string.isRequired,
-  callToActionUrl: PropTypes.string.isRequired,
-  button: PropTypes.string.isRequired,
+  text: PropTypes.string,
+  callToActionLabel: PropTypes.string,
+  callToActionUrl: PropTypes.string,
+  button: PropTypes.string,
 }
 
 export default CookieBar

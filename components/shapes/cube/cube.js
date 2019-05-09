@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Cube = ({ shadow }) => (
+const Cube = ({ shadow = false }) => (
   <div className="shape">
     <svg className="shape-cube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">
       { shadow &&

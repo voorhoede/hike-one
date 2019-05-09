@@ -60,7 +60,7 @@ const parallaxLayersMap = {
 let componentCounter = {}
 const scrollToTargetClass = 'js-scroll-to-target'
 
-const Case = ({ Data, fontsLoaded, fullUrl }) => (
+const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
@@ -110,7 +110,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                     key={index}
                     title={component.title}
                     text={component.text}
-                    imageLarge="true"
+                    imageLarge={true}
                     image={component.image}>
                     {parallaxLayers}
                   </FiftyFifty>
@@ -121,9 +121,9 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                   <FiftyFifty
                     key={index}
                     title={component.title}
-                    contentLeft="true"
+                    contentLeft={true}
                     text={component.text}
-                    imageLarge="true"
+                    imageLarge={true}
                     image={component.image}>
                     {parallaxLayers}
                   </FiftyFifty>
@@ -158,7 +158,7 @@ const Case = ({ Data, fontsLoaded, fullUrl }) => (
                 return (
                   <FiftyFifty
                     key={index}
-                    contentLeft="true"
+                    contentLeft={true}
                     title={component.title}
                     text={component.text}
                     image={component.image}
@@ -337,7 +337,7 @@ Case.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Case.propTypes = {
   Data: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

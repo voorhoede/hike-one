@@ -8,7 +8,7 @@ const FacebookCircle = ({ color = '' }) => (
 )
 
 FacebookCircle.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 }
 
 export default FacebookCircle

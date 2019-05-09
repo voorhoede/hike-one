@@ -23,10 +23,10 @@ const Contact = ({ title = '', button = '', link = false, target = '', children 
 }
 
 Contact.propTypes = {
-  title: PropTypes.string.isRequired,
-  button: PropTypes.string.isRequired,
-  link: PropTypes.bool.isRequired,
-  target: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  button: PropTypes.string,
+  link: PropTypes.bool,
+  target: PropTypes.string,
   children: PropTypes.node,
 }
 

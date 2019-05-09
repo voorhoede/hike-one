@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import setImageParams from '../_helpers/setImageParameters'
 
-const FullWidthImageStatic = ({ image = '#', title, subtitle, index = 0 }) => {
+const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 0 }) => {
   const imageParameters = { fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
@@ -34,10 +34,10 @@ const FullWidthImageStatic = ({ image = '#', title, subtitle, index = 0 }) => {
 }
 
 FullWidthImageStatic.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  index: PropTypes.number,
 }
 
 export default FullWidthImageStatic

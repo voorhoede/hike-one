@@ -31,8 +31,8 @@ const FullWidthImageSmall = ({ image = '#', index = 0 }) => {
 }
 
 FullWidthImageSmall.propTypes = {
-  image: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
+  image: PropTypes.string,
+  index: PropTypes.number,
 }
 
 export default FullWidthImageSmall

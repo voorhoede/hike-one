@@ -21,7 +21,7 @@ import {
 } from '../components'
 import getData from '../lib/get-data'
 
-const Home = ({ Data, fontsLoaded, fullUrl }) => {
+const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => {
   const scrollToTargetClass = 'js-scroll-to-target'
 
   return (
@@ -119,7 +119,7 @@ Home.getInitialProps = async ({ req, res, asPath }) => {
 
 Home.propTypes = {
   Data: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

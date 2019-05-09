@@ -74,15 +74,15 @@ class InputField extends Component {
 }
 
 InputField.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  isRequired: PropTypes.bool.isRequired,
-  autoFocus: PropTypes.string.isRequired,
-  formLength: PropTypes.number.isRequired,
-  id: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  isRequired: PropTypes.bool,
+  autoFocus: PropTypes.string,
+  formLength: PropTypes.number,
+  id: PropTypes.string,
 }
 
 export default InputField

@@ -16,7 +16,7 @@ import {
   VacancyCard,
 } from '../components'
 
-const Contact = ({ Data, fontsLoaded, fullUrl }) => (
+const Contact = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout title="Hike One - Contact" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />

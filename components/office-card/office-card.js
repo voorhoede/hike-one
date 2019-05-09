@@ -4,7 +4,7 @@ import { Icon } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
 const OfficeCard = ({
-  index,
+  index = 0,
   location = '',
   address = '',
   postcode = '',
@@ -69,14 +69,14 @@ const OfficeCard = ({
 }
 
 OfficeCard.propTypes = {
-  index: PropTypes.number.isRequired,
-  location: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  postcode: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  locationUrl: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  index: PropTypes.number,
+  location: PropTypes.string,
+  address: PropTypes.string,
+  postcode: PropTypes.string,
+  city: PropTypes.string,
+  country: PropTypes.string,
+  locationUrl: PropTypes.string,
+  imageUrl: PropTypes.string,
 }
 
 export default OfficeCard

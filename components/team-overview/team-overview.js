@@ -12,7 +12,7 @@ import {
   TextCenter
 } from '../'
 
-const TeamOverview = ({ data }) => (
+const TeamOverview = ({ data = {} }) => (
   <div>
     <Collage
       title={data.collage.title}
@@ -75,7 +75,7 @@ const TeamOverview = ({ data }) => (
               key={index}
               title={component.title}
               text={component.text}
-              imageLarge="true"
+              imageLarge={true}
               image={component.image}
             />
           )
@@ -84,9 +84,9 @@ const TeamOverview = ({ data }) => (
             <FiftyFifty
               key={index}
               title={component.title}
-              contentLeft="true"
+              contentLeft={true}
               text={component.text}
-              imageLarge="true"
+              imageLarge={true}
               image={component.image}
             />
           )
@@ -118,7 +118,7 @@ const TeamOverview = ({ data }) => (
 )
 
 TeamOverview.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 }
 
 export default TeamOverview

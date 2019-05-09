@@ -18,8 +18,8 @@ const ServicesOverview = ({ title = '', items = [] }) => (
 )
 
 ServicesOverview.propTypes = {
-  title: PropTypes.string.isRequired,
-  items: PropTypes.array.isRequired,
+  title: PropTypes.string,
+  items: PropTypes.array,
 }
 
 export default ServicesOverview

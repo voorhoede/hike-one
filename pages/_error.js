@@ -52,7 +52,7 @@ Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
 
 Error.propTypes = {
   statusCode: PropTypes.number,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   wrapperClass: PropTypes.string,
 }
 

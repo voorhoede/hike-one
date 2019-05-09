@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../../'
 
-const ButtonClean = ({ classes = '', onClick = null, children, icon }) => (
+const ButtonClean = ({ classes = '', onClick = null, children, icon = '' }) => (
   <button onClick={onClick} className={`btn-clean ${classes}`}>
     {children}
 
@@ -15,10 +15,10 @@ const ButtonClean = ({ classes = '', onClick = null, children, icon }) => (
 )
 
 ButtonClean.propTypes = {
-  classes: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  classes: PropTypes.string,
+  onClick: PropTypes.func,
   children: PropTypes.node,
-  icon: PropTypes.string.isRequired,
+  icon: PropTypes.string,
 }
 
 export default ButtonClean

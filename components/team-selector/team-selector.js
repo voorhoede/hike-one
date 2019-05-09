@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-const TeamSelector = ({ slug }) => (
+const TeamSelector = ({ slug = '' }) => (
   <div className="team-selector container shadow">
     <Link href="/team?slug=culture" as="/team/culture" prefetch>
       <a className={`team-selector-item ${slug === 'culture' ? 'is-selected' : ''}`}>
@@ -18,7 +18,7 @@ const TeamSelector = ({ slug }) => (
 )
 
 TeamSelector.propTypes = {
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 }
 
 export default TeamSelector

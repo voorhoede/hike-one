@@ -53,9 +53,9 @@ class LogoCarousel extends Component {
 }
 
 LogoCarousel.propTypes = {
-  title: PropTypes.string.isRequired,
-  companies: PropTypes.array.isRequired,
-  animationSpeed: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  companies: PropTypes.array,
+  animationSpeed: PropTypes.number,
 }
 
 export default LogoCarousel

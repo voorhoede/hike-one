@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { MustRead, UpdateExtractLarge } from '../'
 
-const UpdatesExtractLarge = ({ highlights, mustRead }) => (
+const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
   <div className="updates-highlights">
     <div className="updates-extract-large">
       {highlights.map((item, index) => (
@@ -25,8 +25,8 @@ const UpdatesExtractLarge = ({ highlights, mustRead }) => (
 )
 
 UpdatesExtractLarge.propTypes = {
-  highlights: PropTypes.array.isRequired,
-  mustRead: PropTypes.bool.isRequired,
+  highlights: PropTypes.array,
+  mustRead: PropTypes.array,
 }
 
 export default UpdatesExtractLarge

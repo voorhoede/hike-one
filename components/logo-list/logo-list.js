@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import setImageParams from '../_helpers/setImageParameters'
 
-const LogoList = ({ companies }) => {
+const LogoList = ({ companies = [] }) => {
   const imageParameters = { fit: 'max', fm: 'png', q: 85 }
 
   return (
@@ -23,7 +23,7 @@ const LogoList = ({ companies }) => {
 }
 
 LogoList.propTypes = {
-  companies: PropTypes.array.isRequired,
+  companies: PropTypes.array,
 }
 
 export default LogoList

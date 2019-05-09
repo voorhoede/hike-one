@@ -23,10 +23,10 @@ const CompanyOverviewItemSmall = ({
 )
 
 CompanyOverviewItemSmall.propTypes = {
-  companyLogo: PropTypes.string.isRequired,
-  referenceCaseLink: PropTypes.string.isRequired,
-  referenceSlug: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  companyLogo: PropTypes.string,
+  referenceCaseLink: PropTypes.string,
+  referenceSlug: PropTypes.string,
+  text: PropTypes.string,
 }
 
 export default CompanyOverviewItemSmall

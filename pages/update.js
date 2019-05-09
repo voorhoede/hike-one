@@ -24,7 +24,7 @@ import {
   UpdateOverviewSmall,
 } from '../components'
 
-const Update = ({ Data, fontsLoaded, fullUrl }) => (
+const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
@@ -84,7 +84,7 @@ const Update = ({ Data, fontsLoaded, fullUrl }) => (
                 <FiftyFifty
                   classes="fifty-fifty-update"
                   key={index}
-                  contentLeft="true"
+                  contentLeft={true}
                   title={component.title}
                   text={component.text}
                   image={component.image}

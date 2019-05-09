@@ -30,7 +30,7 @@ const Logo = ({ color = 'white' }) => (
 )
 
 Logo.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 }
 
 export default Logo

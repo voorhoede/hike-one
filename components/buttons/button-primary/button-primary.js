@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from '../../'
 
-const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disabled = false }) => (
+const ButtonPrimary = ({ classes = '', onClick = null, children, icon = '', disabled = false }) => (
   <button
     onClick={onClick}
     className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}
@@ -18,11 +18,11 @@ const ButtonPrimary = ({classes = '', onClick = null, children = '', icon, disab
 )
 
 ButtonPrimary.propTypes = {
-  classes: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  classes: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  icon: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 export default ButtonPrimary

@@ -6,7 +6,7 @@ const Authors = ({ authors = [] }) => {
 }
 
 Authors.propTypes = {
-  authors: PropTypes.array.isRequired,
+  authors: PropTypes.array,
 }
 
 export default Authors

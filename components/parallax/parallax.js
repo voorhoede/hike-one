@@ -120,8 +120,8 @@ class Parallax extends Component {
 }
 
 Parallax.propTypes = {
-  speed: PropTypes.number.isRequired,
-  duration: PropTypes.number.isRequired,
+  speed: PropTypes.string,
+  duration: PropTypes.number,
   children: PropTypes.node,
 }
 

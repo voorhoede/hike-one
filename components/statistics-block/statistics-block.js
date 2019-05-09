@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const StatisticsBlock = ({ color = '', alignment = '', summary = '', groups = [], link = '' }) => (
+const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = [], link = {} }) => (
   <div className={`text-block ${color} ${alignment}`}>
     <div className="statistics">
       {summary && (
@@ -40,11 +40,11 @@ const StatisticsBlock = ({ color = '', alignment = '', summary = '', groups = []
 )
 
 StatisticsBlock.propTypes = {
-  color: PropTypes.string.isRequired,
-  alignment: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  groups: PropTypes.array.isRequired,
-  link: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  alignment: PropTypes.string,
+  summary: PropTypes.object,
+  groups: PropTypes.array,
+  link: PropTypes.object,
 }
 
 export default StatisticsBlock

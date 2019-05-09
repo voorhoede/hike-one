@@ -20,10 +20,10 @@ const InlineMedia = ({ image = null, large = false, video = null, caption = '' }
 )
 
 InlineMedia.propTypes = {
-  image: PropTypes.string.isRequired,
-  large: PropTypes.bool.isRequired,
-  video: PropTypes.object.isRequired,
-  caption: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  large: PropTypes.bool,
+  video: PropTypes.object,
+  caption: PropTypes.string,
 }
 
 export default InlineMedia

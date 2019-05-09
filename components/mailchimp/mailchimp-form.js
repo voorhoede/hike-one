@@ -5,10 +5,10 @@ import MailchimpInput from './mailchimp-input'
 const MailchimpForm = ({
   title = '',
   description = '',
-  inputFields,
-  listId,
-  buttonLabel,
-  hasShadow,
+  inputFields = [],
+  listId = '',
+  buttonLabel = '',
+  hasShadow = false,
 }) => (
   <div className={`mailchimp-form ${hasShadow ? 'shadow' : ''}`} id="cta">
     <p className="form-title">{title}</p>
@@ -53,12 +53,12 @@ const MailchimpForm = ({
 )
 
 MailchimpForm.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  inputFields: PropTypes.array.isRequired,
-  listId: PropTypes.string.isRequired,
-  buttonLabel: PropTypes.string.isRequired,
-  hasShadow: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  inputFields: PropTypes.array,
+  listId: PropTypes.string,
+  buttonLabel: PropTypes.string,
+  hasShadow: PropTypes.bool,
 }
 
 export default MailchimpForm

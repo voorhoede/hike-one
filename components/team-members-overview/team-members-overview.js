@@ -174,9 +174,9 @@ function setAllItemsActive(array) {
 }
 
 TeamMembersOverview.propTypes = {
-  team: PropTypes.array.isRequired,
-  queryParam: PropTypes.string.isRequired,
-  introText: PropTypes.string.isRequired,
+  team: PropTypes.array,
+  queryParam: PropTypes.string,
+  introText: PropTypes.string,
 }
 
 export default TeamMembersOverview

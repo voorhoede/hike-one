@@ -13,7 +13,7 @@ import {
 
 import getData from '../lib/get-data'
 
-const ThankYou = ({ page, fontsLoaded, fullUrl }) => (
+const ThankYou = ({ page = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded} url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="black" />

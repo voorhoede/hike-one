@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import setImageParameters from '../_helpers/setImageParameters'
 
-const TeamMember = ({ data }) => (
+const TeamMember = ({ data = {} }) => (
   <li className="team-member" style={{ backgroundImage: `url(${setImageParameters(data.photo.url, { w: 700, fm: 'pjpg', q: 85 })})` }}>
     <div className="team-member-overlay">
       <h3 className="team-member-name">{data.name}</h3>
@@ -16,7 +16,7 @@ const TeamMember = ({ data }) => (
 )
 
 TeamMember.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 }
 
 export default TeamMember

@@ -22,7 +22,7 @@ import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import getData from '../lib/get-data'
 
-const Service = ({ Data, services, fontsLoaded, fullUrl }) => (
+const Service = ({ Data = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
@@ -63,7 +63,7 @@ const Service = ({ Data, services, fontsLoaded, fullUrl }) => (
                     key={index}
                     title={component.title}
                     text={component.text}
-                    imageLarge="true"
+                    imageLarge={true}
                     image={component.image}
                   />
                 )
@@ -73,9 +73,9 @@ const Service = ({ Data, services, fontsLoaded, fullUrl }) => (
                   <FiftyFifty
                     key={index}
                     title={component.title}
-                    contentLeft="true"
+                    contentLeft={true}
                     text={component.text}
-                    imageLarge="true"
+                    imageLarge={true}
                     image={component.image}
                   />
                 )
@@ -138,8 +138,8 @@ Service.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Service.propTypes = {
   Data: PropTypes.object,
-  services: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  services: PropTypes.array,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

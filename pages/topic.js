@@ -28,7 +28,7 @@ import {
   WorkOverview,
 } from '../components'
 
-const Topic = ({ Data, fontsLoaded, fullUrl }) => (
+const Topic = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}
@@ -86,7 +86,7 @@ const Topic = ({ Data, fontsLoaded, fullUrl }) => (
               return (
                 <FiftyFifty
                   key={index}
-                  contentLeft="true"
+                  contentLeft={true}
                   title={component.title}
                   text={component.text}
                   image={component.image}

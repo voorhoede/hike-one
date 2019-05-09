@@ -50,10 +50,10 @@ class InlineVideo extends Component {
 }
 
 InlineVideo.propTypes = {
-  video: PropTypes.object.isRequired,
-  autoplay: PropTypes.string.isRequired,
-  mute: PropTypes.string.isRequired,
-  loop: PropTypes.string.isRequired,
-  classes: PropTypes.string.isRequired,
+  video: PropTypes.object,
+  autoplay: PropTypes.string,
+  mute: PropTypes.string,
+  loop: PropTypes.string,
+  classes: PropTypes.string,
 }
 export default InlineVideo

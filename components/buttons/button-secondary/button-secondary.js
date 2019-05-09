@@ -5,7 +5,7 @@ import { Icon } from '../../'
 const ButtonSecondary = ({
   classes = '',
   onClick = null,
-  children = '',
+  children,
   icon = '',
   disabled = false,
 }) => (
@@ -24,11 +24,11 @@ const ButtonSecondary = ({
 )
 
 ButtonSecondary.propTypes = {
-  classes: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
+  classes: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  icon: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 export default ButtonSecondary

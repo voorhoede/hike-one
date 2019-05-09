@@ -10,7 +10,7 @@ const shapes = {
   doubleDiamond: <TrailDoubleDiamond />,
 }
 
-const ServicesOverviewSmall = ({ services, title = '', classes = '' }) => (
+const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
   <div className={`services-overview-small container clearfix ${classes}`}>
     <div className="service-overview-small-triangle">
       <Triangle />
@@ -57,9 +57,9 @@ const ServicesOverviewSmall = ({ services, title = '', classes = '' }) => (
 )
 
 ServicesOverviewSmall.propTypes = {
-  services: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
-  classes: PropTypes.string.isRequired,
+  services: PropTypes.array,
+  title: PropTypes.string,
+  classes: PropTypes.string,
 }
 
 export default ServicesOverviewSmall

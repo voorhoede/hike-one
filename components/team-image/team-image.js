@@ -25,8 +25,8 @@ const TeamImage = ({ image = '', title = '' }) => {
 }
 
 TeamImage.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default TeamImage

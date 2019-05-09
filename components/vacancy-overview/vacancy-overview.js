@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ButtonPrimaryLink } from '../'
 
-const VacancyOverview = ({ overview, vacancies }) => (
+const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
   <div className="vacancy-overview container">
     <h2 className="vacancy-overview-title">{overview.title}</h2>
     <p className="vacancy-overview-tagline">{overview.tagline}</p>
@@ -25,8 +25,8 @@ const VacancyOverview = ({ overview, vacancies }) => (
 )
 
 VacancyOverview.propTypes = {
-  overview: PropTypes.object.isRequired,
-  vacancies: PropTypes.array.isRequired,
+  overview: PropTypes.object,
+  vacancies: PropTypes.array,
 }
 
 export default VacancyOverview

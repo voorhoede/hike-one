@@ -94,11 +94,11 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string.isRequired,
-  fontsLoaded: PropTypes.string.isRequired,
-  classes: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  seo: PropTypes.object.isRequired,
+  title: PropTypes.string,
+  fontsLoaded: PropTypes.string,
+  classes: PropTypes.string,
+  url: PropTypes.string,
+  seo: PropTypes.object,
   children: PropTypes.node,
 }
 

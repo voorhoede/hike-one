@@ -19,9 +19,9 @@ const SocialShare = ({ facebookLink = '', linkedinLink = '', twitterLink = '' })
 )
 
 SocialShare.propTypes = {
-  facebookLink: PropTypes.string.isRequired,
-  linkedinLink: PropTypes.string.isRequired,
-  twitterLink: PropTypes.string.isRequired,
+  facebookLink: PropTypes.string,
+  linkedinLink: PropTypes.string,
+  twitterLink: PropTypes.string,
 }
 
 export default SocialShare

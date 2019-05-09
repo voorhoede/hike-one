@@ -8,7 +8,7 @@ const Linkedin = ({ color = '' }) => (
 )
 
 Linkedin.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.string,
 }
 
 export default Linkedin

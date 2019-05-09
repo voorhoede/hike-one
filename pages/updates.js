@@ -9,7 +9,7 @@ import UpdateOverview from '../components/update-overview/update-overview'
 import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
 
-const Updates = ({ Data, updatesData, fontsLoaded, fullUrl }) => {
+const Updates = ({ Data = {}, updatesData = [], fontsLoaded = '', fullUrl = '' }) => {
   return (
     <Layout title="Hike One - Updates" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
       <main className="main js-main">
@@ -49,8 +49,8 @@ Updates.getInitialProps = async ({ req, res, asPath }) => {
 
 Updates.propTypes = {
   Data: PropTypes.object,
-  updatesData: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  updatesData: PropTypes.array,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

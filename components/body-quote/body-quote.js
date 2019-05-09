@@ -9,8 +9,8 @@ const BodyQuote = ({ quote = '', quotee = '' }) => (
 )
 
 BodyQuote.propTypes = {
-  quote: PropTypes.string.isRequired,
-  quotee: PropTypes.string.isRequired,
+  quote: PropTypes.string,
+  quotee: PropTypes.string,
 }
 
 export default BodyQuote

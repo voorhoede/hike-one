@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Filter = ({ filter, onFilter }) => {
+const Filter = ({ filter = [], onFilter = null }) => {
   const isFilterVisuallyActive = filter.every(item => item.isActive)
 
   return (
@@ -25,8 +25,8 @@ const Filter = ({ filter, onFilter }) => {
 }
 
 Filter.propTypes = {
-  filter: PropTypes.array.isRequired,
-  onFilter: PropTypes.func.isRequired,
+  filter: PropTypes.array,
+  onFilter: PropTypes.func,
 }
 
 export default Filter

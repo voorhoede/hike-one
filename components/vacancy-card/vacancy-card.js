@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ButtonSecondaryLink } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
-const VacancyCard = ({ data }) => {
+const VacancyCard = ({ data = {} }) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
@@ -46,7 +46,7 @@ const VacancyCard = ({ data }) => {
 }
 
 VacancyCard.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.object,
 }
 
 export default VacancyCard

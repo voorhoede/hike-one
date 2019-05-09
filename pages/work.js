@@ -13,7 +13,7 @@ import LogoCarousel from '../components/logo-carousel/logo-carousel'
 import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
 
-const Work = ({ cases, data, fontsLoaded, fullUrl }) => (
+const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout title="Hike One - Case" fontsLoaded={fontsLoaded} seo={data.seo} url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
@@ -75,7 +75,7 @@ Work.getInitialProps = async ({ req, res, asPath }) => {
 Work.propTypes = {
   cases: PropTypes.array,
   data: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

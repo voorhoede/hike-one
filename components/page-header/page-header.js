@@ -154,13 +154,13 @@ class PageHeader extends Component {
 }
 
 PageHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
-  video: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  onClickScrollButton: PropTypes.func.isRequired,
-  showGradient: PropTypes.bool.isRequired,
-  isSmall: PropTypes.bool.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  video: PropTypes.string,
+  image: PropTypes.string,
+  onClickScrollButton: PropTypes.func,
+  showGradient: PropTypes.bool,
+  isSmall: PropTypes.bool,
   children: PropTypes.node,
 }
 

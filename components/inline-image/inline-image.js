@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import setImageParams from '../_helpers/setImageParameters'
 
-const InlineImage = ({ image }) => {
+const InlineImage = ({ image = '' }) => {
   const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
   return (
@@ -25,7 +25,7 @@ const InlineImage = ({ image }) => {
 }
 
 InlineImage.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
 }
 
 export default InlineImage

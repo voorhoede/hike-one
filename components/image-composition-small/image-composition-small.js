@@ -5,9 +5,9 @@ import setImageParams from '../_helpers/setImageParameters'
 const ImageCompositionSmall = ({
   children,
   classes = '',
-  image21,
-  image34,
-  image34Small,
+  image21 = {},
+  image34 = {},
+  image34Small = {},
   image34SmallPerson = false,
 }) => {
   const childrenArray = React.Children.toArray(children)
@@ -116,11 +116,11 @@ const ImageCompositionSmall = ({
 
 ImageCompositionSmall.propTypes = {
   children: PropTypes.node,
-  classes: PropTypes.string.isRequired,
-  image21: PropTypes.object.isRequired,
-  image34: PropTypes.object.isRequired,
-  image34Small: PropTypes.object.isRequired,
-  image34SmallPerson: PropTypes.bool.isRequired,
+  classes: PropTypes.string,
+  image21: PropTypes.object,
+  image34: PropTypes.object,
+  image34Small: PropTypes.object,
+  image34SmallPerson: PropTypes.bool,
 }
 
 export default ImageCompositionSmall

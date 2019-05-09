@@ -11,8 +11,8 @@ const OfficeOverview = ({ classes = '', header = '', children }) => (
 )
 
 OfficeOverview.propTypes = {
-  classes: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
+  classes: PropTypes.string,
+  header: PropTypes.string,
   children: PropTypes.node,
 }
 

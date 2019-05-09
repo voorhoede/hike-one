@@ -56,10 +56,10 @@ class SelectDropdown extends Component {
 }
 
 SelectDropdown.propTypes = {
-  selectedItem: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  selectedItem: PropTypes.string,
+  label: PropTypes.string,
+  options: PropTypes.array,
+  handleClick: PropTypes.func,
 }
 
 export default SelectDropdown

@@ -9,10 +9,10 @@ const WorkOverview = ({ classes = '', header = '', children, moreButton = false 
 )
 
 WorkOverview.propTypes = {
-  classes: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
+  classes: PropTypes.string,
+  header: PropTypes.string,
   children: PropTypes.node,
-  moreButton: PropTypes.bool.isRequired,
+  moreButton: PropTypes.bool,
 }
 
 export default WorkOverview

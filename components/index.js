@@ -78,6 +78,7 @@ import TrailTriangle from './shapes/trail-triangle/trail-triangle'
 import Triangle from './shapes/triangle/triangle'
 import Twitter from './icons/twitter-circle'
 import UpdateExtractSmall from './update-extract-small/update-extract-small'
+import UpdateExtractLarge from './update-extract-large/update-extract-large'
 import UpdateLink from './update-link/update-link'
 import UpdateLinks from './update-links/update-links'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small'
@@ -166,6 +167,7 @@ export {
   Triangle,
   Twitter,
   UpdateExtractSmall,
+  UpdateExtractLarge,
   UpdateLink,
   UpdateLinks,
   UpdateOverviewSmall,

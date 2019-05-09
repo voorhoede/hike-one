@@ -1,13 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { ButtonSecondaryLink, TrailDiamond, TrailDoubleDiamond, Triangle, TrailTriangle } from '../'
+import { ButtonSecondaryLink } from '../'
+
+import TrailDiamond from '../shapes/trail-diamond/trail-diamond.js'
+import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond.js'
+import Triangle from '../shapes/triangle/triangle.js'
+import TrailTriangle from '../shapes/trail-triangle/trail-triangle.js'
 
 const shapesList = ['diamond', 'doubleDiamond', 'triangle']
 const shapes = {
-  diamond: <TrailDiamond />,
-  triangle: <TrailTriangle />,
-  doubleDiamond: <TrailDoubleDiamond />,
+  diamond: TrailDiamond,
+  triangle: TrailTriangle,
+  doubleDiamond: TrailDoubleDiamond,
 }
 
 const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
@@ -18,10 +23,11 @@ const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
     <div className="services-overview-small-header">{title}</div>
     <div className="container-inner">
       {Object.values(services).map((item, index) => {
-        item.shape = shapesList[index]
+        const Component = shapes[shapesList[index]]
+
         return (
           <div key={index} className={`services-item-small`}>
-            <div className={`services-item-small-shape shadow`}>{shapes[item.shape]}</div>
+            <div className={`services-item-small-shape shadow`}><Component /></div>
             <div className="services-item-small-content">
               <h3 className="services-item-small-heading">{item.title}</h3>
               <p className="services-item-description">{item.text}</p>

@@ -69,6 +69,7 @@ Work.getInitialProps = async ({ req, res, asPath }) => {
   const fetchAll = models => Promise.all(models.map(fetchJson))
   const [cases, data] = await fetchAll(['cases', 'work'])
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+
   return { cases, data, fontsLoaded, fullUrl }
 }
 

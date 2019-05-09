@@ -40,10 +40,11 @@ Updates.getInitialProps = async ({ req, res, asPath }) => {
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
   const [Data, updatesData] = await fetchAll(['update-overview', 'update-extracts'])
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   updatesData.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+
   return { Data, updatesData, fontsLoaded, fullUrl }
 }
 

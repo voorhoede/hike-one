@@ -77,6 +77,7 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
   const queryParam = req && req.query && req.query.filter
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const tab = query.slug
   //check if slug is not equal to people or culture it will redirect to error page
   if (!/^(?:people|culture)$/.test(tab)) {
@@ -93,7 +94,6 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
     'vacancies-overview',
   ])
 
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   return {
     tab,
     TeamOverviewData,

@@ -204,7 +204,7 @@ Update.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Update.propTypes = {
   Data: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import ButtonSecondary from '../buttons/button-secondary/button-secondary'
-import { Authors } from '../'
+import { Authors, ButtonSecondary } from '../'
 
 class MustRead extends Component {
   constructor(props) {

@@ -12,9 +12,9 @@ jp_url='https://github.com/jmespath/jp/releases/download/0.1.3/jp-linux-amd64';
 
 # The executable should exist if it has been pulled out of the cache
 if [ ! -x "$jp" ]; then
-	# Create directory, download & install jmespath as jp
-	mkdir -p "$localbin";
-	wget "$jp_url" -qO "$jp" && chmod +x "$jp";
+  # Create directory, download & install jmespath as jp
+  mkdir -p "$localbin";
+  wget "$jp_url" -qO "$jp" && chmod +x "$jp";
 fi
 
 # temporarily remove package.json to avoid installing project dependencies

@@ -82,16 +82,16 @@ class PageHeader extends Component {
     const style = {
       __html: `<style>
         .page-header {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 1000 })}");
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}');
         }
         @media only screen and (min-width: 768px) {
           .page-header {
-            background-image: url(${setImageParams(image, { ...imageParameters, w: 1500 })}");
+            background-image: url('${setImageParams(image, { ...imageParameters, w: 1500 })}');
           }
         }
         @media only screen and (min-width: 1170px) {
           .page-header {
-            background-image: url(${setImageParams(image, { ...imageParameters, w: 2000 })}");
+            background-image: url('${setImageParams(image, { ...imageParameters, w: 2000 })}');
           }
         }
         ${video ? `@media only screen and (min-width: 768px) { .page-header { background-image: none; } }` : ''}

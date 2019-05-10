@@ -19,16 +19,16 @@ const UpdateExtractLarge = ({
   const style = {
     __html: `<style>
       .update-extract-large-image-${index} {
-        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}");
+        background-image: url('${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}');
       }
       @media only screen and (min-width: 768px) {
         .update-extract-large-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 600, h: 500 })}");
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 600, h: 500 })}');
         }
       }
       @media only screen and (min-width: 1024px) {
         .update-extract-large-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 700, h: 500 })}");
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 700, h: 500 })}');
         }
       }
     </style>`,

@@ -19,16 +19,16 @@ const FullWidthHeader = ({
   const style = {
     __html: `<style>
       .full-width-header-image {
-        background-image: url(${setImageParams(headerImage, { ...imageParameters, w: 1000 })})
+        background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 1000 })}')
       }
       @media only screen and (min-width: 768px) {
         .full-width-header-image {
-          background-image: url(${setImageParams(headerImage, { ...imageParameters, w: 1500 })})
+          background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 1500 })}')
         }
       }
       @media only screen and (min-width: 1170px) {
         .full-width-header-image {
-          background-image: url(${setImageParams(headerImage, { ...imageParameters, w: 2000 })})
+          background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 2000 })}')
         }
       }
     </style>`,

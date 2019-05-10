@@ -22,7 +22,7 @@ const CaseExtractSmall = ({
         <a>
           <div
             className="case-extract-small-image"
-            style={{ backgroundImage: `url(${setImageParameters(image.url, { w: 700, fm: 'pjpg', q: 85 })})` }}>
+            style={{ backgroundImage: `url('${setImageParameters(image.url, { w: 700, fm: 'pjpg', q: 85 })}')` }}>
             <div className="case-extract-small-overlay" />
           </div>
           <div className="case-extract-small-bg">

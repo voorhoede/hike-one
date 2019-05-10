@@ -20,16 +20,16 @@ const UpdateExtractSmall = ({
   const style = {
     __html: `<style>
       .update-extract-small-image-${index} {
-        background-image: url("${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}");
+        background-image: url('${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}');
       }
       @media only screen and (min-width: 768px) {
         .update-extract-small-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 470, h: 332 })}");
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 470, h: 332 })}');
         }
       }
       @media only screen and (min-width: 1024px) {
         .update-extract-small-image-${index} {
-          background-image: url("${setImageParams(image, { ...imageParameters, w: 337, h: 366 })}");
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 337, h: 366 })}');
         }
       }
     </style>`,

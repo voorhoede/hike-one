@@ -170,16 +170,16 @@ class FullWidthImage extends Component {
     const style = {
       __html: `<style>
         .full-width-image-background-${index} {
-          background-image: url(${heroImageMedium})
+          background-image: url('${heroImageMedium}')
         }
         @media only screen and (min-width: 768px) {
           .full-width-image-background-${index} {
-            background-image: url(${heroImageLarge})
+            background-image: url('${heroImageLarge}')
           }
         }
         @media only screen and (min-width: 1170px) {
           .full-width-image-background-${index} {
-            background-image: url(${heroImageExtraLarge})
+            background-image: url('${heroImageExtraLarge}')
           }
         }
       </style>`,

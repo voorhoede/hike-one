@@ -17,23 +17,23 @@ const OfficeCard = ({
   const style = {
     __html: `<style>
       .office-card .office-image-${index} {
-        background-image: url("${setImageParams(imageUrl, { ...imageParameters, w: 465, h: 259 })}")
+        background-image: url('${setImageParams(imageUrl, { ...imageParameters, w: 465, h: 259 })}')
       }
       @media only screen and (min-width: 500px) {
         .office-card:first-child .office-image-${index} {
-          background-image: url("${setImageParams(imageUrl, { ...imageParameters, w: 550,  h: 200 })}")
+          background-image: url('${setImageParams(imageUrl, { ...imageParameters, w: 550,  h: 200 })}')
         }
       }
       @media only screen and (min-width: 768px) {
         .office-card .office-image-${index},
         .office-card:first-child .office-image-${index} {
-          background-image: url("${setImageParams(imageUrl, { ...imageParameters, w: 310, h: 320 })}")
+          background-image: url('${setImageParams(imageUrl, { ...imageParameters, w: 310, h: 320 })}')
         }
       }
       @media only screen and (min-width: 1024px) {
         .office-card .office-image-${index},
         .office-card:first-child .office-image-${index} {
-          background-image: url("${setImageParams(imageUrl, { ...imageParameters, w: 380, h: 491 })}")
+          background-image: url('${setImageParams(imageUrl, { ...imageParameters, w: 380, h: 491 })}')
         }
       }
     </style>`,

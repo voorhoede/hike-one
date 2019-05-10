@@ -8,16 +8,16 @@ const VacancyCard = ({ data = {} }) => {
   const style = {
     __html: `<style>
       .vacancy-card-image {
-        background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 200 })}");
+        background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 200 })}');
       }
       @media only screen and (min-width: 768px) {
         .vacancy-card-image {
-          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 400, h: 339 })}");
+          background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 400, h: 339 })}');
         }
       }
       @media only screen and (min-width: 1024px) {
         .vacancy-card-image {
-          background-image: url("${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 360 })}");
+          background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 360 })}');
         }
       }
     </style>`,

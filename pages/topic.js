@@ -191,7 +191,7 @@ const Topic = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
         )}
 
         {Data.updateLinks.length > 0 && (
-          <div>
+          <React.Fragment>
             <TextCenter title={Data.updateLinksTitle} />
 
             <UpdateOverviewSmall>
@@ -210,7 +210,7 @@ const Topic = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                 />
               ))}
             </UpdateOverviewSmall>
-          </div>
+          </React.Fragment>
         )}
       </article>
 

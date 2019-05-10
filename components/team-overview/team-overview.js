@@ -13,7 +13,7 @@ import {
 } from '../'
 
 const TeamOverview = ({ data = {} }) => (
-  <div>
+  <React.Fragment>
     <Collage
       title={data.collage.title}
       text={data.collage.text}
@@ -114,7 +114,7 @@ const TeamOverview = ({ data = {} }) => (
     {data.teamImage916 && (
       <TeamImage title={data.teamImage916.title} image={data.teamImage916.photo.url} />
     )}
-  </div>
+  </React.Fragment>
 )
 
 TeamOverview.propTypes = {

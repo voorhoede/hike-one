@@ -4,8 +4,8 @@ function setImageParams(imageUrl, params) {
     const amp = array.length - 1 === index ? ' ' : '&'
     return `${acc}${item}=${params[item]}${amp}`
   }, '')
-
-  return `${imageUrl}${defaults}${querString}`
+  const url = `${imageUrl}${defaults}${querString}`
+  return url.trim()
 }
 
 export default setImageParams

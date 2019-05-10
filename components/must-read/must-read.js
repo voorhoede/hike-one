@@ -30,7 +30,7 @@ class MustRead extends Component {
         {mustRead.map((item, index) => (
           <a
             href={item.link}
-            target={item.isExternalLink ? '_blank' : ''}
+            target={item.isExternalLink ? '_blank' : '_self'}
             className={`must-read-item must-read-item${index} ${hideItem}`}
             key={index}>
             <h2 className="must-read-item-index">{index + 1}</h2>

@@ -9,7 +9,7 @@ const ButtonSecondaryLink = ({
   hrefAs = null,
   children,
   icon,
-  target = '',
+  target = '_self',
 }) => (
   <Link href={href} as={`${hrefAs ? hrefAs : href}`}>
     <a target={target} className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}>

@@ -6,7 +6,7 @@ import { ArrowRightCircle, Authors } from '../'
 const UpdateLink = ({ target = '#', title = '', authors = [], date = '', external = false }) => (
   <div className="update-link">
     <Link href={target}>
-      <a className="update-link-title" target={external ? '_blank' : ''} rel="noopener noreferrer">
+      <a className="update-link-title" target={external ? '_blank' : '_self'} rel="noopener noreferrer">
         {title}
         <ArrowRightCircle />
       </a>

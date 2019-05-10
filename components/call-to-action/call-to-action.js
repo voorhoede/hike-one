@@ -23,7 +23,7 @@ const CallToAction = ({
       <Link href={url}>
         <a
           className="call-to-action-button btn-primary btn-large content"
-          target={isExternalLink ? '_blank' : ''}>
+          target={isExternalLink ? '_blank' : '_self'}>
           {buttonText}
         </a>
       </Link>

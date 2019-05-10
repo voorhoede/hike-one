@@ -9,7 +9,7 @@ const PrimaryButtonLink = ({
   hrefAs = null,
   children,
   icon = '',
-  target = '',
+  target = '_self',
 }) => (
   <Link href={href} as={`${hrefAs ? hrefAs : href}`}>
     <a className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`} target={target}>

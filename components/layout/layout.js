@@ -8,10 +8,10 @@ import loadFonts from '../_helpers/fontLoader'
 class Layout extends Component {
   constructor(props) {
     super(props)
+    this.checkFontsLoaded = this.checkFontsLoaded.bind(this)
     this.state = {
       fontsLoaded: props.fontsLoaded ? 'fonts-loaded' : '',
     }
-    this.checkFontsLoaded = this.checkFontsLoaded.bind(this)
   }
 
   componentDidMount() {

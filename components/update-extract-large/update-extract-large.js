@@ -10,10 +10,10 @@ const UpdateExtractLarge = ({
   date = '',
   image = '',
   color = '',
-  target = '',
+  href = '',
   category = 'update',
   authors = [],
-  external = false,
+  target = false,
 }) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
@@ -35,7 +35,7 @@ const UpdateExtractLarge = ({
   }
 
   return (
-    <a href={target} target={external ? '_blank' : ''} rel="noopener noreferrer" className="update-extract-large">
+    <a href={href} target={target ? '_blank' : '_self'} rel="noopener noreferrer" className="update-extract-large">
       <div dangerouslySetInnerHTML={style} />
       <div className={`update-extract-large-image-${index} update-extract-large-image`} />
       <div className="update-extract-large-text" style={{ backgroundColor: color }}>
@@ -63,10 +63,10 @@ UpdateExtractLarge.propTypes = {
   authors: PropTypes.array,
   image: PropTypes.string,
   color: PropTypes.string,
-  target: PropTypes.string,
+  href: PropTypes.string,
   index: PropTypes.number,
   category: PropTypes.string,
-  external: PropTypes.bool,
+  target: PropTypes.bool,
 }
 
 export default UpdateExtractLarge

@@ -11,10 +11,10 @@ const UpdateExtractSmall = ({
   authors = [],
   image = '',
   color = '',
-  target = '',
+  href = '',
   index,
   category = 'update',
-  external = false,
+  target = false,
 }) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
@@ -37,8 +37,8 @@ const UpdateExtractSmall = ({
 
   return (
     <a
-      href={target}
-      target={external ? '_blank' : ''}
+      href={href}
+      target={target ? '_blank' : '_self'}
       className={`update-extract-small ${classes}`}>
       <div dangerouslySetInnerHTML={style} />
       <div className={`update-extract-small-image-${index} update-extract-small-image`} />
@@ -67,10 +67,10 @@ UpdateExtractSmall.propTypes = {
   authors: PropTypes.array,
   image: PropTypes.string,
   color: PropTypes.string,
-  target: PropTypes.string,
+  href: PropTypes.string,
   index: PropTypes.number,
   category: PropTypes.string,
-  external: PropTypes.bool,
+  target: PropTypes.bool,
 }
 
 export default UpdateExtractSmall

@@ -4,24 +4,26 @@
 @icon-size: 16px;
 
 .btn-primary {
-	.btn-basis;
-	margin-bottom: @spacing-small;
-	border: 1px solid @red;
-	background-color: @red;
-	color: @white;
+  .btn-basis;
 
-	&:hover:enabled {
-		.btn-primary-hover-state;
-	}
+  margin-bottom: @spacing-small;
+  border: 1px solid @red;
+  background-color: @red;
+  color: @white;
 
-	.icon svg path {
-		fill: @white;
-	}
+  &:hover:enabled {
+    .btn-primary-hover-state;
+  }
+
+  .icon svg path {
+    fill: @white;
+  }
 }
 
 // this allows to include button hover states in other components
 .btn-primary-hover-state {
-	.btn-basis-hover-state;
-	background-color: @red-dark;
-	transition: background-color @animation-speed-fast;
+  .btn-basis-hover-state;
+
+  transition: background-color @animation-speed-fast;
+  background-color: @red-dark;
 }

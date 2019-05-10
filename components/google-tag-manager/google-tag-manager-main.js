@@ -1,5 +1,12 @@
-const googleTagManagerMain = ({id}) => (
-	<script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`}></script>
-);
+import React from 'react'
+import PropTypes from 'prop-types'
 
-export default googleTagManagerMain;
+const GoogleTagManagerMain = ({ id = '' }) => (
+  <script async src={`https://www.googletagmanager.com/gtag/js?id=${id}`} />
+)
+
+GoogleTagManagerMain.propTypes = {
+  id: PropTypes.string,
+}
+
+export default GoogleTagManagerMain

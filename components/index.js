@@ -1,111 +1,177 @@
-import Author from './author/author'
-import BodyQuote from './body-quote/body-quote'
-import ButtonPrimary from './buttons/button-primary/button-primary'
-import ButtonPrimaryLink from './buttons/button-primary/button-primary-link'
-import CallToAction from './call-to-action/call-to-action'
-import CaseExtract from './case-extract/case-extract'
-import CaseExtractSmall from './case-extract-small/case-extract-small'
-import Collage from './collage/collage'
-import * as CollageShapes from './collage/collage-shapes'
-import Contact from './contact/contact'
-import * as ContactShapes from './contact/contact-shapes'
-import ContactForm from './contact-form/contact-form'
-import CookieBar from './cookie-bar/cookie-bar'
-import FiftyFifty from './50-50/50-50'
-import * as FiftyFiftyShapes from './50-50/50-50-shapes'
-import Footer from './footer/footer'
-import FooterLocations from './footer-locations/footer-locations'
-import FullWidthHeader from './full-width-header/full-width-header'
-import FullWidthImage from './full-width-image/full-width-image'
-import FullWidthImageSmall from './full-width-image-small/full-width-image-small'
-import FullWidthImageStatic from './full-width-image-static/full-width-image-static'
-import Icon from './icon/icon'
-import ImageCombo from './image-combo/image-combo'
-import * as ImageComboShapes from './image-combo/image-combo-shapes'
-import InlineImage from './inline-image/inline-image'
-import InlineMedia from './inline-media/inline-media'
-import InlineVideo from './inline-video/inline-video'
-import InputField from './input-field/input-field'
-import Layout from './layout/layout'
-import Logo from './logo/logo'
-import LogoCarousel from './logo-carousel/logo-carousel'
-import LogoList from './logo-list/logo-list'
-import MailchimpForm from './mailchimp/mailchimp-form'
-import MenuBar from './menu-bar/menu-bar'
-import NotificationBar from './notification-bar/notification-bar'
-import OfficeCard from './office-card/office-card'
-import OfficeOverview from './office-overview/office-overview'
-import PageHeader from './page-header/page-header'
-import * as PageHeaderShapes from './page-header/page-header-shapes'
-import QuoteBlock from './quote-block/quote-block'
-import RichBodyText from './rich-body-text/rich-body-text'
-import SelectDropdown from './select-dropdown/select-dropdown'
-import ServicesOverviewSmall from './services-overview-small/services-overview-small'
-import SocialMedia from './social-media/social-media'
-import SocialShare from './social-share/social-share'
-import TextCard from './text-card/text-card'
-import TextCenter from './text-center/text-center'
-import * as TextCenterShapes from './text-center/text-center-shapes'
-import UpdateExtractSmall from './update-extract-small/update-extract-small'
-import UpdateLink from './update-link/update-link'
-import UpdateLinks from './update-links/update-links'
-import UpdateOverviewSmall from './update-overview-small/update-overview-small'
-import VacancyCard from './vacancy-card/vacancy-card'
-import WorkOverview from './work-overview/work-overview'
+import ArrowRightCircle from './icons/arrow-right-circle.js'
+import ArrowRightExternalLink from './icons/arrow-right-external-link.js'
+import Author from './author/author.js'
+import Authors from './authors/authors.js'
+import BodyQuote from './body-quote/body-quote.js'
+import ButtonClean from './buttons/button-clean/button-clean.js'
+import ButtonPrimary from './buttons/button-primary/button-primary.js'
+import ButtonPrimaryLink from './buttons/button-primary/button-primary-link.js'
+import ButtonSecondary from './buttons/button-secondary/button-secondary.js'
+import ButtonSecondaryLink from './buttons/button-secondary/button-secondary-link.js'
+import CallToAction from './call-to-action/call-to-action.js'
+import CaseExtract from './case-extract/case-extract.js'
+import CaseExtractSmall from './case-extract-small/case-extract-small.js'
+import CircleBorder from './shapes/circle-border/circle-border.js'
+import Collage from './collage/collage.js'
+import * as CollageShapes from './collage/collage-shapes.js'
+import Contact from './contact/contact.js'
+import ContactForm from './contact-form/contact-form.js'
+import * as ContactShapes from './contact/contact-shapes.js'
+import ContextMenu from './context-menu/context-menu.js'
+import CookieBar from './cookie-bar/cookie-bar.js'
+import DiamondBorder from './shapes/diamond-border/diamond-border.js'
+import Facebook from './icons/facebook-circle.js'
+import FiftyFifty from './50-50/50-50.js'
+import * as FiftyFiftyShapes from './50-50/50-50-shapes.js'
+import Filter from './filter/filter.js'
+import Footer from './footer/footer.js'
+import FooterLocations from './footer-locations/footer-locations.js'
+import FullWidthHeader from './full-width-header/full-width-header.js'
+import FullWidthImage from './full-width-image/full-width-image.js'
+import FullWidthImageSmall from './full-width-image-small/full-width-image-small.js'
+import FullWidthImageStatic from './full-width-image-static/full-width-image-static.js'
+import GoogleTagManagerConfig from './google-tag-manager/google-tag-manager-config.js'
+import Hamburger from './icons/hamburger/hamburger.js'
+import Icon from './icon/icon.js'
+import ImageCombo from './image-combo/image-combo.js'
+import * as ImageComboShapes from './image-combo/image-combo-shapes.js'
+import ImageCompositionSmall from './image-composition-small/image-composition-small.js'
+import * as ImageCompositionSmallShapes from './image-composition-small/image-composition-small-shapes.js'
+import ImageGallery from './image-gallery/image-gallery.js'
+import InlineImage from './inline-image/inline-image.js'
+import InlineMedia from './inline-media/inline-media.js'
+import InlineVideo from './inline-video/inline-video.js'
+import InputField from './input-field/input-field.js'
+import Instagram from './icons/instagram-circle.js'
+import Layout from './layout/layout.js'
+import LinkedIn from './icons/linkedin-circle.js'
+import Logo from './logo/logo.js'
+import LogoCarousel from './logo-carousel/logo-carousel.js'
+import LogoList from './logo-list/logo-list.js'
+import MailchimpForm from './mailchimp/mailchimp-form.js'
+import Medium from './icons/medium-circle.js'
+import MenuBar from './menu-bar/menu-bar.js'
+import MustRead from './must-read/must-read.js'
+import NotificationBar from './notification-bar/notification-bar.js'
+import OfficeCard from './office-card/office-card.js'
+import OfficeOverview from './office-overview/office-overview.js'
+import PageHeader from './page-header/page-header.js'
+import * as PageHeaderShapes from './page-header/page-header-shapes.js'
+import Parallax from './parallax/parallax.js'
+import QuoteBlock from './quote-block/quote-block.js'
+import RectangleBorder from './shapes/rectangle-border/rectangle-border.js'
+import RichBodyText from './rich-body-text/rich-body-text.js'
+import SelectDropdown from './select-dropdown/select-dropdown.js'
+import ServicesItem from './services-item/services-item.js'
+import ServicesOverviewSmall from './services-overview-small/services-overview-small.js'
+import SocialMedia from './social-media/social-media.js'
+import SocialShare from './social-share/social-share.js'
+import StatisticsBlock from './statistics-block/statistics-block.js'
+import TeamImage from './team-image/team-image.js'
+import TeamMember from './team-member/team-member.js'
+import TextCard from './text-card/text-card.js'
+import TextCenter from './text-center/text-center.js'
+import * as TextCenterShapes from './text-center/text-center-shapes.js'
+import TrailDiamond from './shapes/trail-diamond/trail-diamond.js'
+import TrailDoubleDiamond from './shapes/trail-double-diamond/trail-double-diamond.js'
+import TrailTriangle from './shapes/trail-triangle/trail-triangle.js'
+import Triangle from './shapes/triangle/triangle.js'
+import Twitter from './icons/twitter-circle.js'
+import UpdateExtractSmall from './update-extract-small/update-extract-small.js'
+import UpdateExtractLarge from './update-extract-large/update-extract-large.js'
+import UpdateLink from './update-link/update-link.js'
+import UpdateLinks from './update-links/update-links.js'
+import UpdateOverviewSmall from './update-overview-small/update-overview-small.js'
+import UpdatesExtractLarge from './updates-extract-large/updates-extract-large.js'
+import VacancyCard from './vacancy-card/vacancy-card.js'
+import WorkOverview from './work-overview/work-overview.js'
 
 export {
-	Author,
-	BodyQuote,
-	ButtonPrimary,
-	ButtonPrimaryLink,
-	CallToAction,
-	CaseExtract,
-	CaseExtractSmall,
-	Collage,
-	CollageShapes,
-	Contact,
-	ContactShapes,
-	ContactForm,
-	CookieBar,
-	FiftyFifty,
-	FiftyFiftyShapes,
-	Footer,
-	FooterLocations,
-	FullWidthHeader,
-	FullWidthImage,
-	FullWidthImageSmall,
-	FullWidthImageStatic,
-	Icon,
-	ImageCombo,
-	ImageComboShapes,
-	InlineImage,
-	InlineMedia,
-	InlineVideo,
-	InputField,
-	Layout,
-	Logo,
-	LogoCarousel,
-	LogoList,
-	MailchimpForm,
-	MenuBar,
-	NotificationBar,
-	OfficeCard,
-	OfficeOverview,
-	PageHeader,
-	PageHeaderShapes,
-	QuoteBlock,
-	RichBodyText,
-	SelectDropdown,
-	ServicesOverviewSmall,
-	SocialMedia,
-	SocialShare,
-	TextCard,
-	TextCenter,
-	TextCenterShapes,
-	UpdateExtractSmall,
-	UpdateLink,
-	UpdateLinks,
-	UpdateOverviewSmall,
-	VacancyCard,
-	WorkOverview,
+  ArrowRightCircle,
+  ArrowRightExternalLink,
+  Author,
+  Authors,
+  BodyQuote,
+  ButtonClean,
+  ButtonPrimary,
+  ButtonPrimaryLink,
+  ButtonSecondary,
+  ButtonSecondaryLink,
+  CallToAction,
+  CaseExtract,
+  CaseExtractSmall,
+  CircleBorder,
+  Collage,
+  CollageShapes,
+  Contact,
+  ContactForm,
+  ContactShapes,
+  ContextMenu,
+  CookieBar,
+  DiamondBorder,
+  Facebook,
+  FiftyFifty,
+  FiftyFiftyShapes,
+  Filter,
+  Footer,
+  FooterLocations,
+  FullWidthHeader,
+  FullWidthImage,
+  FullWidthImageSmall,
+  FullWidthImageStatic,
+  GoogleTagManagerConfig,
+  Hamburger,
+  Icon,
+  ImageCombo,
+  ImageComboShapes,
+  ImageCompositionSmall,
+  ImageCompositionSmallShapes,
+  ImageGallery,
+  InlineImage,
+  InlineMedia,
+  InlineVideo,
+  InputField,
+  Instagram,
+  Layout,
+  LinkedIn,
+  Logo,
+  LogoCarousel,
+  LogoList,
+  MailchimpForm,
+  Medium,
+  MenuBar,
+  MustRead,
+  NotificationBar,
+  OfficeCard,
+  OfficeOverview,
+  PageHeader,
+  PageHeaderShapes,
+  Parallax,
+  QuoteBlock,
+  RectangleBorder,
+  RichBodyText,
+  SelectDropdown,
+  ServicesItem,
+  ServicesOverviewSmall,
+  SocialMedia,
+  SocialShare,
+  StatisticsBlock,
+  TeamImage,
+  TeamMember,
+  TextCard,
+  TextCenter,
+  TextCenterShapes,
+  TrailDiamond,
+  TrailDoubleDiamond,
+  TrailTriangle,
+  Triangle,
+  Twitter,
+  UpdateExtractSmall,
+  UpdateExtractLarge,
+  UpdateLink,
+  UpdateLinks,
+  UpdateOverviewSmall,
+  UpdatesExtractLarge,
+  VacancyCard,
+  WorkOverview,
 }

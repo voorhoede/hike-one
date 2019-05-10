@@ -3,18 +3,18 @@
 @darken-value: 10%;
 
 .select-dropdown {
+  position: relative;
   width: 100%;
   max-width: 367px;
-  position: relative;
   margin-bottom: @spacing-large;
 }
 
 .dropdown-header,
 .list-item {
   height: @header-height-s;
-  line-height: 60px;
   font-family: @font-main;
   font-size: @label;
+  line-height: 60px;
 }
 
 .list-item {
@@ -22,31 +22,32 @@
 }
 
 .dropdown-list {
-  width: 100%;
+  .shadow();
+
   position: absolute;
+  z-index: @layer-popup;
+  width: 100%;
+  margin: 0;
   padding: 0;
   padding-bottom: 2rem;
-  margin: 0;
   background-color: @white;
-  z-index: 1000;
-  .shadow;
 }
 
 .select-btn {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 58px;
-  background-color: @white-grey;
+  padding-right: @spacing-small;
+  padding-left: @spacing-small;
+  transition: @animation-speed color ease-out, @animation-speed background-color ease-out;
+  background-color: @lightest-gray;
   color: @red;
   font-size: @label;
   font-weight: @font-weight-bold;
-  padding-left: @spacing-small;
-  padding-right: @spacing-small;
-  display: flex;
-  justify-content: space-between;
-  transition: @animation-speed color ease-out, @animation-speed background-color ease-out;
 
   &:hover {
-    background: darken(@white-grey, @darken-value);
+    background-color: darken(@lightest-gray, @darken-value);
   }
 
   &.active {
@@ -64,15 +65,15 @@
 }
 
 .select-item {
-  color: @black;
-  height: @header-height-s;
-  line-height: 60px;
   width: 100%;
-  text-align: left;
-  padding-left: @spacing-small;
+  height: @header-height-s;
   padding-right: @spacing-small;
+  padding-left: @spacing-small;
+  color: @black;
   font-size: @label;
   font-weight: @font-weight-bold;
+  line-height: 60px;
+  text-align: left;
 
   &:hover,
   &:focus {

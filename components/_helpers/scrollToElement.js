@@ -1,8 +1,12 @@
-import TweenLite from "gsap";
-import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
+import TweenLite from 'gsap'
 
 const scrollToElement = (elementClass) => {
-	TweenLite.to(window, 0.3, {scrollTo: { y:`.${elementClass}` , autoKill:false } });
-};
+  TweenLite.to(window, 0.3, {
+    scrollTo: {
+      y: `.${elementClass}`,
+      autoKill: false
+    }
+  })
+}
 
-export default scrollToElement;
+export default scrollToElement

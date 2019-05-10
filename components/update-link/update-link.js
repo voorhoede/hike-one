@@ -1,18 +1,28 @@
-import React from 'react';
-import ArrowRightCircle from '../icons/arrow-right-circle';
-import Link from 'next/link';
-import Authors from '../authors/authors'
+import React from 'react'
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import { ArrowRightCircle, Authors } from '../'
 
-const updateLink = ({target='#', title='', authors=[], date='', external = false}) => (
-	<div className="update-link">
-		<Link href={ target }>
-			<a className="update-link-title"
-			   target={external ? '_blank' : ''}>{ title }
-			   <ArrowRightCircle />
-			</a>
-		</Link>
-		<p className="update-link-sub"><span>{ date }</span> | <Authors authors={authors} /></p>
-	</div>
-);
+const UpdateLink = ({ href = '#', title = '', authors = [], date = '', target = false }) => (
+  <div className="update-link">
+    <Link href={href}>
+      <a className="update-link-title" target={target ? '_blank' : '_self'} rel="noopener noreferrer">
+        {title}
+        <ArrowRightCircle />
+      </a>
+    </Link>
+    <p className="update-link-sub">
+      <span>{date}</span> | <Authors authors={authors} />
+    </p>
+  </div>
+)
 
-export default updateLink;
+UpdateLink.propTypes = {
+  href: PropTypes.string,
+  title: PropTypes.string,
+  authors: PropTypes.array,
+  date: PropTypes.string,
+  target: PropTypes.bool,
+}
+
+export default UpdateLink

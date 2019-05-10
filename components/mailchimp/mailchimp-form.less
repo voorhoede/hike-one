@@ -2,70 +2,71 @@
 @import (reference) '../../styles/grid';
 
 .mailchimp-form {
-	margin: 0 auto @spacing-large auto;
-	padding: 0 @spacing-default*1.5;
-	&.shadow {
-		padding: @spacing-medium @spacing-large;
-		margin: 0 auto @spacing-extra-large auto;
-	}
+  margin: 0 auto @spacing-large auto;
+  padding: 0 @spacing-default*1.5;
 
-	@media @screen-medium {
-		max-width: @column-large-6;
-	}
+  &.shadow {
+    margin: 0 auto @spacing-extra-large auto;
+    padding: @spacing-medium @spacing-large;
+  }
 
-	@media @screen-medium-large {
-		max-width: @column-large-7;
-	}
+  @media @screen-768 {
+    max-width: @column-large-6;
+  }
 
-	.form-title {
-		font-size: @heading-small-s;
-		line-height: @line-height-header-small-s;
-		font-weight: @font-weight-bold;
-		color: @darker-gray;
-		margin-bottom: @spacing-small;
+  @media @screen-1024 {
+    max-width: @column-large-7;
+  }
 
-		@media @screen-medium {
-			font-size: @heading-small-m;
-			line-height: @line-height-header-small-m;
-		}
+  .form-title {
+    margin-bottom: @spacing-small;
+    color: @darker-gray;
+    font-size: @heading-small-s;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-header-small-s;
 
-		@media @screen-large {
-			padding-left: 0;
-			font-size: @heading-small-l;
-			line-height: @line-height-header-small-l;
-		}
-	}
+    @media @screen-768 {
+      font-size: @heading-small-m;
+      line-height: @line-height-header-small-m;
+    }
 
-	.form {
-		max-width: @column-large-7;
-	}
+    @media @screen-1170 {
+      padding-left: 0;
+      font-size: @heading-small-l;
+      line-height: @line-height-header-small-l;
+    }
+  }
 
-	.submit-btn {
-		margin-bottom: 0;
-	}
+  .form {
+    max-width: @column-large-7;
+  }
+
+  .submit-btn {
+    margin-bottom: 0;
+  }
 }
 
 .btn-right-aligned {
-	margin-left: auto;
+  margin-left: auto;
 }
 
 .form-description {
-	font-size: @body-text-s;
-	margin-bottom: @spacing-medium;
-	display: block;
+  display: block;
+  margin-bottom: @spacing-medium;
+  font-size: @body-text-s;
 
-	@media @screen-medium {
-		font-size: @subtitle-large-s;
-	}
+  @media @screen-768 {
+    font-size: @subtitle-large-s;
+  }
 }
 
 .mailchimp-form .btn-right-aligned {
-	display: block;
-	margin-left: auto;
-	margin-right: 0;
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .mailchimp-form .input-field-full-width {
-	display: block;
-	width: 100%;
+  display: block;
+  width: 100%;
 }

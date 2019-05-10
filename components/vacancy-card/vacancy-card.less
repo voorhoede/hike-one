@@ -1,16 +1,16 @@
 @import (reference) '../../styles/variables';
 
 .vacancy-card {
+  margin: 0 auto;
   background-color: @blue;
   color: @white;
-  margin: 0 auto;
 }
 
 .vacancy-card-image {
   width: 100%;
   height: 200px;
-  background-size: cover;
   background-position: center;
+  background-size: cover;
 }
 
 .vacancy-card-content {
@@ -24,9 +24,9 @@
 }
 
 .vacancy-card-tagline {
+  margin-bottom: @spacing-small;
   font-size: @body-text-small-l;
   line-height: 1.5;
-  margin-bottom: @spacing-small;
 }
 
 @media (min-width: 500px) and (max-width: 767px) {
@@ -35,7 +35,7 @@
   }
 }
 
-@media @screen-medium {
+@media @screen-768 {
   .vacancy-card {
     display: flex;
   }
@@ -55,8 +55,8 @@
   }
 
   .vacancy-card-tagline {
-    font-size: @body-text-s;
     margin-bottom: @spacing-large;
+    font-size: @body-text-s;
   }
 
   .vacancies-btn {
@@ -65,7 +65,7 @@
   }
 }
 
-@media @screen-medium-large {
+@media @screen-1024 {
   .vacancy-card-image {
     max-width: 450px;
     height: auto;
@@ -76,7 +76,7 @@
   }
 
   .vacancy-card-tagline {
-    font-size: @body-text-l;
     margin-bottom: @spacing-large;
+    font-size: @body-text-l;
   }
 }

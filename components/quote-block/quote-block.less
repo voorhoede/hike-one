@@ -1,91 +1,91 @@
 @import (reference) '../../styles/variables';
 
 .quote-cite {
-    display: flex;
-    align-items: center;
-    margin-top: @spacing-small;
+  display: flex;
+  align-items: center;
+  margin-top: @spacing-small;
 
-    @media @screen-medium {
-        margin-top: @spacing-large;
-    }
+  @media @screen-768 {
+    margin-top: @spacing-large;
+  }
 
-    @media @screen-large {
-        margin-top: @spacing-medium * 2;
-    }
+  @media @screen-1170 {
+    margin-top: @spacing-medium * 2;
+  }
 }
 
 .quote-cite-content {
-    display: inline-block;
-    vertical-align: top;
-    width: calc(~"100% - (70px + 1rem)");
-    font-family: @font-main-fallback;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
+  display: inline-block;
+  width: calc(~"100% - (70px + 1rem)");
+  font-family: @font-main-fallback;
+  font-size: @body-text-s;
+  line-height: @line-height-body-s;
+  vertical-align: top;
 
-	.fonts-loaded & {
-		font-family: @font-main
-	}
+  .fonts-loaded & {
+    font-family: @font-main;
+  }
 
-    @media @screen-medium {
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-        width: calc(~"100% - (100px + 2rem)");
-    }
+  @media @screen-768 {
+    width: calc(~"100% - (100px + 2rem)");
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .quote-cite img {
-    object-fit: cover;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    margin-right: @spacing-small;
-    vertical-align: top;
+  width: 70px;
+  height: 70px;
+  margin-right: @spacing-small;
+  border-radius: 50%;
+  vertical-align: top;
+  object-fit: cover;
 
-    @media @screen-medium {
-        width: 100px;
-        height: 100px;
-        margin-right: @spacing-small;
-    }
+  @media @screen-768 {
+    width: 100px;
+    height: 100px;
+    margin-right: @spacing-small;
+  }
 }
 
 .quote-cite-name {
-    margin-bottom: 0;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-bold;
-    font-style: normal;
-    color: @white;
+  margin-bottom: 0;
+  color: @white;
+  font-size: @body-text-s;
+  font-style: normal;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-body-s;
 
-    @media @screen-medium {
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .quote-cite-title {
-    font-style: italic;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-normal;
-    color: @white;
+  color: @white;
+  font-size: @body-text-s;
+  font-style: italic;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
-    @media @screen-medium {
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }

@@ -1,71 +1,73 @@
 @import 'variables';
 
 body {
-    font-size: @text-medium-s;
-    line-height: @line-height-body-s;
-    color: @black;
+  color: @black;
+  font-size: @text-medium-s;
+  line-height: @line-height-body-s;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: @font-weight-bold;
-    margin: 0 0 @spacing-small 0;
+  margin: 0 0 @spacing-small 0;
+  font-weight: @font-weight-bold;
 }
 
 h1 {
-    font-size: @title-large-l;
-    line-height: @line-height-title-l;
+  font-size: @title-large-l;
+  line-height: @line-height-title-l;
 }
 
 h2 {
-    font-size: @title-medium-l;
-    line-height: @line-height-title-s;
-    @media @screen-small {
-        line-height: @line-height-title-m;
-    }
+  font-size: @title-medium-l;
+  line-height: @line-height-title-s;
+
+  @media @screen-500 {
+    line-height: @line-height-title-m;
+  }
 }
 
 h3 {
-    font-size: @title-small-l;
-    line-height: @line-height-heading-l;
+  font-size: @title-small-l;
+  line-height: @line-height-heading-l;
 }
 
 .subtitle {
-    font-size: @title-small-l;
-    line-height: @line-height-heading-l;
-    font-weight: 600;
-    color: @gray;
+  color: @gray;
+  font-size: @title-small-l;
+  font-weight: 600;
+  line-height: @line-height-heading-l;
 }
 
 .section-header {
-	font-size: @heading-small-s;
-	text-align: center;
+  font-size: @heading-small-s;
+  text-align: center;
 
-	@media @screen-medium {
-		font-size: @heading-small-m;
-    }
-    @media @screen-medium {
-		font-size: @heading-small-l;
-	}
+  @media @screen-768 {
+    font-size: @heading-small-m;
+  }
+
+  @media @screen-768 {
+    font-size: @heading-small-l;
+  }
 }
 
 .list-custom {
-    font-weight: @font-weight-normal;
-    font-style: italic;
-    list-style: none;
+  font-style: italic;
+  font-weight: @font-weight-normal;
+  list-style: none;
 
-    .list-custom-item {
-        position: relative;
+  .list-custom-item {
+    position: relative;
 
-        &::before {
-            content: '';
-            position:absolute;
-            top: 50%;
-            left: -20px;
-            width: 4px;
-            height: 4px;
-            background-color: @red;
-            border-radius: 50%;
-            transform: translateY(-50%);
-        }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      width: 4px;
+      height: 4px;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      background-color: @red;
     }
+  }
 }

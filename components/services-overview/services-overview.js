@@ -1,19 +1,25 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ServicesItem } from '../'
+import ShapesFront from './services-overview-shapes-front'
 
-import ServicesItem from '../services-item/services-item';
-import ShapesFront from './services-overview-shapes-front';
+const ServicesOverview = ({ title = '', items = [] }) => (
+  <section className="services-overview">
+    <div className="container-inner">
+      <h2 className="section-header content">{title}</h2>
+      <ul className="no-style">
+        {items.map((service, index) => (
+          <ServicesItem key={index} index={index} data={service} />
+        ))}
+      </ul>
+    </div>
+    <ShapesFront />
+  </section>
+)
 
-const ServicesOverview = ({title = '', items = []}) => (
-	<section className="services-overview">
+ServicesOverview.propTypes = {
+  title: PropTypes.string,
+  items: PropTypes.array,
+}
 
-		<div className="container-inner">
-			<h2 className="section-header content">{title}</h2>
-			<ul className="no-style">
-				{ items.map((service, index) => <ServicesItem key={index} index={index} data={service}/>) }
-			</ul>
-		</div>
-		<ShapesFront />
-	</section>
-);
-
-export default ServicesOverview;
+export default ServicesOverview

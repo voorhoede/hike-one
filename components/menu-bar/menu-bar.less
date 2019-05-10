@@ -1,133 +1,135 @@
 @import (reference) '../../styles/variables';
 
 .menu-bar {
-	position: relative;
-	width: 100%;
-	text-align: center;
-	background: @white;
+  position: relative;
+  width: 100%;
+  background-color: @white;
+  text-align: center;
 }
 
 .header-logo-wrapper {
-	display: flex;
-	padding-left: @spacing-small;
-	padding-top: @spacing-small;
+  display: flex;
+  padding-top: @spacing-small;
+  padding-left: @spacing-small;
 
-	@media @screen-medium {
-		padding-top: @spacing-medium;
-		padding-left: @spacing-large;
-	}
-	@media (min-width: 1440px) {
-		padding-top: @spacing-medium*2;
-		padding-left: @spacing-large*2;
-	}
+  @media @screen-768 {
+    padding-top: @spacing-medium;
+    padding-left: @spacing-large;
+  }
+
+  @media (min-width: 1440px) {
+    padding-top: @spacing-medium*2;
+    padding-left: @spacing-large*2;
+  }
 }
 
 .header-logo {
-	display: inline-block;
-	z-index: 3;
+  display: inline-block;
+  z-index: 3;
 
-	svg {
-		height: 22px;
-		width: 125px;
-	}
+  svg {
+    width: 125px;
+    height: 22px;
+  }
 
-	.animation-is-finished & {
-		padding: @spacing-small @spacing-default*1.5;
-		margin-left: -15px;
-	}
+  .animation-is-finished & {
+    margin-left: -15px;
+    padding: @spacing-small @spacing-default*1.5;
+  }
 
-	.is-open & {
-		@media @screen-medium {
-			padding: 0;
-			margin-left: 0;
-			margin-top: 0;
-			background: transparent;
-		}
-	}
+  .is-open & {
+    @media @screen-768 {
+      margin-top: 0;
+      margin-left: 0;
+      padding: 0;
+      background-color: transparent;
+    }
+  }
 
-	@media @screen-large {
-		svg {
-		    height: 38px;
-			width: 203px;
-		}
-	}
+  @media @screen-1170 {
+    svg {
+      width: 203px;
+      height: 38px;
+    }
+  }
 }
 
 .menu-btn {
-	z-index: 6;
-	position: fixed;
-	top: 35px;
-    right: 25px;
-	transform: translateY(-50%);
-	font-size: 0;
-	background: transparent;
-	border: none;
-    padding: 0;
-	margin: 0;
-	cursor: pointer;
-	outline: none;
+  position: fixed;
+  z-index: 6;
+  top: 35px;
+  right: 25px;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-size: 0;
+  cursor: pointer;
 
-	.menu-btn-icon svg {
-		position: relative;
-		width: 30px;
-		height: 30px;
-		transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
-	}
+  .menu-btn-icon svg {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
+  }
 
-	svg.menu-btn-background {
-		position: absolute;
-		left: -10px;
-		top: -7px;
-		width: 50px;
-		height: 50px;
-		transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
-		fill: @white;
+  svg.menu-btn-background {
+    position: absolute;
+    top: -7px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
+    fill: @white;
 
-		.is-open & {
-			fill: @black;
-		}
-	}
+    .is-open & {
+      fill: @black;
+    }
+  }
 
-	&:hover {
-		svg.menu-btn-background {
-			fill: @black;
-			transform: scale(1.2);
-			transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
-		}
+  &:hover {
+    svg.menu-btn-background {
+      transform: scale(1.2);
+      transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
+      fill: @black;
+    }
 
-		.menu-btn-icon svg {
-			transform: scale(1.1);
-			transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
-			line {
-				stroke: @white;
-			}
-		}
-	}
+    .menu-btn-icon svg {
+      transform: scale(1.1);
+      transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
+      line {
+        stroke: @white;
+      }
+    }
+  }
 
-	.is-open & {
-		.menu-btn-icon svg line {
-			stroke: @white;
-		}
-	}
+  .is-open & {
+    .menu-btn-icon svg line {
+      stroke: @white;
+    }
+  }
 
-	@media @screen-medium {
-		top: 55px;
-		right: 49px;
+  @media @screen-768 {
+    top: 55px;
+    right: 49px;
 
-		.menu-btn-icon svg {
-			width: 40px;
-			height: 40px;
-		}
+    .menu-btn-icon svg {
+      width: 40px;
+      height: 40px;
+    }
 
-		svg.menu-btn-background {
-			left: -21px;
-			top: -15px;
-			width: 80px;
-			height: 80px;
-		}
-	}
-	@media (min-width: 1440px) {
-		top: 85px;
-		right: 59px;
-	}
+    svg.menu-btn-background {
+      top: -15px;
+      left: -21px;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    top: 85px;
+    right: 59px;
+  }
 }

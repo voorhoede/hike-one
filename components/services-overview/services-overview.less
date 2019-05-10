@@ -1,85 +1,92 @@
 @import (reference) '../../styles/variables';
 
 .services-overview {
-	position: relative;
-	padding: 0 @spacing-default*1.5;
+  position: relative;
+  padding: 0 @spacing-default*1.5;
 }
 
 .services-overview .section-header {
-	margin-bottom: 88px;
+  margin-bottom: 88px;
 
-    @media @screen-medium {
-        font-size: @title-large-m;
-        line-height: 58px;
-        margin-bottom: 120px;
-    }
+  @media @screen-768 {
+    margin-bottom: 120px;
+    font-size: @title-large-m;
+    line-height: 58px;
+  }
 
-    @media @screen-large {
-        font-size: @heading-l;
-        line-height: @line-height-heading-l;
-        margin-bottom: 155px;
-    }
+  @media @screen-1170 {
+    margin-bottom: 155px;
+    font-size: @heading-l;
+    line-height: @line-height-heading-l;
+  }
 }
 
 .services-overview ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .services-overview li.services-item:nth-of-type(1) {
-	background: @blue;
+  background-color: @blue;
 
-	.btn-secondary {
-		color: @blue;
-		&:hover {
-			color: @white;
-		}
+  .btn-secondary {
+    color: @blue;
 
-		.icon svg path {
-			fill: @blue;
-		}
-	}
+    &:hover {
+      color: @white;
+    }
+
+    .icon svg path {
+      fill: @blue;
+    }
+  }
 }
+
 .services-overview li.services-item:nth-of-type(2) {
-	background: @red;
+  background-color: @red;
 
-	.btn-secondary {
-		color: @red;
-		&:hover {
-			color: @white;
-		}
+  .btn-secondary {
+    color: @red;
 
-		.icon svg path {
-			fill: @red;
-		}
-	}
+    &:hover {
+      color: @white;
+    }
+
+    .icon svg path {
+      fill: @red;
+    }
+  }
 }
+
 .services-overview li.services-item:nth-of-type(3) {
-	background: @purple;
+  background-color: @purple;
 
-	.btn-secondary {
-		color: @purple;
-		&:hover {
-			color: @white;
-		}
+  .btn-secondary {
+    color: @purple;
 
-		.icon svg path {
-			fill: @purple;
-		}
-	}
+    &:hover {
+      color: @white;
+    }
+
+    .icon svg path {
+      fill: @purple;
+    }
+  }
 }
+
 .services-overview li.services-item:nth-of-type(4) {
-	background: @green;
+  background-color: @green;
 
-	.btn-secondary {
-		color: @green;
-		&:hover {
-			color: @white;
-		}
+  .btn-secondary {
+    color: @green;
 
-		.icon svg path {
-			fill: @green;
-		}
-	}
+    &:hover {
+      color: @white;
+    }
+
+    .icon svg path {
+      fill: @green;
+    }
+  }
 }

@@ -1,78 +1,78 @@
 .logo-carousel {
-	text-align: center;
+  text-align: center;
 
-	h2 {
-		margin-bottom: @spacing-medium;
-		font-size: @heading-small-s;
+  h2 {
+    margin-bottom: @spacing-medium;
+    font-size: @heading-small-s;
 
-		@media @screen-medium {
-			margin-bottom: @spacing-large;
-			font-size: @heading-small-m;
-		}
+    @media @screen-768 {
+      margin-bottom: @spacing-large;
+      font-size: @heading-small-m;
+    }
 
-		@media @screen-large {
-			font-size: @heading-small-l;
-		}
-	}
+    @media @screen-1170 {
+      font-size: @heading-small-l;
+    }
+  }
 }
 
 .marquee {
-	position: relative;
-	overflow: hidden;
+  position: relative;
+  overflow: hidden;
 
-	&:before,
-	&:after {
-		z-index: 1;
-		content: '';
-		position: absolute;
-		display: block;
-		width: 50px;
-		height: 100%;
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: @layer-raised;
+    width: 50px;
+    height: 100%;
 
-		@media @screen-medium {
-			width: 100px;
-		}
-	}
+    @media @screen-768 {
+      width: 100px;
+    }
+  }
 
-	&:before {
-		top: 0;
-		left: 0;
-		background-image: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
-	}
+  &::before {
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  }
 
-	&:after {
-		top: 0;
-		right: 0;
-		background-image: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-	}
+  &::after {
+    top: 0;
+    right: 0;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
 }
 
 .marquee-slider {
-	position: relative;
-	padding-bottom: @container-margin-bottom-s;
-	white-space: nowrap;
+  position: relative;
+  padding-bottom: @container-margin-bottom-s;
+  white-space: nowrap;
 }
 
 .marquee-item {
-	display: inline-flex;
+  display: inline-flex;
 
-	li {
-		display: flex;
-		align-items: center;
-		margin: 0 @spacing-default*1.5;
-		list-style: none;
+  li {
+    display: flex;
+    align-items: center;
+    margin: 0 @spacing-default*1.5;
+    list-style: none;
 
-		@media @screen-medium {
-			margin: 0 @spacing-default*5;
-		}
-	}
+    @media @screen-768 {
+      margin: 0 @spacing-default*5;
+    }
+  }
 
-	img {
-		width: auto;
-		height: 50px;
+  img {
+    width: auto;
+    height: 50px;
 
-		@media @screen-medium {
-			height: 70px;
-		}
-	}
+    @media @screen-768 {
+      height: 70px;
+    }
+  }
 }

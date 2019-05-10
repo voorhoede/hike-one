@@ -2,143 +2,143 @@
 @import (reference) '../../styles/helpers';
 
 .footer-locations-list {
-	.list-no-style;
-	margin-bottom: 20px;
+  .list-no-style();
 
-	@media @screen-medium {
-		white-space: nowrap;
-	}
+  margin-bottom: 20px;
+
+  @media @screen-768 {
+    white-space: nowrap;
+  }
 }
 
 .footer-locations-list li {
-	position: relative;
-	display: inline-block;
-	margin-left: 30px;
-	color: @white;
+  display: inline-block;
+  position: relative;
+  margin-left: 30px;
+  color: @white;
 
-	&::after {
-		content: '/';
-		display: block;
-		position: absolute;
-		top: 4px;
-		left: -20px;
-		font-size: 28px;
-	}
+  &::after {
+    content: '/';
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: -20px;
+    font-size: 28px;
+  }
 
-	&:first-child {
-		margin-left: 0;
+  &:first-child {
+    margin-left: 0;
 
-		&::after {
-			display: none;
-		}
-	}
+    &::after {
+      display: none;
+    }
+  }
 
-	@media @screen-medium {
-		min-width: 80px;
-		text-align: center;
-		&::after {
-			top: 5px;
-		}
-	}
+  @media @screen-768 {
+    min-width: 80px;
+    text-align: center;
 
-	@media @screen-large {
-		line-height: @line-height-footer-items;
+    &::after {
+      top: 5px;
+    }
+  }
 
-		&::after {
-			top: 0;
-		}
-	}
+  @media @screen-1170 {
+    line-height: @line-height-footer-items;
+
+    &::after {
+      top: 0;
+    }
+  }
 }
 
 .footer-locations-list button {
-	font-size: @body-text-s;
-	color: @white;
-	text-transform: uppercase;
-	border: none;
-	background: transparent;
-	padding: 0;
-	position: relative;
-	top: 4px;
-	cursor: pointer;
+  position: relative;
+  top: 4px;
+  padding: 0;
+  transition: color @animation-speed-slow;
+  border: none;
+  background-color: transparent;
+  color: @white;
+  font-size: @body-text-s;
+  text-transform: uppercase;
+  cursor: pointer;
 
-	@media @screen-medium {
-		font-size: @body-text-m;
-	}
+  @media @screen-768 {
+    font-size: @body-text-m;
+  }
 
-	@media @screen-large {
-		font-size: @body-text-l;
-	}
+  @media @screen-1170 {
+    font-size: @body-text-l;
+  }
 
-	transition: color @animation-speed-slow;
+  &:hover {
+    transition: color @animation-speed-fast;
+    color: @red;
+  }
 
-	&:hover {
-		transition: color @animation-speed-fast;
-		color: @red;
-	}
+  &:focus {
+    outline: none;
+  }
 
-	&:focus {
-		outline: none;
-	}
+  &.is-active {
+    border-bottom: none;
+    color: @white;
+    font-size: @heading-small-l;
+    font-weight: @font-weight-bold;
+    line-height: @line-height-header-small-s;
+    text-decoration: underline;
 
-	&.is-active {
-		font-weight: @font-weight-bold;
-		border-bottom: none;
-		font-size: @heading-small-l;
-		line-height: @line-height-header-small-s;
-		color: @white;
-		text-decoration: underline;
+    @media @screen-768 {
+      font-size: @heading-small-l;
+      line-height: @line-height-header-small-m;
+    }
 
-		@media @screen-medium {
-			font-size: @heading-small-l;
-			line-height: @line-height-header-small-m;
-		}
-
-		@media @screen-large {
-			font-size: @heading-small-l;
-			line-height: @line-height-header-small-l;
-		}
-	}
+    @media @screen-1170 {
+      font-size: @heading-small-l;
+      line-height: @line-height-header-small-l;
+    }
+  }
 }
 
 .footer-locations-info {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
 
-
-	.is-active {
-		a {
-			text-decoration: none;
-		}
-	}
+  .is-active {
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .footer-locations-info div {
-	display: none;
+  display: none;
 
-	&.is-active {
-		display: block;
-	}
+  &.is-active {
+    display: block;
+  }
 }
 
 .footer-locations-info a {
-	margin-bottom: 0;
-	font-size: @body-text-small-s;
-	line-height: @line-height-body-small-s;
-	font-weight: @font-weight-normal;
-	transition: color @animation-speed-slow;
-	color: @white;
+  margin-bottom: 0;
+  transition: color @animation-speed-slow;
+  color: @white;
+  font-size: @body-text-small-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
 
-	&:hover {
-		transition: color @animation-speed-fast;
-		color: @red;
-	}
+  &:hover {
+    transition: color @animation-speed-fast;
+    color: @red;
+  }
 
-	@media @screen-medium {
-		font-size: @body-text-small-m;
-		line-height: @line-height-body-small-m;
-	}
+  @media @screen-768 {
+    font-size: @body-text-small-m;
+    line-height: @line-height-body-small-m;
+  }
 
-	@media @screen-large {
-		font-size: @body-text-small-l;
-		line-height: @line-height-body-small-l;
-	}
+  @media @screen-1170 {
+    font-size: @body-text-small-l;
+    line-height: @line-height-body-small-l;
+  }
 }

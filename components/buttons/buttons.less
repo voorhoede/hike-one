@@ -3,150 +3,151 @@
 @icon-size: 16px;
 
 .btn-basis {
-	display: inline-block;
-	padding: @spacing-default @spacing-medium;
-	text-decoration: none;
-	border-radius: 100px;
-	font-family: @font-main-fallback;
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	font-weight: @font-weight-normal;
-	transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
+  display: inline-block;
+  padding: @spacing-default @spacing-medium;
+  transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
+  border-radius: 100px;
+  font-family: @font-main-fallback;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
+  text-decoration: none;
 
-	.fonts-loaded & {
-		font-family: @font-main;
-	}
+  @media @screen-768 {
+    padding: @spacing-default @spacing-large;
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-		padding: @spacing-default @spacing-large;
-	}
+  &:disabled,
+  &[disabled] {
+    opacity: .5;
+  }
 
-	&:disabled,
-	&[disabled] {
-		opacity: .5;
-	}
+  &:active {
+    transform: scale(.98);
+  }
 
-	&:active {
-		transform: scale(0.98);
-	}
+  .fonts-loaded & {
+    font-family: @font-main;
+  }
 
-	.icon {
-		position: absolute;
-		margin-top: 2px;
-		margin-left: 8px;
-		animation-duration: @animation-speed;
-		animation-timing-function: linear;
-		animation-fill-mode: forwards;
+  .icon {
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 8px;
+    animation-duration: @animation-speed;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
 
-		svg {
-			width: @icon-size;
-			height: @icon-size;
-		}
+    svg {
+      width: @icon-size;
+      height: @icon-size;
+    }
 
-		svg path {
-			transition: fill @animation-speed ease;
-		}
-	}
+    svg path {
+      transition: fill @animation-speed ease;
+    }
+  }
 
-	&:not(.loading) {
-		.icon {
-			animation-name: horizontal-spring-icon-from;
-		}
-	}
+  &:not(.loading) {
+    .icon {
+      animation-name: horizontal-spring-icon-from;
+    }
+  }
 
-	&.vertical-spring {
-		.icon {
-			animation-name: vertical-spring-icon-from;
-		}
-	}
+  &.vertical-spring {
+    .icon {
+      animation-name: vertical-spring-icon-from;
+    }
+  }
 
-	&.btn-icon {
-		padding: @spacing-default (@spacing-medium + @icon-size) @spacing-default @spacing-medium;
+  &.btn-icon {
+    padding: @spacing-default (@spacing-medium + @icon-size) @spacing-default @spacing-medium;
 
-		@media @screen-medium {
-			padding: @spacing-default (@spacing-large + @icon-size) @spacing-default @spacing-large;
-		}
-	}
+    @media @screen-768 {
+      padding: @spacing-default (@spacing-large + @icon-size) @spacing-default @spacing-large;
+    }
+  }
 
-	&.btn-large {
-		font-weight: @font-weight-bold;
-		padding: @spacing-default @spacing-large;
+  &.btn-large {
+    padding: @spacing-default @spacing-large;
+    font-weight: @font-weight-bold;
 
-		@media @screen-medium {
-			padding: 18px @spacing-default*5;
-		}
-	}
+    @media @screen-768 {
+      padding: 18px @spacing-default*5;
+    }
+  }
 
-	&.btn-icon.btn-large {
-		padding: @spacing-small (@spacing-large + @icon-size) @spacing-small @spacing-large;
+  &.btn-icon.btn-large {
+    padding: @spacing-small (@spacing-large + @icon-size) @spacing-small @spacing-large;
 
-		@media @screen-medium {
-			padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
-		}
-	}
+    @media @screen-768 {
+      padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
+    }
+  }
 }
 
 // gets included in actual buttons i.e. primary button and secondary button
 .btn-basis-hover-state {
-	cursor: pointer;
+  cursor: pointer;
 
-	&:not(.loading) {
-		.icon {
-			animation-timing-function: ease-in-out;
-			animation-name: horizontal-spring-icon-to;
-		}
-	}
+  &:not(.loading) {
+    .icon {
+      animation-name: horizontal-spring-icon-to;
+      animation-timing-function: ease-in-out;
+    }
+  }
 }
 
 .hover-state-arrow-down {
-	.icon {
-		animation-name: vertical-spring-icon-to;
-	}
+  .icon {
+    animation-name: vertical-spring-icon-to;
+  }
 }
 
 .hover-state-arrow-up {
-	.icon {
-		animation-name: vertical-spring-icon-from;
-	}
+  .icon {
+    animation-name: vertical-spring-icon-from;
+  }
 }
 
 @keyframes horizontal-spring-icon-to {
-	83.25% {
-		transform: translateX(6px);
-	}
+  83.25% {
+    transform: translateX(6px);
+  }
 
-	100% {
-		transform: translateX(5px);
-	}
+  100% {
+    transform: translateX(5px);
+  }
 }
 
 @keyframes horizontal-spring-icon-from {
-	0% {
-		transform: translateX(6px);
-	}
+  0% {
+    transform: translateX(6px);
+  }
 
-	100% {
-		transform: translateX(0);
-	}
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes vertical-spring-icon-to {
-	83.25% {
-		transform: translateY(4px);
-	}
+  83.25% {
+    transform: translateY(4px);
+  }
 
-	100% {
-		transform: translateY(3px);
-	}
+  100% {
+    transform: translateY(3px);
+  }
 }
 
 @keyframes vertical-spring-icon-from {
-	0% {
-		transform: translateY(4px);
-	}
-	100% {
-		transform: translateY(0);
-	}
+  0% {
+    transform: translateY(4px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }

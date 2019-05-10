@@ -2,30 +2,30 @@
 @import (reference) '../../styles/helpers';
 
 .update-overview-small {
-	.clearfix;
+  .clearfix();
 
-	@media @screen-small {
-		.update-extract-small {
-			margin-left: auto;
-			margin-right: auto;
-			width: auto;
-			max-width: 450px;
-		}
-	}
+  @media @screen-500 {
+    .update-extract-small {
+      width: auto;
+      max-width: 450px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
 
-	@media @screen-medium-large {
-		.update-extract-small {
-			float: left;
-			margin: 0 @spacing-medium @spacing-default*7 0;
-			width: calc(~'100% / 3 - ' @spacing-small);
+  @media @screen-1024 {
+    .update-extract-small {
+      width: calc(~"100% / 3 - " @spacing-small);
+      margin: 0 @spacing-medium @spacing-default*7 0;
+      float: left;
 
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-	}
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
 }
 
 .update-overview-button-centered {
-	text-align: center;
+  text-align: center;
 }

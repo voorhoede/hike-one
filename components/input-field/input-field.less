@@ -2,15 +2,15 @@
 
 .label {
   display: block;
+  margin-bottom: @spacing-default;
   font-size: @heading-small-s;
   font-weight: @font-weight-bold;
-  margin-bottom: @spacing-default;
 
-  &.required:after {
+  &.required::after {
     content: ' *';
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     display: inline-block;
   }
 }
@@ -19,9 +19,9 @@
   width: 100%;
   margin-bottom: @spacing-small;
 
-  @media @screen-medium {
-    width: calc(50% - 15px);
+  @media @screen-768 {
     display: inline-block;
+    width: calc(50% - 15px);
   }
 }
 
@@ -30,18 +30,18 @@
 }
 
 .input {
-  background-color: @white-grey;
   width: 100%;
-  border: none;
-  box-shadow: none;
   height: 58px;
-  font-size: @body-text-s;
   padding: 0 @spacing-small;
+  border: none;
   border-bottom: 3px solid #e0e0e0;
+  background-color: @lightest-gray;
+  box-shadow: none;
+  font-size: @body-text-s;
 
   &:focus {
-    outline: none;
     border-bottom: 3px solid @blue;
+    outline: none;
   }
 
   &.should-validate:invalid {
@@ -50,18 +50,18 @@
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px @white-grey inset;
+  -webkit-box-shadow: 0 0 0 1000px @lightest-gray inset;
 }
 
 .textarea {
-  resize: none;
+  display: block;
   min-height: 260px;
   padding: @spacing-small @spacing-small;
-  display: block;
+  resize: none;
 }
 
 .textarea-input {
-  @media @screen-medium {
+  @media @screen-768 {
     flex-grow: 1;
   }
 }

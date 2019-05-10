@@ -1,26 +1,26 @@
 @import (reference) '../../styles/variables';
 
 .full-width-image-small {
-	display: block;
-	width: 100%;
-	height: 214px;
-    position: relative;
-	overflow: hidden;
-    margin-bottom: @spacing-large;
-	background-size: cover;
-	background-position: center;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 214px;
+  margin-bottom: @spacing-large;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
 
-	@media @screen-small {
-		height: 300px;
-	}
+  @media @screen-500 {
+    height: 300px;
+  }
 
-    @media @screen-medium {
-        height: 400px;
-	}
+  @media @screen-768 {
+    height: 400px;
+  }
 
-    @media @screen-large {
-        height: 610px;
-        margin: 0 auto @spacing-large*2 auto;
-        max-width: @max-width-image;
-	}
+  @media @screen-1170 {
+    max-width: @max-width-image;
+    height: 610px;
+    margin: 0 auto @spacing-large*2 auto;
+  }
 }

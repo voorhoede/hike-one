@@ -1,5 +1,8 @@
-class InputField extends React.Component {
-	constructor(props) {
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+class InputField extends Component {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -8,22 +11,34 @@ class InputField extends React.Component {
   }
 
   onBlur = () => {
-    if (this.props.isRequired) {
+    const { isRequired } = this.props
+    if (isRequired) {
       this.setState({ shouldValidate: true })
     }
   }
 
-	render() {
-    const { label, name, type, value, onChange, isRequired, autoFocus, formLength, id } = this.props
+  render() {
+    const {
+      label,
+      name,
+      type,
+      value,
+      onChange,
+      isRequired,
+      autoFocus,
+      formLength,
+      id,
+    } = this.props
     const { shouldValidate } = this.state
     const { onBlur } = this
     const shouldValidateClass = shouldValidate ? 'should-validate' : ''
-    const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%'} : {}
+    const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {}
 
-
-		return (
-      <div className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`} style={{ ...styles }}>
-        <label className={`label ${ isRequired ? 'required' : ''}`} htmlFor={name}>
+    return (
+      <div
+        className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`}
+        style={{ ...styles }}>
+        <label className={`label ${isRequired ? 'required' : ''}`} htmlFor={name}>
           {label}
         </label>
 
@@ -55,7 +70,19 @@ class InputField extends React.Component {
         )}
       </div>
     )
-	}
+  }
+}
+
+InputField.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  isRequired: PropTypes.bool,
+  autoFocus: PropTypes.string,
+  formLength: PropTypes.number,
+  id: PropTypes.string,
 }
 
 export default InputField

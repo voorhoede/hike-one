@@ -1,113 +1,113 @@
 .team-member {
-    position: relative;
-    padding-bottom: 125%;
-    height: 0;
-    background-size: cover;
-    background-position: center;
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    color: @white;
-    transition: transform @transition-img-speed;
+  position: relative;
+  height: 0;
+  padding-bottom: 125%;
+  transition: transform @transition-img-speed;
+  background-position: center;
+  background-size: cover;
+  color: @white;
+  font-size: @body-text-s;
+  line-height: @line-height-body-s;
+
+  &:hover {
+    transform: scale(1.1);
+
+    .team-member-overlay {
+      background-color: rgba(11, 110, 152, .7);
+    }
+
+    .team-member-name {
+      top: 0;
+      bottom: auto;
+    }
+
+    .team-member-roles {
+      display: block;
+    }
+
+    .team-member-social {
+      display: block;
+    }
+  }
+
+  @media @screen-500 {
+    padding-bottom: 130%;
+  }
+
+  @media @screen-768 {
+    padding-bottom: 134%;
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
+
+  @media @screen-1024 {
+    padding-bottom: 136%;
 
     &:hover {
-        transform: scale(1.1);
-
-        .team-member-overlay {
-            background-color: rgba(11, 110, 152, 0.7);
-        }
-
-        .team-member-name {
-            top: 0;
-            bottom: auto;
-        }
-
-        .team-member-roles {
-            display: block;
-        }
-
-        .team-member-social {
-            display: block;
-        }
+      transform: scale(1.15);
     }
+  }
 
-    @media @screen-small {
-        padding-bottom: 130%;
-    }
-
-    @media @screen-medium {
-        padding-bottom: 134%;
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
-
-    @media @screen-medium-large {
-        padding-bottom: 136%;
-
-        &:hover {
-            transform: scale(1.15);
-        }
-    }
-
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .team-member-overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 10%);
-    transition: background-color @transition-img-speed;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: background-color @transition-img-speed;
+  background-color: rgba(0, 0, 0, 10%);
 }
 
 .team-member-name {
-    position: absolute;
-    margin-bottom: 0;
-    padding: @spacing-default*1.5;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    font-size: @text-medium-s;
-    line-height: @line-height-body-s;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  padding: @spacing-default*1.5;
+  font-size: @text-medium-s;
+  line-height: @line-height-body-s;
+  text-align: center;
 
-    @media @screen-medium {
-        font-size: @text-medium-m;
-        line-height: @line-height-body-m;
-    }
+  @media @screen-768 {
+    font-size: @text-medium-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @text-medium-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @text-medium-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .team-member-roles {
-    display: none;
-    position: absolute;
-    padding: @spacing-default*1.5;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+  display: none;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: @spacing-default*1.5;
+  text-align: center;
 }
 
 .team-member-role {
-	font-size: @subtitle-small-s;
-	line-height: @line-height-body-small-s;
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
+  font-size: @subtitle-small-s;
+  line-height: @line-height-body-small-s;
 
-	@media only screen and (min-width: 400px) {
-		font-size: @text-medium-s;
-		line-height: @line-height-body-s;
-	}
+  @media (min-width: 400px) {
+    font-size: @text-medium-s;
+    line-height: @line-height-body-s;
+  }
 }
 
-.team-member-role:not(:last-of-type):after {
-	content: '&';
-	margin-right: @spacing-default*.5;
-	margin-left: @spacing-default*.5;
+.team-member-role:not(:last-of-type)::after {
+  content: '&';
+  margin-right: @spacing-default*.5;
+  margin-left: @spacing-default*.5;
 }

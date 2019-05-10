@@ -41,7 +41,7 @@ const UpdateExtractLarge = ({
       <div className="update-extract-large-text" style={{ backgroundColor: color }}>
         <div className="update-extract-large-type" style={{ color: color }}>
           {category}
-          {external && (
+          {target && (
             <span className="external-link-icon">
               <ArrowRightExternalLink fill={color} />
             </span>

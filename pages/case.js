@@ -312,8 +312,8 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                 title={update.title}
                 author={update.authors.map(author => author.name).join(', ')}
                 date={getDateFormat(update.date)}
-                target={update.link}
-                external={update.isExternalLink}
+                href={update.link}
+                target={update.isExternalLink}
               />
             ))}
           </UpdateLinks>

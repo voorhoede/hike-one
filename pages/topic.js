@@ -174,19 +174,21 @@ const Topic = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
         <TextCenter title={Data.caseLinksTitle} />
 
-        <WorkOverview>
-          {Data.caseLinks.map((item, index) => (
-            <CaseExtractSmall
-              key={index}
-              title={item.header.title}
-              subtitle={item.header.subtitle}
-              image={item.header.backgroundImage}
-              companyName={item.companyName}
-              color={item.caseThemeColor.hex}
-              slug={item.slug}
-            />
-          ))}
-        </WorkOverview>
+        {Data.caseLinks.length > 0 && (
+          <WorkOverview>
+            {Data.caseLinks.map((item, index) => (
+              <CaseExtractSmall
+                key={index}
+                title={item.header.title}
+                subtitle={item.header.subtitle}
+                image={item.header.backgroundImage}
+                companyName={item.companyName}
+                color={item.caseThemeColor.hex}
+                slug={item.slug}
+              />
+            ))}
+          </WorkOverview>
+        )}
 
         {Data.updateLinks.length > 0 && (
           <div>

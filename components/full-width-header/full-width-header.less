@@ -5,11 +5,11 @@
   width: 100%;
   margin: -@header-height-s auto @spacing-default*4 auto;
 
-  @media @screen-medium {
+  @media @screen-768 {
     margin-bottom: @spacing-default*5;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     margin-top: -@header-height;
     margin-bottom: @spacing-default*10;
   }
@@ -21,18 +21,18 @@
   background-position: center;
   background-size: cover;
 
-  @media @screen-small {
+  @media @screen-500 {
     height: 50vh;
   }
 
   &.image-large {
     height: 35vh;
 
-    @media @screen-small {
+    @media @screen-500 {
       height: 50vh;
     }
 
-    @media @screen-large {
+    @media @screen-1170 {
       height: 75vh;
     }
   }
@@ -51,19 +51,19 @@
     flex-grow: 1;
   }
 
-  @media only screen and (min-width: 900px) {
+  @media (min-width: 900px) {
     width: 95%;
   }
 
-  @media only screen and (min-width: 950px) {
+  @media (min-width: 950px) {
     width: 92%;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     width: 90%;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     .no-shadow;
 
     flex-direction: row;
@@ -78,7 +78,7 @@
   flex-basis: 0;
   margin-bottom: @spacing-default*1.5;
 
-  @media @screen-large {
+  @media @screen-1170 {
     margin-bottom: 0;
     padding-top: @spacing-large;
     padding-left: @spacing-medium;
@@ -88,20 +88,20 @@
 .full-width-header-content {
   width: 100%;
 
-  @media @screen-medium {
+  @media @screen-768 {
     align-self: center;
     max-width: calc(@column-large-7 - 30px); // min padding both sides
   }
 
-  @media only screen and (min-width: 900px) {
+  @media (min-width: 900px) {
     margin-left: 8%;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     margin-left: 10%;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     .shadow();
 
     max-width: @column-large-7;
@@ -127,12 +127,12 @@
   font-weight: @font-weight-bold;
   line-height: @line-height-subtitle-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     margin-bottom: @spacing-medium;
     font-size: @heading-l;
     line-height: @line-height-heading-l;

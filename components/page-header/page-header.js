@@ -84,17 +84,17 @@ class PageHeader extends Component {
         .page-header {
           background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}');
         }
-        @media only screen and (min-width: 768px) {
+        @media (min-width: 768px) {
           .page-header {
             background-image: url('${setImageParams(image, { ...imageParameters, w: 1500 })}');
           }
         }
-        @media only screen and (min-width: 1170px) {
+        @media (min-width: 1170px) {
           .page-header {
             background-image: url('${setImageParams(image, { ...imageParameters, w: 2000 })}');
           }
         }
-        ${video ? `@media only screen and (min-width: 768px) { .page-header { background-image: none; } }` : ''}
+        ${video ? `@media (min-width: 768px) { .page-header { background-image: none; } }` : ''}
       }
       </style>`,
     }

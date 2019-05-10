@@ -18,7 +18,7 @@ const CaseExtract = ({
       .case-extract-image-container {
         background-image: url('${setImageParameters(headerImage, { w: 600, q: 85, fm: 'pjpg' })}')
       }
-      @media only screen and (min-width: 768px) {
+      @media (min-width: 768px) {
         .case-extract-image-container {
           background-image: url('${setImageParameters(headerImage, { w: 1200, q: 85, fm: 'pjpg' })}')
         }

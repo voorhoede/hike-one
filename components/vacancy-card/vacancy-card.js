@@ -10,12 +10,12 @@ const VacancyCard = ({ data = {} }) => {
       .vacancy-card-image {
         background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 200 })}');
       }
-      @media only screen and (min-width: 768px) {
+      @media (min-width: 768px) {
         .vacancy-card-image {
           background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 400, h: 339 })}');
         }
       }
-      @media only screen and (min-width: 1024px) {
+      @media (min-width: 1024px) {
         .vacancy-card-image {
           background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 360 })}');
         }

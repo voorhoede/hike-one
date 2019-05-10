@@ -6,22 +6,22 @@
   padding: @spacing-large @spacing-large @spacing-large @spacing-default*1.5;
   background-color: @white;
 
-  @media @screen-small {
+  @media @screen-500 {
     margin-right: @spacing-default*9;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     max-width: @column-large-4;
     margin-right: 50vw;
     padding: @spacing-default*5;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     max-width: @column-large-6;
   }
 
   // 1200 because if 1170 the text will stick to the side when the media querie just activated
-  @media only screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     margin-left: calc(~"(100vw - @{container-inner-max-width}) / 2 - 110px"); // -110px for padding left. To align the text to the grid
     padding: @spacing-default*11 @spacing-default*10;
   }
@@ -33,12 +33,12 @@
   font-weight: @font-weight-bold;
   line-height: @line-height-header-small-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     margin-bottom: @spacing-medium;
     font-size: @heading-l;
     line-height: @line-height-heading-l;
@@ -51,12 +51,12 @@
   font-weight: @font-weight-normal;
   line-height: @line-height-body-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
   }

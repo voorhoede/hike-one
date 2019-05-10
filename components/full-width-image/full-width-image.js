@@ -172,12 +172,12 @@ class FullWidthImage extends Component {
         .full-width-image-background-${index} {
           background-image: url('${heroImageMedium}')
         }
-        @media only screen and (min-width: 768px) {
+        @media (min-width: 768px) {
           .full-width-image-background-${index} {
             background-image: url('${heroImageLarge}')
           }
         }
-        @media only screen and (min-width: 1170px) {
+        @media (min-width: 1170px) {
           .full-width-image-background-${index} {
             background-image: url('${heroImageExtraLarge}')
           }

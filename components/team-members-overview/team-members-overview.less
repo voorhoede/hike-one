@@ -15,21 +15,21 @@
   margin-bottom: 0;
   list-style: none;
 
-  @media @screen-small {
+  @media @screen-500 {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     grid-gap: @spacing-large;
     grid-row-gap: @spacing-large;
     grid-template-columns: repeat(5, 1fr);
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     max-width: @column-large-12;
   }
 
@@ -50,7 +50,7 @@
     margin: 0 auto;
     margin-bottom: @spacing-medium;
 
-    @media @screen-medium {
+    @media @screen-768 {
       display: none;
     }
   }
@@ -62,7 +62,7 @@
   .filters-container.hide {
     display: none;
 
-    @media @screen-medium {
+    @media @screen-768 {
       display: block;
     }
   }

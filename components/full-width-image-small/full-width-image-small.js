@@ -9,12 +9,12 @@ const FullWidthImageSmall = ({ image = '#', index = 0 }) => {
       .full-width-image-small-${index} {
         background-image: url('${setImageParams(image, { ...imageParameters, w: 500 })}')
       }
-      @media only screen and (min-width: 500px) {
+      @media (min-width: 500px) {
         .full-width-image-small-${index} {
           background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}')
         }
       }
-      @media only screen and (min-width: 1170px) {
+      @media (min-width: 1170px) {
         .full-width-image-small-${index} {
           background-image: url('${setImageParams(image, { ...imageParameters, w: 1920 })}')
         }

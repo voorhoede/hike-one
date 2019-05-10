@@ -28,13 +28,13 @@
     height: 85vh;
   }
 
-  @media @screen-small {
+  @media @screen-500 {
     &.page-header-small {
       height: 60vh;
     }
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     &::after {
       display: none;
     }
@@ -75,7 +75,7 @@
     opacity: 1;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     display: block;
   }
 }
@@ -87,12 +87,12 @@
   font-weight: @font-weight-bold-extra;
   line-height: @line-height-giant-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     font-size: @title-giant-m;
     line-height: @line-height-giant-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     margin-bottom: @spacing-medium;
     font-size: @title-giant-l;
     line-height: @line-height-giant-l;
@@ -108,13 +108,13 @@
   font-weight: @font-weight-light;
   line-height: @line-height-subtitle-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     margin-bottom: @spacing-default;
     font-size: @subtitle-large-m;
     line-height: @line-height-subtitle-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     margin-bottom: @spacing-default*5;
     font-size: @subtitle-large-l;
     line-height: @line-height-subtitle-l;
@@ -158,7 +158,7 @@
     width: 40px;
     margin: 0 auto;
 
-    @media @screen-small {
+    @media @screen-500 {
       width: 45px;
     }
 

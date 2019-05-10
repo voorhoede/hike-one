@@ -22,7 +22,7 @@ body.disable-scroll {
   max-height: 100vh;
   overflow: hidden;
 
-  @media @screen-medium {
+  @media @screen-768 {
     max-height: none;
     overflow: auto;
   }
@@ -34,7 +34,7 @@ body.disable-scroll {
   margin: 0 0 @container-margin-bottom-s;
   padding: 0 @spacing-default*1.5;
 
-  @media @screen-small {
+  @media @screen-500 {
     max-width: @container-max-width;
     margin: 0 auto @container-margin-bottom-l;
     padding: 0 @spacing-small;
@@ -45,7 +45,7 @@ body.disable-scroll {
   width: 100%;
   margin: 0 auto;
 
-  @media @screen-small {
+  @media @screen-500 {
     max-width: @container-inner-max-width;
   }
 }
@@ -53,7 +53,7 @@ body.disable-scroll {
 .container.container-inner {
   margin: @spacing-small 0;
 
-  @media @screen-small {
+  @media @screen-500 {
     margin: 0 auto @spacing-container;
   }
 }
@@ -88,7 +88,7 @@ body.disable-scroll {
 .page-scrolling-content:not(.has-notification-bar) {
   padding-top: @spacing-default*5;
 
-  @media @screen-medium {
+  @media @screen-768 {
     padding-top: @spacing-default*14;
   }
 }
@@ -99,11 +99,11 @@ body.disable-scroll {
   padding-top: @spacing-default*5;
   background-color: @white;
 
-  @media @screen-small {
+  @media @screen-500 {
     margin-top: 50vh;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     padding-top: @spacing-medium*3;
   }
 }

@@ -19,7 +19,7 @@
 .fifty-fifty.container {
   margin: 0 auto @spacing-large*2 auto;
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     margin: 0 auto @spacing-small*6 auto;
     padding: 0;
   }
@@ -30,23 +30,23 @@
   flex-direction: column;
   align-items: center;
 
-  @media @screen-medium {
+  @media @screen-768 {
     flex-direction: row;
     margin: 0 auto 0 auto;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     margin: 0 auto 0 auto;
     padding: 0;
   }
 }
 
 .fifty-fifty-content {
-  @media @screen-medium {
+  @media @screen-768 {
     padding: 0 @spacing-default*4;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     padding: 0 @spacing-small*5 0 @spacing-large*2;
   }
 }
@@ -57,13 +57,13 @@
   width: 100%;
   vertical-align: top;
 
-  @media @screen-medium {
+  @media @screen-768 {
     width: 50%;
   }
 }
 
 .fifty-fifty-image-large {
-  @media @screen-large {
+  @media @screen-1170 {
     .fifty-fifty-content {
       width: 40%;
       padding-right: 0;
@@ -76,7 +76,7 @@
 }
 
 .fifty-fifty-image-large.fifty-fifty-content-left .fifty-fifty-content {
-  @media @screen-large {
+  @media @screen-1170 {
     padding-right: @spacing-large*2;
     padding-left: 0;
   }
@@ -84,7 +84,7 @@
 
 .fifty-fifty-title,
 .fifty-fifty-text {
-  @media @screen-medium {
+  @media @screen-768 {
     max-width: 450px;
   }
 }
@@ -96,13 +96,13 @@
   font-weight: @font-weight-bold;
   line-height: @line-height-heading-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     margin-bottom: @spacing-small;
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     font-size: @heading-l;
     line-height: @line-height-heading-l;
   }
@@ -114,12 +114,12 @@
   font-weight: @font-weight-normal;
   line-height: @line-height-body-s;
 
-  @media @screen-medium {
+  @media @screen-768 {
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
   }
@@ -128,11 +128,11 @@
 .fifty-fifty-media {
   padding-bottom: @spacing-default*2;
 
-  @media @screen-medium {
+  @media @screen-768 {
     padding: 0 @spacing-small;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     padding: 0;
   }
 
@@ -146,14 +146,14 @@
 
 .fifty-fifty-content-left {
   .container-inner {
-    @media @screen-medium {
+    @media @screen-768 {
       flex-direction: row-reverse;
     }
   }
 
   .fifty-fifty-title,
   .fifty-fifty-text {
-    @media @screen-medium {
+    @media @screen-768 {
       margin-right: 0;
     }
   }
@@ -167,7 +167,7 @@
 .fifty-fifty-update .fifty-fifty-content {
   padding-right: 0;
 
-  @media @screen-medium {
+  @media @screen-768 {
     padding-left: @spacing-default*7;
   }
 }

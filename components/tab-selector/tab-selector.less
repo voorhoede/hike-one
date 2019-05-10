@@ -8,16 +8,16 @@
   margin: -120px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
   padding: 0;
 
-  @media @screen-small {
+  @media @screen-500 {
     margin: -120px @spacing-default*1.5 @container-margin-bottom-l @spacing-default*1.5;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     height: 80px;
     margin-top: -130px;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     max-width: @column-large-10;
     height: 90px;
     margin: -145px auto @container-margin-bottom-l auto;
@@ -39,13 +39,13 @@
     border-right: 0;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     flex-direction: row;
     justify-content: center;
     padding: @spacing-small;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     padding: @spacing-small @spacing-default*2.5 @spacing-small @spacing-small*2;
 
     &:nth-child(2) {
@@ -82,13 +82,13 @@
   height: 39px;
   margin: 0 auto;
 
-  @media @screen-medium {
+  @media @screen-768 {
     position: relative;
     top: 0;
     margin: 0 @spacing-default 0 0;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     width: 50px;
     height: 50px;
     margin-right: @spacing-medium;
@@ -105,20 +105,20 @@
   line-height: @line-height-body-small-s;
   text-align: center;
 
-  @media @screen-small {
+  @media @screen-500 {
     top: 25px;
   }
 
-  @media @screen-medium {
+  @media @screen-768 {
     top: 0;
   }
 
-  @media @screen-medium-large {
+  @media @screen-1024 {
     font-size: @body-text-m;
     line-height: @line-height-body-small-m;
   }
 
-  @media @screen-large {
+  @media @screen-1170 {
     padding-left: 0;
     font-size: @body-text-l;
     line-height: @line-height-body-small-l;

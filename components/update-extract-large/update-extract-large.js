@@ -21,12 +21,12 @@ const UpdateExtractLarge = ({
       .update-extract-large-image-${index} {
         background-image: url('${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}');
       }
-      @media only screen and (min-width: 768px) {
+      @media (min-width: 768px) {
         .update-extract-large-image-${index} {
           background-image: url('${setImageParams(image, { ...imageParameters, w: 600, h: 500 })}');
         }
       }
-      @media only screen and (min-width: 1024px) {
+      @media (min-width: 1024px) {
         .update-extract-large-image-${index} {
           background-image: url('${setImageParams(image, { ...imageParameters, w: 700, h: 500 })}');
         }

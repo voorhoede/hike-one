@@ -42,9 +42,9 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
               ${setImageParams(imageMedium, { ...imageParameters, w: 1480 })} 1480w
             `}
             sizes="
-          (max-width: 768px) calc(100vw - 30px),
-          (max-width: 1480px) 50vw,
-          740px"
+              (max-width: 768px) calc(100vw - 30px),
+              (max-width: 1480px) 50vw,
+              740px"
             src={imageMedium}
             alt=""
           />

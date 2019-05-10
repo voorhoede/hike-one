@@ -231,7 +231,7 @@ Topic.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Topic.propTypes = {
   Data: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

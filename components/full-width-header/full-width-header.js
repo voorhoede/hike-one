@@ -69,7 +69,7 @@ FullWidthHeader.propTypes = {
   authorName: PropTypes.string,
   updatedDate: PropTypes.string,
   titleOnly: PropTypes.bool,
-  headerImageLarger: PropTypes.string,
+  headerImageLarger: PropTypes.bool,
 }
 
 export default FullWidthHeader

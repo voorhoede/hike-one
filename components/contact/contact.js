@@ -25,7 +25,7 @@ const Contact = ({ title = '', button = '', link = false, target = '_self', chil
 Contact.propTypes = {
   title: PropTypes.string,
   button: PropTypes.string,
-  link: PropTypes.bool,
+  link: PropTypes.string,
   target: PropTypes.string,
   children: PropTypes.node,
 }

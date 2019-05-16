@@ -22,7 +22,7 @@
 }
 
 .vacancy-overview-title {
-  margin-bottom: @spacing-small;
+  margin-bottom: @spacing-default*2;
   color: @darker-gray;
   font-size: @title-large-s;
   font-weight: @font-weight-bold;
@@ -30,7 +30,7 @@
 
   @media @screen-768 {
     max-width: 800px;
-    margin: 0 auto @spacing-large;
+    margin: 0 auto @spacing-default*4;
     padding-top: @spacing-default*8;
     font-size: @title-large-m;
     line-height: @line-height-title-m;
@@ -44,11 +44,11 @@
 }
 
 .vacancy-overview-tagline {
-  margin-bottom: @spacing-large;
+  margin-bottom: @spacing-default*4;
   font-size: @subtitle-large-s;
 
   @media @screen-768 {
-    margin-bottom: @spacing-large*2;
+    margin-bottom: @spacing-default*8;
     font-size: @subtitle-large-m;
   }
 
@@ -58,18 +58,18 @@
 }
 
 .vacancy-overview-list {
-  margin: 0 0 @spacing-large 0;
+  margin: 0 0 @spacing-default*4 0;
   padding: 0;
   list-style: none;
 
   @media @screen-768 {
-    margin-bottom: @spacing-large*2;
+    margin-bottom: @spacing-default*8;
   }
 }
 
 .vacancy-overview-list-item {
-  margin-top: @spacing-small;
-  padding: @spacing-small;
+  margin-top: @spacing-default*2;
+  padding: @spacing-default*2;
   background-color: @white;
   box-shadow: 0 3px 9px 0 rgba(0, 0, 0, .17);
 
@@ -96,7 +96,7 @@
 }
 
 .vacancy-overview-list-item h4 {
-  margin-bottom: @spacing-half;
+  margin-bottom: @spacing-default/2;
 
   @media @screen-768 {
     display: inline-block;

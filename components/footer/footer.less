@@ -23,7 +23,7 @@
 }
 
 .footer .container-inner {
-  padding: 0 15px;
+  padding: 0 @spacing-default*1.5;
 }
 
 .footer-main-content {
@@ -34,10 +34,10 @@
 
 .footer-logo {
   display: block;
-  margin-bottom: @spacing-medium;
+  margin-bottom: @spacing-default*3;
 
   @media @screen-768 {
-    margin-bottom: @spacing-extra-large;
+    margin-bottom: @spacing-default*6;
   }
 
   @media @screen-1170 {
@@ -72,20 +72,20 @@
 .footer-links {
   display: flex;
   max-height: 160px;
-  margin-bottom: @spacing-small;
+  margin-bottom: @spacing-default*2;
 }
 
 .footer-link-list {
   .list-no-style();
 
-  margin-bottom: @spacing-small;
+  margin-bottom: @spacing-default*2;
   column-fill: auto;
   column-count: 2;
 
   @media @screen-768 {
     display: inline-block;
     max-width: 400px;
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
     vertical-align: top;
   }
 }
@@ -121,8 +121,8 @@
 
 .footer-join-link {
   display: block;
-  margin-bottom: @spacing-medium;
-  padding: @spacing-small 0;
+  margin-bottom: @spacing-default*3;
+  padding: @spacing-default*2 0;
   transition: color @animation-speed-slow;
   border-top: 1px solid #717171;
   border-bottom: 1px solid #717171;
@@ -133,8 +133,8 @@
   text-decoration: none;
 
   @media @screen-768 {
-    margin-bottom: @spacing-extra-large;
-    padding: @spacing-large*2 0;
+    margin-bottom: @spacing-default*6;
+    padding: @spacing-default*8 0;
     font-size: @heading-small-m;
     line-height: @line-height-heading-m;
   }
@@ -160,7 +160,7 @@
   box-sizing: content-box;
   width: 35px;
   height: 35px;
-  margin-left: @spacing-half;
+  margin-left: @spacing-default/2;
   vertical-align: middle;
 
   @media @screen-768 {
@@ -174,7 +174,7 @@
 }
 
 .footer-contact {
-  margin-bottom: @spacing-medium;
+  margin-bottom: @spacing-default*3;
   color: @white;
   font-size: @heading-small-s;
   font-weight: @font-weight-bold;
@@ -207,11 +207,11 @@
 
 .footer .menu-social {
   width: 100%;
-  margin: 0 auto @spacing-half 0;
+  margin: 0 auto @spacing-default/2 0;
 
   @media @screen-500 {
     width: 70%;
-    margin: 0 auto @spacing-small 0;
+    margin: 0 auto @spacing-default*2 0;
   }
 
   @media @screen-768 {
@@ -245,7 +245,7 @@
   }
 
   & + .footer-copyright {
-    margin-left: 20px;
+    margin-left: @spacing-default*2;
     text-decoration: none;
   }
 }

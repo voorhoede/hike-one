@@ -6,12 +6,12 @@
   position: absolute;
   z-index: @layer-popup;
   top: calc(100% + 4px);
-  left: @spacing-small;
-  padding: @spacing-medium;
+  left: @spacing-default*2;
+  padding: @spacing-default*3;
   background-color: @white;
 
   @media @screen-768 {
-    left: @spacing-large;
+    left: @spacing-default*4;
   }
 
   @media @screen-1440 {
@@ -30,13 +30,13 @@
 }
 
 .context-menu-table {
-  margin: @spacing-default @spacing-small @spacing-default 0;
+  margin: @spacing-default @spacing-default*2 @spacing-default 0;
   border-spacing: 0;
   font-size: @body-text-small-m;
   line-height: @line-height-body-small-m;
 
   td {
-    padding: @spacing-half;
+    padding: @spacing-default/2;
   }
 }
 

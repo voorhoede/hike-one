@@ -1,6 +1,6 @@
 .rich-body-text {
   max-width: @column-large-7;
-  margin: 0 auto @spacing-default * 4 auto;
+  margin: 0 auto @spacing-default*4 auto;
   padding: 0 @spacing-default*1.5 0 @spacing-default*1.5;
 
   &.text-center > * {
@@ -8,7 +8,7 @@
   }
 
   @media @screen-768 {
-    margin-bottom: @spacing-large*2;
+    margin-bottom: @spacing-default*8;
   }
 
   a {
@@ -42,17 +42,17 @@
   }
 
   ul {
-    padding-left: @spacing-default * 3.5;
+    padding-left: @spacing-default*3.5;
     list-style: none;
 
     @media @screen-1170 {
-      margin-bottom: @spacing-large*2;
+      margin-bottom: @spacing-default*8;
     }
   }
 
   ul li {
     position: relative;
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
     font-size: @body-text-s;
     font-weight: @font-weight-normal;
     line-height: @line-height-body-s;
@@ -61,7 +61,7 @@
       content: '';
       display: inline-block;
       position: absolute;
-      left: -@spacing-default * 3.5;
+      left: -@spacing-default*3.5;
       width: 18px;
       height: 18px;
       margin-top: 6px;

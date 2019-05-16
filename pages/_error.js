@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
 import cookie from '../components/_helpers/cookie'
-import TextCenter from '../components/text-center/text-center'
-import * as TextCenterShapes from '../components/text-center/text-center-shapes'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  TextCenter,
+  TextCenterShapes
+} from '../components/'
 
 const content404 = {
   title: 'This page is not here',

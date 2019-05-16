@@ -2,48 +2,26 @@ const { sortBy } = require('lodash')
 
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
-    dir.createDataFile('team.json', 'json', dato.team.toMap())
-
-    const teamImages34 = dato.collectionsByType.teamImage34S
-    dir.createDataFile('teamImages34.json', 'json', teamImages34[0].toMap())
-
-    const teamImages21 = dato.collectionsByType.teamImage21S
-    dir.createDataFile('teamImages21.json', 'json', teamImages21[0].toMap())
-
-    const peopleData = dato.collectionsByType.people
-    dir.createDataFile('people.json', 'json',  sortBy(mapCollection(peopleData), 'name'))
-
-    dir.createDataFile('service-overview.json', 'json', dato.serviceOverview.toMap())
-
-    dir.createDataFile('home.json', 'json', dato.home.toMap())
-
-    dir.createDataFile('cookie-bar.json', 'json', dato.cookieBar.toMap())
-
     dir.createDataFile('cases.json', 'json', mapCollection(dato.cases))
-
     dir.createDataFile('component-guide.json', 'json', dato.componentGuide.toMap())
-
     dir.createDataFile('contact.json', 'json', dato.contactPage.toMap(5))
-
-    dir.createDataFile('work.json', 'json', dato.work.toMap())
-
-    dir.createDataFile('update-overview.json', 'json', dato.updateOverview.toMap())
-
-    dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts))
-
-    dir.createDataFile('updates.json', 'json', mapCollection(dato.updates))
-
+    dir.createDataFile('cookie-bar.json', 'json', dato.cookieBar.toMap())
+    dir.createDataFile('home.json', 'json', dato.home.toMap())
+    dir.createDataFile('people.json', 'json',  sortBy(mapCollection(dato.collectionsByType.people), 'name'))
     dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))
-
+    dir.createDataFile('service-overview.json', 'json', dato.serviceOverview.toMap())
     dir.createDataFile('services.json', 'json', mapCollection(dato.services))
-
+    dir.createDataFile('team.json', 'json', dato.team.toMap())
+    dir.createDataFile('team-images-21.json', 'json', dato.collectionsByType.teamImage21S[0].toMap())
+    dir.createDataFile('team-images-34.json', 'json', dato.collectionsByType.teamImage34S[0].toMap())
     dir.createDataFile('thank-you.json', 'json', dato.thankYouPage.toMap())
-
     dir.createDataFile('topics.json', 'json', mapCollection(dato.topics))
-
-    dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies))
-
+    dir.createDataFile('update-extracts.json', 'json', mapCollection(dato.updateExtracts))
+    dir.createDataFile('update-overview.json', 'json', dato.updateOverview.toMap())
+    dir.createDataFile('updates.json', 'json', mapCollection(dato.updates))
     dir.createDataFile('vacancies-overview.json', 'json', dato.vacancyOverview.toMap())
+    dir.createDataFile('vacancies.json', 'json', mapCollection(dato.vacancies))
+    dir.createDataFile('work.json', 'json', dato.work.toMap())
   })
 
   function mapCollection(collection) {

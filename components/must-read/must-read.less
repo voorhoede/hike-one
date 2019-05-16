@@ -3,14 +3,14 @@
 .must-read {
   width: 100%;
   max-width: 450px;
-  margin: @spacing-large 0;
+  margin: @spacing-default*4 0;
   padding: @spacing-default;
 
   @media @screen-768 {
     width: calc(~"(50% - 15px)");
     margin-top: 0;
-    margin-left: @spacing-medium;
-    padding: 0 @spacing-medium;
+    margin-left: @spacing-default*3;
+    padding: 0 @spacing-default*3;
     vertical-align: top;
   }
 
@@ -31,7 +31,7 @@
 
 .must-read-item {
   display: flex;
-  margin-bottom: @spacing-small;
+  margin-bottom: @spacing-default*2;
   border-bottom: 1px solid @dark-gray;
   color: @black;
   text-decoration: none;
@@ -49,7 +49,7 @@
 }
 
 .must-read-item-index {
-  margin: 0 @spacing-small 0 0;
+  margin: 0 @spacing-default*2 0 0;
   color: @red;
   font-size: @heading-m;
   line-height: @line-height-heading-m;
@@ -72,7 +72,7 @@
 }
 
 .must-read-item-author {
-  margin: @spacing-half 0 @spacing-small 0;
+  margin: @spacing-default/2 0 @spacing-default*2 0;
   color: @dark-gray;
   font-size: @body-text-s;
   font-weight: @font-weight-normal;
@@ -93,7 +93,7 @@
   position: relative;
   z-index: @layer-raised;
   height: 100px;
-  margin-top: -100px;
+  margin-top: -@spacing-default*10;
   background: 0 0;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .001)), to(white));
   background: linear-gradient(rgba(255, 255, 255, .001), white);

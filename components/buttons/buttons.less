@@ -4,7 +4,7 @@
 
 .btn-basis {
   display: inline-block;
-  padding: @spacing-default @spacing-medium;
+  padding: @spacing-default @spacing-default*3;
   transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
   border-radius: 100px;
   font-family: @font-main-fallback;
@@ -14,7 +14,7 @@
   text-decoration: none;
 
   @media @screen-768 {
-    padding: @spacing-default @spacing-large;
+    padding: @spacing-default @spacing-default*4;
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
@@ -63,15 +63,15 @@
   }
 
   &.btn-icon {
-    padding: @spacing-default (@spacing-medium + @icon-size) @spacing-default @spacing-medium;
+    padding: @spacing-default (@spacing-default*3 + @icon-size) @spacing-default @spacing-default*3;
 
     @media @screen-768 {
-      padding: @spacing-default (@spacing-large + @icon-size) @spacing-default @spacing-large;
+      padding: @spacing-default (@spacing-default*4 + @icon-size) @spacing-default @spacing-default*4;
     }
   }
 
   &.btn-large {
-    padding: @spacing-default @spacing-large;
+    padding: @spacing-default @spacing-default*4;
     font-weight: @font-weight-bold;
 
     @media @screen-768 {
@@ -80,10 +80,10 @@
   }
 
   &.btn-icon.btn-large {
-    padding: @spacing-small (@spacing-large + @icon-size) @spacing-small @spacing-large;
+    padding: @spacing-default*2 (@spacing-default*4 + @icon-size) @spacing-default*2 @spacing-default*4;
 
     @media @screen-768 {
-      padding: 18px ((@spacing-default*5) + @icon-size) 18px @spacing-default*5;
+      padding: 18px (@spacing-default*5 + @icon-size) 18px @spacing-default*5;
     }
   }
 }

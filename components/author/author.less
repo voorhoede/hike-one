@@ -6,20 +6,20 @@
   max-width: @column-large-7;
   height: 100%;
   margin: auto;
-  margin-bottom: @spacing-medium;
-  padding: @spacing-medium;
+  margin-bottom: @spacing-default*3;
+  padding: @spacing-default*3;
   background-color: @lightest-gray;
 
   @media @screen-1170 {
-    margin-bottom: @spacing-large;
-    padding: @spacing-medium*2;
+    margin-bottom: @spacing-default*4;
+    padding: @spacing-default*6;
   }
 
   &:last-child {
-    margin-bottom: @spacing-large;
+    margin-bottom: @spacing-default*4;
 
     @media @screen-1170 {
-      margin-bottom: @spacing-large*2;
+      margin-bottom: @spacing-default*8;
     }
   }
 }
@@ -37,7 +37,7 @@
   }
 
   @media @screen-1170 {
-    padding: 0 @spacing-default*1.5 0 @spacing-medium;
+    padding: 0 @spacing-default*1.5 0 @spacing-default*3;
   }
 }
 

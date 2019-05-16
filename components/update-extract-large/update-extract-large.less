@@ -15,13 +15,13 @@
   @media @screen-768 {
     max-width: none;
     margin-right: 0;
-    margin-bottom: @spacing-medium;
+    margin-bottom: @spacing-default*3;
     margin-left: 0;
   }
 
   @media @screen-1024 {
     position: relative;
-    margin-bottom: @spacing-large;
+    margin-bottom: @spacing-default*4;
   }
 
   &:hover {
@@ -78,7 +78,7 @@
 
   @media @screen-768 {
     margin-top: 0;
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
   }
 
   @media @screen-1024 {
@@ -91,16 +91,16 @@
   position: relative;
   width: 100%;
   height: 119px;
-  padding: @spacing-small;
+  padding: @spacing-default*2;
   background-color: @black;
 
   @media @screen-1024 {
     position: absolute;
-    right: @spacing-medium;
-    bottom: @spacing-medium;
+    right: @spacing-default*3;
+    bottom: @spacing-default*3;
     width: 50%;
     height: 180px;
-    padding: @spacing-medium;
+    padding: @spacing-default*3;
   }
 }
 
@@ -108,7 +108,7 @@
   position: absolute;
   bottom: 0;
   width: calc(~"100% - " @spacing-default*4);
-  padding: @spacing-default*1.5 0 @spacing-small 0;
+  padding: @spacing-default*1.5 0 @spacing-default*2 0;
   color: @white;
   font-size: @body-text-small-s;
   font-weight: normal;

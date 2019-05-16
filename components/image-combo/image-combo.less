@@ -2,12 +2,12 @@
 
 .image-combo {
   position: relative;
-  margin-bottom: @spacing-extra-large;
+  margin-bottom: @spacing-default*6;
 
   @media @screen-768 {
     max-width: @max-width-image;
     margin: auto;
-    margin-top: @spacing-large;
+    margin-top: @spacing-default*4;
     margin-bottom: @spacing-default*8;
   }
 
@@ -33,10 +33,10 @@
   .text-block {
     position: relative;
     z-index: @layer-raised;
-    margin-top: -@spacing-extra-large;
+    margin-top: -@spacing-default*6;
 
     @media @screen-768 {
-      margin-top: -@spacing-extra-large*2;
+      margin-top: -@spacing-default*12;
     }
   }
 }
@@ -45,10 +45,10 @@
   position: relative;
 
   .full-width-image {
-    margin-top: -@spacing-extra-large;
+    margin-top: -@spacing-default*6;
 
     @media @screen-768 {
-      margin-top: -300px;
+      margin-top: -@spacing-default*30;
     }
   }
 }

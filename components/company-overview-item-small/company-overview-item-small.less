@@ -21,16 +21,16 @@
 
 .company-item-small {
   width: 100%;
-  padding: 0 @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
+  padding: 0 @spacing-default*1.5 @spacing-default*3 @spacing-default*1.5;
 
   @media @screen-768 {
     width: calc(100% / 3);
     height: 130px;
-    padding: 0 @spacing-medium;
+    padding: 0 @spacing-default*3;
   }
 
   @media @screen-1170 {
-    padding: 0 @spacing-large;
+    padding: 0 @spacing-default*4;
   }
 }
 
@@ -58,7 +58,7 @@
   }
 
   @media @screen-1170 {
-    margin-bottom: @spacing-large;
+    margin-bottom: @spacing-default*4;
     font-size: @body-text-small-l;
     line-height: @line-height-body-small-l;
   }

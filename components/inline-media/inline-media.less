@@ -3,12 +3,12 @@
 .inline-media.inline-media-large {
   max-width: @column-large-9;
   height: auto;
-  margin-bottom: @spacing-large;
+  margin-bottom: @spacing-default*4;
   padding: 0;
   color: @grey-caption;
 
   @media @screen-1170 {
-    margin-bottom: @spacing-large*2;
+    margin-bottom: @spacing-default*8;
   }
 
   p {
@@ -24,7 +24,7 @@
 .inline-media {
   width: 100%;
   margin: auto;
-  margin-bottom: @spacing-large;
+  margin-bottom: @spacing-default*4;
   padding: 0 @spacing-default*1.5;
   color: @dark-gray;
   font-weight: @font-weight-normal;
@@ -32,7 +32,7 @@
 
   @media @screen-768 {
     max-width: @column-large-7;
-    margin-bottom: @spacing-large*2;
+    margin-bottom: @spacing-default*8;
   }
 
   @media @screen-1170 {

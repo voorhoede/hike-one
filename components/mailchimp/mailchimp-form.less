@@ -2,12 +2,12 @@
 @import (reference) '../../styles/grid';
 
 .mailchimp-form {
-  margin: 0 auto @spacing-large auto;
+  margin: 0 auto @spacing-default*4 auto;
   padding: 0 @spacing-default*1.5;
 
   &.shadow {
-    margin: 0 auto @spacing-extra-large auto;
-    padding: @spacing-medium @spacing-large;
+    margin: 0 auto @spacing-default*6 auto;
+    padding: @spacing-default*3 @spacing-default*4;
   }
 
   @media @screen-768 {
@@ -19,7 +19,7 @@
   }
 
   .form-title {
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
     color: @darker-gray;
     font-size: @heading-small-s;
     font-weight: @font-weight-bold;
@@ -52,7 +52,7 @@
 
 .form-description {
   display: block;
-  margin-bottom: @spacing-medium;
+  margin-bottom: @spacing-default*3;
   font-size: @body-text-s;
 
   @media @screen-768 {

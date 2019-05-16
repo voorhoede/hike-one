@@ -2,8 +2,8 @@
 
 .services-item {
   position: relative;
-  margin-bottom: @spacing-large*2;
-  padding: @spacing-large @spacing-small;
+  margin-bottom: @spacing-default*8;
+  padding: @spacing-default*4 @spacing-default*2;
   color: @white;
   font-style: normal;
 
@@ -13,12 +13,12 @@
 
   @media @screen-768 {
     display: flex;
-    padding: @spacing-large @spacing-default*5;
+    padding: @spacing-default*4 @spacing-default*5;
   }
 
   @media @screen-1170 {
-    margin-top: @spacing-medium;
-    padding: @spacing-extra-large @spacing-default*10 @spacing-large*2 @spacing-default*10;
+    margin-top: @spacing-default*3;
+    padding: @spacing-default*6 @spacing-default*10 @spacing-default*8 @spacing-default*10;
   }
 }
 
@@ -41,7 +41,7 @@
   }
 
   @media @screen-768 {
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
@@ -61,7 +61,7 @@
     width: 50%;
     max-width: 460px;
     margin: 0;
-    padding-right: @spacing-small;
+    padding-right: @spacing-default*2;
     vertical-align: top;
   }
 
@@ -75,7 +75,7 @@
   @media @screen-768 {
     order: 1;
     padding-right: 0;
-    padding-left: @spacing-small;
+    padding-left: @spacing-default*2;
     float: right;
   }
 }
@@ -86,7 +86,7 @@
   line-height: @line-height-body-s;
 
   @media @screen-768 {
-    margin-bottom: @spacing-small;
+    margin-bottom: @spacing-default*2;
     font-size: @body-text-m;
     line-height: @line-height-body-m;
   }
@@ -98,7 +98,7 @@
 }
 
 .services-item-info .services-item-tags {
-  padding-left: @spacing-small;
+  padding-left: @spacing-default*2;
 
   @media @screen-768 {
     margin-bottom: 0;

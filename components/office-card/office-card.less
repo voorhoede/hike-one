@@ -3,7 +3,7 @@
 @import (reference) '../../styles/transition';
 
 .office-card {
-  margin: 0 0 @spacing-large 0;
+  margin: 0 0 @spacing-default*4 0;
 
   a {
     color: @darker-gray;
@@ -47,7 +47,7 @@
 
   position: relative;
   margin: -82px @spacing-default*1.5 0 @spacing-default*1.5;
-  padding: @spacing-default @spacing-medium @spacing-default @spacing-default;
+  padding: @spacing-default @spacing-default*3 @spacing-default @spacing-default;
   background-color: @lightest-gray;
 
   h3 {
@@ -78,7 +78,7 @@
   }
 
   @media @screen-1024 {
-    padding: @spacing-small @spacing-large @spacing-small @spacing-small;
+    padding: @spacing-default*2 @spacing-default*4 @spacing-default*2 @spacing-default*2;
   }
 
   @media @screen-1170 {
@@ -103,7 +103,7 @@
   transform: translateY(-50%);
 
   @media @screen-1024 {
-    right: @spacing-small;
+    right: @spacing-default*2;
   }
 
   svg {

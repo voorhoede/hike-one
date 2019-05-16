@@ -30,7 +30,7 @@
 .case-extract-small {
   position: relative;
   max-height: 321px;
-  margin: 0 0 @spacing-large 0;
+  margin: 0 0 @spacing-default*4 0;
 
   @media @screen-768 {
     max-height: 340px;
@@ -42,7 +42,7 @@
 
   @media @screen-1170 {
     max-height: 473px;
-    margin: 0 0 @spacing-large*2 0;
+    margin: 0 0 @spacing-default*8 0;
     padding-bottom: 0;
 
     &:hover {
@@ -83,7 +83,7 @@
   position: relative;
   width: auto;
   height: 150px;
-  margin: -110px @spacing-default * 1.5 0 @spacing-default * 1.5;
+  margin: -@spacing-default*11 @spacing-default*1.5 0 @spacing-default*1.5;
 }
 
 .case-extract-small-bg-inner {
@@ -95,8 +95,8 @@
 
 .case-extract-small-text {
   position: relative;
-  margin: -150px @spacing-default*1.5 0 @spacing-default*1.5;
-  padding: @spacing-medium @spacing-small  @spacing-medium  @spacing-medium;
+  margin: -@spacing-default*15 @spacing-default*1.5 0 @spacing-default*1.5;
+  padding: @spacing-default*3 @spacing-default*2  @spacing-default*3  @spacing-default*3;
   transform-origin: left bottom;
   transition: transform @animation-speed;
   color: @white;
@@ -111,7 +111,7 @@
 
   h4 {
     display: block;
-    margin-bottom: @spacing-medium;
+    margin-bottom: @spacing-default*3;
     transition: opacity @animation-speed-fast;
     opacity: 0;
     font-size: @body-text-s;
@@ -167,7 +167,7 @@
   bottom: 0;
   width: 55px;
   height: 55px;
-  margin: 0 @spacing-small @spacing-small auto;
+  margin: 0 @spacing-default*2 @spacing-default*2 auto;
   transition: opacity @animation-speed;
   opacity: 0;
 

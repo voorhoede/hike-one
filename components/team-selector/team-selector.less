@@ -5,17 +5,17 @@
   position: relative;
   width: auto;
   height: 70px;
-  margin: -85px @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
+  margin: -@spacing-default*8.5 @spacing-default*1.5 @spacing-default*3 @spacing-default*1.5;
   padding: 0;
 
   @media @screen-500 {
     max-width: @column-large-4;
-    margin: -85px auto @spacing-medium auto;
+    margin: -@spacing-default*8.5 auto @spacing-default*3 auto;
   }
 
   @media @screen-768 {
     height: 90px;
-    margin: -135px auto @container-margin-bottom-l auto;
+    margin: -@spacing-default*13.5 auto @spacing-default*9 auto;
   }
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: center;
   width: 50%;
-  padding: @spacing-small;
+  padding: @spacing-default*2;
   background-color: @white;
   color: @black;
   text-decoration: none;

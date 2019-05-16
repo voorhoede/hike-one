@@ -14,13 +14,13 @@
   }
 
   @media @screen-1170 {
-    padding-top: @spacing-extra-large;
+    padding-top: @spacing-default*6;
   }
 }
 
 .case-extract-image-container {
   height: 220px;
-  margin-bottom: @spacing-large;
+  margin-bottom: @spacing-default*4;
   background-position: 50% 50%;
   background-size: cover;
 
@@ -31,7 +31,7 @@
   @media @screen-1170 {
     max-width: @column-large-9;
     height: 600px;
-    margin-bottom: @spacing-large;
+    margin-bottom: @spacing-default*4;
     margin-left: auto;
   }
 }
@@ -39,8 +39,8 @@
 .case-extract-text-container {
   display: block;
   position: relative;
-  margin: -90px @spacing-default 0 @spacing-default;
-  padding: @spacing-medium @spacing-medium  @spacing-medium  @spacing-medium;
+  margin: -@spacing-default*9 @spacing-default 0 @spacing-default;
+  padding: @spacing-default*3;
   transform: scale(1);
   transition: transform @animation-speed-slow;
   background-color: @red;
@@ -59,7 +59,7 @@
   }
 
   & > h4 {
-    margin-bottom: @spacing-medium;
+    margin-bottom: @spacing-default*3;
     font-size: @body-text-s;
     font-weight: @font-weight-normal;
     line-height: @line-height-body-s;
@@ -78,7 +78,7 @@
 
   @media @screen-500 {
     width: auto;
-    margin: -90px @spacing-small 0 @spacing-small;
+    margin: -@spacing-default*9 @spacing-default*2 0 @spacing-default*2;
 
     & > h3 {
       font-size: @title-large-m;
@@ -104,10 +104,10 @@
     max-width: 472px;
     margin: 0;
     padding: 0 @spacing-default*5;
-    padding-top: @spacing-extra-large;
+    padding-top: @spacing-default*6;
 
     & > h3 {
-      margin-bottom: @spacing-small;
+      margin-bottom: @spacing-default*2;
       font-size: @title-large-l;
       line-height: @line-height-title-l;
     }
@@ -119,7 +119,7 @@
     }
 
     & > span {
-      margin-bottom: @spacing-medium;
+      margin-bottom: @spacing-default*3;
       font-size: @body-text-l;
       line-height: @line-height-body-l;
     }
@@ -140,7 +140,7 @@
   }
 
   @media @screen-1170 {
-    margin-bottom: @spacing-extra-large;
+    margin-bottom: @spacing-default*6;
     float: right;
 
     svg {
@@ -157,6 +157,6 @@
 .case-extract-link {
   display: inline-block;
   position: relative;
-  margin-top: @spacing-large;
-  padding: 0 @spacing-small;
+  margin-top: @spacing-default*4;
+  padding: 0 @spacing-default*2;
 }

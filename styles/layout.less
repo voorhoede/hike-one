@@ -31,13 +31,13 @@ body.disable-scroll {
 .container {
   display: block;
   width: 100%;
-  margin: 0 0 @container-margin-bottom-s;
+  margin: 0 0 @spacing-default*5;
   padding: 0 @spacing-default*1.5;
 
   @media @screen-500 {
     max-width: @container-max-width;
-    margin: 0 auto @container-margin-bottom-l;
-    padding: 0 @spacing-small;
+    margin: 0 auto @spacing-default*9;
+    padding: 0 @spacing-default*2;
   }
 }
 
@@ -51,10 +51,10 @@ body.disable-scroll {
 }
 
 .container.container-inner {
-  margin: @spacing-small 0;
+  margin: @spacing-default*2 0;
 
   @media @screen-500 {
-    margin: 0 auto @spacing-container;
+    margin: 0 auto @spacing-default*10;
   }
 }
 
@@ -72,8 +72,8 @@ body.disable-scroll {
   position: relative;
   z-index: @layer-raised;
   max-width: none;
-  margin-top: -100px; // gives header a white background
-  padding-top: 100px; // gives header a white background
+  margin-top: -@spacing-default*10; // gives header a white background
+  padding-top: @spacing-default*10; // gives header a white background
   padding-bottom: 1px; // fix  collapsed margin of last child
   background-color: @white;
 }
@@ -104,6 +104,6 @@ body.disable-scroll {
   }
 
   @media @screen-768 {
-    padding-top: @spacing-medium*3;
+    padding-top: @spacing-default*9;
   }
 }

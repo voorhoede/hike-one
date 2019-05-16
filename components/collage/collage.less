@@ -2,7 +2,7 @@
 
 .collage {
   position: relative;
-  margin-bottom: @spacing-large*2;
+  margin-bottom: @spacing-default*8;
 
   @media @screen-500 {
     display: flex;
@@ -16,11 +16,11 @@
   }
 
   @media @screen-1024 {
-    margin-bottom: @spacing-small*6;
+    margin-bottom: @spacing-default*12;
   }
 
   @media @screen-1170 {
-    padding-top: @spacing-large;
+    padding-top: @spacing-default*4;
   }
 
   a {
@@ -54,21 +54,21 @@
 .collage-image-small {
   display: none;
   position: absolute;
-  right: -@spacing-default * 3;
+  right: -@spacing-default*3;
 
   @media @screen-768 {
     display: block;
-    right: -@spacing-default * 4;
+    right: -@spacing-default*4;
     bottom: 30px;
   }
 
   @media @screen-1024 {
-    right: -@spacing-default * 8;
+    right: -@spacing-default*8;
     bottom: 50px;
   }
 
   @media @screen-1170 {
-    right: -@spacing-default * 8;
+    right: -@spacing-default*8;
     bottom: 70px;
   }
 }
@@ -88,15 +88,15 @@
 
   @media @screen-768 {
     display: block;
-    margin-top: -30px;
+    margin-top: -@spacing-default*3;
   }
 
   @media @screen-1024 {
-    margin-top: -100px;
+    margin-top: -@spacing-default*10;
   }
 
   @media @screen-1170 {
-    margin-top: -120px;
+    margin-top: -@spacing-default*12;
   }
 }
 
@@ -114,27 +114,27 @@
 .collage-text-container {
   display: flex;
   flex-direction: column;
-  margin-top: @spacing-small;
-  margin-right: @spacing-small;
+  margin-top: @spacing-default*2;
+  margin-right: @spacing-default*2;
   margin-bottom: 0;
 
   @media @screen-500 {
-    margin-right: @spacing-medium;
+    margin-right: @spacing-default*3;
     padding: 0 0;
   }
 
   @media @screen-768 {
     width: 50%;
     max-width: @column-large-3;
-    margin-top: @spacing-small*5;
-    margin-right: @spacing-medium;
+    margin-top: @spacing-default*10;
+    margin-right: @spacing-default*3;
     margin-left: auto;
     padding: 0 0 0 @column-large-1;
   }
 
   @media @screen-1024 {
-    margin-right: @spacing-small*4;
-    margin-left: @spacing-small*5;
+    margin-right: @spacing-default*8;
+    margin-left: @spacing-default*10;
   }
 
   @media @screen-1170 {

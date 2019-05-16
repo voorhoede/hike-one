@@ -8,8 +8,8 @@
   .clearfix();
 
   display: grid;
-  grid-column-gap: @spacing-small;
-  grid-row-gap: @spacing-small;
+  grid-column-gap: @spacing-default*2;
+  grid-row-gap: @spacing-default*2;
   grid-template-columns: repeat(2, 1fr);
   max-width: @column-small-12;
   margin-bottom: 0;
@@ -24,8 +24,8 @@
   }
 
   @media @screen-1024 {
-    grid-gap: @spacing-large;
-    grid-row-gap: @spacing-large;
+    grid-gap: @spacing-default*4;
+    grid-row-gap: @spacing-default*4;
     grid-template-columns: repeat(5, 1fr);
   }
 
@@ -48,7 +48,7 @@
 
   .filters-toggle {
     margin: 0 auto;
-    margin-bottom: @spacing-medium;
+    margin-bottom: @spacing-default*3;
 
     @media @screen-768 {
       display: none;
@@ -56,7 +56,7 @@
   }
 
   .filters-container {
-    margin-bottom: @spacing-medium;
+    margin-bottom: @spacing-default*3;
   }
 
   .filters-container.hide {

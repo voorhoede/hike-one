@@ -1,4 +1,4 @@
-import 'core-js/fn/array/find'
+import 'core-js/features/array/find'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Head from 'next/head'

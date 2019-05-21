@@ -59,5 +59,5 @@ elif [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ] && [ -z "$TRAVIS_PULL_REQUEST_B
   # get the alias that was just deployed using the assigned ID meta tag
   now_deployment_id="$(npx now -t "$NOW_TOKEN" ls -m ID="$meta" | grep hike-one | awk '{ print $2 }')";
 
-  npx now alias -t "$NOW_TOKEN" "$now_deployment_id" staging.hike.one
+  npx now alias -t "$NOW_TOKEN" "$now_deployment_id" staging.now-v2.hike.one
 fi

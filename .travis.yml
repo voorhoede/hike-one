@@ -3,18 +3,13 @@ git:
   depth: 1
 node_js:
   - '8'
-env:
-  global:
-    - LOCAL_BIN="${TRAVIS_BUILD_DIR}/local/bin"
-    - PATH="${PATH}:${LOCAL_BIN}"
 cache:
   npm: true
-  directories:
-    - "$LOCAL_BIN"
 branches:
   only:
     - /^v\d+\.\d+\.\d+$/
     - master
+    - chore/zeit-now-v2
 notifications:
   email: false
 install:

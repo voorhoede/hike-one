@@ -11,8 +11,10 @@
   ],
   "builds": [{ "src": "server.js", "use": "@now/node-server", "config": { "maxLambdaSize": "50mb" } }],
   "env": {
-    "DATO_API_TOKEN": "@hike_one_dato_api_token"
+    "DATO_API_TOKEN": "@hike_one_dato_api_token",
+    "DOMAINS": "now-v2.hike.one now-v2.hikeone.com now-v2.hikeone.nl"
   },
+  "regions": ["bru"],
   "github": {
     "autoAlias": false,
     "autoJobCancelation": true

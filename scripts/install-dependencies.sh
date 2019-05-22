@@ -5,7 +5,8 @@ set -u;
 # temporarily remove package.json to avoid installing project dependencies
 mv package.json disabled-package.json;
 
-# install plek; the only package required to deploy the project.
+# install uuid to generate a meta tag for identifying the staging deployment
+# for aliasing when building the master branch.
 npm install --no-save uuid;
 
 # restore package.json

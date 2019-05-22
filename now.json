@@ -10,6 +10,11 @@
     "now-v2.www.hikeone.nl"
   ],
   "builds": [{ "src": "server.js", "use": "@now/node-server", "config": { "maxLambdaSize": "50mb" } }],
+  "build": {
+    "env": {
+      "DATO_API_TOKEN": "@hike_one_dato_api_token"
+    }
+  },
   "env": {
     "DATO_API_TOKEN": "@hike_one_dato_api_token",
     "DOMAINS": "now-v2.hike.one now-v2.hikeone.com now-v2.hikeone.nl"

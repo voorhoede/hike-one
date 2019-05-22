@@ -1,7 +1,6 @@
 const apiRouter = require('./lib/api-router')
 const dataLoader = require('./lib/data-loader')
 const getSitemap = require('./lib/sitemap')
-const redirection = require('./lib/www-redirect')
 const datoRedirect = require('./lib/dato-redirect')
 
 const express = require('express')
@@ -11,21 +10,25 @@ const helmet = require('helmet')
 const compression = require('compression')
 
 const dev = process.env.NODE_ENV !== 'production'
-const port = process.env.PORT || 3000
+const isDevelopment = process.env.ENVIRONMENT === 'development'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()
 
-const startServer = () => server.listen(port, (err) => {
-  if (err) throw err
-  console.log(`> Ready on http://localhost:${port}`)
-})
-
+const startServer = () => {
+  const app = server.listen(isDevelopment ? 3000 : 0)
+  // eslint-disable-next-line no-console
+  console.info(`Server listening on http://localhost:${app.address().port}`)
+}
+//
 server.use(compression())
 server.use(helmet())
 server.use('/sitemap.xml', getSitemap)
 server.use(express.static('./static/root'))
-server.use(redirection)
+if (!isDevelopment) {
+  // load redirection middleware if not in local development
+  server.use(require('./lib/www-redirect'))
+}
 server.use(datoRedirect)
 server.use(cookieParser())
 server.use('/api/', apiRouter)

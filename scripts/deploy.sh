@@ -39,7 +39,7 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     -e ENVIRONMENT="$deployment";
 
 # Staging is deployed from master, pull requests targeting master are ignored
-elif [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
+elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
   echo 'Build staging environment';
   deployment='staging';
   disallow_robots;

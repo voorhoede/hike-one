@@ -2,12 +2,12 @@
   "version": 1,
   "name": "hike-one",
   "alias": [
-    "now-v2.hike.one",
-    "now-v2.www.hike.one",
-    "now-v2.hikeone.com",
-    "now-v2.www.hikeone.com",
-    "now-v2.hikeone.nl",
-    "now-v2.www.hikeone.nl"
+    "hike.one",
+    "www.hike.one",
+    "hikeone.com",
+    "www.hikeone.com",
+    "hikeone.nl",
+    "www.hikeone.nl"
   ],
   "build": {
     "env": {

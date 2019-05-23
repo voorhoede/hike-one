@@ -1,6 +1,7 @@
 {
   "version": 1,
   "name": "hike-one",
+  "scope":"postbus",
   "alias": [
     "hike.one",
     "www.hike.one",

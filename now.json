@@ -26,6 +26,7 @@
   },
   "github": {
     "autoAlias": false,
-    "autoJobCancelation": true
+    "autoJobCancelation": true,
+    "silent": true
   }
 }

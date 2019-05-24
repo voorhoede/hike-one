@@ -49,13 +49,11 @@ const Team = ({
 
         <div className={`page-scrolling-content-small`}>
           <TeamSelector slug={tab} />
-
           {tab === 'culture' && (
             <TeamOverview
               data={TeamOverviewData}
             />
           )}
-
           {tab === 'people' && (
             <TeamMembersOverview
               introText={TeamMembersOverview.peopleTabIntro}
@@ -63,13 +61,14 @@ const Team = ({
               queryParam={queryParam}
             />
           )}
-
           <VacancyOverview
             overview={VacanciesOverviewData}
             vacancies={VacanciesData}
           />
         </div>
+
       </article>
+
       <Footer
         callToActionLabel={TeamOverviewData.footer.callToActionLabel}
         callToActionUrl={TeamOverviewData.footer.callToActionUrl}

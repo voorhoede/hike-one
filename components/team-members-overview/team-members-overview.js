@@ -59,16 +59,13 @@ class TeamMembersOverview extends Component {
   }
 
   getDepartments(data) {
-    const departments = data.map(item => (
-        item.departments.map(department => department.title)
-      ))
+    const allDepartments = data
+      .map(item => item.departments.map(item => item.title))
       .reduce((a, b) => a.concat(b), [])
-      .filter((role, index, roles) => roles
-        .findIndex(item => role === item) === index)
+    const uniqueDepartments = [...new Set(allDepartments)]
+    uniqueDepartments.unshift('Everyone')
 
-      departments.unshift('Everyone')
-
-      return departments
+    return uniqueDepartments
   }
 
   render() {

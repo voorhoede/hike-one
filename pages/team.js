@@ -50,7 +50,11 @@ const Team = ({
         <div className={`page-scrolling-content-small`}>
           <TeamSelector slug={tab} />
 
-          {tab === 'culture' && <TeamOverview data={TeamOverviewData} />}
+          {tab === 'culture' && (
+            <TeamOverview
+              data={TeamOverviewData}
+            />
+          )}
 
           {tab === 'people' && (
             <TeamMembersOverview
@@ -60,7 +64,10 @@ const Team = ({
             />
           )}
 
-          <VacancyOverview overview={VacanciesOverviewData} vacancies={VacanciesData} />
+          <VacancyOverview
+            overview={VacanciesOverviewData}
+            vacancies={VacanciesData}
+          />
         </div>
       </article>
       <Footer

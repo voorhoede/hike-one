@@ -9,6 +9,8 @@ import {
   Author,
   BodyQuote,
   CallToAction,
+  Contact,
+  ContactShapes,
   FiftyFifty,
   Footer,
   FullWidthHeader,
@@ -161,6 +163,16 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
             )
           })}
         </div>
+
+        {Data.contact && (
+          <Contact
+            title={Data.contact.title}
+            button={Data.contact.button}
+            link={Data.contact.externalLink}
+            target="_blank" rel="noopener noreferrer">
+            <ContactShapes.variation1Front position="front" />
+          </Contact>
+        )}
 
         <TextCenter
           classes="text-center-font-medium text-center-spacing-small"

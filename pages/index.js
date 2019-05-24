@@ -11,7 +11,6 @@ import {
   Footer,
   Layout,
   MenuBar,
-  NotificationBar,
   PageHeader,
   PageHeaderShapes,
   ServicesOverviewSmall,
@@ -39,13 +38,10 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           <PageHeaderShapes.variation1Back position="back" />
         </PageHeader>
 
-        <div className={`${scrollToTargetClass} ${Data.notificationBar && 'has-notification-bar'} page-scrolling-content`}>
-          {Data.notificationBar && (
-            <NotificationBar
-            color={Data.notificationBar.color}
-            text={Data.notificationBar.text}
-            callToActionLabel={Data.notificationBar.callToActionLabel}
-            callToActionUrl={Data.notificationBar.callToActionUrl}
+          <div className={`${scrollToTargetClass} page-scrolling-content`}>
+            <ServicesOverviewSmall
+              title={Data.servicesItemTitle}
+              services={Data.serviceItems}
             />
           )}
 

@@ -1,176 +1,83 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ButtonSecondary, Filter, TeamMember } from '../'
+import { TeamMember, Topics } from '../'
 
 class TeamMembersOverview extends Component {
   constructor(props) {
     super(props)
 
-    const { team, queryParam } = props
+    const { team } = props
 
     this.state = {
-      roles: getRoles(team),
-      locations: getLocations(team),
-      isFilterCollapsed: true,
+      departments: this.getDepartments(team),
+      filteredTeam: this.filterTeamMembers(props.team, 'All'),
     }
 
-    this.handleQueryParams(queryParam)
-    this.setQueryParams = this.setQueryParams.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.onFilterHandler = this.onFilterHandler.bind(this)
+    this.changeTopicHandler = this.changeTopicHandler.bind(this)
+    this.getDepartments = this.getDepartments.bind(this)
+    this.filterTeamMembers = this.filterTeamMembers.bind(this)
+    this.hasSelectedDepartment = this.hasSelectedDepartment.bind(this)
   }
 
-  onFilterHandler(filter, index, active) {
-    this.setQueryParams(filter, index, active)
-    const isFirstItemActive = filter.every(item => item.isActive)
-    const isEveryItemDeactive = filter.every((item, filterIndex) => {
-      if (index === filterIndex) {
-        return item.isActive
-      }
+  changeTopicHandler(e) {
+    const { team } = this.props;
+    const updatedTeam = this.filterTeamMembers(team, e.value)
 
-      return !item.isActive
-    })
+    this.setState({ filteredTeam: updatedTeam })
+  }
 
-    if (isFirstItemActive) {
-      setOneItemActive(filter, index)
-    } else if (isEveryItemDeactive) {
-      setAllItemsActive(filter)
-    } else {
-      const item = filter[index]
-      item.isActive = !item.isActive
+  filterTeamMembers(team, topic) {
+    return team
+      .filter(member => !member.hide)
+      .filter(member => this.hasSelectedDepartment(member, topic))
+  }
+
+  hasSelectedDepartment(member, topic) {
+    if (topic === 'All')
+      return true
+    else {
+      return member.departments.some(department => department.title === topic)
     }
-
-    this.setState({ filter: filter })
   }
 
-  handleQueryParams(queryParam) {
-    this.state.roles.find((item, index) => {
-      if (item.value === queryParam) {
-        return setOneItemActive(this.state.roles, index)
-      } else {
-        this.state.locations.find((item, index) => {
-          if (item.value === queryParam) {
-            return setOneItemActive(this.state.locations, index)
-          }
+  getDepartments(data) {
+    const departments = data.map(item => (
+        item.departments.map(department => ({
+          value: department.title,
+          isActive: false,
         })
-      }
-    })
-  }
+      )))
+      .reduce((a, b) => a.concat(b), [])
+      .filter((role, index, roles) => roles
+        .findIndex(item => role.value === item.value) === index)
 
-  setQueryParams(filter, index, active) {
-    const url = '/team/people?'
-    let newUrl = ''
+      departments.unshift({ value: 'All', isActive: true })
 
-    if (!active) {
-      newUrl = `filter=${filter[index].value}`
-    }
-
-    window.history.replaceState(null, null, `${encodeURI(`${url}${newUrl}`)}`)
-  }
-
-  handleClick() {
-    const { isFilterCollapsed } = this.state
-    this.setState({ isFilterCollapsed: !isFilterCollapsed })
+      return departments
   }
 
   render() {
-    const { team, introText } = this.props
-    const { roles, locations, isFilterCollapsed } = this.state
-    const filteredTeam = filterTeam(team, this.state)
-    const buttonIcon = isFilterCollapsed ? 'arrowDown' : 'arrowUp'
-    const buttonClass = isFilterCollapsed ? 'arrow-down' : 'arrow-up'
-    const filtersContainerClass = isFilterCollapsed ? 'hide' : ''
+    const { introText } = this.props
+    const { departments, filteredTeam } = this.state
 
     return (
       <div className="filters">
-        <ButtonSecondary
-          onClick={this.handleClick}
-          classes={`btn-red-border vertical-spring ${buttonClass} filters-toggle`}
-          icon={buttonIcon}>
-          Filters
-        </ButtonSecondary>
-        <div className={`${filtersContainerClass} filters-container`}>
-          <Filter filter={roles} onFilter={this.onFilterHandler} />
-          <Filter filter={locations} onFilter={this.onFilterHandler} />
+        <div className="filters-container">
+          <Topics
+            keyword="Role"
+            topics={departments}
+            onTopicChanged={this.changeTopicHandler} />
         </div>
 
         {introText && <p className="team-members-intro-text container">{introText}</p>}
         <ul className="team-members-overview container">
-          {filteredTeam.map((teamMember, index) => (
-            <TeamMember key={index} data={teamMember} />
+          {filteredTeam.map((member, index) => (
+            <TeamMember key={index} data={member} />
           ))}
         </ul>
       </div>
     )
   }
-}
-
-function filterTeam(team, state) {
-  const { roles, locations } = state
-
-  return team
-    .filter(teamMember => !teamMember.hide)
-    .filter(teamMember => hasActiveLocation(locations, teamMember))
-    .filter(teamMember => hasActiveRole(roles, teamMember))
-}
-
-function getRoles(data) {
-  return data
-    .map(item => {
-      return item.newRoles.map(role => {
-        return {
-          value: role.title,
-          isActive: true,
-        }
-      })
-    })
-    .reduce((a, b) => a.concat(b), [])
-    .filter((role, index, roles) => {
-      return roles.findIndex(item => role.value === item.value) == index
-    })
-}
-
-function getLocations(data) {
-  return data
-    .map(item => {
-      return {
-        value: item.location.location,
-        isActive: true,
-      }
-    })
-    .filter((location, index, locations) => {
-      return locations.findIndex(item => location.value === item.value) == index
-    })
-}
-
-function hasActiveLocation(locations, teamMember) {
-  return locations.some(location => {
-    if (!location.isActive) {
-      return false
-    }
-
-    return location.value === teamMember.location.location
-  })
-}
-
-function hasActiveRole(roles, teamMember) {
-  return roles.some(role => {
-    if (!role.isActive) {
-      return false
-    }
-
-    return teamMember.newRoles.some(memberRole => {
-      return role.value === memberRole.title
-    })
-  })
-}
-
-function setOneItemActive(array, index) {
-  array.forEach((item, arrayIndex) => (item.isActive = index === arrayIndex))
-}
-
-function setAllItemsActive(array) {
-  array.forEach(item => (item.isActive = true))
 }
 
 TeamMembersOverview.propTypes = {

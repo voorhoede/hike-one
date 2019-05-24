@@ -52,7 +52,6 @@ import MailchimpForm from './mailchimp/mailchimp-form.js'
 import Medium from './icons/medium-circle.js'
 import MenuBar from './menu-bar/menu-bar.js'
 import MustRead from './must-read/must-read.js'
-import NotificationBar from './notification-bar/notification-bar.js'
 import OfficeCard from './office-card/office-card.js'
 import OfficeOverview from './office-overview/office-overview.js'
 import PageHeader from './page-header/page-header.js'
@@ -141,7 +140,6 @@ export {
   Medium,
   MenuBar,
   MustRead,
-  NotificationBar,
   OfficeCard,
   OfficeOverview,
   PageHeader,

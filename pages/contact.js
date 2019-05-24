@@ -29,10 +29,10 @@ const Contact = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           image={Data.header.backgroundImage.url}
         />
 
-        <div className={`page-scrolling-content-small`}>
+        <div className="page-scrolling-content-small">
           <ContactForm form={Data.contactForm} />
 
-          <TextCenter classes={`text-center-font-large contact-text-center`} text={Data.content}>
+          <TextCenter classes="text-center-font-large contact-text-center" text={Data.content}>
             <TextCenterShapes.variation2Back position="back" />
           </TextCenter>
 

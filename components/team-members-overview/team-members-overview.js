@@ -6,12 +6,15 @@ class TeamMembersOverview extends Component {
   constructor(props) {
     super(props)
 
-    const { team } = props
+    const { team, queryParam } = props
 
     this.state = {
+      activeTopic: 'Everyone',
       departments: this.getDepartments(team),
-      filteredTeam: this.filterTeamMembers(props.team, 'All'),
+      filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
     }
+
+    this.handleQueryParams(queryParam)
 
     this.changeTopicHandler = this.changeTopicHandler.bind(this)
     this.getDepartments = this.getDepartments.bind(this)
@@ -19,52 +22,65 @@ class TeamMembersOverview extends Component {
     this.hasSelectedDepartment = this.hasSelectedDepartment.bind(this)
   }
 
-  changeTopicHandler(e) {
-    const { team } = this.props;
-    const updatedTeam = this.filterTeamMembers(team, e.value)
+  changeTopicHandler(value) {
+    const { team } = this.props
+    const updatedTeam = this.filterTeamMembers(team, value)
 
+    this.setQueryParams(value)
     this.setState({ filteredTeam: updatedTeam })
   }
 
-  filterTeamMembers(team, topic) {
-    return team
-      .filter(member => !member.hide)
-      .filter(member => this.hasSelectedDepartment(member, topic))
+  handleQueryParams(queryParam) {
+    const { team } = this.props
+    const department = this.state.departments.find(item => item === queryParam)
+
+    if (department) {
+      this.state.activeTopic = queryParam // eslint-disable-line react/no-direct-mutation-state
+      this.state.filteredTeam = this.filterTeamMembers(team, department) // eslint-disable-line react/no-direct-mutation-state
+    }
   }
 
-  hasSelectedDepartment(member, topic) {
-    if (topic === 'All')
+  setQueryParams(filter) {
+    window.history.replaceState(null, null, encodeURI(`/team/people?filter=${filter}`))
+  }
+
+  filterTeamMembers(team, role) {
+    return team
+      .filter(member => !member.hide)
+      .filter(member => this.hasSelectedDepartment(member, role))
+  }
+
+  hasSelectedDepartment(member, role) {
+    if (role === 'Everyone')
       return true
     else {
-      return member.departments.some(department => department.title === topic)
+      return member.departments.some(department => department.title === role)
     }
   }
 
   getDepartments(data) {
     const departments = data.map(item => (
-        item.departments.map(department => ({
-          value: department.title,
-          isActive: false,
-        })
-      )))
+        item.departments.map(department => department.title)
+      ))
       .reduce((a, b) => a.concat(b), [])
       .filter((role, index, roles) => roles
-        .findIndex(item => role.value === item.value) === index)
+        .findIndex(item => role === item) === index)
 
-      departments.unshift({ value: 'All', isActive: true })
+      departments.unshift('Everyone')
 
       return departments
   }
 
   render() {
     const { introText } = this.props
-    const { departments, filteredTeam } = this.state
+    const { activeTopic, departments, filteredTeam } = this.state
 
     return (
       <div className="filters">
         <div className="filters-container">
           <Topics
             keyword="Role"
+            activeTopic={activeTopic}
             topics={departments}
             onTopicChanged={this.changeTopicHandler} />
         </div>

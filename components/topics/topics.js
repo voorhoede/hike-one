@@ -8,7 +8,7 @@ class Topics extends Component {
 
     this.state = {
       isCollapsed: true,
-      selectedTopic: props.topics[0],
+      selectedTopic: props.activeTopic,
     }
 
     this.setActiveTopic = this.setActiveTopic.bind(this)
@@ -41,7 +41,7 @@ class Topics extends Component {
     return (
       <div className="topics container">
         <ButtonClean classes="topics__toggle" icon={icon} onClick={this.handleListToggle}>
-          {keyword}: {selectedTopic.value}
+          {keyword}: {selectedTopic}
         </ButtonClean>
         <ul className={`topics__list container-inner ${toggleClass}`}>
           {topics.map((topic, index) => {
@@ -52,7 +52,7 @@ class Topics extends Component {
                 <ButtonClean
                   classes="topic__button"
                   onClick={() => this.setActiveTopic(topic)}>
-                  {topic.value}
+                  {topic}
                 </ButtonClean>
               </li>
             )
@@ -64,6 +64,7 @@ class Topics extends Component {
 }
 
 Topics.propTypes = {
+  activeTopic: PropTypes.string,
   keyword: PropTypes.string,
   topics: PropTypes.array,
   onTopicChanged: PropTypes.func,

@@ -45,3 +45,5 @@ Promise.all([
   dataLoader.load(),
 ])
 .then(startServer)
+
+// foo

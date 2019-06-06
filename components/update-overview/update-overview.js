@@ -41,8 +41,9 @@ class UpdateOverview extends Component {
     const filteredUpdates = this.filterUpdates(updatesData, value)
 
     this.setState({
-      filteredUpdates: filteredUpdates,
       activeTopic: value,
+      filteredUpdates: filteredUpdates,
+      pageOffset: 1,
      })
   }
 
@@ -79,6 +80,7 @@ class UpdateOverview extends Component {
     const slicedUpdates = filteredUpdates.slice(0, pageOffset * pageSize)
     const totalPages = Math.ceil(filteredUpdates.length / pageSize)
     const buttonClass = loading ? 'loading' : 'vertical-spring'
+    const highlightsClass = activeTopic === 'All' ? 'highlights--show' : 'highlights--hidden'
     const icon = !loading ? 'arrowDown' : 'spinner'
 
     return (
@@ -91,7 +93,7 @@ class UpdateOverview extends Component {
             onTopicChanged={this.changeTopicHandler}
           />
         </div>
-        <div className="container-inner">
+        <div className={`container-inner ${highlightsClass}`}>
           <UpdatesExtractLarge
             highlights={data.highlights}
             mustRead={data.mustRead}

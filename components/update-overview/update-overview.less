@@ -8,6 +8,28 @@
     display: block;
   }
 
+  .updates-highlights {
+    overflow-y: hidden;
+  }
+
+  .highlights--show .updates-highlights {
+    opacity: 1;
+    transition-property: opacity, max-height;
+    transition-duration: .25s, .25s;
+    transition-delay: .25s, 0s;
+    transition-timing-function: ease-in-out, ease-in-out;
+    max-height: 1080px;
+  }
+
+  .highlights--hidden .updates-highlights {
+    opacity: 0;
+    transition-property: opacity, max-height;
+    transition-duration: .25s, .25s;
+    transition-delay: 0s, .25s;
+    transition-timing-function: ease-in-out, ease-in-out;
+    max-height: 0;
+  }
+
   .update-extract-small {
     max-width: 450px;
     margin-right: auto;

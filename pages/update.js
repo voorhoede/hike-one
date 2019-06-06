@@ -147,6 +147,16 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                   hasShadow={component.subscriptionForm.hasShadow}
                 />
               )
+
+            case 'video':
+              return (
+                <InlineMedia
+                  key={index}
+                  video={component}
+                  caption={component.caption}
+                  large={component.large}
+                />
+              )
           }
         })}
 

@@ -45,23 +45,11 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
         />
         {Data.content.map((component, index) => {
           switch (component.itemType) {
-            case 'rich_body_text':
-              return (
-                <RichBodyText
-                  key={index}
-                  content={component.content}
-                  textCenter={component.centered}
-                />
-              )
-
-            case 'body_quote':
-              return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
-
             case '50_50':
               return (
                 <FiftyFifty
-                  classes="fifty-fifty-update"
                   key={index}
+                  classes="fifty-fifty-update"
                   contentLeft={component.textLeft}
                   title={component.title}
                   text={component.text}
@@ -73,8 +61,8 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
             case '50_50_text_right':
               return (
                 <FiftyFifty
-                  classes="fifty-fifty-update"
                   key={index}
+                  classes="fifty-fifty-update"
                   title={component.title}
                   text={component.text}
                   image={component.image}
@@ -84,8 +72,8 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
             case '50_50_text_left':
               return (
                 <FiftyFifty
-                  classes="fifty-fifty-update"
                   key={index}
+                  classes="fifty-fifty-update"
                   contentLeft={true}
                   title={component.title}
                   text={component.text}
@@ -93,27 +81,14 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                 />
               )
 
-            case 'inline_image':
+            case 'body_quote':
               return (
-                <InlineMedia
+                <BodyQuote
                   key={index}
-                  image={component.image ? component.image.url : undefined}
-                  caption={component.caption}
-                 />
-              )
-
-            case 'inline_image_large':
-              return (
-                <InlineMedia
-                  key={index}
-                  large={true}
-                  image={component.image ? component.image.url : undefined}
-                  caption={component.caption}
+                  quote={component.quote}
+                  quotee={component.quotee}
                 />
               )
-
-            case 'full_width_image_small':
-              return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
 
             case 'call_to_action':
               return (
@@ -126,6 +101,37 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
                   titleWhite={component.titleWhite}
                   fullWidth={component.fullWidth}
                   isExternalLink={component.isExternalLink}
+                />
+              )
+
+            case 'full_width_image_small':
+              return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
+
+            case 'inline_image':
+              return (
+                <InlineMedia
+                  key={index}
+                  image={component.image ? component.image.url : undefined}
+                  caption={component.caption}
+                />
+              )
+
+            case 'inline_image_large':
+              return (
+                <InlineMedia
+                  key={index}
+                  large={true}
+                  image={component.image ? component.image.url : undefined}
+                  caption={component.caption}
+                />
+              )
+
+            case 'rich_body_text':
+              return (
+                <RichBodyText
+                  key={index}
+                  content={component.content}
+                  textCenter={component.centered}
                 />
               )
 

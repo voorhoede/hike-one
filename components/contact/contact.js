@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ButtonPrimaryLink } from '../'
 
-const Contact = ({ title = '', button = '', link = false, target = '_self', children }) => {
+const Contact = ({ title = '', button = '', link = '', target = '_self', children }) => {
   const childrenArray = React.Children.toArray(children)
   const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
 

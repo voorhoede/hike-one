@@ -84,9 +84,7 @@ class TeamMembersOverview extends Component {
 
         {introText && <p className="team-members-intro-text container">{introText}</p>}
         <ul className="team-members-overview container">
-          {filteredTeam.map((member, index) => (
-            <TeamMember key={index} data={member} />
-          ))}
+          {filteredTeam.map(member => <TeamMember key={member.id} data={member} /> )}
         </ul>
       </div>
     )

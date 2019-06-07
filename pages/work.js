@@ -54,10 +54,9 @@ const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
           </Contact>
         </div>
       </article>
-      <Footer
-        callToActionLabel={data.footer.callToActionLabel}
-        callToActionUrl={data.footer.callToActionUrl}
-      />
+
+      <Footer form={data.footer.form} />
+
     </main>
   </Layout>
 )

@@ -319,10 +319,9 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           </UpdateLinks>
         </div>
       </article>
-      <Footer
-        callToActionLabel={Data.footer.callToActionLabel}
-        callToActionUrl={Data.footer.callToActionUrl}
-      />
+
+      <Footer form={Data.footer.form} />
+
     </main>
   </Layout>
 )

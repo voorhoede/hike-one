@@ -27,7 +27,16 @@ const FiftyFifty = ({
       {parallaxLayerBack}
       <div className="container-inner">
         <div className="fifty-fifty-media">
-          {video && <InlineVideo video={video} classes="content" autoplay={true} loop={true} mute={true} /> }
+          {video && (
+            <InlineVideo
+              video={video}
+              classes="content"
+              autoplay={true}
+              loop={true}
+              mute={true}
+              controls={false}
+            />
+          )}
 
           {image && !imageLarge && (
             <img

@@ -5,16 +5,26 @@ class InlineVideo extends Component {
   binaryBoolean = value => (value ? 1 : 0)
 
   videoSrc = () => {
-    const { autoplay, loop } = this.props
+    const { autoplay, controls, loop } = this.props
     const { provider, providerUid } = this.props.video
     const mute = autoplay || this.props.mute
 
     switch (provider) {
       case 'vimeo':
-        return `https://player.vimeo.com/video/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&muted=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}`
+        return `https://player.vimeo.com/video/${providerUid}
+          ?autoplay=${this.binaryBoolean(autoplay)}
+          &muted=${this.binaryBoolean(mute)}
+          &loop=${this.binaryBoolean(loop)}
+          &controls=${this.binaryBoolean(controls)}`
 
       case 'youtube':
-        return `https://www.youtube.com/embed/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
+        return `https://www.youtube.com/embed/${providerUid}
+          ?autoplay=${this.binaryBoolean(autoplay)}
+          &mute=${this.binaryBoolean(mute)}
+          &loop=${this.binaryBoolean(loop)}
+          &controls=${this.binaryBoolean(controls)}
+          &disablekb=${this.binaryBoolean(!controls)}
+          &playlist=${providerUid}`
 
       default:
         console.error(`unsupported video provider: ${provider}`) // eslint-disable-line no-console
@@ -31,14 +41,16 @@ class InlineVideo extends Component {
   }
 
   render() {
-    const { classes } = this.props
+    const { classes, controls } = this.props
     const videoRatio = this.ratio()
+    const controlsClass = controls ? '' : 'inline-video--is-background'
+    const videoSrc = this.videoSrc().replace(/\s+/g, '')
 
     return (
-      <div className={`inline-video ${classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
+      <div className={`inline-video ${classes} ${controlsClass}`} style={{ paddingBottom: `${videoRatio}%` }}>
         <iframe
           className="video"
-          src={this.videoSrc()}
+          src={videoSrc}
           frameBorder="0"
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
@@ -52,6 +64,7 @@ class InlineVideo extends Component {
 InlineVideo.propTypes = {
   video: PropTypes.object,
   autoplay: PropTypes.bool,
+  controls: PropTypes.bool,
   mute: PropTypes.bool,
   loop: PropTypes.bool,
   classes: PropTypes.string,

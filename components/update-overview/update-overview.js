@@ -67,11 +67,8 @@ class UpdateOverview extends Component {
   }
 
   hasSelectedTopic(update, topic) {
-    if (topic === 'All')
-      return true
-    else {
-      return update.category.name === topic
-    }
+    if (topic === 'All') { return true }
+    return update.category.name === topic
   }
 
   render() {

@@ -39,10 +39,17 @@ const MailchimpForm = ({
 
       {/* <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups--> */}
       <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-        <input type="text" name="b_9fcf53aac8cfc03a445bd4e2f_5088a72738" value="" tabIndex="-1" />
+        <input
+          readOnly
+          type="text"
+          name="b_9fcf53aac8cfc03a445bd4e2f_5088a72738"
+          value=""
+          tabIndex="-1"
+        />
       </div>
 
       <input
+        readOnly
         type="submit"
         value={buttonLabel}
         name="subscribe"

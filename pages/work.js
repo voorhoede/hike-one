@@ -49,7 +49,10 @@ const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             })}
           </WorkOverview>
-          <Contact title={data.contact.title} button={data.contact.button}>
+          <Contact
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
         </div>

@@ -287,7 +287,10 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
             }
           })}
 
-          <Contact title={Data.contact.title} button={Data.contact.button}>
+          <Contact
+            title={Data.contact.title}
+            button={Data.contact.button}
+            link={Data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
 

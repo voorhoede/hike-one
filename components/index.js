@@ -71,6 +71,7 @@ import TeamMember from './team-member/team-member.js'
 import TextCard from './text-card/text-card.js'
 import TextCenter from './text-center/text-center.js'
 import * as TextCenterShapes from './text-center/text-center-shapes.js'
+import Topics from './topics/topics.js'
 import TrailDiamond from './shapes/trail-diamond/trail-diamond.js'
 import TrailDoubleDiamond from './shapes/trail-double-diamond/trail-double-diamond.js'
 import TrailTriangle from './shapes/trail-triangle/trail-triangle.js'
@@ -159,6 +160,7 @@ export {
   TextCard,
   TextCenter,
   TextCenterShapes,
+  Topics,
   TrailDiamond,
   TrailDoubleDiamond,
   TrailTriangle,

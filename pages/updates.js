@@ -9,29 +9,33 @@ import UpdateOverview from '../components/update-overview/update-overview'
 import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
 
-const Updates = ({ Data = {}, updatesData = [], fontsLoaded = '', fullUrl = '' }) => {
-  return (
-    <Layout title="Hike One - Updates" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
-      <main className="main js-main">
-        <MenuBar color="white" />
-        <article className="article">
-          <PageHeader
-            isSmall={true}
-            title={Data.header.title}
-            subtitle={Data.header.subtitle}
-            image={Data.header.backgroundImage.url}
+const Updates = ({ Data = {}, updatesData = [], fontsLoaded = '', fullUrl = '' }) => (
+  <Layout title="Hike One - Updates" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
+    <main className="main js-main">
+      <MenuBar color="white" />
+
+      <article className="article">
+        <PageHeader
+          isSmall={true}
+          title={Data.header.title}
+          subtitle={Data.header.subtitle}
+          image={Data.header.backgroundImage.url}
+        />
+
+        <div className={`page-scrolling-content-small`}>
+          <UpdateOverview
+            data={Data}
+            updatesData={updatesData}
           />
-          <div className={`page-scrolling-content-small`}>
-            <UpdateOverview data={Data} updatesData={updatesData} />
-          </div>
-        </article>
+        </div>
 
-        <Footer form={Data.footer.form} />
+      </article>
 
-      </main>
-    </Layout>
-  )
-}
+      <Footer form={Data.footer.form} />
+
+    </main>
+  </Layout>
+)
 
 Updates.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''

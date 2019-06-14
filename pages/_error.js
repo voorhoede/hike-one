@@ -33,11 +33,8 @@ const Error = ({ data = {}, fontsLoaded = '', wrapperClass = '' }) => (
         )}
       </article>
 
-      <Footer
-        callToActionLabel="Up for a new challenge yourself? Join us!"
-        callToActionUrl="https://hikeone.homerun.co/"
-        disableParallax={true}
-      />
+      <Footer form={data.footer.form} />
+
     </main>
   </Layout>
 )

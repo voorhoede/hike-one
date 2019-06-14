@@ -54,6 +54,42 @@
     width: 50%;
     vertical-align: top;
   }
+
+  .mailchimp-form {
+    margin-bottom: @spacing-default*3;
+    padding: @spacing-default*2 0;
+    transition: color @animation-speed-slow;
+    border-top: 1px solid @dark-gray;
+    border-bottom: 1px solid @dark-gray;
+
+    .form {
+      align-items: flex-end;
+    }
+
+    .form-title {
+      color: @white;
+      text-align: left;
+    }
+
+    .input-field {
+      flex: 1 1 auto;
+      width: 100%;
+      margin-bottom: 0;
+
+      @media @screen-1024 {
+        width: auto;
+      }
+    }
+
+    .submit-btn {
+      margin: @spacing-default*2 0 0;
+      padding: @spacing-default*1.5 @spacing-default*5;
+
+      @media @screen-1024 {
+        margin: 0 0 0 @spacing-default*2;
+      }
+    }
+  }
 }
 
 .footer-right {
@@ -116,60 +152,6 @@
   &:hover {
     transition: color @animation-speed-fast;
     color: @red;
-  }
-}
-
-.footer-join-link {
-  display: block;
-  margin-bottom: @spacing-default*3;
-  padding: @spacing-default*2 0;
-  transition: color @animation-speed-slow;
-  border-top: 1px solid #717171;
-  border-bottom: 1px solid #717171;
-  color: @white;
-  font-size: @heading-small-s;
-  font-weight: @font-weight-bold;
-  line-height: @line-height-heading-s;
-  text-decoration: none;
-
-  @media @screen-768 {
-    margin-bottom: @spacing-default*6;
-    padding: @spacing-default*8 0;
-    font-size: @heading-small-m;
-    line-height: @line-height-heading-m;
-  }
-
-  @media @screen-1170 {
-    font-size: @heading-small-l;
-    line-height: @line-height-heading-l;
-  }
-
-  &:hover {
-    transition: color @animation-speed-fast;
-    color: @red;
-
-    span > svg > path {
-      transition: fill @animation-speed-fast;
-      fill: @red;
-    }
-  }
-}
-
-.footer-join-link svg {
-  display: inline-block;
-  box-sizing: content-box;
-  width: 35px;
-  height: 35px;
-  margin-left: @spacing-default/2;
-  vertical-align: middle;
-
-  @media @screen-768 {
-    vertical-align: sub;
-  }
-
-  path {
-    transition: fill @animation-speed-slow;
-    fill: @white;
   }
 }
 

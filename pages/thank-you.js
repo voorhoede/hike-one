@@ -28,11 +28,9 @@ const ThankYou = ({ page = {}, fontsLoaded = '', fullUrl = '' }) => (
           {page.callToActionLabel}
         </ButtonPrimaryLink>
       </article>
-      <Footer
-        callToActionLabel="Up for a new challenge yourself? Join us!"
-        callToActionUrl="https://hikeone.homerun.co/"
-        disableParallax={true}
-      />
+
+      <Footer form={page.footer.form} />
+
     </main>
   </Layout>
 )

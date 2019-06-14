@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { FooterLocations, Icon, Logo, SocialMedia } from '../'
+
+import {
+  FooterLocations,
+  Logo,
+  MailchimpForm,
+  SocialMedia
+} from '../'
 
 class Footer extends Component {
   constructor(props) {
@@ -48,7 +54,7 @@ class Footer extends Component {
   }
 
   render() {
-    const { callToActionUrl, callToActionLabel } = this.props
+    const { form } = this.props
 
     return (
       <footer ref={node => (this.footer = node)} className="footer">
@@ -91,13 +97,13 @@ class Footer extends Component {
                   </li>
                 </ul>
               </div>
-              <a
-                className="footer-join-link"
-                href={callToActionUrl}
-                target="_blank"
-                rel="noopener noreferrer">
-                {callToActionLabel} <Icon icon="arrowRightCircle" />
-              </a>
+              <MailchimpForm
+                title={form.title}
+                description={form.description}
+                listId={form.listId}
+                buttonLabel={form.button}
+                hasShadow={form.hasShadow}
+              />
             </div>
 
             <div className="footer-right">
@@ -129,9 +135,8 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
-  callToActionUrl: PropTypes.string,
-  callToActionLabel: PropTypes.string,
   disableParallax: PropTypes.bool,
+  form: PropTypes.object,
 }
 
 export default Footer

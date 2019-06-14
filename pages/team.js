@@ -69,10 +69,8 @@ const Team = ({
 
       </article>
 
-      <Footer
-        callToActionLabel={TeamOverviewData.footer.callToActionLabel}
-        callToActionUrl={TeamOverviewData.footer.callToActionUrl}
-      />
+      <Footer form={TeamOverviewData.footer.form} />
+
     </main>
   </Layout>
 )

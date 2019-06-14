@@ -16,9 +16,15 @@ import {
 } from '../components'
 
 const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Case" fontsLoaded={fontsLoaded} seo={data.seo} url={fullUrl}>
+  <Layout
+    title="Hike One - Case"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
+
       <article className="article work">
         <PageHeader
           isSmall={true}
@@ -51,12 +57,14 @@ const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             })}
           </WorkOverview>
+
           <Contact
             title={data.contact.title}
             button={data.contact.button}
             link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
+
         </div>
       </article>
 

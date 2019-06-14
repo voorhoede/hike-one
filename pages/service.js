@@ -4,7 +4,6 @@ import 'isomorphic-fetch'
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
-const Service = ({ Data = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
 import {
   CaseExtractSmall,
   CompanyOverviewItemSmall,
@@ -22,28 +21,32 @@ import {
   UpdateLinks,
   WorkOverview,
 } from '../components'
+
+const Service = ({ data = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout
-    title={`Hike One - ${Data.title}`}
+    title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
-    seo={Data.seo}
+    seo={data.seo}
     url={fullUrl}>
     <main className="main js-main service-page">
+
       <MenuBar color="white" />
+
       <article className="article">
         <PageHeader
           isSmall={true}
-          title={Data.header.title}
-          subtitle={Data.header.subtitle}
-          image={Data.header.backgroundImage.url}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
         />
 
         <div className={`page-scrolling-content-small`}>
-          <TabSelector selectedItem={Data.slug} services={services} />
+          <TabSelector selectedItem={data.slug} services={services} />
 
-          <TextCenter title={Data.introTitle} text={Data.introText} />
+          <TextCenter title={data.introTitle} text={data.introText} />
 
           <CompanyOverviewSmall>
-            {Data.companyReference1.map((service, index) => (
+            {data.companyReference1.map((service, index) => (
               <CompanyOverviewItemSmall
                 companyLogo={service.companyLogo.url}
                 referenceCaseLink=""
@@ -54,7 +57,7 @@ import {
             ))}
           </CompanyOverviewSmall>
 
-          {Data.content.map((component, index) => {
+          {data.content.map((component, index) => {
             switch (component.itemType) {
               case '40_60_text_right':
                 return (
@@ -82,14 +85,14 @@ import {
           })}
 
           <Contact
-            title={Data.contact.title}
-            button={Data.contact.button}
-            link={Data.contact.externalLink}>
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
 
-          <WorkOverview header={Data.caseExtractTitle}>
-            {Data.caseExtract.map((item, index) => (
+          <WorkOverview header={data.caseExtractTitle}>
+            {data.caseExtract.map((item, index) => (
               <CaseExtractSmall
                 key={index}
                 title={item.header.title}
@@ -103,7 +106,7 @@ import {
           </WorkOverview>
 
           <UpdateLinks>
-            {Data.updateLinks.map((update, index) => (
+            {data.updateLinks.map((update, index) => (
               <UpdateLink
                 key={index}
                 title={update.title}
@@ -117,7 +120,7 @@ import {
         </div>
       </article>
 
-      <Footer form={Data.footer.form} />
+      <Footer form={data.footer.form} />
 
     </main>
   </Layout>
@@ -131,11 +134,11 @@ Service.getInitialProps = async ({ req, res, query, asPath }) => {
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const [data, services, updates] = await fetchAll([ `services/${query.slug}`, 'services', 'update-extracts' ])
 
-  return { Data: data, services, updates, fontsLoaded, fullUrl }
+  return { data, services, updates, fontsLoaded, fullUrl }
 }
 
 Service.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
   services: PropTypes.array,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,

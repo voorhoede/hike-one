@@ -11,23 +11,27 @@ import {
   TextCenterShapes,
 } from '../components'
 
-const ThankYou = ({ page = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded} url={fullUrl}>
+const ThankYou = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Thank you"
+    fontsLoaded={fontsLoaded}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="black" />
 
       <article className="article article-thank-you">
-        <TextCenter title={page.title} text={page.content}>
+        <TextCenter title={data.title} text={data.content}>
           <TextCenterShapes.variation3Back position="back" />
           <TextCenterShapes.variation4Front position="front" />
         </TextCenter>
 
-        <ButtonPrimaryLink href={page.callToActionUrl} classes="btn btn-large btn-centered">
-          {page.callToActionLabel}
+        <ButtonPrimaryLink href={data.callToActionUrl} classes="btn btn-large btn-centered">
+          {data.callToActionLabel}
         </ButtonPrimaryLink>
       </article>
 
-      <Footer form={page.footer.form} />
+      <Footer form={data.footer.form} />
 
     </main>
   </Layout>
@@ -37,13 +41,13 @@ ThankYou.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fullUrl = `${baseUrl}${asPath}`
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  const page = await getData(baseUrl, 'thank-you', res)
+  const data = await getData(baseUrl, 'thank-you', res)
 
-  return { page, fontsLoaded, fullUrl }
+  return { data, fontsLoaded, fullUrl }
 }
 
 ThankYou.propTypes = {
-  page: PropTypes.object,
+  data: PropTypes.object,
   fontsLoaded: PropTypes.bool,
   fullUrl: PropTypes.string,
 }

@@ -8,7 +8,7 @@ import {
   Layout,
   MenuBar,
   TextCenter,
-  TextCenterShapes
+  TextCenterShapes,
 } from '../components/'
 
 const Error = ({ data = {}, fontsLoaded = '', wrapperClass = '' }) => (

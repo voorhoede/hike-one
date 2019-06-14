@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
+import getData from '../lib/get-data'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
-
 import {
   CaseExtract,
   Contact,
@@ -18,7 +18,6 @@ import {
   UpdateExtractSmall,
   UpdateOverviewSmall,
 } from '../components'
-import getData from '../lib/get-data'
 
 const scrollToTargetClass = 'js-scroll-to-target'
 

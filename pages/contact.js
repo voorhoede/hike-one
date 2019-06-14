@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
-
+import cookie from '../components/_helpers/cookie'
 import {
   ContactForm,
   Footer,
   Layout,
   MenuBar,
-  OfficeOverview,
   OfficeCard,
+  OfficeOverview,
   PageHeader,
   TextCenter,
   TextCenterShapes,

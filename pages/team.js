@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
-import PageHeader from '../components/page-header/page-header'
-import TeamSelector from '../components/team-selector/team-selector'
-import TeamOverview from '../components/team-overview/team-overview'
-import TeamMembersOverview from '../components/team-members-overview/team-members-overview'
-import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
-import cookie from '../components/_helpers/cookie'
 import getData, { handleError } from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  TeamMembersOverview,
+  TeamOverview,
+  TeamSelector,
+  VacancyOverview,
+} from '../components'
 
 let scrapeJobs
 

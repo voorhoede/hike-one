@@ -1,17 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
   ButtonPrimaryLink,
   Footer,
-  MenuBar,
   Layout,
+  MenuBar,
   TextCenter,
   TextCenterShapes,
 } from '../components'
-
-import getData from '../lib/get-data'
 
 const ThankYou = ({ page = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded} url={fullUrl}>

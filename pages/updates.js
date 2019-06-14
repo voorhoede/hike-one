@@ -1,13 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
-import PageHeader from '../components/page-header/page-header'
-import UpdateOverview from '../components/update-overview/update-overview'
-import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  UpdateOverview,
+} from '../components'
 
 const Updates = ({ Data = {}, updatesData = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout title="Hike One - Updates" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>

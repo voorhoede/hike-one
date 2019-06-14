@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
   BodyQuote,
   CallToAction,

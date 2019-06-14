@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter'
-
 import {
   CallToAction,
   CaseExtractSmall,

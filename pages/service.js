@@ -1,28 +1,27 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
-import Contact from '../components/contact/contact'
-import * as ContactShapes from '../components/contact/contact-shapes'
-import CaseExtractSmall from '../components/case-extract-small/case-extract-small'
-import FiftyFifty from '../components/50-50/50-50'
-import PageHeader from '../components/page-header/page-header'
-import TextCenter from '../components/text-center/text-center'
-import WorkOverview from '../components/work-overview/work-overview'
-import TabSelector from '../components/tab-selector/tab-selector'
-import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small'
-import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small'
-import UpdateLinks from '../components/update-links/update-links'
-import UpdateLink from '../components/update-link/update-link'
-
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
-import getData from '../lib/get-data'
-
 const Service = ({ Data = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
+import {
+  CaseExtractSmall,
+  CompanyOverviewItemSmall,
+  CompanyOverviewSmall,
+  Contact,
+  ContactShapes,
+  FiftyFifty,
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  TabSelector,
+  TextCenter,
+  UpdateLink,
+  UpdateLinks,
+  WorkOverview,
+} from '../components'
   <Layout
     title={`Hike One - ${Data.title}`}
     fontsLoaded={fontsLoaded}

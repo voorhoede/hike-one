@@ -1,7 +1,7 @@
 import React from 'react'
 import App, { Container } from 'next/app'
-import { CookieBar } from '../components'
 import cookie from '../components/_helpers/cookie'
+import { CookieBar } from '../components'
 
 export default class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

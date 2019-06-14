@@ -97,11 +97,9 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
         </div>
       </article>
-      <Footer
-        callToActionLabel={Data.footer.callToActionLabel}
-        callToActionUrl={Data.footer.callToActionUrl}
-        notificationBar={Data.notificationBar}
-      />
+
+      <Footer form={Data.footer.form} />
+
     </main>
   </Layout>
 )

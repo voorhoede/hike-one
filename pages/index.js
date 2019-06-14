@@ -109,7 +109,7 @@ Home.getInitialProps = async ({ req, res, asPath }) => {
   const fullUrl = `${baseUrl}${asPath}`
   const data = await getData(baseUrl, 'home', res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  console.log({ data })
+
   return { Data: data, fontsLoaded, fullUrl }
 }
 

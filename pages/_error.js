@@ -47,7 +47,7 @@ Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fetchData = await getData(baseUrl, 'error-pages', res)
   const data = fetchData.find(page => page.error === statusCode) // Find correct error page data
-  console.log({ data })
+
   return { data, fontsLoaded }
 }
 

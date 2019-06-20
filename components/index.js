@@ -4,10 +4,13 @@ import Author from './author/author.js'
 import Authors from './authors/authors.js'
 import BodyQuote from './body-quote/body-quote.js'
 import ButtonClean from './buttons/button-clean/button-clean.js'
+import ButtonCleanLink from './buttons/button-clean/button-clean-link.js'
 import ButtonPrimary from './buttons/button-primary/button-primary.js'
 import ButtonPrimaryLink from './buttons/button-primary/button-primary-link.js'
+import ButtonPrimaryMock from './buttons/button-primary/button-primary-mock.js'
 import ButtonSecondary from './buttons/button-secondary/button-secondary.js'
 import ButtonSecondaryLink from './buttons/button-secondary/button-secondary-link.js'
+import ButtonSecondaryMock from './buttons/button-secondary/button-secondary-mock.js'
 import CallToAction from './call-to-action/call-to-action.js'
 import CaseExtract from './case-extract/case-extract.js'
 import CaseExtractSmall from './case-extract-small/case-extract-small.js'
@@ -93,10 +96,13 @@ export {
   Authors,
   BodyQuote,
   ButtonClean,
+  ButtonCleanLink,
   ButtonPrimary,
   ButtonPrimaryLink,
+  ButtonPrimaryMock,
   ButtonSecondary,
   ButtonSecondaryLink,
+  ButtonSecondaryMock,
   CallToAction,
   CaseExtract,
   CaseExtractSmall,

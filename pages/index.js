@@ -38,12 +38,7 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           <PageHeaderShapes.variation1Back position="back" />
         </PageHeader>
 
-          <div className={`${scrollToTargetClass} page-scrolling-content`}>
-            <ServicesOverviewSmall
-              title={Data.servicesItemTitle}
-              services={Data.serviceItems}
-            />
-          )}
+        <div className={`${scrollToTargetClass} page-scrolling-content`}>
 
           <ServicesOverviewSmall
             title={Data.servicesItemTitle}

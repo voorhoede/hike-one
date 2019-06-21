@@ -14,6 +14,8 @@ import CaseExtractSmall from './case-extract-small/case-extract-small.js'
 import CircleBorder from './shapes/circle-border/circle-border.js'
 import Collage from './collage/collage.js'
 import * as CollageShapes from './collage/collage-shapes.js'
+import CompanyOverviewItemSmall from './company-overview-item-small/company-overview-item-small.js'
+import CompanyOverviewSmall from './company-overview-small/company-overview-small.js'
 import Contact from './contact/contact.js'
 import ContactForm from './contact-form/contact-form.js'
 import * as ContactShapes from './contact/contact-shapes.js'
@@ -66,6 +68,7 @@ import ServicesOverviewSmall from './services-overview-small/services-overview-s
 import SocialMedia from './social-media/social-media.js'
 import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
+import TabSelector from './tab-selector/tab-selector.js'
 import TeamImage from './team-image/team-image.js'
 import TeamMember from './team-member/team-member.js'
 import TeamMembersOverview from './team-members-overview/team-members-overview.js'
@@ -108,6 +111,8 @@ export {
   CircleBorder,
   Collage,
   CollageShapes,
+  CompanyOverviewItemSmall,
+  CompanyOverviewSmall,
   Contact,
   ContactForm,
   ContactShapes,
@@ -160,6 +165,7 @@ export {
   SocialMedia,
   SocialShare,
   StatisticsBlock,
+  TabSelector,
   TeamImage,
   TeamMember,
   TeamMembersOverview,

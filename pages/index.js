@@ -44,6 +44,7 @@ const Home = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </PageHeader>
 
         <div className={`${scrollToTargetClass} page-scrolling-content`}>
+
           <ServicesOverviewSmall
             title={data.servicesItemTitle}
             services={data.serviceItems}

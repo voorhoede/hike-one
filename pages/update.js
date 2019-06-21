@@ -171,7 +171,7 @@ const Update = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
               <Author
                 key={index}
                 name={author.name}
-                role={author.role}
+                roles={author.newRoles}
                 photoUrl={author.photo.url}
                 summary={author.summary}
               />

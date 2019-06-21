@@ -1,22 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import PageHeader from '../components/page-header/page-header'
-import CaseExtractSmall from '../components/case-extract-small/case-extract-small'
-import Contact from '../components/contact/contact'
-import * as ContactShapes from '../components/contact/contact-shapes'
-import Footer from '../components/footer/footer'
-import WorkOverview from '../components/work-overview/work-overview'
-import LogoCarousel from '../components/logo-carousel/logo-carousel'
-import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  CaseExtractSmall,
+  Contact,
+  ContactShapes,
+  Footer,
+  Layout,
+  LogoCarousel,
+  MenuBar,
+  PageHeader,
+  WorkOverview,
+} from '../components'
 
 const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Case" fontsLoaded={fontsLoaded} seo={data.seo} url={fullUrl}>
+  <Layout
+    title="Hike One - Case"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
+
       <article className="article work">
         <PageHeader
           isSmall={true}
@@ -49,12 +57,14 @@ const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             })}
           </WorkOverview>
+
           <Contact
             title={data.contact.title}
             button={data.contact.button}
             link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
+
         </div>
       </article>
 

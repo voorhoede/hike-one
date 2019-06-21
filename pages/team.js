@@ -1,17 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
-import PageHeader from '../components/page-header/page-header'
-import TeamSelector from '../components/team-selector/team-selector'
-import TeamOverview from '../components/team-overview/team-overview'
-import TeamMembersOverview from '../components/team-members-overview/team-members-overview'
-import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
-import cookie from '../components/_helpers/cookie'
 import getData, { handleError } from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  TeamMembersOverview,
+  TeamOverview,
+  TeamSelector,
+  VacancyOverview,
+} from '../components'
 
 let scrapeJobs
 
@@ -23,10 +24,10 @@ if (!process.browser) {
 
 const Team = ({
   tab = '',
-  TeamOverviewData = {},
-  TeamMembersData = [],
-  VacanciesOverviewData = {},
-  VacanciesData = [],
+  teamOverviewData = {},
+  teamData = [],
+  vacanciesOverviewData = {},
+  vacanciesData = [],
   fontsLoaded = '',
   fullUrl = '',
   queryParam = '',
@@ -34,7 +35,7 @@ const Team = ({
   <Layout
     title="Hike One - Team"
     fontsLoaded={fontsLoaded}
-    seo={TeamOverviewData.seo}
+    seo={teamOverviewData.seo}
     url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
@@ -42,34 +43,34 @@ const Team = ({
       <article className="article">
         <PageHeader
           isSmall={true}
-          title={TeamOverviewData.header.title}
-          subtitle={TeamOverviewData.header.subtitle}
-          image={TeamOverviewData.header.backgroundImage.url}
+          title={teamOverviewData.header.title}
+          subtitle={teamOverviewData.header.subtitle}
+          image={teamOverviewData.header.backgroundImage.url}
         />
 
         <div className={`page-scrolling-content-small`}>
           <TeamSelector slug={tab} />
           {tab === 'culture' && (
             <TeamOverview
-              data={TeamOverviewData}
+              data={teamOverviewData}
             />
           )}
           {tab === 'people' && (
             <TeamMembersOverview
               introText={TeamMembersOverview.peopleTabIntro}
-              team={TeamMembersData}
+              team={teamData}
               queryParam={queryParam}
             />
           )}
           <VacancyOverview
-            overview={VacanciesOverviewData}
-            vacancies={VacanciesData}
+            overview={vacanciesOverviewData}
+            vacancies={vacanciesData}
           />
         </div>
 
       </article>
 
-      <Footer form={TeamOverviewData.footer.form} />
+      <Footer form={teamOverviewData.footer.form} />
 
     </main>
   </Layout>
@@ -88,11 +89,11 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
     return handleError(res)
   }
 
-  const VacanciesData = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+  const vacanciesData = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
     .then(response => response.text())
     .then(await scrapeJobs)
 
-  const [TeamOverviewData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
+  const [teamOverviewData, teamData, vacanciesOverviewData] = await fetchAll([
     'team',
     'people',
     'vacancies-overview',
@@ -100,10 +101,10 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
 
   return {
     tab,
-    TeamOverviewData,
-    TeamMembersData,
-    VacanciesOverviewData,
-    VacanciesData,
+    teamOverviewData,
+    teamData,
+    vacanciesOverviewData,
+    vacanciesData,
     fontsLoaded,
     fullUrl,
     queryParam,
@@ -112,10 +113,10 @@ Team.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Team.propTypes = {
   tab: PropTypes.string,
-  TeamOverviewData: PropTypes.object,
-  TeamMembersData: PropTypes.array,
-  VacanciesOverviewData: PropTypes.object,
-  VacanciesData: PropTypes.array,
+  teamOverviewData: PropTypes.object,
+  teamData: PropTypes.array,
+  vacanciesOverviewData: PropTypes.object,
+  vacanciesData: PropTypes.array,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
   queryParam: PropTypes.string,

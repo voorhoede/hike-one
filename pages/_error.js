@@ -8,12 +8,16 @@ import {
   Layout,
   MenuBar,
   TextCenter,
-  TextCenterShapes
+  TextCenterShapes,
 } from '../components/'
 
 const Error = ({ data = {}, fontsLoaded = '', wrapperClass = '' }) => (
-  <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} classes={wrapperClass}>
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    classes={wrapperClass}>
     <main className="main js-main">
+
       <MenuBar color="black" />
 
       <article className={`article article-error ${data.image ? 'article-error--has-image' : ''}`}>
@@ -43,10 +47,10 @@ Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
   const statusCode = res
     ? res.statusCode.toString()
     : jsonPageRes ? jsonPageRes.status.toString() : null
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fetchData = await getData(baseUrl, 'error-pages', res)
   const data = fetchData.find(page => page.error === statusCode) // Find correct error page data
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
   return { data, fontsLoaded }
 }

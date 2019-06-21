@@ -68,6 +68,9 @@ import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
 import TeamImage from './team-image/team-image.js'
 import TeamMember from './team-member/team-member.js'
+import TeamMembersOverview from './team-members-overview/team-members-overview.js'
+import TeamOverview from './team-overview/team-overview.js'
+import TeamSelector from './team-selector/team-selector.js'
 import TextCard from './text-card/text-card.js'
 import TextCenter from './text-center/text-center.js'
 import * as TextCenterShapes from './text-center/text-center-shapes.js'
@@ -81,9 +84,11 @@ import UpdateExtractSmall from './update-extract-small/update-extract-small.js'
 import UpdateExtractLarge from './update-extract-large/update-extract-large.js'
 import UpdateLink from './update-link/update-link.js'
 import UpdateLinks from './update-links/update-links.js'
+import UpdateOverview from './update-overview/update-overview.js'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small.js'
 import UpdatesExtractLarge from './updates-extract-large/updates-extract-large.js'
 import VacancyCard from './vacancy-card/vacancy-card.js'
+import VacancyOverview from './vacancy-overview/vacancy-overview.js'
 import WorkOverview from './work-overview/work-overview.js'
 
 export {
@@ -157,6 +162,9 @@ export {
   StatisticsBlock,
   TeamImage,
   TeamMember,
+  TeamMembersOverview,
+  TeamOverview,
+  TeamSelector,
   TextCard,
   TextCenter,
   TextCenterShapes,
@@ -170,8 +178,10 @@ export {
   UpdateExtractLarge,
   UpdateLink,
   UpdateLinks,
+  UpdateOverview,
   UpdateOverviewSmall,
   UpdatesExtractLarge,
   VacancyCard,
+  VacancyOverview,
   WorkOverview,
 }

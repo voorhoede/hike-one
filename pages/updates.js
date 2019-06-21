@@ -1,37 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
-import PageHeader from '../components/page-header/page-header'
-import UpdateOverview from '../components/update-overview/update-overview'
-import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  UpdateOverview,
+} from '../components'
 
-const Updates = ({ Data = {}, updatesData = [], fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Updates" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
+const Updates = ({ data = {}, updates = [], fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Updates"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
 
       <article className="article">
         <PageHeader
           isSmall={true}
-          title={Data.header.title}
-          subtitle={Data.header.subtitle}
-          image={Data.header.backgroundImage.url}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
         />
 
         <div className={`page-scrolling-content-small`}>
           <UpdateOverview
-            data={Data}
-            updatesData={updatesData}
+            data={data}
+            updatesData={updates}
           />
         </div>
 
       </article>
 
-      <Footer form={Data.footer.form} />
+      <Footer form={data.footer.form} />
 
     </main>
   </Layout>
@@ -42,18 +49,19 @@ Updates.getInitialProps = async ({ req, res, asPath }) => {
   const fullUrl = `${baseUrl}${asPath}`
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const [Data, updatesData] = await fetchAll(['update-overview', 'update-extracts'])
+  const [data, updates] = await fetchAll(['update-overview', 'update-extracts'])
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  updatesData.sort((a, b) => {
+
+  updates.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
 
-  return { Data, updatesData, fontsLoaded, fullUrl }
+  return { data, updates, fontsLoaded, fullUrl }
 }
 
 Updates.propTypes = {
-  Data: PropTypes.object,
-  updatesData: PropTypes.array,
+  data: PropTypes.object,
+  updates: PropTypes.array,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

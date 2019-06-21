@@ -24,8 +24,9 @@ const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
     <div className="container-inner">
       {Object.values(services).map((item, index) => {
         const Component = shapes[shapesList[index]]
+        const hasLink = item.link && item.link.slug
 
-        return item.link && item.link.slug
+        return hasLink
           ? <ServicesItemLink key={index} item={item} Component={Component} />
           : <ServicesItem key={index} item={item} Component={Component} />
       })}
@@ -35,7 +36,9 @@ const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
 
 const ServicesItem = ({ item = {}, Component = null }) => (
   <div className="services-item-small">
-    <div className={`services-item-small-shape ${item.iconColor.color}`}><Component /></div>
+    <div className={`services-item-small-shape ${item.iconColor.color}`}>
+      <Component />
+    </div>
     <div className="services-item-small-content">
       <h3 className="services-item-small-heading">{item.title}</h3>
       <p className="services-item-description">{item.text}</p>
@@ -54,7 +57,9 @@ ServicesItem.propTypes = {
 const ServicesItemLink = ({ item = {}, Component = null }) => (
   <Link href={`/service?slug=${item.link.slug}`} as={`/service/${item.link.slug}`}>
     <a className="services-item-small">
-      <div className={`services-item-small-shape ${item.iconColor.color}`}><Component /></div>
+      <div className={`services-item-small-shape ${item.iconColor.color}`}>
+        <Component />
+      </div>
       <div className="services-item-small-content">
         <h3 className="services-item-small-heading">{item.title}</h3>
         <p className="services-item-description">{item.text}</p>

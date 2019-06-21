@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { ButtonSecondaryLink } from '../'
+import { ButtonSecondaryMock } from '../'
 
 import TrailDiamond from '../shapes/trail-diamond/trail-diamond.js'
 import TrailDoubleDiamond from '../shapes/trail-double-diamond/trail-double-diamond.js'
@@ -25,42 +25,51 @@ const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
       {Object.values(services).map((item, index) => {
         const Component = shapes[shapesList[index]]
 
-        return (
-          <div key={index} className={`services-item-small`}>
-            <div className={`services-item-small-shape shadow`}><Component /></div>
-            <div className="services-item-small-content">
-              <h3 className="services-item-small-heading">{item.title}</h3>
-              <p className="services-item-description">{item.text}</p>
-              <div className="service-item-small-image-container">
-                <img
-                  className="service-item-small-logo"
-                  src={item.referenceCompanyLogo.url}
-                  alt=""
-                />
-              </div>
-              {item.referenceCaseLink ? (
-                <Link
-                  href={`/case?slug=${item.referenceCaseLink.slug}`}
-                  as={`/case/${item.referenceCaseLink.slug}`}>
-                  <a className="service-item-small-subtitle">{item.referenceText}</a>
-                </Link>
-              ) : (
-                <p className="service-item-small-subtitle">{item.referenceText}</p>
-              )}
-              <ButtonSecondaryLink
-                href={`/service?slug=${item.link.slug}`}
-                hrefAs={`/service/${item.link.slug}`}
-                icon="arrowRight"
-                classes={`btn-red-border btn-wide`}>
-                {item.button}
-              </ButtonSecondaryLink>
-            </div>
-          </div>
-        )
+        return item.referenceCaseLink
+          ? <ServicesItemLink key={index} item={item} Component={Component} />
+          : <ServicesItem key={index} item={item} Component={Component} />
       })}
     </div>
   </div>
 )
+
+const ServicesItem = ({ item = {}, Component = null }) => (
+  <div className="services-item-small">
+    <div className={`services-item-small-shape ${item.iconColor.color}`}><Component /></div>
+    <div className="services-item-small-content">
+      <h3 className="services-item-small-heading">{item.title}</h3>
+      <p className="services-item-description">{item.text}</p>
+      <ButtonSecondaryMock icon="arrowRight" classes="btn-red-border btn-wide">
+        {item.button}
+      </ButtonSecondaryMock>
+    </div>
+  </div>
+)
+
+ServicesItem.propTypes = {
+  item: PropTypes.object,
+  Component: PropTypes.func,
+}
+
+const ServicesItemLink = ({ item = {}, Component = null }) => (
+  <Link href={`/service?slug=${item.link.slug}`} as={`/service/${item.link.slug}`}>
+    <a className="services-item-small">
+      <div className={`services-item-small-shape ${item.iconColor.color}`}><Component /></div>
+      <div className="services-item-small-content">
+        <h3 className="services-item-small-heading">{item.title}</h3>
+        <p className="services-item-description">{item.text}</p>
+        <ButtonSecondaryMock icon="arrowRight" classes="btn-red-border btn-wide">
+          {item.button}
+        </ButtonSecondaryMock>
+      </div>
+    </a>
+  </Link>
+)
+
+ServicesItemLink.propTypes = {
+  item: PropTypes.object,
+  Component: PropTypes.func,
+}
 
 ServicesOverviewSmall.propTypes = {
   services: PropTypes.array,

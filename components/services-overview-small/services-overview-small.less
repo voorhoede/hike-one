@@ -21,6 +21,7 @@
     @media @screen-768 {
       flex-direction: row;
       align-items: flex-end;
+      justify-content: space-between;
     }
   }
 }
@@ -83,9 +84,7 @@
   }
 
   @media @screen-1170 {
-    height: auto;
-    padding-right: @spacing-default*2;
-    padding-left: @spacing-default*2;
+    max-width: 380px;
   }
 }
 
@@ -226,12 +225,6 @@
     transition: background-color .2s ease-in-out;
     background-color: transparent;
   }
-
-  @media @screen-1170 {
-    height: 100%;
-    max-height: 215px;
-    margin-top: @spacing-default*6;
-  }
 }
 
 .services-item-small-heading {
@@ -276,7 +269,11 @@
   }
 
   @media @screen-768 {
-    height: 125px;
+    height: 140px;
+  }
+
+  @media @screen-1024 {
+    height: 100px;
   }
 
   @media @screen-1170 {

@@ -39,6 +39,9 @@ class Layout extends Component {
     const seoTitle = seo && seo.title
       ? seo.title
       : title
+    const summaryCard = seo && seo.twitterCard
+      ? seo.twitterCard
+      : 'summary'
 
     return (
       <React.Fragment>
@@ -58,7 +61,7 @@ class Layout extends Component {
           <meta property="og:image" content={socialImage} />
           {seo && seo.image && <meta property="og:image:width" content={seo.image.width} />}
           {seo && seo.image && <meta property="og:image:height" content={seo.image.height} />}
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content={summaryCard} />
           <meta name="twitter:site" content="@hikeone" />
           <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png" />
           <link rel="icon" type="image/png" href="/static/icons/favicon-32x32.png" sizes="32x32" />

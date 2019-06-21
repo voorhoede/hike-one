@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
+import getData from '../lib/get-data'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
-
 import {
   CaseExtract,
   Contact,
@@ -18,22 +18,27 @@ import {
   UpdateExtractSmall,
   UpdateOverviewSmall,
 } from '../components'
-import getData from '../lib/get-data'
 
 const scrollToTargetClass = 'js-scroll-to-target'
 
-const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
+const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
+
       <article className="article">
         <PageHeader
           onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
-          video={Data.header.video}
-          title={Data.header.title}
-          subtitle={Data.header.subtitle}
-          image={Data.header.backgroundImage.url}
-          showGradient={Data.header.displayGradient}>
+          video={data.header.video}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
+          showGradient={data.header.displayGradient}>
           <PageHeaderShapes.variation1Front position="front" />
           <PageHeaderShapes.variation1Back position="back" />
         </PageHeader>
@@ -41,33 +46,33 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
         <div className={`${scrollToTargetClass} page-scrolling-content`}>
 
           <ServicesOverviewSmall
-            title={Data.servicesItemTitle}
-            services={Data.serviceItems}
+            title={data.servicesItemTitle}
+            services={data.serviceItems}
           />
 
           <TextCenter
             classes="text-center-font-medium text-center-spacing-small"
-            title={Data.caseExtractTitle}
-            text={Data.caseExtractIntro}
+            title={data.caseExtractTitle}
+            text={data.caseExtractIntro}
           />
 
           <CaseExtract
-            color={Data.caseExtract.case.caseThemeColor.hex}
-            companyName={Data.caseExtract.case.companyName}
-            headerImage={Data.caseExtract.image.url}
-            title={Data.caseExtract.title}
-            subtitle={Data.caseExtract.subtitle}
-            slug={Data.caseExtract.case.slug}
+            color={data.caseExtract.case.caseThemeColor.hex}
+            companyName={data.caseExtract.case.companyName}
+            headerImage={data.caseExtract.image.url}
+            title={data.caseExtract.title}
+            subtitle={data.caseExtract.subtitle}
+            slug={data.caseExtract.case.slug}
           />
 
           <TextCenter
             classes="text-center-font-medium text-center-spacing-small"
-            title={Data.eventsTitle}
-            text={Data.eventsIntro}
+            title={data.eventsTitle}
+            text={data.eventsIntro}
           />
 
           <UpdateOverviewSmall>
-            {Data.updateLinks.map((item, index) => (
+            {data.updateLinks.map((item, index) => (
               <UpdateExtractSmall
                 key={index}
                 index={index}
@@ -84,16 +89,16 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           </UpdateOverviewSmall>
 
           <Contact
-            title={Data.contact.title}
-            button={Data.contact.button}
-            link={Data.contact.externalLink}>
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
 
         </div>
       </article>
 
-      <Footer form={Data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -101,15 +106,18 @@ const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
 Home.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, 'home', res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'home'])
 
-  return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Home.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

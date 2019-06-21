@@ -1,35 +1,37 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
   ButtonPrimaryLink,
   Footer,
-  MenuBar,
   Layout,
+  MenuBar,
   TextCenter,
   TextCenterShapes,
 } from '../components'
 
-import getData from '../lib/get-data'
-
-const ThankYou = ({ page = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded} url={fullUrl}>
+const ThankYou = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Thank you"
+    fontsLoaded={fontsLoaded}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="black" />
 
       <article className="article article-thank-you">
-        <TextCenter title={page.title} text={page.content}>
+        <TextCenter title={data.title} text={data.content}>
           <TextCenterShapes.variation3Back position="back" />
           <TextCenterShapes.variation4Front position="front" />
         </TextCenter>
 
-        <ButtonPrimaryLink href={page.callToActionUrl} classes="btn btn-large btn-centered">
-          {page.callToActionLabel}
+        <ButtonPrimaryLink href={data.callToActionUrl} classes="btn btn-large btn-centered">
+          {data.callToActionLabel}
         </ButtonPrimaryLink>
       </article>
 
-      <Footer form={page.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -39,13 +41,16 @@ ThankYou.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fullUrl = `${baseUrl}${asPath}`
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  const page = await getData(baseUrl, 'thank-you', res)
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'thank-you'])
 
-  return { page, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 ThankYou.propTypes = {
-  page: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.bool,
   fullUrl: PropTypes.string,
 }

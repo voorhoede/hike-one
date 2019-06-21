@@ -1,45 +1,49 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cookie from '../components/_helpers/cookie'
 import getData from '../lib/get-data'
-
+import cookie from '../components/_helpers/cookie'
 import {
   ContactForm,
   Footer,
   Layout,
   MenuBar,
-  OfficeOverview,
   OfficeCard,
+  OfficeOverview,
   PageHeader,
   TextCenter,
   TextCenterShapes,
   VacancyCard,
 } from '../components'
 
-const Contact = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
-  <Layout title="Hike One - Contact" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
+const Contact = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Contact"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
 
       <article className="article">
         <PageHeader
           isSmall={true}
-          title={Data.header.title}
-          subtitle={Data.header.subtitle}
-          image={Data.header.backgroundImage.url}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
         />
 
         <div className="page-scrolling-content-small">
-          <ContactForm form={Data.contactForm} />
+          <ContactForm form={data.contactForm} />
 
-          <TextCenter classes="text-center-font-large contact-text-center" text={Data.content}>
+          <TextCenter classes="text-center-font-large contact-text-center" text={data.content}>
             <TextCenterShapes.variation2Back position="back" />
           </TextCenter>
 
-          <VacancyCard data={Data.vacancyCard} />
+          <VacancyCard data={data.vacancyCard} />
 
-          <OfficeOverview header={Data.officesHeader}>
-            {Data.office.map((item, index) => (
+          <OfficeOverview header={data.officesHeader}>
+            {data.office.map((item, index) => (
               <OfficeCard
                 key={index}
                 index={index}
@@ -56,7 +60,7 @@ const Contact = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </div>
       </article>
 
-      <Footer form={Data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -64,15 +68,18 @@ const Contact = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
 Contact.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, 'contact', res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'contact'])
 
-  return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Contact.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.bool,
   fullUrl: PropTypes.string,
 }

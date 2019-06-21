@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
   Author,
   BodyQuote,
@@ -26,24 +24,25 @@ import {
   UpdateOverviewSmall,
 } from '../components'
 
-const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
-    title={`Hike One - ${Data.title}`}
+    title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
-    seo={Data.seo}
+    seo={data.seo}
     url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
 
       <article className="article">
         <FullWidthHeader
-          headerImage={Data.headerImage.url}
-          color={Data.color.hex}
-          title={Data.title}
-          authorName={Data.authors.map(author => author.name).join(', ')}
-          updatedDate={Data.date}
+          headerImage={data.headerImage.url}
+          color={data.color.hex}
+          title={data.title}
+          authorName={data.authors.map(author => author.name).join(', ')}
+          updatedDate={data.date}
         />
-        {Data.content.map((component, index) => {
+        {data.content.map((component, index) => {
           switch (component.itemType) {
             case '50_50':
               return (
@@ -162,17 +161,17 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
         <SocialShare
           facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
-          linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
-          twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
+          linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${data.title}&summary=${data.seo.description}&source=Hike&20One`}
+          twitterLink={`https://twitter.com/intent/tweet?text=${data.title}&url=${fullUrl}`}
         />
 
         <div className="authors">
-          {Data.authors.map((author, index) => {
+          {data.authors.map((author, index) => {
             return (
               <Author
                 key={index}
                 name={author.name}
-                role={author.role}
+                roles={author.roles}
                 photoUrl={author.photo.url}
                 summary={author.summary}
               />
@@ -180,11 +179,11 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           })}
         </div>
 
-        {Data.contact && (
+        {data.contact && (
           <Contact
-            title={Data.contact.title}
-            button={Data.contact.button}
-            link={Data.contact.externalLink}
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}
             target="_blank" rel="noopener noreferrer">
             <ContactShapes.variation1Front position="front" />
           </Contact>
@@ -192,11 +191,11 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
         <TextCenter
           classes="text-center-font-medium text-center-spacing-small"
-          title={Data.updateLinksTitle}
+          title={data.updateLinksTitle}
         />
 
         <UpdateOverviewSmall>
-          {Data.updateLinks.map((item, index) => (
+          {data.updateLinks.map((item, index) => (
             <UpdateExtractSmall
               key={index}
               index={index}
@@ -213,7 +212,7 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </UpdateOverviewSmall>
       </article>
 
-      <Footer form={Data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -221,15 +220,18 @@ const Update = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
 Update.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, `updates/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `updates/${query.slug}`])
 
-  return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Update.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

@@ -17,6 +17,8 @@ import CaseExtractSmall from './case-extract-small/case-extract-small.js'
 import CircleBorder from './shapes/circle-border/circle-border.js'
 import Collage from './collage/collage.js'
 import * as CollageShapes from './collage/collage-shapes.js'
+import CompanyOverviewItemSmall from './company-overview-item-small/company-overview-item-small.js'
+import CompanyOverviewSmall from './company-overview-small/company-overview-small.js'
 import Contact from './contact/contact.js'
 import ContactForm from './contact-form/contact-form.js'
 import * as ContactShapes from './contact/contact-shapes.js'
@@ -69,8 +71,12 @@ import ServicesOverviewSmall from './services-overview-small/services-overview-s
 import SocialMedia from './social-media/social-media.js'
 import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
+import TabSelector from './tab-selector/tab-selector.js'
 import TeamImage from './team-image/team-image.js'
 import TeamMember from './team-member/team-member.js'
+import TeamMembersOverview from './team-members-overview/team-members-overview.js'
+import TeamOverview from './team-overview/team-overview.js'
+import TeamSelector from './team-selector/team-selector.js'
 import TextCard from './text-card/text-card.js'
 import TextCenter from './text-center/text-center.js'
 import * as TextCenterShapes from './text-center/text-center-shapes.js'
@@ -84,9 +90,11 @@ import UpdateExtractSmall from './update-extract-small/update-extract-small.js'
 import UpdateExtractLarge from './update-extract-large/update-extract-large.js'
 import UpdateLink from './update-link/update-link.js'
 import UpdateLinks from './update-links/update-links.js'
+import UpdateOverview from './update-overview/update-overview.js'
 import UpdateOverviewSmall from './update-overview-small/update-overview-small.js'
 import UpdatesExtractLarge from './updates-extract-large/updates-extract-large.js'
 import VacancyCard from './vacancy-card/vacancy-card.js'
+import VacancyOverview from './vacancy-overview/vacancy-overview.js'
 import WorkOverview from './work-overview/work-overview.js'
 
 export {
@@ -109,6 +117,8 @@ export {
   CircleBorder,
   Collage,
   CollageShapes,
+  CompanyOverviewItemSmall,
+  CompanyOverviewSmall,
   Contact,
   ContactForm,
   ContactShapes,
@@ -161,8 +171,12 @@ export {
   SocialMedia,
   SocialShare,
   StatisticsBlock,
+  TabSelector,
   TeamImage,
   TeamMember,
+  TeamMembersOverview,
+  TeamOverview,
+  TeamSelector,
   TextCard,
   TextCenter,
   TextCenterShapes,
@@ -176,8 +190,10 @@ export {
   UpdateExtractLarge,
   UpdateLink,
   UpdateLinks,
+  UpdateOverview,
   UpdateOverviewSmall,
   UpdatesExtractLarge,
   VacancyCard,
+  VacancyOverview,
   WorkOverview,
 }

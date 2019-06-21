@@ -11,7 +11,7 @@ const Contact = ({ title = '', button = '', link = '', target = '_self', childre
       <div className="container-inner">
         <h3 className="content">{title}</h3>
         <ButtonPrimaryLink
-          href={`${link ? link : '/contact'}`}
+          href={`${link ? link : 'tel:+310202044577'}`}
           target={target}
           classes="btn-large content">
           {button}

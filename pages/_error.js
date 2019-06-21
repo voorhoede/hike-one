@@ -8,12 +8,16 @@ import {
   Layout,
   MenuBar,
   TextCenter,
-  TextCenterShapes
+  TextCenterShapes,
 } from '../components/'
 
-const Error = ({ data = {}, fontsLoaded = '', wrapperClass = '' }) => (
-  <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} classes={wrapperClass}>
+const Error = ({ data = {}, footer = {}, fontsLoaded = '', wrapperClass = '' }) => (
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    classes={wrapperClass}>
     <main className="main js-main">
+
       <MenuBar color="black" />
 
       <article className={`article article-error ${data.image ? 'article-error--has-image' : ''}`}>
@@ -33,7 +37,7 @@ const Error = ({ data = {}, fontsLoaded = '', wrapperClass = '' }) => (
         )}
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -43,16 +47,19 @@ Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
   const statusCode = res
     ? res.statusCode.toString()
     : jsonPageRes ? jsonPageRes.status.toString() : null
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fetchData = await getData(baseUrl, 'error-pages', res)
-  const data = fetchData.find(page => page.error === statusCode) // Find correct error page data
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, errorPages] = await fetchAll(['footer', 'error-pages'])
+  const data = errorPages.find(page => page.error === statusCode) // Find correct error page data
 
-  return { data, fontsLoaded }
+  return { data, footer, fontsLoaded }
 }
 
 Error.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   wrapperClass: PropTypes.string,
 }

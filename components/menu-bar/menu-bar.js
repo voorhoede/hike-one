@@ -181,7 +181,7 @@ class MenuBar extends Component {
           <Link href="/">
             <a className="header-logo" onContextMenu={this.toggleContextMenu}>
               <Logo color={`${color ? color : 'black'}`} />
-              <h1 className="a11y-sr-only">Hike one</h1>
+              <span className="a11y-sr-only">Hike one</span>
             </a>
           </Link>
           <ContextMenu isOpen={this.state.contextMenuIsOpen} />

@@ -57,16 +57,25 @@
 
   .mailchimp-form {
     margin-bottom: @spacing-default*3;
-    padding: @spacing-default*2 0;
+    padding: @spacing-default*3 0;
     transition: color @animation-speed-slow;
     border-top: 1px solid @dark-gray;
     border-bottom: 1px solid @dark-gray;
+
+    @media @screen-768 {
+      padding: @spacing-default*4 0;
+    }
+
+    @media @screen-1024 {
+      padding: @spacing-default*6 0;
+    }
 
     .form {
       align-items: flex-end;
     }
 
     .form-title {
+      margin-top: 0;
       color: @white;
       text-align: left;
     }
@@ -78,6 +87,15 @@
 
       @media @screen-1024 {
         width: auto;
+      }
+
+      .input {
+        background-color: fade(@white, 30%);
+        border-bottom: 3px solid @darker-gray;
+
+        &:focus {
+          border-bottom: 3px solid @blue;
+        }
       }
     }
 

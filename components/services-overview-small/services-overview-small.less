@@ -50,17 +50,20 @@
     margin-bottom: 0;
     padding: 0;
     transform-origin: 50% 50%;
-    transition: all .3s ease-in-out;
+    transition: box-shadow .2s ease-in-out, margin-top .2s ease-in-out;
+    transition-delay: 0s, .1s;
     border-bottom: none;
 
     &:hover {
       .shadow();
 
       margin-top: 0;
+      transition-delay: .1s, 0s;
 
       .services-item-small-shape {
         width: 100%;
         height: 250px;
+        transition-delay: 0s, 0s;
         border-radius: 0;
       }
 
@@ -144,7 +147,8 @@
   }
 
   @media @screen-768 {
-    transition: all .3s ease-in-out;
+    transition: all .2s ease-in-out;
+    transition-delay: .1s;
   }
 
   .shape {
@@ -190,7 +194,12 @@
   .btn-secondary {
     margin-bottom: 0;
     float: left;
+    transition-delay: .1s;
     pointer-events: none;
+
+    .icon svg path {
+      transition-delay: .1s;
+    }
 
     @media @screen-500 {
       margin-right: auto;
@@ -214,7 +223,7 @@
     height: auto;
     margin: 0;
     padding: @spacing-default*4 0;
-    transition: background-color .3s ease-in-out;
+    transition: background-color .2s ease-in-out;
     background-color: transparent;
   }
 

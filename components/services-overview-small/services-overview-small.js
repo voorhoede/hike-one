@@ -25,7 +25,7 @@ const ServicesOverviewSmall = ({ services = [], title = '', classes = '' }) => (
       {Object.values(services).map((item, index) => {
         const Component = shapes[shapesList[index]]
 
-        return item.referenceCaseLink
+        return item.link && item.link.slug
           ? <ServicesItemLink key={index} item={item} Component={Component} />
           : <ServicesItem key={index} item={item} Component={Component} />
       })}

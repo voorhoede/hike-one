@@ -58,7 +58,7 @@ const parallaxLayersMap = {
 let componentCounter = {}
 const scrollToTargetClass = 'js-scroll-to-target'
 
-const Case = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
@@ -323,7 +323,7 @@ const Case = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </div>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -333,13 +333,16 @@ Case.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, `cases/${query.slug}`, res)
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `cases/${query.slug}`])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Case.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

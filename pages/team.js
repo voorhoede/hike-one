@@ -23,19 +23,20 @@ if (!process.browser) {
 }
 
 const Team = ({
-  tab = '',
-  teamOverviewData = {},
-  teamData = [],
-  vacanciesOverviewData = {},
-  vacanciesData = [],
+  footer = {},
   fontsLoaded = '',
   fullUrl = '',
+  tab = '',
+  team = {},
+  people = [],
+  vacanciesOverview = {},
+  vacancies = [],
   queryParam = '',
 }) => (
   <Layout
     title="Hike One - Team"
     fontsLoaded={fontsLoaded}
-    seo={teamOverviewData.seo}
+    seo={team.seo}
     url={fullUrl}>
     <main className="main js-main">
       <MenuBar color="white" />
@@ -43,34 +44,34 @@ const Team = ({
       <article className="article">
         <PageHeader
           isSmall={true}
-          title={teamOverviewData.header.title}
-          subtitle={teamOverviewData.header.subtitle}
-          image={teamOverviewData.header.backgroundImage.url}
+          title={team.header.title}
+          subtitle={team.header.subtitle}
+          image={team.header.backgroundImage.url}
         />
 
         <div className={`page-scrolling-content-small`}>
           <TeamSelector slug={tab} />
           {tab === 'culture' && (
             <TeamOverview
-              data={teamOverviewData}
+              data={team}
             />
           )}
           {tab === 'people' && (
             <TeamMembersOverview
-              introText={TeamMembersOverview.peopleTabIntro}
-              team={teamData}
+              introText={team.peopleTabIntro}
+              team={people}
               queryParam={queryParam}
             />
           )}
           <VacancyOverview
-            overview={vacanciesOverviewData}
-            vacancies={vacanciesData}
+            overview={vacanciesOverview}
+            vacancies={vacancies}
           />
         </div>
 
       </article>
 
-      <Footer form={teamOverviewData.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -78,47 +79,45 @@ const Team = ({
 
 Team.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
   const queryParam = req && req.query && req.query.filter
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const tab = query.slug
   //check if slug is not equal to people or culture it will redirect to error page
   if (!/^(?:people|culture)$/.test(tab)) {
     return handleError(res)
   }
 
-  const vacanciesData = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+  const vacancies = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
     .then(response => response.text())
     .then(await scrapeJobs)
 
-  const [teamOverviewData, teamData, vacanciesOverviewData] = await fetchAll([
-    'team',
-    'people',
-    'vacancies-overview',
-  ])
+  const [footer, team, people, vacanciesOverview] = await fetchAll(['footer', 'team', 'people', 'vacancies-overview'])
 
   return {
-    tab,
-    teamOverviewData,
-    teamData,
-    vacanciesOverviewData,
-    vacanciesData,
+    footer,
     fontsLoaded,
     fullUrl,
+    tab,
+    team,
+    people,
+    vacanciesOverview,
+    vacancies,
     queryParam,
   }
 }
 
 Team.propTypes = {
-  tab: PropTypes.string,
-  teamOverviewData: PropTypes.object,
-  teamData: PropTypes.array,
-  vacanciesOverviewData: PropTypes.object,
-  vacanciesData: PropTypes.array,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
+  tab: PropTypes.string,
+  team: PropTypes.object,
+  people: PropTypes.array,
+  vacanciesOverview: PropTypes.object,
+  vacancies: PropTypes.array,
   queryParam: PropTypes.string,
 }
 

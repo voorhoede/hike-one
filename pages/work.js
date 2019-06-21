@@ -15,7 +15,13 @@ import {
   WorkOverview,
 } from '../components'
 
-const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Work = ({
+  cases = [],
+  data = {},
+  footer = {},
+  fontsLoaded = '',
+  fullUrl = ''
+}) => (
   <Layout
     title="Hike One - Case"
     fontsLoaded={fontsLoaded}
@@ -68,7 +74,7 @@ const Work = ({ cases = [], data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </div>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -79,15 +85,16 @@ Work.getInitialProps = async ({ req, res, asPath }) => {
   const fullUrl = `${baseUrl}${asPath}`
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const [cases, data] = await fetchAll(['cases', 'work'])
+  const [cases, footer, data] = await fetchAll(['cases', 'footer', 'work'])
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
 
-  return { cases, data, fontsLoaded, fullUrl }
+  return { cases, data, footer, fontsLoaded, fullUrl }
 }
 
 Work.propTypes = {
   cases: PropTypes.array,
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

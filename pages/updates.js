@@ -11,7 +11,7 @@ import {
   UpdateOverview,
 } from '../components'
 
-const Updates = ({ data = {}, updates = [], fontsLoaded = '', fullUrl = '' }) => (
+const Updates = ({ data = {}, footer = {}, updates = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title="Hike One - Updates"
     fontsLoaded={fontsLoaded}
@@ -38,7 +38,7 @@ const Updates = ({ data = {}, updates = [], fontsLoaded = '', fullUrl = '' }) =>
 
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -46,24 +46,25 @@ const Updates = ({ data = {}, updates = [], fontsLoaded = '', fullUrl = '' }) =>
 
 Updates.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const [data, updates] = await fetchAll(['update-overview', 'update-extracts'])
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const [footer, data, updates] = await fetchAll(['footer', 'update-overview', 'update-extracts'])
 
   updates.sort((a, b) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
 
-  return { data, updates, fontsLoaded, fullUrl }
+  return { data, footer, updates, fontsLoaded, fullUrl }
 }
 
 Updates.propTypes = {
   data: PropTypes.object,
-  updates: PropTypes.array,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
+  updates: PropTypes.array,
 }
 
 export default Updates

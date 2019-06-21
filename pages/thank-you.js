@@ -11,7 +11,7 @@ import {
   TextCenterShapes,
 } from '../components'
 
-const ThankYou = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const ThankYou = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title="Hike One - Thank you"
     fontsLoaded={fontsLoaded}
@@ -31,7 +31,7 @@ const ThankYou = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </ButtonPrimaryLink>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -41,13 +41,16 @@ ThankYou.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fullUrl = `${baseUrl}${asPath}`
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  const data = await getData(baseUrl, 'thank-you', res)
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'thank-you'])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 ThankYou.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.bool,
   fullUrl: PropTypes.string,
 }

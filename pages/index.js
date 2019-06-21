@@ -21,7 +21,7 @@ import {
 
 const scrollToTargetClass = 'js-scroll-to-target'
 
-const Home = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title="Hike One - Home"
     fontsLoaded={fontsLoaded}
@@ -98,7 +98,7 @@ const Home = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </div>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -108,13 +108,16 @@ Home.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, 'home', res)
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'home'])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Home.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

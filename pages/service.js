@@ -22,7 +22,7 @@ import {
   WorkOverview,
 } from '../components'
 
-const Service = ({ data = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
+const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
@@ -120,7 +120,7 @@ const Service = ({ data = {}, services = [], fontsLoaded = '', fullUrl = '' }) =
         </div>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -128,17 +128,18 @@ const Service = ({ data = {}, services = [], fontsLoaded = '', fullUrl = '' }) =
 
 Service.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
-  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  const [data, services, updates] = await fetchAll([ `services/${query.slug}`, 'services', 'update-extracts' ])
+  const [footer, data, services, updates] = await fetchAll([ 'footer', `services/${query.slug}`, 'services', 'update-extracts' ])
 
-  return { data, services, updates, fontsLoaded, fullUrl }
+  return { data, footer, services, updates, fontsLoaded, fullUrl }
 }
 
 Service.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.footer,
   services: PropTypes.array,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,

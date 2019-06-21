@@ -26,7 +26,7 @@ import {
   WorkOverview,
 } from '../components'
 
-const Topic = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
@@ -213,7 +213,7 @@ const Topic = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         )}
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -221,15 +221,18 @@ const Topic = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
 Topic.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, `topics/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `topics/${query.slug}`])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Topic.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

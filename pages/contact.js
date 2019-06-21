@@ -15,7 +15,7 @@ import {
   VacancyCard,
 } from '../components'
 
-const Contact = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Contact = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title="Hike One - Contact"
     fontsLoaded={fontsLoaded}
@@ -60,7 +60,7 @@ const Contact = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </div>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -70,13 +70,16 @@ Contact.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, 'contact', res)
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'contact'])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Contact.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.bool,
   fullUrl: PropTypes.string,
 }

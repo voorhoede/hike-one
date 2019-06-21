@@ -24,7 +24,7 @@ import {
   UpdateOverviewSmall,
 } from '../components'
 
-const Update = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
@@ -171,7 +171,7 @@ const Update = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
               <Author
                 key={index}
                 name={author.name}
-                roles={author.newRoles}
+                roles={author.roles}
                 photoUrl={author.photo.url}
                 summary={author.summary}
               />
@@ -212,7 +212,7 @@ const Update = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
         </UpdateOverviewSmall>
       </article>
 
-      <Footer form={data.footer.form} />
+      <Footer form={footer.form} />
 
     </main>
   </Layout>
@@ -220,15 +220,18 @@ const Update = ({ data = {}, fontsLoaded = '', fullUrl = '' }) => (
 
 Update.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, `updates/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `updates/${query.slug}`])
 
-  return { data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Update.propTypes = {
   data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

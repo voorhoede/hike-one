@@ -7,6 +7,7 @@ module.exports = (dato, root) => {
     dir.createDataFile('contact.json', 'json', dato.contactPage.toMap(5))
     dir.createDataFile('cookie-bar.json', 'json', dato.cookieBar.toMap())
     dir.createDataFile('error-pages.json', 'json', mapCollection(dato.errorPages))
+    dir.createDataFile('footer.json', 'json', dato.footer.toMap())
     dir.createDataFile('home.json', 'json', dato.home.toMap())
     dir.createDataFile('people.json', 'json',  sortBy(mapCollection(dato.collectionsByType.people), 'name'))
     dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))

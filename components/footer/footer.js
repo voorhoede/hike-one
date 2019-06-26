@@ -102,6 +102,7 @@ class Footer extends Component {
                 description={form.description}
                 listId={form.listId}
                 buttonLabel={form.button}
+                inputFields={form.extraInputFields}
                 hasShadow={form.hasShadow}
               />
             </div>

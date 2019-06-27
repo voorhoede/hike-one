@@ -26,6 +26,7 @@ import {
 
 const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
+    canonicalUrl={data.canonical}
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
     seo={data.seo}

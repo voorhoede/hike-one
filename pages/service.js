@@ -24,6 +24,7 @@ import {
 
 const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
   <Layout
+    canonicalUrl={data.canonical}
     title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
     seo={data.seo}
@@ -139,7 +140,7 @@ Service.getInitialProps = async ({ req, res, query, asPath }) => {
 
 Service.propTypes = {
   data: PropTypes.object,
-  footer: PropTypes.footer,
+  footer: PropTypes.object,
   services: PropTypes.array,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,

@@ -23,6 +23,7 @@ const Work = ({
   fullUrl = ''
 }) => (
   <Layout
+    canonicalUrl={data.canonical}
     title="Hike One - Case"
     fontsLoaded={fontsLoaded}
     seo={data.seo}

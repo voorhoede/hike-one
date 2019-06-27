@@ -29,7 +29,10 @@ class Layout extends Component {
 
   render() {
     const { fontsLoaded } = this.state
-    const { title = 'Hike One', children, seo, classes = '', url = 'https://hike.one' } = this.props
+    const { canonicalUrl, children, classes = '', seo, title = 'Hike One', url = 'https://hike.one' } = this.props
+    const canonical = canonicalUrl
+      ? canonicalUrl
+      : url
     const socialImage = seo && seo.image
       ? seo.image.url
       : '/static/images/hikeone-default-social.jpg'
@@ -47,6 +50,7 @@ class Layout extends Component {
       <React.Fragment>
         <Head>
           <title>{seoTitle}</title>
+          {canonical && <link rel="canonical" href={canonical} />}
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/static/icons/mstile-150x150.png" />
           <meta name="apple-mobile-web-app-title" content="Hike One" />
@@ -74,12 +78,13 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  fontsLoaded: PropTypes.string,
-  classes: PropTypes.string,
-  url: PropTypes.string,
-  seo: PropTypes.object,
+  canonicalUrl: PropTypes.string,
   children: PropTypes.node,
+  classes: PropTypes.string,
+  fontsLoaded: PropTypes.string,
+  seo: PropTypes.object,
+  title: PropTypes.string,
+  url: PropTypes.string,
 }
 
 export default Layout

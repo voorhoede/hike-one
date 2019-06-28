@@ -61,25 +61,25 @@ const ImageCompositionSmall = ({
           <span className="image-team-title">{image34.title}</span>
         </div>
 
-      </div>
+        <div className="image-composition-img-3 image-team">
+          <img
+            srcSet={`
+              ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 165 })} 165w,
+              ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 329 })} 329w,
+              ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 660 })} 660w
+            `}
+            sizes={`
+              (max-width: 768px) calc(50vw - 30px),
+              (max-width: 1024px) calc(50vw - 80px),
+              329px
+            `}
+            src={`${setImageParams(image34Small.photo.url, { ...imageParameters })}`}
+            alt=""
+            className="image-team-img"
+          />
+          <span className="image-team-title">{image34Small.title}</span>
+        </div>
 
-      <div className="image-composition-img-3 image-team">
-        <img
-          srcSet={`
-            ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 165 })} 165w,
-            ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 329 })} 329w,
-            ${setImageParams(image34Small.photo.url, { ...imageParameters, w: 660 })} 660w
-          `}
-          sizes={`
-            (max-width: 768px) calc(50vw - 30px),
-            (max-width: 1024px) calc(50vw - 80px),
-            329px
-          `}
-          src={`${setImageParams(image34Small.photo.url, { ...imageParameters })}`}
-          alt=""
-          className="image-team-img"
-        />
-        <span className="image-team-title">{image34Small.title}</span>
       </div>
 
       {parallaxLayerFront}

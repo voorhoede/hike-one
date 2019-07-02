@@ -1,57 +1,65 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Layout from '../components/layout/layout'
-import MenuBar from '../components/menu-bar/menu-bar'
-import Footer from '../components/footer/footer'
 import cookie from '../components/_helpers/cookie'
-import TextCenter from '../components/text-center/text-center'
-import * as TextCenterShapes from '../components/text-center/text-center-shapes'
+import getData from '../lib/get-data'
+import {
+  Footer,
+  InlineImage,
+  Layout,
+  MenuBar,
+  TextCenter,
+  TextCenterShapes,
+} from '../components/'
 
-const content404 = {
-  title: 'This page is not here',
-  text: 'We lost the page! Don′t worry we know the way ) Check out <a href="/team/culture">who we are</a> and <a href="/work">what we do</a>',
-}
-
-const content500 = {
-  title: 'Whoops, something went wrong',
-  text: 'Don′t worry we′ll be back as soon as we can. In the mean time, feel free to call <a href="tel:+31202044577">+31 20 204 45 77</a> or send us a message on <a href="mailto:hello@hike.one">hello@hike.one</a>',
-}
-
-const Error = ({ statusCode = 0, fontsLoaded = '', wrapperClass = '' }) => (
-  <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} classes={wrapperClass}>
+const Error = ({ data = {}, footer = {}, fontsLoaded = '', wrapperClass = '' }) => (
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    classes={wrapperClass}>
     <main className="main js-main">
+
       <MenuBar color="black" />
-      <article className="article article-error">
+
+      <article className={`article article-error ${data.image ? 'article-error--has-image' : ''}`}>
         <TextCenter
-          title={statusCode === 404 ? content404.title : content500.title}
-          text={statusCode === 404 ? content404.text : content500.text}>
+          title={data.title}
+          text={data.description}>
           <TextCenterShapes.variation3Back position="back" />
           <TextCenterShapes.variation4Front position="front" />
         </TextCenter>
+
+        {data.image && (
+          <section className="error-image container">
+            <div className="container-inner">
+              <InlineImage image={data.image.url} />
+            </div>
+          </section>
+        )}
       </article>
-      <Footer
-        callToActionLabel="Up for a new challenge yourself? Join us!"
-        callToActionUrl="https://hikeone.homerun.co/"
-        disableParallax={true}
-      />
+
+      <Footer form={footer.form} />
+
     </main>
   </Layout>
 )
 
 Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
   const statusCode = res
-    ? res.statusCode
-    : jsonPageRes ? jsonPageRes.status : null
-  // temp fix for bug in nextjs rendering 500 page twice.
-  // keep an eye on this 'well explained' github issue for a possible fix
-  // https://github.com/zeit/next.js/issues/2964
-  const wrapperClass = statusCode === 404 ? '' : 'is-500-error'
+    ? res.statusCode.toString()
+    : jsonPageRes ? jsonPageRes.status.toString() : null
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-  return { statusCode, fontsLoaded, wrapperClass }
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, errorPages] = await fetchAll(['footer', 'error-pages'])
+  const data = errorPages.find(page => page.error === statusCode) // Find correct error page data
+
+  return { data, footer, fontsLoaded }
 }
 
 Error.propTypes = {
-  statusCode: PropTypes.number,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   wrapperClass: PropTypes.string,
 }

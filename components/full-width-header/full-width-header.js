@@ -57,6 +57,7 @@ const FullWidthHeader = ({
             </span>
           )}
         </div>
+        <div></div> {/* Do not remove, creates left spacing */}
       </div>
     </div>
   )

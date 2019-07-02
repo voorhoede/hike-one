@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import setComponentCounter from '../components/_helpers/setParallaxComponentCounter'
-
 import {
   CallToAction,
   CaseExtractSmall,
@@ -60,30 +58,33 @@ const parallaxLayersMap = {
 let componentCounter = {}
 const scrollToTargetClass = 'js-scroll-to-target'
 
-const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
+const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
-    title={`Hike One - ${Data.title}`}
+    canonicalUrl={data.canonical}
+    title={`Hike One - ${data.title}`}
     fontsLoaded={fontsLoaded}
-    seo={Data.seo}
+    seo={data.seo}
     url={fullUrl}>
     <main className="main js-main">
+
       <MenuBar color="white" />
+
       <article className="article">
         <PageHeader
           onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
-          video={Data.header.video}
-          title={Data.header.title}
-          subtitle={Data.header.subtitle}
-          image={Data.header.backgroundImage.url}
-          showGradient={Data.header.displayGradient}
+          video={data.header.video}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
+          showGradient={data.header.displayGradient}
         />
 
         <div className={`${scrollToTargetClass} page-scrolling-content`}>
-          <TextCenter title={Data.introTitle} text={Data.introText}>
+          <TextCenter title={data.introTitle} text={data.introText}>
             <TextCenterShapes.variation1Back position="back" />
           </TextCenter>
 
-          {Data.components.map((component, index) => {
+          {data.components.map((component, index) => {
             let itemType = component.itemType
 
             if (component.itemType === '50_50') {
@@ -287,12 +288,15 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
             }
           })}
 
-          <Contact title={Data.contact.title} button={Data.contact.button}>
+          <Contact
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
             <ContactShapes.variation1Front position="front" />
           </Contact>
 
           <WorkOverview>
-            {Data.caseExtract.map((item, index) => (
+            {data.caseExtract.map((item, index) => (
               <CaseExtractSmall
                 key={index}
                 title={item.header.title}
@@ -306,7 +310,7 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           </WorkOverview>
 
           <UpdateLinks>
-            {Data.updateLinks.map((update, index) => (
+            {data.updateLinks.map((update, index) => (
               <UpdateLink
                 key={index}
                 title={update.title}
@@ -319,25 +323,27 @@ const Case = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => (
           </UpdateLinks>
         </div>
       </article>
-      <Footer
-        callToActionLabel={Data.footer.callToActionLabel}
-        callToActionUrl={Data.footer.callToActionUrl}
-      />
+
+      <Footer form={footer.form} />
+
     </main>
   </Layout>
 )
 
 Case.getInitialProps = async ({ req, res, query, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, `cases/${query.slug}`, res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `cases/${query.slug}`])
 
-  return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Case.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

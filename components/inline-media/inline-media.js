@@ -11,6 +11,7 @@ const InlineMedia = ({ image = null, large = false, video = null, caption = '' }
           autoplay={video.autoplay}
           mute={video.mute}
           loop={video.loop}
+          controls={video.controls}
         />
       )}
       {image && <InlineImage image={image} />}

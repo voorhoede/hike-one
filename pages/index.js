@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
+import getData from '../lib/get-data'
 import scrollToElement from '../components/_helpers/scrollToElement'
 import cookie from '../components/_helpers/cookie'
-
 import {
   CaseExtract,
   Contact,
@@ -11,7 +11,6 @@ import {
   Footer,
   Layout,
   MenuBar,
-  NotificationBar,
   PageHeader,
   PageHeaderShapes,
   ServicesOverviewSmall,
@@ -19,106 +18,106 @@ import {
   UpdateExtractSmall,
   UpdateOverviewSmall,
 } from '../components'
-import getData from '../lib/get-data'
 
-const Home = ({ Data = {}, fontsLoaded = '', fullUrl = '' }) => {
-  const scrollToTargetClass = 'js-scroll-to-target'
+const scrollToTargetClass = 'js-scroll-to-target'
 
-  return (
-    <Layout title="Hike One - Home" fontsLoaded={fontsLoaded} seo={Data.seo} url={fullUrl}>
-      <main className="main js-main">
-        <MenuBar color="white" />
-        <article className="article">
-          <PageHeader
-            onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
-            video={Data.header.video}
-            title={Data.header.title}
-            subtitle={Data.header.subtitle}
-            image={Data.header.backgroundImage.url}
-            showGradient={Data.header.displayGradient}>
-            <PageHeaderShapes.variation1Front position="front" />
-            <PageHeaderShapes.variation1Back position="back" />
-          </PageHeader>
+const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
+    <main className="main js-main">
 
-          <div className={`${scrollToTargetClass} ${Data.notificationBar && 'has-notification-bar'} page-scrolling-content`}>
-            {Data.notificationBar && (
-              <NotificationBar
-                color={Data.notificationBar.color}
-                text={Data.notificationBar.text}
-                callToActionLabel={Data.notificationBar.callToActionLabel}
-                callToActionUrl={Data.notificationBar.callToActionUrl}
+      <MenuBar color="white" />
+
+      <article className="article">
+        <PageHeader
+          onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
+          video={data.header.video}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
+          showGradient={data.header.displayGradient}>
+          <PageHeaderShapes.variation1Front position="front" />
+          <PageHeaderShapes.variation1Back position="back" />
+        </PageHeader>
+
+        <div className={`${scrollToTargetClass} page-scrolling-content`}>
+
+          <ServicesOverviewSmall
+            title={data.servicesItemTitle}
+            services={data.serviceItems}
+          />
+
+          <TextCenter
+            classes="text-center-font-medium text-center-spacing-small"
+            title={data.caseExtractTitle}
+            text={data.caseExtractIntro}
+          />
+
+          <CaseExtract
+            color={data.caseExtract.case.caseThemeColor.hex}
+            companyName={data.caseExtract.case.companyName}
+            headerImage={data.caseExtract.image.url}
+            title={data.caseExtract.title}
+            subtitle={data.caseExtract.subtitle}
+            slug={data.caseExtract.case.slug}
+          />
+
+          <TextCenter
+            classes="text-center-font-medium text-center-spacing-small"
+            title={data.eventsTitle}
+            text={data.eventsIntro}
+          />
+
+          <UpdateOverviewSmall>
+            {data.updateLinks.map((item, index) => (
+              <UpdateExtractSmall
+                key={index}
+                index={index}
+                title={item.title}
+                date={item.date}
+                authors={item.authors}
+                href={item.link}
+                image={item.image.url}
+                category={item.category.name}
+                color={item.themeColor.hex}
+                target={item.isExternalLink}
               />
-            )}
+            ))}
+          </UpdateOverviewSmall>
 
-            <ServicesOverviewSmall
-              title={Data.servicesItemTitle}
-              services={Data.serviceItems}
-            />
+          <Contact
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
+            <ContactShapes.variation1Front position="front" />
+          </Contact>
 
-            <TextCenter
-              classes="text-center-font-medium text-center-spacing-small"
-              title={Data.caseExtractTitle}
-              text={Data.caseExtractIntro}
-            />
+        </div>
+      </article>
 
-            <CaseExtract
-              color={Data.caseExtract.case.caseThemeColor.hex}
-              companyName={Data.caseExtract.case.companyName}
-              headerImage={Data.caseExtract.image.url}
-              title={Data.caseExtract.title}
-              subtitle={Data.caseExtract.subtitle}
-              slug={Data.caseExtract.case.slug}
-            />
+      <Footer form={footer.form} />
 
-            <TextCenter
-              classes="text-center-font-medium text-center-spacing-small"
-              title={Data.eventsTitle}
-              text={Data.eventsIntro}
-            />
-
-            <UpdateOverviewSmall>
-              {Data.updateLinks.map((item, index) => (
-                <UpdateExtractSmall
-                  key={index}
-                  index={index}
-                  title={item.title}
-                  date={item.date}
-                  authors={item.authors}
-                  href={item.link}
-                  image={item.image.url}
-                  category={item.category.name}
-                  color={item.themeColor.hex}
-                  target={item.isExternalLink}
-                />
-              ))}
-            </UpdateOverviewSmall>
-
-            <Contact title={Data.contact.title} button={Data.contact.button}>
-              <ContactShapes.variation1Front position="front" />
-            </Contact>
-          </div>
-        </article>
-        <Footer
-          callToActionLabel={Data.footer.callToActionLabel}
-          callToActionUrl={Data.footer.callToActionUrl}
-          notificationBar={Data.notificationBar}
-        />
-      </main>
-    </Layout>
-  )
-}
+    </main>
+  </Layout>
+)
 
 Home.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-  const fullUrl = `${baseUrl}${asPath}`
-  const data = await getData(baseUrl, 'home', res)
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'home'])
 
-  return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
 }
 
 Home.propTypes = {
-  Data: PropTypes.object,
+  data: PropTypes.object,
+  footer: PropTypes.object,
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }

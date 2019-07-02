@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ButtonPrimaryLink } from '../'
 
-const Contact = ({ title = '', button = '', link = false, target = '_self', children }) => {
+const Contact = ({ title = '', button = '', link = '', target = '_self', children }) => {
   const childrenArray = React.Children.toArray(children)
   const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
 
@@ -11,7 +11,7 @@ const Contact = ({ title = '', button = '', link = false, target = '_self', chil
       <div className="container-inner">
         <h3 className="content">{title}</h3>
         <ButtonPrimaryLink
-          href={`${link ? link : '/contact'}`}
+          href={`${link ? link : 'tel:+310202044577'}`}
           target={target}
           classes="btn-large content">
           {button}

@@ -29,7 +29,10 @@ class Layout extends Component {
 
   render() {
     const { fontsLoaded } = this.state
-    const { title = 'Hike One', children, seo, classes = '', url = 'https://hike.one' } = this.props
+    const { canonicalUrl, children, classes = '', seo, title = 'Hike One', url = 'https://hike.one' } = this.props
+    const canonical = canonicalUrl
+      ? canonicalUrl
+      : url
     const socialImage = seo && seo.image
       ? seo.image.url
       : '/static/images/hikeone-default-social.jpg'
@@ -39,11 +42,15 @@ class Layout extends Component {
     const seoTitle = seo && seo.title
       ? seo.title
       : title
+    const summaryCard = seo && seo.twitterCard
+      ? seo.twitterCard
+      : 'summary'
 
     return (
       <React.Fragment>
         <Head>
           <title>{seoTitle}</title>
+          {canonical && <link rel="canonical" href={canonical} />}
           <meta name="msapplication-TileColor" content="#ffffff" />
           <meta name="msapplication-TileImage" content="/static/icons/mstile-150x150.png" />
           <meta name="apple-mobile-web-app-title" content="Hike One" />
@@ -58,7 +65,7 @@ class Layout extends Component {
           <meta property="og:image" content={socialImage} />
           {seo && seo.image && <meta property="og:image:width" content={seo.image.width} />}
           {seo && seo.image && <meta property="og:image:height" content={seo.image.height} />}
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content={summaryCard} />
           <meta name="twitter:site" content="@hikeone" />
           <link rel="apple-touch-icon" sizes="180x180" href="/static/icons/apple-touch-icon.png" />
           <link rel="icon" type="image/png" href="/static/icons/favicon-32x32.png" sizes="32x32" />
@@ -71,12 +78,13 @@ class Layout extends Component {
 }
 
 Layout.propTypes = {
-  title: PropTypes.string,
-  fontsLoaded: PropTypes.string,
-  classes: PropTypes.string,
-  url: PropTypes.string,
-  seo: PropTypes.object,
+  canonicalUrl: PropTypes.string,
   children: PropTypes.node,
+  classes: PropTypes.string,
+  fontsLoaded: PropTypes.string,
+  seo: PropTypes.object,
+  title: PropTypes.string,
+  url: PropTypes.string,
 }
 
 export default Layout

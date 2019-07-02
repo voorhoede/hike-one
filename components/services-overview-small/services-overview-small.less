@@ -47,65 +47,17 @@
   }
 
   @media @screen-768 {
-    margin-top: @spacing-default*8.5;
     margin-bottom: 0;
     padding: 0;
-    transform-origin: 50% 50%;
-    transition: box-shadow .2s ease-in-out, margin-top .2s ease-in-out;
-    transition-delay: 0s, .1s;
     border-bottom: none;
 
     &:hover {
-      .shadow();
-
-      margin-top: 0;
-      transition-delay: .1s, 0s;
-
-      .services-item-small-shape {
-        width: 100%;
-        height: 250px;
-        transition-delay: 0s, 0s;
-        border-radius: 0;
-      }
-
-      .services-item-small-content {
-        background-color: @white;
-      }
-
-      .btn-secondary {
-        background-color: @red;
-        color: @white;
-
-        .icon svg path {
-          fill: @white;
-        }
-      }
+      background-color: @red;
     }
   }
 
   @media @screen-1170 {
     max-width: 380px;
-  }
-}
-
-.service-overview-small-triangle {
-  display: flex;
-  position: absolute;
-  top: -15px;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-
-  @media @screen-1170 {
-    top: 75px;
-    width: 100%;
-    height: 90%;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-    fill: @lightest-gray;
   }
 }
 
@@ -120,7 +72,7 @@
   text-align: center;
 
   @media @screen-768 {
-    margin-bottom: @spacing-default*3;
+    margin-bottom: @spacing-default*11;
     font-size: @heading-m;
     line-height: @line-height-heading-m;
   }
@@ -138,15 +90,10 @@
 
   @media @screen-500 {
     position: relative;
-    width: 165px;
+    width: 100%;
     height: 165px;
     margin: 0 auto;
     border-radius: 4px;
-  }
-
-  @media @screen-768 {
-    transition: all .2s ease-in-out;
-    transition-delay: .1s;
   }
 
   .shape {
@@ -156,28 +103,10 @@
       right: 0;
       bottom: 0;
       left: 0;
-      width: 165px;
+      width: 100%;
       height: 165px;
       margin: auto;
     }
-  }
-
-  svg {
-    @media @screen-500 {
-      height: 100%;
-    }
-  }
-
-  &.red {
-    background-color: @red;
-  }
-
-  &.yellow {
-    background-color: @yellow;
-  }
-
-  &.green {
-    background-color: @green;
   }
 }
 
@@ -192,12 +121,7 @@
   .btn-secondary {
     margin-bottom: 0;
     float: left;
-    transition-delay: .1s;
     pointer-events: none;
-
-    .icon svg path {
-      transition-delay: .1s;
-    }
 
     @media @screen-500 {
       margin-right: auto;
@@ -221,8 +145,6 @@
     height: auto;
     margin: 0;
     padding: @spacing-default*4 0;
-    transition: background-color .2s ease-in-out;
-    background-color: transparent;
   }
 }
 

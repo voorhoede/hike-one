@@ -17,42 +17,6 @@ const shapes = {
 class ServicesOverviewSmall extends Component {
   constructor(props) {
     super(props)
-    this.onResize = this.onResize.bind(this)
-    this.onMouseOver = this.onMouseOver.bind(this)
-    this.onMouseLeave = this.onMouseLeave.bind(this)
-    this.setInitialValues = this.setInitialValues.bind(this)
-  }
-
-  componentDidMount() {
-    this.setInitialValues()
-    window.addEventListener('resize', this.onResize)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
-  }
-
-  setInitialValues() {
-    this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
-  }
-
-  onMouseOver(item) {
-    console.log({ item })
-  }
-
-  onMouseLeave(item) {
-    console.log({ item })
-  }
-
-  onResize() {
-    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
-
-    if (this.windowWidth !== newWindowWidth) {
-      clearTimeout(this.resizeTimer)
-      this.resizeTimer = setTimeout(() => {
-        this.setInitialValues()
-      }, 250)
-    }
   }
 
   render() {
@@ -70,9 +34,7 @@ class ServicesOverviewSmall extends Component {
               ? <ServicesItemLink
                   key={index}
                   item={item}
-                  Component={Component}
-                  onMouseOver={this.onMouseOver}
-                  onMouseLeave={this.onMouseLeave} />
+                  Component={Component} />
               : <ServicesItem
                   key={index}
                   item={item}
@@ -93,7 +55,8 @@ ServicesOverviewSmall.propTypes = {
 
 const ServicesItem = ({ item = {}, Component = null }) => (
   <div className="services-item-small">
-    <div className={`services-item-small-shape ${item.iconColor.color}`}>
+    <div className="services-item-small__spacer">
+      <div className={`services-item-small__shape ${item.iconColor.color}`}></div>
       <Component />
     </div>
     <div className="services-item-small-content">
@@ -111,19 +74,11 @@ ServicesItem.propTypes = {
   Component: PropTypes.func,
 }
 
-const ServicesItemLink = ({
-  item = {},
-  Component = null,
-  onMouseOver = null,
-  onMouseLeave = null,
-}) => (
+const ServicesItemLink = ({ item = {}, Component = null }) => (
   <Link href={`/service?slug=${item.link.slug}`} as={`/service/${item.link.slug}`}>
-    <a
-      id={item.link.slug}
-      className="services-item-small"
-      onMouseOver={() => onMouseOver(item.link.slug)}
-      onMouseLeave={() => onMouseLeave(item.link.slug)}>
-      <div className="services-item-small-shape">
+    <a id={item.link.slug} className="services-item-small">
+      <div className="services-item-small__spacer">
+        <div className={`services-item-small__shape ${item.iconColor.color}`}></div>
         <Component />
       </div>
       <div className="services-item-small-content">
@@ -140,8 +95,6 @@ const ServicesItemLink = ({
 ServicesItemLink.propTypes = {
   item: PropTypes.object,
   Component: PropTypes.func,
-  onMouseOver: PropTypes.func,
-  onMouseLeave: PropTypes.func,
 }
 
 export default ServicesOverviewSmall

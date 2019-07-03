@@ -5,7 +5,10 @@
   position: relative;
   width: 100%;
   padding: @spacing-default*4 @spacing-default*2 @spacing-default*4 0;
+  transform: scale(1);
+  transition: box-shadow .25s ease-in-out;
   border-bottom: 1px solid @light-gray;
+  box-shadow: 0 0 0 0 transparent;
   text-decoration: none;
 
   &:last-child {
@@ -28,7 +31,9 @@
     border-bottom: none;
     border-radius: 4px;
 
-    &:hover {
+    &:hover,
+    &:focus {
+      transition: box-shadow .25s ease-in-out;
       background-color: @white;
       box-shadow: 0 25px 50px 0 fade(@black-deep, 20%);
 
@@ -36,6 +41,21 @@
         flex-grow: 1;
         transform: scaleY(1);
       }
+
+      .btn-secondary {
+        background-color: @red;
+        color: @white;
+
+        .icon svg path {
+          fill: @white;
+        }
+      }
+    }
+
+    &:active {
+      transform: scale(.95);
+      transition: box-shadow .25s ease-in-out, transform .25s ease-in-out;
+      box-shadow: 0 15px 30px 0 fade(@black-deep, 20%);
     }
   }
 }
@@ -70,7 +90,7 @@
   height: 250px;
   margin: 0 auto;
   transform: scaleY(.5);
-  transition: all .2s;
+  transition: transform .25s ease-in-out, flex .25s ease-in-out;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 

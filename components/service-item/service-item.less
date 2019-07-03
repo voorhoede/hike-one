@@ -6,7 +6,7 @@
   width: 100%;
   padding: @spacing-default*4 @spacing-default*2 @spacing-default*4 0;
   transform: scale(1);
-  transition: box-shadow .25s ease-in-out;
+  transition: box-shadow .25s ease-in-out 0s;
   border-bottom: 1px solid @light-gray;
   box-shadow: 0 0 0 0 transparent;
   text-decoration: none;
@@ -33,7 +33,7 @@
 
     &:hover,
     &:focus {
-      transition: box-shadow .25s ease-in-out;
+      transition: box-shadow .25s ease-in-out .15s;
       background-color: @white;
       box-shadow: 0 25px 50px 0 fade(@black-deep, 20%);
 
@@ -48,6 +48,7 @@
 
       .animated-shape {
         top: 50%;
+        transition: top .2s ease-in-out .05s;
       }
 
       .btn-secondary {
@@ -90,7 +91,7 @@
     width: 40px;
     height: 40px;
     transform: translate(-50%, -50%);
-    transition: top .25s ease-in-out;
+    transition: top .2s ease-in-out 0s;
 
     @media @screen-500 {
       width: 125px;

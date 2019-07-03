@@ -1,25 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ServicesItem } from '../'
-import ShapesFront from './services-overview-shapes-front'
+import { ServiceItem } from '..'
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes.js'
 
-const ServicesOverview = ({ title = '', items = [] }) => (
-  <section className="services-overview">
+const shapes = [
+  TrailDiamond,
+  TrailDoubleDiamond,
+  TrailTriangle,
+]
+
+const ServicesOverview = ({ services = [], title = '', classes = '' }) => (
+  <div className={`services-overview container clearfix ${classes}`}>
+    <div className="services-overview__header">{title}</div>
     <div className="container-inner">
-      <h2 className="section-header content">{title}</h2>
-      <ul className="no-style">
-        {items.map((service, index) => (
-          <ServicesItem key={index} index={index} data={service} />
-        ))}
-      </ul>
+      {Object.values(services).map((item, index) => (
+        <ServiceItem
+          key={index}
+          item={item}
+          Component={shapes[index]} />
+      ))}
     </div>
-    <ShapesFront />
-  </section>
+  </div>
 )
 
 ServicesOverview.propTypes = {
+  services: PropTypes.array,
   title: PropTypes.string,
-  items: PropTypes.array,
+  classes: PropTypes.string,
 }
 
 export default ServicesOverview

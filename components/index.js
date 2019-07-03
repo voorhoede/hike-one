@@ -66,8 +66,8 @@ import QuoteBlock from './quote-block/quote-block.js'
 import RectangleBorder from './shapes/rectangle-border/rectangle-border.js'
 import RichBodyText from './rich-body-text/rich-body-text.js'
 import SelectDropdown from './select-dropdown/select-dropdown.js'
-import ServicesItem from './services-item/services-item.js'
-import ServicesOverviewSmall from './services-overview-small/services-overview-small.js'
+import ServiceItem from './service-item/service-item.js'
+import ServicesOverview from './services-overview/services-overview.js'
 import SocialMedia from './social-media/social-media.js'
 import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
@@ -166,8 +166,8 @@ export {
   RectangleBorder,
   RichBodyText,
   SelectDropdown,
-  ServicesItem,
-  ServicesOverviewSmall,
+  ServiceItem,
+  ServicesOverview,
   SocialMedia,
   SocialShare,
   StatisticsBlock,

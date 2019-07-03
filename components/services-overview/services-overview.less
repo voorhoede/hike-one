@@ -2,91 +2,47 @@
 
 .services-overview {
   position: relative;
-  padding: 0 @spacing-default*1.5;
+  width: 100%;
+  height: 100%;
+  margin-bottom: @spacing-default*5;
+  padding-bottom: @spacing-default*6;
+  overflow: hidden;
+
+  @media @screen-1170 {
+    margin: 0 auto;
+    padding-bottom: @spacing-default*14;
+  }
+
+  .container-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media @screen-768 {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
 }
 
-.services-overview .section-header {
-  margin-bottom: 88px;
+.services-overview__header {
+  position: relative;
+  width: 100%;
+  margin-bottom: @spacing-default*4;
+  color: @black;
+  font-size: @heading-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-subtitle-m;
+  text-align: center;
 
   @media @screen-768 {
-    margin-bottom: @spacing-default*12;
-    font-size: @title-large-m;
-    line-height: 58px;
+    font-size: @heading-m;
+    line-height: @line-height-heading-m;
   }
 
   @media @screen-1170 {
-    margin-bottom: @spacing-default*15.5;
     font-size: @heading-l;
     line-height: @line-height-heading-l;
-  }
-}
-
-.services-overview ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.services-overview li.services-item:nth-of-type(1) {
-  background-color: @blue;
-
-  .btn-secondary {
-    color: @blue;
-
-    &:hover {
-      color: @white;
-    }
-
-    .icon svg path {
-      fill: @blue;
-    }
-  }
-}
-
-.services-overview li.services-item:nth-of-type(2) {
-  background-color: @red;
-
-  .btn-secondary {
-    color: @red;
-
-    &:hover {
-      color: @white;
-    }
-
-    .icon svg path {
-      fill: @red;
-    }
-  }
-}
-
-.services-overview li.services-item:nth-of-type(3) {
-  background-color: @purple;
-
-  .btn-secondary {
-    color: @purple;
-
-    &:hover {
-      color: @white;
-    }
-
-    .icon svg path {
-      fill: @purple;
-    }
-  }
-}
-
-.services-overview li.services-item:nth-of-type(4) {
-  background-color: @green;
-
-  .btn-secondary {
-    color: @green;
-
-    &:hover {
-      color: @white;
-    }
-
-    .icon svg path {
-      fill: @green;
-    }
   }
 }

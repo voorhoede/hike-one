@@ -1,5 +1,8 @@
 import TweenLite from 'gsap'
-import 'gsap/umd/ScrollToPlugin' // Needed to enable TweenLite 'scrollTo' functionality.
+import ScrollToPlugin from 'gsap/umd/ScrollToPlugin'
+
+// Without this line, ScrollToPlugin may get dropped with Tree shaking (https://greensock.com/docs/NPMUsage)
+const plugins = [ ScrollToPlugin ]
 
 const scrollToElement = (elementClass) => {
   TweenLite.to(window, 0.3, {

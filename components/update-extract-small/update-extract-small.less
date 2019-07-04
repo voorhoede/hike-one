@@ -14,14 +14,6 @@
 
     transform: scale(1.02);
     transition: transform @animation-speed-fast, box-shadow @animation-speed-fast;
-
-    .update-extract-small-image::after {
-      transition: opacity @animation-speed-fast;
-    }
-  }
-
-  .update-extract-small-image::after {
-    transition: opacity @animation-speed-slow;
   }
 
   @media @screen-768 {
@@ -40,17 +32,6 @@
   height: 190px;
   background-position: center;
   background-size: cover;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    background-color: @black;
-  }
 
   @media @screen-768 {
     height: 332px;

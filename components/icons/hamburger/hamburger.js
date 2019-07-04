@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Power2, TimelineMax } from 'gsap'
+import { Power2, TimelineLite } from 'gsap'
 
 class Hamburger extends Component {
   constructor(props) {
@@ -9,8 +9,9 @@ class Hamburger extends Component {
   }
 
   componentDidMount() {
-    this.tlHamburger = new TimelineMax({paused: true})
+    this.tlHamburger = new TimelineLite()
     this.tlHamburger
+      .pause()
       .set(this.hamburgerPath1, {transformOrigin: '10% 0'})
       .to(this.hamburgerPath1, 0.3, {
         x: '70%',

@@ -13,29 +13,17 @@ const shapes = [
 class ServicesOverview extends Component {
   constructor(props) {
     super(props)
-    this.onResize = this.onResize.bind(this)
     this.onMouseOver = this.onMouseOver.bind(this)
     this.onMouseLeave = this.onMouseLeave.bind(this)
-    this.setInitialValues = this.setInitialValues.bind(this)
     this.setLeftTimeline = this.setLeftTimeline.bind(this)
     this.setCenterTimeline = this.setCenterTimeline.bind(this)
     this.setRightTimeline = this.setRightTimeline.bind(this)
   }
 
   componentDidMount() {
-    this.setInitialValues()
     this.setLeftTimeline()
     this.setCenterTimeline()
     this.setRightTimeline()
-    window.addEventListener('resize', this.onResize)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
-  }
-
-  setInitialValues() {
-    this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
   }
 
   setLeftTimeline() {
@@ -96,17 +84,6 @@ class ServicesOverview extends Component {
       case 'training-and-academy':
         this.tlRight.timeScale(1.25).reverse()
         break;
-    }
-  }
-
-  onResize() {
-    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
-
-    if (this.windowWidth !== newWindowWidth) {
-      clearTimeout(this.resizeTimer)
-      this.resizeTimer = setTimeout(() => {
-        this.setInitialValues()
-      }, 250)
     }
   }
 

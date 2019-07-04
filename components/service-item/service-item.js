@@ -3,17 +3,19 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { ButtonSecondaryMock } from '..'
 
-const ServiceItem = ({ item = {}, Component = null }) => {
+const ServiceItem = ({ item = {}, Component = null, onMouseOver = null, onMouseLeave = null }) => {
   const hasLink = item.link && item.link.slug
 
   return hasLink
-    ? <WithLink {...item} Component={Component} />
+    ? <WithLink {...item} Component={Component} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave} />
     : <Item {...item} Component={Component} />
 }
 
 ServiceItem.propTypes = {
   item: PropTypes.object,
   Component: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 }
 
 const WithLink = ({
@@ -22,10 +24,16 @@ const WithLink = ({
   link = '',
   text = '',
   title = '',
-  Component = null
+  Component = null,
+  onMouseOver = null,
+  onMouseLeave = null,
 }) => (
   <Link href={`/service?slug=${link.slug}`} as={`/service/${link.slug}`}>
-    <a id={link.slug} className="service-item">
+    <a
+      id={link.slug}
+      className="service-item"
+      onMouseOver={() => onMouseOver(link.slug)}
+      onMouseLeave={() => onMouseLeave(link.slug)}>
       <div className="service-item__icon">
         <div className={`service-item__icon-square ${iconColor.color}`}></div>
         <Component />
@@ -50,6 +58,8 @@ WithLink.propTypes = {
   text: PropTypes.string,
   title: PropTypes.string,
   Component: PropTypes.func,
+  onMouseOver: PropTypes.func,
+  onMouseLeave: PropTypes.func,
 }
 
 const Item = ({

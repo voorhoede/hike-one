@@ -37,7 +37,7 @@
   position: relative;
   width: auto;
   min-width: 100%;
-  height: 194px;
+  height: 190px;
   background-position: center;
   background-size: cover;
 
@@ -58,9 +58,12 @@
 }
 
 .update-extract-small-text {
+  display: flex;
   position: relative;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  height: 119px;
+  height: 120px;
   padding: @spacing-default*2;
   background-color: @black;
 
@@ -69,23 +72,17 @@
   }
 
   @media @screen-1170 {
-    height: 152px;
+    height: 170px;
     padding: @spacing-default*3;
   }
 }
 
 .update-extract-small-title {
-  margin-top: @spacing-default;
-  margin-bottom: @spacing-default;
+  margin: 0;
   color: @white;
   font-size: @body-text-s;
   font-weight: @font-weight-bold;
   line-height: @line-height-body-small-s;
-
-  @media @screen-768 {
-    margin-top: 0;
-    margin-bottom: @spacing-default*2;
-  }
 
   @media @screen-1170 {
     font-size: @body-text-l;
@@ -94,10 +91,6 @@
 }
 
 .update-extract-small-subtitle {
-  position: absolute;
-  bottom: 0;
-  width: calc(~"100% - " @spacing-default*4);
-  padding: @spacing-default*1.5 0 @spacing-default*2 0;
   color: @white;
   font-size: @body-text-small-s;
   font-weight: normal;
@@ -105,14 +98,11 @@
 
   @media @screen-768 {
     font-size: @body-text-small-m;
-    line-height: @line-height-body-small-m;
   }
 
   @media @screen-1170 {
-    width: calc(~"100% - " @spacing-default*6);
-    padding-top: @spacing-default*1.5;
     font-size: @body-text-small-l;
-    line-height: @line-height-body-small-l;
+    line-height: @line-height-body-small-m;
   }
 }
 

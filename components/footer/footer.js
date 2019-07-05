@@ -14,7 +14,6 @@ class Footer extends Component {
     super(props)
     this.onResize = this.onResize.bind(this)
     this.setFixedState = this.setFixedState.bind(this)
-
     this.state = {
       ticking: false,
     }

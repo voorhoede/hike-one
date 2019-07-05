@@ -6,10 +6,10 @@ import setImageParams from '../_helpers/setImageParameters'
 class PageHeader extends Component {
   constructor(props) {
     super(props)
-    this.range = 400
-    this.speed = -0.25
     this.onScroll = this.onScroll.bind(this)
     this.setVisability = this.setVisability.bind(this)
+    this.range = 400
+    this.speed = -0.25
     this.state = {
       showVideo: false,
       ticking: false,

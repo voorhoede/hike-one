@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class FooterLocations extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       location: 'ams',
     }

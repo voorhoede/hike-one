@@ -16,12 +16,12 @@ class MenuBar extends Component {
     this.onResize = this.onResize.bind(this)
     this.breakpoint = '767px'
     this.breakpointLarge = '1919px'
+    this.disableScrollClass = 'disable-scroll'
     this.state = {
       hamburger: false,
       menuIsOpen: false,
       contextMenuIsOpen: false,
     }
-    this.disableScrollClass = 'disable-scroll'
   }
 
   componentDidMount() {

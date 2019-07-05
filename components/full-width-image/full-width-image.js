@@ -20,7 +20,6 @@ class FullWidthImage extends Component {
     this.resizeTimer = null
     this.elBoundingRect = null
     this.speed = 0.5
-
     this.state = {
       ticking: false,
     }

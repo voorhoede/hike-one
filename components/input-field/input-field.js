@@ -79,7 +79,7 @@ InputField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   isRequired: PropTypes.bool,
-  autoFocus: PropTypes.string,
+  autoFocus: PropTypes.bool,
   formLength: PropTypes.number,
   id: PropTypes.string,
 }

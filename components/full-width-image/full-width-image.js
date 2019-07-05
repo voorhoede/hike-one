@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import elementIsInView from '../_helpers/isElementInView'
+import isElementInView from '../_helpers/isElementInView'
 import setImageParams from '../_helpers/setImageParameters'
 
 class FullWidthImage extends Component {
@@ -20,7 +20,9 @@ class FullWidthImage extends Component {
     this.resizeTimer = null
     this.elBoundingRect = null
     this.speed = 0.5
-    this.ticking = false
+    this.state = {
+      ticking: false,
+    }
   }
 
   componentDidMount() {
@@ -49,29 +51,33 @@ class FullWidthImage extends Component {
   }
 
   onScroll() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.animateLayers()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   onResize() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.setOffsetOnResize()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   animateLayers() {
-    if (!elementIsInView(this.element)) {
+    if (!isElementInView(this.element)) {
       if (!this.elementReset) {
         this.resetElement()
       }
@@ -102,7 +108,7 @@ class FullWidthImage extends Component {
   }
 
   setInitialOffset() {
-    if (elementIsInView(this.element)) {
+    if (isElementInView(this.element)) {
       const yOffsetFixed = this.elBoundingRect.top
       const yOffsetImage = -this.elBoundingRect.top * this.speed
 

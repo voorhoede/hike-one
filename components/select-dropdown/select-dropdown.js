@@ -5,18 +5,19 @@ import { ButtonClean } from '../'
 class SelectDropdown extends Component {
   constructor(props) {
     super(props)
-
+    this.toggleDropdown = this.toggleDropdown.bind(this)
+    this.handleClick = this.handleClick.bind(this)
     this.state = {
       isCollapsed: true,
     }
   }
 
-  toggleDropdown = () => {
+  toggleDropdown() {
     const { isCollapsed } = this.state
     this.setState({ isCollapsed: !isCollapsed })
   }
 
-  handleClick = (id, title) => {
+  handleClick(id, title) {
     this.toggleDropdown()
     this.props.handleClick(id, title)
   }

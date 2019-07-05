@@ -5,7 +5,13 @@ import { ButtonSecondary, Topics, UpdateExtractSmall, UpdatesExtractLarge } from
 class UpdateOverview extends Component {
   constructor(props) {
     super(props)
-
+    this.changeTopicHandler = this.changeTopicHandler.bind(this)
+    this.getTopics = this.getTopics.bind(this)
+    this.filterUpdates = this.filterUpdates.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.incrementPageOffset = this.incrementPageOffset.bind(this)
+    this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this)
+    this.hasSelectedTopic = this.hasSelectedTopic.bind(this)
     this.state = {
       activeTopic: 'All',
       topics: this.getTopics(props.updatesData),
@@ -14,14 +20,6 @@ class UpdateOverview extends Component {
       loading: false,
       filteredUpdates: this.filterUpdates(props.updatesData, 'All')
     }
-
-    this.changeTopicHandler = this.changeTopicHandler.bind(this)
-    this.getTopics = this.getTopics.bind(this)
-    this.filterUpdates = this.filterUpdates.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.incrementPageOffset = this.incrementPageOffset.bind(this)
-    this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this)
-    this.hasSelectedTopic = this.hasSelectedTopic.bind(this)
   }
 
   handleClick() {

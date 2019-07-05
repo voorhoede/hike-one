@@ -80,7 +80,7 @@ Contact.getInitialProps = async ({ req, res, asPath }) => {
 Contact.propTypes = {
   data: PropTypes.object,
   footer: PropTypes.object,
-  fontsLoaded: PropTypes.bool,
+  fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
 }
 

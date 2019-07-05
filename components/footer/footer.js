@@ -12,9 +12,11 @@ import {
 class Footer extends Component {
   constructor(props) {
     super(props)
-    this.ticking = false
     this.onResize = this.onResize.bind(this)
     this.setFixedState = this.setFixedState.bind(this)
+    this.state = {
+      ticking: false,
+    }
   }
 
   componentDidMount() {
@@ -43,14 +45,16 @@ class Footer extends Component {
   }
 
   onResize() {
-    if (!this.ticking) {
+    const { ticking } = this.state
+
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.setFixedState()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
 
-    this.ticking = true
+    this.setState({ ticking: true })
   }
 
   render() {

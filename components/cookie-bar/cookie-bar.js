@@ -7,14 +7,15 @@ import cookie from '../_helpers/cookie'
 class CookieBar extends Component {
   constructor(props) {
     super(props)
-
+    this.setCookie = this.setCookie.bind(this)
     this.state = {
       accepted: false,
     }
+
     Router.onRouteChangeStart = () => this.setCookie()
   }
 
-  setCookie = () => {
+  setCookie() {
     cookie('accepted-cookies', true, 100)
     this.setState({ accepted: true })
   }

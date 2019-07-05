@@ -20,7 +20,9 @@ class FullWidthImage extends Component {
     this.resizeTimer = null
     this.elBoundingRect = null
     this.speed = 0.5
-    this.ticking = false
+    this.state = {
+      ticking: false,
+    }
   }
 
   componentDidMount() {
@@ -49,25 +51,29 @@ class FullWidthImage extends Component {
   }
 
   onScroll() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.animateLayers()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   onResize() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.setOffsetOnResize()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   animateLayers() {

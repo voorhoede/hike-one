@@ -5,21 +5,17 @@ import { TeamMember, Topics } from '../'
 class TeamMembersOverview extends Component {
   constructor(props) {
     super(props)
-
-    const { team, queryParam } = props
-
-    this.state = {
-      activeTopic: 'Everyone',
-      departments: this.getDepartments(team),
-      filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
-    }
-
-    this.handleQueryParams(queryParam)
-
     this.changeTopicHandler = this.changeTopicHandler.bind(this)
     this.getDepartments = this.getDepartments.bind(this)
     this.filterTeamMembers = this.filterTeamMembers.bind(this)
     this.hasSelectedDepartment = this.hasSelectedDepartment.bind(this)
+    this.state = {
+      activeTopic: 'Everyone',
+      departments: this.getDepartments(props.team),
+      filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
+    }
+
+    this.handleQueryParams(props.queryParam)
   }
 
   changeTopicHandler(value) {

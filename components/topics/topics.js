@@ -5,14 +5,12 @@ import { ButtonClean } from '../'
 class Topics extends Component {
   constructor(props) {
     super(props)
-
+    this.setActiveTopic = this.setActiveTopic.bind(this)
+    this.handleListToggle = this.handleListToggle.bind(this)
     this.state = {
       isCollapsed: true,
       selectedTopic: props.activeTopic,
     }
-
-    this.setActiveTopic = this.setActiveTopic.bind(this)
-    this.handleListToggle = this.handleListToggle.bind(this)
   }
 
   setActiveTopic (topic) {

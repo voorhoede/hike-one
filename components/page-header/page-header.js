@@ -8,13 +8,11 @@ class PageHeader extends Component {
     super(props)
     this.range = 400
     this.speed = -0.25
-    this.ticking = false
-    this.isHidden = false
     this.onScroll = this.onScroll.bind(this)
     this.setVisability = this.setVisability.bind(this)
-    this.showVideo = this.showVideo.bind(this)
     this.state = {
       showVideo: false,
+      ticking: false,
     }
   }
 
@@ -24,7 +22,9 @@ class PageHeader extends Component {
 
     if (this.props.video) {
       this.video.load()
-      this.video.addEventListener('loadeddata', this.showVideo)
+      this.video.addEventListener('loadeddata',
+        this.setState({ showVideo: true })
+      )
     }
   }
 
@@ -37,30 +37,26 @@ class PageHeader extends Component {
   }
 
   onScroll() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
         this.setVisability(scrolledHeight)
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   setVisability(scrolledHeight) {
     // hide or show component so that the footer is visable
     if (this.elementBottom + 200 <= scrolledHeight) {
-      this.isHidden = true
       this.element.classList.add('is-hidden')
     } else {
-      this.isHidden = false
       this.element.classList.remove('is-hidden')
     }
-  }
-
-  showVideo() {
-    this.setState({ showVideo: true })
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import elementIsInView from '../_helpers/isElementInView'
+import isElementInView from '../_helpers/isElementInView'
 import setImageParams from '../_helpers/setImageParameters'
 
 class FullWidthImage extends Component {
@@ -77,7 +77,7 @@ class FullWidthImage extends Component {
   }
 
   animateLayers() {
-    if (!elementIsInView(this.element)) {
+    if (!isElementInView(this.element)) {
       if (!this.elementReset) {
         this.resetElement()
       }
@@ -108,7 +108,7 @@ class FullWidthImage extends Component {
   }
 
   setInitialOffset() {
-    if (elementIsInView(this.element)) {
+    if (isElementInView(this.element)) {
       const yOffsetFixed = this.elBoundingRect.top
       const yOffsetImage = -this.elBoundingRect.top * this.speed
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
@@ -13,10 +14,11 @@ class Footer extends Component {
   constructor(props) {
     super(props)
     this.onResize = this.onResize.bind(this)
-    this.setFixedState = this.setFixedState.bind(this)
     this.state = {
       ticking: false,
     }
+
+    this.resizeObserver = new ResizeObserver(this.onResize)
   }
 
   componentDidMount() {
@@ -24,37 +26,24 @@ class Footer extends Component {
     this.mainContainer = document.querySelector('.js-main')
 
     if (typeof window.requestAnimationFrame !== 'undefined' && this.mainContainer && !disableParallax) {
-      this.footerHeight = this.footer.getBoundingClientRect().height
-      this.setFixedState()
-      window.addEventListener('resize', this.onResize)
+      this.resizeObserver.observe(this.footer)
     }
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize)
+    this.resizeObserver.disconnect()
   }
 
-  setFixedState() {
-    if (window.innerHeight > this.footerHeight) {
+  onResize(element) {
+    const elementHeight = element[0].contentRect.bottom
+
+    if (window.innerHeight > elementHeight) {
       this.footer.classList.add('is-fixed')
-      this.mainContainer.style.paddingBottom = `${this.footerHeight}px`
+      this.mainContainer.style.paddingBottom = `${elementHeight}px`
     } else {
       this.footer.classList.remove('is-fixed')
       this.mainContainer.style.paddingBottom = `0px`
     }
-  }
-
-  onResize() {
-    const { ticking } = this.state
-
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        this.setFixedState()
-        this.setState({ ticking: false })
-      })
-    }
-
-    this.setState({ ticking: true })
   }
 
   render() {

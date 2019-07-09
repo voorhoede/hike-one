@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { ContextMenu, Facebook, Hamburger, Instagram, LinkedIn, Logo, Medium, Twitter } from '../'
@@ -19,19 +20,20 @@ class MenuBar extends Component {
       menuIsOpen: false,
       contextMenuIsOpen: false,
     }
+
+    this.resizeObserver = new ResizeObserver(this.onResize)
   }
 
   componentDidMount() {
     this.setInitialValues()
     this.setAnimationTimeline()
     this.menu.addEventListener('click', this.onClickMenu)
-    window.addEventListener('resize', this.onResize)
+    this.resizeObserver.observe(this.header)
   }
 
   componentWillUnmount() {
     this.menu.removeEventListener('click', this.onClickMenu)
-    window.removeEventListener('resize', this.onResize)
-    document.body.classList.remove(this.disableScrollClass)
+    this.resizeObserver.disconnect()
   }
 
   setInitialValues() {
@@ -128,27 +130,24 @@ class MenuBar extends Component {
     this.setState({ contextMenuIsOpen: !contextMenuIsOpen })
   }
 
-  onResize() {
-    // check if window is actually resized (some phones fire resize event on scroll)
-    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
+  onResize(entries) {
+    const { menuIsOpen } = this.state
 
-    if (this.state.menuIsOpen && this.windowWidth !== newWindowWidth) {
-      // close menu
-      this.tlMenu.timeScale(10).reverse()
-      // revert hamburger icon
-      this.hamburger.reverseAnimation()
-      document.body.classList.remove(this.disableScrollClass)
-      this.setState({ menuIsOpen: false })
-    }
+    entries.forEach(entry => {
+      if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
+        // close menu
+        this.tlMenu.timeScale(10).reverse()
+        // revert hamburger icon
+        this.hamburger.reverseAnimation()
+        document.body.classList.remove(this.disableScrollClass)
+        this.setState({ menuIsOpen: false })
+      }
 
-    if (this.windowWidth !== newWindowWidth) {
-      // add debounce for resize so it fires only add the end of resize
-      clearTimeout(this.resizeTimer)
-      this.resizeTimer = setTimeout(() => {
+      if (this.windowWidth !== entry.contentRect.width) {
         this.setInitialValues()
         this.setAnimationTimeline()
-      }, 250)
-    }
+      }
+    })
   }
 
   render() {

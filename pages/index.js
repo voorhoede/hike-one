@@ -13,7 +13,7 @@ import {
   MenuBar,
   PageHeader,
   PageHeaderShapes,
-  ServicesOverviewSmall,
+  ServicesOverview,
   TextCenter,
   UpdateExtractSmall,
   UpdateOverviewSmall,
@@ -45,7 +45,7 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
 
         <div className={`${scrollToTargetClass} page-scrolling-content`}>
 
-          <ServicesOverviewSmall
+          <ServicesOverview
             title={data.servicesItemTitle}
             services={data.serviceItems}
           />

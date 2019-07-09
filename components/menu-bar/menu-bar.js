@@ -114,17 +114,17 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu() {
+  onClickMenu(e) {
     // check if browser supports closest
     // if closest is not menu inner and menu is open:
     // then close menu
-    if (event.target.closest && !event.target.closest('.menu-inner') && this.state.menuIsOpen) {
+    if (e.target.closest && !e.target.closest('.menu-inner') && this.state.menuIsOpen) {
       this.toggleMenu()
     }
   }
 
-  onClickMenuList(event) {
-    if (event.target.tagName.toLowerCase() === 'a') {
+  onClickMenuList(e) {
+    if (e.target.tagName.toLowerCase() === 'a') {
       this.toggleMenu()
     }
   }
@@ -143,8 +143,8 @@ class MenuBar extends Component {
     this.setState({ menuIsOpen: !this.state.menuIsOpen })
   }
 
-  toggleContextMenu(event) {
-    event.preventDefault()
+  toggleContextMenu(e) {
+    e.preventDefault()
 
     this.setState({ contextMenuIsOpen: !this.state.contextMenuIsOpen })
   }

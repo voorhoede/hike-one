@@ -123,8 +123,8 @@ class MenuBar extends Component {
     this.setState({ menuIsOpen: !menuIsOpen })
   }
 
-  toggleContextMenu(event) {
-    event.preventDefault()
+  toggleContextMenu(e) {
+    e.preventDefault()
     const { contextMenuIsOpen } = this.state
 
     this.setState({ contextMenuIsOpen: !contextMenuIsOpen })

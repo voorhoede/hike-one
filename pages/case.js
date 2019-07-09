@@ -247,7 +247,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                 return (
                   <InlineMedia
                     key={index}
-                    image={image}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )
@@ -257,7 +257,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   <InlineMedia
                     key={index}
                     large={true}
-                    image={image}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )

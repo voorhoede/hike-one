@@ -1,6 +1,5 @@
 @import (reference) '../../styles/variables';
 @import (reference) '../../styles/shadows';
-@import (reference) '../../styles/transition';
 
 .office-card {
   margin: 0 0 @spacing-default*4 0;
@@ -14,7 +13,7 @@
     color: @red;
 
     .office-card-image .image {
-      transform: scale(@transition-img-scale);
+      transform: scale(1.05);
     }
   }
 }
@@ -24,7 +23,7 @@
 
   .image {
     height: 259px;
-    transition: transform @transition-img-speed;
+    transition: transform @animation-speed;
     background-position: center;
     background-size: cover;
 

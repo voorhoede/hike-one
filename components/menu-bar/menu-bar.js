@@ -8,7 +8,6 @@ class MenuBar extends Component {
   constructor(props) {
     super(props)
     this.onClickMenu = this.onClickMenu.bind(this)
-    this.onClickMenuList = this.onClickMenuList.bind(this)
     this.toggleMenu = this.toggleMenu.bind(this)
     this.toggleContextMenu = this.toggleContextMenu.bind(this)
     this.setInitialValues = this.setInitialValues.bind(this)
@@ -28,7 +27,6 @@ class MenuBar extends Component {
     this.setInitialValues()
     this.setAnimationTimeline()
     this.menu.addEventListener('click', this.onClickMenu)
-    this.menuList.addEventListener('click', this.onClickMenuList)
     window.addEventListener('resize', this.onResize)
   }
 
@@ -107,18 +105,7 @@ class MenuBar extends Component {
   }
 
   onClickMenu() {
-    // check if browser supports closest
-    // if closest is not menu inner and menu is open:
-    // then close menu
-    if (event.target.closest && !event.target.closest('.menu-inner') && this.state.menuIsOpen) {
-      this.toggleMenu()
-    }
-  }
-
-  onClickMenuList(event) {
-    if (event.target.tagName.toLowerCase() === 'a') {
-      this.toggleMenu()
-    }
+    this.toggleMenu()
   }
 
   toggleMenu() {

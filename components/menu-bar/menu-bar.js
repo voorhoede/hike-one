@@ -107,9 +107,10 @@ class MenuBar extends Component {
   }
 
   toggleMenu() {
+    const { menuIsOpen } = this.state
     document.body.classList.toggle(this.disableScrollClass)
 
-    if (this.state.menuIsOpen) {
+    if (menuIsOpen) {
       this.tlMenu.timeScale(2).reverse()
       this.hamburger.reverseAnimation()
     } else {
@@ -117,13 +118,14 @@ class MenuBar extends Component {
       this.hamburger.playAnimation()
     }
 
-    this.setState({ menuIsOpen: !this.state.menuIsOpen })
+    this.setState({ menuIsOpen: !menuIsOpen })
   }
 
   toggleContextMenu(event) {
     event.preventDefault()
+    const { contextMenuIsOpen } = this.state
 
-    this.setState({ contextMenuIsOpen: !this.state.contextMenuIsOpen })
+    this.setState({ contextMenuIsOpen: !contextMenuIsOpen })
   }
 
   onResize() {

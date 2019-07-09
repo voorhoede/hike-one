@@ -13,8 +13,6 @@ class MenuBar extends Component {
     this.setInitialValues = this.setInitialValues.bind(this)
     this.setAnimationTimeline = this.setAnimationTimeline.bind(this)
     this.onResize = this.onResize.bind(this)
-    this.breakpoint = '767px'
-    this.breakpointLarge = '1919px'
     this.disableScrollClass = 'disable-scroll'
     this.state = {
       hamburger: false,
@@ -44,14 +42,14 @@ class MenuBar extends Component {
     // how much % should the background svg cover.
     // On smaller screens it should cover 100%. To accomplish this the value is set on 200%
     let bgCoverPercentage = {}
-    if (window.matchMedia(`(min-width: ${this.breakpointLarge})`).matches) {
-      //large screens
+    if (window.matchMedia('(min-width: 1919px)').matches) {
+      // large screens
       bgCoverPercentage = 0.47
-    } else if (window.matchMedia(`(min-width: ${this.breakpoint})`).matches) {
-      //medium screens
+    } else if (window.matchMedia('(min-width: 767px)').matches) {
+      // medium screens
       bgCoverPercentage = 0.7
     } else {
-      //small screens
+      // small screens
       bgCoverPercentage = 2
     }
 

@@ -1,3 +1,7 @@
+// Require the polyfill before requiring any other modules.
+import 'intersection-observer'
+import 'resize-observer-polyfill'
+
 import ArrowRightCircle from './icons/arrow-right-circle.js'
 import ArrowRightExternalLink from './icons/arrow-right-external-link.js'
 import Author from './author/author.js'
@@ -180,8 +184,8 @@ export {
   TrailTriangle,
   Triangle,
   Twitter,
-  UpdateExtractSmall,
   UpdateExtractLarge,
+  UpdateExtractSmall,
   UpdateLink,
   UpdateLinks,
   UpdateOverview,

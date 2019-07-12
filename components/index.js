@@ -84,9 +84,6 @@ import TeamSelector from './team-selector/team-selector.js'
 import TextCard from './text-card/text-card.js'
 import TextCenter from './text-center/text-center.js'
 import * as TextCenterShapes from './text-center/text-center-shapes.js'
-import TrailDiamond from './shapes/trail-diamond/trail-diamond.js'
-import TrailDoubleDiamond from './shapes/trail-double-diamond/trail-double-diamond.js'
-import TrailTriangle from './shapes/trail-triangle/trail-triangle.js'
 import Triangle from './shapes/triangle/triangle.js'
 import Twitter from './icons/twitter-circle.js'
 import UpdateExtractSmall from './update-extract-small/update-extract-small.js'
@@ -183,9 +180,6 @@ export {
   TextCard,
   TextCenter,
   TextCenterShapes,
-  TrailDiamond,
-  TrailDoubleDiamond,
-  TrailTriangle,
   Triangle,
   Twitter,
   UpdateExtractLarge,

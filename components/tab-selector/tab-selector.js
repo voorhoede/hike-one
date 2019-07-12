@@ -22,7 +22,7 @@ const TabSelector = ({ services = [], selectedItem = '' }) => (
       </a>
     </Link>
     <Link href={`/service?slug=${services[2].slug}`} as={`/service/${services[2].slug}`} prefetch>
-      <a className={`tab-selector-item tab-selector-item-yellow ${selectedItem === `${services[2].slug}` ? 'is-selected' : ''}`}>
+      <a className={`tab-selector-item tab-selector-item-purple ${selectedItem === `${services[2].slug}` ? 'is-selected' : ''}`}>
         <div className="tab-selector-item-shape">
           <TrailTriangle />
         </div>

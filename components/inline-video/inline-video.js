@@ -22,6 +22,7 @@ class InlineVideo extends Component {
       case 'vimeo':
         return `https://player.vimeo.com/video/${providerUid}
           ?autoplay=${this.binaryBoolean(autoplay)}
+          &autopause=${this.binaryBoolean(!autoplay)}
           &muted=${this.binaryBoolean(mute)}
           &loop=${this.binaryBoolean(loop)}
           &controls=${this.binaryBoolean(controls)}`

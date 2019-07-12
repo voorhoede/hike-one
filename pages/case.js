@@ -95,7 +95,6 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             }
 
-            const image = component.image ? component.image.url : undefined
             const hasTextCard = !!(component.textTitle && component.textTitle.length > 1)
 
             // set component count

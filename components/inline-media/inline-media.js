@@ -14,14 +14,20 @@ const InlineMedia = ({ image = null, large = false, video = null, caption = '' }
           controls={video.controls}
         />
       )}
-      {image && <InlineImage image={image} />}
+      {image && (
+        <InlineImage
+          url={image.url}
+          width={image.width}
+          height={image.height}
+        />
+      )}
     </div>
     {caption && <p>{caption}</p>}
   </div>
 )
 
 InlineMedia.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.object,
   large: PropTypes.bool,
   video: PropTypes.object,
   caption: PropTypes.string,

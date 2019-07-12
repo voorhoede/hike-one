@@ -31,7 +31,11 @@ const Error = ({ data = {}, footer = {}, fontsLoaded = '', wrapperClass = '' }) 
         {data.image && (
           <section className="error-image container">
             <div className="container-inner">
-              <InlineImage image={data.image.url} />
+              <InlineImage
+                url={data.image.url}
+                width={data.image.width}
+                height={data.image.height}
+              />
             </div>
           </section>
         )}

@@ -246,7 +246,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                 return (
                   <InlineMedia
                     key={index}
-                    image={component.image ? component.image.url : undefined}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )
@@ -256,7 +256,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   <InlineMedia
                     key={index}
                     large={true}
-                    image={component.image ? component.image.url : undefined}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )

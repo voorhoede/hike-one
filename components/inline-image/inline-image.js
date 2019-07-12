@@ -1,31 +1,62 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import lazyLoad from '../_helpers/lazyLoad'
 import setImageParams from '../_helpers/setImageParameters'
 
-const InlineImage = ({ image = '' }) => {
-  const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
+class InlineImage extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-  return (
-    <img
-      srcSet={`
-        ${setImageParams(image, { ...imageParameters, w: 800, h: 600 })} 768w,
-        ${setImageParams(image, { ...imageParameters, w: 900, h: 768 })} 1024w,
-        ${setImageParams(image, { ...imageParameters, w: 1000, h: 850 })} 1190w,
-        ${setImageParams(image, { ...imageParameters, w: 1200, h: 950 })} 1440w
-      `}
-      sizes={`
-        (max-width: 320px) calc(100vw - 30px),
-        (max-width: 768px) calc(100vw - 30px),
-        (max-width: 1024px) 790px,
-        821px"`}
-      alt=""
-      src={image}
-    />
-  )
+  componentDidMount() {
+    const options = {
+      threshold: 0.3,
+    }
+
+    lazyLoad(this.element, options)
+  }
+
+  ratio() {
+    const { width, height } = this.props
+    const maxRatio = 1.3
+    const videoHeight = Math.min(width * maxRatio, height)
+
+    return (videoHeight / width) * 100
+  }
+
+  render() {
+    const { url = '' } = this.props
+    const imageRatio = this.ratio()
+    const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
+
+    return (
+      <div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>
+         <img
+          ref={node => (this.element = node)}
+          className="image"
+          sizes={`
+            (max-width: 320px) calc(100vw - 30px),
+            (max-width: 768px) calc(100vw - 30px),
+            (max-width: 1024px) 790px,
+            821px"`}
+          alt=""
+          srcSet={`
+            ${setImageParams(url, { ...imageParameters, w: 800, h: 600 })} 768w,
+            ${setImageParams(url, { ...imageParameters, w: 900, h: 768 })} 1024w,
+            ${setImageParams(url, { ...imageParameters, w: 1000, h: 850 })} 1190w,
+            ${setImageParams(url, { ...imageParameters, w: 1200, h: 950 })} 1440w
+          `}
+          data-lazy-src={url}
+        />
+      </div>
+    )
+  }
 }
 
 InlineImage.propTypes = {
-  image: PropTypes.string,
+  url: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
 }
 
 export default InlineImage

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { ContextMenu, Facebook, Hamburger, Instagram, LinkedIn, Logo, Medium, Twitter } from '../'
@@ -8,34 +9,31 @@ class MenuBar extends Component {
   constructor(props) {
     super(props)
     this.onClickMenu = this.onClickMenu.bind(this)
-    this.onClickMenuList = this.onClickMenuList.bind(this)
     this.toggleMenu = this.toggleMenu.bind(this)
     this.toggleContextMenu = this.toggleContextMenu.bind(this)
     this.setInitialValues = this.setInitialValues.bind(this)
     this.setAnimationTimeline = this.setAnimationTimeline.bind(this)
     this.onResize = this.onResize.bind(this)
-    this.breakpoint = '767px'
-    this.breakpointLarge = '1919px'
     this.disableScrollClass = 'disable-scroll'
     this.state = {
       hamburger: false,
       menuIsOpen: false,
       contextMenuIsOpen: false,
     }
+
+    this.resizeObserver = new ResizeObserver(this.onResize)
   }
 
   componentDidMount() {
     this.setInitialValues()
     this.setAnimationTimeline()
     this.menu.addEventListener('click', this.onClickMenu)
-    this.menuList.addEventListener('click', this.onClickMenuList)
-    window.addEventListener('resize', this.onResize)
+    this.resizeObserver.observe(this.header)
   }
 
   componentWillUnmount() {
     this.menu.removeEventListener('click', this.onClickMenu)
-    window.removeEventListener('resize', this.onResize)
-    document.body.classList.remove(this.disableScrollClass)
+    this.resizeObserver.disconnect()
   }
 
   setInitialValues() {
@@ -46,14 +44,14 @@ class MenuBar extends Component {
     // how much % should the background svg cover.
     // On smaller screens it should cover 100%. To accomplish this the value is set on 200%
     let bgCoverPercentage = {}
-    if (window.matchMedia(`(min-width: ${this.breakpointLarge})`).matches) {
-      //large screens
+    if (window.matchMedia('(min-width: 1919px)').matches) {
+      // large screens
       bgCoverPercentage = 0.47
-    } else if (window.matchMedia(`(min-width: ${this.breakpoint})`).matches) {
-      //medium screens
+    } else if (window.matchMedia('(min-width: 767px)').matches) {
+      // medium screens
       bgCoverPercentage = 0.7
     } else {
-      //small screens
+      // small screens
       bgCoverPercentage = 2
     }
 
@@ -83,7 +81,6 @@ class MenuBar extends Component {
       .pause()
       .set(this.menuBg, { clearProps: 'all' })
       .set(this.menuList.childNodes, { clearProps: 'all' })
-      .set(this.header, { className: '-=animation-is-finished' })
       .set(this.header, { className: '+=is-open' })
       .add('startAnimation')
       .to(this.menuBgTransparent, 0.25, { opacity: 0.4 }, 'startAnimation')
@@ -93,13 +90,6 @@ class MenuBar extends Component {
         top: this.yOffset,
         ease: Power3.easeInOut,
       }, '-=.2')
-      .set(this.menuBg, { opacity: 0 }, '-=0.1')
-      .set(this.menuBgSvgFinal, {
-        height: this.svgHeight,
-        width: this.svgWidth,
-        right: this.xOffset2,
-        y: this.yOffset,
-      }, '-=0.1')
       .staggerTo(this.menuList.childNodes, 0.2, {
         opacity: 1,
         x: 0,
@@ -114,25 +104,15 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu(e) {
-    // check if browser supports closest
-    // if closest is not menu inner and menu is open:
-    // then close menu
-    if (e.target.closest && !e.target.closest('.menu-inner') && this.state.menuIsOpen) {
-      this.toggleMenu()
-    }
-  }
-
-  onClickMenuList(e) {
-    if (e.target.tagName.toLowerCase() === 'a') {
-      this.toggleMenu()
-    }
+  onClickMenu() {
+    this.toggleMenu()
   }
 
   toggleMenu() {
+    const { menuIsOpen } = this.state
     document.body.classList.toggle(this.disableScrollClass)
 
-    if (this.state.menuIsOpen) {
+    if (menuIsOpen) {
       this.tlMenu.timeScale(2).reverse()
       this.hamburger.reverseAnimation()
     } else {
@@ -140,36 +120,34 @@ class MenuBar extends Component {
       this.hamburger.playAnimation()
     }
 
-    this.setState({ menuIsOpen: !this.state.menuIsOpen })
+    this.setState({ menuIsOpen: !menuIsOpen })
   }
 
   toggleContextMenu(e) {
     e.preventDefault()
+    const { contextMenuIsOpen } = this.state
 
-    this.setState({ contextMenuIsOpen: !this.state.contextMenuIsOpen })
+    this.setState({ contextMenuIsOpen: !contextMenuIsOpen })
   }
 
-  onResize() {
-    // check if window is actually resized (some phones fire resize event on scroll)
-    const newWindowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
+  onResize(entries) {
+    const { menuIsOpen } = this.state
 
-    if (this.state.menuIsOpen && this.windowWidth !== newWindowWidth) {
-      // close menu
-      this.tlMenu.timeScale(10).reverse()
-      // revert hamburger icon
-      this.hamburger.reverseAnimation()
-      document.body.classList.remove(this.disableScrollClass)
-      this.setState({ menuIsOpen: false })
-    }
+    entries.forEach(entry => {
+      if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
+        // close menu
+        this.tlMenu.timeScale(10).reverse()
+        // revert hamburger icon
+        this.hamburger.reverseAnimation()
+        document.body.classList.remove(this.disableScrollClass)
+        this.setState({ menuIsOpen: false })
+      }
 
-    if (this.windowWidth !== newWindowWidth) {
-      // add debounce for resize so it fires only add the end of resize
-      clearTimeout(this.resizeTimer)
-      this.resizeTimer = setTimeout(() => {
+      if (this.windowWidth !== entry.contentRect.width) {
         this.setInitialValues()
         this.setAnimationTimeline()
-      }, 250)
-    }
+      }
+    })
   }
 
   render() {
@@ -209,12 +187,6 @@ class MenuBar extends Component {
 
           <svg className="menu-background" ref={node => (this.menuBg = node)}
             xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
-            <polygon points="226, 1.7 494,71 349,307" />
-          </svg>
-
-          <svg className="menu-background-final" ref={node => (this.menuBgSvgFinal = node)}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="226 1.7 268 305">
             <polygon points="226, 1.7 494,71 349,307" />
           </svg>
 

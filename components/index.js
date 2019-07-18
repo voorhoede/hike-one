@@ -64,6 +64,7 @@ import MustRead from './must-read/must-read.js'
 import OfficeCard from './office-card/office-card.js'
 import OfficeOverview from './office-overview/office-overview.js'
 import PageHeader from './page-header/page-header.js'
+import PageHeaderNew from './page-header-new/page-header-new.js'
 import * as PageHeaderShapes from './page-header/page-header-shapes.js'
 import Parallax from './parallax/parallax.js'
 import QuoteBlock from './quote-block/quote-block.js'
@@ -160,6 +161,7 @@ export {
   OfficeCard,
   OfficeOverview,
   PageHeader,
+  PageHeaderNew,
   PageHeaderShapes,
   Parallax,
   QuoteBlock,

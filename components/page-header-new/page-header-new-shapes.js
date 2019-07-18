@@ -2,6 +2,7 @@ import React from 'react'
 
 export const AnimationDiamond = () => (
   <svg className="animated-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 500">
+    <rect fill="#FE595B" fillRule="evenodd" width="100%" height="100%" x="0" y="0" />
     <path fill="#ff5c5c"  fillRule="evenodd" d="M725.05,249l.93.93a.07.07,0,0,1,0,.1l-.93.93a.07.07,0,0,1-.1,0l-.93-.93a.07.07,0,0,1,0-.1L725,249A.07.07,0,0,1,725.05,249Z" />
     <path fill="#00aae9" fillRule="evenodd" d="M725.05,249l.93.93a.07.07,0,0,1,0,.1l-.93.93a.07.07,0,0,1-.1,0l-.93-.93a.07.07,0,0,1,0-.1L725,249A.07.07,0,0,1,725.05,249Z" />
   </svg>
@@ -9,6 +10,7 @@ export const AnimationDiamond = () => (
 
 export const AnimationDoubleDiamond = () => (
   <svg className="animated-shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 500">
+    <rect fill="#45d33c" fillRule="evenodd" width="100%" height="100%" x="0" y="0" />
     <path fill="#ff5c5c" fillRule="evenodd" d="M779.6 178.2l66.4 66.1a8 8 0 0 1 0 11.3l-66.4 66.1a8 8 0 0 1-11.3 0l-66.3-66a8 8 0 0 1 0-11.3l66.4-66.1a8 8 0 0 1 11.2 0z" />
     <path fill="#ffe044" fillRule="evenodd" d="M681.6 178.2l66.4 66.1a8 8 0 0 1 0 11.3l-66.4 66.1a8 8 0 0 1-11.3 0l-66.3-66a8 8 0 0 1 0-11.3l66.4-66.1a8 8 0 0 1 11.2 0z" />
   </svg>
@@ -42,6 +44,7 @@ export const AnimationTriangles = () => (
         <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
       </filter>
     </defs>
+    <rect fill="#fde24c" fillRule="evenodd" width="100%" height="100%" x="0" y="0" />
     <path fill="#8415BC" fillRule="evenodd" d="M1191.9 229.4l63.2 102a1 1 0 0 1-.9 1.6h-126.4a1 1 0 0 1-.9-1.5l63.2-102.1a1 1 0 0 1 1.8 0z" />
     <path fill="#8415BC" fillRule="evenodd" filter="url(#a)" d="M1345.4 321.4l21.7 35a1 1 0 0 1-.9 1.6h-43.4a1 1 0 0 1-.9-1.5l21.7-35.1a1 1 0 0 1 1.8 0z" />
     <path fill="#8415BC" fillRule="evenodd" filter="url(#b)" d="M1426.4 184.4l24.7 40a1 1 0 0 1-.9 1.6h-49.4a1 1 0 0 1-.9-1.5l24.7-40.1a1 1 0 0 1 1.8 0z" />

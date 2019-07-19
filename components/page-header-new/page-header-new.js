@@ -1,24 +1,58 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { AnimationDiamond, AnimationDoubleDiamond, AnimationTriangles } from './page-header-new-shapes.js'
-
-const animationsByName = {
-  'diamond': AnimationDiamond,
-  'double diamond': AnimationDoubleDiamond,
-  'triangles': AnimationTriangles,
-}
+import { timelineDiamond, timelineDoubleDiamond, timelineTriangles } from './page-header-new-animations.js'
+import { ShapesDiamond, ShapesDoubleDiamond, ShapesTriangles } from './page-header-new-shapes.js'
 
 class PageHeaderNew extends Component {
   constructor(props) {
     super(props)
+    this.playTimeline = this.playTimeline.bind(this)
+    this.setTimeline = this.setTimeline.bind(this)
+    this.timeline = null
+    this.animationDelay = 0.4
+  }
+
+  componentDidMount() {
+    this.setTimeline()
+    this.playTimeline(0)
+  }
+
+  componentDidUpdate() {
+    this.setTimeline()
+    this.playTimeline(this.animationDelay)
+  }
+
+  setTimeline() {
+    const { animation } = this.props
+    const animationByName = {
+      'diamond': timelineDiamond(),
+      'double diamond': timelineDoubleDiamond(),
+      'triangles': timelineTriangles(),
+    }
+
+    this.timeline = animationByName[animation]
+  }
+
+  playTimeline(delay) {
+    this.timeline.delay(delay).timeScale(1).play()
   }
 
   render() {
     const { animation, title } = this.props
+    const shapesByName = {
+      'diamond': ShapesDiamond,
+      'double diamond': ShapesDoubleDiamond,
+      'triangles': ShapesTriangles,
+    }
+    const colorByName = {
+      'diamond': '#fe595b',
+      'double diamond': '#45d33c',
+      'triangles': '#FFE044',
+    }
 
     return (
       <section className="page-header-new">
-        <PageHeaderNewAnimation Component={animationsByName[animation]} />
+        <PageHeaderNewAnimation Component={shapesByName[animation]} color={colorByName[animation]} />
         <div className="page-header-new__content container">
           <h1 className="page-header-new__title">{title}</h1>
         </div>
@@ -27,14 +61,15 @@ class PageHeaderNew extends Component {
   }
 }
 
-const PageHeaderNewAnimation = ({ Component = null }) => (
-  <div className="page-header-new__animation">
+const PageHeaderNewAnimation = ({ Component = null, color }) => (
+  <div className="page-header-new__animation" style={{ backgroundColor: color }}>
     <Component />
   </div>
 )
 
 PageHeaderNewAnimation.propTypes = {
   Component: PropTypes.func,
+  color: PropTypes.string,
 }
 
 PageHeaderNew.propTypes = {

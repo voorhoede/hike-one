@@ -92,5 +92,4 @@ Most important npm scripst
 
 ## Git Commit Messages
 
-Follows the [Angular git commit guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines) 
-
+Follows the [Angular git commit guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#-git-commit-guidelines)

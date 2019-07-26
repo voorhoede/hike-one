@@ -53,7 +53,7 @@ elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; t
     --target "$deployment" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
-    -e ENVIRONMENT='staging' \
+    -e ENVIRONMENT="$deployment" \
     -m ID="$meta";
 
   # get the alias that was just deployed using the assigned ID meta tag

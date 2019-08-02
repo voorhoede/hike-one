@@ -17,6 +17,11 @@ class PageHeaderNew extends Component {
     this.playTimeline(0)
   }
 
+  componentWillUpdate() {
+    this.timeline.pause()
+    this.setTimeline()
+  }
+
   componentDidUpdate() {
     this.setTimeline()
     this.playTimeline(this.animationDelay)
@@ -45,9 +50,9 @@ class PageHeaderNew extends Component {
       'triangles': ShapesTriangles,
     }
     const colorByName = {
-      'diamond': '#fe595b',
+      'diamond': '#00aae9',
       'double diamond': '#45d33c',
-      'triangles': '#FFE044',
+      'triangles': '#ffe044',
     }
 
     return (
@@ -61,8 +66,9 @@ class PageHeaderNew extends Component {
   }
 }
 
-const PageHeaderNewAnimation = ({ Component = null, color }) => (
-  <div className="page-header-new__animation" style={{ backgroundColor: color }}>
+const PageHeaderNewAnimation = ({ Component = null, color = '' }) => (
+  <div className="page-header-new__animation">
+    <div className="page-header-new__animation-background" style={{ backgroundColor: color }}></div>
     <Component />
   </div>
 )

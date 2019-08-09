@@ -9,12 +9,11 @@ class PageHeaderNew extends Component {
     this.playTimeline = this.playTimeline.bind(this)
     this.setTimeline = this.setTimeline.bind(this)
     this.timeline = null
-    this.animationDelay = 0.4
   }
 
   componentDidMount() {
     this.setTimeline()
-    this.playTimeline(0)
+    this.playTimeline()
   }
 
   componentWillUpdate() {
@@ -24,7 +23,7 @@ class PageHeaderNew extends Component {
 
   componentDidUpdate() {
     this.setTimeline()
-    this.playTimeline(this.animationDelay)
+    this.playTimeline()
   }
 
   setTimeline() {
@@ -38,8 +37,8 @@ class PageHeaderNew extends Component {
     this.timeline = animationByName[animation]
   }
 
-  playTimeline(delay) {
-    this.timeline.delay(delay).timeScale(1).play()
+  playTimeline() {
+    this.timeline.timeScale(1).play()
   }
 
   render() {

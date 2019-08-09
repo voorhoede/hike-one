@@ -22,7 +22,7 @@ export function timelineDiamond() {
       { y: 40 },
       { y: 0, ease: Power3.easeOut }, '-=.6')
     .to('.animated-shape-diamond .shape-front', 32,
-      { rotation: 360, ease: Power0.easeNone, repeat: -1 }, '-=.2')
+      { rotation: 360, ease: Power0.easeNone, repeat: -1 }, '-=.6')
 }
 
 export function timelineDoubleDiamond() {

@@ -11,7 +11,7 @@ class PageHeaderNew extends Component {
     this.timeline = null
     this.currentColor = '#ffffff';
     this.colorByName = {
-      'diamond': '#00aae9',
+      'diamond': '#fe595b',
       'double diamond': '#45d33c',
       'triangles': '#ffe044',
     }

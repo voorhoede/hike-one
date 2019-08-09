@@ -9,6 +9,12 @@ class PageHeaderNew extends Component {
     this.playTimeline = this.playTimeline.bind(this)
     this.setTimeline = this.setTimeline.bind(this)
     this.timeline = null
+    this.currentColor = '#ffffff';
+    this.colorByName = {
+      'diamond': '#00aae9',
+      'double diamond': '#45d33c',
+      'triangles': '#ffe044',
+    }
   }
 
   componentDidMount() {
@@ -17,8 +23,10 @@ class PageHeaderNew extends Component {
   }
 
   componentWillUpdate() {
+    const { animation } = this.props;
+
+    this.currentColor = this.colorByName[animation]
     this.timeline.pause()
-    this.setTimeline()
   }
 
   componentDidUpdate() {
@@ -48,15 +56,10 @@ class PageHeaderNew extends Component {
       'double diamond': ShapesDoubleDiamond,
       'triangles': ShapesTriangles,
     }
-    const colorByName = {
-      'diamond': '#00aae9',
-      'double diamond': '#45d33c',
-      'triangles': '#ffe044',
-    }
 
     return (
-      <section className="page-header-new">
-        <PageHeaderNewAnimation Component={shapesByName[animation]} color={colorByName[animation]} />
+      <section className="page-header-new" style={{ backgroundColor: this.currentColor }}>
+        <PageHeaderNewAnimation Component={shapesByName[animation]} color={this.colorByName[animation]} />
         <div className="page-header-new__content container">
           <h1 className="page-header-new__title">{title}</h1>
         </div>

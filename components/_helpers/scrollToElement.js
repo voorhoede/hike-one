@@ -2,7 +2,7 @@ import TweenLite from 'gsap'
 import ScrollToPlugin from 'gsap/umd/ScrollToPlugin'
 
 // Without this line, ScrollToPlugin may get dropped with Tree shaking (https://greensock.com/docs/NPMUsage)
-const plugins = [ ScrollToPlugin ]
+const plugins = [ ScrollToPlugin ] /* eslint-disable-line no-unused-vars */
 
 const scrollToElement = (elementClass) => {
   TweenLite.to(window, 0.3, {

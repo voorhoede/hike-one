@@ -2,7 +2,7 @@
   "version": 1,
   "name": "hike-one",
   "alias": [
-    "now-v2.hike.one"
+    "now-v2-hike-one"
   ],
   "build": {
     "env": {

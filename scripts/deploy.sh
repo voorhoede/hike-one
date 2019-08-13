@@ -39,6 +39,8 @@ if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment";
 
+  npx now alias -t "$NOW_TOKEN"
+
 # Staging is deployed from master, pull requests targeting master are ignored
 elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
   echo 'Build staging environment';

@@ -26,7 +26,8 @@ disallow_robots () {
 }
 
 # Production deployment: a new tag
-if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
+# if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo 'Build production environment';
   deployment='production';
   webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION");

@@ -79,5 +79,8 @@
     "rimraf": "2.6.3",
     "stylelint": "10.1.0",
     "stylelint-config-standard": "18.3.0"
+  },
+  "optionalDependencies": {
+    "ngrok": "^3.2.5"
   }
 }

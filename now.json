@@ -16,7 +16,7 @@
   },
   "env": {
     "DATO_API_TOKEN": "@hike_one_dato_api_token",
-    "DOMAINS": "hike.one hikeone.com hikeone.nl"
+    "MAIN_DOMAIN": "hike.one"
   },
   "scale": {
     "bru1": {

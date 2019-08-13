@@ -26,8 +26,7 @@ disallow_robots () {
 }
 
 # Production deployment: a new tag
-if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
-# if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo 'Build production environment';
   deployment='production';
   webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION");
@@ -40,7 +39,8 @@ if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
     -e ENVIRONMENT="$deployment";
 
 # Staging is deployed from master, pull requests targeting master are ignored
-elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
+elif [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
+# elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
   echo 'Build staging environment';
   deployment='staging';
   disallow_robots;

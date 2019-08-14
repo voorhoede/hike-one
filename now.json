@@ -2,7 +2,12 @@
   "version": 1,
   "name": "hike-one",
   "alias": [
-    "now-v2-hike-one"
+    "hike.one",
+    "www.hike.one",
+    "hikeone.com",
+    "www.hikeone.com",
+    "hikeone.nl",
+    "www.hikeone.nl"
   ],
   "build": {
     "env": {
@@ -11,7 +16,7 @@
   },
   "env": {
     "DATO_API_TOKEN": "@hike_one_dato_api_token",
-    "MAIN_DOMAIN": "now-v2.hike.one"
+    "MAIN_DOMAIN": "hike.one"
   },
   "scale": {
     "bru1": {

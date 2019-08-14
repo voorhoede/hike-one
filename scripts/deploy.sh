@@ -13,6 +13,7 @@ set -euo pipefail;
 # 4. RELOAD_TOKEN: token used to authenticate dato content update calls
 # 5. DATO_ENV_ID_STAGING: dato env id for staging
 # 6. DATO_ENV_ID_PRODUCTION: dato env id for production
+# 7. TRAVIS_PULL_REQUEST_BRANCH: Set by travis. Determines if this is a pull request build.
 
 # Create the url that the application should call after a successful dato
 # content deployment
@@ -26,8 +27,7 @@ disallow_robots () {
 }
 
 # Production deployment: a new tag
-if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
-# if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
   echo 'Build production environment';
   deployment='production';
   webhook_url=$(get_webhook_url "$DATO_ENV_ID_PRODUCTION");
@@ -39,7 +39,7 @@ if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment";
 
-  npx now alias -t "$NOW_TOKEN"
+  npx now alias -t "$NOW_TOKEN";
 
 # Staging is deployed from master, pull requests targeting master are ignored
 elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; then
@@ -62,5 +62,5 @@ elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; t
   # get the alias that was just deployed using the assigned ID meta tag
   now_deployment_id="$(npx now -t "$NOW_TOKEN" ls -m ID="$meta" | grep hike-one | awk '{ print $2 }')";
 
-  npx now alias -t "$NOW_TOKEN" "$now_deployment_id" staging.now-v2.hike.one
+  npx now alias -t "$NOW_TOKEN" "$now_deployment_id" staging.now-v2.hike.one;
 fi

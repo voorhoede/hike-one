@@ -34,7 +34,6 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 
   npx now deploy \
     -t "$NOW_TOKEN" \
-    -n "hike-one-${deployment}" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment";

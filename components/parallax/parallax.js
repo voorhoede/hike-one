@@ -13,11 +13,14 @@ class Parallax extends Component {
     this.setYOffset = this.setYOffset.bind(this)
     this.setInitialOffSet = this.setInitialOffSet.bind(this)
     this.setOffsetOnResize = this.setOffsetOnResize.bind(this)
-    this.ticking = false
     this.resizeTimer = null
     this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3
     this.elementOffset = 0
     this.duration = props.duration ? parseInt(props.duration) : 0.3
+
+    this.state = {
+      ticking: false,
+    }
   }
 
   componentDidMount() {
@@ -35,26 +38,30 @@ class Parallax extends Component {
   }
 
   onScroll() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         const YOffSet = this.getYOffset()
         this.setYOffset(YOffSet)
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   onResize() {
+    const { ticking } = this.state
     // update an animation before the next repaint with requestAnimationFrame
-    if (!this.ticking) {
+    if (!ticking) {
       window.requestAnimationFrame(() => {
         this.setOffsetOnResize()
-        this.ticking = false
+        this.setState({ ticking: false })
       })
     }
-    this.ticking = true
+
+    this.setState({ ticking: true })
   }
 
   setInitialOffSet() {

@@ -1,27 +1,25 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ButtonSecondary, Topics, UpdateExtractSmall, UpdatesExtractLarge } from '../'
+import { ButtonSecondary, Filter, UpdateExtractSmall, UpdatesExtractLarge } from '../'
 
 class UpdateOverview extends Component {
   constructor(props) {
     super(props)
-
-    this.state = {
-      activeTopic: 'All',
-      topics: this.getTopics(props.updatesData),
-      pageOffset: 1,
-      pageSize: 6,
-      loading: false,
-      filteredUpdates: this.filterUpdates(props.updatesData, 'All')
-    }
-
-    this.changeTopicHandler = this.changeTopicHandler.bind(this)
-    this.getTopics = this.getTopics.bind(this)
+    this.changeFilterHandler = this.changeFilterHandler.bind(this)
+    this.getFilters = this.getFilters.bind(this)
     this.filterUpdates = this.filterUpdates.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.incrementPageOffset = this.incrementPageOffset.bind(this)
     this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this)
     this.hasSelectedTopic = this.hasSelectedTopic.bind(this)
+    this.state = {
+      activeFilter: 'All',
+      filters: this.getFilters(props.updatesData),
+      pageOffset: 1,
+      pageSize: 6,
+      loading: false,
+      filteredUpdates: this.filterUpdates(props.updatesData, 'All')
+    }
   }
 
   handleClick() {
@@ -30,35 +28,36 @@ class UpdateOverview extends Component {
   }
 
   incrementPageOffset() {
+    const { pageOffset } = this.state
     this.setState({
-      pageOffset: this.state.pageOffset + 1,
+      pageOffset: pageOffset + 1,
       loading: false,
     })
   }
 
-  changeTopicHandler(value) {
+  changeFilterHandler(value) {
     const { updatesData } = this.props
     const filteredUpdates = this.filterUpdates(updatesData, value)
 
     this.setState({
-      activeTopic: value,
+      activeFilter: value,
       filteredUpdates: filteredUpdates,
       pageOffset: 1,
      })
   }
 
-  getTopics(updates) {
-    const allTopics = updates.map(update => update.category.name)
-    const uniqueTopics = [...new Set(allTopics)]
-    uniqueTopics.unshift('All')
+  getFilters(updates) {
+    const allFilters = updates.map(update => update.category.name)
+    const uniqueFilters = [...new Set(allFilters)]
+    uniqueFilters.unshift('All')
 
-    return uniqueTopics
+    return uniqueFilters
   }
 
-  filterUpdates(updates, topic) {
+  filterUpdates(updates, filter) {
     return updates
       .filter(update => this.isHighlightedUpdate(update))
-      .filter(update => this.hasSelectedTopic(update, topic))
+      .filter(update => this.hasSelectedTopic(update, filter))
   }
 
   isHighlightedUpdate(update) {
@@ -66,28 +65,28 @@ class UpdateOverview extends Component {
     return !data.highlights.some(highlight => highlight.id === update.id)
   }
 
-  hasSelectedTopic(update, topic) {
-    if (topic === 'All') { return true }
-    return update.category.name === topic
+  hasSelectedTopic(update, filter) {
+    if (filter === 'All') { return true }
+    return update.category.name === filter
   }
 
   render() {
     const { data } = this.props
-    const { activeTopic, pageSize, pageOffset, loading, topics, filteredUpdates } = this.state
+    const { activeFilter, pageSize, pageOffset, loading, filters, filteredUpdates } = this.state
     const slicedUpdates = filteredUpdates.slice(0, pageOffset * pageSize)
     const totalPages = Math.ceil(filteredUpdates.length / pageSize)
     const buttonClass = loading ? 'loading' : 'vertical-spring'
-    const highlightsClass = activeTopic === 'All' ? 'highlights--show' : 'highlights--hidden'
+    const highlightsClass = activeFilter === 'All' ? 'highlights--show' : 'highlights--hidden'
     const icon = !loading ? 'arrowDown' : 'spinner'
 
     return (
       <div className="update-overview container">
         <div className="container-inner">
-          <Topics
-            activeTopic={activeTopic}
+          <Filter
+            activeFilter={activeFilter}
             keyword="Topic"
-            topics={topics}
-            onTopicChanged={this.changeTopicHandler}
+            filters={filters}
+            onFilterChanged={this.changeFilterHandler}
           />
         </div>
         <div className={`container-inner ${highlightsClass}`}>

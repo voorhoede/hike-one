@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 class InputField extends Component {
   constructor(props) {
     super(props)
-
+    this.onBlur = this.onBlur.bind(this)
     this.state = {
       shouldValidate: false,
     }
   }
 
-  onBlur = () => {
+  onBlur() {
     const { isRequired } = this.props
     if (isRequired) {
       this.setState({ shouldValidate: true })
@@ -30,7 +30,6 @@ class InputField extends Component {
       id,
     } = this.props
     const { shouldValidate } = this.state
-    const { onBlur } = this
     const shouldValidateClass = shouldValidate ? 'should-validate' : ''
     const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {}
 
@@ -51,7 +50,7 @@ class InputField extends Component {
             value={value}
             onChange={onChange}
             autoFocus={autoFocus}
-            onBlur={onBlur}
+            onBlur={this.onBlur}
             required={isRequired}
           />
         ) : (
@@ -64,7 +63,7 @@ class InputField extends Component {
             value={value}
             onChange={onChange}
             autoFocus={autoFocus}
-            onBlur={onBlur}
+            onBlur={this.onBlur}
             required={isRequired}
           />
         )}
@@ -80,7 +79,7 @@ InputField.propTypes = {
   value: PropTypes.string,
   onChange: PropTypes.func,
   isRequired: PropTypes.bool,
-  autoFocus: PropTypes.string,
+  autoFocus: PropTypes.bool,
   formLength: PropTypes.number,
   id: PropTypes.string,
 }

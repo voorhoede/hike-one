@@ -95,7 +95,6 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
               }
             }
 
-            const image = component.image ? component.image.url : undefined
             const hasTextCard = !!(component.textTitle && component.textTitle.length > 1)
 
             // set component count
@@ -247,7 +246,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                 return (
                   <InlineMedia
                     key={index}
-                    image={image}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )
@@ -257,7 +256,7 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   <InlineMedia
                     key={index}
                     large={true}
-                    image={image}
+                    image={component.image}
                     caption={component.caption}
                   />
                 )

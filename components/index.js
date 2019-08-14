@@ -1,13 +1,20 @@
+// Require the polyfill before requiring any other modules.
+import 'intersection-observer'
+import 'resize-observer-polyfill'
+
 import ArrowRightCircle from './icons/arrow-right-circle.js'
 import ArrowRightExternalLink from './icons/arrow-right-external-link.js'
 import Author from './author/author.js'
 import Authors from './authors/authors.js'
 import BodyQuote from './body-quote/body-quote.js'
 import ButtonClean from './buttons/button-clean/button-clean.js'
+import ButtonCleanLink from './buttons/button-clean/button-clean-link.js'
 import ButtonPrimary from './buttons/button-primary/button-primary.js'
 import ButtonPrimaryLink from './buttons/button-primary/button-primary-link.js'
+import ButtonPrimaryMock from './buttons/button-primary/button-primary-mock.js'
 import ButtonSecondary from './buttons/button-secondary/button-secondary.js'
 import ButtonSecondaryLink from './buttons/button-secondary/button-secondary-link.js'
+import ButtonSecondaryMock from './buttons/button-secondary/button-secondary-mock.js'
 import CallToAction from './call-to-action/call-to-action.js'
 import CaseExtract from './case-extract/case-extract.js'
 import CaseExtractSmall from './case-extract-small/case-extract-small.js'
@@ -63,8 +70,8 @@ import QuoteBlock from './quote-block/quote-block.js'
 import RectangleBorder from './shapes/rectangle-border/rectangle-border.js'
 import RichBodyText from './rich-body-text/rich-body-text.js'
 import SelectDropdown from './select-dropdown/select-dropdown.js'
-import ServicesItem from './services-item/services-item.js'
-import ServicesOverviewSmall from './services-overview-small/services-overview-small.js'
+import ServiceItem from './service-item/service-item.js'
+import ServicesOverview from './services-overview/services-overview.js'
 import SocialMedia from './social-media/social-media.js'
 import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
@@ -77,10 +84,6 @@ import TeamSelector from './team-selector/team-selector.js'
 import TextCard from './text-card/text-card.js'
 import TextCenter from './text-center/text-center.js'
 import * as TextCenterShapes from './text-center/text-center-shapes.js'
-import Topics from './topics/topics.js'
-import TrailDiamond from './shapes/trail-diamond/trail-diamond.js'
-import TrailDoubleDiamond from './shapes/trail-double-diamond/trail-double-diamond.js'
-import TrailTriangle from './shapes/trail-triangle/trail-triangle.js'
 import Triangle from './shapes/triangle/triangle.js'
 import Twitter from './icons/twitter-circle.js'
 import UpdateExtractSmall from './update-extract-small/update-extract-small.js'
@@ -101,10 +104,13 @@ export {
   Authors,
   BodyQuote,
   ButtonClean,
+  ButtonCleanLink,
   ButtonPrimary,
   ButtonPrimaryLink,
+  ButtonPrimaryMock,
   ButtonSecondary,
   ButtonSecondaryLink,
+  ButtonSecondaryMock,
   CallToAction,
   CaseExtract,
   CaseExtractSmall,
@@ -160,8 +166,8 @@ export {
   RectangleBorder,
   RichBodyText,
   SelectDropdown,
-  ServicesItem,
-  ServicesOverviewSmall,
+  ServiceItem,
+  ServicesOverview,
   SocialMedia,
   SocialShare,
   StatisticsBlock,
@@ -174,14 +180,10 @@ export {
   TextCard,
   TextCenter,
   TextCenterShapes,
-  Topics,
-  TrailDiamond,
-  TrailDoubleDiamond,
-  TrailTriangle,
   Triangle,
   Twitter,
-  UpdateExtractSmall,
   UpdateExtractLarge,
+  UpdateExtractSmall,
   UpdateLink,
   UpdateLinks,
   UpdateOverview,

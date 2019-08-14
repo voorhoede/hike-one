@@ -14,7 +14,13 @@ import {
 class ContactForm extends Component {
   constructor(props) {
     super(props)
-
+    this.handleClick = this.handleClick.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+    this.formatEmailSubject = this.formatEmailSubject.bind(this)
+    this.getFormData = this.getFormData.bind(this)
+    this.isFormValid = this.isFormValid.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.clearForm = this.clearForm.bind(this)
     this.state = {
       selectedItemId: '',
       currentForm: null,
@@ -24,7 +30,7 @@ class ContactForm extends Component {
     }
   }
 
-  handleClick = (id, label) => {
+  handleClick(id, label) {
     this.setState({
       selectedItemId: id,
       selectedItemLabel: label,
@@ -32,7 +38,7 @@ class ContactForm extends Component {
     })
   }
 
-  handleChange = e => {
+  handleChange(e) {
     this.setState({
       formData: {
         ...this.state.formData,
@@ -41,7 +47,7 @@ class ContactForm extends Component {
     })
   }
 
-  formatEmailSubject = () => {
+  formatEmailSubject() {
     const subject = this.state.currentForm.emailMessageSubject
 
     return subject
@@ -58,14 +64,14 @@ class ContactForm extends Component {
       .join(' ')
   }
 
-  getFormData = () => {
+  getFormData() {
     const emailSubject = this.formatEmailSubject()
     const formData = { _subject: emailSubject, _format: "plain", ...this.state.formData }
 
     return formData
   }
 
-  isFormValid = () => {
+  isFormValid() {
     const { currentForm, _gotcha } = this.state
     const isValid = currentForm.formFields
       .filter(field => field.required)
@@ -84,7 +90,7 @@ class ContactForm extends Component {
     return isValid && !isSpam
   }
 
-  handleSubmit = e => {
+  handleSubmit(e) {
     e.preventDefault()
 
     if (!this.isFormValid()) {
@@ -111,7 +117,7 @@ class ContactForm extends Component {
     })
   }
 
-  clearForm = () => {
+  clearForm() {
     this.setState({
       selectedItemId: '',
       currentForm: null,

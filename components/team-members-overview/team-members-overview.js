@@ -1,28 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { TeamMember, Topics } from '../'
+import { TeamMember, Filter } from '../'
 
 class TeamMembersOverview extends Component {
   constructor(props) {
     super(props)
-
-    const { team, queryParam } = props
-
-    this.state = {
-      activeTopic: 'Everyone',
-      departments: this.getDepartments(team),
-      filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
-    }
-
-    this.handleQueryParams(queryParam)
-
-    this.changeTopicHandler = this.changeTopicHandler.bind(this)
+    this.changeFilterHandler = this.changeFilterHandler.bind(this)
     this.getDepartments = this.getDepartments.bind(this)
     this.filterTeamMembers = this.filterTeamMembers.bind(this)
     this.hasSelectedDepartment = this.hasSelectedDepartment.bind(this)
+    this.state = {
+      activeFilter: 'Everyone',
+      departments: this.getDepartments(props.team),
+      filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
+    }
+
+    this.handleQueryParams(props.queryParam)
   }
 
-  changeTopicHandler(value) {
+  changeFilterHandler(value) {
     const { team } = this.props
     const updatedTeam = this.filterTeamMembers(team, value)
 
@@ -32,10 +28,11 @@ class TeamMembersOverview extends Component {
 
   handleQueryParams(queryParam) {
     const { team } = this.props
-    const department = this.state.departments.find(item => item === queryParam)
+    const { departments } = this.state
+    const department = departments.find(item => item === queryParam)
 
     if (department) {
-      this.state.activeTopic = queryParam // eslint-disable-line react/no-direct-mutation-state
+      this.state.activeFilter = queryParam // eslint-disable-line react/no-direct-mutation-state
       this.state.filteredTeam = this.filterTeamMembers(team, department) // eslint-disable-line react/no-direct-mutation-state
     }
   }
@@ -70,16 +67,16 @@ class TeamMembersOverview extends Component {
 
   render() {
     const { introText } = this.props
-    const { activeTopic, departments, filteredTeam } = this.state
+    const { activeFilter, departments, filteredTeam } = this.state
 
     return (
       <div className="filters">
         <div className="filters-container">
-          <Topics
+          <Filter
             keyword="Role"
-            activeTopic={activeTopic}
-            topics={departments}
-            onTopicChanged={this.changeTopicHandler} />
+            activeFilter={activeFilter}
+            filters={departments}
+            onFilterChanged={this.changeFilterHandler} />
         </div>
 
         {introText && <p className="team-members-intro-text container">{introText}</p>}

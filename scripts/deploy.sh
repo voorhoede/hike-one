@@ -34,7 +34,7 @@ if [ "$TRAVIS_BRANCH" == 'chore/zeit-now-v2' ]; then
 
   npx now deploy \
     -t "$NOW_TOKEN" \
-    --target "$deployment" \
+    -n "hike-one-${deployment}" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment";
@@ -53,7 +53,7 @@ elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; t
   # Staging deployment is reachable at staging.hike.one.
   npx now deploy \
     -t "$NOW_TOKEN" \
-    --target "$deployment" \
+    -n "hike-one-${deployment}" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment" \

@@ -20,6 +20,8 @@ class UpdateOverview extends Component {
       loading: false,
       filteredUpdates: this.filterUpdates(props.updatesData, 'All')
     }
+
+    this.handleQueryParams(props.queryParam)
   }
 
   handleClick() {
@@ -38,6 +40,8 @@ class UpdateOverview extends Component {
   changeFilterHandler(value) {
     const { updatesData } = this.props
     const filteredUpdates = this.filterUpdates(updatesData, value)
+
+    this.setQueryParams(value)
 
     this.setState({
       activeFilter: value,
@@ -65,9 +69,24 @@ class UpdateOverview extends Component {
     return !data.highlights.some(highlight => highlight.id === update.id)
   }
 
+  handleQueryParams(queryParam) {
+    const { updatesData } = this.props
+    const { filters } = this.state
+    const filter = filters.find(item => item === queryParam)
+
+    if (filter) {
+      this.state.activeFilter = queryParam // eslint-disable-line react/no-direct-mutation-state
+      this.state.filteredUpdates = this.filterUpdates(updatesData, filter) // eslint-disable-line react/no-direct-mutation-state
+    }
+  }
+
   hasSelectedTopic(update, filter) {
     if (filter === 'All') { return true }
     return update.category.name === filter
+  }
+
+  setQueryParams(filter) {
+    window.history.replaceState(null, null, encodeURI(`/updates?filter=${filter}`))
   }
 
   render() {
@@ -124,6 +143,7 @@ class UpdateOverview extends Component {
 
 UpdateOverview.propTypes = {
   data: PropTypes.object,
+  queryParam: PropTypes.string,
   updatesData: PropTypes.array,
 }
 

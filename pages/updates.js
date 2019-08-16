@@ -11,7 +11,14 @@ import {
   UpdateOverview,
 } from '../components'
 
-const Updates = ({ data = {}, footer = {}, updates = [], fontsLoaded = '', fullUrl = '' }) => (
+const Updates = ({
+  data = {},
+  footer = {},
+  fontsLoaded = '',
+  fullUrl = '',
+  updates = [],
+  queryParam = '',
+}) => (
   <Layout
     title="Hike One - Updates"
     fontsLoaded={fontsLoaded}
@@ -33,6 +40,7 @@ const Updates = ({ data = {}, footer = {}, updates = [], fontsLoaded = '', fullU
           <UpdateOverview
             data={data}
             updatesData={updates}
+            queryParam={queryParam}
           />
         </div>
 
@@ -48,6 +56,7 @@ Updates.getInitialProps = async ({ req, res, asPath }) => {
   const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
   const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
   const fullUrl = `${baseUrl}${asPath}`
+  const queryParam = req && req.query && req.query.filter
   const fetchJson = model => getData(baseUrl, model, res)
   const fetchAll = models => Promise.all(models.map(fetchJson))
   const [footer, data, updates] = await fetchAll(['footer', 'update-overview', 'update-extracts'])
@@ -56,7 +65,7 @@ Updates.getInitialProps = async ({ req, res, asPath }) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime()
   })
 
-  return { data, footer, updates, fontsLoaded, fullUrl }
+  return { data, footer, updates, fontsLoaded, fullUrl, queryParam }
 }
 
 Updates.propTypes = {
@@ -65,6 +74,7 @@ Updates.propTypes = {
   fontsLoaded: PropTypes.string,
   fullUrl: PropTypes.string,
   updates: PropTypes.array,
+  queryParam: PropTypes.string,
 }
 
 export default Updates

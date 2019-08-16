@@ -63,13 +63,13 @@ class ServicesOverview extends Component {
     switch(item) {
       case 'new-product-design':
         this.tlLeft.timeScale(1).play()
-        break;
+        break
       case 'ux-design':
         this.tlCenter.timeScale(1).play()
-        break;
+        break
       case 'training-and-academy':
         this.tlRight.timeScale(1).play()
-        break;
+        break
     }
   }
 
@@ -77,13 +77,13 @@ class ServicesOverview extends Component {
     switch(item) {
       case 'new-product-design':
         this.tlLeft.timeScale(1.5).reverse()
-        break;
+        break
       case 'ux-design':
         this.tlCenter.timeScale(1.75).reverse()
-        break;
+        break
       case 'training-and-academy':
         this.tlRight.timeScale(1.25).reverse()
-        break;
+        break
     }
   }
 

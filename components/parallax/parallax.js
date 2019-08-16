@@ -113,13 +113,15 @@ class Parallax extends Component {
   }
 
   render() {
+    const { children } = this.props
+
     return (
       <div ref={node => (this.containerEl = node)} className="parallax-layer-container">
         <div
           ref={node => (this.element = node)}
           className="parallax-layer"
           style={{ visibility: 'hidden' }}>
-          {this.props.children}
+          {children}
         </div>
       </div>
     )

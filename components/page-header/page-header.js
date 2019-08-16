@@ -17,19 +17,16 @@ class PageHeader extends Component {
   }
 
   componentDidMount() {
+    const { video } = this.props
     this.elementBottom = this.element.getBoundingClientRect().bottom
     window.addEventListener('scroll', this.onScroll)
 
-    if (this.props.video) {
+    if (video) {
       this.video.load()
       this.video.addEventListener('loadeddata',
         this.setState({ showVideo: true })
       )
     }
-  }
-
-  componentWillReceiveProps() {
-    this.setState({ showVideo: false })
   }
 
   componentWillUnmount() {
@@ -70,6 +67,7 @@ class PageHeader extends Component {
       isSmall,
       children,
     } = this.props
+    const { showVideo } = this.state
     const childrenArray = React.Children.toArray(children)
     let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
     let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
@@ -101,7 +99,7 @@ class PageHeader extends Component {
         className={`page-header
           ${showGradient ? 'show-gradient' : ''}
           ${isSmall ? 'page-header-small' : ''}
-          ${this.state.showVideo ? 'show-video' : ''}`}>
+          ${showVideo ? 'show-video' : ''}`}>
         {parallaxLayerBack}
         {video && (
           <video

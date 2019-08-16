@@ -12,8 +12,7 @@ const helmet = require('helmet')
 
 const dev = process.env.NODE_ENV !== 'production'
 const isDevelopment = process.env.ENVIRONMENT === 'development'
-// const isStaging = process.env.ENVIRONMENT === 'staging'
-const isStaging = true
+const isStaging = process.env.ENVIRONMENT === 'staging'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()

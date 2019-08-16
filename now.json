@@ -17,8 +17,6 @@
   "env": {
     "DATO_API_TOKEN": "@hike_one_dato_api_token",
     "MAIN_DOMAIN": "hike.one",
-    "STAGING_USER": "HikeOne",
-    "STAGING_SECRET": "HikeOne"
   },
   "scale": {
     "bru1": {

@@ -1,5 +1,23 @@
 {
   "version": 1,
+  "name": "hike-one",
+  "alias": [
+    "hike.one",
+    "www.hike.one",
+    "hikeone.com",
+    "www.hikeone.com",
+    "hikeone.nl",
+    "www.hikeone.nl"
+  ],
+  "build": {
+    "env": {
+      "DATO_API_TOKEN": "@hike_one_dato_api_token"
+    }
+  },
+  "env": {
+    "DATO_API_TOKEN": "@hike_one_dato_api_token",
+    "MAIN_DOMAIN": "hike.one"
+  },
   "scale": {
     "bru1": {
       "min": 1,
@@ -7,6 +25,7 @@
     }
   },
   "github": {
-    "enabled": false
+    "autoAlias": false,
+    "autoJobCancelation": true
   }
 }

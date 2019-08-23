@@ -13,6 +13,7 @@ const Contact = ({ title = '', button = '', link = '', target = '_self', childre
         <ButtonPrimaryLink
           href={link ? link : 'tel:+310202044577'}
           target={target}
+          prefetch={false}
           classes="btn-large content">
           {button}
         </ButtonPrimaryLink>

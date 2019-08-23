@@ -18,7 +18,11 @@ const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
       ))}
     </ul>
 
-    <ButtonPrimaryLink href={overview.callToActionUrl} target="_blank" rel="noopener noreferrer" classes="btn-large content">
+    <ButtonPrimaryLink
+      href={overview.callToActionUrl}
+      target="_blank"
+      prefetch={false}
+      classes="btn-large content">
       {overview.callToActionTitle}
     </ButtonPrimaryLink>
   </div>

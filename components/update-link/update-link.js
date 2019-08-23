@@ -5,8 +5,8 @@ import { ArrowRightCircle, Authors } from '../'
 
 const UpdateLink = ({ href = '#', title = '', authors = [], date = '', target = false }) => (
   <div className="update-link">
-    <Link href={href}>
-      <a className="update-link-title" target={target ? '_blank' : '_self'} rel="noopener noreferrer">
+    <Link href={href} prefetch={target ? false : null}>
+      <a className="update-link-title" target={target ? '_blank' : '_self'} rel={target ? 'noopener noreferrer' : null}>
         {title}
         <ArrowRightCircle />
       </a>

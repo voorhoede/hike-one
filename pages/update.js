@@ -204,7 +204,8 @@ const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
               category={item.category.name}
               color={item.themeColor.hex}
               date={item.date}
-              href={item.externalLink ? item.externalLink : item.slug}
+              link={item.externalLink}
+              slug={item.slug}
               image={item.image.url}
               target={item.externalLink ? true : false}
               title={item.title}

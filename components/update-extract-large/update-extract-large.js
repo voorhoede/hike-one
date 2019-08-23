@@ -10,7 +10,8 @@ const UpdateExtractLarge = ({
   category = 'update',
   color = '',
   date = '',
-  href = '',
+  link = '',
+  slug = '',
   image = '',
   index,
   target = false,
@@ -18,7 +19,6 @@ const UpdateExtractLarge = ({
   topic = false,
 }) => {
   const prefix = topic ? 'topic' : 'update'
-  const url = target ? href : `/${prefix}/${href}`
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
@@ -39,10 +39,10 @@ const UpdateExtractLarge = ({
   }
 
   return (
-    <Link href={url} prefetch={target ? false : null}>
+    <Link href={link ? link : `/update?slug=${slug}`} as={link ? link : `/${prefix}/${slug}`} prefetch={target ? false : null}>
       <a
         className="update-extract-large"
-        target={target ? '_blank' : '_self'}
+        target={target ? '_blank' : null}
         rel={target ? 'noopener noreferrer' : null}>
         <div dangerouslySetInnerHTML={style} />
         <div className={`update-extract-large-image-${index} update-extract-large-image`} />
@@ -70,7 +70,8 @@ UpdateExtractLarge.propTypes = {
   category: PropTypes.string,
   color: PropTypes.string,
   date: PropTypes.string,
-  href: PropTypes.string,
+  link: PropTypes.string,
+  slug: PropTypes.string,
   image: PropTypes.string,
   index: PropTypes.number,
   target: PropTypes.bool,

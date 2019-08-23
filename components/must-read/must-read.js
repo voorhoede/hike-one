@@ -35,7 +35,7 @@ class MustRead extends Component {
             index={index}
             authors={item.authors}
             state={state}
-            url={item.externalLink}
+            link={item.externalLink}
             slug={item.slug}
             title={item.title}
           />
@@ -52,13 +52,15 @@ class MustRead extends Component {
   }
 }
 
-const MustReadItem = ({ authors, index, url,  slug, state, title, topic }) => {
+const MustReadItem = ({ authors, index, link, slug, state, title, topic }) => {
   const prefix = topic ? 'topic' : 'update'
-  const href = url ? url : `/${prefix}/${slug}`
 
   return (
-    <Link href={href} prefetch={url ? false : null}>
-      <a className={`must-read-item must-read-item-${index} ${state}`} target={url ? '_blank' : '_self'}>
+    <Link
+      href={link ? link : `/update?slug=${slug}`}
+      as={link ? link : `/${prefix}/${slug}`}
+      prefetch={link ? false : null}>
+      <a className={`must-read-item must-read-item-${index} ${state}`} target={link ? '_blank' : null}>
         <h2 className="must-read-item-index">{index + 1}</h2>
         <div>
           <h1 className="must-read-item-title">{title}</h1>
@@ -74,7 +76,7 @@ const MustReadItem = ({ authors, index, url,  slug, state, title, topic }) => {
 MustReadItem.propTypes = {
   authors: PropTypes.array,
   index: PropTypes.number,
-  url: PropTypes.string,
+  link: PropTypes.string,
   slug: PropTypes.string,
   state: PropTypes.string,
   title: PropTypes.string,

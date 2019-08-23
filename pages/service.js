@@ -112,7 +112,8 @@ const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', full
                 key={index}
                 authors={item.authors}
                 date={getDateFormat(item.date)}
-                href={item.externalLink ? item.externalLink : item.slug}
+                link={item.externalLink}
+                slug={item.slug}
                 target={item.externalLink}
                 topic={item.topic}
                 title={item.title}

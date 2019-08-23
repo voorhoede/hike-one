@@ -49,7 +49,7 @@ const UpdateExtractLarge = ({
         </div>
         <h2 className="update-extract-large-title">{title}</h2>
         <span className="update-extract-large-subtitle" style={{ backgroundColor: color }}>
-          <Authors authors={authors} /> - {`${getDateFormat(date)}`}
+          <Authors authors={authors} /> - {getDateFormat(date)}
         </span>
       </div>
     </a>

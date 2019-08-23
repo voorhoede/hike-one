@@ -159,7 +159,7 @@ class MenuBar extends Component {
         <div className="header-logo-wrapper">
           <Link href="/">
             <a className="header-logo" onContextMenu={this.toggleContextMenu}>
-              <Logo color={`${color ? color : 'black'}`} />
+              <Logo color={color ? color : 'black'} />
               <span className="a11y-sr-only">Hike one</span>
             </a>
           </Link>

@@ -21,7 +21,7 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
         />
       ))}
     </div>
-    <MustRead mustRead={mustRead} />
+    <MustRead items={mustRead} />
   </div>
 )
 

@@ -79,11 +79,11 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                 title={item.title}
                 date={item.date}
                 authors={item.authors}
-                href={item.link}
+                href={item.link ? item.link : item.slug}
                 image={item.image.url}
                 category={item.category.name}
                 color={item.themeColor.hex}
-                target={item.isExternalLink}
+                target={item.link ? true : false}
               />
             ))}
           </UpdateOverviewSmall>

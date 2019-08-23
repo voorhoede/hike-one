@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'next/link'
 import { Authors, ArrowRightExternalLink } from '../'
 import getDateFormat from '../_helpers/getDateFormat'
 import setImageParams from '../_helpers/setImageParameters'
 
 const UpdateExtractSmall = ({
-  classes = '',
-  title = '',
-  date = '',
   authors = [],
-  image = '',
-  color = '',
-  href = '',
-  index,
   category = 'update',
+  color = '',
+  date = '',
+  href = '',
+  image = '',
+  index,
   target = false,
+  title = '',
 }) => {
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
@@ -36,41 +36,42 @@ const UpdateExtractSmall = ({
   }
 
   return (
-    <a
-      href={href}
-      target={target ? '_blank' : '_self'}
-      className={`update-extract-small ${classes}`}>
-      <div dangerouslySetInnerHTML={style} />
-      <div className={`update-extract-small-image-${index} update-extract-small-image`} />
-      <div className="update-extract-small-text" style={{ backgroundColor: color }}>
-        <div className="update-extract-small-type" style={{ color: color }}>
-          {category}
-          {target && (
-            <span className="external-link-icon">
-              <ArrowRightExternalLink fill={color} />
-            </span>
-          )}
+    <Link href={href} prefetch={target ? false : null}>
+      <a
+        className="update-extract-small"
+        target={target ? '_blank' : '_self'}
+        rel={target ? 'noopener noreferrer' : null}>
+        <div dangerouslySetInnerHTML={style} />
+        <div className={`update-extract-small-image-${index} update-extract-small-image`} />
+        <div className="update-extract-small-text" style={{ backgroundColor: color }}>
+          <div className="update-extract-small-type" style={{ color: color }}>
+            {category}
+            {target && (
+              <span className="external-link-icon">
+                <ArrowRightExternalLink fill={color} />
+              </span>
+            )}
+          </div>
+          <h2 className="update-extract-small-title">{title}</h2>
+          <span className="update-extract-small-subtitle" style={{ backgroundColor: color }}>
+            <Authors authors={authors} /> - {getDateFormat(date)}
+          </span>
         </div>
-        <h2 className="update-extract-small-title">{title}</h2>
-        <span className="update-extract-small-subtitle" style={{ backgroundColor: color }}>
-          <Authors authors={authors} /> - {getDateFormat(date)}
-        </span>
-      </div>
-    </a>
+      </a>
+    </Link>
   )
 }
 
 UpdateExtractSmall.propTypes = {
-  classes: PropTypes.string,
-  title: PropTypes.string,
-  date: PropTypes.string,
   authors: PropTypes.array,
-  image: PropTypes.string,
-  color: PropTypes.string,
-  href: PropTypes.string,
-  index: PropTypes.number,
   category: PropTypes.string,
+  color: PropTypes.string,
+  date: PropTypes.string,
+  href: PropTypes.string,
+  image: PropTypes.string,
+  index: PropTypes.number,
   target: PropTypes.bool,
+  title: PropTypes.string,
 }
 
 export default UpdateExtractSmall

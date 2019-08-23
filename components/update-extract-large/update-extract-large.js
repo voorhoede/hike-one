@@ -16,6 +16,7 @@ const UpdateExtractLarge = ({
   target = false,
   title = '',
 }) => {
+  const url = target ? href : `/update/${href}`
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
@@ -36,7 +37,7 @@ const UpdateExtractLarge = ({
   }
 
   return (
-    <Link href={href} prefetch={target ? false : null}>
+    <Link href={url} prefetch={target ? false : null}>
       <a
         className="update-extract-large"
         target={target ? '_blank' : '_self'}

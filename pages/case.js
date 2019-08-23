@@ -309,14 +309,14 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
           </WorkOverview>
 
           <UpdateLinks>
-            {data.updateLinks.map((update, index) => (
+            {data.updateLinks.map((item, index) => (
               <UpdateLink
                 key={index}
-                title={update.title}
-                author={update.authors.map(author => author.name).join(', ')}
-                date={getDateFormat(update.date)}
-                href={update.link}
-                target={update.isExternalLink}
+                title={item.title}
+                author={item.authors.map(author => author.name).join(', ')}
+                date={getDateFormat(item.date)}
+                href={item.externalLink ? item.externalLink : item.slug}
+                target={item.externalLink}
               />
             ))}
           </UpdateLinks>

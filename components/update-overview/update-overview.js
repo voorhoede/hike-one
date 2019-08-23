@@ -120,11 +120,11 @@ class UpdateOverview extends Component {
               title={item.title}
               date={item.date}
               authors={item.authors}
-              href={item.link ? item.link : item.slug}
+              href={item.externalLink ? item.externalLink : item.slug}
               image={item.image.url}
               category={item.category.name}
               color={item.themeColor.hex}
-              target={item.link ? true : false}
+              target={item.externalLink ? true : false}
             />
           ))}
         </div>

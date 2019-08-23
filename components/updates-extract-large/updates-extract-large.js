@@ -15,8 +15,8 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
           color={item.themeColor.hex}
           category={item.category.name}
           authors={item.authors}
-          href={item.link}
-          target={item.isExternalLink}
+          href={item.externalLink ? item.externalLink : item.slug}
+          target={item.externalLink ? true : false}
         />
       ))}
     </div>

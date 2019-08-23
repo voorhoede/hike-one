@@ -28,7 +28,7 @@ UpdateLink.propTypes = {
   authors: PropTypes.array,
   date: PropTypes.string,
   href: PropTypes.string,
-  target: PropTypes.bool,
+  target: PropTypes.string,
   title: PropTypes.string,
   topic: PropTypes.bool,
 }

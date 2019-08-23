@@ -76,14 +76,16 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
               <UpdateExtractSmall
                 key={index}
                 index={index}
-                title={item.title}
-                date={item.date}
                 authors={item.authors}
-                href={item.link}
-                image={item.image.url}
                 category={item.category.name}
                 color={item.themeColor.hex}
-                target={item.isExternalLink}
+                date={item.date}
+                link={item.externalLink}
+                slug={item.slug}
+                image={item.image.url}
+                target={item.externalLink ? true : false}
+                title={item.title}
+                topic={item.topic}
               />
             ))}
           </UpdateOverviewSmall>

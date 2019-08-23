@@ -9,22 +9,20 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
   const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
   const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
-  const imageSmallTemplate = classes => {
-    return (
-      <img
-        className={classes}
-        srcSet={`
-          ${setImageParams(imageSmall, { ...imageParameters, w: 250 })}  250w,
-          ${setImageParams(imageSmall, { ...imageParameters, w: 580 })} 580w,
-          ${setImageParams(imageSmall, { ...imageParameters, w: 750 })} 750w,
-          ${setImageParams(imageSmall, { ...imageParameters, w: 1160 })} 1160w
-        `}
-        sizes="(max-width: 1480px) 50vw, 580px"
-        src={imageSmall}
-        alt=""
-      />
-    )
-  }
+  const imageSmallTemplate = (classes) => (
+    <img
+      className={classes}
+      srcSet={`
+        ${setImageParams(imageSmall, { ...imageParameters, w: 250 })}  250w,
+        ${setImageParams(imageSmall, { ...imageParameters, w: 580 })} 580w,
+        ${setImageParams(imageSmall, { ...imageParameters, w: 750 })} 750w,
+        ${setImageParams(imageSmall, { ...imageParameters, w: 1160 })} 1160w
+      `}
+      sizes="(max-width: 1480px) 50vw, 580px"
+      src={imageSmall}
+      alt=""
+    />
+  )
 
   return (
     <section className="collage clearfix container">

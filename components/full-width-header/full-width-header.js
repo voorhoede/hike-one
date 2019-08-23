@@ -53,7 +53,7 @@ const FullWidthHeader = ({
           <h1 className="full-width-header-title">{title}</h1>
           {!titleOnly && (
             <span className="full-width-header-author">
-              {authorName} - {`${getDateFormat(updatedDate)}`}
+              {authorName} - {getDateFormat(updatedDate)}
             </span>
           )}
         </div>

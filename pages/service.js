@@ -105,14 +105,16 @@ const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', full
           </WorkOverview>
 
           <UpdateLinks>
-            {data.updateLinks.map((update, index) => (
+            {data.updateLinks.map((item, index) => (
               <UpdateLink
                 key={index}
-                title={update.title}
-                authors={update.authors}
-                date={getDateFormat(update.date)}
-                href={update.link}
-                target={update.isExternalLink}
+                authors={item.authors}
+                date={getDateFormat(item.date)}
+                link={item.externalLink}
+                slug={item.slug}
+                target={item.externalLink}
+                topic={item.topic}
+                title={item.title}
               />
             ))}
           </UpdateLinks>

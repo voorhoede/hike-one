@@ -15,9 +15,8 @@ class LogoCarousel extends Component {
   animate() {
     const { animationSpeed } = this.props
     const sliderContentWidth = this.sliderContent.getBoundingClientRect().width
-    const carouselAnimation = new TimelineMax({ repeat: -1 })
 
-    carouselAnimation
+    new TimelineMax({ repeat: -1 })
       .add(TweenLite.to(this.slider, 1, { left: -sliderContentWidth }))
       .duration(animationSpeed)
   }

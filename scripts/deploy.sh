@@ -34,7 +34,6 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 
   npx now deploy \
     -t "$NOW_TOKEN" \
-    -n "hike-one-${deployment}" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment";
@@ -57,6 +56,8 @@ elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; t
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
     -e ENVIRONMENT="$deployment" \
+    -e STAGING_USER="$STAGING_USER" \
+    -e STAGING_SECRET="$STAGING_SECRET" \
     -m ID="$meta";
 
   # get the alias that was just deployed using the assigned ID meta tag

@@ -20,10 +20,12 @@ class Layout extends Component {
   }
 
   checkFontsLoaded() {
+    const { fontsLoaded } = this.state
     // if fonts aren't loaded then check with font observer when they're
     // and add fonts loaded class
-    if (this.state.fontsLoaded !== 'fonts-loaded') {
-      loadFonts().then(this.setState({ fontsLoaded: 'fonts-loaded' }))
+    if (fontsLoaded !== 'fonts-loaded') {
+      loadFonts()
+        .then(this.setState({ fontsLoaded: 'fonts-loaded' }))
     }
   }
 

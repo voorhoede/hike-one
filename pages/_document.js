@@ -23,16 +23,13 @@ class MyDocument extends Document {
           <Main />
           <NextScript />
           <script id="mcjs" dangerouslySetInnerHTML={{
-          __html:
-            '!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/9fcf53aac8cfc03a445bd4e2f/c7ff7fa29349202fda8890cac.js");',
+            __html: '!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/9fcf53aac8cfc03a445bd4e2f/c7ff7fa29349202fda8890cac.js");',
           }} />
           <script dangerouslySetInnerHTML={{
-            __html:
-              '_linkedin_partner_id = "361124"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id);',
+            __html: '_linkedin_partner_id = "361124"; window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || []; window._linkedin_data_partner_ids.push(_linkedin_partner_id);',
           }} />
           <script dangerouslySetInnerHTML={{
-            __html:
-              '(function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})();',
+            __html: '(function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})();',
           }} />
           <noscript>
             <img height="1" width="1" style={{ display: 'none' }} alt="img" src="https://dc.ads.linkedin.com/collect/?pid=361124&fmt=gif" />

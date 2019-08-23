@@ -152,17 +152,18 @@ class MenuBar extends Component {
 
   render() {
     const { color } = this.props
+    const { contextMenuIsOpen } = this.state
 
     return (
       <header ref={node => (this.header = node)} className="menu-bar">
         <div className="header-logo-wrapper">
           <Link href="/">
             <a className="header-logo" onContextMenu={this.toggleContextMenu}>
-              <Logo color={`${color ? color : 'black'}`} />
+              <Logo color={color ? color : 'black'} />
               <span className="a11y-sr-only">Hike one</span>
             </a>
           </Link>
-          <ContextMenu isOpen={this.state.contextMenuIsOpen} />
+          <ContextMenu isOpen={contextMenuIsOpen} />
         </div>
 
         <button className="menu-btn" ref={node => (this.menuBtn = node)} onClick={this.toggleMenu}>

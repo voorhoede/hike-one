@@ -22,12 +22,13 @@ class CookieBar extends Component {
 
   render() {
     const { text, callToActionLabel, callToActionUrl, button } = this.props
-    const hiddenClass = this.state.accepted ? 'hidden' : ''
+    const { accepted } = this.state
+    const hiddenClass = accepted ? 'hidden' : ''
 
     return (
       <div className={`cookie-bar ${hiddenClass}`}>
         <p className="cookie-bar-text">
-          {text + ' '}
+          {text}
           <Link href={callToActionUrl}>
             <a className="cookie-bar-link">{callToActionLabel}</a>
           </Link>

@@ -25,6 +25,11 @@
     "lint:js": "eslint ./components/**/*.js ./pages/**/*.js",
     "lint:css": "stylelint './components/**/*.less' './styles/**/*.less' --syntax less"
   },
+  "browserslist": [
+    "> 1%",
+    "ie 11",
+    "last 2 versions"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/voorhoede/hike-one.git"

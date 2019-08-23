@@ -312,11 +312,12 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
             {data.updateLinks.map((item, index) => (
               <UpdateLink
                 key={index}
-                title={item.title}
                 author={item.authors.map(author => author.name).join(', ')}
                 date={getDateFormat(item.date)}
                 href={item.externalLink ? item.externalLink : item.slug}
                 target={item.externalLink}
+                topic={item.topic}
+                title={item.title}
               />
             ))}
           </UpdateLinks>

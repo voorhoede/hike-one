@@ -110,11 +110,12 @@ const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', full
             {data.updateLinks.map((item, index) => (
               <UpdateLink
                 key={index}
-                title={item.title}
                 authors={item.authors}
                 date={getDateFormat(item.date)}
                 href={item.externalLink ? item.externalLink : item.slug}
                 target={item.externalLink}
+                topic={item.topic}
+                title={item.title}
               />
             ))}
           </UpdateLinks>

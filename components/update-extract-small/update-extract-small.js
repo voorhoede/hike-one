@@ -15,8 +15,10 @@ const UpdateExtractSmall = ({
   index,
   target = false,
   title = '',
+  topic = false,
 }) => {
-  const url = target ? href : `/update/${href}`
+  const prefix = topic ? 'topic' : 'update'
+  const url = target ? href : `/${prefix}/${href}`
   const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
@@ -73,6 +75,7 @@ UpdateExtractSmall.propTypes = {
   index: PropTypes.number,
   target: PropTypes.bool,
   title: PropTypes.string,
+  topic: PropTypes.bool,
 }
 
 export default UpdateExtractSmall

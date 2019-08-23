@@ -9,14 +9,15 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
         <UpdateExtractLarge
           key={index}
           index={index}
-          title={item.title}
-          date={item.createdAt}
-          image={item.image.url}
-          color={item.themeColor.hex}
-          category={item.category.name}
           authors={item.authors}
+          category={item.category.name}
+          color={item.themeColor.hex}
+          date={item.createdAt}
           href={item.externalLink ? item.externalLink : item.slug}
+          image={item.image.url}
           target={item.externalLink ? true : false}
+          topic={item.topic}
+          title={item.title}
         />
       ))}
     </div>

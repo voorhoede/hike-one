@@ -3,9 +3,16 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import { ArrowRightCircle, Authors } from '../'
 
-const UpdateLink = ({ href = '#', title = '', authors = [], date = '', target = false }) => (
+const UpdateLink = ({
+  authors = [],
+  date = '',
+  href = '#',
+  target = false,
+  title = '',
+  topic = false,
+}) => (
   <div className="update-link">
-    <Link href={href} prefetch={target ? false : null}>
+    <Link href={target ? href : `/${topic ? 'topic' : 'update'}/${href}`} prefetch={target ? false : null}>
       <a className="update-link-title" target={target ? '_blank' : '_self'} rel={target ? 'noopener noreferrer' : null}>
         {title}
         <ArrowRightCircle />
@@ -18,11 +25,12 @@ const UpdateLink = ({ href = '#', title = '', authors = [], date = '', target = 
 )
 
 UpdateLink.propTypes = {
-  href: PropTypes.string,
-  title: PropTypes.string,
   authors: PropTypes.array,
   date: PropTypes.string,
+  href: PropTypes.string,
   target: PropTypes.bool,
+  title: PropTypes.string,
+  topic: PropTypes.bool,
 }
 
 export default UpdateLink

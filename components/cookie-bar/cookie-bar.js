@@ -28,7 +28,7 @@ class CookieBar extends Component {
     return (
       <div className={`cookie-bar ${hiddenClass}`}>
         <p className="cookie-bar-text">
-          {text + ' '}
+          {text}
           <Link href={callToActionUrl}>
             <a className="cookie-bar-link">{callToActionLabel}</a>
           </Link>

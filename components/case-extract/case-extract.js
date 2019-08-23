@@ -29,7 +29,7 @@ const CaseExtract = ({
   return (
     <section className="case-extract container">
       <div dangerouslySetInnerHTML={style} />
-      <Link href={`/case?slug=${slug}`} as={`/case/${slug}`} prefetch>
+      <Link href={`/case?slug=${slug}`} as={`/case/${slug}`}>
         <a>
           <div className="case-extract-inner clearfix">
             <div className="case-extract-image-container" />

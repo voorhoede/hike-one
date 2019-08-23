@@ -58,7 +58,7 @@ class TabSelector extends Component {
 }
 
 const TabItem = ({ Component = null, onTabClick = null, selectedItem = '', slug = '', title = '' }) => (
-  <Link href={`/service?slug=${slug}`} as={`/service/${slug}`} prefetch>
+  <Link href={`/service?slug=${slug}`} as={`/service/${slug}`}>
     <a className={`tab-selector-item ${selectedItem === slug ? 'is-selected' : ''}`} onClick={onTabClick}>
       <div className="tab-selector-item-shape">
         <Component />

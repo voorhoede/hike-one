@@ -1,18 +1,44 @@
-import React from 'react';
-import ArrowRightCircle from '../icons/arrow-right-circle';
-import Link from 'next/link';
-import Authors from '../authors/authors'
+import React from 'react'
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import { ArrowRightCircle, Authors } from '../'
 
-const updateLink = ({target='#', title='', authors=[], date='', external = false}) => (
-	<div className="update-link">
-		<Link href={ target }>
-			<a className="update-link-title"
-			   target={external ? '_blank' : ''}>{ title }
-			   <ArrowRightCircle />
-			</a>
-		</Link>
-		<p className="update-link-sub"><span>{ date }</span> | <Authors authors={authors} /></p>
-	</div>
-);
+const UpdateLink = ({
+  authors = [],
+  date = '',
+  link = '#',
+  slug = '',
+  target = false,
+  title = '',
+  topic = false,
+}) => (
+  <div className="update-link">
+    <Link
+      href={link ? link : `/update?slug=${slug}`}
+      as={link ? link : `/${topic ? 'topic' : 'update'}/${slug}`}
+      prefetch={target ? false : null}>
+      <a
+        className="update-link-title"
+        target={target ? '_blank' : null}
+        rel={target ? 'noopener noreferrer' : null}>
+        {title}
+        <ArrowRightCircle />
+      </a>
+    </Link>
+    <p className="update-link-sub">
+      <span>{date}</span> | <Authors authors={authors} />
+    </p>
+  </div>
+)
 
-export default updateLink;
+UpdateLink.propTypes = {
+  authors: PropTypes.array,
+  date: PropTypes.string,
+  link: PropTypes.string,
+  slug: PropTypes.string,
+  target: PropTypes.string,
+  title: PropTypes.string,
+  topic: PropTypes.bool,
+}
+
+export default UpdateLink

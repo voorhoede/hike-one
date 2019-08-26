@@ -2,91 +2,93 @@
 @import (reference) 'shadows';
 
 .text-block {
-	.shadow;
-    background-color: @blue;
-    color: @white;
-    padding: @spacing-default*4 @spacing-medium @spacing-default*4 @spacing-medium;
-    font-family: @font-alt-fallback;
-    font-weight: @font-weight-normal;
-    font-size: @subtitle-large-s;
-    line-height: 35px;
-    margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+  .shadow();
 
-	.fonts-loaded & {
-		font-family: @font-alt;
-	}
+  margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+  padding: @spacing-default*4 @spacing-default*3 @spacing-default*4 @spacing-default*3;
+  background-color: @blue;
+  color: @white;
+  font-family: @font-alt-fallback;
+  font-size: @subtitle-large-s;
+  font-weight: @font-weight-normal;
+  line-height: 35px;
 
-    @media @screen-small {
-        margin-bottom: @spacing-default*9;
-    }
+  .fonts-loaded & {
+    font-family: @font-alt;
+  }
 
-    @media @screen-medium {
-        padding: @spacing-default*9 @spacing-default*7;
-        font-size: @subtitle-large-m;
-        line-height: @line-height-quote;
-    }
+  @media @screen-500 {
+    margin-bottom: @spacing-default*9;
+  }
 
-    @media @screen-medium-large {
-        margin-bottom: @spacing-small*5;
-    }
+  @media @screen-768 {
+    padding: @spacing-default*9 @spacing-default*7;
+    font-size: @subtitle-large-m;
+    line-height: @line-height-quote;
+  }
 
-    @media @screen-large {
-        max-width: @column-large-10;
-        padding: @spacing-default*10 @spacing-default*11;
-        font-size: @quote-large-l;
-        line-height: @line-height-quote;
-    }
+  @media @screen-1024 {
+    margin-bottom: @spacing-default*10;
+  }
+
+  @media @screen-1170 {
+    max-width: @column-large-10;
+    padding: @spacing-default*10 @spacing-default*11;
+    font-size: @quote-large-l;
+    line-height: @line-height-quote;
+  }
 }
 
 .text-block.blue {
-    background-color: @blue;
+  background-color: @blue;
 }
 
 .text-block.red {
-    background-color: @red;
+  background-color: @red;
 }
 
 .text-block.purple {
-    background-color: @purple;
+  background-color: @purple;
 }
 
 .text-block.yellow {
-    background-color: @yellow;
+  background-color: @yellow;
 }
 
 .text-block.green {
-    background-color: @green;
+  background-color: @green;
 }
 
 .text-block.gray {
-    background-color: @gray;
+  background-color: @gray;
 }
 
 .text-block.dark-gray {
-    background-color: @darker-gray;
+  background-color: @darker-gray;
 }
 
 .text-block-left {
-	margin-right: @spacing-default*1.5;
-	margin-left: 0;
+  margin-right: @spacing-default*1.5;
+  margin-left: 0;
 
-	@media @screen-large {
-		margin-right: 0;
-	}
+  @media @screen-1170 {
+    margin-right: 0;
+  }
 }
 
 .text-block-right {
-	margin-left: @spacing-default*1.5;
-	margin-right: 0;
+  margin-right: 0;
+  margin-left: @spacing-default*1.5;
 
-	@media @screen-large {
-		margin-left: auto;
-	}
+  @media @screen-1170 {
+    margin-left: auto;
+  }
 }
+
 .text-block-subtitle {
-    font-size: @text-medium-m;
-    opacity: 0.6;
-    font-weight: @font-weight-normal;
-    font-style: italic;
-    line-height: @line-height-body-m;
+  opacity: .6;
+  font-size: @text-medium-m;
+  font-style: italic;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-m;
 }

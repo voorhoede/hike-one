@@ -1,155 +1,164 @@
 @import (reference) '../../styles/variables';
 
 .text-center {
-    text-align: center;
-    margin-bottom: @spacing-default*8;
-    position: relative;
-    max-width: @column-small-12;
+  position: relative;
+  max-width: @column-small-12;
+  margin-bottom: @spacing-default*8;
+  text-align: center;
 
-    a {
-        &,
-        &:visited {
-            color: @red;
-            text-decoration: none;
-        }
-        &:hover {
-            text-decoration: underline;
-        }
+  a {
+    &,
+    &:visited {
+      color: @red;
+      text-decoration: none;
     }
 
-    @media @screen-medium {
-        max-width: @column-large-6;
+    &:hover {
+      text-decoration: underline;
     }
-    @media @screen-medium-large {
-        max-width: @column-large-7;
-    }
-    @media @screen-large {
-        max-width: @column-large-10;
-    }
-}
+  }
 
-.contact-text-center.text-center {
-    margin-bottom: @spacing-extra-large*2;
+  @media @screen-768 {
+    max-width: @column-large-6;
+  }
+
+  @media @screen-1024 {
+    max-width: @column-large-7;
+  }
+
+  @media @screen-1170 {
+    max-width: @column-large-10;
+  }
 }
 
 .text-center-spacing-large {
-    @media @screen-small {
-        padding-top: @spacing-large;
-        padding-bottom: @spacing-large*2;
-    }
+  @media @screen-500 {
+    padding-top: @spacing-default*4;
+    padding-bottom: @spacing-default*8;
+  }
 }
 
 .text-center-spacing-small {
-    margin-bottom: @spacing-default*3;
-    @media @screen-small {
-        padding-top: @spacing-large;
-        margin-bottom: @spacing-large*2;
-    }
+  margin-bottom: @spacing-default*3;
+
+  @media @screen-500 {
+    margin-bottom: @spacing-default*8;
+    padding-top: @spacing-default*4;
+  }
 }
 
 .text-center .container-inner {
-    max-width: @column-small-4;
-    @media @screen-medium {
-        max-width: @column-large-6;
-    }
-    @media @screen-medium-large {
-        max-width: @column-large-8;
-    }
-    @media @screen-large {
-        max-width: @column-large-8;
-    }
+  max-width: @column-small-4;
+
+  @media @screen-768 {
+    max-width: @column-large-6;
+  }
+
+  @media @screen-1024 {
+    max-width: @column-large-8;
+  }
+
+  @media @screen-1170 {
+    max-width: @column-large-8;
+  }
 }
 
 .service-page .text-center .container-inner {
-    max-width: 100%;
-    @media @screen-medium {
-        max-width: @column-large-6;
-    }
-    @media @screen-medium-large {
-        max-width: @column-large-8;
-    }
-    @media @screen-large {
-        max-width: @column-large-8;
-    }
+  max-width: 100%;
+
+  @media @screen-768 {
+    max-width: @column-large-6;
+  }
+
+  @media @screen-1024 {
+    max-width: @column-large-8;
+  }
+
+  @media @screen-1170 {
+    max-width: @column-large-8;
+  }
 }
 
 .text-center .text-center-title {
-    font-size: @heading-s;
-    line-height: @line-height-heading-s;
-    font-weight: @font-weight-bold;
-    color: @darker-gray;
+  color: @darker-gray;
+  font-size: @heading-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-heading-s;
 
-    @media @screen-medium {
-        font-size: @heading-m;
-        line-height: @line-height-heading-m;
-    }
-    @media @screen-large {
-        font-size: @heading-l;
-        line-height: @line-height-heading-l;
-    }
+  @media @screen-768 {
+    font-size: @heading-m;
+    line-height: @line-height-heading-m;
+  }
+
+  @media @screen-1170 {
+    font-size: @heading-l;
+    line-height: @line-height-heading-l;
+  }
 }
 
 .text-center .text-center-text {
-    font-size: @body-text-s;
-    line-height: @line-height-body-s;
-    font-weight: @font-weight-normal;
-    color: @darker-gray;
+  color: @darker-gray;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
-    @media @screen-medium {
-        font-size: @body-text-m;
-        line-height: @line-height-body-m;
-    }
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .text-center-font-title .text-center-title {
-    font-size: @heading-s;
-    line-height: @line-height-subtitle-m;
-    font-weight: @font-weight-bold;
+  font-size: @heading-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-subtitle-m;
 
-    @media @screen-medium {
-        font-size: @heading-m;
-        line-height: @line-height-heading-m;
-    }
-    @media @screen-large {
-        font-size: @heading-l;
-        line-height: @line-height-heading-l;
-    }
+  @media @screen-768 {
+    font-size: @heading-m;
+    line-height: @line-height-heading-m;
+  }
+
+  @media @screen-1170 {
+    font-size: @heading-l;
+    line-height: @line-height-heading-l;
+  }
 }
 
 .text-center-font-large .text-center-text {
-    font-size: @subtitle-large-s;
-	line-height: @line-height-subtitle-s;
-    font-weight: @font-weight-normal;
-    color: @darker-gray;
+  color: @darker-gray;
+  font-size: @subtitle-large-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-subtitle-s;
 
-	@media @screen-medium {
-		line-height: @line-height-subtitle-m;
-		font-size: @subtitle-large-m;
-    }
+  @media @screen-768 {
+    font-size: @subtitle-large-m;
+    line-height: @line-height-subtitle-m;
+  }
 
-    @media @screen-large {
-        line-height: @line-height-subtitle-l;
-        font-size: @subtitle-large-l;
-    }
+  @media @screen-1170 {
+    font-size: @subtitle-large-l;
+    line-height: @line-height-subtitle-l;
+  }
 }
 
 .text-center-font-medium .text-center-text {
-    font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	font-weight: @font-weight-normal;
-    color: @darker-gray;
+  color: @darker-gray;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
-	@media @screen-medium {
-		line-height: @line-height-body-m;
-		font-size: @body-text-m;
-    }
-    @media @screen-large {
-        font-size: @body-text-l;
-        line-height: @line-height-body-l;
-    }
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
+
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }

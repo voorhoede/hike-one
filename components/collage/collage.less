@@ -1,180 +1,183 @@
 @import (reference) '../../styles/variables';
 
 .collage {
-	position: relative;
-	margin-bottom: @spacing-large*2;
+  position: relative;
+  margin-bottom: @spacing-default*8;
 
-	a {
-        &,
-        &:visited {
-            color: @red;
-            text-decoration: none;
-        }
-        &:hover {
-            text-decoration: underline;
-        }
-	}
+  @media @screen-500 {
+    display: flex;
+    flex-direction: column;
+  }
 
-	@media @screen-small {
-		display: flex;
-		flex-direction: column;
-	}
-	@media @screen-medium {
-		display: flex;
-		flex-direction: row;
-		padding: 0 0;
-	}
+  @media @screen-768 {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0;
+  }
 
-	@media @screen-medium-large {
-		margin-bottom: @spacing-small*6;
-	}
+  @media @screen-1024 {
+    margin-bottom: @spacing-default*12;
+  }
 
-	@media @screen-large {
-		padding-top: @spacing-large;
-	}
+  @media @screen-1170 {
+    padding-top: @spacing-default*4;
+  }
+
+  a {
+    &,
+    &:visited {
+      color: @red;
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .collage-image-container {
-	position:relative;
-	width: 100%;
-	overflow: hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 
-	@media @screen-medium {
-		width: 50%;
-		overflow: visible;
-	}
+  @media @screen-768 {
+    width: 50%;
+    overflow: visible;
+  }
 }
 
 .collage-image-container-inner {
-	position:relative;
+  position: relative;
 }
 
 .collage-image-small {
-	position: absolute;
-	display: none;
-	right: -@spacing-default * 3;
+  display: none;
+  position: absolute;
+  right: -@spacing-default*3;
 
-	@media @screen-medium {
-		display: block;
-		bottom: 30px;
-		right: -@spacing-default * 4;
-	}
+  @media @screen-768 {
+    display: block;
+    right: -@spacing-default*4;
+    bottom: 30px;
+  }
 
-	@media @screen-medium-large {
-		right: -@spacing-default * 8;
-		bottom: 50px;
-	}
+  @media @screen-1024 {
+    right: -@spacing-default*8;
+    bottom: 50px;
+  }
 
-	@media @screen-large {
-		bottom: 70px;
-		right: -@spacing-default * 8;
-	}
+  @media @screen-1170 {
+    right: -@spacing-default*8;
+    bottom: 70px;
+  }
 }
 
 .collage-image-small-hidden,
 .collage-image-small {
-	max-height: 326px;
+  max-height: 326px;
 
-	@media only screen and (min-width: 1500px) {
-		max-height: 436px;
-	}
+  @media (min-width: 1500px) {
+    max-height: 436px;
+  }
 }
 
 .collage-image-small-hidden {
-	display: none;
-	opacity: 0;
+  display: none;
+  opacity: 0;
 
-	@media @screen-medium {
-		display: block;
-		margin-top: -30px;
-	}
+  @media @screen-768 {
+    display: block;
+    margin-top: -@spacing-default*3;
+  }
 
-	@media @screen-medium-large {
-		margin-top: -100px;
-	}
+  @media @screen-1024 {
+    margin-top: -@spacing-default*10;
+  }
 
-	@media @screen-large {
-		margin-top: -120px;
-	}
+  @media @screen-1170 {
+    margin-top: -@spacing-default*12;
+  }
 }
 
 .collage-image-medium {
-	width: 100%;
-	min-height: 261px;
-	@media @screen-small {
-		width:100%;
-		max-width: @column-large-6;
-		max-height: 541px;
-	}
+  width: 100%;
+  min-height: 261px;
+
+  @media @screen-500 {
+    width: 100%;
+    max-width: @column-large-6;
+    max-height: 541px;
+  }
 }
 
 .collage-text-container {
-	display: flex;
-	flex-direction: column;
-	margin-top: @spacing-small;
-	margin-bottom: 0;
-	margin-right: @spacing-small;
+  display: flex;
+  flex-direction: column;
+  margin-top: @spacing-default*2;
+  margin-right: @spacing-default*2;
+  margin-bottom: 0;
 
-	@media @screen-small {
-		padding: 0 0;
-		margin-right: @spacing-medium;
-	}
+  @media @screen-500 {
+    margin-right: @spacing-default*3;
+    padding: 0 0;
+  }
 
-	@media @screen-medium {
-		width: 50%;
-		margin-top: @spacing-small*5;
-		max-width: @column-large-3;
-		margin-left: auto;
-		margin-right: @spacing-medium;
-		padding: 0 0 0 @column-large-1;
-	}
+  @media @screen-768 {
+    width: 50%;
+    max-width: @column-large-3;
+    margin-top: @spacing-default*10;
+    margin-right: @spacing-default*3;
+    margin-left: auto;
+    padding: 0 0 0 @column-large-1;
+  }
 
-	@media @screen-medium-large {
-		margin-left: @spacing-small*5;
-    	margin-right: @spacing-small*4;
-	}
+  @media @screen-1024 {
+    margin-right: @spacing-default*8;
+    margin-left: @spacing-default*10;
+  }
 
-	@media @screen-large {
-		padding: 0 0;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  @media @screen-1170 {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 0;
+  }
 }
 
 .collage-text-title {
-	width: 100%;
-	margin-bottom: 16px;
-	color: @darker-gray;
-	font-size: @heading-s;
-	font-weight: @font-weight-bold;
-	line-height: @line-height-heading-s;
+  width: 100%;
+  margin-bottom: 16px;
+  color: @darker-gray;
+  font-size: @heading-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-heading-s;
 
-	@media @screen-medium {
-		line-height: @line-height-heading-m;
-		font-size: @heading-m;
-	}
+  @media @screen-768 {
+    font-size: @heading-m;
+    line-height: @line-height-heading-m;
+  }
 
-	@media @screen-large {
-		font-size: @heading-l;
-		line-height: @line-height-heading-l;
-	}
+  @media @screen-1170 {
+    font-size: @heading-l;
+    line-height: @line-height-heading-l;
+  }
 }
 
 .collage-text-description {
-	width: 100%;
-	margin-bottom: 16px;
-	color: @darker-gray;
-	font-weight: @font-weight-normal;
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
+  width: 100%;
+  margin-bottom: 16px;
+  color: @darker-gray;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 
-	@media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-m;
-	}
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
 
-	@media @screen-large {
-		font-size: @body-text-l;
-		line-height: @line-height-body-l;
-	}
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }

@@ -1,225 +1,243 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import 'isomorphic-fetch'
-
 import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
-	BodyQuote,
-	CallToAction,
-	CaseExtractSmall,
-	Contact,
-	ContactShapes,
-	FiftyFifty,
-	Footer,
-	FullWidthHeader,
-	FullWidthImageSmall,
-	InlineMedia,
-	Layout,
-	LogoCarousel,
-	MailchimpForm,
-	MenuBar,
-	RichBodyText,
-	SocialShare,
-	TextCenter,
-	UpdateExtractSmall,
-	UpdateOverviewSmall,
-	WorkOverview,
+  BodyQuote,
+  CallToAction,
+  CaseExtractSmall,
+  Contact,
+  ContactShapes,
+  FiftyFifty,
+  Footer,
+  FullWidthHeader,
+  FullWidthImageSmall,
+  InlineMedia,
+  Layout,
+  LogoCarousel,
+  MailchimpForm,
+  MenuBar,
+  RichBodyText,
+  SocialShare,
+  TextCenter,
+  UpdateExtractSmall,
+  UpdateOverviewSmall,
+  WorkOverview,
 } from '../components'
 
-const Topic = ({ Data, fontsLoaded, fullUrl }) => (
-	<Layout title={`Hike One - ${Data.title}`}
-		fontsLoaded={fontsLoaded}
-		seo={Data.seo}
-		url={fullUrl}
-	>
-		<main className="main js-main">
-			<MenuBar color="white" />
+const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    canonicalUrl={data.canonical}
+    title={`Hike One - ${data.title}`}
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
+    <main className="main js-main">
 
-			<article className="article">
-				<FullWidthHeader
-					headerImage={Data.headerImage.url}
-					headerImageLarger={Data.headerImageLarger}
-					color={Data.color.hex}
-					title={Data.title}
-					titleOnly={true}
-				/>
+      <MenuBar color="white" />
 
-				{Data.content.map(( component, index ) => {
-					switch (component.itemType) {
-						case 'rich_body_text':
-							return <RichBodyText key={index} content={component.content} textCenter={component.centered} />
+      <article className="article">
+        <FullWidthHeader
+          headerImage={data.headerImage.url}
+          headerImageLarger={data.headerImageLarger}
+          color={data.color.hex}
+          title={data.title}
+          titleOnly={true}
+        />
 
-						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} />
+        {data.content.map((component, index) => {
+          switch (component.itemType) {
+            case 'rich_body_text':
+              return (
+                <RichBodyText
+                  key={index}
+                  content={component.content}
+                  textCenter={component.centered}
+                />
+              )
 
-						case '50_50':
-							return (
-								<FiftyFifty
-									key={index}
-									contentLeft={component.textLeft}
-									title={component.title}
-									text={component.text}
-									image={component.image && component.image.url}
-									video={component.video}
-								/>
-							)
+            case 'body_quote':
+              return <BodyQuote key={index} quote={component.quote} />
 
-						case '50_50_text_right':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									text={component.text}
-									image={component.image.url}
-								/>
-							)
+            case '50_50':
+              return (
+                <FiftyFifty
+                  key={index}
+                  contentLeft={component.textLeft}
+                  title={component.title}
+                  text={component.text}
+                  image={component.image}
+                  video={component.video}
+                />
+              )
 
-						case '50_50_text_left':
-							return (
-								<FiftyFifty
-									key={index}
-									contentLeft="true"
-									title={component.title}
-									text={component.text}
-									image={component.image.url}
-								/>
-							)
+            case '50_50_text_right':
+              return (
+                <FiftyFifty
+                  key={index}
+                  title={component.title}
+                  text={component.text}
+                  image={component.image}
+                />
+              )
 
-						case 'inline_image':
-							const image = component.image ? component.image.url : undefined
-							return (
-								<InlineMedia
-									key={index}
-									image={image}
-									caption={component.caption}
-								/>
-							)
+            case '50_50_text_left':
+              return (
+                <FiftyFifty
+                  key={index}
+                  contentLeft={true}
+                  title={component.title}
+                  text={component.text}
+                  image={component.image}
+                />
+              )
 
-						case 'inline_image_large':
-							const imageLarge = component.image ? component.image.url : undefined
-							return (
-								<InlineMedia
-									key={index}
-									large={true}
-									image={imageLarge}
-									caption={component.caption}
-								/>
-							)
+            case 'inline_image':
+              return (
+                <InlineMedia
+                  key={index}
+                  image={component.image}
+                  caption={component.caption}
+                />
+              )
 
-						case 'full_width_image_small':
-							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
+            case 'inline_image_large':
+              return (
+                <InlineMedia
+                  key={index}
+                  large={true}
+                  image={component.image}
+                  caption={component.caption}
+                />
+              )
 
-						case 'logo_carousel':
-							return (
-								<LogoCarousel
-									key={index}
-									title={component.title}
-									companies={component.companies}
-									animationSpeed={component.animationSpeed}
-								/>
-							)
+            case 'full_width_image_small':
+              return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
 
-						case 'call_to_action':
-							return (
-								<CallToAction
-									key={index}
-									title={component.title}
-									buttonText={component.buttonText}
-									url={component.url}
-									bgColor={component.bgColor && component.bgColor.hex}
-									titleWhite={component.titleWhite}
-									fullWidth={component.fullWidth}
-									isExternalLink={component.isExternalLink}
-								/>
-							)
+            case 'logo_carousel':
+              return (
+                <LogoCarousel
+                  key={index}
+                  title={component.title}
+                  companies={component.companies}
+                  animationSpeed={component.animationSpeed}
+                />
+              )
 
-						case 'subscription_form':
-							return component.subscriptionForm && (
-								<MailchimpForm
-									key={index}
-									title={component.subscriptionForm.title}
-									listId={component.subscriptionForm.listId}
-									description={component.subscriptionForm.description}
-									inputFields={component.subscriptionForm.extraInputFields}
-									buttonLabel={component.subscriptionForm.button}
-									hasShadow={component.subscriptionForm.hasShadow}
-								/>
-							)
-					}
-				})}
+            case 'call_to_action':
+              return (
+                <CallToAction
+                  key={index}
+                  title={component.title}
+                  buttonText={component.buttonText}
+                  url={component.url}
+                  bgColor={component.bgColor && component.bgColor.hex}
+                  titleWhite={component.titleWhite}
+                  fullWidth={component.fullWidth}
+                  isExternalLink={component.isExternalLink}
+                />
+              )
 
-				<SocialShare
-					facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
-					linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${Data.title}&summary=${Data.seo.description}&source=Hike&20One`}
-					twitterLink={`https://twitter.com/intent/tweet?text=${Data.title}&url=${fullUrl}`}
-				/>
+            case 'subscription_form':
+              return (
+                component.subscriptionForm && (
+                  <MailchimpForm
+                    key={index}
+                    title={component.subscriptionForm.title}
+                    listId={component.subscriptionForm.listId}
+                    description={component.subscriptionForm.description}
+                    inputFields={component.subscriptionForm.extraInputFields}
+                    buttonLabel={component.subscriptionForm.button}
+                    hasShadow={component.subscriptionForm.hasShadow}
+                  />
+                )
+              )
+          }
+        })}
 
-				{Data.contact && (
-					<Contact
-						title={Data.contact.title}
-						button={Data.contact.button}
-						link={Data.contact.externalLink}
-						target="_blank"
-					>
-						<ContactShapes.variation1Front position="front" />
-					</Contact>
-				)}
+        <SocialShare
+          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
+          linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${data.title}&summary=${data.seo.description}&source=Hike&20One`}
+          twitterLink={`https://twitter.com/intent/tweet?text=${data.title}&url=${fullUrl}`}
+        />
 
-				<TextCenter title={Data.caseLinksTitle} />
+        {data.contact && (
+          <Contact
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}
+            target="_blank" rel="noopener noreferrer">
+            <ContactShapes.variation1Front position="front" />
+          </Contact>
+        )}
 
-				<WorkOverview>
-					{Data.caseLinks.map((item, index) => (
-						<CaseExtractSmall
-							key={index}
-							title={item.header.title}
-							subtitle={item.header.subtitle}
-							image={item.header.backgroundImage}
-							companyName={item.companyName}
-							color={item.caseThemeColor.hex}
-							slug={item.slug}
-						/>
-					))}
-				</WorkOverview>
+        <TextCenter title={data.caseLinksTitle} />
 
-				{Data.updateLinks.length > 0 &&
-					<div>
-						<TextCenter title={Data.updateLinksTitle} />
+        {data.caseLinks.length > 0 && (
+          <WorkOverview>
+            {data.caseLinks.map((item, index) => (
+              <CaseExtractSmall
+                key={index}
+                title={item.header.title}
+                subtitle={item.header.subtitle}
+                image={item.header.backgroundImage}
+                companyName={item.companyName}
+                color={item.caseThemeColor.hex}
+                slug={item.slug}
+              />
+            ))}
+          </WorkOverview>
+        )}
 
-						<UpdateOverviewSmall>
-							{Data.updateLinks.map((item, index) => (
-								<UpdateExtractSmall
-									key={index}
-									index={index}
-									title={item.title}
-									date={item.date}
-									authors={item.authors}
-									target={item.link}
-									image={item.image.url}
-									category={item.category.name}
-									color={item.themeColor.hex}
-									external={item.isExternalLink}
-								/>
-							))}
-						</UpdateOverviewSmall>
-					</div>}
-			</article>
+        {data.updateLinks.length > 0 && (
+          <React.Fragment>
+            <TextCenter title={data.updateLinksTitle} />
 
-			<Footer
-				callToActionLabel={Data.footer.callToActionLabel}
-				callToActionUrl={Data.footer.callToActionUrl}
-			/>
-		</main>
-	</Layout>
+            <UpdateOverviewSmall>
+              {data.updateLinks.map((item, index) => (
+                <UpdateExtractSmall
+                  key={index}
+                  index={index}
+                  authors={item.authors}
+                  category={item.category.name}
+                  color={item.themeColor.hex}
+                  date={item.date}
+                  link={item.externalLink}
+                  slug={item.slug}
+                  image={item.image.url}
+                  target={item.externalLink ? true : false}
+                  title={item.title}
+                  topic={item.topic}
+                />
+              ))}
+            </UpdateOverviewSmall>
+          </React.Fragment>
+        )}
+      </article>
+
+      <Footer form={footer.form} />
+
+    </main>
+  </Layout>
 )
 
-Topic.getInitialProps = async ({req, res, query, asPath}) => {
-	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-	const fullUrl = `${baseUrl}${asPath}`
-	const data = await getData(baseUrl, `topics/${query.slug}`, res)
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+Topic.getInitialProps = async ({ req, res, query, asPath }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', `topics/${query.slug}`])
 
-	return { Data: data, fontsLoaded, fullUrl }
+  return { data, footer, fontsLoaded, fullUrl }
+}
+
+Topic.propTypes = {
+  data: PropTypes.object,
+  footer: PropTypes.object,
+  fontsLoaded: PropTypes.string,
+  fullUrl: PropTypes.string,
 }
 
 export default Topic

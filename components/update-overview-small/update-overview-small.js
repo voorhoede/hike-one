@@ -1,16 +1,20 @@
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { ButtonSecondaryLink } from '../'
 
-const UpdateOverviewSmall = ({children}) => (
-	<div className="update-overview-small container">
-		<div className="container-inner">
-		{ children }
-		</div>
-		<div className="update-overview-button-centered">
-			<ButtonSecondaryLink href="/updates" classes="btn-red-border" icon="arrowRight">
-				All updates
-			</ButtonSecondaryLink>
-		</div>
-	</div>
-);
+const UpdateOverviewSmall = ({ children }) => (
+  <div className="update-overview-small container">
+    <div className="container-inner">{children}</div>
+    <div className="update-overview-button-centered">
+      <ButtonSecondaryLink href="/updates" classes="btn-red-border" icon="arrowRight">
+        All updates
+      </ButtonSecondaryLink>
+    </div>
+  </div>
+)
 
-export default UpdateOverviewSmall;
+UpdateOverviewSmall.propTypes = {
+  children: PropTypes.node,
+}
+
+export default UpdateOverviewSmall

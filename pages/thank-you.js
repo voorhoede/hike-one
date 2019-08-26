@@ -1,51 +1,58 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
+import getData from '../lib/get-data'
 import cookie from '../components/_helpers/cookie'
-
 import {
-	ButtonPrimaryLink,
-	Footer,
-	MenuBar,
-	Layout,
-	TextCenter,
-	TextCenterShapes,
+  ButtonPrimaryLink,
+  Footer,
+  Layout,
+  MenuBar,
+  TextCenter,
+  TextCenterShapes,
 } from '../components'
 
-import getData from '../lib/get-data';
+const ThankYou = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    title="Hike One - Thank you"
+    fontsLoaded={fontsLoaded}
+    url={fullUrl}>
+    <main className="main js-main">
 
-const ThankYou = ({ page, fontsLoaded }) => (
-	<Layout title="Hike One - Thank you" fontsLoaded={fontsLoaded}>
-		<main className="main js-main">
-			<MenuBar color="black" />
+      <MenuBar color="black" />
 
-			<article className="article article-thank-you">
-				<TextCenter
-					title={page.title}
-					text={page.content}
-				>
-					<TextCenterShapes.variation3Back position="back" />
-					<TextCenterShapes.variation4Front position="front" />
-				</TextCenter>
+      <article className="article article-thank-you">
+        <TextCenter title={data.title} text={data.content}>
+          <TextCenterShapes.variation3Back position="back" />
+          <TextCenterShapes.variation4Front position="front" />
+        </TextCenter>
 
-				<ButtonPrimaryLink href={page.callToActionUrl} classes="btn btn-large btn-centered">
-					{page.callToActionLabel}
-				</ButtonPrimaryLink>
-			</article>
-			<Footer
-				callToActionLabel="Up for a new challenge yourself? Join us!"
-				callToActionUrl="https://hikeone.homerun.co/"
-				disableParallax={true}
-			/>
-		</main>
-	</Layout>
+        <ButtonPrimaryLink href={data.callToActionUrl} classes="btn btn-large btn-centered">
+          {data.callToActionLabel}
+        </ButtonPrimaryLink>
+      </article>
+
+      <Footer form={footer.form} />
+
+    </main>
+  </Layout>
 )
 
-ThankYou.getInitialProps = async ({ req, res }) => {
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
-	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
-	const page = await getData(baseUrl, `${baseUrl}/api/thank-you`, res)
+ThankYou.getInitialProps = async ({ req, res, asPath }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fullUrl = `${baseUrl}${asPath}`
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data] = await fetchAll(['footer', 'thank-you'])
 
-	return { page, fontsLoaded }
+  return { data, footer, fontsLoaded, fullUrl }
+}
+
+ThankYou.propTypes = {
+  data: PropTypes.object,
+  footer: PropTypes.object,
+  fontsLoaded: PropTypes.bool,
+  fullUrl: PropTypes.string,
 }
 
 export default ThankYou

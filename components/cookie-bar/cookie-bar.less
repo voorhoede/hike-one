@@ -1,75 +1,76 @@
 @import (reference) '../../styles/variables';
 
 .cookie-bar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: fixed;
-	bottom: 0;
-	padding: @spacing-default*1.5;
-	width: 100%;
-	z-index: @layer-popup;
-	font-size: @body-text-small-s;
-	color: @white;
-	background-color: rgba(0,0,0,.8);
-	animation: slide-up .3s ease;
+  display: flex;
+  position: fixed;
+  z-index: @layer-popup;
+  bottom: 0;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: @spacing-default*1.5;
+  animation: slide-up .3s ease;
+  background-color: rgba(0, 0, 0, .8);
+  color: @white;
+  font-size: @body-text-small-s;
 
-	&.hidden {
-		animation: slide-down .3s ease forwards;
-	}
+  &.hidden {
+    animation: slide-down .3s ease forwards;
+  }
 
-	@media @screen-medium {
-		justify-content: center;
-	}
+  @media @screen-768 {
+    justify-content: center;
+  }
 }
 
 .cookie-bar-text {
-	margin: 0;
-	margin-right: @spacing-small;
-	font-family: @font-main;
-	font-weight: 500;
+  margin: 0;
+  margin-right: @spacing-default*2;
+  font-family: @font-main;
+  font-weight: 500;
 
-	@media @screen-large {
-		font-size: @body-text-small-m;
-	}
+  @media @screen-1170 {
+    font-size: @body-text-small-m;
+  }
 }
 
 .cookie-bar-link {
-	color: @white;
-	text-decoration: none;
-	border-bottom: 1px solid @white;
+  margin-left: @spacing-default/2;
+  border-bottom: 1px solid @white;
+  color: @white;
+  text-decoration: none;
 }
 
 .cookie-bar-btn {
-	padding: @spacing-half @spacing-default*1.5;
-	margin: 0 @spacing-default;
-	font-family: @font-main;
+  margin: 0 @spacing-default;
+  padding: @spacing-default/2 @spacing-default*1.5;
+  font-family: @font-main;
 
-	&:hover {
-		color: @black !important;
-	}
+  &:hover {
+    color: @black !important;
+  }
 }
 
 @keyframes slide-up {
-	0% {
-		transform: translateY(100%);
-		opacity: 0;
-	}
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 
-	100% {
-		transform: translateY(0);
-		opacity: 1;
-	}
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes slide-down {
-	0% {
-		transform: translateY(0);
-		opacity: 1;
-	}
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 
-	100% {
-		transform: translateY(100%);
-		opacity: 0;
-	}
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
 }

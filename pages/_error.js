@@ -1,52 +1,71 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import cookie from '../components/_helpers/cookie'
+import getData from '../lib/get-data'
+import {
+  Footer,
+  InlineImage,
+  Layout,
+  MenuBar,
+  TextCenter,
+  TextCenterShapes,
+} from '../components/'
 
-import Layout from '../components/layout/layout';
-import MenuBar from '../components/menu-bar/menu-bar';
-import Footer from '../components/footer/footer';
-import cookie from '../components/_helpers/cookie';
-import TextCenter from '../components/text-center/text-center';
-import * as TextCenterShapes from '../components/text-center/text-center-shapes';
+const Error = ({ data = {}, footer = {}, fontsLoaded = '', wrapperClass = '' }) => (
+  <Layout
+    title="Hike One - Home"
+    fontsLoaded={fontsLoaded}
+    classes={wrapperClass}>
+    <main className="main js-main">
 
-const content404 = {
-	title: `This page is not here`,
-	text: `We lost the page! Don′t worry we know the way ;) Check out <a href="/team/culture">who we are</a> and <a href="/work">what we do</a>`
-};
+      <MenuBar color="black" />
 
-const content500 = {
-	title: `Whoops, something went wrong`,
-	text: `Don′t worry we′ll be back as soon as we can. In the mean time, feel free to call <a href="tel:+31202044577">+31 20 204 45 77</a> or send us a message on <a href="mailto:hello@hike.one">hello@hike.one</a>`
-};
+      <article className={`article article-error ${data.image ? 'article-error--has-image' : ''}`}>
+        <TextCenter
+          title={data.title}
+          text={data.description}>
+          <TextCenterShapes.variation3Back position="back" />
+          <TextCenterShapes.variation4Front position="front" />
+        </TextCenter>
 
-const Error = ({statusCode, fontsLoaded, wrapperClass}) =>  (
-	<Layout title="Hike One - Home" fontsLoaded={fontsLoaded} classes={wrapperClass}>
-		<main className="main js-main" >
-			<MenuBar color="black" />
-			<article className="article article-error">
-				<TextCenter
-					title={statusCode === 404 ? content404.title : content500.title }
-					text={statusCode === 404 ? content404.text : content500.text} >
-					<TextCenterShapes.variation3Back position="back" />
-					<TextCenterShapes.variation4Front position="front" />
-				</TextCenter>
-			</article>
-			<Footer
-				callToActionLabel="Up for a new challenge yourself? Join us!"
-				callToActionUrl="https://hikeone.homerun.co/"
-				disableParallax={true} />
-		</main>
-	</Layout>
-);
+        {data.image && (
+          <section className="error-image container">
+            <div className="container-inner">
+              <InlineImage
+                url={data.image.url}
+                width={data.image.width}
+                height={data.image.height}
+              />
+            </div>
+          </section>
+        )}
+      </article>
+
+      <Footer form={footer.form} />
+
+    </main>
+  </Layout>
+)
 
 Error.getInitialProps = async ({ res, req, jsonPageRes }) => {
-	const statusCode = res
-		? res.statusCode
-		: jsonPageRes ? jsonPageRes.status : null
-	// temp fix for bug in nextjs rendering 500 page twice.
-	// keep an eye on this 'well explained' github issue for a possible fix
-	// https://github.com/zeit/next.js/issues/2964
-	const wrapperClass = statusCode === 404 ? '' : 'is-500-error';
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { statusCode, fontsLoaded, wrapperClass};
-};
+  const statusCode = res
+    ? res.statusCode.toString()
+    : jsonPageRes ? jsonPageRes.status.toString() : null
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, errorPages] = await fetchAll(['footer', 'error-pages'])
+  const data = errorPages.find(page => page.error === statusCode) // Find correct error page data
 
-export default Error;
+  return { data, footer, fontsLoaded }
+}
+
+Error.propTypes = {
+  data: PropTypes.object,
+  footer: PropTypes.object,
+  fontsLoaded: PropTypes.string,
+  wrapperClass: PropTypes.string,
+}
+
+export default Error

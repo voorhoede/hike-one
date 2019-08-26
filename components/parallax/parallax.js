@@ -1,119 +1,137 @@
-import React from 'react';
-import getParallaxYOffset from '../_helpers/getParallaxYOffset';
-import isElementInView from '../_helpers/isElementInView';
-import TweenLite from 'gsap';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import getParallaxYOffset from '../_helpers/getParallaxYOffset'
+import isElementInView from '../_helpers/isElementInView'
+import TweenLite from 'gsap'
 
-class parallax extends React.Component {
-	constructor(props) {
-		super();
-		this.onScroll = this.onScroll.bind(this);
-		this.onResize = this.onResize.bind(this);
-		this.getYOffset = this.getYOffset.bind(this);
-		this.setYOffset = this.setYOffset.bind(this);
-		this.setInitialOffSet = this.setInitialOffSet.bind(this);
-		this.setOffsetOnResize = this.setOffsetOnResize.bind(this);
-		this.ticking = false;
-		this.resizeTimer = null;
-		this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3;
-		this.elementOffset = 0;
-		this.duration = props.duration ? parseInt(props.duration) : 0.3;
-	}
+class Parallax extends Component {
+  constructor(props) {
+    super()
+    this.onScroll = this.onScroll.bind(this)
+    this.onResize = this.onResize.bind(this)
+    this.getYOffset = this.getYOffset.bind(this)
+    this.setYOffset = this.setYOffset.bind(this)
+    this.setInitialOffSet = this.setInitialOffSet.bind(this)
+    this.setOffsetOnResize = this.setOffsetOnResize.bind(this)
+    this.resizeTimer = null
+    this.speed = props.speed ? 1 - parseFloat(props.speed) : -0.3
+    this.elementOffset = 0
+    this.duration = props.duration ? parseInt(props.duration) : 0.3
 
-	componentDidMount() {
-		// only add animation when requestAnimationFrame is supported
-		if (typeof window.requestAnimationFrame !== 'undefined') {
-			this.setInitialOffSet();
-			window.addEventListener('scroll', this.onScroll);
-			window.addEventListener('resize', this.onResize);
-		}
-	}
+    this.state = {
+      ticking: false,
+    }
+  }
 
-	componentWillUnmount() {
-		window.removeEventListener('scroll', this.onScroll);
-		window.removeEventListener('resize', this.onResize);
-	}
+  componentDidMount() {
+    // only add animation when requestAnimationFrame is supported
+    if (typeof window.requestAnimationFrame !== 'undefined') {
+      this.setInitialOffSet()
+      window.addEventListener('scroll', this.onScroll)
+      window.addEventListener('resize', this.onResize)
+    }
+  }
 
-	onScroll() {
-		// update an animation before the next repaint with requestAnimationFrame
-		if (!this.ticking) {
-			window.requestAnimationFrame(() => {
-				const YOffSet = this.getYOffset();
-				this.setYOffset(YOffSet);
-				this.ticking = false;
-			});
-		}
-		this.ticking = true;
-	}
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('resize', this.onResize)
+  }
 
-	onResize() {
-		// update an animation before the next repaint with requestAnimationFrame
-		if (!this.ticking) {
-			window.requestAnimationFrame(() => {
-				this.setOffsetOnResize();
-				this.ticking = false;
-			});
-		}
-		this.ticking = true;
-	}
+  onScroll() {
+    const { ticking } = this.state
+    // update an animation before the next repaint with requestAnimationFrame
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const YOffSet = this.getYOffset()
+        this.setYOffset(YOffSet)
+        this.setState({ ticking: false })
+      })
+    }
 
-	setInitialOffSet() {
-		this.elementOffset = getParallaxYOffset(this.element, this.speed);
+    this.setState({ ticking: true })
+  }
 
-		// apply offset
-		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
-	 	// show layers only after offset to prevent jumping animations
-		this.element.style.visibility = 'visible';
-	}
+  onResize() {
+    const { ticking } = this.state
+    // update an animation before the next repaint with requestAnimationFrame
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        this.setOffsetOnResize()
+        this.setState({ ticking: false })
+      })
+    }
 
-	setOffsetOnResize() {
-		// add debounce for resize so it fires only add the end of resize
-		clearTimeout(this.resizeTimer);
-		this.resizeTimer = setTimeout(() => {
-			this.initialScrollHeight = null;
-			this.setInitialOffSet();
-			const YOffSet = this.getYOffset();
-			this.setYOffset(YOffSet, true);
-		}, 250);
-	}
+    this.setState({ ticking: true })
+  }
 
-	getYOffset() {
-		const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
+  setInitialOffSet() {
+    this.elementOffset = getParallaxYOffset(this.element, this.speed)
 
-		// only animate element when in view
-		if (!isElementInView(this.containerEl))  {
-			return;
-		}
+    // apply offset
+    this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`
+    // show layers only after offset to prevent jumping animations
+    this.element.style.visibility = 'visible'
+  }
 
-		// set initial scrollheight
-		this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight;
+  setOffsetOnResize() {
+    // add debounce for resize so it fires only add the end of resize
+    clearTimeout(this.resizeTimer)
+    this.resizeTimer = setTimeout(() => {
+      this.initialScrollHeight = null
+      this.setInitialOffSet()
+      const YOffSet = this.getYOffset()
+      this.setYOffset(YOffSet, true)
+    }, 250)
+  }
 
-		// calculate relative scroll height
-		let relativeScroll = scrolledHeight - this.initialScrollHeight;
+  getYOffset() {
+    const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
 
-		// calculate y offset and return it
-		return relativeScroll * this.speed + this.elementOffset;
-	}
+    // only animate element when in view
+    if (!isElementInView(this.containerEl)) {
+      return
+    }
 
-	setYOffset(yOffset, noAnimation) {
-		if (this.duration === 0 || noAnimation) {
-			// don't use tweenlite if animation is instant
-			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
-		} else {
-			// use tweenlite for a smooth parallax effect
-			TweenLite.to(this.element, this.duration, {y: yOffset}, {ease: "Linear.easeNone" });
-		}
-	}
+    // set initial scrollheight
+    this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight
 
-	render() {
-		return (
-			<div ref={(node) => this.containerEl = node } className="parallax-layer-container">
-				<div ref={(node) => this.element = node } className="parallax-layer" style={{'visibility': 'hidden'}}>
-					{ this.props.children }
-				</div>
+    // calculate relative scroll height
+    let relativeScroll = scrolledHeight - this.initialScrollHeight
 
-			</div>
-		);
-	}
+    // calculate y offset and return it
+    return relativeScroll * this.speed + this.elementOffset
+  }
+
+  setYOffset(yOffset, noAnimation) {
+    if (this.duration === 0 || noAnimation) {
+      // don't use tweenlite if animation is instant
+      this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`
+    } else {
+      // use tweenlite for a smooth parallax effect
+      TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' })
+    }
+  }
+
+  render() {
+    const { children } = this.props
+
+    return (
+      <div ref={node => (this.containerEl = node)} className="parallax-layer-container">
+        <div
+          ref={node => (this.element = node)}
+          className="parallax-layer"
+          style={{ visibility: 'hidden' }}>
+          {children}
+        </div>
+      </div>
+    )
+  }
 }
 
-export default parallax;
+Parallax.propTypes = {
+  speed: PropTypes.string,
+  duration: PropTypes.number,
+  children: PropTypes.node,
+}
+
+export default Parallax

@@ -1,49 +1,47 @@
 @import (reference) '../../styles/variables.less';
 
 .update-links {
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	max-width: @column-large-10;
-	margin-bottom: @spacing-large;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: @column-large-10;
+  margin-bottom: @spacing-default*4;
 
-	.update-link {
-		width: 100%;
-		margin-right: @spacing-default*1.5;
-		margin-bottom: @spacing-large;
-	}
+  .update-link {
+    width: 100%;
+    margin-right: @spacing-default*1.5;
+    margin-bottom: @spacing-default*4;
+  }
 
-	@media @screen-medium {
-		div.update-link {
-			width: calc(~"50% - 7.5px");
-			margin-right: 0;
+  @media @screen-768 {
+    div.update-link {
+      width: calc(~"50% - 7.5px");
+      margin-right: 0;
 
-			&:nth-child(odd) {
-				margin-right: 7.5px;
-			}
+      &:nth-child(odd) {
+        margin-right: 7.5px;
+      }
 
-			&:nth-child(even) {
-				margin-left: 7.5px;
-			}
-		}
+      &:nth-child(even) {
+        margin-left: 7.5px;
+      }
+    }
+  }
 
-	}
-	@media @screen-large {
-		padding: 0;
-		margin-bottom: @spacing-large*2;
+  @media @screen-1170 {
+    margin-bottom: @spacing-default*8;
+    padding: 0;
 
-		div.update-link {
-			width: calc(~"50% - 10px");
+    div.update-link {
+      width: calc(~"50% - 10px");
 
-			&:nth-child(odd) {
-				margin-right: @spacing-default;
-			}
+      &:nth-child(odd) {
+        margin-right: @spacing-default;
+      }
 
-			&:nth-child(even) {
-				margin-left: @spacing-default;
-			}
-		}
-	}
+      &:nth-child(even) {
+        margin-left: @spacing-default;
+      }
+    }
+  }
 }
-
-

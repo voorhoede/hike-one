@@ -1,9 +1,12 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const UpdateLinks = ({ children }) => (
-	<div className="update-links container clearfix">
-		{children}
-	</div>
-);
+  <div className="update-links container clearfix">{children}</div>
+)
 
-export default UpdateLinks;
+UpdateLinks.propTypes = {
+  children: PropTypes.node,
+}
+
+export default UpdateLinks

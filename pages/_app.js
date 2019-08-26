@@ -1,29 +1,25 @@
 import React from 'react'
-import App, { Container } from 'next/app'
-import { CookieBar } from '../components'
+import App from 'next/app'
 import cookie from '../components/_helpers/cookie'
+import { CookieBar } from '../components'
 
 export default class MyApp extends App {
-  static async getInitialProps({ Component, router, ctx }) {
+  static async getInitialProps({ Component, ctx }) {
     const { req } = ctx
-    let pageProps = {}
+    let pageProps = await Component.getInitialProps(ctx)
 
     const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
     const cookieBar = await fetch(`${baseUrl}/api/cookie-bar`).then(res => res.json())
     const acceptedCookies = req ? req.cookies['accepted-cookies'] : cookie('accepted-cookies')
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-
     return { pageProps, acceptedCookies, cookieBar }
   }
 
-  render () {
+  render() {
     const { Component, pageProps, acceptedCookies, cookieBar } = this.props
 
     return (
-      <Container>
+      <React.Fragment>
         <Component {...pageProps} />
         {!acceptedCookies && (
           <CookieBar
@@ -33,7 +29,7 @@ export default class MyApp extends App {
             button={cookieBar.button}
           />
         )}
-      </Container>
+      </React.Fragment>
     )
   }
 }

@@ -1,50 +1,84 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class InlineVideo extends Component {
-	binaryBoolean = value => (value) ? 1 : 0
+  constructor(props) {
+    super(props)
+    this.binaryBoolean = this.binaryBoolean.bind(this)
+    this.videoSrc = this.videoSrc.bind(this)
+    this.ratio = this.ratio.bind(this)
+  }
 
-	videoSrc = () => {
-		const { autoplay, loop } = this.props
-		const { provider, providerUid } = this.props.video
-		const mute = autoplay || this.props.mute
+  binaryBoolean(value) {
+    return value ? 1 : 0
+  }
 
-		switch (provider) {
-			case 'vimeo':
-				return `https://player.vimeo.com/video/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&muted=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}`
+  videoSrc() {
+    const { autoplay, controls, loop } = this.props
+    const { provider, providerUid } = this.props.video
+    const mute = autoplay || this.props.mute
 
-			case 'youtube':
-				return `https://www.youtube.com/embed/${providerUid}?autoplay=${this.binaryBoolean(autoplay)}&mute=${this.binaryBoolean(mute)}&loop=${this.binaryBoolean(loop)}&playlist=${providerUid}`
+    switch (provider) {
+      case 'vimeo':
+        return `https://player.vimeo.com/video/${providerUid}
+          ?autoplay=${this.binaryBoolean(autoplay)}
+          &autopause=${this.binaryBoolean(!autoplay)}
+          &muted=${this.binaryBoolean(mute)}
+          &loop=${this.binaryBoolean(loop)}
+          &controls=${this.binaryBoolean(controls)}`
 
-				default:
-				console.error(`unsupported video provider: ${provider}`);
-				return ''
-		}
-	}
+      case 'youtube':
+        return `https://www.youtube.com/embed/${providerUid}
+          ?autoplay=${this.binaryBoolean(autoplay)}
+          &mute=${this.binaryBoolean(mute)}
+          &loop=${this.binaryBoolean(loop)}
+          &controls=${this.binaryBoolean(controls)}
+          &disablekb=${this.binaryBoolean(!controls)}
+          &playlist=${providerUid}`
 
-	ratio = () => {
-		const { width, height } = this.props.video
-		const maxRatio = 1.5
-		const videoHeight = Math.min(height * maxRatio, height)
+      default:
+        console.error(`unsupported video provider: ${provider}`) // eslint-disable-line no-console
+        return ''
+    }
+  }
 
-		return (videoHeight / width) * 100
-	}
+  ratio() {
+    const { width, height } = this.props.video
+    const maxRatio = 1.3
+    const videoHeight = Math.min(width * maxRatio, height)
 
-	render() {
-		const videoRatio = this.ratio()
+    return (videoHeight / width) * 100
+  }
 
-		return (
-			<div className={`inline-video ${this.props.classes}`} style={{ paddingBottom: `${videoRatio}%` }}>
-				<iframe
-					className="video"
-					src={this.videoSrc()}
-					frameBorder="0"
-					webkitallowfullscreen="true"
-					mozallowfullscreen="true"
-					allowFullScreen>
-				</iframe>
-			</div>
-		)
-	}
+  render() {
+    const { classes, controls } = this.props
+    const videoRatio = this.ratio()
+    const controlsClass = controls ? '' : 'inline-video--is-background'
+    const videoSrc = this.videoSrc().replace(/\s+/g, '')
+
+    return (
+      <div
+        className={`inline-video ${classes} ${controlsClass}`}
+        style={{ paddingBottom: `${videoRatio}%` }}>
+        <iframe
+          className="video"
+          src={videoSrc}
+          frameBorder="0"
+          webkitallowfullscreen="true"
+          mozallowfullscreen="true"
+          allowFullScreen
+        />
+      </div>
+    )
+  }
 }
 
+InlineVideo.propTypes = {
+  video: PropTypes.object,
+  autoplay: PropTypes.bool,
+  controls: PropTypes.bool,
+  mute: PropTypes.bool,
+  loop: PropTypes.bool,
+  classes: PropTypes.string,
+}
 export default InlineVideo

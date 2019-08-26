@@ -1,125 +1,105 @@
 @import (reference) '../../styles/variables';
 
+@track-slider-easing: .5s cubic-bezier(.66, 0, .37, 1);
+
 .tab-selector {
-	display: flex;
-	position: relative;
-	width: auto;
-	height: 140px;
-	margin: -120px @spacing-default*1.5 @container-margin-bottom-s @spacing-default*1.5;
-	padding: 0;
+  display: flex;
+  position: relative;
+  z-index: 0;
+  width: auto;
+  margin: -@spacing-default*12 @spacing-default*1.5 @spacing-default*5 @spacing-default*1.5;
+  padding: @spacing-default;
+  border-radius: 5px;
+  background-color: @white;
 
-	@media @screen-small {
-		margin: -120px @spacing-default*1.5 @container-margin-bottom-l @spacing-default*1.5;
-	}
+  @media @screen-500 {
+    margin: -@spacing-default*12 @spacing-default*1.5 @spacing-default*9 @spacing-default*1.5;
+  }
 
-	@media @screen-medium {
-		height: 80px;
-		margin-top: -130px;
-	}
+  @media @screen-768 {
+    margin-top: -@spacing-default*13;
+  }
 
-	@media @screen-large {
-		height: 90px;
-		max-width: @column-large-10;
-		margin: -145px auto @container-margin-bottom-l auto;
-	}
+  @media @screen-1170 {
+    max-width: @column-large-10;
+    margin: -@spacing-default*14.5 auto @spacing-default*9 auto;
+  }
+}
+
+.tab-selector__track {
+  display: flex;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: @spacing-default;
+}
+
+.tab-selector__track-slider {
+  position: relative;
+  width: calc(100% / 3);
+  height: 100%;
+  transition: transform @track-slider-easing, background-color @track-slider-easing;
+  border-radius: 4px;
 }
 
 .tab-selector-item {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: calc(100%/3);
-	padding: @spacing-small;
-	text-decoration: none;
-	color: @black;
-	background: @white;
-	height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(100% / 3);
+  height: 100%;
+  padding: @spacing-default 0;
+  transition: color @track-slider-easing;
+  color: @black;
+  text-decoration: none;
 
-	&:last-child {
-		border-right: 0;
-	}
+  @media @screen-768 {
+    flex-direction: row;
+    padding: @spacing-default*1.5 0 @spacing-default*1.5 @spacing-default*1.5;
+  }
 
-	@media @screen-medium {
-		justify-content: center;
-		padding: @spacing-small;
-		flex-direction: row;
-	}
+  @media @screen-1024 {
+    padding: @spacing-default*2 0 @spacing-default*2 @spacing-default*2;
+  }
 
-	@media @screen-medium-large {
-		padding: @spacing-small @spacing-default*2.5 @spacing-small @spacing-small*2;
-
-		&:nth-child(2) {
-			padding-right: @spacing-medium*3;
-		}
-	}
-}
-
-.tab-selector-item-blue.is-selected,
-.tab-selector-item-blue:active,
-.tab-selector-item-blue:hover {
-	background: @blue;
-	color: @white;
-}
-
-.tab-selector-item-green.is-selected,
-.tab-selector-item-green:active,
-.tab-selector-item-green:hover {
-	background: @green;
-	color: @white;
-}
-
-.tab-selector-item-purple.is-selected,
-.tab-selector-item-purple:active,
-.tab-selector-item-purple:hover {
-	background: @purple;
-	color: @white;
+  &.is-selected {
+    color: @white;
+  }
 }
 
 .tab-selector-item-shape {
-	width: 39px;
-	height: 39px;
-	margin: 0 auto;
-	position: relative;
-	top: 0;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto @spacing-default;
 
-	@media @screen-medium {
-		position: relative;
-		top: 0;
-		margin: 0 @spacing-default 0 0px;
-	}
+  @media @screen-768 {
+    margin: 0 @spacing-default*1.5 0 0;
+  }
 
-	@media @screen-large {
-		width: 50px;
-		height: 50px;
-		margin-left: 0;
-		margin-right: @spacing-medium;
-	}
+  @media @screen-1170 {
+    width: 50px;
+    height: 50px;
+    margin: 0 @spacing-default*3 0 0;
+  }
 }
 
 .tab-selector-item-title {
-	margin-bottom: 0;
-	position: relative;
-	top: 15px;
-	text-align: center;
-	font-size: @body-text-s;
-	font-weight: @font-weight-normal;
-	line-height: @line-height-body-small-s;
+  margin-bottom: 0;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
+  text-align: center;
 
-	@media @screen-small {
-		top: 25px;
-	}
+  @media @screen-1024 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-small-m;
+  }
 
-	@media @screen-medium {
-		top: 0;
-	}
-
-	@media @screen-medium-large {
-		font-size: @body-text-m;
-		line-height: @line-height-body-small-m;
-	}
-	@media @screen-large {
-		padding-left: 0;
-		font-size: @body-text-l;
-		line-height: @line-height-body-small-l;
-	}
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-small-l;
+  }
 }

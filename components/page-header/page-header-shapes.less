@@ -1,150 +1,164 @@
 .home-intro-shapes {
-	// yellow 1
-	.shape-triangle-1 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 22px;
-		left: 5%;
-		top: 35%;
-		@media @screen-medium {
-			height: 43px;
-			left: 12%;
-			top: 23%;
-		}
-		@media @screen-1440 {
-			height: 55px;
-			left: 25%;
-			top: 36%;
-		}
-	}
+  // yellow 1
+  .shape-triangle-1 {
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    width: auto;
+    max-width: 100%;
+    height: 22px;
 
-	// yellow 2
-	.shape-triangle-2 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 44px;
-		top: 95%;
-		left: 70%;
-		@media @screen-medium {
-			height: 51px;
-		}
-		@media @screen-1440 {
-			height: 82px;
-			top: 93%;
-			left: 68%;
-		}
-	}
+    @media @screen-768 {
+      top: 23%;
+      left: 12%;
+      height: 43px;
+    }
 
-	// green
-	.shape-triangle-3 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 82px;
-		left: -40px;
-		top: 100px;
-		@media @screen-medium {
-			height: 120px;
-		}
-		@media @screen-1440 {
-			height: 165px;
-			left: 40px;
-			top: 191px;
-		}
-	}
+    @media @screen-1440 {
+      top: 36%;
+      left: 25%;
+      height: 55px;
+    }
+  }
 
-	// purple
-	.shape-triangle-4 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 65px;
-		right: 20%;
-		top: -15px;
-		@media @screen-medium {
-			height: 99px;
-			top: -24px;
-		}
-		@media @screen-1440 {
-			height: 153px;
-			right: 25%;
-			top: -36px;
-		}
-	}
+  // yellow 2
+  .shape-triangle-2 {
+    position: absolute;
+    top: 95%;
+    left: 70%;
+    width: auto;
+    max-width: 100%;
+    height: 44px;
 
-	// red
-	.shape-triangle-5 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 146px;
-		right: -76px;
-		top: 37%;
-		@media @screen-medium {
-			height: 174px;
-			right: -78px;
-			top: 34%;
-		}
-		@media @screen-1440 {
-			height: 204px;
-			right: 56px;
-			top: 42%;
-		}
-	}
+    @media @screen-768 {
+      height: 51px;
+    }
 
-	// blue
-	.shape-triangle-6 {
-		position: absolute;
-		max-width: 100%;
-		width: auto;
-		height: 65px;
-		left: 5%;
-		bottom: 5%;
-		@media @screen-medium {
-			height: 82px;
-		}
-		@media @screen-1440 {
-			height: 133px;
-			left: 11%;
-			bottom: 7%;
-		}
-	}
+    @media @screen-1440 {
+      top: 93%;
+      left: 68%;
+      height: 82px;
+    }
+  }
 
-	// yellow
-	.shape-diamond-1 {
-		display: none;
+  // green
+  .shape-triangle-3 {
+    position: absolute;
+    top: 100px;
+    left: -40px;
+    width: auto;
+    max-width: 100%;
+    height: 82px;
 
-		@media @screen-medium {
-			position: absolute;
-			display: block;
-			width: auto;
-			height: 25px;
-			right: 18%;
-			bottom: 40%;
-		}
-		@media @screen-1440 {
-			right: 27%;
-			bottom: 22%;
-		}
-	}
+    @media @screen-768 {
+      height: 120px;
+    }
 
-	// green
-	.shape-circle-1 {
-		display: none;
+    @media @screen-1440 {
+      top: 191px;
+      left: 40px;
+      height: 165px;
+    }
+  }
 
-		@media @screen-medium {
-			display: block;
-			position: absolute;
-			width: auto;
-			height: 16px;
-			left: 20%;
-			bottom: 15%;
-		}
-		@media @screen-1440 {
-			left: 25%;
-			bottom: 19%;
-		}
-	}
+  // purple
+  .shape-triangle-4 {
+    position: absolute;
+    top: -15px;
+    right: 20%;
+    width: auto;
+    max-width: 100%;
+    height: 65px;
+
+    @media @screen-768 {
+      top: -24px;
+      height: 99px;
+    }
+
+    @media @screen-1440 {
+      top: -36px;
+      right: 25%;
+      height: 153px;
+    }
+  }
+
+  // red
+  .shape-triangle-5 {
+    position: absolute;
+    top: 37%;
+    right: -76px;
+    width: auto;
+    max-width: 100%;
+    height: 146px;
+
+    @media @screen-768 {
+      top: 34%;
+      right: -78px;
+      height: 174px;
+    }
+
+    @media @screen-1440 {
+      top: 42%;
+      right: 56px;
+      height: 204px;
+    }
+  }
+
+  // blue
+  .shape-triangle-6 {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: auto;
+    max-width: 100%;
+    height: 65px;
+
+    @media @screen-768 {
+      height: 82px;
+    }
+
+    @media @screen-1440 {
+      bottom: 7%;
+      left: 11%;
+      height: 133px;
+    }
+  }
+
+  // yellow
+  .shape-diamond-1 {
+    display: none;
+
+    @media @screen-768 {
+      display: block;
+      position: absolute;
+      right: 18%;
+      bottom: 40%;
+      width: auto;
+      height: 25px;
+    }
+
+    @media @screen-1440 {
+      right: 27%;
+      bottom: 22%;
+    }
+  }
+
+  // green
+  .shape-circle-1 {
+    display: none;
+
+    @media @screen-768 {
+      display: block;
+      position: absolute;
+      bottom: 15%;
+      left: 20%;
+      width: auto;
+      height: 16px;
+    }
+
+    @media @screen-1440 {
+      bottom: 19%;
+      left: 25%;
+    }
+  }
 }

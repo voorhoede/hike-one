@@ -1,68 +1,69 @@
 .team-members-intro-text {
-	font-size: @title-small-l;
-	line-height: @line-height-heading-l;
-	text-align: center;
+  font-size: @title-small-l;
+  line-height: @line-height-heading-l;
+  text-align: center;
 }
 
 .team-members-overview {
-	.clearfix;
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-column-gap: @spacing-small;
-	grid-row-gap: @spacing-small;
-	max-width: @column-small-12;
-	margin-bottom: 0;
-	list-style: none;
+  .clearfix();
 
-	@media @screen-small {
-		grid-template-columns: repeat(3, 1fr);
-	}
+  display: grid;
+  grid-column-gap: @spacing-default*2;
+  grid-row-gap: @spacing-default*2;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: @column-small-12;
+  margin-bottom: 0;
+  list-style: none;
 
-	@media @screen-medium {
-		grid-template-columns: repeat(4, 1fr);
-	}
+  @media @screen-500 {
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-	@media @screen-medium-large {
-		grid-template-columns: repeat(5, 1fr);
-		grid-gap: @spacing-large;
-		grid-row-gap: @spacing-large;
-	}
+  @media @screen-768 {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-	@media @screen-large {
-		max-width: @column-large-12;
-	}
+  @media @screen-1024 {
+    grid-gap: @spacing-default*4;
+    grid-row-gap: @spacing-default*4;
+    grid-template-columns: repeat(5, 1fr);
+  }
 
-	&:after {
-		content: "";
-		flex: auto;
-	}
+  @media @screen-1170 {
+    max-width: @column-large-12;
+  }
 
-	.team-member {
-		width: 100%;
-	}
-}
+  &::after {
+    content: '';
+    flex: auto;
+  }
 
-.filters {
-	text-align: center;
+  .team-member {
+    width: 100%;
+  }
 
-	.filters-toggle {
-		margin: 0 auto;
-		margin-bottom: @spacing-medium;
+  .filters-toggle {
+    margin: 0 auto;
+    margin-bottom: @spacing-default*3;
 
-		@media @screen-medium {
-			display: none;
-		}
-	}
+    @media @screen-768 {
+      display: none;
+    }
+  }
 
-	.filters-container {
-		margin-bottom: @spacing-medium;
-	}
+  .filters-container {
+    margin-bottom: @spacing-default*3;
 
-	.filters-container.hide {
-		display: none;
+    @media @screen-768 {
+      margin-bottom: @spacing-default*6;
+    }
+  }
 
-		@media @screen-medium {
-			display: block;
-		}
-	}
+  .filters-container.hide {
+    display: none;
+
+    @media @screen-768 {
+      display: block;
+    }
+  }
 }

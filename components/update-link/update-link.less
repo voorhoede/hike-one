@@ -1,62 +1,63 @@
 @import (reference) '../../styles/variables';
 
 .update-link {
-	width: 100%;
+  width: 100%;
 }
 
 .update-link-title {
-	display: inline-block;
-	color: @black;
-	text-decoration: none;
-	font-weight: @font-weight-bold;
-	font-size: @heading-small-s;
-	line-height: @line-height-header-small-s;
-	transition: color @animation-speed-slow;
+  display: inline-block;
+  transition: color @animation-speed-slow;
+  color: @black;
+  font-size: @heading-small-s;
+  font-weight: @font-weight-bold;
+  line-height: @line-height-header-small-s;
+  text-decoration: none;
 
-	&:hover {
-		color: @red;
-		cursor: pointer;
-		transition: color @animation-speed-fast;
+  @media @screen-768 {
+    font-size: @heading-small-m;
+    line-height: @line-height-header-small-m;
+  }
 
-		svg {
-			fill: @red;
-			transition: fill @animation-speed-fast;
-		}
-	}
+  @media @screen-1170 {
+    margin-bottom: @spacing-default;
+    font-size: @heading-small-l;
+    line-height: @line-height-header-small-l;
+  }
 
-	svg {
-		transition: fill @animation-speed-slow;
-		width: 35px;
-		height: 35px;
-		vertical-align: middle;
-		fill: @black;
-	}
+  &:hover {
+    transition: color @animation-speed-fast;
+    color: @red;
+    cursor: pointer;
 
-	@media @screen-medium {
-		font-size: @heading-small-m;
-		line-height: @line-height-header-small-m;
-	}
+    svg {
+      transition: fill @animation-speed-fast;
+      fill: @red;
+    }
+  }
 
-	@media @screen-large {
-		margin-bottom: @spacing-default;
-		font-size: @heading-small-l;
-		line-height: @line-height-header-small-l;
-	}
+  svg {
+    width: 35px;
+    height: 35px;
+    transition: fill @animation-speed-slow;
+    fill: @black;
+    vertical-align: middle;
+  }
 }
 
 .update-link-sub {
-	color: @dark-grey;
-	font-size: @body-text-s;
-	line-height: @line-height-body-small-l;
-	margin: 0;
-	font-weight: @font-weight-normal;
+  margin: 0;
+  color: @dark-gray;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-l;
 
-	@media @screen-medium {
-		font-size:  @body-text-m;
-		line-height: @line-height-body-m;
-	}
-	@media @screen-large {
-		font-size: @body-text-small-l;
-		line-height: @line-height-body-small-l;
-	}
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-m;
+  }
+
+  @media @screen-1170 {
+    font-size: @body-text-small-l;
+    line-height: @line-height-body-small-l;
+  }
 }

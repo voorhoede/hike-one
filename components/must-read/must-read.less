@@ -1,120 +1,123 @@
 @import (reference) '../../styles/variables';
 
 .must-read {
-	max-width: 450px;
-	margin: @spacing-large 0;
-	width: 100%;
-	padding: @spacing-default;
+  width: 100%;
+  max-width: 450px;
+  margin: @spacing-default*4 0;
+  padding: @spacing-default;
 
-	@media @screen-medium{
-		width: calc(~"(50% - 15px)");
-		vertical-align: top;
-		margin-left: @spacing-medium;
-		margin-top: 0;
-		padding: 0 @spacing-medium;
-	}
+  @media @screen-768 {
+    width: calc(~"(50% - 15px)");
+    margin-top: 0;
+    margin-left: @spacing-default*3;
+    padding: 0 @spacing-default*3;
+    vertical-align: top;
+  }
 
-	@media @screen-medium-large {
-		width: calc(~"((100%/3) - 30px)");
-	}
+  @media @screen-1024 {
+    width: calc(~"((100% / 3) - 30px)");
+  }
 }
 
 .must-read-title {
-	font-size: @heading-small-s;
-	line-height: @line-height-header-small-s;
+  font-size: @heading-small-s;
+  line-height: @line-height-header-small-s;
 
-	@media @screen-medium {
-		font-size: @heading-small-m;
-		line-height: @line-height-header-small-m;
-	}
+  @media @screen-768 {
+    font-size: @heading-small-m;
+    line-height: @line-height-header-small-m;
+  }
 }
 
 .must-read-item {
-	display: flex;
-	border-bottom: 1px solid @dark-grey;
-	margin-bottom: @spacing-small;
-	text-decoration: none;
-	color: @black;
+  display: flex;
+  margin-bottom: @spacing-default*2;
+  border-bottom: 1px solid @dark-gray;
+  color: @black;
+  text-decoration: none;
 
-	&:hover {
-		color: @red;
-		cursor: pointer;
-		transition: color @animation-speed-fast;
-	}
+  &:hover {
+    transition: color @animation-speed-fast;
+    color: @red;
+    cursor: pointer;
+  }
 }
 
 .must-read-item:last-of-type {
-	border-bottom: none;
-	margin-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 .must-read-item-index {
-	font-size: @heading-m;
-	line-height: @line-height-heading-m;
-	color: @red;
-	margin: 0 @spacing-small 0 0;
-	@media @screen-medium-large {
-		font-size: @heading-l;
-		line-height: @line-height-heading-l;
-	}
+  margin: 0 @spacing-default*2 0 0;
+  color: @red;
+  font-size: @heading-m;
+  line-height: @line-height-heading-m;
+
+  @media @screen-1024 {
+    font-size: @heading-l;
+    line-height: @line-height-heading-l;
+  }
 }
 
 .must-read-item-title {
-	font-size: @body-text-m;
-	line-height: @line-height-body-m;
-	margin-bottom: 0;
-	@media @screen-medium-large {
-		font-size: @body-text-l;
-		line-height: @line-height-body-l;
-	}
+  margin-bottom: 0;
+  font-size: @body-text-m;
+  line-height: @line-height-body-m;
+
+  @media @screen-1024 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-l;
+  }
 }
 
 .must-read-item-author {
-	font-size: @body-text-s;
-	line-height: @line-height-body-s;
-	font-weight: @font-weight-normal;
-	color: @dark-grey;
-	margin: @spacing-half 0 @spacing-small 0;
+  margin: @spacing-default/2 0 @spacing-default*2 0;
+  color: @dark-gray;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-s;
 }
 
 .must-read-toggle {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 
-	@media @screen-medium {
-		display: none;
-	}
+  @media @screen-768 {
+    display: none;
+  }
 }
 
 .must-read-short-fade {
-	height: 100px;
-	margin-top: -100px;
-	background: 0 0;
-	background: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.001)),to(white));
-	background: linear-gradient(rgba(255,255,255,.001), white);
-	z-index: 2;
-	position: relative;
+  position: relative;
+  z-index: @layer-raised;
+  height: 100px;
+  margin-top: -@spacing-default*10;
+  background: 0 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .001)), to(white));
+  background: linear-gradient(rgba(255, 255, 255, .001), white);
+  pointer-events: none;
 
-	@media @screen-medium {
-		display: none;
-	}
+  @media @screen-768 {
+    display: none;
+  }
 }
 
-.must-read-item1.hide {
-	border-bottom: none;
+.must-read-item-1.hide {
+  border-bottom: none;
 
-	@media @screen-medium {
-		border-bottom: 1px solid @dark-grey;
-	}
+  @media @screen-768 {
+    border-bottom: 1px solid @dark-gray;
+  }
 }
 
-.must-read-item2.hide,
-.must-read-item3.hide,
-.must-read-item4.hide {
-	display: none;
+.must-read-item-2.hide,
+.must-read-item-3.hide,
+.must-read-item-4.hide {
+  display: none;
 
-	@media @screen-medium {
-		display: flex;
-	}
+  @media @screen-768 {
+    display: flex;
+  }
 }

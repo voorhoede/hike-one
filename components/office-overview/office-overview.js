@@ -1,11 +1,19 @@
-const OfficeOverview = ({classes = '', header = '', children}) => (
-	<div className={`office-overview container ${classes}`}>
+import React from 'react'
+import PropTypes from 'prop-types'
 
-		<div className="container-inner">
-			<h2 className="office-overview-header">{ header }</h2>
-			{ children }
-		</div>
-	</div>
-);
+const OfficeOverview = ({ classes = '', header = '', children }) => (
+  <div className={`office-overview container ${classes}`}>
+    <div className="container-inner">
+      <h2 className="office-overview-header">{header}</h2>
+      {children}
+    </div>
+  </div>
+)
 
-export default OfficeOverview;
+OfficeOverview.propTypes = {
+  classes: PropTypes.string,
+  header: PropTypes.string,
+  children: PropTypes.node,
+}
+
+export default OfficeOverview

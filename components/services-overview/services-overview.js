@@ -1,19 +1,117 @@
-import React from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { ServiceItem } from '..'
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes.js'
+import { TimelineLite } from 'gsap'
 
-import ServicesItem from '../services-item/services-item';
-import ShapesFront from './services-overview-shapes-front';
+const shapes = [
+  TrailDiamond,
+  TrailDoubleDiamond,
+  TrailTriangle,
+]
 
-const ServicesOverview = ({title = '', items = []}) => (
-	<section className="services-overview">
+class ServicesOverview extends Component {
+  constructor(props) {
+    super(props)
+    this.onMouseOver = this.onMouseOver.bind(this)
+    this.onMouseLeave = this.onMouseLeave.bind(this)
+    this.setLeftTimeline = this.setLeftTimeline.bind(this)
+    this.setCenterTimeline = this.setCenterTimeline.bind(this)
+    this.setRightTimeline = this.setRightTimeline.bind(this)
+  }
 
-		<div className="container-inner">
-			<h2 className="section-header content">{title}</h2>
-			<ul className="no-style">
-				{ items.map((service, index) => <ServicesItem key={index} index={index} data={service}/>) }
-			</ul>
-		</div>
-		<ShapesFront />
-	</section>
-);
+  componentDidMount() {
+    this.setLeftTimeline()
+    this.setCenterTimeline()
+    this.setRightTimeline()
+  }
 
-export default ServicesOverview;
+  setLeftTimeline() {
+    this.tlLeft = new TimelineLite()
+    this.tlLeft
+      .pause()
+      .to('.animated-shape.diamond .shape-front', 0.3, {
+        attr: { width: '+=32', height: '+=32', x: '-=14', y: '-=14', rx: '+=103', ry: '+=103' }
+      })
+  }
+
+  setCenterTimeline() {
+    this.tlCenter = new TimelineLite()
+    this.tlCenter
+      .pause()
+      .to('.animated-shape.double-diamond .shape-back', 0.4, {
+        x: '+=110', rotation: '-=90', transformOrigin: 'center',
+      })
+      .to('.animated-shape.double-diamond .shape-front', 0.4, {
+        x: '-=110', rotation: '+=90', transformOrigin: 'center'
+      }, '-=0.4')
+  }
+
+  setRightTimeline() {
+    this.tlRight = new TimelineLite()
+    this.tlRight
+      .pause()
+      .to('.animated-shape.triangle .shape-back', 0.3, {
+        y: '-=312', scale: '-=0.5', transformOrigin: 'center',
+      })
+      .to('.animated-shape.triangle .shape-front', 0.3, {
+        y: '-=408', transformOrigin: 'center',
+      }, '-=0.3')
+  }
+
+  onMouseOver(item) {
+    switch(item) {
+      case 'new-product-design':
+        this.tlLeft.timeScale(1).play()
+        break
+      case 'ux-design':
+        this.tlCenter.timeScale(1).play()
+        break
+      case 'training-and-academy':
+        this.tlRight.timeScale(1).play()
+        break
+    }
+  }
+
+  onMouseLeave(item) {
+    switch(item) {
+      case 'new-product-design':
+        this.tlLeft.timeScale(1.5).reverse()
+        break
+      case 'ux-design':
+        this.tlCenter.timeScale(1.75).reverse()
+        break
+      case 'training-and-academy':
+        this.tlRight.timeScale(1.25).reverse()
+        break
+    }
+  }
+
+  render() {
+    const { services = [], title = '', classes = '' } = this.props
+
+    return (
+      <div className={`services-overview container clearfix ${classes}`}>
+        <div className="services-overview__header">{title}</div>
+        <div className="container-inner">
+          {Object.values(services).map((item, index) => (
+            <ServiceItem
+              key={index}
+              item={item}
+              Component={shapes[index]}
+              onMouseOver={this.onMouseOver}
+              onMouseLeave={this.onMouseLeave} />
+          ))}
+        </div>
+      </div>
+    )
+  }
+}
+
+ServicesOverview.propTypes = {
+  services: PropTypes.array,
+  title: PropTypes.string,
+  classes: PropTypes.string,
+}
+
+export default ServicesOverview

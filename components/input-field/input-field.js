@@ -1,29 +1,43 @@
-class InputField extends React.Component {
-	constructor(props) {
-    super(props)
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
+class InputField extends Component {
+  constructor(props) {
+    super(props)
+    this.onBlur = this.onBlur.bind(this)
     this.state = {
       shouldValidate: false,
     }
   }
 
-  onBlur = () => {
-    if (this.props.isRequired) {
+  onBlur() {
+    const { isRequired } = this.props
+    if (isRequired) {
       this.setState({ shouldValidate: true })
     }
   }
 
-	render() {
-    const { label, name, type, value, onChange, isRequired, autoFocus, formLength, id } = this.props
+  render() {
+    const {
+      label,
+      name,
+      type,
+      value,
+      onChange,
+      isRequired,
+      autoFocus,
+      formLength,
+      id,
+    } = this.props
     const { shouldValidate } = this.state
-    const { onBlur } = this
     const shouldValidateClass = shouldValidate ? 'should-validate' : ''
-    const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%'} : {}
+    const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {}
 
-
-		return (
-      <div className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`} style={{ ...styles }}>
-        <label className={`label ${ isRequired ? 'required' : ''}`} htmlFor={name}>
+    return (
+      <div
+        className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`}
+        style={{ ...styles }}>
+        <label className={`label ${isRequired ? 'required' : ''}`} htmlFor={name}>
           {label}
         </label>
 
@@ -36,7 +50,7 @@ class InputField extends React.Component {
             value={value}
             onChange={onChange}
             autoFocus={autoFocus}
-            onBlur={onBlur}
+            onBlur={this.onBlur}
             required={isRequired}
           />
         ) : (
@@ -49,13 +63,25 @@ class InputField extends React.Component {
             value={value}
             onChange={onChange}
             autoFocus={autoFocus}
-            onBlur={onBlur}
+            onBlur={this.onBlur}
             required={isRequired}
           />
         )}
       </div>
     )
-	}
+  }
+}
+
+InputField.propTypes = {
+  label: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+  isRequired: PropTypes.bool,
+  autoFocus: PropTypes.bool,
+  formLength: PropTypes.number,
+  id: PropTypes.string,
 }
 
 export default InputField

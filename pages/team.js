@@ -1,95 +1,124 @@
-import React from 'react';
-import "isomorphic-fetch";
-
-import Layout from '../components/layout/layout';
-import MenuBar from '../components/menu-bar/menu-bar';
-import Footer from '../components/footer/footer';
-import PageHeader from '../components/page-header/page-header';
-import TeamSelector from '../components/team-selector/team-selector';
-import TeamOverview from '../components/team-overview/team-overview';
-import TeamMembersOverview from '../components/team-members-overview/team-members-overview';
-import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
-import cookie from '../components/_helpers/cookie';
-import getData, {handleError} from '../lib/get-data'
+import React from 'react'
+import PropTypes from 'prop-types'
+import 'isomorphic-fetch'
+import getData, { handleError } from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import {
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  TeamMembersOverview,
+  TeamOverview,
+  TeamSelector,
+  VacancyOverview,
+} from '../components'
 
 let scrapeJobs
 
 if (!process.browser) {
-	scrapeJobs = import('../lib/job-scraper/server')
+  scrapeJobs = require('../lib/job-scraper/server')
 } else {
-	scrapeJobs = import('../lib/job-scraper/browser')
+  scrapeJobs = require('../lib/job-scraper/browser')
 }
 
-const Team = ({ tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam}) => (
-	<Layout title="Hike One - Team"
-			fontsLoaded={fontsLoaded}
-			seo={TeamOverviewData.seo}
-			url={fullUrl}>
-		<main className="main js-main">
-			<MenuBar color="white" />
+const Team = ({
+  footer = {},
+  fontsLoaded = '',
+  fullUrl = '',
+  tab = '',
+  team = {},
+  people = [],
+  vacanciesOverview = {},
+  vacancies = [],
+  queryParam = '',
+}) => (
+  <Layout
+    title="Hike One - Team"
+    fontsLoaded={fontsLoaded}
+    seo={team.seo}
+    url={fullUrl}>
+    <main className="main js-main">
+      <MenuBar color="white" />
 
-			<article className="article">
-				<PageHeader
-					isSmall={true}
-					title={TeamOverviewData.header.title}
-					subtitle={TeamOverviewData.header.subtitle}
-					image={TeamOverviewData.header.backgroundImage.url} />
+      <article className="article">
+        <PageHeader
+          isSmall={true}
+          title={team.header.title}
+          subtitle={team.header.subtitle}
+          image={team.header.backgroundImage.url}
+        />
 
-				<div className={`page-scrolling-content-small`}>
-					<TeamSelector
-						slug={tab} />
+        <div className={`page-scrolling-content-small`}>
+          <TeamSelector slug={tab} />
+          {tab === 'culture' && (
+            <TeamOverview
+              data={team}
+            />
+          )}
+          {tab === 'people' && (
+            <TeamMembersOverview
+              introText={team.peopleTabIntro}
+              team={people}
+              queryParam={queryParam}
+            />
+          )}
+          <VacancyOverview
+            overview={vacanciesOverview}
+            vacancies={vacancies}
+          />
+        </div>
 
-					{
-						tab === 'culture' &&
-						<TeamOverview
-							data={TeamOverviewData} />
-					}
+      </article>
 
-					{
-						tab === 'people' &&
-						<TeamMembersOverview
-							peopleTab={PeopleTabData}
-							team={TeamMembersData}
-							queryParam={queryParam} />
-					}
+      <Footer form={footer.form} />
 
-					<VacancyOverview
-						overview={VacanciesOverviewData}
-						vacancies={VacanciesData} />
-				</div>
-			</article>
-			<Footer
-				callToActionLabel={TeamOverviewData.footer.callToActionLabel}
-				callToActionUrl={TeamOverviewData.footer.callToActionUrl} />
-		</main>
-	</Layout>
-);
+    </main>
+  </Layout>
+)
 
-Team.getInitialProps = async ({req, res, query, asPath}) => {
-	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const fullUrl = `${baseUrl}${asPath}`;
-	const queryParam = req && req.query && req.query.filter
-	const fetchJson = (model) => getData(baseUrl, model, res)
-	const fetchAll = (models) => Promise.all(models.map(fetchJson));
-	const tab = query.slug;
-	//check if slug is not equal to people or culture it will redirect to error page
-	if (!/^(?:people|culture)$/.test(tab)) {
-		return handleError(res)
-	}
+Team.getInitialProps = async ({ req, res, query, asPath }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const queryParam = req && req.query && req.query.filter
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const tab = query.slug
+  //check if slug is not equal to people or culture it will redirect to error page
+  if (!/^(?:people|culture)$/.test(tab)) {
+    return handleError(res)
+  }
 
-	const VacanciesData = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
-		.then(response => response.text())
-		.then(await scrapeJobs)
+  const vacancies = await fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+    .then(response => response.text())
+    .then(await scrapeJobs)
 
-		const [TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData] = await fetchAll([
-		`team`,
-		`people-tab`,
-		`people`,
-		`vacancies-overview`,
-	]);
+  const [footer, team, people, vacanciesOverview] = await fetchAll(['footer', 'team', 'people', 'vacancies-overview'])
 
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { tab, TeamOverviewData, PeopleTabData, TeamMembersData, VacanciesOverviewData, VacanciesData, fontsLoaded, fullUrl, queryParam };
-};
+  return {
+    footer,
+    fontsLoaded,
+    fullUrl,
+    tab,
+    team,
+    people,
+    vacanciesOverview,
+    vacancies,
+    queryParam,
+  }
+}
 
-export default Team;
+Team.propTypes = {
+  footer: PropTypes.object,
+  fontsLoaded: PropTypes.string,
+  fullUrl: PropTypes.string,
+  tab: PropTypes.string,
+  team: PropTypes.object,
+  people: PropTypes.array,
+  vacanciesOverview: PropTypes.object,
+  vacancies: PropTypes.array,
+  queryParam: PropTypes.string,
+}
+
+export default Team

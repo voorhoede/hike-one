@@ -1,140 +1,151 @@
-import React from 'react';
-import "isomorphic-fetch";
-
-import Layout from '../components/layout/layout';
-import MenuBar from '../components/menu-bar/menu-bar';
-import Footer from '../components/footer/footer';
-import Contact from '../components/contact/contact';
-import * as ContactShapes from '../components/contact/contact-shapes';
-import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
-import FiftyFifty from '../components/50-50/50-50';
-import PageHeader from '../components/page-header/page-header';
-import TextCenter from '../components/text-center/text-center';
-import WorkOverview from '../components/work-overview/work-overview';
-import TabSelector from '../components/tab-selector/tab-selector';
-import CompanyOverviewSmall from '../components/company-overview-small/company-overview-small';
-import CompanyOverviewItemSmall from '../components/company-overview-item-small/company-overview-item-small';
-import UpdateLinks from '../components/update-links/update-links';
-import UpdateLink from '../components/update-link/update-link';
-
-import cookie from '../components/_helpers/cookie';
-import getDateFormat from '../components/_helpers/getDateFormat';
+import React from 'react'
+import PropTypes from 'prop-types'
+import 'isomorphic-fetch'
 import getData from '../lib/get-data'
+import cookie from '../components/_helpers/cookie'
+import getDateFormat from '../components/_helpers/getDateFormat'
+import {
+  CaseExtractSmall,
+  CompanyOverviewItemSmall,
+  CompanyOverviewSmall,
+  Contact,
+  ContactShapes,
+  FiftyFifty,
+  Footer,
+  Layout,
+  MenuBar,
+  PageHeader,
+  TabSelector,
+  TextCenter,
+  UpdateLink,
+  UpdateLinks,
+  WorkOverview,
+} from '../components'
 
-const Service = ({Data, services, updates, fontsLoaded, fullUrl}) => (
-	<Layout title={`Hike One - ${Data.title}`}
-			fontsLoaded={fontsLoaded}
-			seo={Data.seo}
-			url={fullUrl} >
-		<main className="main js-main service-page">
-			<MenuBar color="white" />
-			<article className="article">
+const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', fullUrl = '' }) => (
+  <Layout
+    canonicalUrl={data.canonical}
+    title={`Hike One - ${data.title}`}
+    fontsLoaded={fontsLoaded}
+    seo={data.seo}
+    url={fullUrl}>
+    <main className="main js-main service-page">
 
-				<PageHeader
-					isSmall={true}
-					title={Data.header.title}
-					subtitle={Data.header.subtitle}
-					image={Data.header.backgroundImage.url}/>
+      <MenuBar color="white" />
 
-				<div className={`page-scrolling-content-small`}>
-					<TabSelector
-						selectedItem={Data.slug}
-						services={services} />
+      <article className="article">
+        <PageHeader
+          isSmall={true}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
+        />
 
-					<TextCenter
-						title={Data.introTitle}
-						text={Data.introText} />
+        <div className={`page-scrolling-content-small`}>
+          <TabSelector selectedItem={data.slug} services={services} />
 
-					<CompanyOverviewSmall>
-						{ Data.companyReference1.map((service, index) => (
-							<CompanyOverviewItemSmall
-								companyLogo={service.companyLogo.url}
-								referenceCaseLink=''
-								referenceSlug=''
-								text={service.text}
-								key={index}>
-							</CompanyOverviewItemSmall>
-						))}
-					</CompanyOverviewSmall>
+          <TextCenter title={data.introTitle} text={data.introText} />
 
-					{ Data.content.map((component, index) => {
-						switch (component.itemType) {
-							case '40_60_text_right':
-								return (
-									<FiftyFifty
-										key={index}
-										title={component.title}
-										text={component.text}
-										imageLarge="true"
-										image={component.image.url} >
-									</FiftyFifty>
-								);
+          <CompanyOverviewSmall>
+            {data.companyReference1.map((service, index) => (
+              <CompanyOverviewItemSmall
+                companyLogo={service.companyLogo.url}
+                referenceCaseLink=""
+                referenceSlug=""
+                text={service.text}
+                key={index}
+              />
+            ))}
+          </CompanyOverviewSmall>
 
-							case '40_60_text_left':
-								return (
-									<FiftyFifty
-										key={index}
-										title={component.title}
-										contentLeft="true"
-										text={component.text}
-										imageLarge="true"
-										image={component.image.url} >
-									</FiftyFifty>
-								);
-						}
-					})}
+          {data.content.map((component, index) => {
+            switch (component.itemType) {
+              case '40_60_text_right':
+                return (
+                  <FiftyFifty
+                    key={index}
+                    title={component.title}
+                    text={component.text}
+                    imageLarge={true}
+                    image={component.image}
+                  />
+                )
 
-					<Contact
-						title={Data.contact.title}
-						button={Data.contact.button} >
-						<ContactShapes.variation1Front position="front" />
-					</Contact>
+              case '40_60_text_left':
+                return (
+                  <FiftyFifty
+                    key={index}
+                    title={component.title}
+                    contentLeft={true}
+                    text={component.text}
+                    imageLarge={true}
+                    image={component.image}
+                  />
+                )
+            }
+          })}
 
-					<WorkOverview header={Data.caseExtractTitle}>
-						{ Data.caseExtract.map((item, index) => (
-							<CaseExtractSmall
-								key={index}
-								title={item.header.title}
-								subtitle={item.header.subtitle}
-								image={item.header.backgroundImage}
-								companyName={item.companyName}
-								color={item.caseThemeColor.hex}
-								slug={item.slug} />
-						))}
-					</WorkOverview>
+          <Contact
+            title={data.contact.title}
+            button={data.contact.button}
+            link={data.contact.externalLink}>
+            <ContactShapes.variation1Front position="front" />
+          </Contact>
 
-					<UpdateLinks>
-						{ Data.updateLinks.map((update, index) => (
-							<UpdateLink
-								key={index}
-								title={update.title}
-								authors={update.authors}
-								date={getDateFormat(update.date)}
-								target={update.link}
-								external={update.isExternalLink} />
-						))}
-					</UpdateLinks>
-				</div>
-			</article>
-			<Footer
-				callToActionLabel={Data.footer.callToActionLabel}
-				callToActionUrl={Data.footer.callToActionUrl} />
-		</main>
-	</Layout>
-);
+          <WorkOverview header={data.caseExtractTitle}>
+            {data.caseExtract.map((item, index) => (
+              <CaseExtractSmall
+                key={index}
+                title={item.header.title}
+                subtitle={item.header.subtitle}
+                image={item.header.backgroundImage}
+                companyName={item.companyName}
+                color={item.caseThemeColor.hex}
+                slug={item.slug}
+              />
+            ))}
+          </WorkOverview>
 
-Service.getInitialProps = async ({req, res, query, asPath}) => {
-	const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : '';
-	const fullUrl = `${baseUrl}${asPath}`;
-	const fetchJson = (model) => getData(baseUrl, model, res)
-	const fetchAll = (models) => Promise.all(models.map(fetchJson));
-	const [data, services, updates] = await fetchAll([
-		`services/${query.slug}`,
-		`services`,
-		`update-extracts`
-	]);
-	const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded');
-	return { Data: data, services, updates, fontsLoaded, fullUrl};
-};
+          <UpdateLinks>
+            {data.updateLinks.map((item, index) => (
+              <UpdateLink
+                key={index}
+                authors={item.authors}
+                date={getDateFormat(item.date)}
+                link={item.externalLink}
+                slug={item.slug}
+                target={item.externalLink}
+                topic={item.topic}
+                title={item.title}
+              />
+            ))}
+          </UpdateLinks>
+        </div>
+      </article>
 
-export default Service;
+      <Footer form={footer.form} />
+
+    </main>
+  </Layout>
+)
+
+Service.getInitialProps = async ({ req, res, query, asPath }) => {
+  const baseUrl = req ? `${req.protocol}://${req.get('Host')}` : ''
+  const fontsLoaded = req ? req.cookies['fonts-loaded'] : cookie('fonts-loaded')
+  const fullUrl = `${baseUrl}${asPath}`
+  const fetchJson = model => getData(baseUrl, model, res)
+  const fetchAll = models => Promise.all(models.map(fetchJson))
+  const [footer, data, services, updates] = await fetchAll([ 'footer', `services/${query.slug}`, 'services', 'update-extracts' ])
+
+  return { data, footer, services, updates, fontsLoaded, fullUrl }
+}
+
+Service.propTypes = {
+  data: PropTypes.object,
+  footer: PropTypes.object,
+  services: PropTypes.array,
+  fontsLoaded: PropTypes.string,
+  fullUrl: PropTypes.string,
+}
+
+export default Service

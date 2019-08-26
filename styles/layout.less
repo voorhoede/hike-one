@@ -1,108 +1,109 @@
 @import (reference) 'variables';
 
-html, body {
-	height: 100%;
-	width: 100%;
-	padding: 0;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: @font-main-fallback;
+* {
+  box-sizing: border-box;
+}
 
-	.fonts-loaded {
-		font-family: @font-main;
-	}
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: @font-main-fallback;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  .fonts-loaded {
+    font-family: @font-main;
+  }
 }
 
 body.disable-scroll {
-	overflow: hidden;
-	max-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
 
-	@media @screen-medium {
-		overflow: auto;
-		max-height: none;
-	}
-}
-
-* {
-	box-sizing: border-box;
+  @media @screen-768 {
+    max-height: none;
+    overflow: auto;
+  }
 }
 
 .container {
-	display: block;
-	width: 100%;
-	padding: 0 @spacing-default*1.5;
-	margin: 0 0 @container-margin-bottom-s;
+  display: block;
+  width: 100%;
+  margin: 0 0 @spacing-default*5;
+  padding: 0 @spacing-default*1.5;
 
-	@media @screen-small {
-		max-width: @container-max-width;
-		padding: 0 @spacing-small;
-		margin: 0 auto @container-margin-bottom-l;
-	}
+  @media @screen-500 {
+    max-width: @container-max-width;
+    margin: 0 auto @spacing-default*9;
+    padding: 0 @spacing-default*2;
+  }
 }
 
 .container-inner {
-	width: 100%;
-	margin: 0 auto;
-	@media @screen-small {
-		max-width: @container-inner-max-width;
-	}
+  width: 100%;
+  margin: 0 auto;
+
+  @media @screen-500 {
+    max-width: @container-inner-max-width;
+  }
 }
 
 .container.container-inner {
-    margin: @spacing-small 0;
+  margin: @spacing-default*2 0;
 
-    @media @screen-small {
-		margin: 0 auto @spacing-container;
-	}
+  @media @screen-500 {
+    margin: 0 auto @spacing-default*10;
+  }
 }
 
 .main {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 // makes content (text, buttons, etc) to always be above the front parallax layer
 .content {
-	position: relative;
-	z-index: 1;
+  position: relative;
+  z-index: @layer-raised;
 }
 
 .article {
-	position: relative;
-	z-index:1;
-	max-width: none;
-	background: @white;
-	margin-top: -100px; // gives header a white background
-	padding-top: 100px; // gives header a white background
-	padding-bottom: 1px; // fix  collapsed margin of last child
+  position: relative;
+  z-index: @layer-raised;
+  max-width: none;
+  margin-top: -@spacing-default*10; // gives header a white background
+  padding-top: @spacing-default*10; // gives header a white background
+  padding-bottom: 1px; // fix  collapsed margin of last child
+  background-color: @white;
 }
 
 // position content below page header large
 .page-scrolling-content {
-	margin-top: 100vh; // height of header image
-	position: relative;
-	background: @white;
+  position: relative;
+  margin-top: 100vh; // height of header image
+  background-color: @white;
 }
 
 .page-scrolling-content:not(.has-notification-bar) {
-	padding-top: @spacing-default*5;
+  padding-top: @spacing-default*5;
 
-	@media @screen-medium {
-		padding-top: @spacing-default*14;
-	}
+  @media @screen-768 {
+    padding-top: @spacing-default*14;
+  }
 }
 
 .page-scrolling-content-small {
-	margin-top: 65vh;
-	padding-top: @spacing-default*5;
-	position: relative;
-	background: @white;
+  position: relative;
+  margin-top: 65vh;
+  padding-top: @spacing-default*5;
+  background-color: @white;
 
-	@media @screen-small {
-		margin-top: 50vh;
-	}
+  @media @screen-500 {
+    margin-top: 50vh;
+  }
 
-	@media @screen-medium {
-		padding-top: @spacing-medium*3;
-	}
+  @media @screen-768 {
+    padding-top: @spacing-default*9;
+  }
 }

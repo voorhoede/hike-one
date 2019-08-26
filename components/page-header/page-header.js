@@ -1,161 +1,161 @@
-import React from 'react';
-import Icon from '../icon/icon';
-import setImageParams from '../_helpers/setImageParameters';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { Icon } from '../'
+import setImageParams from '../_helpers/setImageParameters'
 
-class PageHeader extends React.Component {
-	constructor() {
-		super();
-		this.range = 400;
-		this.speed = -0.25;
-		this.ticking = false;
-		this.isHidden = false;
-		this.onScroll = this.onScroll.bind(this);
-		this.animateLayer = this.animateLayer.bind(this);
-		this.setVisability = this.setVisability.bind(this);
-		this.showVideo = this.showVideo.bind(this);
-		this.state = {
-			showVideo : false
-		};
-	}
+class PageHeader extends Component {
+  constructor(props) {
+    super(props)
+    this.onScroll = this.onScroll.bind(this)
+    this.setVisability = this.setVisability.bind(this)
+    this.range = 400
+    this.speed = -0.25
+    this.state = {
+      showVideo: false,
+      ticking: false,
+    }
+  }
 
-	componentDidMount() {
-		this.elementBottom = this.element.getBoundingClientRect().bottom;
-		window.addEventListener('scroll', this.onScroll);
+  componentDidMount() {
+    const { video } = this.props
+    this.elementBottom = this.element.getBoundingClientRect().bottom
+    window.addEventListener('scroll', this.onScroll)
 
-		if (this.props.video) {
-			this.video.load();
-			this.video.addEventListener('loadeddata', this.showVideo);
-		}
-	}
+    if (video) {
+      this.video.load()
+      this.video.addEventListener('loadeddata',
+        this.setState({ showVideo: true })
+      )
+    }
+  }
 
-	componentWillReceiveProps() {
-		this.setState({showVideo: false});
-	}
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll)
+  }
 
-	componentWillUnmount() {
-		window.removeEventListener('scroll', this.onScroll);
-	}
+  onScroll() {
+    const { ticking } = this.state
+    // update an animation before the next repaint with requestAnimationFrame
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0
+        this.setVisability(scrolledHeight)
+        this.setState({ ticking: false })
+      })
+    }
 
-	onScroll() {
-		// update an animation before the next repaint with requestAnimationFrame
-		if (!this.ticking) {
-			window.requestAnimationFrame(() => {
-				const scrolledHeight =  document.body.scrollTop || document.documentElement.scrollTop || 0;
-				this.setVisability(scrolledHeight);
-				this.animateLayer(scrolledHeight);
-				this.ticking = false;
-			});
-		}
-		this.ticking = true;
-	}
+    this.setState({ ticking: true })
+  }
 
-	setVisability(scrolledHeight) {
-		// hide or show component so that the footer is visable
-		if (this.elementBottom + 200 <= scrolledHeight) {
-			this.isHidden = true;
-			this.element.classList.add('is-hidden');
-		} else {
-			this.isHidden = false;
-			this.element.classList.remove('is-hidden');
-		}
-	}
+  setVisability(scrolledHeight) {
+    // hide or show component so that the footer is visable
+    if (this.elementBottom + 200 <= scrolledHeight) {
+      this.element.classList.add('is-hidden')
+    } else {
+      this.element.classList.remove('is-hidden')
+    }
+  }
 
-	animateLayer(scrolledHeight) {
-		// don't animate when component is hidden
-		if (this.isHidden) { return; }
+  render() {
+    const {
+      title,
+      subtitle,
+      video,
+      image,
+      onClickScrollButton,
+      showGradient,
+      isSmall,
+      children,
+    } = this.props
+    const { showVideo } = this.state
+    const childrenArray = React.Children.toArray(children)
+    let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+    let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
 
-		// set opacity
-		const opacity =  1 - (scrolledHeight / this.range);
+    const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
+    const style = {
+      __html: `<style>
+        .page-header {
+          background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}');
+        }
+        @media (min-width: 768px) {
+          .page-header {
+            background-image: url('${setImageParams(image, { ...imageParameters, w: 1500 })}');
+          }
+        }
+        @media (min-width: 1170px) {
+          .page-header {
+            background-image: url('${setImageParams(image, { ...imageParameters, w: 2000 })}');
+          }
+        }
+        ${video ? `@media (min-width: 768px) { .page-header { background-image: none; } }` : ''}
+      }
+      </style>`,
+    }
 
-		// set styles to animate
-		const styles = {
-			y: scrolledHeight * this.speed,
-			opacity
-		};
+    return (
+      <section
+        ref={node => (this.element = node)}
+        className={`page-header
+          ${showGradient ? 'show-gradient' : ''}
+          ${isSmall ? 'page-header-small' : ''}
+          ${showVideo ? 'show-video' : ''}`}>
+        {parallaxLayerBack}
+        {video && (
+          <video
+            ref={node => (this.video = node)}
+            src={video}
+            className="page-header-video"
+            playsInline
+            autoPlay
+            muted
+            loop
+          />
+        )}
 
-		// animate styles with tweenlight
-		TweenLite.to(this.parallaxLayer, 0, styles, {ease: "Linear.easeNone" });
-	}
+        <div className="page-header-inner container">
+          <div ref={node => (this.parallaxLayer = node)}>
+            {onClickScrollButton ? (
+              <a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
+                <h1 className="page-header-title ">{title}</h1>
+              </a>
+            ) : (
+              <h1 className="page-header-title ">{title}</h1>
+            )}
 
-	showVideo() {
-		this.setState({showVideo: true});
-	}
+            {subtitle && onClickScrollButton ? (
+              <a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
+                <p className="page-header-subtitle">{subtitle}</p>
+              </a>
+            ) : (
+              <p className="page-header-subtitle">{subtitle}</p>
+            )}
 
-	render() {
-		const props = this.props;
-		const childrenArray = React.Children.toArray(props.children);
-		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+            {onClickScrollButton && (
+              <button
+                className="page-header-button"
+                onClick={onClickScrollButton ? onClickScrollButton : null}>
+                <Icon icon="arrowDownCircle" />
+              </button>
+            )}
+          </div>
+        </div>
+        <div dangerouslySetInnerHTML={style} />
+        {parallaxLayerFront}
+      </section>
+    )
+  }
+}
 
-		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
-		const heroImageSmall = `${setImageParams(props.image, {...imageParameters, w: 1000} )}`;
-		const heroImageMedium = `${setImageParams(props.image, {...imageParameters, w: 1500} )}`;
-		const heroImageLarge = `${setImageParams(props.image, {...imageParameters, w: 2000} )}`;
+PageHeader.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  video: PropTypes.string,
+  image: PropTypes.string,
+  onClickScrollButton: PropTypes.func,
+  showGradient: PropTypes.bool,
+  isSmall: PropTypes.bool,
+  children: PropTypes.node,
+}
 
-		const style ={__html:
-			`<style>
-				.page-header {
-					background-image: url(${heroImageSmall});
-				}
-				@media only screen and (min-width: 768px) {
-					.page-header {
-						background-image: url(${heroImageMedium});
-					}
-				}
-				@media only screen and (min-width: 1170px) {
-					.page-header {
-						background-image: url(${heroImageLarge});
-					}
-				}
-			${props.video ?
-				`@media only screen and (min-width: 768px) {
-					.page-header {
-						background-image: none;
-					}
-				}` : '' }
-			}
-			</style>`};
-
-		return (
-			<section
-				ref={node => this.element = node}
-				className={`page-header
-					${props.showGradient ? 'show-gradient': ''}
-					${props.isSmall ? 'page-header-small' : ''}
-					${this.state.showVideo ? 'show-video': ''}`}>
-				{ parallaxLayerBack }
-				{ props.video &&
-					<video ref={node => this.video = node}
-					    src={props.video}
-						className="page-header-video"
-						playsInline autoPlay muted loop>
-					</video>
-				}
-
-				<div className="page-header-inner container">
-					<div ref={node => this.parallaxLayer = node}>
-						{ props.onClickScrollButton
-							? <a className="page-header-title-link" href='#' onClick={props.onClickScrollButton}><h1 className="page-header-title ">{props.title}</h1></a>
-							: <h1 className="page-header-title ">{props.title}</h1> }
-
-						{ props.subtitle &&
-							props.onClickScrollButton
-								? <a className="page-header-subtitle-link" href='#' onClick={props.onClickScrollButton}><p className="page-header-subtitle">{props.subtitle}</p></a>
-								: <p className="page-header-subtitle">{props.subtitle}</p> }
-
-						{ props.onClickScrollButton &&
-							<button className="page-header-button"
-									onClick={props.onClickScrollButton ? props.onClickScrollButton : null}>
-								<Icon icon="arrowDownCircle" />
-							</button>
-						}
-					</div>
-				</div>
-				<div dangerouslySetInnerHTML={style}></div>
-				{parallaxLayerFront}
-			</section>
-		);
-	}
-};
-
-export default PageHeader;
+export default PageHeader

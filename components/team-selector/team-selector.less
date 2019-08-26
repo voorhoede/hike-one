@@ -1,58 +1,58 @@
 @import (reference) '../../styles/variables';
 
 .team-selector {
-    display: flex;
-    position: relative;
-    width: auto;
-    height: 70px;
-    margin: -85px @spacing-default*1.5 @spacing-medium @spacing-default*1.5;
-	padding: 0;
+  display: flex;
+  position: relative;
+  width: auto;
+  height: 70px;
+  margin: -@spacing-default*8.5 @spacing-default*1.5 @spacing-default*3 @spacing-default*1.5;
+  padding: 0;
 
-    @media @screen-small {
-        margin: -85px auto @spacing-medium auto;
-		max-width: @column-large-4;
-	}
+  @media @screen-500 {
+    max-width: @column-large-4;
+    margin: -@spacing-default*8.5 auto @spacing-default*3 auto;
+  }
 
-	@media @screen-medium {
-        margin: -135px auto @container-margin-bottom-l auto;
-        height: 90px;
-    }
+  @media @screen-768 {
+    height: 90px;
+    margin: -@spacing-default*13.5 auto @spacing-default*9 auto;
+  }
 }
 
 .team-selector-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: @spacing-small;
-    width: 50%;
-    background: @white;
-	text-decoration: none;
-	color: @black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: @spacing-default*2;
+  background-color: @white;
+  color: @black;
+  text-decoration: none;
 }
 
 .team-selector-item:hover {
-    background: @red;
-    color: @white;
+  background-color: @red;
+  color: @white;
 }
 
 .team-selector-item.is-selected {
-    background: @blue;
-    color: @white;
+  background-color: @blue;
+  color: @white;
 }
 
 .team-selector-item-title {
-    margin-bottom: 0;
-    font-size: @body-text-s;
-	font-weight: @font-weight-normal;
-    line-height: @line-height-body-small-s;
+  margin-bottom: 0;
+  font-size: @body-text-s;
+  font-weight: @font-weight-normal;
+  line-height: @line-height-body-small-s;
 
-    @media @screen-medium {
-		font-size: @body-text-m;
-		line-height: @line-height-body-small-m;
-    }
-    
-    @media @screen-large {
-		font-size: @body-text-l;
-		line-height: @line-height-body-small-l;
-	}
+  @media @screen-768 {
+    font-size: @body-text-m;
+    line-height: @line-height-body-small-m;
+  }
+
+  @media @screen-1170 {
+    font-size: @body-text-l;
+    line-height: @line-height-body-small-l;
+  }
 }

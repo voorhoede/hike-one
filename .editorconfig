@@ -12,8 +12,9 @@ end_of_line = lf
 insert_final_newline = true
 
 # Indentation
-indent_style = tab
-indent_size = 4
+[*.{less,js}]
+indent_style = space
+indent_size = 2
 trim_trailing_whitespace = true
 
 # Don't trim whitespace because of double space <br/> thing in Markdown

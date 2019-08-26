@@ -6,59 +6,57 @@ import { ShapesDiamond, ShapesDoubleDiamond, ShapesTriangles } from './page-head
 class PageHeaderNew extends Component {
   constructor(props) {
     super(props)
-    this.playTimeline = this.playTimeline.bind(this)
-    this.setTimeline = this.setTimeline.bind(this)
     this.timeline = null
-    this.currentColor = '#ffffff';
     this.colorByName = {
-      'diamond': '#fe595b',
-      'double diamond': '#45d33c',
-      'triangles': '#ffe044',
+      diamond: '#fe595b',
+      doubleDiamond: '#45d33c',
+      triangles: '#ffe044',
+    }
+    this.state = {
+      currentColor: '#ffffff',
     }
   }
 
   componentDidMount() {
-    this.setTimeline()
-    this.playTimeline()
-  }
-
-  componentWillUpdate() {
-    const { animation } = this.props;
-
-    this.currentColor = this.colorByName[animation]
-    this.timeline.pause()
-  }
-
-  componentDidUpdate() {
-    this.setTimeline()
-    this.playTimeline()
-  }
-
-  setTimeline() {
     const { animation } = this.props
     const animationByName = {
-      'diamond': timelineDiamond(),
-      'double diamond': timelineDoubleDiamond(),
-      'triangles': timelineTriangles(),
+      diamond: timelineDiamond(),
+      doubleDiamond: timelineDoubleDiamond(),
+      triangles: timelineTriangles(),
     }
 
     this.timeline = animationByName[animation]
+    this.timeline.timeScale(1).play()
   }
 
-  playTimeline() {
+  componentDidUpdate(prevProps, prevState) {
+    const { animation } = this.props
+    const animationByName = {
+      diamond: timelineDiamond(),
+      doubleDiamond: timelineDoubleDiamond(),
+      triangles: timelineTriangles(),
+    }
+
+    if (prevProps.animation !== animation) {
+      this.setState({ currentColor: this.colorByName[animation] })
+    }
+
+    this.timeline.pause()
+    this.timeline = animationByName[animation]
     this.timeline.timeScale(1).play()
   }
 
   render() {
     const { animation, title } = this.props
+    const { currentColor } = this.state
     const shapesByName = {
-      'diamond': ShapesDiamond,
-      'double diamond': ShapesDoubleDiamond,
-      'triangles': ShapesTriangles,
+      diamond: ShapesDiamond,
+      doubleDiamond: ShapesDoubleDiamond,
+      triangles: ShapesTriangles,
     }
 
     return (
-      <section className="page-header-new" style={{ backgroundColor: this.currentColor }}>
+      <section className="page-header-new" style={{ backgroundColor: currentColor }}>
         <PageHeaderNewAnimation Component={shapesByName[animation]} color={this.colorByName[animation]} />
         <div className="page-header-new__content container">
           <h1 className="page-header-new__title">{title}</h1>
@@ -81,7 +79,7 @@ PageHeaderNewAnimation.propTypes = {
 }
 
 PageHeaderNew.propTypes = {
-  animation: PropTypes.oneOf(['diamond', 'double diamond', 'triangles']),
+  animation: PropTypes.oneOf(['diamond', 'doubleDiamond', 'triangles']),
   title: PropTypes.string,
 }
 

@@ -18,11 +18,11 @@ class TabSelector extends Component {
     }
   }
 
-  componentWillMount() {
-    const { services, selectedItem } = this.props
+  static getDerivedStateFromProps(props, state) {
+    const { services, selectedItem } = props
     const selectedTab = services.find(service => (service.slug === selectedItem)).position - 1
 
-    this.setState({ selectedTab })
+    return state.selectedTab = selectedTab
   }
 
   handleTabClick(index) {

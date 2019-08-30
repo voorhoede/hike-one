@@ -1,5 +1,7 @@
 @import (reference) '../../styles/variables.less';
 
+@team-member-color: #0b6e98b3;
+
 .team-member {
   position: relative;
   height: 0;
@@ -15,7 +17,7 @@
     transform: scale(1.1);
 
     .team-member-overlay {
-      background-color: rgba(11, 110, 152, .7);
+      background-color: fade(@team-member-color, 60%);
     }
 
     .team-member-name {

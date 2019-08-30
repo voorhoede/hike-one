@@ -26,7 +26,7 @@ class FooterLocations extends Component {
 
     return (
       <div className="footer-locations">
-        <ul className="no-style footer-locations-list">
+        <ul className="footer-locations-list">
           { offices.map((office, index) => (
             <li key={index}>
               { index !== 0 && (

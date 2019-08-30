@@ -20,7 +20,7 @@ const CallToAction = ({
       className={`call-to-action ${containerClass} ${bgClass}`}
       style={{ backgroundColor: bgColor }}>
       {title && <p className={`call-to-action-title ${textColorClass}`}>{title}</p>}
-      <Link href={url}>
+      <Link href={url} prefetch={isExternalLink}>
         <a
           className="call-to-action-button btn-primary btn-large content"
           target={isExternalLink ? '_blank' : '_self'}>

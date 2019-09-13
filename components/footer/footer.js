@@ -15,6 +15,7 @@ class Footer extends Component {
     super(props)
     this.onResize = this.onResize.bind(this)
     this.resizeObserver = new ResizeObserver(this.onResize)
+    this.currentYear = new Date().getFullYear()
   }
 
   componentDidMount() {
@@ -111,7 +112,7 @@ class Footer extends Component {
             </div>
           </div>
 
-          <p className="footer-copyright">&copy; Hike One 2017</p>
+          <p className="footer-copyright">&copy; Hike One {this.currentYear}</p>
           <a className="footer-copyright" href="/topic/privacy-statement">
             privacy statement
           </a>

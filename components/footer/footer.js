@@ -111,7 +111,7 @@ class Footer extends Component {
             </div>
           </div>
 
-          <p className="footer-copyright">@ Hike One 2017</p>
+          <p className="footer-copyright">&copy; Hike One 2017</p>
           <a className="footer-copyright" href="/topic/privacy-statement">
             privacy statement
           </a>

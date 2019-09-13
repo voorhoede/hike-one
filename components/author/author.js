@@ -6,7 +6,7 @@ const Author = ({ name = '', roles = '', photoUrl = '', summary = '' }) => (
   <div className="author">
     <img
       className="author-image"
-      src={`${setImageParams(photoUrl, { fit: 'crop', fm: 'pjpg', q: 85, w: 92, h: 123 })}`} />
+      src={`${setImageParams(photoUrl, { fit: 'crop', w: 92, h: 123 })}`} />
     <div className="author-text">
       <p className="author-name">{name}</p>
       <p className="author-roles">{roles.map((role) => role.title).join(', ')}</p>

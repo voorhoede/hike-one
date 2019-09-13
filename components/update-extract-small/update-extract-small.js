@@ -19,20 +19,19 @@ const UpdateExtractSmall = ({
   topic = false,
 }) => {
   const prefix = topic ? 'topic' : 'update'
-  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
       .update-extract-small-image-${index} {
-        background-image: url('${setImageParams(image, { ...imageParameters, w: 550, h: 200 })}');
+        background-image: url('${setImageParams(image, { fit: 'crop', w: 550, h: 200 })}');
       }
       @media (min-width: 768px) {
         .update-extract-small-image-${index} {
-          background-image: url('${setImageParams(image, { ...imageParameters, w: 470, h: 332 })}');
+          background-image: url('${setImageParams(image, { fit: 'crop', w: 470, h: 332 })}');
         }
       }
       @media (min-width: 1024px) {
         .update-extract-small-image-${index} {
-          background-image: url('${setImageParams(image, { ...imageParameters, w: 337, h: 366 })}');
+          background-image: url('${setImageParams(image, { fit: 'crop', w: 337, h: 366 })}');
         }
       }
     </style>`,

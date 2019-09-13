@@ -7,16 +7,14 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
   const childrenArray = React.Children.toArray(children)
   const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
   const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
-  const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
-
   const imageSmallTemplate = (classes) => (
     <img
       className={classes}
       srcSet={`
-        ${setImageParams(imageSmall, { ...imageParameters, w: 250 })}  250w,
-        ${setImageParams(imageSmall, { ...imageParameters, w: 580 })} 580w,
-        ${setImageParams(imageSmall, { ...imageParameters, w: 750 })} 750w,
-        ${setImageParams(imageSmall, { ...imageParameters, w: 1160 })} 1160w
+        ${setImageParams(imageSmall, { fit: 'max', w: 250 })}  250w,
+        ${setImageParams(imageSmall, { fit: 'max', w: 580 })} 580w,
+        ${setImageParams(imageSmall, { fit: 'max', w: 750 })} 750w,
+        ${setImageParams(imageSmall, { fit: 'max', w: 1160 })} 1160w
       `}
       sizes="(max-width: 1480px) 50vw, 580px"
       src={imageSmall}
@@ -32,12 +30,12 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
           <img
             className="collage-image-medium"
             srcSet={`
-              ${setImageParams(imageMedium, { ...imageParameters, w: 250 })} 250w,
-              ${setImageParams(imageMedium, { ...imageParameters, w: 500 })} 500w,
-              ${setImageParams(imageMedium, { ...imageParameters, w: 740 })} 740w,
-              ${setImageParams(imageMedium, { ...imageParameters, w: 1000 })} 1000w,
-              ${setImageParams(imageMedium, { ...imageParameters, w: 1260 })} 1260w,
-              ${setImageParams(imageMedium, { ...imageParameters, w: 1480 })} 1480w
+              ${setImageParams(imageMedium, { fit: 'max', w: 250 })} 250w,
+              ${setImageParams(imageMedium, { fit: 'max', w: 500 })} 500w,
+              ${setImageParams(imageMedium, { fit: 'max', w: 740 })} 740w,
+              ${setImageParams(imageMedium, { fit: 'max', w: 1000 })} 1000w,
+              ${setImageParams(imageMedium, { fit: 'max', w: 1260 })} 1260w,
+              ${setImageParams(imageMedium, { fit: 'max', w: 1480 })} 1480w
             `}
             sizes="
               (max-width: 768px) calc(100vw - 30px),

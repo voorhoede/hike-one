@@ -71,21 +71,19 @@ class PageHeader extends Component {
     const childrenArray = React.Children.toArray(children)
     let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
     let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
-
-    const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
     const style = {
       __html: `<style>
         .page-header {
-          background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}');
+          background-image: url('${setImageParams(image, { fit: 'max', w: 1000 })}');
         }
         @media (min-width: 768px) {
           .page-header {
-            background-image: url('${setImageParams(image, { ...imageParameters, w: 1500 })}');
+            background-image: url('${setImageParams(image, { fit: 'max', w: 1500 })}');
           }
         }
         @media (min-width: 1170px) {
           .page-header {
-            background-image: url('${setImageParams(image, { ...imageParameters, w: 2000 })}');
+            background-image: url('${setImageParams(image, { fit: 'max', w: 2000 })}');
           }
         }
         ${video ? `@media (min-width: 768px) { .page-header { background-image: none; } }` : ''}

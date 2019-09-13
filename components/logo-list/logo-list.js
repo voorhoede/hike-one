@@ -20,7 +20,7 @@ const LogoList = ({ companies = [] }) => (
 
 const LogoImage = ({ company }) => (
   <img
-    src={`${setImageParams(company.logo.url, { fit: 'max', fm: 'png', q: 85, 'max-w': 250 })}`}
+    src={`${setImageParams(company.logo.url, { fit: 'max', 'max-w': 250 })}`}
     alt={company.name} />
 )
 

@@ -1,6 +1,21 @@
 @import (reference) '../../styles/variables.less';
 
-.company-item-small-image-container {
+.company {
+  width: 100%;
+  padding: 0 @spacing-default*1.5 @spacing-default*3 @spacing-default*1.5;
+
+  @media @screen-768 {
+    width: calc(100% / 3);
+    height: 130px;
+    padding: 0 @spacing-default*3;
+  }
+
+  @media @screen-1170 {
+    padding: 0 @spacing-default*4;
+  }
+}
+
+.company-image {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,22 +34,7 @@
   }
 }
 
-.company-item-small {
-  width: 100%;
-  padding: 0 @spacing-default*1.5 @spacing-default*3 @spacing-default*1.5;
-
-  @media @screen-768 {
-    width: calc(100% / 3);
-    height: 130px;
-    padding: 0 @spacing-default*3;
-  }
-
-  @media @screen-1170 {
-    padding: 0 @spacing-default*4;
-  }
-}
-
-.company-item-small-subtitle {
+.company-name {
   display: flex;
   justify-content: center;
   width: 100%;

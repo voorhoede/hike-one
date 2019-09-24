@@ -32,9 +32,9 @@ const VacancyCard = ({ data = {} }) => {
           <ButtonSecondaryLink
             href={data.callToActionUrl}
             target="_blank"
-            rel="noopener noreferrer"
             classes="vacancies-btn"
-            icon="arrowRight">
+            icon="arrowRight"
+            prefetch={false}>
             {data.callToActionTitle}
           </ButtonSecondaryLink>
         </div>

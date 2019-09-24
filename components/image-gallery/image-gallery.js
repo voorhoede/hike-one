@@ -1,31 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { FullWidthImage } from '../'
+import { ButtonClean, FullWidthImage } from '../'
 
 class ImageGallery extends Component {
   constructor(props) {
     super(props)
-    this.showImage = this.showImage.bind(this)
+    this.setActiveIndex = this.setActiveIndex.bind(this)
     this.state = {
-      imageIndex: 0,
+      activeIndex: 0,
     }
   }
 
-  showImage(index) {
-    this.setState({ imageIndex: index })
+  setActiveIndex(index) {
+    this.setState({ activeIndex: index })
   }
 
   render() {
     const { items, title } = this.props
-    const { imageIndex } = this.state
+    const { activeIndex } = this.state
 
     return (
       <div className="image-gallery">
         {items.map((item, index) => (
           <div
             key={index}
-            className={`image-gallery-img ${imageIndex === index ? 'is-active' : ''}`}>
-            {imageIndex === index && (
+            className={`image-gallery-img ${activeIndex === index ? 'is-active' : ''}`}>
+            {activeIndex === index && (
               <FullWidthImage index={index} image={item.url} overlay={true} staticImg={true} />
             )}
           </div>
@@ -33,12 +33,12 @@ class ImageGallery extends Component {
         <div className="image-gallery-navigation">
           {title && <h2 className="image-gallery-title">{title}</h2>}
           {items.map((item, index) => (
-            <button
+            <ButtonClean
               key={index}
-              onClick={() => this.showImage(index)}
-              className={`image-gallery-btn ${imageIndex === index ? 'is-active' : ''}`}>
+              onClick={() => this.setActiveIndex(index)}
+              classes={`image-gallery-btn ${activeIndex === index ? 'is-active' : ''}`}>
               {item.title}
-            </button>
+            </ButtonClean>
           ))}
         </div>
       </div>

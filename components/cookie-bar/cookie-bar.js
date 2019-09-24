@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import Router from 'next/router'
 import cookie from '../_helpers/cookie'
+import { ButtonSecondary } from '../'
 
 class CookieBar extends Component {
   constructor(props) {
@@ -33,9 +34,9 @@ class CookieBar extends Component {
             <a className="cookie-bar-link">{callToActionLabel}</a>
           </Link>
         </p>
-        <button onClick={this.setCookie} className="btn-clear btn-secondary cookie-bar-btn">
+        <ButtonSecondary onClick={this.setCookie} classes="cookie-bar-btn">
           {button}
-        </button>
+        </ButtonSecondary>
       </div>
     )
   }

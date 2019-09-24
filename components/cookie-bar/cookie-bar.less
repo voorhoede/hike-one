@@ -41,13 +41,12 @@
   text-decoration: none;
 }
 
-.cookie-bar-btn {
-  margin: 0 @spacing-default;
+.btn-secondary.cookie-bar-btn {
+  margin: 0;
   padding: @spacing-default/2 @spacing-default*1.5;
-  font-family: @font-main;
 
-  &:hover {
-    color: @black !important;
+  &:hover:enabled {
+    color: @black;
   }
 }
 

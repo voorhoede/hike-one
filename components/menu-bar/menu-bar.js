@@ -166,10 +166,9 @@ class MenuBar extends Component {
           <ContextMenu isOpen={contextMenuIsOpen} />
         </div>
 
-        <button className="menu-btn" ref={node => (this.menuBtn = node)} onClick={this.toggleMenu}>
+        <button className="menu-btn" onClick={(e) => this.toggleMenu(e)}>
           <svg
             className="menu-btn-background"
-            ref={node => (this.menuBtnBg = node)}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 17 19">
             <path d="M.446.011l16.287 4.156a.35.35 0 0 1 .214.523L8.16 18.832a.36.36 0 0 1-.634-.052L.026.483A.35.35 0 0 1 .223.026.361.361 0 0 1 .446.01z" />

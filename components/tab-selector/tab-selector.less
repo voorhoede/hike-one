@@ -7,22 +7,18 @@
   position: relative;
   z-index: 0;
   width: auto;
-  margin: -@spacing-default*12 @spacing-default*1.5 @spacing-default*5 @spacing-default*1.5;
+  margin: 0 @spacing-default*2 @spacing-default*5;
   padding: @spacing-default;
   border-radius: 5px;
   background-color: @white;
 
   @media @screen-500 {
-    margin: -@spacing-default*12 @spacing-default*1.5 @spacing-default*9 @spacing-default*1.5;
-  }
-
-  @media @screen-768 {
-    margin-top: -@spacing-default*13;
+    margin: 0 @spacing-default*2 @spacing-default*9;
   }
 
   @media @screen-1170 {
     max-width: @column-large-10;
-    margin: -@spacing-default*14.5 auto @spacing-default*9 auto;
+    margin: 0 auto @spacing-default*9;
   }
 }
 
@@ -67,6 +63,7 @@
 
   &.is-selected {
     color: @white;
+    pointer-events: none;
   }
 }
 

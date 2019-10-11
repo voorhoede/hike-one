@@ -13,7 +13,7 @@ import {
   Footer,
   Layout,
   MenuBar,
-  PageHeader,
+  PageHeaderNew,
   TabSelector,
   TextCenter,
   UpdateLink,
@@ -33,11 +33,9 @@ const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', full
       <MenuBar color="white" />
 
       <article className="article">
-        <PageHeader
-          isSmall={true}
+        <PageHeaderNew
+          animation={data.header.animation}
           title={data.header.title}
-          subtitle={data.header.subtitle}
-          image={data.header.backgroundImage.url}
         />
 
         <div className={`page-scrolling-content-small`}>

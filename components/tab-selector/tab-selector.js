@@ -18,11 +18,11 @@ class TabSelector extends Component {
     }
   }
 
-  componentWillMount() {
-    const { services, selectedItem } = this.props
+  static getDerivedStateFromProps(props, state) {
+    const { services, selectedItem } = props
     const selectedTab = services.find(service => (service.slug === selectedItem)).position - 1
 
-    this.setState({ selectedTab })
+    return state.selectedTab = selectedTab
   }
 
   handleTabClick(index) {
@@ -32,7 +32,7 @@ class TabSelector extends Component {
   render() {
     const { services = [], selectedItem = '' } = this.props
     const { selectedTab } = this.state
-    const color = [ '#fe595b', '#45d33c', '#ffe044' ]
+    const color = [ '#fe595b', '#45d33c', '#8314bb' ]
     const style = {
       transform: `translateX(${selectedTab * 100}%)`,
       backgroundColor: color[selectedTab],

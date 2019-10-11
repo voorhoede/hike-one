@@ -104,11 +104,15 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu() {
+  onClickMenu(e) {
+    e.preventDefault()
+
     this.toggleMenu()
   }
 
-  toggleMenu() {
+  toggleMenu(e) {
+    e.preventDefault()
+
     const { menuIsOpen } = this.state
     document.body.classList.toggle(this.disableScrollClass)
 

@@ -11,13 +11,41 @@
   background-color: transparent;
   color: @white;
 
-  &:hover:enabled:not(.vertical-spring) {
-    .btn-secondary-hover-state;
+  &:hover:not(.vertical-spring),
+  &:focus:not(.vertical-spring),
+  &:hover:enabled:not(.vertical-spring),
+  &:focus:enabled:not(.vertical-spring) {
+    .btn-secondary-hover;
   }
 
   .icon svg path {
     transition: fill @animation-speed ease;
     fill: @white;
+  }
+
+  &.btn-wide {
+    padding: @spacing-default @spacing-default*7 @spacing-default @spacing-default*5;
+  }
+
+  &.btn-centered {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &.btn-red-border {
+    border: 1px solid @red;
+    color: @red;
+
+    &:hover,
+    &:focus,
+    &:hover:enabled,
+    &:focus:enabled {
+      .btn-secondary-hover-red;
+    }
+
+    .icon svg path {
+      fill: @red;
+    }
   }
 }
 
@@ -26,8 +54,11 @@
     animation-name: vertical-spring-icon-from;
   }
 
-  &:hover:enabled {
-    .hover-state-arrow-down;
+  &:hover,
+  &:focus,
+  &:hover:enabled,
+  &:focus:enabled {
+    .hover-arrow-down;
   }
 }
 
@@ -37,42 +68,17 @@
     animation-name: vertical-spring-icon-to;
   }
 
-  &:hover:enabled {
-    .hover-state-arrow-up;
-  }
-}
-
-.btn-secondary.btn-wide {
-  padding: @spacing-default @spacing-default*7 @spacing-default @spacing-default*5;
-}
-
-.btn-secondary.btn-centered {
-  display: block;
-  margin: 0 auto;
-}
-
-.btn-secondary.btn-red-border {
-  border: 1px solid @red;
-  color: @red;
-
-  .icon svg path {
-    fill: @red;
-  }
-
-  &:hover:enabled {
-    transition: color @animation-speed-fast, background @animation-speed-fast;
-    background-color: @red;
-    color: @white;
-
-    .icon svg path {
-      fill: @white;
-    }
+  &:hover,
+  &:focus,
+  &:hover:enabled,
+  &:focus:enabled {
+    .hover-arrow-up;
   }
 }
 
 // this allows to include button hover states in other components
-.btn-secondary-hover-state {
-  .btn-basis-hover-state;
+.btn-secondary-hover {
+  .btn-basis-hover;
 
   transition: color @animation-speed-fast, background-color @animation-speed-fast;
   background-color: @white;
@@ -83,48 +89,12 @@
   }
 }
 
-.btn-secondary-hover-state-red {
-  .btn-secondary-hover-state;
-
+.btn-secondary-hover-red {
   transition: color @animation-speed-fast, background-color @animation-speed-fast;
-  background-color: @white;
-  color: @red;
+  background-color: @red;
+  color: @white;
 
   .icon svg path {
-    fill: @red;
+    fill: @white;
   }
-}
-
-.btn-secondary-hover-state-green {
-  .btn-secondary-hover-state;
-
-  transition: color @animation-speed-fast;
-  color: @green;
-
-  .icon svg path {
-    fill: @green;
-  }
-}
-
-.btn-secondary-hover-state-purple {
-  .btn-secondary-hover-state;
-
-  transition: color @animation-speed-fast;
-  color: @purple;
-
-  .icon svg path {
-    fill: @purple;
-  }
-}
-
-.btn-secondary.btn-green:hover:enabled {
-  .btn-secondary-hover-state-green;
-}
-
-.btn-secondary.btn-purple:hover:enabled {
-  .btn-secondary-hover-state-purple;
-}
-
-.btn-secondary.btn-red:hover:enabled {
-  .btn-secondary-hover-state-red;
 }

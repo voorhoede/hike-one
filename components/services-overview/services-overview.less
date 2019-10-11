@@ -1,0 +1,34 @@
+@import (reference) '../../styles/variables.less';
+
+.services-overview {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	margin-bottom: @spacing-default*5;
+	padding-bottom: @spacing-default*6;
+
+	@media @screen-1170 {
+		margin: 0 auto;
+		padding-bottom: @spacing-default*14;
+	}
+
+	.container-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		@media @screen-768 {
+			flex-direction: row;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+	}
+
+	.text-center {
+		margin-bottom: @spacing-default*4;
+	}
+
+	.text-center > .container-inner {
+		display: block;
+	}
+}

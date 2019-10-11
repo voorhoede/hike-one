@@ -1,0 +1,45 @@
+@import (reference) '../../styles/variables';
+
+.contact {
+	position: relative;
+	padding-top: @spacing-default*4;
+	padding-bottom: @spacing-default*12;
+	text-align: center;
+
+	@media @screen-500 {
+		padding-bottom: @spacing-default*20;
+	}
+}
+
+.contact h3 {
+	margin-bottom: @spacing-default*3;
+	color: @darker-gray;
+	font-size: @title-large-s;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-title-s;
+
+	@media @screen-768 {
+		max-width: 800px;
+		margin: 0 auto @spacing-default*8;
+		padding-top: @spacing-default*8;
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
+	}
+
+	@media @screen-1170 {
+		max-width: @column-large-10;
+		font-size: @title-large-l;
+		line-height: @line-height-title-l;
+	}
+}
+
+.contact .btn-secondary {
+	display: block;
+	max-width: 300px;
+	margin: 0 auto;
+	font-weight: @font-weight-bold;
+}
+
+.contact-text-center {
+	margin-bottom: @spacing-default*12;
+}

@@ -1,0 +1,55 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.work-overview {
+	.clearfix();
+
+	margin-bottom: @spacing-default*4;
+
+	.work-overview-header {
+		margin-bottom: @spacing-default*4;
+		font-size: @heading-s;
+		line-height: @line-height-heading-s;
+		text-align: center;
+	}
+
+	.case-extract-small {
+		width: 100%;
+	}
+
+	@media @screen-768 {
+		.work-overview-header {
+			font-size: @heading-m;
+			line-height: @line-height-heading-m;
+		}
+
+		.case-extract-small {
+			width: calc(~'50% - 20px');
+			float: left;
+		}
+
+		.case-extract-small:nth-child(odd) {
+			margin-right: @spacing-default*2;
+		}
+
+		.case-extract-small:nth-child(even) {
+			margin-left: @spacing-default*2;
+		}
+	}
+
+	@media @screen-1170 {
+		.work-overview-header {
+			margin-bottom: @spacing-default*6;
+			font-size: @heading-l;
+			line-height: @line-height-heading-l;
+		}
+	}
+}
+
+.work-overview-extra-spacing {
+	margin-bottom: @spacing-default*8;
+
+	@media @screen-1170 {
+		margin-bottom: @spacing-default*12;
+	}
+}

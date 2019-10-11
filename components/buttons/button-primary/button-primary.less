@@ -1,0 +1,31 @@
+@import (reference) '../../../styles/variables';
+@import (once) '../buttons';
+
+@icon-size: 16px;
+
+.btn-primary {
+	.btn-basis;
+
+	margin-bottom: @spacing-default*2;
+	border: 1px solid @red;
+	background-color: @red;
+	color: @white;
+
+	&:hover,
+	&:focus,
+	&:enabled:hover,
+	&:enabled:focus {
+		.btn-primary-hover;
+	}
+
+	.icon svg path {
+		fill: @white;
+	}
+}
+
+.btn-primary-hover {
+	.btn-basis-hover;
+
+	transition: background-color @animation-speed-fast;
+	background-color: @red-dark;
+}

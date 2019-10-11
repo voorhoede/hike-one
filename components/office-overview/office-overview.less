@@ -1,0 +1,47 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.office-overview {
+	.clearfix();
+
+	.office-overview-header {
+		margin-bottom: @spacing-default*4;
+		font-size: @heading-s;
+		line-height: @line-height-heading-s;
+		text-align: center;
+	}
+
+	@media @screen-500 {
+		.office-card {
+			width: auto;
+			max-width: 450px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	@media @screen-768 {
+		.office-overview-header {
+			font-size: @heading-m;
+			line-height: @line-height-heading-m;
+		}
+
+		.office-card {
+			width: calc(~'100% / 3 - ' @spacing-default*2);
+			margin: 0 @spacing-default*3 @spacing-default*7 0;
+			float: left;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	@media @screen-1170 {
+		.office-overview-header {
+			margin-bottom: @spacing-default*6;
+			font-size: @heading-l;
+			line-height: @line-height-heading-l;
+		}
+	}
+}

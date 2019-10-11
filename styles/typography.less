@@ -1,0 +1,78 @@
+@import 'variables';
+
+body {
+	color: @black;
+	font-size: @text-medium-s;
+	line-height: @line-height-body-s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0 0 @spacing-default*2 0;
+	font-weight: @font-weight-bold;
+}
+
+h1 {
+	font-size: @title-large-l;
+	line-height: @line-height-title-l;
+}
+
+h2 {
+	font-size: @title-medium-l;
+	line-height: @line-height-title-s;
+
+	@media @screen-500 {
+		line-height: @line-height-title-m;
+	}
+}
+
+h3 {
+	font-size: @title-small-l;
+	line-height: @line-height-heading-l;
+}
+
+.subtitle {
+	color: @gray;
+	font-size: @title-small-l;
+	font-weight: 600;
+	line-height: @line-height-heading-l;
+}
+
+.section-header {
+	font-size: @heading-small-s;
+	text-align: center;
+
+	@media @screen-768 {
+		font-size: @heading-small-m;
+	}
+
+	@media @screen-768 {
+		font-size: @heading-small-l;
+	}
+}
+
+.list-custom {
+	font-style: italic;
+	font-weight: @font-weight-normal;
+	list-style: none;
+
+	.list-custom-item {
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: -20px;
+			width: 4px;
+			height: 4px;
+			transform: translateY(-50%);
+			border-radius: 50%;
+			background-color: @red;
+		}
+	}
+}

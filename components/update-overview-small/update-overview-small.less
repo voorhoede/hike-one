@@ -1,0 +1,31 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.update-overview-small {
+	.clearfix();
+
+	@media @screen-500 {
+		.update-extract-small {
+			width: auto;
+			max-width: 450px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	@media @screen-1024 {
+		.update-extract-small {
+			width: calc(~'100% / 3 - ' @spacing-default*2);
+			margin: 0 @spacing-default*3 @spacing-default*7 0;
+			float: left;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.update-overview-button-centered {
+	text-align: center;
+}

@@ -1,0 +1,156 @@
+@import (reference) '../../styles/variables';
+
+@icon-size: 16px;
+
+.btn-basis {
+	display: inline-block;
+	padding: @spacing-default @spacing-default*3;
+	transition: background @animation-speed ease, color @animation-speed ease,
+		transform @animation-speed ease;
+	border-radius: 100px;
+	font-family: @font-main-fallback;
+	font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-s;
+	text-decoration: none;
+	cursor: pointer;
+
+	@media @screen-768 {
+		padding: @spacing-default @spacing-default*4;
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	&:disabled,
+	&[disabled] {
+		opacity: 0.5;
+	}
+
+	&:active {
+		transform: scale(0.98);
+	}
+
+	.fonts-loaded & {
+		font-family: @font-main;
+	}
+
+	.icon {
+		position: absolute;
+		margin-top: 2px;
+		margin-left: 8px;
+		animation-duration: @animation-speed;
+		animation-timing-function: linear;
+		animation-fill-mode: forwards;
+
+		svg {
+			width: @icon-size;
+			height: @icon-size;
+		}
+
+		svg path {
+			transition: fill @animation-speed ease;
+		}
+	}
+
+	&:not(.loading) {
+		.icon {
+			animation-name: horizontal-spring-icon-from;
+		}
+	}
+
+	&.vertical-spring {
+		.icon {
+			animation-name: vertical-spring-icon-from;
+		}
+	}
+
+	&.btn-icon {
+		padding: @spacing-default (@spacing-default*3 + @icon-size) @spacing-default
+			@spacing-default*3;
+
+		@media @screen-768 {
+			padding: @spacing-default (@spacing-default*4 + @icon-size)
+				@spacing-default @spacing-default*4;
+		}
+	}
+
+	&.btn-large {
+		padding: @spacing-default @spacing-default*4;
+		font-weight: @font-weight-bold;
+
+		@media @screen-768 {
+			padding: 18px @spacing-default*5;
+		}
+	}
+
+	&.btn-icon.btn-large {
+		padding: @spacing-default*2 (@spacing-default*4 + @icon-size)
+			@spacing-default*2 @spacing-default*4;
+
+		@media @screen-768 {
+			padding: 18px (@spacing-default*5 + @icon-size) 18px @spacing-default*5;
+		}
+	}
+}
+
+// gets included in actual buttons i.e. primary button and secondary button
+.btn-basis-hover {
+	&:not(.loading) {
+		.icon {
+			animation-name: horizontal-spring-icon-to;
+			animation-timing-function: ease-in-out;
+		}
+	}
+}
+
+.hover-arrow-down {
+	.icon {
+		animation-name: vertical-spring-icon-to;
+	}
+}
+
+.hover-arrow-up {
+	.icon {
+		animation-name: vertical-spring-icon-from;
+	}
+}
+
+@keyframes horizontal-spring-icon-to {
+	83.25% {
+		transform: translateX(6px);
+	}
+
+	100% {
+		transform: translateX(5px);
+	}
+}
+
+@keyframes horizontal-spring-icon-from {
+	0% {
+		transform: translateX(6px);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes vertical-spring-icon-to {
+	83.25% {
+		transform: translateY(4px);
+	}
+
+	100% {
+		transform: translateY(3px);
+	}
+}
+
+@keyframes vertical-spring-icon-from {
+	0% {
+		transform: translateY(4px);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}

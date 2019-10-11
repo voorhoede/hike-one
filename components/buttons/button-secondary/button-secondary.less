@@ -1,0 +1,103 @@
+@import (reference) '../../../styles/variables';
+@import (reference) '../buttons';
+
+@icon-size: 16px;
+
+.btn-secondary {
+	.btn-basis;
+
+	margin-bottom: @spacing-default*2;
+	border: 1px solid @white;
+	background-color: transparent;
+	color: @white;
+
+	&:hover:not(.vertical-spring),
+	&:focus:not(.vertical-spring),
+	&:hover:enabled:not(.vertical-spring),
+	&:focus:enabled:not(.vertical-spring) {
+		.btn-secondary-hover;
+	}
+
+	.icon svg path {
+		transition: fill @animation-speed ease;
+		fill: @white;
+	}
+
+	&.btn-wide {
+		padding: @spacing-default @spacing-default*7 @spacing-default
+			@spacing-default*5;
+	}
+
+	&.btn-centered {
+		display: block;
+		margin: 0 auto;
+	}
+
+	&.btn-red-border {
+		border: 1px solid @red;
+		color: @red;
+
+		&:hover,
+		&:focus,
+		&:hover:enabled,
+		&:focus:enabled {
+			.btn-secondary-hover-red;
+		}
+
+		.icon svg path {
+			fill: @red;
+		}
+	}
+}
+
+.vertical-spring {
+	.icon {
+		animation-name: vertical-spring-icon-from;
+	}
+
+	&:hover,
+	&:focus,
+	&:hover:enabled,
+	&:focus:enabled {
+		.hover-arrow-down;
+	}
+}
+
+.vertical-spring.arrow-up {
+	.icon {
+		margin-top: 0;
+		animation-name: vertical-spring-icon-to;
+	}
+
+	&:hover,
+	&:focus,
+	&:hover:enabled,
+	&:focus:enabled {
+		.hover-arrow-up;
+	}
+}
+
+// this allows to include button hover states in other components
+.btn-secondary-hover {
+	.btn-basis-hover;
+
+	transition: color @animation-speed-fast,
+		background-color @animation-speed-fast;
+	background-color: @white;
+	color: @blue;
+
+	.icon svg path {
+		fill: @blue;
+	}
+}
+
+.btn-secondary-hover-red {
+	transition: color @animation-speed-fast,
+		background-color @animation-speed-fast;
+	background-color: @red;
+	color: @white;
+
+	.icon svg path {
+		fill: @white;
+	}
+}

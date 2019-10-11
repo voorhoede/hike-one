@@ -1,0 +1,196 @@
+import '../styles/index.less';
+
+import fetchContent from '../lib/fetch-content';
+import withCacheControl from '../lib/with-cache-control';
+import scrollToElement from '../components/_helpers/scrollToElement';
+
+import Head from '../components/_helpers/head';
+import CaseExtract from '../components/case-extract/case-extract';
+import MenuBar from '../components/menu-bar/menu-bar';
+import ServicesOverview from '../components/services-overview/services-overview';
+import TextCenter from '../components/text-center/text-center';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import Contact from '../components/contact/contact';
+import ContactShape from '../components/contact/contact-shapes';
+import Footer from '../components/footer/footer';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+
+const scrollToTargetClass = 'js-scroll-to-target';
+
+const Page = ({ home, footer }) => (
+	<div>
+		<Head
+			title={home.seo.title}
+			description={home.seo.description}
+			image={home.seo.image}
+			twitterCard={home.seo.twitterCard}
+		/>
+
+		<PageHeader
+			onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
+			video={home.header.video}
+			title={home.header.title}
+			subtitle={home.header.subtitle}
+			image={home.header.backgroundImage.url}
+			showGradient={home.header.displayGradient}
+		>
+			<PageHeaderShapes.variation1Front position="front" />
+			<PageHeaderShapes.variation1Back position="back" />
+		</PageHeader>
+
+		<main>
+			<MenuBar color="white" />
+
+			<div className={`${scrollToTargetClass} page-scrolling-content`}>
+				<ServicesOverview
+					title={home.servicesItemTitle}
+					services={home.serviceItems}
+				/>
+
+				<TextCenter
+					classes="text-center-font-medium text-center-spacing-small"
+					title={home.caseExtractTitle}
+					text={home.caseExtractIntro}
+				/>
+
+				<CaseExtract
+					color={home.caseExtract.case.caseThemeColor.hex}
+					companyName={home.caseExtract.case.companyName}
+					headerImage={home.caseExtract.image.url}
+					title={home.caseExtract.title}
+					subtitle={home.caseExtract.subtitle}
+					slug={home.caseExtract.case.slug}
+				/>
+
+				<TextCenter
+					classes="text-center-font-medium text-center-spacing-small"
+					title={home.eventsTitle}
+					text={home.eventsIntro}
+				/>
+
+				<UpdateOverviewSmall>
+					{home.updateLinks.map((item, index) => (
+						<UpdateExtractSmall
+							key={index}
+							index={index}
+							authors={item.authors}
+							category={item.category.name}
+							color={item.themeColor.hex}
+							date={item.date}
+							link={item.externalLink}
+							slug={item.slug}
+							image={item.image.url}
+							target={item.externalLink ? true : false}
+							title={item.title}
+							topic={item.topic}
+						/>
+					))}
+				</UpdateOverviewSmall>
+
+				<Contact
+					title={home.contact.title}
+					button={home.contact.button}
+					link={home.contact.externalLink}
+				>
+					<ContactShape position="front" />
+				</Contact>
+			</div>
+		</main>
+
+		<Footer form={footer.form} />
+	</div>
+);
+
+Page.getInitialProps = withCacheControl(() =>
+	fetchContent(`{
+		home {
+			seo {
+				title
+				description
+				twitterCard
+				image {
+					url
+					width
+					height
+				}
+			}
+
+			header {
+				title
+				subtitle
+				displayGradient
+				video
+				backgroundImage {
+					url
+				}
+			}
+
+			servicesItemTitle
+			serviceItems {
+				title
+				text
+				button
+				link { slug }
+				iconColor {
+					color
+				}
+			}
+
+			caseExtractTitle
+			caseExtractIntro
+
+			caseExtract {
+				title
+				subtitle
+				case {
+					slug
+					companyName
+					caseThemeColor { hex }
+				}
+				image {
+					url
+				}
+			}
+
+			eventsTitle
+			eventsIntro
+
+			updateLinks {
+				title
+				slug
+				date
+				externalLink
+				topic
+				image { url }
+				themeColor { hex }
+				authors { id }
+				category { name }
+			}
+
+			contact {
+				title
+				button
+				externalLink
+			}
+		}
+
+		footer {
+			form {
+				title
+				description
+				listId
+				button
+				hasShadow
+				extraInputFields {
+					label
+					inputType
+					required
+				}
+			}
+		}
+	}`)
+);
+
+export default Page;

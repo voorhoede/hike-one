@@ -1,0 +1,65 @@
+@import (reference) '../../styles/variables';
+
+.page-header-new {
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 500px;
+	text-align: center;
+}
+
+.page-header-new__animation {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0 @spacing-default*2;
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 100%;
+		min-width: 1450px; // Same as svg shape viewBox
+		height: 100%;
+		transform: translateX(-50%);
+	}
+}
+
+.page-header-new__animation-background {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.page-header-new__content {
+	display: flex;
+	z-index: 0;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	margin-bottom: 0;
+}
+
+.page-header-new__title {
+	display: block;
+	margin: 0;
+	color: @white;
+	font-size: @title-large-s;
+	line-height: @line-height-title-s;
+
+	@media @screen-768 {
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @title-large-l;
+		line-height: @line-height-title-l;
+	}
+}

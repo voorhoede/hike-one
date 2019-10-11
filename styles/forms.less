@@ -1,0 +1,39 @@
+.form {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	width: 100%;
+	max-width: @column-small-6;
+	margin: 0 auto;
+
+	@media @screen-768 {
+		max-width: @column-small-9;
+	}
+}
+
+.form-title {
+	margin-bottom: @spacing-default*2;
+	font-size: @heading-s;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-heading-s;
+	text-align: center;
+
+	@media @screen-768 {
+		font-size: @heading-m;
+		line-height: @line-height-heading-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @heading-l;
+		line-height: @line-height-heading-l;
+	}
+}
+
+.submit-btn {
+	display: block;
+	margin: 0 auto;
+}
+
+.btn-right-aligned {
+	margin-left: auto;
+}

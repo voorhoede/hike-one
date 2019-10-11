@@ -1,0 +1,40 @@
+@import (reference) '../../styles/variables.less';
+
+.services-overview-page {
+	.text-center {
+		margin-bottom: @spacing-default*5;
+
+		@media @screen-768 {
+			margin-bottom: @spacing-default*6;
+		}
+	}
+
+	.services-overview {
+		margin-bottom: 0;
+		padding: @spacing-default 0 0;
+
+		@media @screen-768 {
+			padding-top: @spacing-default*5;
+			margin-bottom: @spacing-default*13;
+		}
+	}
+
+	.work-overview {
+		background-color: @lightest-gray;
+		margin-bottom: -@spacing-default;
+		padding: @spacing-default*8 0 0;
+
+		@media @screen-768 {
+			padding: @spacing-default*16 0 @spacing-default*8;
+		}
+	}
+
+	.update-overview {
+		margin-bottom: -@spacing-default;
+		padding: @spacing-default*8 0 0;
+
+		@media @screen-768 {
+			padding: @spacing-default*16 0;
+		}
+	}
+}

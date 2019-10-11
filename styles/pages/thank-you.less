@@ -1,0 +1,36 @@
+@import (reference) '../../styles/variables';
+
+.article-thank-you {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+
+	.text-center {
+		align-self: center;
+
+		.text-center-text {
+			font-size: @subtitle-large-s;
+			line-height: @line-height-subtitle-s;
+		}
+
+		@media @screen-768 {
+			.text-center-text {
+				font-size: @subtitle-large-m;
+				line-height: @line-height-subtitle-m;
+			}
+		}
+
+		@media @screen-1170 {
+			.text-center-text {
+				font-size: @subtitle-large-l;
+				line-height: @line-height-subtitle-l;
+			}
+		}
+	}
+
+	.btn-centered {
+		justify-self: center;
+	}
+}

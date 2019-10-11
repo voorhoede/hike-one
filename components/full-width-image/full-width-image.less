@@ -1,0 +1,111 @@
+@import (reference) '../../styles/variables';
+
+.full-width-image {
+	position: relative;
+	width: 100%;
+	height: @full-width-image-height-s;
+	margin-bottom: @spacing-default*8;
+	overflow: hidden;
+
+	@media @screen-768 {
+		height: @full-width-image-height-m;
+		margin-bottom: @spacing-default*9;
+	}
+
+	@media @screen-1170 {
+		max-width: @max-width-image;
+		height: @full-width-image-height-l;
+		margin: @spacing-default*4 auto @spacing-default*8 auto;
+	}
+}
+
+.full-width-image-overlay {
+	position: relative;
+	z-index: @layer-raised;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
+}
+
+.full-width-image-inner {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 600px;
+	overflow: hidden;
+
+	@media @screen-768 {
+		height: 700px;
+	}
+
+	@media @screen-1170 {
+		max-width: @max-width-image;
+		height: 800px;
+		margin: auto;
+	}
+}
+
+.full-width-image-background {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+.full-width-image-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	max-width: @column-large-8;
+	padding: 0 1rem;
+	transform: translate(-50%, -50%);
+	color: @white;
+	text-align: center;
+
+	@media @screen-768 {
+		max-width: @column-small-8;
+	}
+
+	@media @screen-1170 {
+		max-width: @column-large-10;
+	}
+}
+
+.full-width-image-text h2 {
+	margin-bottom: @spacing-default*3;
+	font-size: @title-giant-s;
+	font-weight: @font-weight-bold-extra;
+	line-height: @line-height-giant-s;
+
+	@media @screen-768 {
+		font-size: @title-giant-m;
+		line-height: @line-height-giant-m;
+	}
+
+	@media @screen-1170 {
+		margin-bottom: @spacing-default*5;
+		font-size: @title-giant-l;
+		line-height: @line-height-giant-l;
+	}
+}
+
+.full-width-image-text p {
+	font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-s;
+
+	@media @screen-768 {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
+}

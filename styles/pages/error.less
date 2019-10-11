@@ -1,0 +1,32 @@
+@import (reference) '../../styles/variables';
+
+.article-error {
+	display: flex;
+	height: 100vh;
+
+	&--has-image {
+		flex-direction: column;
+		height: auto;
+		padding-top: @spacing-default*19;
+	}
+
+	.text-center {
+		align-self: center;
+		margin-bottom: 0;
+	}
+
+	.text-center-text {
+		font-size: @subtitle-large-s;
+		line-height: @line-height-subtitle-s;
+
+		@media @screen-768 {
+			font-size: @subtitle-large-m;
+			line-height: @line-height-subtitle-m;
+		}
+
+		@media @screen-1170 {
+			font-size: @subtitle-large-l;
+			line-height: @line-height-subtitle-l;
+		}
+	}
+}

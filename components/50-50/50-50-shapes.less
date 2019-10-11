@@ -1,0 +1,47 @@
+@import (reference) '../../styles/variables';
+
+.fifty-fifty-shapes-2 {
+	.shape-circle-1 {
+		position: absolute;
+		bottom: 0;
+		left: 80%;
+		width: auto;
+		max-width: 100%;
+		height: 10px;
+
+		@media @screen-768 {
+			left: 55%;
+			height: 12px;
+		}
+	}
+
+	.shape-diamond-1 {
+		position: absolute;
+		top: 0;
+		left: 90%;
+		width: auto;
+		max-width: 100%;
+		height: 16px;
+
+		@media @screen-768 {
+			left: 80%;
+			height: 25px;
+		}
+	}
+}
+
+.fifty-fifty-shapes-3 {
+	.shape-circle-1 {
+		display: none;
+		position: absolute;
+		width: auto;
+		max-width: 100%;
+
+		@media @screen-768 {
+			display: inline-block;
+			top: 0;
+			left: 95%;
+			height: 14px;
+		}
+	}
+}

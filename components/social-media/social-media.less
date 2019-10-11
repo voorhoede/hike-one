@@ -1,0 +1,30 @@
+@import (reference) '../../styles/variables';
+
+.menu-social {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	margin: 0 0 0 auto;
+
+	svg {
+		width: 50px;
+		height: 50px;
+
+		path {
+			transition: fill @animation-speed-slow;
+			fill: @dark-gray;
+		}
+	}
+}
+
+.menu-social a {
+	color: @black;
+	text-decoration: none;
+
+	&:hover svg path {
+		transition: fill @animation-speed-fast;
+		fill: @white;
+	}
+}

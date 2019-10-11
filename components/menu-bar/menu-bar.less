@@ -1,0 +1,142 @@
+@import (reference) '../../styles/variables.less';
+
+.menu-bar {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	text-align: center;
+
+	.menu-background-final {
+		opacity: 0;
+	}
+}
+
+.header-logo-wrapper {
+	display: flex;
+	padding-top: @spacing-default*2;
+	padding-left: @spacing-default*2;
+
+	@media @screen-768 {
+		padding-top: @spacing-default*3;
+		padding-left: @spacing-default*4;
+	}
+
+	@media (min-width: 1440px) {
+		padding-top: @spacing-default*6;
+		padding-left: @spacing-default*8;
+	}
+}
+
+.header-logo {
+	display: inline-block;
+	z-index: 3;
+
+	svg {
+		width: 125px;
+		height: 22px;
+	}
+
+	.animation-is-finished & {
+		margin-left: -@spacing-default*1.5;
+		padding: @spacing-default*2 @spacing-default*1.5;
+	}
+
+	.is-open & {
+		@media @screen-768 {
+			margin-top: 0;
+			margin-left: 0;
+			padding: 0;
+			background-color: transparent;
+		}
+	}
+
+	@media @screen-1170 {
+		svg {
+			width: 203px;
+			height: 38px;
+		}
+	}
+}
+
+.menu-btn {
+	position: fixed;
+	z-index: 6;
+	top: 15px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	font-size: 0;
+	cursor: pointer;
+
+	@media @screen-768 {
+		top: 20px;
+		right: 30px;
+		width: 80px;
+		height: 80px;
+	}
+
+	@media (min-width: 1440px) {
+		top: 48px;
+		right: 40px;
+	}
+
+	&:hover {
+		svg.menu-btn-background {
+			transform: scale(1.2);
+			transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
+			fill: @black;
+		}
+
+		.menu-btn-icon svg {
+			transform: scale(1.1);
+			transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
+
+			line {
+				stroke: @white;
+			}
+		}
+	}
+
+	.menu-btn-icon svg {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin-top: -8px;
+		transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
+
+		@media @screen-768 {
+			width: 40px;
+			height: 40px;
+		}
+	}
+
+	.is-open & {
+		.menu-btn-icon svg line {
+			stroke: @white;
+		}
+	}
+
+	svg.menu-btn-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
+		fill: @white;
+
+		@media @screen-768 {
+			width: 80px;
+			height: 80px;
+		}
+
+		.is-open & {
+			fill: @black;
+		}
+	}
+}

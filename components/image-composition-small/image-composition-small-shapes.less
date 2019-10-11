@@ -1,0 +1,58 @@
+@import (reference) '../../styles/variables';
+
+.image-composition-small-shapes-1 {
+	.shape-triangle-1 {
+		display: none;
+		position: absolute;
+		z-index: @layer-raised;
+		top: -265px;
+		left: 12%;
+		width: 148px;
+		height: 168px;
+
+		@media @screen-768 {
+			display: block;
+		}
+	}
+
+	.shape-triangle-2 {
+		display: none;
+		position: absolute;
+		z-index: @layer-raised;
+		right: 0;
+		bottom: -150px;
+		width: 106px;
+		height: 93px;
+
+		@media @screen-768 {
+			display: block;
+		}
+	}
+
+	.shape-circle-3 {
+		position: absolute;
+		z-index: @layer-raised;
+		top: 70px;
+		left: 70px;
+		width: 12px;
+		height: 12px;
+	}
+
+	.shape-circle-4 {
+		position: absolute;
+		z-index: @layer-raised;
+		top: 0;
+		left: 25%;
+		width: 16px;
+		height: 16px;
+	}
+
+	.shape-diamond-5 {
+		position: absolute;
+		z-index: @layer-raised;
+		top: 0;
+		right: 20%;
+		width: 25px;
+		height: 25px;
+	}
+}

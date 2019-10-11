@@ -1,0 +1,107 @@
+@import (reference) '../../styles/variables';
+
+.filter {
+	margin-bottom: 0;
+
+	@media @screen-768 {
+		margin-bottom: @spacing-default*9;
+	}
+
+	.btn-clean {
+		color: @black;
+
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.filter__toggle {
+	margin-bottom: @spacing-default*2;
+	font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-s;
+
+	@media @screen-768 {
+		display: none;
+	}
+
+	.icon {
+		margin-left: @spacing-default / 2;
+
+		svg {
+			width: 18px;
+			height: 18px;
+			vertical-align: sub;
+
+			path {
+				fill: @black;
+			}
+		}
+	}
+}
+
+.filter__list {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+
+	@media @screen-768 {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	li {
+		margin-bottom: @spacing-default*1.5;
+		list-style: none;
+
+		@media @screen-768 {
+			margin-bottom: 0;
+			margin-left: @spacing-default*2;
+		}
+	}
+
+	.filter__button {
+		transition: border-bottom 0.15s ease;
+		border-bottom: 2px solid transparent;
+	}
+
+	.filter__button:hover,
+	.filter__button:focus {
+		border-bottom: 2px solid @black;
+	}
+
+	.filter_item--active .filter__button {
+		transition: border-bottom 0.15s ease;
+		border-bottom: 2px solid @black;
+	}
+}
+
+.filter__list--closed {
+	max-height: 0;
+	overflow-x: visible;
+	overflow-y: hidden;
+	transition: max-height 0.2s ease, opacity 0.2s ease;
+	opacity: 0;
+
+	@media @screen-768 {
+		max-height: none;
+		overflow-y: visible;
+		transition: none;
+		opacity: 1;
+	}
+}
+
+.filter__list--open {
+	max-height: 300px;
+	padding-bottom: @spacing-default*1.5;
+	transition: max-height 0.2s ease, opacity 0.2s ease;
+	opacity: 1;
+
+	@media @screen-768 {
+		max-height: none;
+		transition: none;
+		opacity: 1;
+	}
+}

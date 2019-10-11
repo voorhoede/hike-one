@@ -1,0 +1,129 @@
+@import (reference) '../../styles/variables';
+
+.must-read {
+	width: 100%;
+	max-width: 450px;
+	margin: @spacing-default*4 0;
+	padding: @spacing-default;
+
+	@media @screen-768 {
+		width: calc(~'(50% - 15px)');
+		margin-top: 0;
+		margin-left: @spacing-default*3;
+		padding: 0 @spacing-default*3;
+		vertical-align: top;
+	}
+
+	@media @screen-1024 {
+		width: calc(~'((100% / 3) - 30px)');
+	}
+}
+
+.must-read-title {
+	font-size: @heading-small-s;
+	line-height: @line-height-header-small-s;
+
+	@media @screen-768 {
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}
+}
+
+.must-read-item {
+	display: flex;
+	margin-bottom: @spacing-default*2;
+	border-bottom: 1px solid @dark-gray;
+	color: @black;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		transition: color @animation-speed-fast;
+		color: @red;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+}
+
+.must-read-item-index {
+	margin: 0 @spacing-default*2 0 0;
+	color: @red;
+	font-size: @heading-m;
+	line-height: @line-height-heading-m;
+
+	@media @screen-1024 {
+		font-size: @heading-l;
+		line-height: @line-height-heading-l;
+	}
+}
+
+.must-read-item-title {
+	margin-bottom: 0;
+	font-size: @body-text-m;
+	line-height: @line-height-body-m;
+
+	@media @screen-1024 {
+		font-size: @body-text-l;
+		line-height: @line-height-body-l;
+	}
+}
+
+.must-read-item-author {
+	margin: @spacing-default / 2 0 @spacing-default*2 0;
+	color: @dark-gray;
+	font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-s;
+}
+
+.must-read-toggle {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+	@media @screen-768 {
+		display: none;
+	}
+}
+
+.must-read-short-fade {
+	position: relative;
+	z-index: @layer-raised;
+	height: 100px;
+	margin-top: -@spacing-default*10;
+	background: 0 0;
+	background: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(rgba(255, 255, 255, 0.001)),
+		to(white)
+	);
+	background: linear-gradient(rgba(255, 255, 255, 0.001), white);
+	pointer-events: none;
+
+	@media @screen-768 {
+		display: none;
+	}
+}
+
+.must-read-item1.hide {
+	border-bottom: none;
+
+	@media @screen-768 {
+		border-bottom: 1px solid @dark-gray;
+	}
+}
+
+.must-read-item2.hide,
+.must-read-item3.hide,
+.must-read-item4.hide {
+	display: none;
+
+	@media @screen-768 {
+		display: flex;
+	}
+}

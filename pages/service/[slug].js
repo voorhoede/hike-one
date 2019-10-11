@@ -1,0 +1,220 @@
+import '../../styles/index.less';
+
+import fetchContent from '../../lib/fetch-content';
+import withCacheControl from '../../lib/with-cache-control';
+import getDateFormat from '../../components/_helpers/getDateFormat';
+
+import Head from '../../components/_helpers/head';
+import MenuBar from '../../components/menu-bar/menu-bar';
+import PageHeaderNew from '../../components/page-header-new/page-header-new';
+import TabSelector from '../../components/tab-selector/tab-selector';
+import TextCenter from '../../components/text-center/text-center';
+import Company from '../../components/company/company';
+import FiftyFifty from '../../components/50-50/50-50';
+import Contact from '../../components/contact/contact';
+import ContactShapes from '../../components/contact/contact-shapes';
+import WorkOverview from '../../components/work-overview/work-overview';
+import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
+import UpdateLinks from '../../components/update-links/update-links';
+import UpdateLink from '../../components/update-link/update-link';
+import Footer from '../../components/footer/footer';
+
+const Page = ({ service, allServices, footer }) => (
+	<div>
+		<Head
+			title={service.seo.title}
+			description={service.seo.description}
+			image={service.seo.image}
+			twitterCard={service.seo.twitterCard}
+		/>
+		<main className="main js-main service-page">
+			<MenuBar color="white" />
+
+			<article className="article">
+				<PageHeaderNew
+					title={service.header.title}
+					animation={service.header.animation}
+				/>
+
+				<div className={`page-scrolling-content-small`}>
+					<TabSelector selectedItem={service.slug} services={allServices} />
+
+					<TextCenter title={service.introTitle} text={service.introText} />
+
+					<div className="company-overview container clearfix">
+						{service.companyReference.map((company, index) => (
+							<Company
+								key={index}
+								logo={company.logo.url}
+								name={company.name}
+							/>
+						))}
+					</div>
+
+					{service.content.map((component, index) => {
+						switch (component.itemType) {
+							case '40_60_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										text={component.text}
+										imageLarge={true}
+										image={component.image}
+									/>
+								);
+
+							case '40_60_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										contentLeft={true}
+										text={component.text}
+										imageLarge={true}
+										image={component.image}
+									/>
+								);
+						}
+					})}
+
+					<Contact
+						title={service.contact.title}
+						button={service.contact.button}
+						link={service.contact.externalLink}
+					>
+						<ContactShapes position="front" />
+					</Contact>
+
+					<WorkOverview header={service.caseExtractTitle}>
+						{service.caseExtract.map((item, index) => (
+							<CaseExtractSmall
+								key={index}
+								title={item.header.title}
+								subtitle={item.header.subtitle}
+								image={item.header.backgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
+								slug={item.slug}
+							/>
+						))}
+					</WorkOverview>
+
+					<UpdateLinks>
+						{service.updateLinks.map((item, index) => (
+							<UpdateLink
+								key={index}
+								authors={item.authors}
+								date={getDateFormat(item.date)}
+								link={item.externalLink}
+								slug={item.slug}
+								target={item.externalLink}
+								topic={item.topic}
+								title={item.title}
+							/>
+						))}
+					</UpdateLinks>
+				</div>
+			</article>
+
+			<Footer form={footer.form} />
+		</main>
+	</div>
+);
+
+Page.getInitialProps = withCacheControl(({ query }) =>
+	fetchContent(`{
+		service(filter: { slug: { eq: "${query.slug}" } }) {
+			slug
+			introTitle
+			introText
+			caseExtractTitle
+
+			seo {
+				title
+				description
+				twitterCard
+				image {
+					url
+					width
+					height
+				}
+			}
+
+			caseExtract {
+				slug
+				companyName
+				caseThemeColor { hex }
+
+				header {
+					title
+					subtitle
+					backgroundImage { url }
+				}
+			}
+
+			updateLinks {
+				slug
+				title
+				topic
+				date
+				externalLink
+				authors { name }
+			}
+
+			header {
+				title
+				animation
+			}
+
+			companyReference {
+				name
+				logo { url }
+			}
+
+			content {
+				... on _4060TextLeftRecord {
+					itemType: _modelApiKey
+					title
+					text
+					image { url }
+				}
+				... on _4060TextRightRecord {
+					itemType: _modelApiKey
+					title
+					text
+					image { url }
+				}
+			}
+
+			contact {
+				title
+				button
+				externalLink
+			}
+		}
+
+		allServices {
+			slug
+			title
+			position
+		}
+
+		footer {
+			form {
+				title
+				description
+				listId
+				button
+				hasShadow
+				extraInputFields {
+					label
+					inputType
+					required
+				}
+			}
+		}
+	}`)
+);
+
+export default Page;

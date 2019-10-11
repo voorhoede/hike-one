@@ -1,0 +1,63 @@
+@import (reference) '../../styles/variables';
+
+.update-link {
+	width: 100%;
+}
+
+.update-link-title {
+	display: inline-block;
+	transition: color @animation-speed-slow;
+	color: @black;
+	font-size: @heading-small-s;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-header-small-s;
+	text-decoration: none;
+
+	@media @screen-768 {
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}
+
+	@media @screen-1170 {
+		margin-bottom: @spacing-default;
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-l;
+	}
+
+	&:hover,
+	&:focus {
+		transition: color @animation-speed-fast;
+		color: @red;
+
+		svg {
+			transition: fill @animation-speed-fast;
+			fill: @red;
+		}
+	}
+
+	svg {
+		width: 35px;
+		height: 35px;
+		transition: fill @animation-speed-slow;
+		fill: @black;
+		vertical-align: middle;
+	}
+}
+
+.update-link-sub {
+	margin: 0;
+	color: @dark-gray;
+	font-size: @body-text-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-small-l;
+
+	@media @screen-768 {
+		font-size: @body-text-m;
+		line-height: @line-height-body-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-text-small-l;
+		line-height: @line-height-body-small-l;
+	}
+}

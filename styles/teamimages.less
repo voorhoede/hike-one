@@ -1,0 +1,64 @@
+@import (reference) './variables';
+
+.image-person {
+	display: inline-block;
+	overflow: hidden;
+
+	&:hover {
+		.image-person-text {
+			opacity: 1;
+		}
+	}
+}
+
+.image-person-text {
+	display: flex;
+	position: absolute;
+	top: 0;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+	height: 100%;
+	padding: 0 8% 15% 8%;
+	transition: opacity @animation-speed;
+	opacity: 0;
+	color: @white;
+	text-align: center;
+}
+
+.image-person-title {
+	width: 100%;
+	float: left;
+	font-size: @body-text-l;
+	font-weight: @font-weight-bold;
+	line-height: @line-height-body-s;
+	text-align: center;
+}
+
+.image-person-subtitle {
+	width: 100%;
+	float: left;
+	font-size: @body-text-small-l;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-small-l;
+	text-align: center;
+}
+
+.image-team {
+	position: relative;
+}
+
+.image-team-title {
+	display: none;
+
+	@media @screen-500 {
+		display: block;
+		position: absolute;
+		bottom: @spacing-default*3;
+		left: @spacing-default*3;
+		color: @white;
+		font-size: @body-text-small-l;
+		font-weight: @font-weight-bold;
+		line-height: @line-height-body-small-l;
+	}
+}

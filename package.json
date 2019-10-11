@@ -1,0 +1,31 @@
+{
+	"name": "hike-one-two",
+	"version": "2.0.0",
+	"private": true,
+	"scripts": {
+		"start": "next start",
+		"dev": "next dev",
+		"build": "next build",
+		"lint": "yarn prettier --check",
+		"format": "yarn prettier --write",
+		"prettier": "prettier '{components,lib,pages,styles}/**/*.{js,less}'"
+	},
+	"dependencies": {
+		"@zeit/next-less": "^1.0.1",
+		"cheerio": "1.0.0-rc.3",
+		"gsap": "^3.0.5",
+		"isomorphic-unfetch": "^3.0.0",
+		"less": "^3.9.0",
+		"next": "^9.0.3",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
+		"resize-observer-polyfill": "^1.5.1"
+	},
+	"devDependencies": {
+		"prettier": "^1.19.1"
+	},
+	"prettier": {
+		"trailingComma": "es5",
+		"singleQuote": true
+	}
+}

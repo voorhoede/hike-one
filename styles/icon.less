@@ -1,0 +1,18 @@
+@import (reference) './variables';
+
+.icon-small > svg {
+	position: relative;
+	top: 5px;
+	width: 25px;
+	height: 25px;
+}
+
+.loading .spinner {
+	animation: spin 800ms infinite linear;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}

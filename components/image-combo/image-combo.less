@@ -1,0 +1,54 @@
+@import (reference) '../../styles/variables';
+
+.image-combo {
+	position: relative;
+	margin-bottom: @spacing-default*6;
+
+	@media @screen-768 {
+		max-width: @max-width-image;
+		margin: auto;
+		margin-top: @spacing-default*4;
+		margin-bottom: @spacing-default*8;
+	}
+
+	.text-card {
+		z-index: @layer-raised;
+		word-wrap: break-word;
+
+		@media @screen-1024 {
+			width: @column-large-4;
+		}
+
+		@media @screen-1170 {
+			width: @column-large-6;
+			margin-right: auto;
+			margin-left: 0;
+		}
+	}
+
+	.full-width-image {
+		margin-bottom: 0;
+	}
+
+	.text-block {
+		position: relative;
+		z-index: @layer-raised;
+		margin-top: -@spacing-default*6;
+
+		@media @screen-768 {
+			margin-top: -@spacing-default*12;
+		}
+	}
+}
+
+.image-combo-text {
+	position: relative;
+
+	.full-width-image {
+		margin-top: -@spacing-default*6;
+
+		@media @screen-768 {
+			margin-top: -@spacing-default*30;
+		}
+	}
+}

@@ -1,0 +1,51 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/helpers';
+
+.image-composition-small {
+	.clearfix();
+
+	display: flex;
+	position: relative;
+	justify-content: center;
+	padding: 0 @spacing-default*1.5 @spacing-default*12 @spacing-default*1.5;
+
+	.image-composition-small-inner {
+		width: @column-large-8;
+		column-gap: @spacing-default*2;
+		column-count: 2;
+
+		@media @screen-768 {
+			column-gap: @spacing-default*4;
+		}
+	}
+
+	.image-composition-img-1,
+	.image-composition-img-2,
+	.image-composition-img-3 {
+		float: left;
+	}
+
+	.image-composition-img-1 {
+		width: 100%;
+		margin: @spacing-default*4 @spacing-default*2 @spacing-default*2 0;
+
+		@media @screen-768 {
+			margin: @spacing-default*6 @spacing-default*4 @spacing-default*4 0;
+		}
+	}
+
+	.image-composition-img-2 {
+		width: 70%;
+		margin-right: @spacing-default*4;
+		margin-left: 30%;
+	}
+
+	.image-composition-img-3 {
+		width: 100%;
+	}
+
+	.image-team-img {
+		display: block;
+		width: 100%;
+	}
+}

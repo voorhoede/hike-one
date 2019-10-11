@@ -1,0 +1,17 @@
+@import './variables';
+
+.shadow {
+	box-shadow: 0 12px 25px 0 fade(@black-deep, 20%);
+
+	@media @screen-768 {
+		box-shadow: 0 25px 50px 0 fade(@black-deep, 20%);
+	}
+}
+
+.shadow-low-opacity {
+	box-shadow: 0 10px 100px 0 fade(@black-deep, 15%);
+}
+
+.no-shadow {
+	box-shadow: none;
+}

@@ -1,0 +1,42 @@
+@import (reference) '../../styles/variables.less';
+
+.service-page {
+	.page-scrolling-content-small {
+		margin-top: @spacing-default*40;
+		padding-top: 0;
+
+		@media @screen-500 {
+			margin-top: @spacing-default*40;
+		}
+
+		@media @screen-768 {
+			padding-top: 0;
+		}
+	}
+
+	.tab-selector {
+		transform: translateY(-50%);
+	}
+
+	.company-overview {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		padding-top: 0;
+		overflow: hidden;
+
+		@media @screen-768 {
+			flex-direction: row;
+			margin: 0 auto;
+			padding-bottom: @spacing-default*12;
+		}
+
+		@media @screen-1170 {
+			max-width: @column-large-10;
+		}
+	}
+}

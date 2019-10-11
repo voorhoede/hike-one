@@ -1,0 +1,23 @@
+.updates-highlights {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@media @screen-768 {
+		flex-direction: row;
+		align-items: center;
+	}
+}
+
+.updates-extract-large {
+	max-width: 450px;
+
+	@media @screen-768 {
+		width: calc(~'50% - 15px');
+	}
+
+	@media @screen-1024 {
+		width: calc(~'(((100% / 3) - 10px) * 2)');
+		max-width: none;
+	}
+}

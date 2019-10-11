@@ -1,0 +1,118 @@
+@import (reference) '../../styles/variables';
+@import (reference) '../../styles/shadows';
+
+.office-card {
+	margin: 0 0 @spacing-default*4 0;
+
+	a {
+		color: @darker-gray;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: @red;
+
+		.office-card-image .image {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.office-card-image {
+	overflow: hidden;
+
+	.image {
+		height: 259px;
+		transition: transform @animation-speed;
+		background-position: center;
+		background-size: cover;
+
+		@media @screen-768 {
+			height: 320px;
+		}
+
+		@media @screen-1024 {
+			height: 400px;
+		}
+
+		@media @screen-1170 {
+			height: 491px;
+		}
+	}
+}
+
+.office-card-text {
+	.shadow();
+
+	position: relative;
+	margin: -82px @spacing-default*1.5 0 @spacing-default*1.5;
+	padding: @spacing-default @spacing-default*3 @spacing-default @spacing-default;
+	background-color: @lightest-gray;
+
+	h3 {
+		margin-bottom: 0;
+		font-size: @body-text-s;
+		line-height: @line-height-body-s;
+	}
+
+	.office-card-address {
+		font-size: @body-text-small-s;
+		line-height: @line-height-body-small-s;
+
+		span {
+			display: block;
+		}
+	}
+
+	@media @screen-768 {
+		h3 {
+			font-size: @body-text-m;
+			line-height: @line-height-body-m;
+		}
+
+		.office-card-address {
+			font-size: @body-text-small-m;
+			line-height: @line-height-body-small-m;
+		}
+	}
+
+	@media @screen-1024 {
+		padding: @spacing-default*2 @spacing-default*4 @spacing-default*2
+			@spacing-default*2;
+	}
+
+	@media @screen-1170 {
+		h3 {
+			font-size: @body-text-l;
+			line-height: @line-height-body-l;
+		}
+
+		.office-card-address {
+			font-size: @body-text-small-l;
+			line-height: @line-height-body-small-l;
+		}
+	}
+}
+
+.office-card-button {
+	position: absolute;
+	top: 50%;
+	right: @spacing-default;
+	width: 15px;
+	height: 15px;
+	transform: translateY(-50%);
+
+	@media @screen-1024 {
+		right: @spacing-default*2;
+	}
+
+	svg {
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		& > path {
+			fill: @red;
+		}
+	}
+}

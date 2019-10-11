@@ -35,7 +35,7 @@ class InputField extends Component {
 
     return (
       <div
-        className={`input-field ${type === 'textarea' ? 'textarea-input' : ''}`}
+        className={`input-field ${type}-input`}
         style={{ ...styles }}>
         <label className={`label ${isRequired ? 'required' : ''}`} htmlFor={name}>
           {label}

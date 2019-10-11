@@ -58,36 +58,28 @@
 .menu-btn {
   position: fixed;
   z-index: 6;
-  top: 35px;
-  right: 25px;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
   margin: 0;
   padding: 0;
-  transform: translateY(-50%);
   border: none;
   outline: none;
   background-color: transparent;
   font-size: 0;
   cursor: pointer;
 
-  .menu-btn-icon svg {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
+  @media @screen-768 {
+    top: 20px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
   }
 
-  svg.menu-btn-background {
-    position: absolute;
-    top: -7px;
-    left: -10px;
-    width: 50px;
-    height: 50px;
-    transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
-    fill: @white;
-
-    .is-open & {
-      fill: @black;
-    }
+  @media (min-width: 1440px) {
+    top: 48px;
+    right: 40px;
   }
 
   &:hover {
@@ -100,9 +92,23 @@
     .menu-btn-icon svg {
       transform: scale(1.1);
       transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
+
       line {
         stroke: @white;
       }
+    }
+  }
+
+  .menu-btn-icon svg {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin-top: -8px;
+    transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
+
+    @media @screen-768 {
+      width: 40px;
+      height: 40px;
     }
   }
 
@@ -112,25 +118,22 @@
     }
   }
 
-  @media @screen-768 {
-    top: 55px;
-    right: 49px;
+  svg.menu-btn-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
+    fill: @white;
 
-    .menu-btn-icon svg {
-      width: 40px;
-      height: 40px;
-    }
-
-    svg.menu-btn-background {
-      top: -15px;
-      left: -21px;
+    @media @screen-768 {
       width: 80px;
       height: 80px;
     }
-  }
 
-  @media (min-width: 1440px) {
-    top: 85px;
-    right: 59px;
+    .is-open & {
+      fill: @black;
+    }
   }
 }

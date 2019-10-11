@@ -90,6 +90,13 @@ class MenuBar extends Component {
         top: this.yOffset,
         ease: Power3.easeInOut,
       }, '-=.2')
+      .set(this.menuBg, { opacity: 0 }, '-=0.1')
+      .set(this.menuBgSvgFinal, {
+        height: this.svgHeight,
+        width: this.svgWidth,
+        right: this.xOffset2,
+        y: this.yOffset,
+      }, '-=0.1')
       .staggerTo(this.menuList.childNodes, 0.2, {
         opacity: 1,
         x: 0,
@@ -190,6 +197,11 @@ class MenuBar extends Component {
           />
 
           <svg className="menu-background" ref={node => (this.menuBg = node)}
+            xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+            <polygon points="226, 1.7 494,71 349,307" />
+          </svg>
+
+          <svg className="menu-background-final" ref={node => (this.menuBgSvgFinal = node)}
             xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
             <polygon points="226, 1.7 494,71 349,307" />
           </svg>

@@ -12,7 +12,6 @@
   font-weight: @font-weight-normal;
   line-height: @line-height-body-s;
   text-decoration: none;
-  cursor: pointer;
 
   @media @screen-768 {
     padding: @spacing-default @spacing-default*4;
@@ -90,7 +89,9 @@
 }
 
 // gets included in actual buttons i.e. primary button and secondary button
-.btn-basis-hover {
+.btn-basis-hover-state {
+  cursor: pointer;
+
   &:not(.loading) {
     .icon {
       animation-name: horizontal-spring-icon-to;
@@ -99,13 +100,13 @@
   }
 }
 
-.hover-arrow-down {
+.hover-state-arrow-down {
   .icon {
     animation-name: vertical-spring-icon-to;
   }
 }
 
-.hover-arrow-up {
+.hover-state-arrow-up {
   .icon {
     animation-name: vertical-spring-icon-from;
   }

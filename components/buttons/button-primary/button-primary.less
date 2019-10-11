@@ -11,11 +11,8 @@
   background-color: @red;
   color: @white;
 
-  &:hover,
-  &:focus,
-  &:enabled:hover,
-  &:enabled:focus {
-    .btn-primary-hover;
+  &:hover:enabled {
+    .btn-primary-hover-state;
   }
 
   .icon svg path {
@@ -23,8 +20,9 @@
   }
 }
 
-.btn-primary-hover {
-  .btn-basis-hover;
+// this allows to include button hover states in other components
+.btn-primary-hover-state {
+  .btn-basis-hover-state;
 
   transition: background-color @animation-speed-fast;
   background-color: @red-dark;

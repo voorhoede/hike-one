@@ -13,6 +13,15 @@
   line-height: @line-height-body-s;
   text-decoration: none;
 
+  .fonts-loaded & {
+    font-family: @font-main;
+  }
+
+  &:hover {
+    background-color: transparent;
+    cursor: pointer;
+  }
+
   @media @screen-768 {
     font-size: @body-text-m;
     line-height: @line-height-body-m;
@@ -21,17 +30,6 @@
   @media @screen-1170 {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
-  }
-
-  &:hover,
-  &:focus,
-  &:enabled:hover,
-  &:enabled:focus {
-    .btn-clean-hover;
-  }
-
-  .fonts-loaded & {
-    font-family: @font-main;
   }
 
   .icon {
@@ -50,9 +48,10 @@
   }
 }
 
-.btn-clean-hover {
-  .btn-basis-hover;
+.btn-clean.btn-red {
+  color: @red;
 
-  transition: background-color @animation-speed-fast;
-  background-color: transparent;
+  .icon svg path {
+    fill: @red;
+  }
 }

@@ -18,8 +18,6 @@ const FiftyFifty = ({
   const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
   const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : ''
   const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : ''
-  const imageFormat = image && image.format === 'gif' ? 'gif' : 'pjpg'
-  const imageParameters = image && { fit: 'max', fm: imageFormat, q: 85 }
   const imageUrl = image && image.url
 
   return (
@@ -42,20 +40,20 @@ const FiftyFifty = ({
             <img
               className="content"
               srcSet={`
-                ${setImageParams(imageUrl, { ...imageParameters, w: 250 })} 250w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 500 })} 500w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 630 })} 630w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 750 })} 750w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1000 })} 1000w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1260 })} 1260w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1400 })} 1400w
+                ${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 630 })} 630w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1000 })} 1000w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1260 })} 1260w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1400 })} 1400w
               `}
               sizes="
                 (max-width: 768px) calc(100vw - 30px),
                 (max-width: 1024px) calc(50vw - 50px),
                 (max-width: 1244px) calc(50vw - 30px),
                 630px"
-              src={`${setImageParams(imageUrl, { ...imageParameters, w: 750 })} 750w,`}
+              src={`${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,`}
               alt=""
             />
           )}
@@ -64,20 +62,20 @@ const FiftyFifty = ({
             <img
               className="content"
               srcSet={`
-                ${setImageParams(imageUrl, { ...imageParameters, w: 250 })} 250w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 500 })} 500w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 715 })} 715w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 750 })} 750w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1000 })} 1000w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1200 })} 1200w,
-                ${setImageParams(imageUrl, { ...imageParameters, w: 1430 })} 1430w
+                ${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 715 })} 715w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1000 })} 1000w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1200 })} 1200w,
+                ${setImageParams(imageUrl, { fit: 'max', w: 1430 })} 1430w
               `}
               sizes="
                 (max-width: 768px) calc(100vw - 30px),
                 (max-width: 1024px) calc(60vw - 50px),
                 (max-width: 1244px) calc(60vw - 30px),
                 715px"
-              src={`${setImageParams(imageUrl, { ...imageParameters, w: 750 })}`}
+              src={`${setImageParams(imageUrl, { fit: 'max', w: 750 })}`}
               alt=""
             />
           )}

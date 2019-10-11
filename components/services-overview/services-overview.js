@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ServiceItem } from '..'
+import { ServiceItem } from '../'
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes.js'
 import { TimelineLite } from 'gsap'
 

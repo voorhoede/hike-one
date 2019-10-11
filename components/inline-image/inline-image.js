@@ -27,7 +27,6 @@ class InlineImage extends Component {
   render() {
     const { url = '' } = this.props
     const imageRatio = this.ratio()
-    const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
     return (
       <div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>
@@ -41,10 +40,10 @@ class InlineImage extends Component {
             821px"`}
           alt=""
           srcSet={`
-            ${setImageParams(url, { ...imageParameters, w: 800, h: 600 })} 768w,
-            ${setImageParams(url, { ...imageParameters, w: 900, h: 768 })} 1024w,
-            ${setImageParams(url, { ...imageParameters, w: 1000, h: 850 })} 1190w,
-            ${setImageParams(url, { ...imageParameters, w: 1200, h: 950 })} 1440w
+            ${setImageParams(url, { fit: 'max', w: 800, h: 600 })} 768w,
+            ${setImageParams(url, { fit: 'max', w: 900, h: 768 })} 1024w,
+            ${setImageParams(url, { fit: 'max', w: 1000, h: 850 })} 1190w,
+            ${setImageParams(url, { fit: 'max', w: 1200, h: 950 })} 1440w
           `}
           data-lazy-src={url}
         />

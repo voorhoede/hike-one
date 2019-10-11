@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'next/link'
-import { ButtonSecondaryMock } from '..'
+import { ButtonSecondaryMock } from '../'
 
 const ServiceItem = ({ item = {}, Component = null, onMouseOver = null, onMouseLeave = null }) => {
   const { button, iconColor, link, text, title } = item

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ButtonClean } from '..'
+import { ButtonClean } from '../'
 
 class Filter extends Component {
   constructor(props) {

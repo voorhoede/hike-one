@@ -21,8 +21,7 @@ import CaseExtractSmall from './case-extract-small/case-extract-small.js'
 import CircleBorder from './shapes/circle-border/circle-border.js'
 import Collage from './collage/collage.js'
 import * as CollageShapes from './collage/collage-shapes.js'
-import CompanyOverviewItemSmall from './company-overview-item-small/company-overview-item-small.js'
-import CompanyOverviewSmall from './company-overview-small/company-overview-small.js'
+import Company from './company/company.js'
 import Contact from './contact/contact.js'
 import ContactForm from './contact-form/contact-form.js'
 import * as ContactShapes from './contact/contact-shapes.js'
@@ -118,8 +117,7 @@ export {
   CircleBorder,
   Collage,
   CollageShapes,
-  CompanyOverviewItemSmall,
-  CompanyOverviewSmall,
+  Company,
   Contact,
   ContactForm,
   ContactShapes,

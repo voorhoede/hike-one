@@ -13,7 +13,7 @@ const ButtonPrimaryLink = ({
   prefetch = null,
 }) => (
   <Link href={href} as={hrefAs ? hrefAs : href} prefetch={prefetch}>
-    <a className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`} target={target}>
+    <a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
       {children}
       {icon && (
         <span className="icon">

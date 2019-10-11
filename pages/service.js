@@ -6,8 +6,7 @@ import cookie from '../components/_helpers/cookie'
 import getDateFormat from '../components/_helpers/getDateFormat'
 import {
   CaseExtractSmall,
-  CompanyOverviewItemSmall,
-  CompanyOverviewSmall,
+  Company,
   Contact,
   ContactShapes,
   FiftyFifty,
@@ -44,17 +43,15 @@ const Service = ({ data = {}, footer = {}, services = [], fontsLoaded = '', full
 
           <TextCenter title={data.introTitle} text={data.introText} />
 
-          <CompanyOverviewSmall>
-            {data.companyReference1.map((service, index) => (
-              <CompanyOverviewItemSmall
-                companyLogo={service.companyLogo.url}
-                referenceCaseLink=""
-                referenceSlug=""
-                text={service.text}
+          <div className="company-overview container clearfix">
+            {data.companyReference.map((company, index) => (
+              <Company
                 key={index}
+                logo={company.logo.url}
+                name={company.name}
               />
             ))}
-          </CompanyOverviewSmall>
+          </div>
 
           {data.content.map((component, index) => {
             switch (component.itemType) {

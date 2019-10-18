@@ -48,40 +48,38 @@ class ContactForm extends Component {
   }
 
   formatEmailSubject() {
-    const subject = this.state.currentForm.emailMessageSubject
+    const { currentForm, formData } = this.state
 
-    return subject
+    return currentForm.emailMessageSubject
       .split(' ')
       .map(word => {
         if (word.indexOf('[') !== -1) {
           const name = word.substring(1, word.length -1)
-
-          return this.state.formData[name]
+          return formData[name]
         }
-
         return word
       })
       .join(' ')
   }
 
   getFormData() {
+    const { formData } = this.state
     const emailSubject = this.formatEmailSubject()
-    const formData = { _subject: emailSubject, _format: "plain", ...this.state.formData }
 
-    return formData
+    return { _subject: emailSubject, _format: 'plain', ...formData }
   }
 
   isFormValid() {
-    const { currentForm, _gotcha } = this.state
+    const { currentForm, formData, _gotcha } = this.state
     const isValid = currentForm.formFields
       .filter(field => field.required)
       .map(field => field.name)
       .map(name => {
         if (name === 'email') {
-          return /(.+)@(.+){2,}\.(.+){2,}/.test(this.state.formData[name])
+          return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name])
         }
 
-        return this.state.formData[name].length >= 2
+        return formData[name].length >= 2
       })
       .indexOf(false) === -1
 
@@ -93,14 +91,14 @@ class ContactForm extends Component {
   handleSubmit(e) {
     e.preventDefault()
 
-    if (!this.isFormValid()) {
-      return false
+    if (!this.isFormValid) {
+      return
     }
 
+    const { currentForm } = this.state
     const formData = this.getFormData()
-    const { formspreeEndpoint } = this.state.currentForm
 
-    return fetch(`https://formspree.io/${formspreeEndpoint}`, {
+    return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',
@@ -109,11 +107,23 @@ class ContactForm extends Component {
       },
       body: JSON.stringify(formData)
     })
-    .then(() => {
-      this.clearForm()
+    .then((e) => {
+      switch (e.status) {
+        case (200): {
+          this.clearForm()
 
-      this.setState({ isSent: true })
-      scrollToElement('message-sent')
+          this.setState({ isSent: true })
+          scrollToElement('message-sent')
+          break
+        }
+        case (403): {
+          console.error('In order to submit via AJAX, in this form\'s reCAPTCHA must be disabled.', e)
+          break
+        }
+        default: {
+          console.error('Something went wrong: ', e)
+        }
+      }
     })
     .catch((e) => console.error(e))
   }
@@ -133,68 +143,69 @@ class ContactForm extends Component {
     const { title, selectInputLabel, thankYouMessage } = form
     const forms = [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
 
-    if (!isSent) {
-      return (
-        <div className='contact-form container'>
-          <h2 className='form-title'>{title}</h2>
-
-          <SelectDropdown
-            label={selectInputLabel}
-            options={[...forms]}
-            handleClick={this.handleClick}
-            selectedItem={selectedItemLabel}
-          />
-
-          {(selectedItemId === 'job-application') && (
-            <div className='work-with-us'>
-              <TextCenter
-                classes='text-center-font-large work-with-us-text'
-                text='Are you creative, smart, experimental, curious and result-driven? Join our team!'
-              />
-
-              <CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true} />
-            </div>
-          )}
-
-          {currentForm && (
-            <div>
-              <TextCenter
-                classes='text-center-text'
-                text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}
-              />
-
-              <form className='form' onSubmit={this.handleSubmit}>
-                {currentForm.formFields.map((field, index) => (
-                  <InputField
-                    key={field.id}
-                    name={field.name}
-                    label={field.label}
-                    type={field.inputType}
-                    onChange={this.handleChange}
-                    value={this.state[field.name]}
-                    isRequired={field.required}
-                    autoFocus={index === 0}
-                    formLength={currentForm.formFields.length}
-                  />
-                ))}
-
-                <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
-              </form>
-              <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
-                {currentForm.submitButtonLabel}
-              </ButtonPrimary>
-            </div>
-          )}
-        </div>
-      )
-    }
-
     return (
-      <div className='message-sent container'>
-        <TextCenter
-          classes='text-center-font-large text-center-spacing-small'
-          text={thankYouMessage}
+      <div className='contact-form container'>
+        <h2 className='form-title'>{title}</h2>
+
+        <SelectDropdown
+          label={selectInputLabel}
+          options={[...forms]}
+          handleClick={this.handleClick}
+          selectedItem={selectedItemLabel}
         />
+
+        {(selectedItemId === 'job-application') && (
+          <div className='work-with-us'>
+            <TextCenter
+              classes='text-center-font-large work-with-us-text'
+              text='Are you creative, smart, experimental, curious and result-driven? Join our team!'
+            />
+
+            <CallToAction
+              buttonText='See all opportunities'
+              url='https://hikeone.homerun.co/'
+              isExternalLink={true}
+            />
+          </div>
+        )}
+
+        {currentForm && !isSent && (
+          <React.Fragment>
+            <TextCenter
+              classes='text-center-text'
+              text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a>.</p>`}
+            />
+
+            <form className='form' onSubmit={this.handleSubmit}>
+              {currentForm.formFields.map((field, index) => (
+                <InputField
+                  key={field.id}
+                  name={field.name}
+                  label={field.label}
+                  type={field.inputType}
+                  onChange={this.handleChange}
+                  value={this.state[field.name]}
+                  isRequired={field.required}
+                  autoFocus={index === 0}
+                  formLength={currentForm.formFields.length}
+                />
+              ))}
+              <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
+            </form>
+            <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
+              {currentForm.submitButtonLabel}
+            </ButtonPrimary>
+          </React.Fragment>
+        )}
+
+        { isSent && (
+          <div className='message-sent container'>
+            <TextCenter
+              classes='text-center-font-large text-center-spacing-small'
+              text={thankYouMessage}
+            />
+          </div>
+        )}
       </div>
     )
   }

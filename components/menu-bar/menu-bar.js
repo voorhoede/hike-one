@@ -27,12 +27,10 @@ class MenuBar extends Component {
   componentDidMount() {
     this.setInitialValues()
     this.setAnimationTimeline()
-    this.menu.addEventListener('click', this.onClickMenu)
     this.resizeObserver.observe(this.header)
   }
 
   componentWillUnmount() {
-    this.menu.removeEventListener('click', this.onClickMenu)
     this.resizeObserver.disconnect()
   }
 
@@ -113,10 +111,11 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu(e) {
-    e.preventDefault()
+  onClickMenu() {
+    this.hamburger.reverseAnimation()
+    this.tlMenu.timeScale(1.75).reverse()
 
-    this.toggleMenu()
+    this.setState({ menuIsOpen: false })
   }
 
   toggleMenu() {
@@ -190,7 +189,7 @@ class MenuBar extends Component {
           </span>
         </button>
 
-        <div className="menu" ref={node => (this.menu = node)}>
+        <div className="menu" ref={node => (this.menu = node)} onClick={(e) => this.onClickMenu(e)}>
           <div
             ref={node => (this.menuBgTransparent = node)}
             className="menu-background-transparent"

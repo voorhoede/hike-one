@@ -82,6 +82,7 @@ class MenuBar extends Component {
       .set(this.menuBg, { clearProps: 'all' })
       .set(this.menuList.childNodes, { clearProps: 'all' })
       .set(this.header, { className: '+=is-open' })
+      .set(this.header, { className: '-=animation-is-finished' })
       .add('startAnimation')
       .to(this.menuBgTransparent, 0.25, { opacity: 0.4 }, 'startAnimation')
       .to(this.menuBg, 0.25, {
@@ -112,24 +113,20 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu(e) {
-    e.preventDefault()
-
+  onClickMenu() {
     this.toggleMenu()
   }
 
-  toggleMenu(e) {
-    e.preventDefault()
-
+  toggleMenu() {
     const { menuIsOpen } = this.state
     document.body.classList.toggle(this.disableScrollClass)
 
     if (menuIsOpen) {
-      this.tlMenu.timeScale(2).reverse()
       this.hamburger.reverseAnimation()
+      this.tlMenu.timeScale(1.75).reverse()
     } else {
-      this.tlMenu.timeScale(1).play()
       this.hamburger.playAnimation()
+      this.tlMenu.timeScale(1).play()
     }
 
     this.setState({ menuIsOpen: !menuIsOpen })
@@ -148,7 +145,7 @@ class MenuBar extends Component {
     entries.forEach(entry => {
       if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
         // close menu
-        this.tlMenu.timeScale(10).reverse()
+        this.tlMenu.timeScale(5).reverse()
         // revert hamburger icon
         this.hamburger.reverseAnimation()
         document.body.classList.remove(this.disableScrollClass)

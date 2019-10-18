@@ -27,12 +27,10 @@ class MenuBar extends Component {
   componentDidMount() {
     this.setInitialValues()
     this.setAnimationTimeline()
-    this.menu.addEventListener('click', this.onClickMenu)
     this.resizeObserver.observe(this.header)
   }
 
   componentWillUnmount() {
-    this.menu.removeEventListener('click', this.onClickMenu)
     this.resizeObserver.disconnect()
   }
 
@@ -82,6 +80,7 @@ class MenuBar extends Component {
       .set(this.menuBg, { clearProps: 'all' })
       .set(this.menuList.childNodes, { clearProps: 'all' })
       .set(this.header, { className: '+=is-open' })
+      .set(this.header, { className: '-=animation-is-finished' })
       .add('startAnimation')
       .to(this.menuBgTransparent, 0.25, { opacity: 0.4 }, 'startAnimation')
       .to(this.menuBg, 0.25, {
@@ -89,7 +88,15 @@ class MenuBar extends Component {
         x: -this.xOffset,
         top: this.yOffset,
         ease: Power3.easeInOut,
-      }, '-=.2')
+      }, '-=0.2')
+      .set(this.menuBg, { opacity: 0 }, '-=0.1')
+      .set(this.menuBgSvgFinal, {
+        height: this.svgHeight,
+        width: this.svgWidth,
+        right: this.xOffset2,
+        y: this.yOffset,
+      }, '-=0.1')
+      .set(this.menuBgSvgFinal, { opacity: 1 }, '-=0.1')
       .staggerTo(this.menuList.childNodes, 0.2, {
         opacity: 1,
         x: 0,
@@ -105,7 +112,10 @@ class MenuBar extends Component {
   }
 
   onClickMenu() {
-    this.toggleMenu()
+    this.hamburger.reverseAnimation()
+    this.tlMenu.timeScale(1.75).reverse()
+
+    this.setState({ menuIsOpen: false })
   }
 
   toggleMenu() {
@@ -113,11 +123,11 @@ class MenuBar extends Component {
     document.body.classList.toggle(this.disableScrollClass)
 
     if (menuIsOpen) {
-      this.tlMenu.timeScale(2).reverse()
       this.hamburger.reverseAnimation()
+      this.tlMenu.timeScale(1.75).reverse()
     } else {
-      this.tlMenu.timeScale(1).play()
       this.hamburger.playAnimation()
+      this.tlMenu.timeScale(1).play()
     }
 
     this.setState({ menuIsOpen: !menuIsOpen })
@@ -136,7 +146,7 @@ class MenuBar extends Component {
     entries.forEach(entry => {
       if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
         // close menu
-        this.tlMenu.timeScale(10).reverse()
+        this.tlMenu.timeScale(5).reverse()
         // revert hamburger icon
         this.hamburger.reverseAnimation()
         document.body.classList.remove(this.disableScrollClass)
@@ -166,10 +176,9 @@ class MenuBar extends Component {
           <ContextMenu isOpen={contextMenuIsOpen} />
         </div>
 
-        <button className="menu-btn" ref={node => (this.menuBtn = node)} onClick={this.toggleMenu}>
+        <button className="menu-btn" onClick={(e) => this.toggleMenu(e)}>
           <svg
             className="menu-btn-background"
-            ref={node => (this.menuBtnBg = node)}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 17 19">
             <path d="M.446.011l16.287 4.156a.35.35 0 0 1 .214.523L8.16 18.832a.36.36 0 0 1-.634-.052L.026.483A.35.35 0 0 1 .223.026.361.361 0 0 1 .446.01z" />
@@ -180,13 +189,18 @@ class MenuBar extends Component {
           </span>
         </button>
 
-        <div className="menu" ref={node => (this.menu = node)}>
+        <div className="menu" ref={node => (this.menu = node)} onClick={(e) => this.onClickMenu(e)}>
           <div
             ref={node => (this.menuBgTransparent = node)}
             className="menu-background-transparent"
           />
 
           <svg className="menu-background" ref={node => (this.menuBg = node)}
+            xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
+            <polygon points="226, 1.7 494,71 349,307" />
+          </svg>
+
+          <svg className="menu-background-final" ref={node => (this.menuBgSvgFinal = node)}
             xmlns="http://www.w3.org/2000/svg" viewBox="226 1.7 268 305">
             <polygon points="226, 1.7 494,71 349,307" />
           </svg>
@@ -206,22 +220,36 @@ class MenuBar extends Component {
           <div className="menu-inner" ref={node => (this.menuInner = node)}>
             <ul className="menu-list" ref={node => (this.menuList = node)}>
               <li className="menu-item-logo">
-                <Link href="/"><a><Logo color="white" /></a></Link>
+                <Link href="/">
+                  <a>
+                    <Logo color="white" />
+                  </a>
+                </Link>
               </li>
               <li className="menu-item">
-                <Link href="/team?slug=culture" as="/team/culture"><a>Team</a></Link>
+                <Link href="/team?slug=culture" as="/team/culture">
+                  <a>Team</a>
+                </Link>
               </li>
               <li className="menu-item">
-                <Link href="/service?slug=new-product-design" as="/service/new-product-design"><a>Services</a></Link>
+                <Link href="/service?slug=new-product-design" as="/service/new-product-design">
+                  <a>Services</a>
+                </Link>
               </li>
               <li className="menu-item">
-                <Link href="/work"><a>Work</a></Link>
+                <Link href="/work">
+                  <a>Work</a>
+                </Link>
               </li>
               <li className="menu-item">
-                <Link href="/updates"><a>Updates</a></Link>
+                <Link href="/updates">
+                  <a>Updates</a>
+                </Link>
               </li>
               <li className="menu-item menu-item-last">
-                <Link href="/contact"><a>Contact</a></Link>
+                <Link href="/contact">
+                  <a>Contact</a>
+                </Link>
               </li>
               <li>
                 <div className="menu-social" ref={node => (this.socialIcons = node)}>

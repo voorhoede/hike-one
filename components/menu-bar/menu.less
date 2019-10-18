@@ -1,4 +1,4 @@
-@import (reference) '../../styles/variables';
+@import (reference) '../../styles/variables.less';
 
 .menu {
   z-index: 3;
@@ -16,7 +16,7 @@
   width: 100%;
   height: 100vh;
   opacity: 0;
-  background-color: black;
+  background-color: @black-deep;
 
   .is-open & {
     display: block;

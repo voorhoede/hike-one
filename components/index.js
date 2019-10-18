@@ -21,8 +21,7 @@ import CaseExtractSmall from './case-extract-small/case-extract-small.js'
 import CircleBorder from './shapes/circle-border/circle-border.js'
 import Collage from './collage/collage.js'
 import * as CollageShapes from './collage/collage-shapes.js'
-import CompanyOverviewItemSmall from './company-overview-item-small/company-overview-item-small.js'
-import CompanyOverviewSmall from './company-overview-small/company-overview-small.js'
+import Company from './company/company.js'
 import Contact from './contact/contact.js'
 import ContactForm from './contact-form/contact-form.js'
 import * as ContactShapes from './contact/contact-shapes.js'
@@ -64,6 +63,7 @@ import MustRead from './must-read/must-read.js'
 import OfficeCard from './office-card/office-card.js'
 import OfficeOverview from './office-overview/office-overview.js'
 import PageHeader from './page-header/page-header.js'
+import PageHeaderNew from './page-header-new/page-header-new.js'
 import * as PageHeaderShapes from './page-header/page-header-shapes.js'
 import Parallax from './parallax/parallax.js'
 import QuoteBlock from './quote-block/quote-block.js'
@@ -117,8 +117,7 @@ export {
   CircleBorder,
   Collage,
   CollageShapes,
-  CompanyOverviewItemSmall,
-  CompanyOverviewSmall,
+  Company,
   Contact,
   ContactForm,
   ContactShapes,
@@ -160,6 +159,7 @@ export {
   OfficeCard,
   OfficeOverview,
   PageHeader,
+  PageHeaderNew,
   PageHeaderShapes,
   Parallax,
   QuoteBlock,

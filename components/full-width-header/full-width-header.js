@@ -14,21 +14,20 @@ const FullWidthHeader = ({
   titleOnly = false,
   headerImageLarger = false,
 }) => {
-  const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
   const headerImageClass = headerImageLarger ? 'image-large' : ''
   const style = {
     __html: `<style>
       .full-width-header-image {
-        background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 1000 })}')
+        background-image: url('${setImageParams(headerImage, { fit: 'max', w: 1000 })}')
       }
       @media (min-width: 768px) {
         .full-width-header-image {
-          background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 1500 })}')
+          background-image: url('${setImageParams(headerImage, { fit: 'max', w: 1500 })}')
         }
       }
       @media (min-width: 1170px) {
         .full-width-header-image {
-          background-image: url('${setImageParams(headerImage, { ...imageParameters, w: 2000 })}')
+          background-image: url('${setImageParams(headerImage, { fit: 'max', w: 2000 })}')
         }
       }
     </style>`,

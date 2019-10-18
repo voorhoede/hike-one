@@ -1,4 +1,4 @@
-@import (reference) '../../styles/variables';
+@import (reference) '../../styles/variables.less';
 
 .page-header {
   display: flex;
@@ -127,23 +127,10 @@
   text-decoration: none;
 }
 
-.page-header-title-link:hover,
-.page-header-title-link:focus,
-.page-header-title-link:active,
-.page-header-subtitle-link:hover,
-.page-header-subtitle-link:focus,
-.page-header-subtitle-link:active {
-  color: @white;
-}
-
 .page-header-button {
   padding: 0 @spacing-default*5 @spacing-default*6.5 @spacing-default*5;
   border: none;
   background-color: transparent;
-
-  &:hover {
-    cursor: pointer;
-  }
 
   &:focus {
     outline: none;

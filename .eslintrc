@@ -4,15 +4,13 @@
     "plugin:react/recommended"
   ],
   "plugins": [
-    "react",
-    "jest"
+    "react"
   ],
   "env": {
     "browser": true,
     "node": true,
     "mocha": true,
-    "es6": true,
-    "jest/globals": true
+    "es6": true
   },
   "parser": "babel-eslint",
   "parserOptions": {

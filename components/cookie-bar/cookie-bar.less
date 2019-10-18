@@ -1,4 +1,4 @@
-@import (reference) '../../styles/variables';
+@import (reference) '../../styles/variables.less';
 
 .cookie-bar {
   display: flex;
@@ -10,7 +10,7 @@
   width: 100%;
   padding: @spacing-default*1.5;
   animation: slide-up .3s ease;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: fade(@black-deep, 80%);
   color: @white;
   font-size: @body-text-small-s;
 
@@ -41,13 +41,13 @@
   text-decoration: none;
 }
 
-.cookie-bar-btn {
-  margin: 0 @spacing-default;
+.btn-secondary.cookie-bar-btn {
+  margin: 0;
   padding: @spacing-default/2 @spacing-default*1.5;
-  font-family: @font-main;
 
-  &:hover {
-    color: @black !important;
+  &:enabled:hover,
+  &:enabled:focus {
+    color: @black;
   }
 }
 

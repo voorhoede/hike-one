@@ -6,15 +6,17 @@
   "orientation": "portrait",
   "background_color": "#fff",
   "theme_color": "#fff",
-  "icons": [{
-    "src": "/static/icons/android-chrome-192x192.png",
-    "type": "image/png",
-    "sizes": "192x192"
-  },
+  "icons": [
+    {
+      "src": "/static/icons/android-chrome-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
     {
       "src": "/static/icons/android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
-    }]
+    }
+  ]
 }
 

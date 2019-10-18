@@ -3,17 +3,16 @@ import PropTypes from 'prop-types'
 import setImageParams from '../_helpers/setImageParameters'
 
 const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 0 }) => {
-  const imageParameters = { fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
       .full-width-image-static-${index} {
-        background-image: url('${setImageParams(image, { ...imageParameters, w: 500 })}')
+        background-image: url('${setImageParams(image, { w: 500 })}')
       }
       @media (min-width: 500px) {
-        .full-width-image-static-${index} { background-image: url('${setImageParams(image, { ...imageParameters, w: 1000 })}') }
+        .full-width-image-static-${index} { background-image: url('${setImageParams(image, { w: 1000 })}') }
       }
       @media (min-width: 1170px) {
-        .full-width-image-static-${index} { background-image: url('${setImageParams(image, { ...imageParameters, w: 1920 })}') }
+        .full-width-image-static-${index} { background-image: url('${setImageParams(image, { w: 1920 })}') }
       }
     </style>`,
   }

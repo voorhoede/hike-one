@@ -1,4 +1,4 @@
-@import (reference) '../../styles/variables';
+@import (reference) '../../styles/variables.less';
 
 .update-link {
   width: 100%;
@@ -24,10 +24,10 @@
     line-height: @line-height-header-small-l;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     transition: color @animation-speed-fast;
     color: @red;
-    cursor: pointer;
 
     svg {
       transition: fill @animation-speed-fast;

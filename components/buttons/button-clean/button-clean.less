@@ -1,4 +1,5 @@
-@import (reference) '../../../styles/variables';
+@import (reference) '../../../styles/variables.less';
+@import (once) '../buttons.less';
 
 .btn-clean {
   display: block;
@@ -12,15 +13,6 @@
   line-height: @line-height-body-s;
   text-decoration: none;
 
-  .fonts-loaded & {
-    font-family: @font-main;
-  }
-
-  &:hover {
-    background-color: transparent;
-    cursor: pointer;
-  }
-
   @media @screen-768 {
     font-size: @body-text-m;
     line-height: @line-height-body-m;
@@ -29,6 +21,17 @@
   @media @screen-1170 {
     font-size: @body-text-l;
     line-height: @line-height-body-l;
+  }
+
+  &:hover,
+  &:focus,
+  &:enabled:hover,
+  &:enabled:focus {
+    .btn-clean-hover;
+  }
+
+  .fonts-loaded & {
+    font-family: @font-main;
   }
 
   .icon {
@@ -47,10 +50,9 @@
   }
 }
 
-.btn-clean.btn-red {
-  color: @red;
+.btn-clean-hover {
+  .btn-basis-hover;
 
-  .icon svg path {
-    fill: @red;
-  }
+  transition: background-color @animation-speed-fast;
+  background-color: transparent;
 }

@@ -1,24 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-			<url><loc>https://hike.one/case/gone-in-60-seconds</loc></url>
-<url><loc>https://hike.one/case/come-rain-or-shine</loc></url>
-<url><loc>https://hike.one/case/rmc</loc></url>
-<url><loc>https://hike.one/case/deep-blue-sea</loc></url>
-<url><loc>https://hike.one/case/fresh-as-a-daisy</loc></url>
-<url><loc>https://hike.one/case/funda</loc></url>
-<url><loc>https://hike.one/case/538</loc></url>
-<url><loc>https://hike.one/case/npo-start</loc></url>
-<url><loc>https://hike.one/case/pushing-all-the-right-buttons</loc></url>
-<url><loc>https://hike.one/case/the-user-at-the-wheel</loc></url>
-<url><loc>https://hike.one/case/digital-product-design</loc></url>
-<url><loc>https://hike.one/contact/</loc></url>
-<url><loc>https://hike.one/</loc></url>
-<url><loc>https://hike.one/service/new-product-design</loc></url>
-<url><loc>https://hike.one/service/ux-design</loc></url>
-<url><loc>https://hike.one/service/training-and-academy</loc></url>
-<url><loc>https://hike.one/team/</loc></url>
-<url><loc>https://hike.one/update/designing-a-better-user-experience-for-a-smart-lock-system</loc></url>
-<url><loc>https://hike.one/update/test-data</loc></url>
-<url><loc>https://hike.one/update/seo-page</loc></url>
-<url><loc>https://hike.one/work/</loc></url>
-		</urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hike.one/</loc></url>
+  <url><loc>https://hike.one/case/an-interface-for-quantum-computers</loc></url>
+  <url><loc>https://hike.one/case/binge-watch-on-the-big-screen</loc></url>
+  <url><loc>https://hike.one/case/building-design-bridges</loc></url>
+  <url><loc>https://hike.one/case/come-rain-or-shine</loc></url>
+  <url><loc>https://hike.one/case/deep-blue-sea</loc></url>
+  <url><loc>https://hike.one/case/design-sprint-anwb</loc></url>
+  <url><loc>https://hike.one/case/effortless-interaction-with-the-government</loc></url>
+  <url><loc>https://hike.one/case/fresh-as-a-daisy</loc></url>
+  <url><loc>https://hike.one/case/going-places</loc></url>
+  <url><loc>https://hike.one/case/gone-in-60-seconds</loc></url>
+  <url><loc>https://hike.one/case/movies-anytime-anywhere</loc></url>
+  <url><loc>https://hike.one/case/see-weight-through-a-different-lens</loc></url>
+  <url><loc>https://hike.one/case/the-user-back-in-control</loc></url>
+  <url><loc>https://hike.one/case/there-s-no-place-like-home</loc></url>
+  <url><loc>https://hike.one/case/walking-in-a-television-wonderland</loc></url>
+  <url><loc>https://hike.one/contact</loc></url>
+  <url><loc>https://hike.one/service/new-product-design</loc></url>
+  <url><loc>https://hike.one/service/training-and-academy</loc></url>
+  <url><loc>https://hike.one/service/ux-design</loc></url>
+  <url><loc>https://hike.one/team/culture</loc></url>
+  <url><loc>https://hike.one/team/people</loc></url>
+  <url><loc>https://hike.one/team</loc></url>
+  <url><loc>https://hike.one/topic/cookie-policy</loc></url>
+  <url><loc>https://hike.one/topic/design-sprint</loc></url>
+  <url><loc>https://hike.one/topic/digital-designers-in-eindhoven</loc></url>
+  <url><loc>https://hike.one/topic/get-ready-for-design-sprints-workshop</loc></url>
+  <url><loc>https://hike.one/topic/hacking-innovation-stories-from-the-trenches</loc></url>
+  <url><loc>https://hike.one/topic/introduction-to-design-sprints-workshop</loc></url>
+  <url><loc>https://hike.one/topic/lean-innovation</loc></url>
+  <url><loc>https://hike.one/topic/masterclasses-by-hike-one</loc></url>
+  <url><loc>https://hike.one/topic/ontwerp-voor-overheid-gemeenten</loc></url>
+  <url><loc>https://hike.one/topic/privacy-statement</loc></url>
+  <url><loc>https://hike.one/topic/running-design-sprints-masterclass-by-hike-one</loc></url>
+  <url><loc>https://hike.one/topic/speakers-digital-product-design-and-ux</loc></url>
+  <url><loc>https://hike.one/topic/sprintsnel</loc></url>
+  <url><loc>https://hike.one/topic/the-iteration-sprint</loc>
+  <url><loc>https://hike.one/topic/usability-testing-masterclass-by-hike-one</loc></url>
+  <url><loc>https://hike.one/topic/ux-leadership-breakfast</loc></url>
+  <url><loc>https://hike.one/update/4-tips-to-brush-up-your-design-sprint-facilitation</loc></url>
+  <url><loc>https://hike.one/update/538-lovie-award</loc></url>
+  <url><loc>https://hike.one/update/7-things-we-learned-while-doing-design-sprints</loc></url>
+  <url><loc>https://hike.one/update/a-blast-from-the-past-delft-hyperloop</loc></url>
+  <url><loc>https://hike.one/update/a-brand-new-hotelspecials</loc></url>
+  <url><loc>https://hike.one/update/a-design-system-for-city-of-amsterdam</loc></url>
+  <url><loc>https://hike.one/update/a-new-os-for-our-company-part-1-training</loc></url>
+  <url><loc>https://hike.one/update/a-talk-about-our-holacracy-journey-at-the-agile-org</loc></url>
+  <url><loc>https://hike.one/update/about-user-experience-and-motion-ui-at-the-hostnet</loc></url>
+  <url><loc>https://hike.one/update/answering-a-questionnaire-was-never-this-easy</loc></url>
+  <url><loc>https://hike.one/update/car-ui-testing-all-segments-for-autoweek</loc></url>
+  <url><loc>https://hike.one/update/designops-inzichten</loc></url>
+  <url><loc>https://hike.one/update/facilitating-your-first-design-sprint-just-got-easier</loc></url>
+  <url><loc>https://hike.one/update/for-elonmusk-8-improvements-for-the-tesla-ui</loc></url>
+  <url><loc>https://hike.one/update/get-your-red-cross-tote-bag-now</loc></url>
+  <url><loc>https://hike.one/update/go-from-sketch-to-tested-prototype-in-5-days</loc></url>
+  <url><loc>https://hike.one/update/hacking-innovation-with-design-sprints</loc></url>
+  <url><loc>https://hike.one/update/hike-one-conducted-a-test-for-autoweek</loc></url>
+  <url><loc>https://hike.one/update/hike-one-in-emerce-100</loc></url>
+  <url><loc>https://hike.one/update/hiring-the-right-designers-5-skills-to-look-for</loc></url>
+  <url><loc>https://hike.one/update/how-we-brought-personalised-miffy-booklets-to-the-market</loc></url>
+  <url><loc>https://hike.one/update/installing-a-new-os-for-our-company-part-2-where-start</loc></url>
+  <url><loc>https://hike.one/update/installing-an-os-for-our-company-part-lll-climbing</loc></url>
+  <url><loc>https://hike.one/update/introducing-our-ux-playbook-on-medium</loc></url>
+  <url><loc>https://hike.one/update/juke-fm-designing-an-online-radio-platform</loc></url>
+  <url><loc>https://hike.one/update/life-as-a-trainee-at-hike-one</loc></url>
+  <url><loc>https://hike.one/update/life-as-an-intern-at-hike-one</loc></url>
+  <url><loc>https://hike.one/update/making-cryptocurrency-accessible</loc></url>
+  <url><loc>https://hike.one/update/meet-the-hike-one-brand-illustration-guild</loc></url>
+  <url><loc>https://hike.one/update/never-say-goodbye-to-your-plants-anymore</loc></url>
+  <url><loc>https://hike.one/update/nrc-live-moonshot-a-first-impression-of-the-vr</loc></url>
+  <url><loc>https://hike.one/update/pick-up-ten-the-plastic-soup-surfer-new-campaign</loc></url>
+  <url><loc>https://hike.one/update/press-release-this-one-in-dutch-unitid-wordt-hike-o</loc></url>
+  <url><loc>https://hike.one/update/right-click-rename-the-story-behind-our-new-brand</loc></url>
+  <url><loc>https://hike.one/update/the-best-tools-for-documenting-design-systems</loc></url>
+  <url><loc>https://hike.one/update/the-brand-new-radio-538-app</loc></url>
+  <url><loc>https://hike.one/update/the-first-screening-of-the-documentary-from-source</loc></url>
+  <url><loc>https://hike.one/update/the-future-of-table-football-in-11-faq-s</loc></url>
+  <url><loc>https://hike.one/update/the-power-of-prototyping-meetup</loc></url>
+  <url><loc>https://hike.one/update/the-right-tool-for-the-job-prototyping</loc></url>
+  <url><loc>https://hike.one/update/the-right-tool-for-the-job-prototyping-part-2</loc></url>
+  <url><loc>https://hike.one/update/the-why-of-car-ui</loc></url>
+  <url><loc>https://hike.one/update/think-like-a-startup-a-5-step-guide</loc></url>
+  <url><loc>https://hike.one/update/ui-animation-meetup-rotterdam</loc></url>
+  <url><loc>https://hike.one/update/ux-maturity-insights-from-ux-leadership-breakfasts</loc></url>
+  <url><loc>https://hike.one/update/ux-the-cursed-abbreviation</loc></url>
+  <url><loc>https://hike.one/update/voice-interacties-hallo-voice-apps</loc></url>
+  <url><loc>https://hike.one/update/when-car-ui-met-autoweek</loc></url>
+  <url><loc>https://hike.one/update/why-use-micro-animations-in-your-design</loc></url>
+  <url><loc>https://hike.one/update/working-safely-with-hazardous-substances</loc></url>
+  <url><loc>https://hike.one/update/your-first-design-sprint-do-these-3-things-first</loc></url>
+  <url><loc>https://hike.one/updates</loc></url>
+  <url><loc>https://hike.one/work</loc></url>
+</urlset>

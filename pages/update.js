@@ -161,9 +161,9 @@ const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
         })}
 
         <SocialShare
-          facebookLink={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`}
-          linkedinLink={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}&title=${data.title}&summary=${data.seo.description}&source=Hike&20One`}
-          twitterLink={`https://twitter.com/intent/tweet?text=${data.title}&url=${fullUrl}`}
+          url={fullUrl}
+          title={data.title}
+          description={data.seo.description}
         />
 
         <div className="authors">

@@ -4,20 +4,19 @@ import { ButtonSecondaryLink } from '../'
 import setImageParams from '../_helpers/setImageParameters'
 
 const VacancyCard = ({ data = {} }) => {
-  const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
   const style = {
     __html: `<style>
       .vacancy-card-image {
-        background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 200 })}');
+        background-image: url('${setImageParams(data.image.url, { fit: 'crop', w: 450, h: 200 })}');
       }
       @media (min-width: 768px) {
         .vacancy-card-image {
-          background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 400, h: 339 })}');
+          background-image: url('${setImageParams(data.image.url, { fit: 'crop', w: 400, h: 339 })}');
         }
       }
       @media (min-width: 1024px) {
         .vacancy-card-image {
-          background-image: url('${setImageParams(data.image.url, { ...imageParameters, w: 450, h: 360 })}');
+          background-image: url('${setImageParams(data.image.url, { fit: 'crop', w: 450, h: 360 })}');
         }
       }
     </style>`,
@@ -33,9 +32,9 @@ const VacancyCard = ({ data = {} }) => {
           <ButtonSecondaryLink
             href={data.callToActionUrl}
             target="_blank"
-            rel="noopener noreferrer"
             classes="vacancies-btn"
-            icon="arrowRight">
+            icon="arrowRight"
+            prefetch={false}>
             {data.callToActionTitle}
           </ButtonSecondaryLink>
         </div>

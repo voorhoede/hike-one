@@ -1,4 +1,4 @@
-@import (reference) '../../styles/variables';
+@import (reference) '../../styles/variables.less';
 
 @icon-size: 16px;
 
@@ -12,6 +12,7 @@
   font-weight: @font-weight-normal;
   line-height: @line-height-body-s;
   text-decoration: none;
+  cursor: pointer;
 
   @media @screen-768 {
     padding: @spacing-default @spacing-default*4;
@@ -89,9 +90,7 @@
 }
 
 // gets included in actual buttons i.e. primary button and secondary button
-.btn-basis-hover-state {
-  cursor: pointer;
-
+.btn-basis-hover {
   &:not(.loading) {
     .icon {
       animation-name: horizontal-spring-icon-to;
@@ -100,13 +99,13 @@
   }
 }
 
-.hover-state-arrow-down {
+.hover-arrow-down {
   .icon {
     animation-name: vertical-spring-icon-to;
   }
 }
 
-.hover-state-arrow-up {
+.hover-arrow-up {
   .icon {
     animation-name: vertical-spring-icon-from;
   }

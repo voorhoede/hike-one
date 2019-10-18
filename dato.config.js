@@ -4,7 +4,6 @@ const { sortBy } = require('lodash')
 module.exports = (dato, root) => {
   root.directory('data/current', dir => {
     dir.createDataFile('cases.json', 'json', mapCollection(dato.cases))
-    dir.createDataFile('component-guide.json', 'json', dato.componentGuide.toMap())
     dir.createDataFile('contact.json', 'json', dato.contactPage.toMap(5))
     dir.createDataFile('cookie-bar.json', 'json', dato.cookieBar.toMap())
     dir.createDataFile('error-pages.json', 'json', mapCollection(dato.errorPages))

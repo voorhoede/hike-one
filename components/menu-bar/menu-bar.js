@@ -89,7 +89,7 @@ class MenuBar extends Component {
         x: -this.xOffset,
         top: this.yOffset,
         ease: Power3.easeInOut,
-      }, '-=.2')
+      }, '-=0.2')
       .set(this.menuBg, { opacity: 0 }, '-=0.1')
       .set(this.menuBgSvgFinal, {
         height: this.svgHeight,

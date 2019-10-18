@@ -113,7 +113,9 @@ class MenuBar extends Component {
       .set(this.header, { className: '+=animation-is-finished' })
   }
 
-  onClickMenu() {
+  onClickMenu(e) {
+    e.preventDefault()
+
     this.toggleMenu()
   }
 

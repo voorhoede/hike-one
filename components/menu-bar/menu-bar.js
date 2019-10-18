@@ -97,6 +97,7 @@ class MenuBar extends Component {
         right: this.xOffset2,
         y: this.yOffset,
       }, '-=0.1')
+      .set(this.menuBgSvgFinal, { opacity: 1 }, '-=0.1')
       .staggerTo(this.menuList.childNodes, 0.2, {
         opacity: 1,
         x: 0,

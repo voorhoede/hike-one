@@ -115,6 +115,7 @@ class ContactForm extends Component {
       this.setState({ isSent: true })
       scrollToElement('message-sent')
     })
+    .catch((e) => console.error(e))
   }
 
   clearForm() {

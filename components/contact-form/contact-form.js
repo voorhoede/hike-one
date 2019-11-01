@@ -126,23 +126,37 @@ class ContactForm extends Component {
     })
   }
 
+  componentDidMount() {
+    const { form, singleForm } = this.props;
+
+    if (singleForm) {
+      this.setState({
+        selectedItemId: form.forms[0].id,
+        selectedItemLabel: form.forms[0].label,
+        currentForm: form.forms[0],
+      })
+    }
+  }
+
   render() {
     const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state
-    const { form } = this.props
+    const { form, singleForm } = this.props
     const { title, selectInputLabel, thankYouMessage } = form
-    const forms = [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
+    const forms = singleForm ? form.forms : [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
 
     if (!isSent) {
       return (
         <div className='contact-form container'>
           <h2 className='form-title'>{title}</h2>
 
-          <SelectDropdown
-            label={selectInputLabel}
-            options={[...forms]}
-            handleClick={this.handleClick}
-            selectedItem={selectedItemLabel}
-          />
+          {( singleForm !== true) && (
+            <SelectDropdown
+              label={selectInputLabel}
+              options={[...forms]}
+              handleClick={this.handleClick}
+              selectedItem={selectedItemLabel}
+            />
+          )}
 
           {(selectedItemId === 'job-application') && (
             <div className='work-with-us'>
@@ -172,7 +186,7 @@ class ContactForm extends Component {
                     onChange={this.handleChange}
                     value={this.state[field.name]}
                     isRequired={field.required}
-                    autoFocus={index === 0}
+                    autoFocus={index === 0 && !singleForm}
                     formLength={currentForm.formFields.length}
                   />
                 ))}
@@ -201,6 +215,7 @@ class ContactForm extends Component {
 
 ContactForm.propTypes = {
   form: PropTypes.object,
+  singleForm: PropTypes.bool
 }
 
 export default ContactForm

@@ -1,6 +1,6 @@
 {
   "name": "hike-one",
-  "version": "2.40.3",
+  "version": "2.40.4",
   "description": "website for Hike One",
   "main": "server.js",
   "scripts": {

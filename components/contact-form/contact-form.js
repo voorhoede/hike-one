@@ -181,7 +181,7 @@ class ContactForm extends Component {
           )}
 
           {currentForm && (
-            <div>
+            <React.Fragment>
               <TextCenter
                 classes='text-center-text'
                 text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}
@@ -207,7 +207,7 @@ class ContactForm extends Component {
               <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
                 {currentForm.submitButtonLabel}
               </ButtonPrimary>
-            </div>
+            </React.Fragment>
           )}
         </div>
       )

@@ -13,6 +13,7 @@ import {
   CollageShapes,
   Contact,
   ContactShapes,
+  ContactForm,
   FiftyFifty,
   FiftyFiftyShapes,
   Footer,
@@ -284,6 +285,19 @@ const Case = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                     isExternalLink={component.isExternalLink}
                   />
                 )
+
+                case 'contact_form_component':
+                  return (
+                    <ContactForm
+                      key={index}
+                      singleForm={true}
+                      form={{
+                        forms: [component.form],
+                        thankYouMessage: component.thankYouMessage,
+                        title: component.title,
+                      }}
+                    />
+                  )
             }
           })}
 

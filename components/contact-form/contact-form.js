@@ -137,11 +137,81 @@ class ContactForm extends Component {
     })
   }
 
+  componentDidMount() {
+    const { form, singleForm } = this.props;
+
+    if (singleForm) {
+      this.setState({
+        selectedItemId: form.forms[0].id,
+        selectedItemLabel: form.forms[0].label,
+        currentForm: form.forms[0],
+      })
+    }
+  }
+
   render() {
     const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state
-    const { form } = this.props
+    const { form, singleForm } = this.props
     const { title, selectInputLabel, thankYouMessage } = form
-    const forms = [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
+    const forms = singleForm ? form.forms : [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
+
+    if (!isSent) {
+      return (
+        <div className='contact-form container'>
+          <h2 className='form-title'>{title}</h2>
+
+          {( singleForm !== true) && (
+            <SelectDropdown
+              label={selectInputLabel}
+              options={[...forms]}
+              handleClick={this.handleClick}
+              selectedItem={selectedItemLabel}
+            />
+          )}
+
+          {(selectedItemId === 'job-application') && (
+            <div className='work-with-us'>
+              <TextCenter
+                classes='text-center-font-large work-with-us-text'
+                text='Are you creative, smart, experimental, curious and result-driven? Join our team!'
+              />
+
+              <CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true} />
+            </div>
+          )}
+
+          {currentForm && (
+            <React.Fragment>
+              <TextCenter
+                classes='text-center-text'
+                text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}
+              />
+
+              <form className='form' onSubmit={this.handleSubmit}>
+                {currentForm.formFields.map((field, index) => (
+                  <InputField
+                    key={field.id}
+                    name={field.name}
+                    label={field.label}
+                    type={field.inputType}
+                    onChange={this.handleChange}
+                    value={this.state[field.name]}
+                    isRequired={field.required}
+                    autoFocus={index === 0 && !singleForm}
+                    formLength={currentForm.formFields.length}
+                  />
+                ))}
+
+                <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
+              </form>
+              <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
+                {currentForm.submitButtonLabel}
+              </ButtonPrimary>
+            </React.Fragment>
+          )}
+        </div>
+      )
+    }
 
     return (
       <div className='contact-form container'>
@@ -213,6 +283,7 @@ class ContactForm extends Component {
 
 ContactForm.propTypes = {
   form: PropTypes.object,
+  singleForm: PropTypes.bool
 }
 
 export default ContactForm

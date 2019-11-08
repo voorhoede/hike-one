@@ -38,7 +38,7 @@ const UpdateExtractSmall = ({
   }
 
   return (
-    <Link href={link ? link : `/update?slug=${slug}`} as={link ? link : `/${prefix}/${slug}`} prefetch={target ? false : null}>
+    <Link href={link ? link : `/${prefix}?slug=${slug}`} as={link ? link : `/${prefix}/${slug}`} prefetch={target ? false : null}>
       <a
         className="update-extract-small"
         target={target ? '_blank' : null}

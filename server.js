@@ -11,14 +11,14 @@ const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 
 const dev = process.env.NODE_ENV !== 'production'
-const isDevelopment = process.env.ENVIRONMENT === 'development'
-const isStaging = process.env.ENVIRONMENT === 'staging'
+const isDevelopment = process.env.NODE_ENV === 'development'
+const isStaging = process.env.NODE_ENV === 'staging'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()
 
 const startServer = () => {
-  const app = server.listen(isDevelopment ? 3000 : 0)
+  const app = server.listen(isDevelopment ? 3000 : process.env.PORT)
   // eslint-disable-next-line no-console
   console.info(`Server listening on http://localhost:${app.address().port}`)
 }

@@ -9,6 +9,7 @@ import {
   CaseExtractSmall,
   Contact,
   ContactShapes,
+  ContactForm,
   FiftyFifty,
   Footer,
   FullWidthHeader,
@@ -153,6 +154,19 @@ const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   />
                 )
               )
+
+              case 'contact_form_component':
+                return (
+                  <ContactForm
+                    key={index}
+                    singleForm={true}
+                    form={{
+                      forms: [component.form],
+                      thankYouMessage: component.thankYouMessage,
+                      title: component.title,
+                    }}
+                  />
+                )
           }
         })}
 

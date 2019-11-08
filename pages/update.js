@@ -9,6 +9,7 @@ import {
   CallToAction,
   Contact,
   ContactShapes,
+  ContactForm,
   FiftyFifty,
   Footer,
   FullWidthHeader,
@@ -157,6 +158,19 @@ const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   large={component.large}
                 />
               )
+
+              case 'contact_form_component':
+                return (
+                  <ContactForm
+                    key={index}
+                    singleForm={true}
+                    form={{
+                      forms: [component.form],
+                      thankYouMessage: component.thankYouMessage,
+                      title: component.title,
+                    }}
+                  />
+                )
           }
         })}
 

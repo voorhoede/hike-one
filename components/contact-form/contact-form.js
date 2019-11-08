@@ -184,7 +184,7 @@ class ContactForm extends Component {
             <React.Fragment>
               <TextCenter
                 classes='text-center-text'
-                text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a></p>`}
+                text={`<p>Send us a line using the form below, or e-mail us directly at <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">hello@hike.one</a>.</p>`}
               />
 
               <form className='form' onSubmit={this.handleSubmit}>

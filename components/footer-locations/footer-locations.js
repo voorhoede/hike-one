@@ -43,8 +43,8 @@ class FooterLocations extends Component {
 
         <div className="footer-locations-info">
           { selectedOffice === 'ams' && (
-            <Link prefetch={false} href="https://goo.gl/maps/pzQL8yUbENJCEKhN7">
-              <a target="_blank" rel="noopener noreferrer">
+            <Link href="/topic?slug=digital-designers-in-amsterdam" as="/topic/digital-designers-in-amsterdam">
+              <a>
                 020 204 45 77<br />
                 Rijnsburgstraat 9<br />
                 1059 AT Amsterdam<br />
@@ -54,8 +54,8 @@ class FooterLocations extends Component {
           )}
 
           { selectedOffice === 'rtm' && (
-            <Link prefetch={false} href="https://goo.gl/maps/ixuv7UgYbo63eFcz5">
-              <a target="_blank" rel="noopener noreferrer">
+            <Link href="/topic?slug=digital-designers-in-rotterdam" as="/topic/digital-designers-in-rotterdam">
+              <a>
                 010 30 703 10<br />
                 Schiedamsedijk 40a<br />
                 3011 ED Rotterdam<br />
@@ -65,8 +65,8 @@ class FooterLocations extends Component {
           )}
 
           { selectedOffice === 'ehv' && (
-            <Link prefetch={false} href="https://goo.gl/maps/pEFY8ftV9NCWEwJ28">
-              <a target="_blank" rel="noopener noreferrer">
+            <Link href="/topic?slug=digital-designers-in-eindhoven" as="/topic/digital-designers-in-eindhoven">
+              <a>
                 040 30 467 92<br />
                 Kastanjelaan 400 (Microlab)<br />
                 5616 LZ Eindhoven<br />

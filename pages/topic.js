@@ -70,6 +70,7 @@ const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
                   text={component.text}
                   image={component.image}
                   video={component.video}
+                  googleMapsIframe={component.googleMapsIframe}
                 />
               )
 

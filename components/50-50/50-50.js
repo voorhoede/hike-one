@@ -4,13 +4,14 @@ import setImageParams from '../_helpers/setImageParameters'
 import { InlineVideo } from '../'
 
 const FiftyFifty = ({
-  classes = '',
-  image = {},
-  title = '',
-  text = '',
   children,
-  imageLarge = false,
+  classes = '',
   contentLeft = false,
+  googleMapsIframe = null,
+  image = {},
+  imageLarge = false,
+  text = '',
+  title = '',
   video = null,
 }) => {
   const childrenArray = React.Children.toArray(children)
@@ -25,6 +26,10 @@ const FiftyFifty = ({
       {parallaxLayerBack}
       <div className="container-inner">
         <div className="fifty-fifty-media">
+          {googleMapsIframe && (
+            <div dangerouslySetInnerHTML={{ __html: googleMapsIframe }} />
+          )}
+
           {video && (
             <InlineVideo
               video={video}
@@ -94,13 +99,14 @@ const FiftyFifty = ({
 }
 
 FiftyFifty.propTypes = {
-  classes: PropTypes.node,
-  image: PropTypes.object,
-  title: PropTypes.string,
-  text: PropTypes.string,
   children: PropTypes.node,
-  imageLarge: PropTypes.bool,
+  classes: PropTypes.node,
   contentLeft: PropTypes.bool,
+  googleMapsIframe: PropTypes.string,
+  image: PropTypes.object,
+  imageLarge: PropTypes.bool,
+  text: PropTypes.string,
+  title: PropTypes.string,
   video: PropTypes.object,
 }
 

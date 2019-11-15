@@ -11,8 +11,8 @@ const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 
 const dev = process.env.NODE_ENV !== 'production'
-const isDevelopment = process.env.ENVIRONMENT === 'development'
-const isStaging = process.env.ENVIRONMENT === 'staging'
+const isDevelopment = process.env.NODE_ENV === 'development'
+const isStaging = process.env.NODE_ENV === 'staging'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()

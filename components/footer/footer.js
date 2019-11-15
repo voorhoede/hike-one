@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 
 import {
-  FooterLocations,
   Logo,
   MailchimpForm,
   SocialMedia
@@ -61,11 +60,6 @@ class Footer extends Component {
               <div className="footer-links">
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/team?slug=culture" as="/team/culture">
-                      <a>Team</a>
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/service?slug=new-product-design" as="/service/new-product-design">
                       <a>Services</a>
                     </Link>
@@ -76,13 +70,23 @@ class Footer extends Component {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/updates">
+                      <a>Updates</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/team?slug=culture" as="/team/culture">
+                      <a>Team</a>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/contact">
                       <a>Contact</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/updates">
-                      <a>Updates</a>
+                    <Link href="https://hikeone.homerun.co/">
+                      <a target="_blank">Jobs</a>
                     </Link>
                   </li>
                 </ul>
@@ -99,16 +103,35 @@ class Footer extends Component {
 
             <div className="footer-right">
               <div className="footer-contact">
-                <a href="tel:+31-202044577" className="footer-contact-tel">
-                  +31 20 204 45 77
-                </a>
+                <h3>Get in touch</h3>
                 <a href="mailto:hello@hike.one" className="footer-contact-email">
                   hello@hike.one
                 </a>
+                <a href="tel:+31-202044577" className="footer-contact-tel">
+                  +31 20 204 45 77
+                </a>
               </div>
-
-              <FooterLocations />
               <SocialMedia />
+              <div className="footer-links">
+                <h3>Our offices</h3>
+                <ul className="footer-link-list">
+                  <li>
+                    <Link href="/topic?slug=digital-designers-in-amsterdam" as="/topic/digital-designers-in-amsterdam">
+                      <a>Amsterdam</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/topic?slug=digital-designers-in-rotterdam" as="/topic/digital-designers-in-rotterdam">
+                      <a>Rotterdam</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/topic?slug=digital-designers-in-eindhoven" as="/topic/digital-designers-in-eindhoven">
+                      <a>Eindhoven</a>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
 

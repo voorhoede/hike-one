@@ -36,7 +36,7 @@ if [[ "$TRAVIS_BRANCH" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     -t "$NOW_TOKEN" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
-    -e NODE_ENV="$deployment";
+    -e ENVIRONMENT="$deployment";
 
   npx now alias -t "$NOW_TOKEN";
 
@@ -55,7 +55,7 @@ elif [ "$TRAVIS_BRANCH" == 'master' ] && [ -z "$TRAVIS_PULL_REQUEST_BRANCH" ]; t
     -n "hike-one-${deployment}" \
     -e RELOAD_TOKEN="$RELOAD_TOKEN" \
     -e DATO_URL="$webhook_url" \
-    -e NODE_ENV="$deployment" \
+    -e ENVIRONMENT="$deployment" \
     -e STAGING_USER="$STAGING_USER" \
     -e STAGING_SECRET="$STAGING_SECRET" \
     -m ID="$meta";

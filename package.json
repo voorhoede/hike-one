@@ -1,6 +1,6 @@
 {
   "name": "hike-one",
-  "version": "2.41.1",
+  "version": "2.41.2",
   "description": "website for Hike One",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "prebuild": "rimraf build/ && mkdir build/",
     "build": "npm-run-all --serial build:dato build:css build:next",
     "build:dato": "npm run build:dato:dump",
-    "build:dato:staging": "NODE_ENV=staging npm run build:dato",
+    "build:dato:staging": "ENVIRONMENT=staging npm run build:dato",
     "build:dato:dump": "node bin/dump-data",
     "build:next": "next build",
     "build:css": "node tasks/build-css.js",

@@ -232,7 +232,7 @@ class MenuBar extends Component {
                 </Link>
               </li>
               <li className="menu-item">
-                <Link href="/service?slug=new-product-design" as="/service/new-product-design">
+                <Link href="/services-overview" as="/services">
                   <a>Services</a>
                 </Link>
               </li>

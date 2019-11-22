@@ -112,6 +112,7 @@ class MenuBar extends Component {
   }
 
   onClickMenu() {
+    document.body.classList.remove(this.disableScrollClass)
     this.hamburger.reverseAnimation()
     this.tlMenu.timeScale(1.75).reverse()
 
@@ -176,7 +177,7 @@ class MenuBar extends Component {
           <ContextMenu isOpen={contextMenuIsOpen} />
         </div>
 
-        <button className="menu-btn" onClick={this.toggleMenu}>
+        <button className="menu-btn" onClick={(e) => this.toggleMenu(e)}>
           <svg
             className="menu-btn-background"
             xmlns="http://www.w3.org/2000/svg"

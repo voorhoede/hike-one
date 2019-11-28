@@ -72,6 +72,7 @@ import RichBodyText from './rich-body-text/rich-body-text.js'
 import SelectDropdown from './select-dropdown/select-dropdown.js'
 import ServiceItem from './service-item/service-item.js'
 import ServicesOverview from './services-overview/services-overview.js'
+import ServicesOverviewPage from './services-overview-page/services-overview-page.js'
 import SocialMedia from './social-media/social-media.js'
 import SocialShare from './social-share/social-share.js'
 import StatisticsBlock from './statistics-block/statistics-block.js'
@@ -168,6 +169,7 @@ export {
   SelectDropdown,
   ServiceItem,
   ServicesOverview,
+  ServicesOverviewPage,
   SocialMedia,
   SocialShare,
   StatisticsBlock,

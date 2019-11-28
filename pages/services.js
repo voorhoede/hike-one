@@ -7,18 +7,47 @@ import {
   Footer,
   Layout,
   MenuBar,
+  PageHeader,
+  ServicesOverview,
+  ServicesOverviewPage,
 } from '../components'
 
 const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
   <Layout
-    title="Hike One - Home"
+    title="Hike One - Services"
     fontsLoaded={fontsLoaded}
     seo={data.seo}
     url={fullUrl}>
     <main className="main js-main">
 
       <MenuBar color="white" />
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+
+      <article className="article">
+        <PageHeader
+          isSmall={true}
+          title={data.header.title}
+          subtitle={data.header.subtitle}
+          image={data.header.backgroundImage.url}
+        />
+
+        <div className="services-overview-page page-scrolling-content-small">
+          <ServicesOverview
+            title={data.servicesItemTitle}
+            body={data.servicesItemBody}
+            services={data.serviceItems}
+          />
+
+          <ServicesOverviewPage
+            highlightedCasesTitle={data.highlightedCasesTitle}
+            highlightedCasesBody={data.highlightedCasesBody}
+            highlightedCases={data.highlightedCases}
+            highlightedUpdatesTitle={data.highlightedUpdatesTitle}
+            highlightedUpdatesBody={data.highlightedUpdatesBody}
+            highlightedUpdates={data.highlightedUpdates}
+          />
+        </div>
+      </article>
+
       <Footer form={footer.form} />
 
     </main>

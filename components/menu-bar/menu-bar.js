@@ -112,6 +112,7 @@ class MenuBar extends Component {
   }
 
   onClickMenu() {
+    document.body.classList.remove(this.disableScrollClass)
     this.hamburger.reverseAnimation()
     this.tlMenu.timeScale(1.75).reverse()
 

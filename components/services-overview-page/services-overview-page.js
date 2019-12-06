@@ -24,8 +24,6 @@ class ServicesOverviewPage extends Component {
       highlightedUpdates = [],
     } = this.props
 
-    console.log(contact);
-
     return (
       <div className="services-overview-page">
         { Object.entries(contact).length !== 0 && contact.constructor === Object && (

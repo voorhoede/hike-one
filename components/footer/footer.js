@@ -60,7 +60,7 @@ class Footer extends Component {
               <div className="footer-links">
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/service?slug=new-product-design" as="/service/new-product-design">
+                    <Link href="/services-overview" as="/services">
                       <a>Services</a>
                     </Link>
                   </li>

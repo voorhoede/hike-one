@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { ServiceItem } from '../'
+import { ServiceItem, TextCenter } from '../'
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes.js'
 import { TimelineLite } from 'gsap'
 
@@ -88,11 +88,11 @@ class ServicesOverview extends Component {
   }
 
   render() {
-    const { services = [], title = '', classes = '' } = this.props
+    const { services = [], title = '', body = '', classes = '' } = this.props
 
     return (
       <div className={`services-overview container clearfix ${classes}`}>
-        <div className="services-overview__header">{title}</div>
+        <TextCenter title={title} text={body} />
         <div className="container-inner">
           {Object.values(services).map((item, index) => (
             <ServiceItem
@@ -111,6 +111,7 @@ class ServicesOverview extends Component {
 ServicesOverview.propTypes = {
   services: PropTypes.array,
   title: PropTypes.string,
+  body: PropTypes.string,
   classes: PropTypes.string,
 }
 

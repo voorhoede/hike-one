@@ -10,6 +10,7 @@ module.exports = (dato, root) => {
     dir.createDataFile('home.json', 'json', dato.home.toMap())
     dir.createDataFile('people.json', 'json',  sortBy(mapCollection(dato.collectionsByType.people), 'name'))
     dir.createDataFile('redirects.json', 'json', redirectsToJson(dato.redirects))
+    dir.createDataFile('services-overview.json', 'json', dato.servicesOverview.toMap())
     dir.createDataFile('services.json', 'json', mapCollection(dato.services))
     dir.createDataFile('team.json', 'json', dato.team.toMap())
     dir.createDataFile('team-images-21.json', 'json', dato.collectionsByType.teamImage21S[0].toMap())

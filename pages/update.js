@@ -39,6 +39,7 @@ const Update = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
       <article className="article">
         <FullWidthHeader
           headerImage={data.headerImage.url}
+          imagePositionCenter={data.imagePositionCenter}
           color={data.color.hex}
           title={data.title}
           authorName={data.authors.map(author => author.name).join(', ')}

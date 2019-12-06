@@ -42,6 +42,7 @@ const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
         <FullWidthHeader
           headerImage={data.headerImage.url}
           headerImageLarger={data.headerImageLarger}
+          imagePositionCenter={data.imagePositionCenter}
           color={data.color.hex}
           title={data.title}
           titleOnly={true}

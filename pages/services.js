@@ -38,6 +38,7 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
           />
 
           <ServicesOverviewPage
+            contact={data.contactCta}
             highlightedCasesTitle={data.highlightedCasesTitle}
             highlightedCasesBody={data.highlightedCasesBody}
             highlightedCases={data.highlightedCases}

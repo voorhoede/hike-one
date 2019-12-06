@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { CaseExtractSmall, UpdateExtractSmall, TextCenter } from '../'
+import {
+  CaseExtractSmall,
+  Contact,
+  ContactShapes,
+  UpdateExtractSmall,
+  TextCenter
+} from '../'
 
 class ServicesOverviewPage extends Component {
   constructor(props) {
@@ -9,6 +15,7 @@ class ServicesOverviewPage extends Component {
 
   render() {
     const {
+      contact = {},
       highlightedCasesTitle = '',
       highlightedCasesBody = '',
       highlightedCases = [],
@@ -17,8 +24,18 @@ class ServicesOverviewPage extends Component {
       highlightedUpdates = [],
     } = this.props
 
+    console.log(contact);
+
     return (
       <div className="services-overview-page">
+        { Object.entries(contact).length !== 0 && contact.constructor === Object && (
+          <Contact
+              title={contact.title}
+              button={contact.button}
+              link={contact.externalLink}>
+              <ContactShapes.variation1Front position="front" />
+          </Contact>
+        )}
         <section className="work-overview">
           <div className="container">
             <TextCenter title={highlightedCasesTitle} text={highlightedCasesBody} />
@@ -66,6 +83,7 @@ class ServicesOverviewPage extends Component {
 }
 
 ServicesOverviewPage.propTypes = {
+  contact: PropTypes.object,
   highlightedCasesTitle: PropTypes.string,
   highlightedCasesBody: PropTypes.string,
   highlightedCases: PropTypes.array,

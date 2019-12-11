@@ -46,7 +46,7 @@ class ServicesOverviewPage extends Component {
                   image={item.image}
                   companyName={item.case.companyName}
                   color={item.case.caseThemeColor.hex}
-                  slug={item.case.slugs}
+                  slug={item.case.slug}
                 />
               ))}
             </div>

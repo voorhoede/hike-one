@@ -10,7 +10,7 @@ class PageHeaderNew extends Component {
     this.colorByName = {
       diamond: '#fe595b',
       doubleDiamond: '#45d33c',
-      triangles: '#ffe044',
+      triangles: '#8415BC',
     }
     this.state = {
       currentColor: '#ffffff',

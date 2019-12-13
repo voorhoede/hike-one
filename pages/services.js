@@ -22,12 +22,12 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
 
       <MenuBar color="white" />
 
-      <article className="article">
+      <article className="article services">
         <PageHeader
-          isSmall={true}
-          title={data.header.title}
-          subtitle={data.header.subtitle}
           image={data.header.backgroundImage.url}
+          isSmall={true}
+          subtitle={data.header.subtitle}
+          title={data.header.title}
         />
 
         <div className="services-overview-page page-scrolling-content-small">

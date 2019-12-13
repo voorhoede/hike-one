@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import scrollToElement from '../_helpers/scrollToElement'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import scrollToElement from '../_helpers/scrollToElement';
 
 import {
   ButtonPrimary,
@@ -8,95 +8,95 @@ import {
   InputField,
   SelectDropdown,
   TextCenter
-} from '../'
-
+} from '../';
 
 class ContactForm extends Component {
   constructor(props) {
-    super(props)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleChange = this.handleChange.bind(this)
-    this.formatEmailSubject = this.formatEmailSubject.bind(this)
-    this.getFormData = this.getFormData.bind(this)
-    this.isFormValid = this.isFormValid.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.clearForm = this.clearForm.bind(this)
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.formatEmailSubject = this.formatEmailSubject.bind(this);
+    this.getFormData = this.getFormData.bind(this);
+    this.isFormValid = this.isFormValid.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearForm = this.clearForm.bind(this);
     this.state = {
       selectedItemId: '',
       currentForm: null,
       _gotcha: '', // avoids spam by fooling scrapers
       isSent: false,
-      formData: {},
-    }
+      formData: {}
+    };
   }
 
   handleClick(id, label) {
     this.setState({
       selectedItemId: id,
       selectedItemLabel: label,
-      currentForm: this.props.form.forms.find(form => form.id === id),
-    })
+      currentForm: this.props.form.forms.find(form => form.id === id)
+    });
   }
 
   handleChange(e) {
     this.setState({
       formData: {
         ...this.state.formData,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.value
       }
-    })
+    });
   }
 
   formatEmailSubject() {
-    const { currentForm, formData } = this.state
+    const { currentForm, formData } = this.state;
 
     return currentForm.emailMessageSubject
       .split(' ')
       .map(word => {
         if (word.indexOf('[') !== -1) {
-          const name = word.substring(1, word.length -1)
-          return formData[name]
+          const name = word.substring(1, word.length - 1);
+          return formData[name];
         }
-        return word
+        return word;
       })
-      .join(' ')
+      .join(' ');
   }
 
   getFormData() {
-    const { formData } = this.state
-    const emailSubject = this.formatEmailSubject()
+    const { formData } = this.state;
+    const emailSubject = this.formatEmailSubject();
 
-    return { _subject: emailSubject, _format: 'plain', ...formData }
+    return { _subject: emailSubject, _format: 'plain', ...formData };
   }
 
   isFormValid() {
-    const { currentForm, formData, _gotcha } = this.state
-    const isValid = currentForm.formFields
-      .filter(field => field.required)
-      .map(field => field.name)
-      .map(name => {
-        if (name === 'email') {
-          return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name])
-        }
+    const { currentForm, formData, _gotcha } = this.state;
+    const isValid =
+      currentForm.formFields
+        .filter(field => field.required)
+        .map(field => field.name)
+        .map(name => {
+          if (name === 'email') {
+            return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name]);
+          }
 
-        return formData[name].length >= 2
-      })
-      .indexOf(false) === -1
+          return formData[name].length >= 2;
+        })
+        .indexOf(false) === -1;
 
-    const isSpam = _gotcha.length > 0
+    const isSpam = _gotcha.length > 0;
 
-    return isValid && !isSpam
+    return isValid && !isSpam;
   }
 
   handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!this.isFormValid) {
-      return
+      return;
     }
 
-    const { currentForm } = this.state
-    const formData = this.getFormData()
+    const { currentForm } = this.state;
+    const formData = this.getFormData();
 
     return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
       method: 'POST',
@@ -107,25 +107,28 @@ class ContactForm extends Component {
       },
       body: JSON.stringify(formData)
     })
-    .then((e) => {
-      switch (e.status) {
-        case (200): {
-          this.clearForm()
+      .then(e => {
+        switch (e.status) {
+          case 200: {
+            this.clearForm();
 
-          this.setState({ isSent: true })
-          scrollToElement('message-sent')
-          break
+            this.setState({ isSent: true });
+            scrollToElement('message-sent');
+            break;
+          }
+          case 403: {
+            console.error(
+              "In order to submit via AJAX, in this form's reCAPTCHA must be disabled.",
+              e
+            );
+            break;
+          }
+          default: {
+            console.error('Something went wrong: ', e);
+          }
         }
-        case (403): {
-          console.error('In order to submit via AJAX, in this form\'s reCAPTCHA must be disabled.', e)
-          break
-        }
-        default: {
-          console.error('Something went wrong: ', e)
-        }
-      }
-    })
-    .catch((e) => console.error(e))
+      })
+      .catch(e => console.error(e));
   }
 
   clearForm() {
@@ -133,8 +136,8 @@ class ContactForm extends Component {
       selectedItemId: '',
       currentForm: null,
       _gotcha: '', // avoids spam by fooling scrapers
-      formData: {},
-    })
+      formData: {}
+    });
   }
 
   componentDidMount() {
@@ -144,23 +147,34 @@ class ContactForm extends Component {
       this.setState({
         selectedItemId: form.forms[0].id,
         selectedItemLabel: form.forms[0].label,
-        currentForm: form.forms[0],
-      })
+        currentForm: form.forms[0]
+      });
     }
   }
 
   render() {
-    const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state
-    const { form, singleForm } = this.props
-    const { title, selectInputLabel, thankYouMessage } = form
-    const forms = singleForm ? form.forms : [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
+    const {
+      _gotcha,
+      isSent,
+      currentForm,
+      selectedItemId,
+      selectedItemLabel
+    } = this.state;
+    const { form, singleForm, showBody = true } = this.props;
+    const { title, selectInputLabel, thankYouMessage } = form;
+    const forms = singleForm
+      ? form.forms
+      : [
+          ...form.forms,
+          { title: 'Working at Hike One', id: 'job-application' }
+        ];
 
     if (!isSent) {
       return (
-        <div className='contact-form container'>
+        <div className={`contact-form ${showBody ? '' : 'no-body'} container`}>
           <h2 className='form-title'>{title}</h2>
 
-          {( singleForm !== true) && (
+          {singleForm !== true && (
             <SelectDropdown
               label={selectInputLabel}
               options={[...forms]}
@@ -169,23 +183,29 @@ class ContactForm extends Component {
             />
           )}
 
-          {(selectedItemId === 'job-application') && (
+          {selectedItemId === 'job-application' && (
             <div className='work-with-us'>
               <TextCenter
                 classes='text-center-font-large work-with-us-text'
                 text='Are you creative, smart, experimental, curious and result-driven? Join our team!'
               />
 
-              <CallToAction buttonText='See all opportunities' url='https://hikeone.homerun.co/' isExternalLink={true} />
+              <CallToAction
+                buttonText='See all opportunities'
+                url='https://hikeone.homerun.co/'
+                isExternalLink={true}
+              />
             </div>
           )}
 
           {currentForm && (
             <React.Fragment>
-              <TextCenter
-                classes='text-center-text'
-                text={`<p>Drop us a line using the form below, or e-mail us directly at <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">hello@hike.one</a></p>`}
-              />
+              {showBody && (
+                <TextCenter
+                  classes='text-center-text'
+                  text={`<p>Drop us a line using the form below, or e-mail us directly at <a href='mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}'>hello@hike.one</a></p>`}
+                />
+              )}
 
               <form className='form' onSubmit={this.handleSubmit}>
                 {currentForm.formFields.map((field, index) => (
@@ -202,15 +222,24 @@ class ContactForm extends Component {
                   />
                 ))}
 
-                <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
+                <input
+                  type='hidden'
+                  name='_gotcha'
+                  value={_gotcha}
+                  style={{ display: 'none' }}
+                  onChange={this.handleChange}
+                />
               </form>
-              <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
+              <ButtonPrimary
+                classes='submit-btn btn-primary btn-large'
+                onClick={this.handleSubmit}
+              >
                 {currentForm.submitButtonLabel}
               </ButtonPrimary>
             </React.Fragment>
           )}
         </div>
-      )
+      );
     }
 
     return (
@@ -224,7 +253,7 @@ class ContactForm extends Component {
           selectedItem={selectedItemLabel}
         />
 
-        {(selectedItemId === 'job-application') && (
+        {selectedItemId === 'job-application' && (
           <div className='work-with-us'>
             <TextCenter
               classes='text-center-font-large work-with-us-text'
@@ -243,7 +272,7 @@ class ContactForm extends Component {
           <React.Fragment>
             <TextCenter
               classes='text-center-text'
-              text={`<p>Send us a line using the form below, <a href="mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}">or e-mail us directly</a>.</p>`}
+              text={`<p>Send us a line using the form below, <a href='mailto:hello@hike.one?subject=Let's talk about ${selectedItemLabel}'>or e-mail us directly</a>.</p>`}
             />
 
             <form className='form' onSubmit={this.handleSubmit}>
@@ -260,15 +289,24 @@ class ContactForm extends Component {
                   formLength={currentForm.formFields.length}
                 />
               ))}
-              <input type="hidden" name="_gotcha" value={_gotcha} style={{ display: 'none' }} onChange={this.handleChange} />
+              <input
+                type='hidden'
+                name='_gotcha'
+                value={_gotcha}
+                style={{ display: 'none' }}
+                onChange={this.handleChange}
+              />
             </form>
-            <ButtonPrimary classes='submit-btn btn-primary btn-large' onClick={this.handleSubmit}>
+            <ButtonPrimary
+              classes='submit-btn btn-primary btn-large'
+              onClick={this.handleSubmit}
+            >
               {currentForm.submitButtonLabel}
             </ButtonPrimary>
           </React.Fragment>
         )}
 
-        { isSent && (
+        {isSent && (
           <div className='message-sent container'>
             <TextCenter
               classes='text-center-font-large text-center-spacing-small'
@@ -277,13 +315,14 @@ class ContactForm extends Component {
           </div>
         )}
       </div>
-    )
+    );
   }
 }
 
 ContactForm.propTypes = {
   form: PropTypes.object,
-  singleForm: PropTypes.bool
-}
+  showBody: PropTypes.bool,
+  singleForm: PropTypes.bool,
+};
 
-export default ContactForm
+export default ContactForm;

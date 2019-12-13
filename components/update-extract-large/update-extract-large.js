@@ -22,16 +22,16 @@ const UpdateExtractLarge = ({
   const style = {
     __html: `<style>
       .update-extract-large-image-${index} {
-        background-image: url('${setImageParams(image, { fit: 'crop', w: 550, h: 200 })}');
+        background-image: url('${setImageParams(image, { fit: 'crop', crop: 'faces', w: 550, h: 200 })}');
       }
       @media (min-width: 768px) {
         .update-extract-large-image-${index} {
-          background-image: url('${setImageParams(image, { fit: 'crop', w: 600, h: 500 })}');
+          background-image: url('${setImageParams(image, { fit: 'crop', crop: 'faces', w: 600, h: 500 })}');
         }
       }
       @media (min-width: 1024px) {
         .update-extract-large-image-${index} {
-          background-image: url('${setImageParams(image, { fit: 'crop', w: 700, h: 500 })}');
+          background-image: url('${setImageParams(image, { fit: 'crop', crop: 'faces', w: 700, h: 500 })}');
         }
       }
     </style>`,

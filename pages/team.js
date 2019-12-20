@@ -47,6 +47,7 @@ const Team = ({
           title={team.header.title}
           subtitle={team.header.subtitle}
           image={team.header.backgroundImage.url}
+          video={team.header.video ? team.header.video : null}
         />
 
         <div className={`page-scrolling-content-small`}>

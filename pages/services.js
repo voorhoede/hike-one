@@ -28,6 +28,7 @@ const Home = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
           isSmall={true}
           subtitle={data.header.subtitle}
           title={data.header.title}
+          video={data.header.video ? data.header.video : null}
         />
 
         <div className="services-overview-page page-scrolling-content-small">

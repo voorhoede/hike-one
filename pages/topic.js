@@ -60,7 +60,11 @@ const Topic = ({ data = {}, footer = {}, fontsLoaded = '', fullUrl = '' }) => (
               )
 
             case 'body_quote':
-              return <BodyQuote key={index} quote={component.quote} />
+              return <BodyQuote
+                       key={index}
+                       quote={component.quote}
+                       quotee={component.quotee}
+                     />
 
             case '50_50':
               return (

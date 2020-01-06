@@ -44,6 +44,7 @@ const Contact = ({
           title={data.header.title}
           subtitle={data.header.subtitle}
           image={data.header.backgroundImage.url}
+          video={data.header.video ? data.header.video : null}
         />
 
         <div className='page-scrolling-content-small'>

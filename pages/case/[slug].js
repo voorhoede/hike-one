@@ -67,7 +67,7 @@ const parallaxLayersMap = {
 let componentCounter = {};
 
 const Page = ({ workcase, footer }) => (
-	<div>
+	<>
 		<Head
 			title={workcase.seo.title}
 			description={workcase.seo.description}
@@ -77,7 +77,7 @@ const Page = ({ workcase, footer }) => (
 
 		<MenuBar color="white" />
 
-		<main>
+		<div className="layout-parallax">
 			<PageHeader
 				onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
 				video={workcase.header.video}
@@ -87,7 +87,7 @@ const Page = ({ workcase, footer }) => (
 				showGradient={workcase.header.displayGradient}
 			/>
 
-			<div className={`${scrollToTargetClass} page-scrolling-content`}>
+			<main className={`${scrollToTargetClass} page-scrolling-content`}>
 				<TextCenter title={workcase.introTitle} text={workcase.introText}>
 					<TextCenterShapes.variation1Back position="back" />
 				</TextCenter>
@@ -319,48 +319,48 @@ const Page = ({ workcase, footer }) => (
 							);
 					}
 				})}
-			</div>
-		</main>
+			</main>
 
-		<Contact
-			title={workcase.contact.title}
-			button={workcase.contact.button}
-			link={workcase.contact.externalLink}
-		>
-			<ContactShapes position="front" />
-		</Contact>
+			<Contact
+				title={workcase.contact.title}
+				button={workcase.contact.button}
+				link={workcase.contact.externalLink}
+			>
+				<ContactShapes position="front" />
+			</Contact>
 
-		<WorkOverview>
-			{workcase.caseExtract.map((item, index) => (
-				<CaseExtractSmall
-					key={index}
-					title={item.header.title}
-					subtitle={item.header.subtitle}
-					image={item.header.backgroundImage}
-					companyName={item.companyName}
-					color={item.caseThemeColor.hex}
-					slug={item.slug}
-				/>
-			))}
-		</WorkOverview>
+			<WorkOverview>
+				{workcase.caseExtract.map((item, index) => (
+					<CaseExtractSmall
+						key={index}
+						title={item.header.title}
+						subtitle={item.header.subtitle}
+						image={item.header.backgroundImage}
+						companyName={item.companyName}
+						color={item.caseThemeColor.hex}
+						slug={item.slug}
+					/>
+				))}
+			</WorkOverview>
 
-		<UpdateLinks>
-			{workcase.updateLinks.map((item, index) => (
-				<UpdateLink
-					key={index}
-					author={item.authors.map(author => author.name).join(', ')}
-					date={getDateFormat(item.date)}
-					link={item.externalLink}
-					slug={item.slug}
-					target={item.externalLink}
-					topic={item.topic}
-					title={item.title}
-				/>
-			))}
-		</UpdateLinks>
+			<UpdateLinks>
+				{workcase.updateLinks.map((item, index) => (
+					<UpdateLink
+						key={index}
+						author={item.authors.map(author => author.name).join(', ')}
+						date={getDateFormat(item.date)}
+						link={item.externalLink}
+						slug={item.slug}
+						target={item.externalLink}
+						topic={item.topic}
+						title={item.title}
+					/>
+				))}
+			</UpdateLinks>
+		</div>
 
 		<Footer form={footer.form} />
-	</div>
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query }) =>

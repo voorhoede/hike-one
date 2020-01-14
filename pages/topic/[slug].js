@@ -25,7 +25,7 @@ import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
 const Page = ({ topic, footer }) => (
-	<main className="main js-main">
+	<>
 		<Head
 			title={topic.seo.title}
 			description={topic.seo.description}
@@ -35,7 +35,7 @@ const Page = ({ topic, footer }) => (
 
 		<MenuBar color="white" />
 
-		<article className="article">
+		<div className="layout-parallax">
 			<FullWidthHeader
 				headerImage={topic.headerImage.url}
 				headerImageLarger={topic.headerImageLarger}
@@ -45,134 +45,136 @@ const Page = ({ topic, footer }) => (
 				titleOnly={true}
 			/>
 
-			{topic.content.map((component, index) => {
-				switch (component.itemType) {
-					case 'rich_body_text':
-						return (
-							<RichBodyText
-								key={index}
-								content={component.content}
-								textCenter={component.centered}
-							/>
-						);
-
-					case 'body_quote':
-						return <BodyQuote key={index} quote={component.quote} />;
-
-					case '50_50':
-						return (
-							<FiftyFifty
-								key={index}
-								contentLeft={component.textLeft}
-								title={component.title}
-								text={component.text}
-								image={component.image}
-								video={component.video}
-								googleMapsIframe={component.googleMapsIframe}
-							/>
-						);
-
-					case '50_50_text_right':
-						return (
-							<FiftyFifty
-								key={index}
-								title={component.title}
-								text={component.text}
-								image={component.image}
-							/>
-						);
-
-					case '50_50_text_left':
-						return (
-							<FiftyFifty
-								key={index}
-								contentLeft={true}
-								title={component.title}
-								text={component.text}
-								image={component.image}
-							/>
-						);
-
-					case 'inline_image':
-						return (
-							<InlineMedia
-								key={index}
-								image={component.image}
-								caption={component.caption}
-							/>
-						);
-
-					case 'inline_image_large':
-						return (
-							<InlineMedia
-								key={index}
-								large={true}
-								image={component.image}
-								caption={component.caption}
-							/>
-						);
-
-					case 'full_width_image_small':
-						return (
-							<FullWidthImageSmall
-								key={index}
-								index={index}
-								image={component.image.url}
-							/>
-						);
-
-					case 'logo_carousel':
-						return (
-							<LogoCarousel
-								key={index}
-								title={component.title}
-								companies={component.companies}
-							/>
-						);
-
-					case 'call_to_action':
-						return (
-							<CallToAction
-								key={index}
-								title={component.title}
-								buttonText={component.buttonText}
-								url={component.url}
-								bgColor={component.bgColor && component.bgColor.hex}
-								titleWhite={component.titleWhite}
-								fullWidth={component.fullWidth}
-								isExternalLink={component.isExternalLink}
-							/>
-						);
-
-					case 'subscription_form':
-						return (
-							component.subscriptionForm && (
-								<MailchimpForm
+			<main className="page-scrolling-content-small">
+				{topic.content.map((component, index) => {
+					switch (component.itemType) {
+						case 'rich_body_text':
+							return (
+								<RichBodyText
 									key={index}
-									title={component.subscriptionForm.title}
-									listId={component.subscriptionForm.listId}
-									description={component.subscriptionForm.description}
-									inputFields={component.subscriptionForm.extraInputFields}
-									buttonLabel={component.subscriptionForm.button}
-									hasShadow={component.subscriptionForm.hasShadow}
+									content={component.content}
+									textCenter={component.centered}
 								/>
-							)
-						);
+							);
 
-					case 'contact_form_component':
-						return (
-							<ContactForm
-								key={index}
-								singleForm={true}
-								form={{
-									forms: [component.form],
-									thankYouMessage: component.thankYouMessage,
-									title: component.title,
-								}}
-							/>
-						);
-				}
-			})}
+						case 'body_quote':
+							return <BodyQuote key={index} quote={component.quote} />;
+
+						case '50_50':
+							return (
+								<FiftyFifty
+									key={index}
+									contentLeft={component.textLeft}
+									title={component.title}
+									text={component.text}
+									image={component.image}
+									video={component.video}
+									googleMapsIframe={component.googleMapsIframe}
+								/>
+							);
+
+						case '50_50_text_right':
+							return (
+								<FiftyFifty
+									key={index}
+									title={component.title}
+									text={component.text}
+									image={component.image}
+								/>
+							);
+
+						case '50_50_text_left':
+							return (
+								<FiftyFifty
+									key={index}
+									contentLeft={true}
+									title={component.title}
+									text={component.text}
+									image={component.image}
+								/>
+							);
+
+						case 'inline_image':
+							return (
+								<InlineMedia
+									key={index}
+									image={component.image}
+									caption={component.caption}
+								/>
+							);
+
+						case 'inline_image_large':
+							return (
+								<InlineMedia
+									key={index}
+									large={true}
+									image={component.image}
+									caption={component.caption}
+								/>
+							);
+
+						case 'full_width_image_small':
+							return (
+								<FullWidthImageSmall
+									key={index}
+									index={index}
+									image={component.image.url}
+								/>
+							);
+
+						case 'logo_carousel':
+							return (
+								<LogoCarousel
+									key={index}
+									title={component.title}
+									companies={component.companies}
+								/>
+							);
+
+						case 'call_to_action':
+							return (
+								<CallToAction
+									key={index}
+									title={component.title}
+									buttonText={component.buttonText}
+									url={component.url}
+									bgColor={component.bgColor && component.bgColor.hex}
+									titleWhite={component.titleWhite}
+									fullWidth={component.fullWidth}
+									isExternalLink={component.isExternalLink}
+								/>
+							);
+
+						case 'subscription_form':
+							return (
+								component.subscriptionForm && (
+									<MailchimpForm
+										key={index}
+										title={component.subscriptionForm.title}
+										listId={component.subscriptionForm.listId}
+										description={component.subscriptionForm.description}
+										inputFields={component.subscriptionForm.extraInputFields}
+										buttonLabel={component.subscriptionForm.button}
+										hasShadow={component.subscriptionForm.hasShadow}
+									/>
+								)
+							);
+
+						case 'contact_form_component':
+							return (
+								<ContactForm
+									key={index}
+									singleForm={true}
+									form={{
+										forms: [component.form],
+										thankYouMessage: component.thankYouMessage,
+										title: component.title,
+									}}
+								/>
+							);
+					}
+				})}
+			</main>
 
 			{topic.contact && (
 				<Contact
@@ -228,10 +230,10 @@ const Page = ({ topic, footer }) => (
 					</UpdateOverviewSmall>
 				</React.Fragment>
 			)}
-		</article>
+		</div>
 
 		<Footer form={footer.form} />
-	</main>
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>

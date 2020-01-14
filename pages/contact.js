@@ -22,7 +22,7 @@ if (!process.browser) {
 }
 
 const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
-	<div className="contact-page">
+	<>
 		<Head
 			title={contactPage.seo.title}
 			description={contactPage.seo.description}
@@ -39,7 +39,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 			image={contactPage.header.backgroundImage.url}
 		/>
 
-		<main className="page-scrolling-content-small">
+		<main className="contact-page page-scrolling-content-small">
 			<div className="contact-details container">
 				<h2>Contact us at</h2>
 				<a className="contact-details__tel" href="tel:+31-202044577">
@@ -75,8 +75,8 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 			</OfficeOverview>
 		</main>
 
-		<Footer form={footer.form} />
-	</div>
+		<Footer form={footer.form} disableParallax />
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query }) =>

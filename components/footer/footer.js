@@ -17,7 +17,7 @@ class Footer extends Component {
 
 	componentDidMount() {
 		const { disableParallax } = this.props;
-		this.mainContainer = document.querySelector('.js-main');
+		this.mainContainer = document.querySelector('#__next');
 
 		if (
 			typeof window.requestAnimationFrame !== 'undefined' &&
@@ -30,6 +30,8 @@ class Footer extends Component {
 
 	componentWillUnmount() {
 		this.resizeObserver.disconnect();
+		this.footer.classList.remove('is-fixed');
+		this.mainContainer.style.paddingBottom = `0px`;
 	}
 
 	onResize(element) {

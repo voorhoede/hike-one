@@ -21,30 +21,32 @@ const Page = ({ service, servicesOverview, footer }) => (
 
 		<MenuBar color="white" />
 
-		<PageHeader
-			isSmall={true}
-			title={service.header.title}
-			subtitle={service.header.subtitle}
-			image={service.header.backgroundImage.url}
-		/>
-
-		<main className="page-scrolling-content-small">
-			<ServicesOverview
-				title={servicesOverview.servicesItemTitle}
-				body={servicesOverview.servicesItemBody}
-				services={servicesOverview.serviceItems}
+		<div className="layout-parallax">
+			<PageHeader
+				isSmall={true}
+				title={service.header.title}
+				subtitle={service.header.subtitle}
+				image={service.header.backgroundImage.url}
 			/>
 
-			<ServicesOverviewPage
-				contact={servicesOverview.contactCta}
-				highlightedCasesTitle={servicesOverview.highlightedCasesTitle}
-				highlightedCasesBody={servicesOverview.highlightedCasesBody}
-				highlightedCases={servicesOverview.highlightedCases}
-				highlightedUpdatesTitle={servicesOverview.highlightedUpdatesTitle}
-				highlightedUpdatesBody={servicesOverview.highlightedUpdatesBody}
-				highlightedUpdates={servicesOverview.highlightedUpdates}
-			/>
-		</main>
+			<main className="page-scrolling-content-small">
+				<ServicesOverview
+					title={servicesOverview.servicesItemTitle}
+					body={servicesOverview.servicesItemBody}
+					services={servicesOverview.serviceItems}
+				/>
+
+				<ServicesOverviewPage
+					contact={servicesOverview.contactCta}
+					highlightedCasesTitle={servicesOverview.highlightedCasesTitle}
+					highlightedCasesBody={servicesOverview.highlightedCasesBody}
+					highlightedCases={servicesOverview.highlightedCases}
+					highlightedUpdatesTitle={servicesOverview.highlightedUpdatesTitle}
+					highlightedUpdatesBody={servicesOverview.highlightedUpdatesBody}
+					highlightedUpdates={servicesOverview.highlightedUpdates}
+				/>
+			</main>
+		</div>
 
 		<Footer form={footer.form} />
 	</>

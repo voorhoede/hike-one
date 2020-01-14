@@ -145,6 +145,8 @@ class MenuBar extends Component {
 		const { menuIsOpen } = this.state;
 		document.body.classList.toggle(this.disableScrollClass);
 		setTimeout(() => {
+			if (this.header === null) return;
+
 			this.header.classList.toggle('animation-is-finished');
 			this.header.classList.toggle('is-open');
 		}, 100);

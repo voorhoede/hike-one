@@ -20,13 +20,15 @@ import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
 const scrollToTargetClass = 'js-scroll-to-target';
 
 const Page = ({ home, footer }) => (
-	<div>
+	<>
 		<Head
 			title={home.seo.title}
 			description={home.seo.description}
 			image={home.seo.image}
 			twitterCard={home.seo.twitterCard}
 		/>
+
+		<MenuBar color="white" />
 
 		<PageHeader
 			onClickScrollButton={() => scrollToElement(scrollToTargetClass)}
@@ -40,67 +42,63 @@ const Page = ({ home, footer }) => (
 			<PageHeaderShapes.variation1Back position="back" />
 		</PageHeader>
 
-		<main>
-			<MenuBar color="white" />
+		<main className={`${scrollToTargetClass} page-scrolling-content`}>
+			<ServicesOverview
+				title={home.servicesItemTitle}
+				services={home.serviceItems}
+			/>
 
-			<div className={`${scrollToTargetClass} page-scrolling-content`}>
-				<ServicesOverview
-					title={home.servicesItemTitle}
-					services={home.serviceItems}
-				/>
+			<TextCenter
+				classes="text-center-font-medium text-center-spacing-small"
+				title={home.caseExtractTitle}
+				text={home.caseExtractIntro}
+			/>
 
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={home.caseExtractTitle}
-					text={home.caseExtractIntro}
-				/>
+			<CaseExtract
+				color={home.caseExtract.case.caseThemeColor.hex}
+				companyName={home.caseExtract.case.companyName}
+				headerImage={home.caseExtract.image.url}
+				title={home.caseExtract.title}
+				subtitle={home.caseExtract.subtitle}
+				slug={home.caseExtract.case.slug}
+			/>
 
-				<CaseExtract
-					color={home.caseExtract.case.caseThemeColor.hex}
-					companyName={home.caseExtract.case.companyName}
-					headerImage={home.caseExtract.image.url}
-					title={home.caseExtract.title}
-					subtitle={home.caseExtract.subtitle}
-					slug={home.caseExtract.case.slug}
-				/>
+			<TextCenter
+				classes="text-center-font-medium text-center-spacing-small"
+				title={home.eventsTitle}
+				text={home.eventsIntro}
+			/>
 
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={home.eventsTitle}
-					text={home.eventsIntro}
-				/>
+			<UpdateOverviewSmall>
+				{home.updateLinks.map((item, index) => (
+					<UpdateExtractSmall
+						key={index}
+						index={index}
+						authors={item.authors}
+						category={item.category.name}
+						color={item.themeColor.hex}
+						date={item.date}
+						link={item.externalLink}
+						slug={item.slug}
+						image={item.image.url}
+						target={item.externalLink ? true : false}
+						title={item.title}
+						topic={item.topic}
+					/>
+				))}
+			</UpdateOverviewSmall>
 
-				<UpdateOverviewSmall>
-					{home.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							authors={item.authors}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							date={item.date}
-							link={item.externalLink}
-							slug={item.slug}
-							image={item.image.url}
-							target={item.externalLink ? true : false}
-							title={item.title}
-							topic={item.topic}
-						/>
-					))}
-				</UpdateOverviewSmall>
-
-				<Contact
-					title={home.contact.title}
-					button={home.contact.button}
-					link={home.contact.externalLink}
-				>
-					<ContactShape position="front" />
-				</Contact>
-			</div>
+			<Contact
+				title={home.contact.title}
+				button={home.contact.button}
+				link={home.contact.externalLink}
+			>
+				<ContactShape position="front" />
+			</Contact>
 		</main>
 
-		<Footer form={footer.form} />
-	</div>
+		<Footer form={footer.form} disableParallax />
+	</>
 );
 
 Page.getInitialProps = withCacheControl(() =>
@@ -165,7 +163,7 @@ Page.getInitialProps = withCacheControl(() =>
 				topic
 				image { url }
 				themeColor { hex }
-				authors { id }
+				authors { name }
 				category { name }
 			}
 

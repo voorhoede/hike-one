@@ -14,7 +14,7 @@ import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 
 const Page = ({ work, overviewCases, footer }) => (
-	<div>
+	<>
 		<Head
 			title={work.seo.title}
 			description={work.seo.description}
@@ -24,32 +24,34 @@ const Page = ({ work, overviewCases, footer }) => (
 
 		<MenuBar color="white" />
 
-		<PageHeader
-			isSmall={true}
-			title={work.header.title}
-			subtitle={work.header.subtitle}
-			image={work.header.backgroundImage.url}
-		/>
-
-		<main className={`page-scrolling-content-small`}>
-			<LogoCarousel
-				title={work.logoCarousel.title}
-				companies={work.logoCarousel.companies}
+		<div className="layout-parallax">
+			<PageHeader
+				isSmall={true}
+				title={work.header.title}
+				subtitle={work.header.subtitle}
+				image={work.header.backgroundImage.url}
 			/>
 
-			<WorkOverview>
-				{overviewCases.map((workcase, index) => (
-					<CaseExtractSmall
-						key={index}
-						title={workcase.header.title}
-						subtitle={workcase.header.subtitle}
-						image={workcase.header.backgroundImage}
-						companyName={workcase.companyName}
-						color={workcase.caseThemeColor.hex}
-						slug={workcase.slug}
-					/>
-				))}
-			</WorkOverview>
+			<main className="page-scrolling-content-small">
+				<LogoCarousel
+					title={work.logoCarousel.title}
+					companies={work.logoCarousel.companies}
+				/>
+
+				<WorkOverview>
+					{overviewCases.map((workcase, index) => (
+						<CaseExtractSmall
+							key={index}
+							title={workcase.header.title}
+							subtitle={workcase.header.subtitle}
+							image={workcase.header.backgroundImage}
+							companyName={workcase.companyName}
+							color={workcase.caseThemeColor.hex}
+							slug={workcase.slug}
+						/>
+					))}
+				</WorkOverview>
+			</main>
 
 			<Contact
 				title={work.contact.title}
@@ -58,10 +60,10 @@ const Page = ({ work, overviewCases, footer }) => (
 			>
 				<ContactShapes position="front" />
 			</Contact>
-		</main>
+		</div>
 
 		<Footer form={footer.form} />
-	</div>
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query }) =>

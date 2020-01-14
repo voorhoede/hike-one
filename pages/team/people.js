@@ -29,7 +29,7 @@ const Page = ({
 	pathname,
 	allPeople,
 }) => (
-	<main className="main js-main">
+	<>
 		<Head
 			title={team.seo.title}
 			description={team.seo.description}
@@ -39,7 +39,7 @@ const Page = ({
 
 		<MenuBar color="white" />
 
-		<article className="article">
+		<div className="layout-parallax">
 			<PageHeader
 				isSmall={true}
 				title={team.header.title}
@@ -47,7 +47,7 @@ const Page = ({
 				image={team.header.backgroundImage.url}
 			/>
 
-			<div className="page-scrolling-content-small">
+			<main className="page-scrolling-content-small">
 				<TeamSelector pathname={pathname} />
 
 				<TeamMembersOverview
@@ -57,11 +57,11 @@ const Page = ({
 				/>
 
 				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
-			</div>
-		</article>
+			</main>
+		</div>
 
 		<Footer form={footer.form} />
-	</main>
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query, pathname }) =>

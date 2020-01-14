@@ -10,7 +10,7 @@ import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
 const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
-	<div>
+	<>
 		<Head
 			title={updateOverview.seo.title}
 			description={updateOverview.seo.description}
@@ -20,27 +20,25 @@ const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
 
 		<MenuBar color="white" />
 
-		<main className="main js-main">
-			<article className="article">
-				<PageHeader
-					isSmall={true}
-					title={updateOverview.header.title}
-					subtitle={updateOverview.header.subtitle}
-					image={updateOverview.header.backgroundImage.url}
+		<div className="layout-parallax">
+			<PageHeader
+				isSmall={true}
+				title={updateOverview.header.title}
+				subtitle={updateOverview.header.subtitle}
+				image={updateOverview.header.backgroundImage.url}
+			/>
+
+			<main className="page-scrolling-content-small">
+				<UpdateOverview
+					data={updateOverview}
+					updatesData={allUpdateExtracts}
+					queryParam={updateOverview}
 				/>
+			</main>
+		</div>
 
-				<div className="page-scrolling-content-small">
-					<UpdateOverview
-						data={updateOverview}
-						updatesData={allUpdateExtracts}
-						queryParam={updateOverview}
-					/>
-				</div>
-			</article>
-
-			<Footer form={footer.form} />
-		</main>
-	</div>
+		<Footer form={footer.form} />
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query }) =>

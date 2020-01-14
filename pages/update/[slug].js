@@ -23,7 +23,7 @@ import UpdateExtractSmall from '../../components/update-extract-small/update-ext
 import Footer from '../../components/footer/footer';
 
 const Page = ({ update, footer }) => (
-	<div>
+	<>
 		<Head
 			title={update.seo.title}
 			description={update.seo.description}
@@ -31,19 +31,19 @@ const Page = ({ update, footer }) => (
 			twitterCard={update.seo.twitterCard}
 		/>
 
-		<main className="main js-main">
-			<MenuBar color="white" />
+		<MenuBar color="white" />
 
-			<article className="article">
-				<FullWidthHeader
-					headerImage={update.headerImage.url}
-					imagePositionCenter={update.imagePositionCenter}
-					color={update.color.hex}
-					title={update.title}
-					authorName={update.authors.map(author => author.name).join(', ')}
-					updatedDate={update.date}
-				/>
+		<div className="layout-parallax">
+			<FullWidthHeader
+				headerImage={update.headerImage.url}
+				imagePositionCenter={update.imagePositionCenter}
+				color={update.color.hex}
+				title={update.title}
+				authorName={update.authors.map(author => author.name).join(', ')}
+				updatedDate={update.date}
+			/>
 
+			<main>
 				{update.content.map((component, index) => {
 					switch (component.itemType) {
 						case '50_50':
@@ -179,61 +179,61 @@ const Page = ({ update, footer }) => (
 							);
 					}
 				})}
+			</main>
 
-				<div className="authors">
-					{update.authors.map((author, index) => {
-						return (
-							<Author
-								key={index}
-								name={author.name}
-								roles={author.roles}
-								photoUrl={author.photo.url}
-								summary={author.summary}
-							/>
-						);
-					})}
-				</div>
-
-				{update.contact && (
-					<Contact
-						title={update.contact.title}
-						button={update.contact.button}
-						link={update.contact.externalLink}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<ContactShapes position="front" />
-					</Contact>
-				)}
-
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={update.updateLinksTitle}
-				/>
-
-				<UpdateOverviewSmall>
-					{update.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
+			<div className="authors">
+				{update.authors.map((author, index) => {
+					return (
+						<Author
 							key={index}
-							index={index}
-							authors={item.authors}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							date={item.date}
-							link={item.externalLink}
-							slug={item.slug}
-							image={item.image.url}
-							target={item.externalLink ? true : false}
-							title={item.title}
-							topic={item.topic}
+							name={author.name}
+							roles={author.roles}
+							photoUrl={author.photo.url}
+							summary={author.summary}
 						/>
-					))}
-				</UpdateOverviewSmall>
-			</article>
+					);
+				})}
+			</div>
 
-			<Footer form={footer.form} />
-		</main>
-	</div>
+			{update.contact && (
+				<Contact
+					title={update.contact.title}
+					button={update.contact.button}
+					link={update.contact.externalLink}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<ContactShapes position="front" />
+				</Contact>
+			)}
+
+			<TextCenter
+				classes="text-center-font-medium text-center-spacing-small"
+				title={update.updateLinksTitle}
+			/>
+
+			<UpdateOverviewSmall>
+				{update.updateLinks.map((item, index) => (
+					<UpdateExtractSmall
+						key={index}
+						index={index}
+						authors={item.authors}
+						category={item.category.name}
+						color={item.themeColor.hex}
+						date={item.date}
+						link={item.externalLink}
+						slug={item.slug}
+						image={item.image.url}
+						target={item.externalLink ? true : false}
+						title={item.title}
+						topic={item.topic}
+					/>
+				))}
+			</UpdateOverviewSmall>
+		</div>
+
+		<Footer form={footer.form} />
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>

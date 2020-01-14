@@ -21,7 +21,7 @@ if (!process.browser) {
 }
 
 const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
-	<main className="main js-main">
+	<>
 		<Head
 			title={team.seo.title}
 			description={team.seo.description}
@@ -31,7 +31,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 
 		<MenuBar color="white" />
 
-		<article className="article">
+		<div className="layout-parallax">
 			<PageHeader
 				isSmall={true}
 				title={team.header.title}
@@ -39,17 +39,17 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 				image={team.header.backgroundImage.url}
 			/>
 
-			<div className="page-scrolling-content-small">
+			<main className="page-scrolling-content-small">
 				<TeamSelector pathname={pathname} />
 
 				<TeamOverview data={team} />
 
 				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
-			</div>
-		</article>
+			</main>
+		</div>
 
 		<Footer form={footer.form} />
-	</main>
+	</>
 );
 
 Page.getInitialProps = withCacheControl(({ query, pathname }) =>

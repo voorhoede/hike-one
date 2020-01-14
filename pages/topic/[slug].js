@@ -45,7 +45,7 @@ const Page = ({ topic, footer }) => (
 				titleOnly={true}
 			/>
 
-			<main className="page-scrolling-content-small">
+			<main>
 				{topic.content.map((component, index) => {
 					switch (component.itemType) {
 						case 'rich_body_text':

@@ -347,13 +347,12 @@ const Page = ({ workcase, footer }) => (
 				{workcase.updateLinks.map((item, index) => (
 					<UpdateLink
 						key={index}
-						author={item.authors.map(author => author.name).join(', ')}
-						date={getDateFormat(item.date)}
-						link={item.externalLink}
 						slug={item.slug}
-						target={item.externalLink}
-						topic={item.topic}
+						href={item.externalLink}
 						title={item.title}
+						authors={item.authors}
+						date={getDateFormat(item.date)}
+						target={Boolean(item.externalLink)}
 					/>
 				))}
 			</UpdateLinks>
@@ -412,7 +411,6 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 			updateLinks {
 				slug
 				title
-				topic
 				date
 				externalLink
 				authors { name }

@@ -101,13 +101,12 @@ const Page = ({ service, allServices, footer }) => (
 				{service.updateLinks.map((item, index) => (
 					<UpdateLink
 						key={index}
+						slug={item.slug}
+						href={item.externalLink}
+						title={item.title}
 						authors={item.authors}
 						date={getDateFormat(item.date)}
-						link={item.externalLink}
-						slug={item.slug}
 						target={item.externalLink}
-						topic={item.topic}
-						title={item.title}
 					/>
 				))}
 			</UpdateLinks>
@@ -151,7 +150,6 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 			updateLinks {
 				slug
 				title
-				topic
 				date
 				externalLink
 				authors { name }

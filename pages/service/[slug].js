@@ -37,7 +37,7 @@ const Page = ({ service, allServices, footer }) => (
 				/>
 
 				<div className={`page-scrolling-content-small`}>
-					<TabSelector selectedItem={service.slug} services={allServices} />
+					<TabSelector selected={service.slug} services={allServices} />
 
 					<TextCenter title={service.introTitle} text={service.introText} />
 

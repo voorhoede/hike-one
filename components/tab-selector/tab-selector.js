@@ -1,5 +1,3 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import {
 	TrailDiamond,
@@ -9,69 +7,42 @@ import {
 
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
-class TabSelector extends Component {
-	constructor(props) {
-		super(props);
-		this.handleTabClick = this.handleTabClick.bind(this);
-		this.state = {
-			selectedTab: 0,
-		};
-	}
+const TabSelector = ({ services, selected }) => {
+	const selectedTab =
+		services.find(service => service.slug === selected).position - 1;
+	const color = ['#fe595b', '#45d33c', '#8314bb'];
+	const style = {
+		transform: `translateX(${selectedTab * 100}%)`,
+		backgroundColor: color[selectedTab],
+	};
 
-	componentDidMount() {
-		const { services, selectedItem } = this.props;
-		const selectedTab =
-			services.find(service => service.slug === selectedItem).position - 1;
-
-		this.setState({ selectedTab });
-	}
-
-	handleTabClick(index) {
-		this.setState({ selectedTab: index });
-	}
-
-	render() {
-		const { services = [], selectedItem = '' } = this.props;
-		const { selectedTab } = this.state;
-		const color = ['#fe595b', '#45d33c', '#ffe044'];
-		const style = {
-			transform: `translateX(${selectedTab * 100}%)`,
-			backgroundColor: color[selectedTab],
-		};
-
-		return (
-			<div className="tab-selector container shadow">
-				{services.map((service, index) => (
-					<TabItem
-						key={index}
-						Component={shapes[index]}
-						onTabClick={() => this.handleTabClick(index)}
-						selectedItem={selectedItem}
-						slug={service.slug}
-						title={service.title}
-					></TabItem>
-				))}
-				<div className="tab-selector__track">
-					<span className="tab-selector__track-slider" style={style}></span>
-				</div>
+	return (
+		<nav className="tab-selector container shadow">
+			{services.map((service, index) => (
+				<TabItem
+					key={service.slug}
+					slug={service.slug}
+					title={service.title}
+					Component={shapes[index]}
+					selected={selected}
+				/>
+			))}
+			<div className="tab-selector__track">
+				<span className="tab-selector__track-slider" style={style}></span>
 			</div>
-		);
-	}
-}
+		</nav>
+	);
+};
 
 const TabItem = ({
-	Component = null,
-	onTabClick = null,
-	selectedItem = '',
 	slug = '',
 	title = '',
+	Component = null,
+	selected = '',
 }) => (
 	<Link href="/service/[slug]" as={`/service/${slug}`}>
 		<a
-			className={`tab-selector-item ${
-				selectedItem === slug ? 'is-selected' : ''
-			}`}
-			onClick={onTabClick}
+			className={`tab-selector-item ${selected === slug ? 'is-selected' : ''}`}
 		>
 			<div className="tab-selector-item-shape">
 				<Component />
@@ -80,18 +51,5 @@ const TabItem = ({
 		</a>
 	</Link>
 );
-
-TabItem.propTypes = {
-	Component: PropTypes.func,
-	onTabClick: PropTypes.func,
-	selectedItem: PropTypes.string,
-	slug: PropTypes.string,
-	title: PropTypes.string,
-};
-
-TabSelector.propTypes = {
-	services: PropTypes.array,
-	selectedItem: PropTypes.string,
-};
 
 export default TabSelector;

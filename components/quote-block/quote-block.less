@@ -17,14 +17,10 @@
 .quote-cite-content {
 	display: inline-block;
 	width: calc(~'100% - (70px + 1rem)');
-	font-family: @font-main-fallback;
+	font-family: @font-main;
 	font-size: @body-text-s;
 	line-height: @line-height-body-s;
 	vertical-align: top;
-
-	.fonts-loaded & {
-		font-family: @font-main;
-	}
 
 	@media @screen-768 {
 		width: calc(~'100% - (100px + 2rem)');

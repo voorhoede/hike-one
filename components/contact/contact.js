@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary';
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const Contact = ({
 	title = '',

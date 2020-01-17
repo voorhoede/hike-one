@@ -6,7 +6,9 @@
 		"start": "next start",
 		"dev": "next dev",
 		"build": "next build",
-		"lint": "yarn prettier --check",
+		"lint": "yarn run lint:js && yarn run lint:css",
+		"lint:js": "yarn prettier --check",
+		"lint:css": "stylelint './components/**/*.less' './styles/**/*.less' --syntax less",
 		"format": "yarn prettier --write",
 		"prettier": "prettier '{components,lib,pages,styles}/**/*.{js,less}'"
 	},
@@ -22,7 +24,9 @@
 		"resize-observer-polyfill": "^1.5.1"
 	},
 	"devDependencies": {
-		"prettier": "^1.19.1"
+		"prettier": "^1.19.1",
+		"stylelint": "^11.1.1",
+		"stylelint-config-standard": "^19.0.0"
 	},
 	"engines": {
 		"node": "12.x"
@@ -30,5 +34,19 @@
 	"prettier": {
 		"trailingComma": "es5",
 		"singleQuote": true
+	},
+	"stylelint": {
+		"extends": "stylelint-config-standard",
+		"rules": {
+			"color-hex-length": "long",
+			"declaration-colon-newline-after": null,
+			"indentation": "tab",
+			"no-descending-specificity": null,
+			"no-empty-source": null,
+			"no-eol-whitespace": null,
+			"number-leading-zero": "never",
+			"selector-list-comma-newline-after": null,
+			"selector-pseudo-element-colon-notation": "double"
+		}
 	}
 }

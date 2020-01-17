@@ -32,7 +32,7 @@ UpdateLink.propTypes = {
 	title: PropTypes.string,
 	authors: PropTypes.array,
 	date: PropTypes.string,
-	target: PropTypes.boolean,
+	target: PropTypes.bool,
 };
 
 export default UpdateLink;

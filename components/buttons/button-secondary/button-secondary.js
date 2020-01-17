@@ -13,7 +13,8 @@ const ButtonSecondary = ({
 		type={type}
 		onClick={onClick}
 		className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}
-		disabled={disabled}>
+		disabled={disabled}
+	>
 		{children}
 
 		{icon && (

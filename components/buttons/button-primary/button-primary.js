@@ -13,7 +13,8 @@ const ButtonPrimary = ({
 		type={type}
 		onClick={onClick}
 		className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}
-		disabled={disabled}>
+		disabled={disabled}
+	>
 		<span className="btn-primary-text">{children}</span>
 
 		{icon && (

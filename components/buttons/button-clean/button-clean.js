@@ -1,8 +1,15 @@
 import PropTypes from 'prop-types';
 import Icon from '../../icon/icon';
 
-const ButtonClean = ({ classes = '', onClick = null, children, icon = '' }) => (
-	<button onClick={onClick} className={`btn-clean ${classes}`}>
+const ButtonClean = ({
+	children,
+	classes = '',
+	disabled = false,
+	icon = '',
+	onClick = null,
+	type = 'button',
+}) => (
+	<button type={type} onClick={onClick} className={`btn-clean ${classes}`}>
 		{children}
 
 		{icon && (
@@ -14,10 +21,12 @@ const ButtonClean = ({ classes = '', onClick = null, children, icon = '' }) => (
 );
 
 ButtonClean.propTypes = {
-	classes: PropTypes.string,
-	onClick: PropTypes.func,
 	children: PropTypes.node,
+	classes: PropTypes.string,
+	disabled: PropTypes.bool,
 	icon: PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
 };
 
 export default ButtonClean;

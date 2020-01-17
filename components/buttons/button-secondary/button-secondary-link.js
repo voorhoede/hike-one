@@ -4,10 +4,10 @@ import Icon from '../../icon/icon';
 
 const ButtonSecondaryLink = ({
 	classes = '',
-	href,
+	href = '',
 	hrefAs = null,
 	children,
-	icon,
+	icon = '',
 	target = '_self',
 }) => (
 	<Link href={href} as={`${hrefAs ? hrefAs : href}`}>

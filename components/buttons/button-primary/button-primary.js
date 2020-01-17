@@ -2,17 +2,18 @@ import PropTypes from 'prop-types';
 import Icon from '../../icon/icon';
 
 const ButtonPrimary = ({
-	classes = '',
-	onClick = null,
 	children,
-	icon = '',
+	classes = '',
 	disabled = false,
+	icon = '',
+	onClick = null,
+	type = 'button',
 }) => (
 	<button
+		type={type}
 		onClick={onClick}
 		className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}
-		disabled={disabled}
-	>
+		disabled={disabled}>
 		<span className="btn-primary-text">{children}</span>
 
 		{icon && (
@@ -24,11 +25,12 @@ const ButtonPrimary = ({
 );
 
 ButtonPrimary.propTypes = {
-	classes: PropTypes.string,
-	onClick: PropTypes.func,
 	children: PropTypes.node,
-	icon: PropTypes.string,
+	classes: PropTypes.string,
 	disabled: PropTypes.bool,
+	icon: PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
 };
 
 export default ButtonPrimary;

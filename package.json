@@ -24,6 +24,9 @@
 	"devDependencies": {
 		"prettier": "^1.19.1"
 	},
+	"engines": {
+		"node": "12.x"
+	},
 	"prettier": {
 		"trailingComma": "es5",
 		"singleQuote": true

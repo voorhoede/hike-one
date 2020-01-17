@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Power2, TimelineLite } from 'gsap';
+import { Power2, TimelineLite, CSSPlugin } from 'gsap';
 
 class Hamburger extends Component {
 	constructor(props) {
@@ -16,6 +16,7 @@ class Hamburger extends Component {
 			.to(this.hamburgerPath1, 0.3, {
 				x: '70%',
 				rotation: 135,
+				attr: { x2: 72 },
 				ease: Power2.easeInOut,
 			})
 			.to(
@@ -33,7 +34,7 @@ class Hamburger extends Component {
 				0.3,
 				{
 					rotation: 45,
-					attr: { y1: 17, y2: 17, x1: 13, x2: 67 },
+					attr: { x1: 30, y1: 0, x2: 88, y2: 0 },
 					x: '-42%',
 					ease: Power2.easeInOut,
 				},

@@ -65,14 +65,14 @@ export function timelineDoubleDiamond() {
 		.fromTo(
 			'.animated-shape-double-diamond .shape-back',
 			0.9,
-			{ x: '100vw', transformOrigin: 'center' },
+			{ x: '100vw' },
 			{ x: 0 },
 			'-=.1'
 		)
 		.fromTo(
 			'.animated-shape-double-diamond .shape-front',
 			0.9,
-			{ x: '-100vw', transformOrigin: 'center' },
+			{ x: '-100vw' },
 			{ x: 0 },
 			'-=.9'
 		)

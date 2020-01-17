@@ -139,7 +139,8 @@
 
 	&,
 	svg {
-		transition: color @animation-speed-slow, transform @animation-speed-slow,
+		transition: color @animation-speed-slow,
+			transform @animation-speed-slow,
 			opacity @animation-speed-slow; // hover/active out
 	}
 
@@ -173,7 +174,7 @@
 
 	a {
 		display: inline-block;
-		margin-right: @spacing-default*.5;
+		margin-right: @spacing-default*0.5;
 		transform: translateX(20px);
 		opacity: 0;
 

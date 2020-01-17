@@ -7,10 +7,10 @@
 		"dev": "next dev",
 		"build": "next build",
 		"lint": "yarn run lint:js && yarn run lint:css",
+		"lint:css": "stylelint '{components,styles}/**/*.less' --syntax less",
 		"lint:js": "yarn prettier --check",
-		"lint:css": "stylelint './components/**/*.less' './styles/**/*.less' --syntax less",
 		"format": "yarn prettier --write",
-		"prettier": "prettier '{components,lib,pages,styles}/**/*.{js,less}'"
+		"prettier": "prettier '{components,lib,pages}/**/*.js'"
 	},
 	"dependencies": {
 		"@zeit/next-less": "^1.0.1",
@@ -40,11 +40,12 @@
 		"rules": {
 			"color-hex-length": "long",
 			"declaration-colon-newline-after": null,
+			"function-calc-no-invalid": null,
 			"indentation": "tab",
 			"no-descending-specificity": null,
 			"no-empty-source": null,
 			"no-eol-whitespace": null,
-			"number-leading-zero": "never",
+			"number-leading-zero": "always",
 			"selector-list-comma-newline-after": null,
 			"selector-pseudo-element-colon-notation": "double"
 		}

@@ -39,8 +39,8 @@ const Error = ({ errorPage }) => (
 	</>
 );
 
-Error.getInitialProps = ({ res }) =>
-	fetchContent(`{
+Error.getInitialProps = ({ res, req }) => {
+	const graphqlQuery = `{
 	  errorPage(filter: {error: {eq: "${res.statusCode}"}}) {
 	    title
 	    description
@@ -50,6 +50,9 @@ Error.getInitialProps = ({ res }) =>
 	      height
 	    }
 	  }
-	}`);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+};
 
 export default Error;

@@ -79,9 +79,8 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query }) =>
-	Promise.all([
-		fetchContent(`{
+Page.getInitialProps = withCacheControl(({ query, req }) => {
+	const graphqlQuery = `{
 		contactPage {
 			seo {
 				title
@@ -152,7 +151,10 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 				}
 			}
 		}
-	}`),
+	}`;
+
+	return Promise.all([
+		fetchContent({ graphqlQuery, req }),
 		fetch(
 			`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`
 		)
@@ -161,7 +163,7 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 	]).then(([content, vacancies]) => ({
 		...content,
 		vacancies,
-	}))
-);
+	}));
+});
 
 export default Page;

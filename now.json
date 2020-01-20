@@ -6,5 +6,6 @@
 	"trailingSlash": false,
 	"github": {
 		"silent": true
-	}
+	},
+	"rewrites": [{ "source": "/robots.txt", "destination": "/api/robots.txt" }]
 }

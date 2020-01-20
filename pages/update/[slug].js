@@ -236,8 +236,8 @@ const Page = ({ update, footer }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>
-	fetchContent(`{
+Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
+	const graphqlQuery = `{
 		update(filter: { slug: { eq: "${query.slug}" } }) {
 			title
 			date
@@ -423,7 +423,9 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>
 				}
 			}
 		}
-	}`)
-);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+});
 
 export default Page;

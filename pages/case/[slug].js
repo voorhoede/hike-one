@@ -362,8 +362,8 @@ const Page = ({ workcase, footer }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query }) =>
-	fetchContent(`{
+Page.getInitialProps = withCacheControl(({ query, req }) => {
+	const graphqlQuery = `{
 		workcase: case(filter: { slug: { eq: "${query.slug}" } }) {
 			title
 			introTitle
@@ -577,7 +577,9 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 				}
 			}
 		}
-	}`)
-);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+});
 
 export default Page;

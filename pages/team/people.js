@@ -64,9 +64,8 @@ const Page = ({
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query, pathname }) =>
-	Promise.all([
-		fetchContent(`{
+Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
+	const graphqlQuery = `{
 		team {
 			peopleTabIntro
 
@@ -118,7 +117,10 @@ Page.getInitialProps = withCacheControl(({ query, pathname }) =>
 				}
 			}
 		}
-	}`),
+	}`;
+
+	return Promise.all([
+		fetchContent({ graphqlQuery, req }),
 		fetch(
 			`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`
 		)
@@ -129,7 +131,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname }) =>
 		vacancies,
 		query,
 		pathname,
-	}))
-);
+	}));
+});
 
 export default Page;

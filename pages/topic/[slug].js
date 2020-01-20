@@ -236,8 +236,8 @@ const Page = ({ topic, footer }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>
-	fetchContent(`{
+Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
+	const graphqlQuery = `{
 		topic(filter: { slug: { eq: "${query.slug}" } }) {
 			title
 			imagePositionCenter
@@ -427,7 +427,9 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) =>
 				}
 			}
 		}
-	}`)
-);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+});
 
 export default Page;

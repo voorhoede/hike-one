@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types'
-import Collage from '../collage/collage'
-import FiftyFifty from '../50-50/50-50'
-import ImageCombo from '../image-combo/image-combo'
-import ImageCompositionSmall from '../image-composition-small/image-composition-small'
-import * as ImageCompositionSmallShapes from '../image-composition-small/image-composition-small-shapes'
-import ImageGallery from '../image-gallery/image-gallery'
-import StatisticsBlock from '../statistics-block/statistics-block'
-import TeamImage from '../team-image/team-image'
-import TextCenter from '../text-center/text-center'
+import PropTypes from 'prop-types';
+import Collage from '../collage/collage';
+import FiftyFifty from '../50-50/50-50';
+import ImageCombo from '../image-combo/image-combo';
+import ImageCompositionSmall from '../image-composition-small/image-composition-small';
+import * as ImageCompositionSmallShapes from '../image-composition-small/image-composition-small-shapes';
+import ImageGallery from '../image-gallery/image-gallery';
+import StatisticsBlock from '../statistics-block/statistics-block';
+import TeamImage from '../team-image/team-image';
+import TextCenter from '../text-center/text-center';
 
 const TeamOverview = ({ data = {} }) => (
 	<React.Fragment>
@@ -75,7 +75,7 @@ const TeamOverview = ({ data = {} }) => (
 							imageLarge={true}
 							image={component.image}
 						/>
-					)
+					);
 				case '40_60_text_left':
 					return (
 						<FiftyFifty
@@ -86,9 +86,9 @@ const TeamOverview = ({ data = {} }) => (
 							imageLarge={true}
 							image={component.image}
 						/>
-					)
+					);
 				case 'text_center':
-					return <TextCenter key={index} title={component.title} text={component.text} />
+					return <TextCenter key={index} title={component.title} text={component.text} />;
 			}
 		})}
 
@@ -107,10 +107,10 @@ const TeamOverview = ({ data = {} }) => (
 			<TeamImage title={data.teamImage916.title} image={data.teamImage916.photo.url} />
 		)}
 	</React.Fragment>
-)
+);
 
 TeamOverview.propTypes = {
 	data: PropTypes.object,
-}
+};
 
-export default TeamOverview
+export default TeamOverview;

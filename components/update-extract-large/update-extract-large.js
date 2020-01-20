@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import ArrowRightExternalLink from '../icons/arrow-right-external-link'
-import Authors from '../authors/authors'
-import getDateFormat from '../_helpers/getDateFormat'
-import setImageParams from '../_helpers/setImageParameters'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import ArrowRightExternalLink from '../icons/arrow-right-external-link';
+import Authors from '../authors/authors';
+import getDateFormat from '../_helpers/getDateFormat';
+import setImageParams from '../_helpers/setImageParameters';
 
 const UpdateExtractLarge = ({
 	authors = [],
@@ -18,7 +18,7 @@ const UpdateExtractLarge = ({
 	title = '',
 	topic = false,
 }) => {
-	const prefix = topic ? 'topic' : 'update'
+	const prefix = topic ? 'topic' : 'update';
 	const style = {
 		__html: `<style>
 			.update-extract-large-image-${index} {
@@ -50,7 +50,7 @@ const UpdateExtractLarge = ({
 				}
 			}
 		</style>`,
-	}
+	};
 
 	return (
 		<Link
@@ -81,8 +81,8 @@ const UpdateExtractLarge = ({
 				</div>
 			</a>
 		</Link>
-	)
-}
+	);
+};
 
 UpdateExtractLarge.propTypes = {
 	authors: PropTypes.array,
@@ -96,6 +96,6 @@ UpdateExtractLarge.propTypes = {
 	target: PropTypes.bool,
 	title: PropTypes.string,
 	topic: PropTypes.bool,
-}
+};
 
-export default UpdateExtractLarge
+export default UpdateExtractLarge;

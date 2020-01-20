@@ -1,12 +1,12 @@
-import '../styles/index.less'
+import '../styles/index.less';
 
-import fetchContent from '../lib/fetch-content'
+import fetchContent from '../lib/fetch-content';
 
-import Head from '../components/_helpers/head'
-import MenuBar from '../components/menu-bar/menu-bar'
-import TextCenter from '../components/text-center/text-center'
-import * as TextCenterShapes from '../components/text-center/text-center-shapes'
-import InlineImage from '../components/inline-image/inline-image'
+import Head from '../components/_helpers/head';
+import MenuBar from '../components/menu-bar/menu-bar';
+import TextCenter from '../components/text-center/text-center';
+import * as TextCenterShapes from '../components/text-center/text-center-shapes';
+import InlineImage from '../components/inline-image/inline-image';
 
 const Error = ({ errorPage }) => (
 	<>
@@ -35,7 +35,7 @@ const Error = ({ errorPage }) => (
 			)}
 		</article>
 	</>
-)
+);
 
 Error.getInitialProps = ({ res, req }) => {
 	const graphqlQuery = `{
@@ -48,9 +48,9 @@ Error.getInitialProps = ({ res, req }) => {
 	      height
 	    }
 	  }
-	}`
+	}`;
 
-	return fetchContent({ graphqlQuery, req })
-}
+	return fetchContent({ graphqlQuery, req });
+};
 
-export default Error
+export default Error;

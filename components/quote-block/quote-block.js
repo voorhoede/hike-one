@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const QuoteBlock = ({
 	color = '',
@@ -18,7 +18,7 @@ const QuoteBlock = ({
 			</div>
 		</cite>
 	</blockquote>
-)
+);
 
 QuoteBlock.propTypes = {
 	color: PropTypes.string,
@@ -27,6 +27,6 @@ QuoteBlock.propTypes = {
 	citeImage: PropTypes.string,
 	citeName: PropTypes.string,
 	citeTitle: PropTypes.string,
-}
+};
 
-export default QuoteBlock
+export default QuoteBlock;

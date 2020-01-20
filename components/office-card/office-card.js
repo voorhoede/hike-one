@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import Icon from '../icon/icon'
-import setImageParams from '../_helpers/setImageParameters'
+import PropTypes from 'prop-types';
+import Icon from '../icon/icon';
+import setImageParams from '../_helpers/setImageParameters';
 
 const OfficeCard = ({
 	index = 0,
@@ -12,7 +12,7 @@ const OfficeCard = ({
 	locationUrl = '',
 	imageUrl = '',
 }) => {
-	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
 	const style = {
 		__html: `<style>
 			.office-card .office-image-${index} {
@@ -52,7 +52,7 @@ const OfficeCard = ({
 				}
 			}
 		</style>`,
-	}
+	};
 
 	return (
 		<div className="office-card">
@@ -80,8 +80,8 @@ const OfficeCard = ({
 
 			<div dangerouslySetInnerHTML={style} />
 		</div>
-	)
-}
+	);
+};
 
 OfficeCard.propTypes = {
 	index: PropTypes.number,
@@ -92,6 +92,6 @@ OfficeCard.propTypes = {
 	country: PropTypes.string,
 	locationUrl: PropTypes.string,
 	imageUrl: PropTypes.string,
-}
+};
 
-export default OfficeCard
+export default OfficeCard;

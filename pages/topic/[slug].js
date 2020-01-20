@@ -1,28 +1,28 @@
-import '../../styles/index.less'
+import '../../styles/index.less';
 
-import fetchContent from '../../lib/fetch-content'
-import withCacheControl from '../../lib/with-cache-control'
+import fetchContent from '../../lib/fetch-content';
+import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/_helpers/head'
-import BodyQuote from '../../components/body-quote/body-quote'
-import CallToAction from '../../components/call-to-action/call-to-action'
-import Contact from '../../components/contact/contact'
-import ContactShapes from '../../components/contact/contact-shapes'
-import ContactForm from '../../components/contact-form/contact-form'
-import FiftyFifty from '../../components/50-50/50-50'
-import Footer from '../../components/footer/footer'
-import FullWidthHeader from '../../components/full-width-header/full-width-header'
-import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small'
-import InlineMedia from '../../components/inline-media/inline-media'
-import LogoCarousel from '../../components/logo-carousel/logo-carousel'
-import MailchimpForm from '../../components/mailchimp/mailchimp-form'
-import MenuBar from '../../components/menu-bar/menu-bar'
-import RichBodyText from '../../components/rich-body-text/rich-body-text'
-import TextCenter from '../../components/text-center/text-center'
-import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small'
-import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small'
-import WorkOverview from '../../components/work-overview/work-overview'
-import CaseExtractSmall from '../../components/case-extract-small/case-extract-small'
+import Head from '../../components/_helpers/head';
+import BodyQuote from '../../components/body-quote/body-quote';
+import CallToAction from '../../components/call-to-action/call-to-action';
+import Contact from '../../components/contact/contact';
+import ContactShapes from '../../components/contact/contact-shapes';
+import ContactForm from '../../components/contact-form/contact-form';
+import FiftyFifty from '../../components/50-50/50-50';
+import Footer from '../../components/footer/footer';
+import FullWidthHeader from '../../components/full-width-header/full-width-header';
+import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
+import InlineMedia from '../../components/inline-media/inline-media';
+import LogoCarousel from '../../components/logo-carousel/logo-carousel';
+import MailchimpForm from '../../components/mailchimp/mailchimp-form';
+import MenuBar from '../../components/menu-bar/menu-bar';
+import RichBodyText from '../../components/rich-body-text/rich-body-text';
+import TextCenter from '../../components/text-center/text-center';
+import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
+import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
+import WorkOverview from '../../components/work-overview/work-overview';
+import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
 const Page = ({ topic, footer }) => (
 	<>
@@ -55,10 +55,10 @@ const Page = ({ topic, footer }) => (
 									content={component.content}
 									textCenter={component.centered}
 								/>
-							)
+							);
 
 						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} />
+							return <BodyQuote key={index} quote={component.quote} />;
 
 						case '50_50':
 							return (
@@ -71,7 +71,7 @@ const Page = ({ topic, footer }) => (
 									video={component.video}
 									googleMapsIframe={component.googleMapsIframe}
 								/>
-							)
+							);
 
 						case '50_50_text_right':
 							return (
@@ -81,7 +81,7 @@ const Page = ({ topic, footer }) => (
 									text={component.text}
 									image={component.image}
 								/>
-							)
+							);
 
 						case '50_50_text_left':
 							return (
@@ -92,10 +92,12 @@ const Page = ({ topic, footer }) => (
 									text={component.text}
 									image={component.image}
 								/>
-							)
+							);
 
 						case 'inline_image':
-							return <InlineMedia key={index} image={component.image} caption={component.caption} />
+							return (
+								<InlineMedia key={index} image={component.image} caption={component.caption} />
+							);
 
 						case 'inline_image_large':
 							return (
@@ -105,15 +107,15 @@ const Page = ({ topic, footer }) => (
 									image={component.image}
 									caption={component.caption}
 								/>
-							)
+							);
 
 						case 'full_width_image_small':
-							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
 
 						case 'logo_carousel':
 							return (
 								<LogoCarousel key={index} title={component.title} companies={component.companies} />
-							)
+							);
 
 						case 'call_to_action':
 							return (
@@ -127,7 +129,7 @@ const Page = ({ topic, footer }) => (
 									fullWidth={component.fullWidth}
 									isExternalLink={component.isExternalLink}
 								/>
-							)
+							);
 
 						case 'subscription_form':
 							return (
@@ -142,7 +144,7 @@ const Page = ({ topic, footer }) => (
 										hasShadow={component.subscriptionForm.hasShadow}
 									/>
 								)
-							)
+							);
 
 						case 'contact_form_component':
 							return (
@@ -155,7 +157,7 @@ const Page = ({ topic, footer }) => (
 										title: component.title,
 									}}
 								/>
-							)
+							);
 					}
 				})}
 			</main>
@@ -218,7 +220,7 @@ const Page = ({ topic, footer }) => (
 
 		<Footer form={footer.form} />
 	</>
-)
+);
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 	const graphqlQuery = `{
@@ -411,9 +413,9 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 				}
 			}
 		}
-	}`
+	}`;
 
-	return fetchContent({ graphqlQuery, req })
-})
+	return fetchContent({ graphqlQuery, req });
+});
 
-export default Page
+export default Page;

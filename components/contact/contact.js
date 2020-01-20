@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link'
+import PropTypes from 'prop-types';
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const Contact = ({ title = '', button = '', link = '', target = '_self', children }) => {
-	const childrenArray = React.Children.toArray(children)
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 
 	return (
 		<section className="contact">
@@ -19,8 +19,8 @@ const Contact = ({ title = '', button = '', link = '', target = '_self', childre
 			</div>
 			{parallaxLayerFront}
 		</section>
-	)
-}
+	);
+};
 
 Contact.propTypes = {
 	title: PropTypes.string,
@@ -28,6 +28,6 @@ Contact.propTypes = {
 	link: PropTypes.string,
 	target: PropTypes.string,
 	children: PropTypes.node,
-}
+};
 
-export default Contact
+export default Contact;

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const TextCenter = ({ classes = '', title = '', text = '', children }) => {
-	const childrenArray = React.Children.toArray(children)
-	let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
-	let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
+	const childrenArray = React.Children.toArray(children);
+	let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 	return (
 		<section className={`${classes} text-center container`}>
@@ -14,14 +14,14 @@ const TextCenter = ({ classes = '', title = '', text = '', children }) => {
 			</div>
 			{parallaxLayerFront}
 		</section>
-	)
-}
+	);
+};
 
 TextCenter.propTypes = {
 	classes: PropTypes.string,
 	title: PropTypes.string,
 	text: PropTypes.string,
 	children: PropTypes.node,
-}
+};
 
-export default TextCenter
+export default TextCenter;

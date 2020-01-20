@@ -1,5 +1,5 @@
-import Parallax from '../parallax/parallax'
-import { CircleBorder, DiamondBorder, Triangle } from '../shapes'
+import Parallax from '../parallax/parallax';
+import { CircleBorder, DiamondBorder, Triangle } from '../shapes';
 
 export const variation1Front = () => (
 	<div className="image-composition-small-shapes-1">
@@ -10,7 +10,7 @@ export const variation1Front = () => (
 			<Triangle classes="shape-triangle-2" color="purple" />
 		</Parallax>
 	</div>
-)
+);
 
 export const variation1Back = () => (
 	<div className="image-composition-small-shapes-1">
@@ -20,4 +20,4 @@ export const variation1Back = () => (
 			<DiamondBorder classes="shape-diamond-5" color="yellow" />
 		</Parallax>
 	</div>
-)
+);

@@ -1,14 +1,14 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import CaseExtractSmall from '../case-extract-small/case-extract-small'
-import Contact from '../contact/contact'
-import ContactShapes from '../contact/contact-shapes'
-import UpdateExtractSmall from '../update-extract-small/update-extract-small'
-import TextCenter from '../text-center/text-center'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import CaseExtractSmall from '../case-extract-small/case-extract-small';
+import Contact from '../contact/contact';
+import ContactShapes from '../contact/contact-shapes';
+import UpdateExtractSmall from '../update-extract-small/update-extract-small';
+import TextCenter from '../text-center/text-center';
 
 class ServicesOverviewPage extends Component {
 	constructor(props) {
-		super(props)
+		super(props);
 	}
 
 	render() {
@@ -20,7 +20,7 @@ class ServicesOverviewPage extends Component {
 			highlightedUpdatesTitle = '',
 			highlightedUpdatesBody = '',
 			highlightedUpdates = [],
-		} = this.props
+		} = this.props;
 
 		return (
 			<div className="services-overview-page">
@@ -71,7 +71,7 @@ class ServicesOverviewPage extends Component {
 					</div>
 				</section>
 			</div>
-		)
+		);
 	}
 }
 
@@ -83,6 +83,6 @@ ServicesOverviewPage.propTypes = {
 	highlightedUpdatesTitle: PropTypes.string,
 	highlightedUpdatesBody: PropTypes.string,
 	highlightedUpdates: PropTypes.array,
-}
+};
 
-export default ServicesOverviewPage
+export default ServicesOverviewPage;

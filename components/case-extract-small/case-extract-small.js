@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import Icon from '../icon/icon'
-import setImageParameters from '../_helpers/setImageParameters'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import Icon from '../icon/icon';
+import setImageParameters from '../_helpers/setImageParameters';
 
 const CaseExtractSmall = ({
 	slug = '',
@@ -12,8 +12,8 @@ const CaseExtractSmall = ({
 	image = {},
 	children,
 }) => {
-	const childrenArray = React.Children.toArray(children)
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 
 	return (
 		<div className="case-extract-small">
@@ -46,8 +46,8 @@ const CaseExtractSmall = ({
 			</Link>
 			{parallaxLayerFront}
 		</div>
-	)
-}
+	);
+};
 
 CaseExtractSmall.propTypes = {
 	slug: PropTypes.string,
@@ -57,6 +57,6 @@ CaseExtractSmall.propTypes = {
 	subtitle: PropTypes.string,
 	image: PropTypes.object,
 	children: PropTypes.node,
-}
+};
 
-export default CaseExtractSmall
+export default CaseExtractSmall;

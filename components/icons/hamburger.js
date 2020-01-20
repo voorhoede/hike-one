@@ -4,6 +4,6 @@ const Hamburger = () => (
 		<path d="M57,42H19a2,2,0,0,1,0-4H57a2,2,0,0,1,0,4Z" />
 		<path d="M48,58H24a2,2,0,0,1,0-4H48a2,2,0,0,1,0,4Z" />
 	</svg>
-)
+);
 
-export default Hamburger
+export default Hamburger;

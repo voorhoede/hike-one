@@ -1,23 +1,23 @@
-import '../styles/index.less'
+import '../styles/index.less';
 
-import fetchContent from '../lib/fetch-content'
-import withCacheControl from '../lib/with-cache-control'
-import scrollToElement from '../components/_helpers/scrollToElement'
+import fetchContent from '../lib/fetch-content';
+import withCacheControl from '../lib/with-cache-control';
+import scrollToElement from '../components/_helpers/scrollToElement';
 
-import Head from '../components/_helpers/head'
-import CaseExtract from '../components/case-extract/case-extract'
-import MenuBar from '../components/menu-bar/menu-bar'
-import ServicesOverview from '../components/services-overview/services-overview'
-import TextCenter from '../components/text-center/text-center'
-import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small'
-import UpdateExtractSmall from '../components/update-extract-small/update-extract-small'
-import Contact from '../components/contact/contact'
-import ContactShape from '../components/contact/contact-shapes'
-import Footer from '../components/footer/footer'
-import PageHeader from '../components/page-header/page-header'
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes'
+import Head from '../components/_helpers/head';
+import CaseExtract from '../components/case-extract/case-extract';
+import MenuBar from '../components/menu-bar/menu-bar';
+import ServicesOverview from '../components/services-overview/services-overview';
+import TextCenter from '../components/text-center/text-center';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import Contact from '../components/contact/contact';
+import ContactShape from '../components/contact/contact-shapes';
+import Footer from '../components/footer/footer';
+import PageHeader from '../components/page-header/page-header';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 
-const scrollToTargetClass = 'js-scroll-to-target'
+const scrollToTargetClass = 'js-scroll-to-target';
 
 const Page = ({ home, footer }) => (
 	<>
@@ -96,7 +96,7 @@ const Page = ({ home, footer }) => (
 
 		<Footer form={footer.form} disableParallax />
 	</>
-)
+);
 
 Page.getInitialProps = withCacheControl(({ req }) => {
 	const graphqlQuery = `{
@@ -185,9 +185,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 				}
 			}
 		}
-	}`
+	}`;
 
-	return fetchContent({ graphqlQuery, req })
-})
+	return fetchContent({ graphqlQuery, req });
+});
 
-export default Page
+export default Page;

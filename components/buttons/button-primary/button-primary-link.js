@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import Icon from '../../icon/icon'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import Icon from '../../icon/icon';
 
 const PrimaryButtonLink = ({
 	classes = '',
@@ -20,7 +20,7 @@ const PrimaryButtonLink = ({
 			)}
 		</a>
 	</Link>
-)
+);
 
 PrimaryButtonLink.propTypes = {
 	classes: PropTypes.string,
@@ -29,6 +29,6 @@ PrimaryButtonLink.propTypes = {
 	children: PropTypes.node,
 	icon: PropTypes.string,
 	target: PropTypes.string,
-}
+};
 
-export default PrimaryButtonLink
+export default PrimaryButtonLink;

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import setImageParameters from '../_helpers/setImageParameters'
+import PropTypes from 'prop-types';
+import setImageParameters from '../_helpers/setImageParameters';
 
 const TeamMember = ({ data = {} }) => (
 	<li
@@ -23,10 +23,10 @@ const TeamMember = ({ data = {} }) => (
 			</div>
 		</div>
 	</li>
-)
+);
 
 TeamMember.propTypes = {
 	data: PropTypes.object,
-}
+};
 
-export default TeamMember
+export default TeamMember;

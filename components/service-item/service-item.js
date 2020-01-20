@@ -1,8 +1,8 @@
-import Link from 'next/link'
-import ButtonSecondaryMock from '../buttons/button-secondary/button-secondary-mock'
+import Link from 'next/link';
+import ButtonSecondaryMock from '../buttons/button-secondary/button-secondary-mock';
 
 const ServiceItem = ({ item = {}, Component = null, onMouseOver = null, onMouseLeave = null }) => {
-	const { button, iconColor, link, text, title } = item
+	const { button, iconColor, link, text, title } = item;
 
 	return (
 		<div className="service-item">
@@ -30,7 +30,7 @@ const ServiceItem = ({ item = {}, Component = null, onMouseOver = null, onMouseL
 				</ButtonSecondaryMock>
 			</div>
 		</div>
-	)
-}
+	);
+};
 
-export default ServiceItem
+export default ServiceItem;

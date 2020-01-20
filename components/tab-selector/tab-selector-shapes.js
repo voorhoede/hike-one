@@ -15,7 +15,7 @@ export const TrailDiamond = () => (
 			/>
 		</svg>
 	</div>
-)
+);
 
 export const TrailDoubleDiamond = () => (
 	<div className="shape">
@@ -49,7 +49,7 @@ export const TrailDoubleDiamond = () => (
 			/>
 		</svg>
 	</div>
-)
+);
 
 export const TrailTriangle = () => (
 	<div className="shape">
@@ -67,4 +67,4 @@ export const TrailTriangle = () => (
 			/>
 		</svg>
 	</div>
-)
+);

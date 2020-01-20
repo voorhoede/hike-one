@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import Icon from '../../icon/icon'
+import PropTypes from 'prop-types';
+import Icon from '../../icon/icon';
 
 const ButtonClean = ({
 	children,
@@ -18,7 +18,7 @@ const ButtonClean = ({
 			</span>
 		)}
 	</button>
-)
+);
 
 ButtonClean.propTypes = {
 	children: PropTypes.node,
@@ -27,6 +27,6 @@ ButtonClean.propTypes = {
 	icon: PropTypes.string,
 	onClick: PropTypes.func,
 	type: PropTypes.string,
-}
+};
 
-export default ButtonClean
+export default ButtonClean;

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = [], link = {} }) => (
 	<div className={`text-block ${color} ${alignment}`}>
@@ -37,7 +37,7 @@ const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = []
 			)}
 		</div>
 	</div>
-)
+);
 
 StatisticsBlock.propTypes = {
 	color: PropTypes.string,
@@ -45,6 +45,6 @@ StatisticsBlock.propTypes = {
 	summary: PropTypes.object,
 	groups: PropTypes.array,
 	link: PropTypes.object,
-}
+};
 
-export default StatisticsBlock
+export default StatisticsBlock;

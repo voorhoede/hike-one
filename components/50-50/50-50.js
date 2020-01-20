@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import setImageParams from '../_helpers/setImageParameters'
-import InlineVideo from '../inline-video/inline-video'
+import PropTypes from 'prop-types';
+import setImageParams from '../_helpers/setImageParameters';
+import InlineVideo from '../inline-video/inline-video';
 
 const FiftyFifty = ({
 	children,
@@ -13,12 +13,12 @@ const FiftyFifty = ({
 	title = '',
 	video = null,
 }) => {
-	const childrenArray = React.Children.toArray(children)
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
-	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : ''
-	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : ''
-	const imageUrl = image && image.url
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
+	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
+	const imageUrl = image && image.url;
 
 	return (
 		<section
@@ -94,8 +94,8 @@ const FiftyFifty = ({
 
 			{parallaxLayerFront}
 		</section>
-	)
-}
+	);
+};
 
 FiftyFifty.propTypes = {
 	children: PropTypes.node,
@@ -107,6 +107,6 @@ FiftyFifty.propTypes = {
 	text: PropTypes.string,
 	title: PropTypes.string,
 	video: PropTypes.object,
-}
+};
 
-export default FiftyFifty
+export default FiftyFifty;

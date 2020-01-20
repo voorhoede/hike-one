@@ -1,23 +1,23 @@
-import '../../styles/index.less'
+import '../../styles/index.less';
 
-import fetchContent from '../../lib/fetch-content'
-import withCacheControl from '../../lib/with-cache-control'
+import fetchContent from '../../lib/fetch-content';
+import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/_helpers/head'
-import MenuBar from '../../components/menu-bar/menu-bar'
-import PageHeader from '../../components/page-header/page-header'
-import TeamMembersOverview from '../../components/team-members-overview/team-members-overview'
-import TeamOverview from '../../components/team-overview/team-overview'
-import TeamSelector from '../../components/team-selector/team-selector'
-import VacancyOverview from '../../components/vacancy-overview/vacancy-overview'
-import Footer from '../../components/footer/footer'
+import Head from '../../components/_helpers/head';
+import MenuBar from '../../components/menu-bar/menu-bar';
+import PageHeader from '../../components/page-header/page-header';
+import TeamMembersOverview from '../../components/team-members-overview/team-members-overview';
+import TeamOverview from '../../components/team-overview/team-overview';
+import TeamSelector from '../../components/team-selector/team-selector';
+import VacancyOverview from '../../components/vacancy-overview/vacancy-overview';
+import Footer from '../../components/footer/footer';
 
-let scrapeJobs
+let scrapeJobs;
 
 if (!process.browser) {
-	scrapeJobs = require('../../lib/job-scraper/server')
+	scrapeJobs = require('../../lib/job-scraper/server');
 } else {
-	scrapeJobs = require('../../lib/job-scraper/browser')
+	scrapeJobs = require('../../lib/job-scraper/browser');
 }
 
 const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
@@ -50,7 +50,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 
 		<Footer form={footer.form} />
 	</>
-)
+);
 
 Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 	const graphqlQuery = `{
@@ -165,7 +165,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 				}
 			}
 		}
-	}`
+	}`;
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),
@@ -176,7 +176,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 		...content,
 		vacancies,
 		pathname,
-	}))
-})
+	}));
+});
 
-export default Page
+export default Page;

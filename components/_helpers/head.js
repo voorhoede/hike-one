@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 export default ({ title, description, image = null, twitterCard = null, children }) => (
 	<Head>
@@ -25,4 +25,4 @@ export default ({ title, description, image = null, twitterCard = null, children
 		<link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" sizes="16x16" />
 		{children}
 	</Head>
-)
+);

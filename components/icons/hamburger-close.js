@@ -14,6 +14,6 @@ const HamburgerClose = () => (
 			strokeWidth="4"
 		/>
 	</svg>
-)
+);
 
-export default HamburgerClose
+export default HamburgerClose;

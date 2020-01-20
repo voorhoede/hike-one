@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import Link from 'next/link'
-import Icon from '../../icon/icon'
+import PropTypes from 'prop-types';
+import Link from 'next/link';
+import Icon from '../../icon/icon';
 
 const ButtonCleanLink = ({ classes = '', href = '', children, icon = '' }) => (
 	<Link href={href}>
@@ -13,13 +13,13 @@ const ButtonCleanLink = ({ classes = '', href = '', children, icon = '' }) => (
 			)}
 		</a>
 	</Link>
-)
+);
 
 ButtonCleanLink.propTypes = {
 	classes: PropTypes.string,
 	href: PropTypes.string,
 	children: PropTypes.node,
 	icon: PropTypes.string,
-}
+};
 
-export default ButtonCleanLink
+export default ButtonCleanLink;

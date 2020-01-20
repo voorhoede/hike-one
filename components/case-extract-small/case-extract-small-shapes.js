@@ -1,5 +1,5 @@
-import Parallax from '../parallax/parallax'
-import Triangle from '../icons/triangle'
+import Parallax from '../parallax/parallax';
+import Triangle from '../icons/triangle';
 
 export const variation1Front = () => (
 	<div className="case-extract-small-shapes">
@@ -10,4 +10,4 @@ export const variation1Front = () => (
 			<Triangle classes="shape-triangle-2" color="blue" />
 		</Parallax>
 	</div>
-)
+);

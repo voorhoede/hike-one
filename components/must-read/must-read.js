@@ -1,31 +1,31 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import Authors from '../authors/authors'
-import ButtonSecondary from '../buttons/button-secondary/button-secondary'
+import Authors from '../authors/authors';
+import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
 class MustRead extends Component {
 	constructor(props) {
-		super(props)
-		this.handleClick = this.handleClick.bind(this)
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
 		this.state = {
 			isCollapsed: true,
-		}
+		};
 	}
 
 	handleClick() {
-		const { isCollapsed } = this.state
-		this.setState({ isCollapsed: !isCollapsed })
+		const { isCollapsed } = this.state;
+		this.setState({ isCollapsed: !isCollapsed });
 	}
 
 	render() {
-		const { mustRead } = this.props
-		const { isCollapsed } = this.state
-		const buttonText = isCollapsed ? 'Show more' : 'Show less'
-		const hideItem = isCollapsed ? 'hide' : 'show'
-		const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' '
-		const buttonIcon = isCollapsed ? 'arrowDown' : 'arrowUp'
-		const buttonClass = isCollapsed ? 'arrow-down' : 'arrow-up'
+		const { mustRead } = this.props;
+		const { isCollapsed } = this.state;
+		const buttonText = isCollapsed ? 'Show more' : 'Show less';
+		const hideItem = isCollapsed ? 'hide' : 'show';
+		const mustReadShortFade = isCollapsed ? 'must-read-short-fade' : ' ';
+		const buttonIcon = isCollapsed ? 'arrowDown' : 'arrowUp';
+		const buttonClass = isCollapsed ? 'arrow-down' : 'arrow-up';
 
 		return (
 			<div className="must-read">
@@ -55,12 +55,12 @@ class MustRead extends Component {
 					{buttonText}
 				</ButtonSecondary>
 			</div>
-		)
+		);
 	}
 }
 
 MustRead.propTypes = {
 	mustRead: PropTypes.array,
-}
+};
 
-export default MustRead
+export default MustRead;

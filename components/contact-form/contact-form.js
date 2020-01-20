@@ -1,30 +1,30 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import scrollToElement from '../_helpers/scrollToElement'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import scrollToElement from '../_helpers/scrollToElement';
 
-import ButtonPrimary from '../buttons/button-primary/button-primary'
-import CallToAction from '../call-to-action/call-to-action'
-import InputField from '../input-field/input-field'
-import SelectDropdown from '../select-dropdown/select-dropdown'
-import TextCenter from '../text-center/text-center'
+import ButtonPrimary from '../buttons/button-primary/button-primary';
+import CallToAction from '../call-to-action/call-to-action';
+import InputField from '../input-field/input-field';
+import SelectDropdown from '../select-dropdown/select-dropdown';
+import TextCenter from '../text-center/text-center';
 
 class ContactForm extends Component {
 	constructor(props) {
-		super(props)
-		this.handleClick = this.handleClick.bind(this)
-		this.handleChange = this.handleChange.bind(this)
-		this.formatEmailSubject = this.formatEmailSubject.bind(this)
-		this.getFormData = this.getFormData.bind(this)
-		this.isFormValid = this.isFormValid.bind(this)
-		this.handleSubmit = this.handleSubmit.bind(this)
-		this.clearForm = this.clearForm.bind(this)
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.formatEmailSubject = this.formatEmailSubject.bind(this);
+		this.getFormData = this.getFormData.bind(this);
+		this.isFormValid = this.isFormValid.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.clearForm = this.clearForm.bind(this);
 		this.state = {
 			selectedItemId: '',
 			currentForm: null,
 			_gotcha: '', // avoids spam by fooling scrapers
 			isSent: false,
 			formData: {},
-		}
+		};
 	}
 
 	handleClick(id, label) {
@@ -32,7 +32,7 @@ class ContactForm extends Component {
 			selectedItemId: id,
 			selectedItemLabel: label,
 			currentForm: this.props.form.forms.find(form => form.id === id),
-		})
+		});
 	}
 
 	handleChange(e) {
@@ -41,60 +41,60 @@ class ContactForm extends Component {
 				...this.state.formData,
 				[e.target.name]: e.target.value,
 			},
-		})
+		});
 	}
 
 	formatEmailSubject() {
-		const { currentForm, formData } = this.state
+		const { currentForm, formData } = this.state;
 
 		return currentForm.emailMessageSubject
 			.split(' ')
 			.map(word => {
 				if (word.indexOf('[') !== -1) {
-					const name = word.substring(1, word.length - 1)
-					return formData[name]
+					const name = word.substring(1, word.length - 1);
+					return formData[name];
 				}
-				return word
+				return word;
 			})
-			.join(' ')
+			.join(' ');
 	}
 
 	getFormData() {
-		const { formData } = this.state
-		const emailSubject = this.formatEmailSubject()
+		const { formData } = this.state;
+		const emailSubject = this.formatEmailSubject();
 
-		return { _subject: emailSubject, _format: 'plain', ...formData }
+		return { _subject: emailSubject, _format: 'plain', ...formData };
 	}
 
 	isFormValid() {
-		const { currentForm, formData, _gotcha } = this.state
+		const { currentForm, formData, _gotcha } = this.state;
 		const isValid =
 			currentForm.formFields
 				.filter(field => field.required)
 				.map(field => field.name)
 				.map(name => {
 					if (name === 'email') {
-						return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name])
+						return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name]);
 					}
 
-					return formData[name].length >= 2
+					return formData[name].length >= 2;
 				})
-				.indexOf(false) === -1
+				.indexOf(false) === -1;
 
-		const isSpam = _gotcha.length > 0
+		const isSpam = _gotcha.length > 0;
 
-		return isValid && !isSpam
+		return isValid && !isSpam;
 	}
 
 	handleSubmit(e) {
-		e.preventDefault()
+		e.preventDefault();
 
 		if (!this.isFormValid) {
-			return
+			return;
 		}
 
-		const { currentForm } = this.state
-		const formData = this.getFormData()
+		const { currentForm } = this.state;
+		const formData = this.getFormData();
 
 		return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
 			method: 'POST',
@@ -108,25 +108,25 @@ class ContactForm extends Component {
 			.then(e => {
 				switch (e.status) {
 					case 200: {
-						this.clearForm()
+						this.clearForm();
 
-						this.setState({ isSent: true })
-						scrollToElement('message-sent')
-						break
+						this.setState({ isSent: true });
+						scrollToElement('message-sent');
+						break;
 					}
 					case 403: {
 						console.error(
 							"In order to submit via AJAX, in this form's reCAPTCHA must be disabled.",
 							e
-						)
-						break
+						);
+						break;
 					}
 					default: {
-						console.error('Something went wrong: ', e)
+						console.error('Something went wrong: ', e);
 					}
 				}
 			})
-			.catch(e => console.error(e))
+			.catch(e => console.error(e));
 	}
 
 	clearForm() {
@@ -135,28 +135,28 @@ class ContactForm extends Component {
 			currentForm: null,
 			_gotcha: '', // avoids spam by fooling scrapers
 			formData: {},
-		})
+		});
 	}
 
 	componentDidMount() {
-		const { form, singleForm } = this.props
+		const { form, singleForm } = this.props;
 
 		if (singleForm) {
 			this.setState({
 				selectedItemId: form.forms[0].id,
 				selectedItemLabel: form.forms[0].label,
 				currentForm: form.forms[0],
-			})
+			});
 		}
 	}
 
 	render() {
-		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state
-		const { form, singleForm, showBody = true } = this.props
-		const { title, selectInputLabel, thankYouMessage } = form
+		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state;
+		const { form, singleForm, showBody = true } = this.props;
+		const { title, selectInputLabel, thankYouMessage } = form;
 		const forms = singleForm
 			? form.forms
-			: [...form.forms, { title: 'Working at Hike One', id: 'job-application' }]
+			: [...form.forms, { title: 'Working at Hike One', id: 'job-application' }];
 
 		if (!isSent) {
 			return (
@@ -225,7 +225,7 @@ class ContactForm extends Component {
 						</React.Fragment>
 					)}
 				</div>
-			)
+			);
 		}
 
 		return (
@@ -298,7 +298,7 @@ class ContactForm extends Component {
 					</div>
 				)}
 			</div>
-		)
+		);
 	}
 }
 
@@ -306,6 +306,6 @@ ContactForm.propTypes = {
 	form: PropTypes.object,
 	showBody: PropTypes.bool,
 	singleForm: PropTypes.bool,
-}
+};
 
-export default ContactForm
+export default ContactForm;

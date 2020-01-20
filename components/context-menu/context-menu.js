@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const ContextMenu = ({ isOpen = false }) => (
 	<section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden'}`}>
@@ -64,10 +64,10 @@ const ContextMenu = ({ isOpen = false }) => (
 			Download all logos
 		</a>
 	</section>
-)
+);
 
 ContextMenu.propTypes = {
 	isOpen: PropTypes.bool,
-}
+};
 
-export default ContextMenu
+export default ContextMenu;

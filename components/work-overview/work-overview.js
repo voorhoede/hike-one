@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const WorkOverview = ({ classes = '', header = '', children, moreButton = false }) => (
 	<div
@@ -9,13 +9,13 @@ const WorkOverview = ({ classes = '', header = '', children, moreButton = false 
 		<h2 className="work-overview-header">{header}</h2>
 		<div className="container-inner">{children}</div>
 	</div>
-)
+);
 
 WorkOverview.propTypes = {
 	classes: PropTypes.string,
 	header: PropTypes.string,
 	children: PropTypes.node,
 	moreButton: PropTypes.bool,
-}
+};
 
-export default WorkOverview
+export default WorkOverview;

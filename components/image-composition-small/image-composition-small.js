@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import setImageParams from '../_helpers/setImageParameters'
+import PropTypes from 'prop-types';
+import setImageParams from '../_helpers/setImageParameters';
 
 const ImageCompositionSmall = ({
 	children,
@@ -8,10 +8,10 @@ const ImageCompositionSmall = ({
 	image34 = {},
 	image34Small = {},
 }) => {
-	const childrenArray = React.Children.toArray(children)
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
-	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
 
 	return (
 		<div className={`image-composition-small ${classes}`}>
@@ -83,8 +83,8 @@ const ImageCompositionSmall = ({
 
 			{parallaxLayerFront}
 		</div>
-	)
-}
+	);
+};
 
 ImageCompositionSmall.propTypes = {
 	children: PropTypes.node,
@@ -93,6 +93,6 @@ ImageCompositionSmall.propTypes = {
 	image34: PropTypes.object,
 	image34Small: PropTypes.object,
 	image34SmallPerson: PropTypes.bool,
-}
+};
 
-export default ImageCompositionSmall
+export default ImageCompositionSmall;

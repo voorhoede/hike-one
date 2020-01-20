@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import ArrowRightCircle from '../icons/arrow-right-circle'
-import Authors from '../authors/authors'
+import PropTypes from 'prop-types';
+import ArrowRightCircle from '../icons/arrow-right-circle';
+import Authors from '../authors/authors';
 
 const UpdateLink = ({ slug, href, title = '', authors = [], date = '', target = false }) => (
 	<div className="update-link">
@@ -17,7 +17,7 @@ const UpdateLink = ({ slug, href, title = '', authors = [], date = '', target = 
 			<span>{date}</span> | <Authors authors={authors} />
 		</p>
 	</div>
-)
+);
 
 UpdateLink.propTypes = {
 	slug: PropTypes.string,
@@ -26,6 +26,6 @@ UpdateLink.propTypes = {
 	authors: PropTypes.array,
 	date: PropTypes.string,
 	target: PropTypes.bool,
-}
+};
 
-export default UpdateLink
+export default UpdateLink;

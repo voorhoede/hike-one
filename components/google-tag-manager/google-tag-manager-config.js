@@ -9,6 +9,6 @@ const GoogleTagManagerConfig = () => (
     `,
 		}}
 	/>
-)
+);
 
-export default GoogleTagManagerConfig
+export default GoogleTagManagerConfig;

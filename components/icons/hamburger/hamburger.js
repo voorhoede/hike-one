@@ -1,15 +1,15 @@
-import { Component } from 'react'
-import { Power2, TimelineLite, CSSPlugin } from 'gsap'
+import { Component } from 'react';
+import { Power2, TimelineLite, CSSPlugin } from 'gsap';
 
 class Hamburger extends Component {
 	constructor(props) {
-		super(props)
-		this.playAnimation = this.playAnimation.bind(this)
-		this.reverseAnimation = this.reverseAnimation.bind(this)
+		super(props);
+		this.playAnimation = this.playAnimation.bind(this);
+		this.reverseAnimation = this.reverseAnimation.bind(this);
 	}
 
 	componentDidMount() {
-		this.tlHamburger = new TimelineLite()
+		this.tlHamburger = new TimelineLite();
 		this.tlHamburger
 			.pause()
 			.set(this.hamburgerPath1, { transformOrigin: '10% 0' })
@@ -39,15 +39,15 @@ class Hamburger extends Component {
 					ease: Power2.easeInOut,
 				},
 				0
-			)
+			);
 	}
 
 	playAnimation() {
-		this.tlHamburger.play()
+		this.tlHamburger.play();
 	}
 
 	reverseAnimation() {
-		this.tlHamburger.reverse()
+		this.tlHamburger.reverse();
 	}
 
 	render() {
@@ -90,8 +90,8 @@ class Hamburger extends Component {
 					strokeWidth="4"
 				/>
 			</svg>
-		)
+		);
 	}
 }
 
-export default Hamburger
+export default Hamburger;

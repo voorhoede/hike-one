@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
-import MailchimpInput from './mailchimp-input'
+import PropTypes from 'prop-types';
+import MailchimpInput from './mailchimp-input';
 
 const MailchimpForm = ({
 	title = '',
@@ -57,7 +57,7 @@ const MailchimpForm = ({
 			/>
 		</form>
 	</div>
-)
+);
 
 MailchimpForm.propTypes = {
 	title: PropTypes.string,
@@ -66,6 +66,6 @@ MailchimpForm.propTypes = {
 	listId: PropTypes.string,
 	buttonLabel: PropTypes.string,
 	hasShadow: PropTypes.bool,
-}
+};
 
-export default MailchimpForm
+export default MailchimpForm;

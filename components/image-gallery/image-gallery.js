@@ -1,26 +1,26 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
-import FullWidthImage from '../full-width-image/full-width-image'
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+import FullWidthImage from '../full-width-image/full-width-image';
 
 class ImageGallery extends Component {
 	constructor(props) {
-		super(props)
-		this.showImage = this.showImage.bind(this)
+		super(props);
+		this.showImage = this.showImage.bind(this);
 		this.state = {
 			imageIndex: 0,
-		}
+		};
 	}
 
 	showImage(index) {
-		this.setState({ imageIndex: index })
+		this.setState({ imageIndex: index });
 	}
 	componentDidMount() {
-		window.scrollTo(0, 0)
+		window.scrollTo(0, 0);
 	}
 
 	render() {
-		const { items, title } = this.props
-		const { imageIndex } = this.state
+		const { items, title } = this.props;
+		const { imageIndex } = this.state;
 
 		return (
 			<div className="image-gallery">
@@ -47,13 +47,13 @@ class ImageGallery extends Component {
 					))}
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
 ImageGallery.propTypes = {
 	items: PropTypes.array,
 	title: PropTypes.string,
-}
+};
 
-export default ImageGallery
+export default ImageGallery;

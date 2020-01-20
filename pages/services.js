@@ -1,14 +1,14 @@
-import '../styles/index.less'
+import '../styles/index.less';
 
-import fetchContent from '../lib/fetch-content'
-import withCacheControl from '../lib/with-cache-control'
+import fetchContent from '../lib/fetch-content';
+import withCacheControl from '../lib/with-cache-control';
 
-import Head from '../components/_helpers/head'
-import MenuBar from '../components/menu-bar/menu-bar'
-import PageHeader from '../components/page-header/page-header'
-import ServicesOverview from '../components/services-overview/services-overview'
-import ServicesOverviewPage from '../components/services-overview-page/services-overview-page'
-import Footer from '../components/footer/footer'
+import Head from '../components/_helpers/head';
+import MenuBar from '../components/menu-bar/menu-bar';
+import PageHeader from '../components/page-header/page-header';
+import ServicesOverview from '../components/services-overview/services-overview';
+import ServicesOverviewPage from '../components/services-overview-page/services-overview-page';
+import Footer from '../components/footer/footer';
 
 const Page = ({ service, servicesOverview, footer }) => (
 	<>
@@ -50,7 +50,7 @@ const Page = ({ service, servicesOverview, footer }) => (
 
 		<Footer form={footer.form} />
 	</>
-)
+);
 
 Page.getInitialProps = withCacheControl(({ req }) => {
 	const graphqlQuery = `{
@@ -134,9 +134,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 				}
 			}
 		}
-	}`
+	}`;
 
-	return fetchContent({ graphqlQuery, req })
-})
+	return fetchContent({ graphqlQuery, req });
+});
 
-export default Page
+export default Page;

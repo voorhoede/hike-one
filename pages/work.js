@@ -1,17 +1,17 @@
-import '../styles/index.less'
+import '../styles/index.less';
 
-import fetchContent from '../lib/fetch-content'
-import withCacheControl from '../lib/with-cache-control'
+import fetchContent from '../lib/fetch-content';
+import withCacheControl from '../lib/with-cache-control';
 
-import Head from '../components/_helpers/head'
-import MenuBar from '../components/menu-bar/menu-bar'
-import PageHeader from '../components/page-header/page-header'
-import LogoCarousel from '../components/logo-carousel/logo-carousel'
-import WorkOverview from '../components/work-overview/work-overview'
-import CaseExtractSmall from '../components/case-extract-small/case-extract-small'
-import Contact from '../components/contact/contact'
-import ContactShapes from '../components/contact/contact-shapes'
-import Footer from '../components/footer/footer'
+import Head from '../components/_helpers/head';
+import MenuBar from '../components/menu-bar/menu-bar';
+import PageHeader from '../components/page-header/page-header';
+import LogoCarousel from '../components/logo-carousel/logo-carousel';
+import WorkOverview from '../components/work-overview/work-overview';
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import Contact from '../components/contact/contact';
+import ContactShapes from '../components/contact/contact-shapes';
+import Footer from '../components/footer/footer';
 
 const Page = ({ work, overviewCases, footer }) => (
 	<>
@@ -61,7 +61,7 @@ const Page = ({ work, overviewCases, footer }) => (
 
 		<Footer form={footer.form} />
 	</>
-)
+);
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{
@@ -122,9 +122,9 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 				}
 			}
 		}
-	}`
+	}`;
 
-	return fetchContent({ graphqlQuery, req })
-})
+	return fetchContent({ graphqlQuery, req });
+});
 
-export default Page
+export default Page;

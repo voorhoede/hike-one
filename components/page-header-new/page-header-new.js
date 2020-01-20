@@ -5,11 +5,7 @@ import {
 	timelineDoubleDiamond,
 	timelineTriangles,
 } from './page-header-new-animations';
-import {
-	ShapesDiamond,
-	ShapesDoubleDiamond,
-	ShapesTriangles,
-} from './page-header-new-shapes';
+import { ShapesDiamond, ShapesDoubleDiamond, ShapesTriangles } from './page-header-new-shapes';
 
 class PageHeaderNew extends Component {
 	constructor(props) {
@@ -64,10 +60,7 @@ class PageHeaderNew extends Component {
 		};
 
 		return (
-			<section
-				className="page-header-new"
-				style={{ backgroundColor: currentColor }}
-			>
+			<section className="page-header-new" style={{ backgroundColor: currentColor }}>
 				<PageHeaderNewAnimation
 					Component={shapesByName[animation]}
 					color={this.colorByName[animation]}
@@ -82,10 +75,7 @@ class PageHeaderNew extends Component {
 
 const PageHeaderNewAnimation = ({ Component = null, color = '' }) => (
 	<div className="page-header-new__animation">
-		<div
-			className="page-header-new__animation-background"
-			style={{ backgroundColor: color }}
-		></div>
+		<div className="page-header-new__animation-background" style={{ backgroundColor: color }}></div>
 		<Component />
 	</div>
 );

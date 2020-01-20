@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import fields from './mailchimp.config';
 
-const MailchimpInput = ({
-	name = '',
-	label = '',
-	required = false,
-	classes = '',
-}) => (
+const MailchimpInput = ({ name = '', label = '', required = false, classes = '' }) => (
 	<div className={`input-field ${classes}`}>
 		<label htmlFor={`mce-${fields[name].id}"`} className="label">
 			{label} {required ? '*' : ''}

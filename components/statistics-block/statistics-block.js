@@ -1,12 +1,6 @@
 import PropTypes from 'prop-types';
 
-const StatisticsBlock = ({
-	color = '',
-	alignment = '',
-	summary = {},
-	groups = [],
-	link = {},
-}) => (
+const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = [], link = {} }) => (
 	<div className={`text-block ${color} ${alignment}`}>
 		<div className="statistics">
 			{summary && (

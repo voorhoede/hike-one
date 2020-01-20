@@ -14,12 +14,8 @@ const FiftyFifty = ({
 	video = null,
 }) => {
 	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(
-		child => child.props.position === 'front'
-	);
-	const parallaxLayerBack = childrenArray.find(
-		child => child.props.position === 'back'
-	);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
 	const imageUrl = image && image.url;
@@ -31,9 +27,7 @@ const FiftyFifty = ({
 			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-media">
-					{googleMapsIframe && (
-						<div dangerouslySetInnerHTML={{ __html: googleMapsIframe }} />
-					)}
+					{googleMapsIframe && <div dangerouslySetInnerHTML={{ __html: googleMapsIframe }} />}
 
 					{video && (
 						<InlineVideo
@@ -94,10 +88,7 @@ const FiftyFifty = ({
 				<div className="fifty-fifty-content">
 					{title && <h2 className="fifty-fifty-title content">{title}</h2>}
 
-					<div
-						className="fifty-fifty-text content"
-						dangerouslySetInnerHTML={{ __html: text }}
-					/>
+					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{ __html: text }} />
 				</div>
 			</div>
 

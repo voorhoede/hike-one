@@ -64,13 +64,8 @@ const UpdateExtractSmall = ({
 				rel={target ? 'noopener noreferrer' : null}
 			>
 				<div dangerouslySetInnerHTML={style} />
-				<div
-					className={`update-extract-small-image-${index} update-extract-small-image`}
-				/>
-				<div
-					className="update-extract-small-text"
-					style={{ backgroundColor: color }}
-				>
+				<div className={`update-extract-small-image-${index} update-extract-small-image`} />
+				<div className="update-extract-small-text" style={{ backgroundColor: color }}>
 					<div className="update-extract-small-type" style={{ color: color }}>
 						{category}
 						{target && (
@@ -80,10 +75,7 @@ const UpdateExtractSmall = ({
 						)}
 					</div>
 					<h2 className="update-extract-small-title">{title}</h2>
-					<span
-						className="update-extract-small-subtitle"
-						style={{ backgroundColor: color }}
-					>
+					<span className="update-extract-small-subtitle" style={{ backgroundColor: color }}>
 						<Authors authors={authors} /> - {getDateFormat(date)}
 					</span>
 				</div>

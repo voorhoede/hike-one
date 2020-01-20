@@ -2,11 +2,7 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ServiceItem from '../service-item/service-item';
 import TextCenter from '../text-center/text-center';
-import {
-	TrailDiamond,
-	TrailDoubleDiamond,
-	TrailTriangle,
-} from './services-overview-shapes';
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes';
 import { TimelineLite } from 'gsap';
 
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];

@@ -108,10 +108,7 @@ class Footer extends Component {
 						<div className="footer-right">
 							<div className="footer-contact">
 								<h3>Get in touch</h3>
-								<a
-									href="mailto:hello@hike.one"
-									className="footer-contact-email"
-								>
+								<a href="mailto:hello@hike.one" className="footer-contact-email">
 									hello@hike.one
 								</a>
 								<a href="tel:+31-202044577" className="footer-contact-tel">

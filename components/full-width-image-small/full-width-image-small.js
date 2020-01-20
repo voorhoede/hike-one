@@ -33,9 +33,7 @@ const FullWidthImageSmall = ({ image = '#', index = 0 }) => {
 	return (
 		<div>
 			<div dangerouslySetInnerHTML={style} />
-			<div
-				className={`full-width-image-small full-width-image-small-${index}`}
-			/>
+			<div className={`full-width-image-small full-width-image-small-${index}`} />
 		</div>
 	);
 };

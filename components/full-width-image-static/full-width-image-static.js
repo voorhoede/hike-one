@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
-const FullWidthImageStatic = ({
-	image = '#',
-	title = '',
-	subtitle = '',
-	index = 0,
-}) => {
+const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 0 }) => {
 	const imageParameters = { fm: 'pjpg', q: 85 };
 	const style = {
 		__html: `<style>
@@ -17,16 +12,16 @@ const FullWidthImageStatic = ({
 				})}')
       }
       @media (min-width: 500px) {
-        .full-width-image-static-${index} { background-image: url('${setImageParams(
-			image,
-			{ ...imageParameters, w: 1000 }
-		)}') }
+        .full-width-image-static-${index} { background-image: url('${setImageParams(image, {
+			...imageParameters,
+			w: 1000,
+		})}') }
       }
       @media (min-width: 1170px) {
-        .full-width-image-static-${index} { background-image: url('${setImageParams(
-			image,
-			{ ...imageParameters, w: 1920 }
-		)}') }
+        .full-width-image-static-${index} { background-image: url('${setImageParams(image, {
+			...imageParameters,
+			w: 1920,
+		})}') }
       }
     </style>`,
 	};
@@ -34,9 +29,7 @@ const FullWidthImageStatic = ({
 	return (
 		<div>
 			<div dangerouslySetInnerHTML={style} />
-			<div
-				className={`full-width-image-static full-width-image-static-${index}`}
-			>
+			<div className={`full-width-image-static full-width-image-static-${index}`}>
 				{(title || subtitle) && (
 					<div className="full-width-image-static-text">
 						{title && <h2>{title}</h2>}

@@ -15,9 +15,7 @@ const Error = ({ errorPage }) => (
 		<MenuBar />
 
 		<article
-			className={`article article-error ${
-				errorPage.image ? 'article-error--has-image' : ''
-			}`}
+			className={`article article-error ${errorPage.image ? 'article-error--has-image' : ''}`}
 		>
 			<TextCenter title={errorPage.title} text={errorPage.description}>
 				<TextCenterShapes.variation3Back position="back" />

@@ -1,12 +1,7 @@
 import Link from 'next/link';
 import ButtonSecondaryMock from '../buttons/button-secondary/button-secondary-mock';
 
-const ServiceItem = ({
-	item = {},
-	Component = null,
-	onMouseOver = null,
-	onMouseLeave = null,
-}) => {
+const ServiceItem = ({ item = {}, Component = null, onMouseOver = null, onMouseLeave = null }) => {
 	const { button, iconColor, link, text, title } = item;
 
 	return (
@@ -30,10 +25,7 @@ const ServiceItem = ({
 					<h3 className="service-item__content-title">{title}</h3>
 				)}
 				<p className="service-item__content-text">{text}</p>
-				<ButtonSecondaryMock
-					icon="arrowRight"
-					classes="btn-red-border btn-wide"
-				>
+				<ButtonSecondaryMock icon="arrowRight" classes="btn-red-border btn-wide">
 					{button}
 				</ButtonSecondaryMock>
 			</div>

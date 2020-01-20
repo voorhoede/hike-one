@@ -43,10 +43,7 @@ const Page = ({ home, footer }) => (
 		</PageHeader>
 
 		<main className={`${scrollToTargetClass} page-scrolling-content`}>
-			<ServicesOverview
-				title={home.servicesItemTitle}
-				services={home.serviceItems}
-			/>
+			<ServicesOverview title={home.servicesItemTitle} services={home.serviceItems} />
 
 			<TextCenter
 				classes="text-center-font-medium text-center-spacing-small"

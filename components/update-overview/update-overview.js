@@ -77,19 +77,11 @@ class UpdateOverview extends Component {
 
 	render() {
 		const { data } = this.props;
-		const {
-			activeFilter,
-			pageSize,
-			pageOffset,
-			loading,
-			filters,
-			filteredUpdates,
-		} = this.state;
+		const { activeFilter, pageSize, pageOffset, loading, filters, filteredUpdates } = this.state;
 		const slicedUpdates = filteredUpdates.slice(0, pageOffset * pageSize);
 		const totalPages = Math.ceil(filteredUpdates.length / pageSize);
 		const buttonClass = loading ? 'loading' : 'vertical-spring';
-		const highlightsClass =
-			activeFilter === 'All' ? 'highlights--show' : 'highlights--hidden';
+		const highlightsClass = activeFilter === 'All' ? 'highlights--show' : 'highlights--hidden';
 		const icon = !loading ? 'arrowDown' : 'spinner';
 
 		return (
@@ -103,10 +95,7 @@ class UpdateOverview extends Component {
 					/>
 				</div>
 				<div className={`container-inner ${highlightsClass}`}>
-					<UpdatesExtractLarge
-						highlights={data.highlights}
-						mustRead={data.mustRead}
-					/>
+					<UpdatesExtractLarge highlights={data.highlights} mustRead={data.mustRead} />
 					{slicedUpdates.map((item, index) => (
 						<UpdateExtractSmall
 							key={index}

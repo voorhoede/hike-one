@@ -13,20 +13,14 @@ const LogoCarousel = props => {
 					<ul className="marquee-item list-no-style">
 						{companies.map((company, index) => (
 							<li key={index}>
-								<img
-									src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
-									alt={company.name}
-								/>
+								<img src={`${company.logo.url}?fm=png&fit=max&max-w=250`} alt={company.name} />
 							</li>
 						))}
 					</ul>
 					<ul className="marquee-item list-no-style">
 						{companies.map((company, index) => (
 							<li key={index}>
-								<img
-									src={`${company.logo.url}?fm=png&fit=max&max-w=250`}
-									alt={company.name}
-								/>
+								<img src={`${company.logo.url}?fm=png&fit=max&max-w=250`} alt={company.name} />
 							</li>
 						))}
 					</ul>

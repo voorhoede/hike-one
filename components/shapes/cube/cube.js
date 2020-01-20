@@ -2,11 +2,7 @@ import PropTypes from 'prop-types';
 
 const Cube = ({ shadow = false }) => (
 	<div className="shape">
-		<svg
-			className="shape-cube"
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 399 399"
-		>
+		<svg className="shape-cube" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 399">
 			{shadow && (
 				<defs>
 					<filter
@@ -18,11 +14,7 @@ const Cube = ({ shadow = false }) => (
 						filterUnits="objectBoundingBox"
 					>
 						<feOffset dy="30" in="SourceAlpha" result="shadowOffsetOuter1" />
-						<feGaussianBlur
-							in="shadowOffsetOuter1"
-							result="shadowBlurOuter1"
-							stdDeviation="25"
-						/>
+						<feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="25" />
 						<feColorMatrix
 							in="shadowBlurOuter1"
 							result="shadowMatrixOuter1"
@@ -41,13 +33,7 @@ const Cube = ({ shadow = false }) => (
 				fillRule="evenodd"
 				transform="translate(50 20)"
 			>
-				<rect
-					className="shape-cube-bg"
-					width="299.511"
-					height="299.824"
-					fill="#FFE044"
-					rx="4"
-				/>
+				<rect className="shape-cube-bg" width="299.511" height="299.824" fill="#FFE044" rx="4" />
 				<rect
 					className="shape-cube-front"
 					width="192.347"

@@ -2,14 +2,7 @@ import PropTypes from 'prop-types';
 import ArrowRightCircle from '../icons/arrow-right-circle';
 import Authors from '../authors/authors';
 
-const UpdateLink = ({
-	slug,
-	href,
-	title = '',
-	authors = [],
-	date = '',
-	target = false,
-}) => (
+const UpdateLink = ({ slug, href, title = '', authors = [], date = '', target = false }) => (
 	<div className="update-link">
 		<a
 			href={href || `/update/${slug}`}

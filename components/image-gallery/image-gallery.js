@@ -27,17 +27,10 @@ class ImageGallery extends Component {
 				{items.map((item, index) => (
 					<div
 						key={index}
-						className={`image-gallery-img ${
-							imageIndex === index ? 'is-active' : ''
-						}`}
+						className={`image-gallery-img ${imageIndex === index ? 'is-active' : ''}`}
 					>
 						{imageIndex === index && (
-							<FullWidthImage
-								index={index}
-								image={item.url}
-								overlay={true}
-								staticImg={true}
-							/>
+							<FullWidthImage index={index} image={item.url} overlay={true} staticImg={true} />
 						)}
 					</div>
 				))}
@@ -47,9 +40,7 @@ class ImageGallery extends Component {
 						<button
 							key={index}
 							onClick={() => this.showImage(index)}
-							className={`image-gallery-btn ${
-								imageIndex === index ? 'is-active' : ''
-							}`}
+							className={`image-gallery-btn ${imageIndex === index ? 'is-active' : ''}`}
 						>
 							{item.title}
 						</button>

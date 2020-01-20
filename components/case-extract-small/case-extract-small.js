@@ -13,9 +13,7 @@ const CaseExtractSmall = ({
 	children,
 }) => {
 	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(
-		child => child.props.position === 'front'
-	);
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 
 	return (
 		<div className="case-extract-small">
@@ -34,10 +32,7 @@ const CaseExtractSmall = ({
 						<div className="case-extract-small-overlay" />
 					</div>
 					<div className="case-extract-small-bg">
-						<div
-							className="case-extract-small-bg-inner"
-							style={{ backgroundColor: color }}
-						/>
+						<div className="case-extract-small-bg-inner" style={{ backgroundColor: color }} />
 					</div>
 					<div className="case-extract-small-text">
 						<span>{companyName}</span>

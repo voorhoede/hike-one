@@ -151,21 +151,12 @@ class ContactForm extends Component {
 	}
 
 	render() {
-		const {
-			_gotcha,
-			isSent,
-			currentForm,
-			selectedItemId,
-			selectedItemLabel,
-		} = this.state;
+		const { _gotcha, isSent, currentForm, selectedItemId, selectedItemLabel } = this.state;
 		const { form, singleForm, showBody = true } = this.props;
 		const { title, selectInputLabel, thankYouMessage } = form;
 		const forms = singleForm
 			? form.forms
-			: [
-					...form.forms,
-					{ title: 'Working at Hike One', id: 'job-application' },
-			  ];
+			: [...form.forms, { title: 'Working at Hike One', id: 'job-application' }];
 
 		if (!isSent) {
 			return (
@@ -228,10 +219,7 @@ class ContactForm extends Component {
 									onChange={this.handleChange}
 								/>
 							</form>
-							<ButtonPrimary
-								classes="submit-btn btn-primary btn-large"
-								onClick={this.handleSubmit}
-							>
+							<ButtonPrimary classes="submit-btn btn-primary btn-large" onClick={this.handleSubmit}>
 								{currentForm.submitButtonLabel}
 							</ButtonPrimary>
 						</React.Fragment>
@@ -295,10 +283,7 @@ class ContactForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</form>
-						<ButtonPrimary
-							classes="submit-btn btn-primary btn-large"
-							onClick={this.handleSubmit}
-						>
+						<ButtonPrimary classes="submit-btn btn-primary btn-large" onClick={this.handleSubmit}>
 							{currentForm.submitButtonLabel}
 						</ButtonPrimary>
 					</React.Fragment>

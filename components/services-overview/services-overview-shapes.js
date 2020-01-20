@@ -6,14 +6,7 @@ export const TrailDiamond = () => (
 		height="400"
 		viewBox="0 0 400 400"
 	>
-		<rect
-			className="shape-bg"
-			fill="#fe595b"
-			width="400"
-			height="400"
-			rx="12"
-			ry="12"
-		/>
+		<rect className="shape-bg" fill="#fe595b" width="400" height="400" rx="12" ry="12" />
 		<rect
 			className="shape-front"
 			fill="#00aae9"
@@ -36,14 +29,7 @@ export const TrailDoubleDiamond = () => (
 		height="400"
 		viewBox="0 0 400 400"
 	>
-		<rect
-			className="shape-bg"
-			fill="#45d33c"
-			width="400"
-			height="400"
-			rx="12"
-			ry="12"
-		/>
+		<rect className="shape-bg" fill="#45d33c" width="400" height="400" rx="12" ry="12" />
 		<path
 			className="shape-back"
 			fill="#FFE044"
@@ -65,14 +51,7 @@ export const TrailTriangle = () => (
 		height="400"
 		viewBox="0 0 400 400"
 	>
-		<rect
-			className="shape-bg"
-			fill="#FFE044"
-			width="400"
-			height="400"
-			rx="12"
-			ry="12"
-		/>
+		<rect className="shape-bg" fill="#FFE044" width="400" height="400" rx="12" ry="12" />
 		<path
 			className="shape-front"
 			fill="#8314BB"

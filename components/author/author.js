@@ -15,9 +15,7 @@ const Author = ({ name = '', roles = '', photoUrl = '', summary = '' }) => {
 			/>
 			<div className="author-text">
 				<p className="author-name">{name}</p>
-				<p className="author-roles">
-					{roles.map(role => role.title).join(', ')}
-				</p>
+				<p className="author-roles">{roles.map(role => role.title).join(', ')}</p>
 				<p className="author-summary">{summary}</p>
 			</div>
 		</div>

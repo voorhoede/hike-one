@@ -88,13 +88,7 @@ const TeamOverview = ({ data = {} }) => (
 						/>
 					);
 				case 'text_center':
-					return (
-						<TextCenter
-							key={index}
-							title={component.title}
-							text={component.text}
-						/>
-					);
+					return <TextCenter key={index} title={component.title} text={component.text} />;
 			}
 		})}
 
@@ -110,10 +104,7 @@ const TeamOverview = ({ data = {} }) => (
 		)}
 
 		{data.teamImage916 && (
-			<TeamImage
-				title={data.teamImage916.title}
-				image={data.teamImage916.photo.url}
-			/>
+			<TeamImage title={data.teamImage916.title} image={data.teamImage916.photo.url} />
 		)}
 	</React.Fragment>
 );

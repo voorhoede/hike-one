@@ -168,9 +168,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),
-		fetch(
-			`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`
-		)
+		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then(response => response.text())
 			.then(scrapeJobs),
 	]).then(([content, vacancies]) => ({

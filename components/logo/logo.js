@@ -13,11 +13,7 @@ const Logo = ({ color = 'white' }) => (
 			fill="#171717"
 			d="M111.68,63.55h26v113.63h-26v-45.13H76v45.12H50V63.55h26v43.5h35.71L111.68,63.55z"
 		/>
-		<path
-			className="logo-body"
-			fill="#171717"
-			d="M158.75,177.18v-71.1h24.35v71.1H158.75z"
-		/>
+		<path className="logo-body" fill="#171717" d="M158.75,177.18v-71.1h24.35v71.1H158.75z" />
 		<path
 			className="logo-body"
 			fill="#171717"

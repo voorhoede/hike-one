@@ -50,11 +50,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 				</a>
 			</div>
 
-			<ContactForm
-				form={contactPage.contactForm}
-				showBody={false}
-				singleForm={true}
-			/>
+			<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
 
 			<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
 
@@ -155,9 +151,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),
-		fetch(
-			`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`
-		)
+		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then(response => response.text())
 			.then(scrapeJobs),
 	]).then(([content, vacancies]) => ({

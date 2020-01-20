@@ -4,7 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
-import Head from '../components/_helpers/head';
+import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
 import ContactForm from '../components/contact-form/contact-form';

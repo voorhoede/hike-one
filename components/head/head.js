@@ -47,6 +47,20 @@ export default ({
 			sizes="16x16"
 		/>
 		<link rel="manifest" href="/manifest.json" />
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN"
+		/>
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'GTM-5KJ6PKN', { 'anonymize_ip': true });
+				`,
+			}}
+		/>
 		{children}
 	</Head>
 );

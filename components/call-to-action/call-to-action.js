@@ -18,9 +18,7 @@ const CallToAction = ({
 			className={`call-to-action ${containerClass} ${bgClass}`}
 			style={{ backgroundColor: bgColor }}
 		>
-			{title && (
-				<p className={`call-to-action-title ${textColorClass}`}>{title}</p>
-			)}
+			{title && <p className={`call-to-action-title ${textColorClass}`}>{title}</p>}
 			<a
 				href={url}
 				className="call-to-action-button btn-primary btn-large content"

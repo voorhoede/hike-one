@@ -39,11 +39,7 @@ class TeamMembersOverview extends Component {
 	}
 
 	setQueryParams(filter) {
-		window.history.replaceState(
-			null,
-			null,
-			encodeURI(`/team/people?filter=${filter}`)
-		);
+		window.history.replaceState(null, null, encodeURI(`/team/people?filter=${filter}`));
 	}
 
 	filterTeamMembers(team, role) {
@@ -84,9 +80,7 @@ class TeamMembersOverview extends Component {
 					/>
 				</div>
 
-				{introText && (
-					<p className="team-members-intro-text container">{introText}</p>
-				)}
+				{introText && <p className="team-members-intro-text container">{introText}</p>}
 				<ul className="team-members-overview container">
 					{filteredTeam.map(member => (
 						<TeamMember key={member.id} data={member} />

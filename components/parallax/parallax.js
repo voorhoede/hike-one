@@ -84,8 +84,7 @@ class Parallax extends Component {
 	}
 
 	getYOffset() {
-		const scrolledHeight =
-			document.body.scrollTop || document.documentElement.scrollTop || 0;
+		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 		// only animate element when in view
 		if (!isElementInView(this.containerEl)) {
@@ -93,9 +92,7 @@ class Parallax extends Component {
 		}
 
 		// set initial scrollheight
-		this.initialScrollHeight = this.initialScrollHeight
-			? this.initialScrollHeight
-			: scrolledHeight;
+		this.initialScrollHeight = this.initialScrollHeight ? this.initialScrollHeight : scrolledHeight;
 
 		// calculate relative scroll height
 		let relativeScroll = scrolledHeight - this.initialScrollHeight;
@@ -110,21 +107,13 @@ class Parallax extends Component {
 			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
 		} else {
 			// use tweenlite for a smooth parallax effect
-			TweenLite.to(
-				this.element,
-				this.duration,
-				{ y: yOffset },
-				{ ease: 'Linear.easeNone' }
-			);
+			TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' });
 		}
 	}
 
 	render() {
 		return (
-			<div
-				ref={node => (this.containerEl = node)}
-				className="parallax-layer-container"
-			>
+			<div ref={node => (this.containerEl = node)} className="parallax-layer-container">
 				<div
 					ref={node => (this.element = node)}
 					className="parallax-layer"
@@ -145,10 +134,8 @@ Parallax.propTypes = {
 
 function getParallaxYOffset(element, speed) {
 	const elBoundingRect = element.getBoundingClientRect();
-	const windowHeight =
-		document.body.clientHeight || document.documentElement.clientHeight || 0;
-	const scrolledHeight =
-		document.body.scrollTop || document.documentElement.scrollTop || 0;
+	const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
+	const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 	// y coordinate bottom of viewport relative from top of document
 	const bottomScreen = windowHeight + scrolledHeight;

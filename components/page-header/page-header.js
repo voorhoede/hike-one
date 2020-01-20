@@ -23,10 +23,7 @@ class PageHeader extends Component {
 
 		if (this.props.video) {
 			this.video.load();
-			this.video.addEventListener(
-				'loadeddata',
-				this.setState({ showVideo: true })
-			);
+			this.video.addEventListener('loadeddata', this.setState({ showVideo: true }));
 		}
 	}
 
@@ -39,8 +36,7 @@ class PageHeader extends Component {
 		// update an animation before the next repaint with requestAnimationFrame
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
-				const scrolledHeight =
-					document.body.scrollTop || document.documentElement.scrollTop || 0;
+				const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 				this.setVisability(scrolledHeight);
 				this.setState({ ticking: false });
 			});
@@ -70,12 +66,8 @@ class PageHeader extends Component {
 			children,
 		} = this.props;
 		const childrenArray = React.Children.toArray(children);
-		let parallaxLayerFront = childrenArray.find(
-			child => child.props.position === 'front'
-		);
-		let parallaxLayerBack = childrenArray.find(
-			child => child.props.position === 'back'
-		);
+		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
 		const style = {
@@ -102,11 +94,7 @@ class PageHeader extends Component {
 						})}');
 					}
 				}
-				${
-					video
-						? `@media (min-width: 768px) { .page-header { background-image: none; } }`
-						: ''
-				}
+				${video ? `@media (min-width: 768px) { .page-header { background-image: none; } }` : ''}
 			}
 			</style>`,
 		};
@@ -135,11 +123,7 @@ class PageHeader extends Component {
 				<div className="page-header-inner container">
 					<div ref={node => (this.parallaxLayer = node)}>
 						{onClickScrollButton ? (
-							<a
-								className="page-header-title-link"
-								href="#"
-								onClick={onClickScrollButton}
-							>
+							<a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
 								<h1 className="page-header-title ">{title}</h1>
 							</a>
 						) : (
@@ -147,11 +131,7 @@ class PageHeader extends Component {
 						)}
 
 						{subtitle && onClickScrollButton ? (
-							<a
-								className="page-header-subtitle-link"
-								href="#"
-								onClick={onClickScrollButton}
-							>
+							<a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
 								<p className="page-header-subtitle">{subtitle}</p>
 							</a>
 						) : (

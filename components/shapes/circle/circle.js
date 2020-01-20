@@ -2,11 +2,7 @@ import PropTypes from 'prop-types';
 
 const Circle = ({ shadow = false }) => (
 	<div className="shape">
-		<svg
-			className="shape-circle"
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 399 400"
-		>
+		<svg className="shape-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 399 400">
 			{shadow && (
 				<defs>
 					<filter
@@ -18,11 +14,7 @@ const Circle = ({ shadow = false }) => (
 						filterUnits="objectBoundingBox"
 					>
 						<feOffset dy="30" in="SourceAlpha" result="shadowOffsetOuter1" />
-						<feGaussianBlur
-							in="shadowOffsetOuter1"
-							result="shadowBlurOuter1"
-							stdDeviation="25"
-						/>
+						<feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="25" />
 						<feColorMatrix
 							in="shadowBlurOuter1"
 							result="shadowMatrixOuter1"
@@ -41,12 +33,7 @@ const Circle = ({ shadow = false }) => (
 				fillRule="evenodd"
 				transform="translate(50 20)"
 			>
-				<rect
-					className="shape-circle-bg"
-					width="299.511"
-					height="299.824"
-					rx="4"
-				/>
+				<rect className="shape-circle-bg" width="299.511" height="299.824" rx="4" />
 				<circle className="shape-circle-front" cx="150" cy="150" r="100" />
 			</g>
 		</svg>

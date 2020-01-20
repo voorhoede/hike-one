@@ -96,11 +96,7 @@ const Page = ({ topic, footer }) => (
 
 						case 'inline_image':
 							return (
-								<InlineMedia
-									key={index}
-									image={component.image}
-									caption={component.caption}
-								/>
+								<InlineMedia key={index} image={component.image} caption={component.caption} />
 							);
 
 						case 'inline_image_large':
@@ -114,21 +110,11 @@ const Page = ({ topic, footer }) => (
 							);
 
 						case 'full_width_image_small':
-							return (
-								<FullWidthImageSmall
-									key={index}
-									index={index}
-									image={component.image.url}
-								/>
-							);
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
 
 						case 'logo_carousel':
 							return (
-								<LogoCarousel
-									key={index}
-									title={component.title}
-									companies={component.companies}
-								/>
+								<LogoCarousel key={index} title={component.title} companies={component.companies} />
 							);
 
 						case 'call_to_action':

@@ -34,30 +34,20 @@ class Filter extends Component {
 		const { keyword = '', filters = [] } = this.props;
 		const { isCollapsed, selectFilter } = this.state;
 		const icon = isCollapsed ? 'arrowDown' : 'arrowUp';
-		const toggleClass = isCollapsed
-			? 'filter__list--closed'
-			: 'filter__list--open';
+		const toggleClass = isCollapsed ? 'filter__list--closed' : 'filter__list--open';
 
 		return (
 			<div className="filter container">
-				<ButtonClean
-					classes="filter__toggle"
-					icon={icon}
-					onClick={this.handleListToggle}
-				>
+				<ButtonClean classes="filter__toggle" icon={icon} onClick={this.handleListToggle}>
 					{keyword}: {selectFilter}
 				</ButtonClean>
 				<ul className={`filter__list container-inner ${toggleClass}`}>
 					{filters.map((filter, index) => {
-						const activeClass =
-							selectFilter === filter ? 'filter_item--active' : '';
+						const activeClass = selectFilter === filter ? 'filter_item--active' : '';
 
 						return (
 							<li key={index} className={`filter_item ${activeClass}`}>
-								<ButtonClean
-									classes="filter__button"
-									onClick={() => this.setActiveFilter(filter)}
-								>
+								<ButtonClean classes="filter__button" onClick={() => this.setActiveFilter(filter)}>
 									{filter}
 								</ButtonClean>
 							</li>

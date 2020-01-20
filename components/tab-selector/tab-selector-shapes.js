@@ -1,18 +1,7 @@
 export const TrailDiamond = () => (
 	<div className="shape">
-		<svg
-			className="shape-trail-diamond"
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 400 400"
-		>
-			<rect
-				className="shape-bg"
-				fill="#fe595b"
-				width="400"
-				height="400"
-				rx="30"
-				ry="30"
-			/>
+		<svg className="shape-trail-diamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+			<rect className="shape-bg" fill="#fe595b" width="400" height="400" rx="30" ry="30" />
 			<rect
 				className="shape-front"
 				fill="#00aae9"
@@ -35,14 +24,7 @@ export const TrailDoubleDiamond = () => (
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 400 400"
 		>
-			<rect
-				className="shape-bg"
-				fill="#45d33c"
-				width="400"
-				height="400"
-				rx="12"
-				ry="12"
-			/>
+			<rect className="shape-bg" fill="#45d33c" width="400" height="400" rx="12" ry="12" />
 			<rect
 				className="shape-back"
 				fill="#FFE044"
@@ -71,19 +53,8 @@ export const TrailDoubleDiamond = () => (
 
 export const TrailTriangle = () => (
 	<div className="shape">
-		<svg
-			className="shape-trail-triangle"
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 400 400"
-		>
-			<rect
-				className="shape-bg"
-				fill="#FFE044"
-				width="400"
-				height="400"
-				rx="12"
-				ry="12"
-			/>
+		<svg className="shape-trail-triangle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+			<rect className="shape-bg" fill="#FFE044" width="400" height="400" rx="12" ry="12" />
 			<path
 				className="shape-front"
 				fill="#8314BB"

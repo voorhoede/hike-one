@@ -90,8 +90,7 @@ class FullWidthImage extends Component {
 		this.elementTop = this.elementTop
 			? this.elementTop
 			: this.element.getBoundingClientRect().top + window.pageYOffset;
-		const scrolledHeight =
-			document.body.scrollTop || document.documentElement.scrollTop || 0;
+		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 		const yOffsetFixed = this.elementTop - scrolledHeight;
 		const yOffsetImage = -(this.elementTop + -scrolledHeight) * this.speed;
 		this.setLayerOffsets(yOffsetFixed, yOffsetImage);
@@ -132,8 +131,7 @@ class FullWidthImage extends Component {
 	}
 
 	setImageBottomOffset() {
-		const windowHeight =
-			document.body.clientHeight || document.documentElement.clientHeight || 0;
+		const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
 
 		// initial y offset image when not in view
 		const initialYOffsetImage = windowHeight * this.speed;

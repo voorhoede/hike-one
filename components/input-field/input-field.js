@@ -31,15 +31,11 @@ class InputField extends Component {
 		} = this.props;
 		const { shouldValidate } = this.state;
 		const shouldValidateClass = shouldValidate ? 'should-validate' : '';
-		const styles =
-			type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {};
+		const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {};
 
 		return (
 			<div className={`input-field ${type}-input`} style={{ ...styles }}>
-				<label
-					className={`label ${isRequired ? 'required' : ''}`}
-					htmlFor={name}
-				>
+				<label className={`label ${isRequired ? 'required' : ''}`} htmlFor={name}>
 					{label}
 				</label>
 

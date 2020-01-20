@@ -38,18 +38,10 @@ const scrollToTargetClass = 'js-scroll-to-target';
 // object with parallax shape layer variations for every type of component
 // combined with the componentCounter object a specific variantion is chosen for each component
 const parallaxLayersMap = {
-	'40_60_text_right': [
-		[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1" />],
-	],
-	'40_60_text_left': [
-		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />],
-	],
-	'50_50_text_left': [
-		[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />],
-	],
-	'50_50_text_right': [
-		[<FiftyFiftyShapes.TextRight1Back position="back" key="1" />],
-	],
+	'40_60_text_right': [[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1" />]],
+	'40_60_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
+	'50_50_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
+	'50_50_text_right': [[<FiftyFiftyShapes.TextRight1Back position="back" key="1" />]],
 	image_combo: [
 		[<ImageComboShapes.WithText1Front position="front" key="1" />],
 		[<ImageComboShapes.WithoutText1Front position="front" key="1" />],
@@ -103,23 +95,15 @@ const Page = ({ workcase, footer }) => (
 						}
 					}
 
-					const hasTextCard = !!(
-						component.textTitle && component.textTitle.length > 1
-					);
+					const hasTextCard = !!(component.textTitle && component.textTitle.length > 1);
 
 					// // set component count
-					componentCounter = setComponentCounter(
-						componentCounter,
-						itemType,
-						parallaxLayersMap
-					);
+					componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
 					const count = componentCounter[itemType];
 
 					// // if a parallax variation layer is available then use that one
 					const parallaxLayers =
-						componentCounter[itemType] !== null
-							? parallaxLayersMap[itemType][count]
-							: '';
+						componentCounter[itemType] !== null ? parallaxLayersMap[itemType][count] : '';
 
 					switch (itemType) {
 						case '40_60_text_right':
@@ -178,30 +162,17 @@ const Page = ({ workcase, footer }) => (
 
 						case 'image_combo':
 							return (
-								<ImageCombo
-									key={index}
-									classes={hasTextCard ? 'image-combo-text' : ''}
-								>
+								<ImageCombo key={index} classes={hasTextCard ? 'image-combo-text' : ''}>
 									{hasTextCard && (
-										<TextCard
-											title={component.textTitle}
-											text={component.textContent}
-										/>
+										<TextCard title={component.textTitle} text={component.textContent} />
 									)}
 
-									<FullWidthImage
-										image={component.image && component.image.url}
-										index={index}
-									/>
+									<FullWidthImage image={component.image && component.image.url} index={index} />
 
 									{component.quoteAuthorTitle && (
 										<QuoteBlock
 											color={component.quoteColor.color}
-											alignment={
-												component.quoteAlignLeft
-													? 'text-block-left'
-													: 'text-block-right'
-											}
+											alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'}
 											quote={component.quote}
 											citeName={component.quoteAuthorName}
 											citeTitle={component.quoteAuthorTitle}
@@ -264,11 +235,7 @@ const Page = ({ workcase, footer }) => (
 
 						case 'inline_image':
 							return (
-								<InlineMedia
-									key={index}
-									image={component.image}
-									caption={component.caption}
-								/>
+								<InlineMedia key={index} image={component.image} caption={component.caption} />
 							);
 
 						case 'inline_image_large':

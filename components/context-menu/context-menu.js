@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types';
 
 const ContextMenu = ({ isOpen = false }) => (
-	<section
-		className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden'}`}
-	>
+	<section className={`context-menu shadow-low-opacity ${isOpen ? '' : 'is-hidden'}`}>
 		<p className="context-menu-title">Are you looking for our logo?</p>
 		<div className="context-menu-wrapper">
 			<table className="context-menu-table">

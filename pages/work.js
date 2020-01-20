@@ -33,10 +33,7 @@ const Page = ({ work, overviewCases, footer }) => (
 			/>
 
 			<main className="page-scrolling-content-small">
-				<LogoCarousel
-					title={work.logoCarousel.title}
-					companies={work.logoCarousel.companies}
-				/>
+				<LogoCarousel title={work.logoCarousel.title} companies={work.logoCarousel.companies} />
 
 				<WorkOverview>
 					{overviewCases.map((workcase, index) => (

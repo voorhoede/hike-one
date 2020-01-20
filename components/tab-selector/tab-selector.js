@@ -1,15 +1,10 @@
 import Link from 'next/link';
-import {
-	TrailDiamond,
-	TrailDoubleDiamond,
-	TrailTriangle,
-} from './tab-selector-shapes';
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './tab-selector-shapes';
 
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
 const TabSelector = ({ services, selected }) => {
-	const selectedTab =
-		services.find(service => service.slug === selected).position - 1;
+	const selectedTab = services.find(service => service.slug === selected).position - 1;
 	const color = ['#fe595b', '#45d33c', '#8314bb'];
 	const style = {
 		transform: `translateX(${selectedTab * 100}%)`,
@@ -34,16 +29,9 @@ const TabSelector = ({ services, selected }) => {
 	);
 };
 
-const TabItem = ({
-	slug = '',
-	title = '',
-	Component = null,
-	selected = '',
-}) => (
+const TabItem = ({ slug = '', title = '', Component = null, selected = '' }) => (
 	<Link href="/service/[slug]" as={`/service/${slug}`}>
-		<a
-			className={`tab-selector-item ${selected === slug ? 'is-selected' : ''}`}
-		>
+		<a className={`tab-selector-item ${selected === slug ? 'is-selected' : ''}`}>
 			<div className="tab-selector-item-shape">
 				<Component />
 			</div>

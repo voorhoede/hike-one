@@ -39,14 +39,8 @@ const FullWidthHeader = ({
 		<div className="full-width-header">
 			<div dangerouslySetInnerHTML={style} />
 			<div className={`full-width-header-image ${headerImageClass}`} />
-			<div
-				className="full-width-header-banner"
-				style={{ backgroundColor: `${color}` }}
-			>
-				<div
-					className="full-width-header-back"
-					style={{ backgroundColor: `${color}` }}
-				>
+			<div className="full-width-header-banner" style={{ backgroundColor: `${color}` }}>
+				<div className="full-width-header-back" style={{ backgroundColor: `${color}` }}>
 					{!titleOnly && (
 						<Link href="/updates">
 							<a className="full-width-header-link">
@@ -56,10 +50,7 @@ const FullWidthHeader = ({
 						</Link>
 					)}
 				</div>
-				<div
-					className="full-width-header-content"
-					style={{ backgroundColor: `${color}` }}
-				>
+				<div className="full-width-header-content" style={{ backgroundColor: `${color}` }}>
 					<h1 className="full-width-header-title">{title}</h1>
 					{!titleOnly && (
 						<span className="full-width-header-author">

@@ -24,22 +24,14 @@ class ServicesOverviewPage extends Component {
 
 		return (
 			<div className="services-overview-page">
-				{Object.entries(contact).length !== 0 &&
-					contact.constructor === Object && (
-						<Contact
-							title={contact.title}
-							button={contact.button}
-							link={contact.externalLink}
-						>
-							<ContactShapes position="front" />
-						</Contact>
-					)}
+				{Object.entries(contact).length !== 0 && contact.constructor === Object && (
+					<Contact title={contact.title} button={contact.button} link={contact.externalLink}>
+						<ContactShapes position="front" />
+					</Contact>
+				)}
 				<section className="work-overview">
 					<div className="container">
-						<TextCenter
-							title={highlightedCasesTitle}
-							text={highlightedCasesBody}
-						/>
+						<TextCenter title={highlightedCasesTitle} text={highlightedCasesBody} />
 						<div className="container-inner">
 							{highlightedCases.map((item, index) => (
 								<CaseExtractSmall
@@ -57,10 +49,7 @@ class ServicesOverviewPage extends Component {
 				</section>
 				<section className="update-overview">
 					<div className="container">
-						<TextCenter
-							title={highlightedUpdatesTitle}
-							text={highlightedUpdatesBody}
-						/>
+						<TextCenter title={highlightedUpdatesTitle} text={highlightedUpdatesBody} />
 						<div className="container-inner">
 							{highlightedUpdates.map((item, index) => (
 								<UpdateExtractSmall

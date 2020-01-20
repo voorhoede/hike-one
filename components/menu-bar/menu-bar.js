@@ -42,8 +42,7 @@ class MenuBar extends Component {
 	}
 
 	setInitialValues() {
-		this.windowWidth =
-			document.body.clientWidth || document.documentElement.clientWidth || 0;
+		this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
 		const svgBgRect = this.menuBg.getBoundingClientRect();
 		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
 
@@ -62,9 +61,7 @@ class MenuBar extends Component {
 		}
 
 		// calculate how large the scale of the background svg should be on this screensize
-		this.scale = Math.round(
-			(this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width
-		);
+		this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
 
 		this.svgHeight = svgBgRect.height * this.scale;
 		this.svgWidth = svgBgRect.width * this.scale;
@@ -76,9 +73,7 @@ class MenuBar extends Component {
 		// calculate offset from right for background svg after scaling
 		const xDiff = svgBgHelperRect.right - svgBgRect.left;
 		const xOffsetHelperRect = xDiff / svgBgRect.width;
-		this.xOffset = Math.round(
-			svgBgRect.width * this.scale * xOffsetHelperRect + svgBgRect.width
-		);
+		this.xOffset = Math.round(svgBgRect.width * this.scale * xOffsetHelperRect + svgBgRect.width);
 
 		// calculate offset from right for background svg that is placed after animation is done
 		const xDiff2 = svgBgHelperRect.right - svgBgRect.right;
@@ -205,11 +200,7 @@ class MenuBar extends Component {
 					<ContextMenu isOpen={contextMenuIsOpen} />
 				</div>
 
-				<button
-					type="button"
-					className="menu-btn"
-					onClick={e => this.toggleMenu(e)}
-				>
+				<button type="button" className="menu-btn" onClick={e => this.toggleMenu(e)}>
 					<svg
 						className="menu-btn-background"
 						xmlns="http://www.w3.org/2000/svg"
@@ -223,11 +214,7 @@ class MenuBar extends Component {
 					</span>
 				</button>
 
-				<div
-					className="menu"
-					ref={node => (this.menu = node)}
-					onClick={e => this.toggleMenu(e)}
-				>
+				<div className="menu" ref={node => (this.menu = node)} onClick={e => this.toggleMenu(e)}>
 					<div
 						ref={node => (this.menuBgTransparent = node)}
 						className="menu-background-transparent"
@@ -303,10 +290,7 @@ class MenuBar extends Component {
 								</Link>
 							</li>
 							<li>
-								<div
-									className="menu-social"
-									ref={node => (this.socialIcons = node)}
-								>
+								<div className="menu-social" ref={node => (this.socialIcons = node)}>
 									<a
 										href="https://www.facebook.com/HikeOne/"
 										target="_blank"
@@ -328,11 +312,7 @@ class MenuBar extends Component {
 									>
 										<LinkedIn />
 									</a>
-									<a
-										href="https://medium.com/@HikeOne"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
+									<a href="https://medium.com/@HikeOne" target="_blank" rel="noopener noreferrer">
 										<Medium />
 									</a>
 									<a

@@ -83,13 +83,7 @@ const Page = ({ update, footer }) => (
 							);
 
 						case 'body_quote':
-							return (
-								<BodyQuote
-									key={index}
-									quote={component.quote}
-									quotee={component.quotee}
-								/>
-							);
+							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
 
 						case 'call_to_action':
 							return (
@@ -106,21 +100,11 @@ const Page = ({ update, footer }) => (
 							);
 
 						case 'full_width_image_small':
-							return (
-								<FullWidthImageSmall
-									key={index}
-									index={index}
-									image={component.image.url}
-								/>
-							);
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
 
 						case 'inline_image':
 							return (
-								<InlineMedia
-									key={index}
-									image={component.image}
-									caption={component.caption}
-								/>
+								<InlineMedia key={index} image={component.image} caption={component.caption} />
 							);
 
 						case 'inline_image_large':

@@ -31,10 +31,7 @@ const Page = ({ service, allServices, footer }) => (
 		<MenuBar color="white" />
 
 		<div className="service-page layout-parallax">
-			<PageHeaderNew
-				title={service.header.title}
-				animation={service.header.animation}
-			/>
+			<PageHeaderNew title={service.header.title} animation={service.header.animation} />
 
 			<main className="page-scrolling-content-small">
 				<TabSelector selected={service.slug} services={allServices} />

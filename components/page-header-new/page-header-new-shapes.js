@@ -1,9 +1,5 @@
 export const ShapesDiamond = () => (
-	<svg
-		className="animated-shape-diamond"
-		xmlns="http://www.w3.org/2000/svg"
-		viewBox="0 0 1450 500"
-	>
+	<svg className="animated-shape-diamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1450 500">
 		<path
 			className="shape-back"
 			fill="#00aae9"

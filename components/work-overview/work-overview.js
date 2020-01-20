@@ -1,11 +1,6 @@
 import PropTypes from 'prop-types';
 
-const WorkOverview = ({
-	classes = '',
-	header = '',
-	children,
-	moreButton = false,
-}) => (
+const WorkOverview = ({ classes = '', header = '', children, moreButton = false }) => (
 	<div
 		className={`work-overview container ${classes} ${
 			moreButton ? 'work-overview-extra-spacing' : ''

@@ -56,6 +56,7 @@ export default ({ title, description, image = null, twitterCard = null, children
 
 		<link rel="manifest" type="application/manifest+json" href="/manifest.json" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe595b" />
+
 		<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN" />
 		<script
 			dangerouslySetInnerHTML={{
@@ -64,6 +65,28 @@ export default ({ title, description, image = null, twitterCard = null, children
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
 					gtag('config', 'GTM-5KJ6PKN', { 'anonymize_ip': true });
+				`,
+			}}
+		/>
+
+		<script async src="https://snap.licdn.com/li.lms-analytics/insight.min.js" />
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
+					_linkedin_partner_id = "361124";
+					window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+					window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+				`,
+			}}
+		/>
+
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
+					(function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
+					vgo('setAccount', '475952537');
+					vgo('setTrackByDefault', true);
+					vgo('process');
 				`,
 			}}
 		/>

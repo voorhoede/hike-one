@@ -3,11 +3,10 @@ import '../../styles/index.less';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/_helpers/head';
+import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import PageHeader from '../../components/page-header/page-header';
 import TeamMembersOverview from '../../components/team-members-overview/team-members-overview';
-import TeamOverview from '../../components/team-overview/team-overview';
 import TeamSelector from '../../components/team-selector/team-selector';
 import VacancyOverview from '../../components/vacancy-overview/vacancy-overview';
 import Footer from '../../components/footer/footer';

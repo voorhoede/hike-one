@@ -148,6 +148,20 @@ export default ({
 			href="/manifest.json"
 		/>
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe595b" />
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN"
+		/>
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `
+					window.dataLayer = window.dataLayer || [];
+					function gtag(){dataLayer.push(arguments);}
+					gtag('js', new Date());
+					gtag('config', 'GTM-5KJ6PKN', { 'anonymize_ip': true });
+				`,
+			}}
+		/>
 		{children}
 	</Head>
 );

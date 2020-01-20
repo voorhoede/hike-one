@@ -9,6 +9,12 @@ export default ({
 }) => (
 	<Head>
 		<title>{title}</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, minimal-ui"
+		/>
+		<meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+		<meta httpEquiv="cleartype" content="on" />
 		<meta name="description" content={description} />
 		<meta name="msapplication-TileColor" content="#ffffff" />
 		<meta
@@ -29,6 +35,7 @@ export default ({
 		{image && <meta property="og:image:height" content={image.height} />}
 		<meta name="twitter:site" content="@hikeone" />
 		{twitterCard && <meta name="twitter:card" content={twitterCard} />}
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com"></link>
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -47,6 +54,15 @@ export default ({
 			sizes="16x16"
 		/>
 		<link rel="manifest" href="/manifest.json" />
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN"
+		></script>
+		<script
+			dangerouslySetInnerHTML={{
+				__html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'GTM-5KJ6PKN');`,
+			}}
+		></script>
 		{children}
 	</Head>
 );

@@ -2,7 +2,7 @@ import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
 
-import Head from '../components/_helpers/head';
+import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';

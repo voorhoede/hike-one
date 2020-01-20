@@ -66,8 +66,8 @@ const Page = ({ work, overviewCases, footer }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query }) =>
-	fetchContent(`{
+Page.getInitialProps = withCacheControl(({ query, req }) => {
+	const graphqlQuery = `{
 		work {
 			seo {
 				title
@@ -125,7 +125,9 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 				}
 			}
 		}
-	}`)
-);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+});
 
 export default Page;

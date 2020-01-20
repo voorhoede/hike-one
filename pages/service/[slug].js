@@ -116,8 +116,8 @@ const Page = ({ service, allServices, footer }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query }) =>
-	fetchContent(`{
+Page.getInitialProps = withCacheControl(({ query, req }) => {
+	const graphqlQuery = `{
 		service(filter: { slug: { eq: "${query.slug}" } }) {
 			slug
 			introTitle
@@ -207,7 +207,9 @@ Page.getInitialProps = withCacheControl(({ query }) =>
 				}
 			}
 		}
-	}`)
-);
+	}`;
+
+	return fetchContent({ graphqlQuery, req });
+});
 
 export default Page;

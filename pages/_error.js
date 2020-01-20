@@ -2,6 +2,7 @@ import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
 
+import Analytics from '../components/analytics/analytics';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import TextCenter from '../components/text-center/text-center';
@@ -36,6 +37,8 @@ const Error = ({ errorPage }) => (
 				</section>
 			)}
 		</article>
+
+		<Analytics />
 	</>
 );
 

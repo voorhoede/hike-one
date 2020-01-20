@@ -4,6 +4,7 @@ import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
+import Analytics from '../components/analytics/analytics';
 import Head from '../components/head/head';
 import CaseExtract from '../components/case-extract/case-extract';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -98,6 +99,8 @@ const Page = ({ home, footer }) => (
 		</main>
 
 		<Footer form={footer.form} disableParallax />
+
+		<Analytics />
 	</>
 );
 

@@ -6,6 +6,7 @@ import setComponentCounter from '../../components/_helpers/setParallaxComponentC
 import getDateFormat from '../../components/_helpers/getDateFormat';
 import scrollToElement from '../../components/_helpers/scrollToElement';
 
+import Analytics from '../../components/analytics/analytics';
 import Head from '../../components/head/head';
 import PageHeader from '../../components/page-header/page-header';
 import MenuBar from '../../components/menu-bar/menu-bar';
@@ -359,6 +360,8 @@ const Page = ({ workcase, footer }) => (
 		</div>
 
 		<Footer form={footer.form} />
+
+		<Analytics />
 	</>
 );
 

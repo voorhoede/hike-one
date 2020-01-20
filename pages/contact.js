@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Analytics from '../components/analytics/analytics';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
@@ -76,6 +77,8 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 		</main>
 
 		<Footer form={footer.form} disableParallax />
+
+		<Analytics />
 	</>
 );
 

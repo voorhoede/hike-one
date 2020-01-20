@@ -46,6 +46,7 @@ export default ({
 			href="/static/icons/favicon-16x16.png"
 			sizes="16x16"
 		/>
+		<link rel="manifest" href="/manifest.json" />
 		{children}
 	</Head>
 );

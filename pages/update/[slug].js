@@ -3,7 +3,7 @@ import '../../styles/index.less';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/_helpers/head';
+import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
 import FiftyFifty from '../../components/50-50/50-50';

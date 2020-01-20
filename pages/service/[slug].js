@@ -103,7 +103,7 @@ const Page = ({ service, allServices, footer }) => (
 						title={item.title}
 						authors={item.authors}
 						date={getDateFormat(item.date)}
-						target={item.externalLink}
+						target={Boolean(item.externalLink)}
 					/>
 				))}
 			</UpdateLinks>

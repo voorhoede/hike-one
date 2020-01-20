@@ -88,7 +88,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname }) =>
 			}
 		}
 
-		allPeople(first: 99) {
+		allPeople(first: 99, orderBy: name_ASC) {
 			id
 			name
 			hide

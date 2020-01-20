@@ -7,5 +7,36 @@
 	"github": {
 		"silent": true
 	},
-	"rewrites": [{ "source": "/robots.txt", "destination": "/api/robots.txt" }]
+	"rewrites": [{ "source": "/robots.txt", "destination": "/api/robots.txt" }],
+	"redirects": [
+		{
+			"source": "/code",
+			"destination": "https://github.com/voorhoede/hike-one"
+		},
+		{
+			"source": "/join-the-team",
+			"destination": "https://hikeone.homerun.co/"
+		},
+		{
+			"source": "/playbook",
+			"destination": "https://hikeone.gitbook.io/project-playbook"
+		},
+		{
+			"source": "/sprint",
+			"destination": "/topic/running-design-sprints-masterclass-by-hike-one"
+		},
+		{ "source": "/academy", "destination": "/topic/masterclasses-by-hike-one" },
+		{
+			"source": "/lean-innovation",
+			"destination": "https://hike.one/topic/lean-innovation"
+		},
+		{
+			"source": "/meetup",
+			"destination": "http://hike-one.typeform.com/to/PNYRzq"
+		},
+		{
+			"source": "/autoweek",
+			"destination": "https://goo.gl/forms/MV44YS4n1UFa2Pw22"
+		}
+	]
 }

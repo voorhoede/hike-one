@@ -24,9 +24,9 @@ const Page = ({ service, servicesOverview, footer }) => (
 		<div className="layout-parallax">
 			<PageHeader
 				isSmall={true}
-				title={service.header.title}
-				subtitle={service.header.subtitle}
-				image={service.header.backgroundImage.url}
+				title={servicesOverview.header.title}
+				subtitle={servicesOverview.header.subtitle}
+				image={servicesOverview.header.backgroundImage.url}
 			/>
 
 			<main className="page-scrolling-content-small">
@@ -65,15 +65,14 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 					height
 				}
 			}
+		}
 
+		servicesOverview {
 			header {
 				title
 				subtitle
 				backgroundImage { url }
 			}
-		}
-
-		servicesOverview {
 			servicesItemTitle
 			servicesItemBody
 

@@ -1,24 +1,24 @@
-import '../styles/index.less';
+import '../styles/index.less'
 
-import fetch from 'isomorphic-unfetch';
-import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
+import fetch from 'isomorphic-unfetch'
+import fetchContent from '../lib/fetch-content'
+import withCacheControl from '../lib/with-cache-control'
 
-import Head from '../components/_helpers/head';
-import MenuBar from '../components/menu-bar/menu-bar';
-import PageHeader from '../components/page-header/page-header';
-import ContactForm from '../components/contact-form/contact-form';
-import VacancyOverview from '../components/vacancy-overview/vacancy-overview';
-import OfficeOverview from '../components/office-overview/office-overview';
-import OfficeCard from '../components/office-card/office-card';
-import Footer from '../components/footer/footer';
+import Head from '../components/_helpers/head'
+import MenuBar from '../components/menu-bar/menu-bar'
+import PageHeader from '../components/page-header/page-header'
+import ContactForm from '../components/contact-form/contact-form'
+import VacancyOverview from '../components/vacancy-overview/vacancy-overview'
+import OfficeOverview from '../components/office-overview/office-overview'
+import OfficeCard from '../components/office-card/office-card'
+import Footer from '../components/footer/footer'
 
-let scrapeJobs;
+let scrapeJobs
 
 if (!process.browser) {
-	scrapeJobs = require('../lib/job-scraper/server');
+	scrapeJobs = require('../lib/job-scraper/server')
 } else {
-	scrapeJobs = require('../lib/job-scraper/browser');
+	scrapeJobs = require('../lib/job-scraper/browser')
 }
 
 const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
@@ -73,7 +73,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 
 		<Footer form={footer.form} disableParallax />
 	</>
-);
+)
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{
@@ -147,7 +147,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 				}
 			}
 		}
-	}`;
+	}`
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),
@@ -157,7 +157,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 	]).then(([content, vacancies]) => ({
 		...content,
 		vacancies,
-	}));
-});
+	}))
+})
 
-export default Page;
+export default Page

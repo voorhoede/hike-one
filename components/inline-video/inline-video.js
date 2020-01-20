@@ -1,22 +1,22 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class InlineVideo extends Component {
 	constructor(props) {
-		super(props);
-		this.binaryBoolean = this.binaryBoolean.bind(this);
-		this.videoSrc = this.videoSrc.bind(this);
-		this.ratio = this.ratio.bind(this);
+		super(props)
+		this.binaryBoolean = this.binaryBoolean.bind(this)
+		this.videoSrc = this.videoSrc.bind(this)
+		this.ratio = this.ratio.bind(this)
 	}
 
 	binaryBoolean(value) {
-		return value ? 1 : 0;
+		return value ? 1 : 0
 	}
 
 	videoSrc() {
-		const { autoplay, controls, loop } = this.props;
-		const { provider, providerUid } = this.props.video;
-		const mute = autoplay || this.props.mute;
+		const { autoplay, controls, loop } = this.props
+		const { provider, providerUid } = this.props.video
+		const mute = autoplay || this.props.mute
 
 		switch (provider) {
 			case 'vimeo':
@@ -25,7 +25,7 @@ class InlineVideo extends Component {
           &autopause=${this.binaryBoolean(!autoplay)}
           &muted=${this.binaryBoolean(mute)}
           &loop=${this.binaryBoolean(loop)}
-          &controls=${this.binaryBoolean(controls)}`;
+          &controls=${this.binaryBoolean(controls)}`
 
 			case 'youtube':
 				return `https://www.youtube.com/embed/${providerUid}
@@ -34,27 +34,27 @@ class InlineVideo extends Component {
           &loop=${this.binaryBoolean(loop)}
           &controls=${this.binaryBoolean(controls)}
           &disablekb=${this.binaryBoolean(!controls)}
-          &playlist=${providerUid}`;
+          &playlist=${providerUid}`
 
 			default:
-				console.error(`unsupported video provider: ${provider}`); // eslint-disable-line no-console
-				return '';
+				console.error(`unsupported video provider: ${provider}`) // eslint-disable-line no-console
+				return ''
 		}
 	}
 
 	ratio() {
-		const { width, height } = this.props.video;
-		const maxRatio = 1.3;
-		const videoHeight = Math.min(width * maxRatio, height);
+		const { width, height } = this.props.video
+		const maxRatio = 1.3
+		const videoHeight = Math.min(width * maxRatio, height)
 
-		return (videoHeight / width) * 100;
+		return (videoHeight / width) * 100
 	}
 
 	render() {
-		const { classes, controls } = this.props;
-		const videoRatio = this.ratio();
-		const controlsClass = controls ? '' : 'inline-video--is-background';
-		const videoSrc = this.videoSrc().replace(/\s+/g, '');
+		const { classes, controls } = this.props
+		const videoRatio = this.ratio()
+		const controlsClass = controls ? '' : 'inline-video--is-background'
+		const videoSrc = this.videoSrc().replace(/\s+/g, '')
 
 		return (
 			<div
@@ -70,7 +70,7 @@ class InlineVideo extends Component {
 					allowFullScreen
 				/>
 			</div>
-		);
+		)
 	}
 }
 
@@ -81,5 +81,5 @@ InlineVideo.propTypes = {
 	mute: PropTypes.bool,
 	loop: PropTypes.bool,
 	classes: PropTypes.string,
-};
-export default InlineVideo;
+}
+export default InlineVideo

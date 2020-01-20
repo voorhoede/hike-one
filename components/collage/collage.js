@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types';
-import Parallax from '../parallax/parallax';
+import PropTypes from 'prop-types'
+import Parallax from '../parallax/parallax'
 
-import setImageParams from '../_helpers/setImageParameters';
+import setImageParams from '../_helpers/setImageParameters'
 
 const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', children }) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+	const childrenArray = React.Children.toArray(children)
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front')
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back')
+	const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 	const imageSmallTemplate = classes => {
 		return (
@@ -23,8 +23,8 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 				src={imageSmall}
 				alt=""
 			/>
-		);
-	};
+		)
+	}
 
 	return (
 		<section className="collage clearfix container">
@@ -65,8 +65,8 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 			</div>
 			{parallaxLayerFront}
 		</section>
-	);
-};
+	)
+}
 
 Collage.propTypes = {
 	imageMedium: PropTypes.string,
@@ -74,6 +74,6 @@ Collage.propTypes = {
 	title: PropTypes.string,
 	text: PropTypes.string,
 	children: PropTypes.node,
-};
+}
 
-export default Collage;
+export default Collage

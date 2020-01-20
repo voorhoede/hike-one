@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const RectangleBorder = ({ color = '', classes = '' }) => (
 	<svg
@@ -21,11 +21,11 @@ const RectangleBorder = ({ color = '', classes = '' }) => (
 			transform="rotate(90 163.013 33.996)"
 		/>
 	</svg>
-);
+)
 
 RectangleBorder.propTypes = {
 	color: PropTypes.string,
 	classes: PropTypes.string,
-};
+}
 
-export default RectangleBorder;
+export default RectangleBorder

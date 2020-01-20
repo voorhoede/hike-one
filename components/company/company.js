@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Company = ({ logo = '', name = '' }) => (
 	<div className="company">
@@ -7,11 +7,11 @@ const Company = ({ logo = '', name = '' }) => (
 		</div>
 		<p className="company-name">{name}</p>
 	</div>
-);
+)
 
 Company.propTypes = {
 	logo: PropTypes.string,
 	name: PropTypes.string,
-};
+}
 
-export default Company;
+export default Company

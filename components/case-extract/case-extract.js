@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import Icon from '../icon/icon';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
-import setImageParameters from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import Icon from '../icon/icon'
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
+import setImageParameters from '../_helpers/setImageParameters'
 
 const CaseExtract = ({
 	headerImage = '',
@@ -31,7 +31,7 @@ const CaseExtract = ({
 				}
 			}
 		</style>`,
-	};
+	}
 
 	return (
 		<section className="case-extract container">
@@ -67,8 +67,8 @@ const CaseExtract = ({
 				</ButtonSecondaryLink>
 			</div>
 		</section>
-	);
-};
+	)
+}
 
 CaseExtract.propTypes = {
 	headerImage: PropTypes.string,
@@ -77,6 +77,6 @@ CaseExtract.propTypes = {
 	slug: PropTypes.string,
 	companyName: PropTypes.string,
 	color: PropTypes.string,
-};
+}
 
-export default CaseExtract;
+export default CaseExtract

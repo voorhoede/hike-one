@@ -11,6 +11,6 @@ const Spinner = () => (
 			fill="#FFF"
 		/>
 	</svg>
-);
+)
 
-export default Spinner;
+export default Spinner

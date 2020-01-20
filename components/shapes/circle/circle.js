@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Circle = ({ shadow = false }) => (
 	<div className="shape">
@@ -38,10 +38,10 @@ const Circle = ({ shadow = false }) => (
 			</g>
 		</svg>
 	</div>
-);
+)
 
 Circle.propTypes = {
 	shadow: PropTypes.bool,
-};
+}
 
-export default Circle;
+export default Circle

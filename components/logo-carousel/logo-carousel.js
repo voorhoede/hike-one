@@ -1,8 +1,8 @@
 // import { Component } from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const LogoCarousel = props => {
-	const { companies, title } = props;
+	const { companies, title } = props
 
 	return (
 		<div className="logo-carousel container clearfix">
@@ -27,12 +27,12 @@ const LogoCarousel = props => {
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 LogoCarousel.propTypes = {
 	title: PropTypes.string,
 	companies: PropTypes.array,
-};
+}
 
-export default LogoCarousel;
+export default LogoCarousel

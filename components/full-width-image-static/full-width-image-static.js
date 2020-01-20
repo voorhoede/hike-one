@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import setImageParams from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import setImageParams from '../_helpers/setImageParameters'
 
 const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 0 }) => {
-	const imageParameters = { fm: 'pjpg', q: 85 };
+	const imageParameters = { fm: 'pjpg', q: 85 }
 	const style = {
 		__html: `<style>
       .full-width-image-static-${index} {
@@ -24,7 +24,7 @@ const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 
 		})}') }
       }
     </style>`,
-	};
+	}
 
 	return (
 		<div>
@@ -38,14 +38,14 @@ const FullWidthImageStatic = ({ image = '#', title = '', subtitle = '', index = 
 				)}
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 FullWidthImageStatic.propTypes = {
 	image: PropTypes.string,
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
 	index: PropTypes.number,
-};
+}
 
-export default FullWidthImageStatic;
+export default FullWidthImageStatic

@@ -1,87 +1,87 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import ResizeObserver from 'resize-observer-polyfill';
+import { Component } from 'react'
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import ResizeObserver from 'resize-observer-polyfill'
 
-import ContextMenu from '../context-menu/context-menu';
-import Hamburger from '../icons/hamburger/hamburger';
-import Facebook from '../icons/facebook-circle';
-import Instagram from '../icons/instagram-circle';
-import LinkedIn from '../icons/linkedin-circle';
-import Medium from '../icons/medium-circle';
-import Twitter from '../icons/twitter-circle';
-import Logo from '../logo/logo';
-import { Power3, TimelineLite, CSSPlugin } from 'gsap';
+import ContextMenu from '../context-menu/context-menu'
+import Hamburger from '../icons/hamburger/hamburger'
+import Facebook from '../icons/facebook-circle'
+import Instagram from '../icons/instagram-circle'
+import LinkedIn from '../icons/linkedin-circle'
+import Medium from '../icons/medium-circle'
+import Twitter from '../icons/twitter-circle'
+import Logo from '../logo/logo'
+import { Power3, TimelineLite, CSSPlugin } from 'gsap'
 
 class MenuBar extends Component {
 	constructor(props) {
-		super(props);
-		this.toggleMenu = this.toggleMenu.bind(this);
-		this.toggleContextMenu = this.toggleContextMenu.bind(this);
-		this.setInitialValues = this.setInitialValues.bind(this);
-		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
-		this.onResize = this.onResize.bind(this);
-		this.disableScrollClass = 'disable-scroll';
+		super(props)
+		this.toggleMenu = this.toggleMenu.bind(this)
+		this.toggleContextMenu = this.toggleContextMenu.bind(this)
+		this.setInitialValues = this.setInitialValues.bind(this)
+		this.setAnimationTimeline = this.setAnimationTimeline.bind(this)
+		this.onResize = this.onResize.bind(this)
+		this.disableScrollClass = 'disable-scroll'
 		this.state = {
 			hamburger: false,
 			menuIsOpen: false,
 			contextMenuIsOpen: false,
-		};
+		}
 
-		this.resizeObserver = new ResizeObserver(this.onResize);
+		this.resizeObserver = new ResizeObserver(this.onResize)
 	}
 
 	componentDidMount() {
-		this.setInitialValues();
-		this.setAnimationTimeline();
-		this.resizeObserver.observe(this.header);
+		this.setInitialValues()
+		this.setAnimationTimeline()
+		this.resizeObserver.observe(this.header)
 	}
 
 	componentWillUnmount() {
-		this.resizeObserver.disconnect();
+		this.resizeObserver.disconnect()
 	}
 
 	setInitialValues() {
-		this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0;
-		const svgBgRect = this.menuBg.getBoundingClientRect();
-		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect();
+		this.windowWidth = document.body.clientWidth || document.documentElement.clientWidth || 0
+		const svgBgRect = this.menuBg.getBoundingClientRect()
+		const svgBgHelperRect = this.menuBgRect.getBoundingClientRect()
 
 		// how much % should the background svg cover.
 		// On smaller screens it should cover 100%. To accomplish this the value is set on 200%
-		let bgCoverPercentage = {};
+		let bgCoverPercentage = {}
 		if (window.matchMedia('(min-width: 1919px)').matches) {
 			// large screens
-			bgCoverPercentage = 0.47;
+			bgCoverPercentage = 0.47
 		} else if (window.matchMedia('(min-width: 767px)').matches) {
 			// medium screens
-			bgCoverPercentage = 0.7;
+			bgCoverPercentage = 0.7
 		} else {
 			// small screens
-			bgCoverPercentage = 2;
+			bgCoverPercentage = 2
 		}
 
 		// calculate how large the scale of the background svg should be on this screensize
-		this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width);
+		this.scale = Math.round((this.windowWidth * bgCoverPercentage) / svgBgHelperRect.width)
 
-		this.svgHeight = svgBgRect.height * this.scale;
-		this.svgWidth = svgBgRect.width * this.scale;
+		this.svgHeight = svgBgRect.height * this.scale
+		this.svgWidth = svgBgRect.width * this.scale
 
 		// calculate offset from top for background svg after scaling
-		const yDiff = svgBgRect.top - svgBgHelperRect.top;
-		this.yOffset = Math.round(yDiff * this.scale);
+		const yDiff = svgBgRect.top - svgBgHelperRect.top
+		this.yOffset = Math.round(yDiff * this.scale)
 
 		// calculate offset from right for background svg after scaling
-		const xDiff = svgBgHelperRect.right - svgBgRect.left;
-		const xOffsetHelperRect = xDiff / svgBgRect.width;
-		this.xOffset = Math.round(svgBgRect.width * this.scale * xOffsetHelperRect + svgBgRect.width);
+		const xDiff = svgBgHelperRect.right - svgBgRect.left
+		const xOffsetHelperRect = xDiff / svgBgRect.width
+		this.xOffset = Math.round(svgBgRect.width * this.scale * xOffsetHelperRect + svgBgRect.width)
 
 		// calculate offset from right for background svg that is placed after animation is done
-		const xDiff2 = svgBgHelperRect.right - svgBgRect.right;
-		this.xOffset2 = Math.round(xDiff2 * this.scale);
+		const xDiff2 = svgBgHelperRect.right - svgBgRect.right
+		this.xOffset2 = Math.round(xDiff2 * this.scale)
 	}
 
 	setAnimationTimeline() {
-		this.tlMenu = new TimelineLite();
+		this.tlMenu = new TimelineLite()
 		this.tlMenu
 			.pause()
 			.set(this.menuBg, { clearProps: 'all' })
@@ -133,60 +133,60 @@ class MenuBar extends Component {
 				},
 				0.05,
 				'-=0.2'
-			);
+			)
 	}
 
 	toggleMenu() {
-		const { menuIsOpen } = this.state;
-		document.body.classList.toggle(this.disableScrollClass);
+		const { menuIsOpen } = this.state
+		document.body.classList.toggle(this.disableScrollClass)
 		setTimeout(() => {
-			if (this.header === null) return;
+			if (this.header === null) return
 
-			this.header.classList.toggle('animation-is-finished');
-			this.header.classList.toggle('is-open');
-		}, 100);
+			this.header.classList.toggle('animation-is-finished')
+			this.header.classList.toggle('is-open')
+		}, 100)
 
 		if (menuIsOpen) {
-			this.hamburger.reverseAnimation();
-			this.tlMenu.timeScale(1.75).reverse();
+			this.hamburger.reverseAnimation()
+			this.tlMenu.timeScale(1.75).reverse()
 		} else {
-			this.hamburger.playAnimation();
-			this.tlMenu.timeScale(1).play();
+			this.hamburger.playAnimation()
+			this.tlMenu.timeScale(1).play()
 		}
 
-		this.setState({ menuIsOpen: !menuIsOpen });
+		this.setState({ menuIsOpen: !menuIsOpen })
 	}
 
 	toggleContextMenu(e) {
-		e.preventDefault();
-		const { contextMenuIsOpen } = this.state;
+		e.preventDefault()
+		const { contextMenuIsOpen } = this.state
 
-		this.setState({ contextMenuIsOpen: !contextMenuIsOpen });
+		this.setState({ contextMenuIsOpen: !contextMenuIsOpen })
 	}
 
 	onResize(entries) {
-		const { menuIsOpen } = this.state;
+		const { menuIsOpen } = this.state
 
 		entries.forEach(entry => {
 			if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
 				// close menu
-				this.tlMenu.timeScale(5).reverse();
+				this.tlMenu.timeScale(5).reverse()
 				// revert hamburger icon
-				this.hamburger.reverseAnimation();
-				document.body.classList.remove(this.disableScrollClass);
-				this.setState({ menuIsOpen: false });
+				this.hamburger.reverseAnimation()
+				document.body.classList.remove(this.disableScrollClass)
+				this.setState({ menuIsOpen: false })
 			}
 
 			if (this.windowWidth !== entry.contentRect.width) {
-				this.setInitialValues();
-				this.setAnimationTimeline();
+				this.setInitialValues()
+				this.setAnimationTimeline()
 			}
-		});
+		})
 	}
 
 	render() {
-		const { color } = this.props;
-		const { contextMenuIsOpen } = this.state;
+		const { color } = this.props
+		const { contextMenuIsOpen } = this.state
 
 		return (
 			<header ref={node => (this.header = node)} className="menu-bar">
@@ -328,12 +328,12 @@ class MenuBar extends Component {
 					</div>
 				</div>
 			</header>
-		);
+		)
 	}
 }
 
 MenuBar.propTypes = {
 	color: PropTypes.string,
-};
+}
 
-export default MenuBar;
+export default MenuBar

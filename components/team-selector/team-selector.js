@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default ({ pathname }) => (
 	<nav className="team-selector container shadow">
@@ -13,4 +13,4 @@ export default ({ pathname }) => (
 			</a>
 		</Link>
 	</nav>
-);
+)

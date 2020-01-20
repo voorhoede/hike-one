@@ -3,25 +3,25 @@ const lazyLoad = (target, options) => {
 		root: null,
 		rootMargin: '0px 0px 0px 0px',
 		threshold: 0,
-	};
+	}
 
-	const defaultOptions = { ...defaults, ...options };
+	const defaultOptions = { ...defaults, ...options }
 
 	const io = new IntersectionObserver((entries, observer) => {
 		entries.forEach(entry => {
-			const img = entry.target;
-			const src = img.getAttribute('data-lazy-src');
+			const img = entry.target
+			const src = img.getAttribute('data-lazy-src')
 
 			if (entry.isIntersecting) {
-				img.setAttribute('src', src);
-				img.classList.add('loaded');
+				img.setAttribute('src', src)
+				img.classList.add('loaded')
 
-				observer.unobserve(target);
+				observer.unobserve(target)
 			}
-		});
-	}, defaultOptions);
+		})
+	}, defaultOptions)
 
-	io.observe(target);
-};
+	io.observe(target)
+}
 
-export default lazyLoad;
+export default lazyLoad

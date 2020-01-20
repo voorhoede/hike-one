@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import Authors from '../authors/authors';
-import ArrowRightExternalLink from '../icons/arrow-right-external-link';
-import getDateFormat from '../_helpers/getDateFormat';
-import setImageParams from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import Authors from '../authors/authors'
+import ArrowRightExternalLink from '../icons/arrow-right-external-link'
+import getDateFormat from '../_helpers/getDateFormat'
+import setImageParams from '../_helpers/setImageParameters'
 
 const UpdateExtractSmall = ({
 	authors = [],
@@ -18,7 +18,7 @@ const UpdateExtractSmall = ({
 	title = '',
 	topic = false,
 }) => {
-	const prefix = topic ? 'topic' : 'update';
+	const prefix = topic ? 'topic' : 'update'
 	const style = {
 		__html: `<style>
 			.update-extract-small-image-${index} {
@@ -50,7 +50,7 @@ const UpdateExtractSmall = ({
 				}
 			}
 		</style>`,
-	};
+	}
 
 	return (
 		<Link
@@ -81,8 +81,8 @@ const UpdateExtractSmall = ({
 				</div>
 			</a>
 		</Link>
-	);
-};
+	)
+}
 
 UpdateExtractSmall.propTypes = {
 	authors: PropTypes.array,
@@ -96,6 +96,6 @@ UpdateExtractSmall.propTypes = {
 	target: PropTypes.bool,
 	title: PropTypes.string,
 	topic: PropTypes.bool,
-};
+}
 
-export default UpdateExtractSmall;
+export default UpdateExtractSmall

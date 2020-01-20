@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import Icon from '../../icon/icon';
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import Icon from '../../icon/icon'
 
 const ButtonSecondaryLink = ({
 	classes = '',
@@ -20,7 +20,7 @@ const ButtonSecondaryLink = ({
 			)}
 		</a>
 	</Link>
-);
+)
 
 ButtonSecondaryLink.propTypes = {
 	classes: PropTypes.string,
@@ -29,6 +29,6 @@ ButtonSecondaryLink.propTypes = {
 	children: PropTypes.node,
 	icon: PropTypes.string,
 	target: PropTypes.string,
-};
+}
 
-export default ButtonSecondaryLink;
+export default ButtonSecondaryLink

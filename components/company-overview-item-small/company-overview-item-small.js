@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
+import PropTypes from 'prop-types'
+import Link from 'next/link'
 
 const CompanyOverviewItemSmall = ({
 	companyLogo = '',
@@ -19,13 +19,13 @@ const CompanyOverviewItemSmall = ({
 			<p className="company-item-small-subtitle">{text}</p>
 		)}
 	</div>
-);
+)
 
 CompanyOverviewItemSmall.propTypes = {
 	companyLogo: PropTypes.string,
 	referenceCaseLink: PropTypes.string,
 	referenceSlug: PropTypes.string,
 	text: PropTypes.string,
-};
+}
 
-export default CompanyOverviewItemSmall;
+export default CompanyOverviewItemSmall

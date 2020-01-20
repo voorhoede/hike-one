@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const OfficeOverview = ({ classes = '', header = '', children }) => (
 	<div className={`office-overview container ${classes}`}>
@@ -7,12 +7,12 @@ const OfficeOverview = ({ classes = '', header = '', children }) => (
 			{children}
 		</div>
 	</div>
-);
+)
 
 OfficeOverview.propTypes = {
 	classes: PropTypes.string,
 	header: PropTypes.string,
 	children: PropTypes.node,
-};
+}
 
-export default OfficeOverview;
+export default OfficeOverview

@@ -1,5 +1,5 @@
-import { gsap, Power0, Power2, Power3, TimelineLite } from 'gsap';
-gsap.config({ nullTargetWarn: false });
+import { gsap, Power0, Power2, Power3, TimelineLite } from 'gsap'
+gsap.config({ nullTargetWarn: false })
 
 export function timelineDiamond() {
 	return new TimelineLite()
@@ -38,7 +38,7 @@ export function timelineDiamond() {
 			32,
 			{ rotation: 360, ease: Power0.easeNone, repeat: -1 },
 			'-=.6'
-		);
+		)
 }
 
 export function timelineDoubleDiamond() {
@@ -73,7 +73,7 @@ export function timelineDoubleDiamond() {
 			{ opacity: 1, ease: Power3.easeIn },
 			'-=.5'
 		)
-		.fromTo('.page-header-new__title', 0.8, { y: 40 }, { y: 0, ease: Power3.easeOut }, '-=.6');
+		.fromTo('.page-header-new__title', 0.8, { y: 40 }, { y: 0, ease: Power3.easeOut }, '-=.6')
 }
 
 export function timelineTriangles() {
@@ -108,5 +108,5 @@ export function timelineTriangles() {
 			{ opacity: 1, ease: Power3.easeIn },
 			'-=1.4'
 		)
-		.fromTo('.page-header-new__title', 1.4, { y: 40 }, { y: 0, ease: Power3.easeOut }, '-=1.2');
+		.fromTo('.page-header-new__title', 1.4, { y: 40 }, { y: 0, ease: Power3.easeOut }, '-=1.2')
 }

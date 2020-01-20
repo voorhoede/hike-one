@@ -1,5 +1,5 @@
 function getDateFormat(date) {
-	const newDate = new Date(date);
+	const newDate = new Date(date)
 	const monthNames = [
 		'January',
 		'February',
@@ -13,9 +13,9 @@ function getDateFormat(date) {
 		'October',
 		'November',
 		'December',
-	];
-	const month = monthNames[newDate.getMonth()];
-	return `${newDate.getDate()} ${month} ${newDate.getFullYear()}`;
+	]
+	const month = monthNames[newDate.getMonth()]
+	return `${newDate.getDate()} ${month} ${newDate.getFullYear()}`
 }
 
-export default getDateFormat;
+export default getDateFormat

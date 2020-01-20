@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
+import PropTypes from 'prop-types'
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link'
 
 const UpdateOverviewSmall = ({ children }) => (
 	<div className="update-overview-small container">
@@ -10,10 +10,10 @@ const UpdateOverviewSmall = ({ children }) => (
 			</ButtonSecondaryLink>
 		</div>
 	</div>
-);
+)
 
 UpdateOverviewSmall.propTypes = {
 	children: PropTypes.node,
-};
+}
 
-export default UpdateOverviewSmall;
+export default UpdateOverviewSmall

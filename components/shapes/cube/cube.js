@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Cube = ({ shadow = false }) => (
 	<div className="shape">
@@ -47,10 +47,10 @@ const Cube = ({ shadow = false }) => (
 			</g>
 		</svg>
 	</div>
-);
+)
 
 Cube.propTypes = {
 	shadow: PropTypes.bool,
-};
+}
 
-export default Cube;
+export default Cube

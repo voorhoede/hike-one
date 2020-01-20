@@ -1,26 +1,26 @@
-import '../../styles/index.less';
+import '../../styles/index.less'
 
-import fetchContent from '../../lib/fetch-content';
-import withCacheControl from '../../lib/with-cache-control';
+import fetchContent from '../../lib/fetch-content'
+import withCacheControl from '../../lib/with-cache-control'
 
-import Head from '../../components/_helpers/head';
-import MenuBar from '../../components/menu-bar/menu-bar';
-import FullWidthHeader from '../../components/full-width-header/full-width-header';
-import FiftyFifty from '../../components/50-50/50-50';
-import BodyQuote from '../../components/body-quote/body-quote';
-import CallToAction from '../../components/call-to-action/call-to-action';
-import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
-import InlineMedia from '../../components/inline-media/inline-media';
-import RichBodyText from '../../components/rich-body-text/rich-body-text';
-import MailchimpForm from '../../components/mailchimp/mailchimp-form';
-import Contact from '../../components/contact/contact';
-import ContactForm from '../../components/contact-form/contact-form';
-import ContactShapes from '../../components/contact/contact-shapes';
-import Author from '../../components/author/author';
-import TextCenter from '../../components/text-center/text-center';
-import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
-import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
-import Footer from '../../components/footer/footer';
+import Head from '../../components/_helpers/head'
+import MenuBar from '../../components/menu-bar/menu-bar'
+import FullWidthHeader from '../../components/full-width-header/full-width-header'
+import FiftyFifty from '../../components/50-50/50-50'
+import BodyQuote from '../../components/body-quote/body-quote'
+import CallToAction from '../../components/call-to-action/call-to-action'
+import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small'
+import InlineMedia from '../../components/inline-media/inline-media'
+import RichBodyText from '../../components/rich-body-text/rich-body-text'
+import MailchimpForm from '../../components/mailchimp/mailchimp-form'
+import Contact from '../../components/contact/contact'
+import ContactForm from '../../components/contact-form/contact-form'
+import ContactShapes from '../../components/contact/contact-shapes'
+import Author from '../../components/author/author'
+import TextCenter from '../../components/text-center/text-center'
+import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small'
+import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small'
+import Footer from '../../components/footer/footer'
 
 const Page = ({ update, footer }) => (
 	<>
@@ -57,7 +57,7 @@ const Page = ({ update, footer }) => (
 									image={component.image}
 									video={component.video}
 								/>
-							);
+							)
 
 						case '50_50_text_right':
 							return (
@@ -68,7 +68,7 @@ const Page = ({ update, footer }) => (
 									text={component.text}
 									image={component.image}
 								/>
-							);
+							)
 
 						case '50_50_text_left':
 							return (
@@ -80,10 +80,10 @@ const Page = ({ update, footer }) => (
 									text={component.text}
 									image={component.image}
 								/>
-							);
+							)
 
 						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
+							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />
 
 						case 'call_to_action':
 							return (
@@ -97,15 +97,13 @@ const Page = ({ update, footer }) => (
 									fullWidth={component.fullWidth}
 									isExternalLink={component.isExternalLink}
 								/>
-							);
+							)
 
 						case 'full_width_image_small':
-							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
+							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />
 
 						case 'inline_image':
-							return (
-								<InlineMedia key={index} image={component.image} caption={component.caption} />
-							);
+							return <InlineMedia key={index} image={component.image} caption={component.caption} />
 
 						case 'inline_image_large':
 							return (
@@ -115,7 +113,7 @@ const Page = ({ update, footer }) => (
 									image={component.image}
 									caption={component.caption}
 								/>
-							);
+							)
 
 						case 'rich_body_text':
 							return (
@@ -124,7 +122,7 @@ const Page = ({ update, footer }) => (
 									content={component.content}
 									textCenter={component.centered}
 								/>
-							);
+							)
 
 						case 'subscription_form':
 							return (
@@ -137,7 +135,7 @@ const Page = ({ update, footer }) => (
 									buttonLabel={component.subscriptionForm.button}
 									hasShadow={component.subscriptionForm.hasShadow}
 								/>
-							);
+							)
 
 						case 'video':
 							return (
@@ -147,7 +145,7 @@ const Page = ({ update, footer }) => (
 									caption={component.caption}
 									large={component.large}
 								/>
-							);
+							)
 
 						case 'contact_form_component':
 							return (
@@ -160,7 +158,7 @@ const Page = ({ update, footer }) => (
 										title: component.title,
 									}}
 								/>
-							);
+							)
 					}
 				})}
 			</main>
@@ -175,7 +173,7 @@ const Page = ({ update, footer }) => (
 							photoUrl={author.photo.url}
 							summary={author.summary}
 						/>
-					);
+					)
 				})}
 			</div>
 
@@ -218,7 +216,7 @@ const Page = ({ update, footer }) => (
 
 		<Footer form={footer.form} />
 	</>
-);
+)
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 	const graphqlQuery = `{
@@ -407,9 +405,9 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 				}
 			}
 		}
-	}`;
+	}`
 
-	return fetchContent({ graphqlQuery, req });
-});
+	return fetchContent({ graphqlQuery, req })
+})
 
-export default Page;
+export default Page

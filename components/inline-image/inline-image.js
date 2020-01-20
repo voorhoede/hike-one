@@ -1,33 +1,33 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import lazyLoad from '../_helpers/lazyLoad';
-import setImageParams from '../_helpers/setImageParameters';
+import { Component } from 'react'
+import PropTypes from 'prop-types'
+import lazyLoad from '../_helpers/lazyLoad'
+import setImageParams from '../_helpers/setImageParameters'
 
 class InlineImage extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	componentDidMount() {
 		const options = {
 			threshold: 0.3,
-		};
+		}
 
-		lazyLoad(this.element, options);
+		lazyLoad(this.element, options)
 	}
 
 	ratio() {
-		const { width, height } = this.props;
-		const maxRatio = 1.3;
-		const videoHeight = Math.min(width * maxRatio, height);
+		const { width, height } = this.props
+		const maxRatio = 1.3
+		const videoHeight = Math.min(width * maxRatio, height)
 
-		return (videoHeight / width) * 100;
+		return (videoHeight / width) * 100
 	}
 
 	render() {
-		const { url = '' } = this.props;
-		const imageRatio = this.ratio();
-		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+		const { url = '' } = this.props
+		const imageRatio = this.ratio()
+		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 }
 
 		return (
 			<div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>
@@ -61,7 +61,7 @@ class InlineImage extends Component {
 					data-lazy-src={url}
 				/>
 			</div>
-		);
+		)
 	}
 }
 
@@ -69,6 +69,6 @@ InlineImage.propTypes = {
 	url: PropTypes.string,
 	width: PropTypes.number,
 	height: PropTypes.number,
-};
+}
 
-export default InlineImage;
+export default InlineImage

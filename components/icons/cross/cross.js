@@ -14,6 +14,6 @@ const Cross = () => (
 			strokeWidth="4"
 		/>
 	</svg>
-);
+)
 
-export default Cross;
+export default Cross

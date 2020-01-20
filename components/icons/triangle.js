@@ -7,6 +7,6 @@ const Triangle = () => (
 			opacity=".6"
 		/>
 	</svg>
-);
+)
 
-export default Triangle;
+export default Triangle

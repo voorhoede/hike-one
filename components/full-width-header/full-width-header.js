@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import Link from 'next/link';
-import Icon from '../icon/icon';
-import getDateFormat from '../_helpers/getDateFormat';
-import setImageParams from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import Link from 'next/link'
+import Icon from '../icon/icon'
+import getDateFormat from '../_helpers/getDateFormat'
+import setImageParams from '../_helpers/setImageParameters'
 
 const FullWidthHeader = ({
 	headerImage = '',
@@ -16,7 +16,7 @@ const FullWidthHeader = ({
 }) => {
 	const headerImageClass = `${headerImageLarger ? 'image-large' : ''} ${
 		imagePositionCenter ? 'position-center' : ''
-	}`;
+	}`
 	const style = {
 		__html: `<style>
 			.full-width-header-image {
@@ -33,7 +33,7 @@ const FullWidthHeader = ({
 				}
 			}
 		</style>`,
-	};
+	}
 
 	return (
 		<div className="full-width-header">
@@ -61,8 +61,8 @@ const FullWidthHeader = ({
 				<div></div> {/* Do not remove, creates left spacing */}
 			</div>
 		</div>
-	);
-};
+	)
+}
 
 FullWidthHeader.propTypes = {
 	headerImage: PropTypes.string,
@@ -73,6 +73,6 @@ FullWidthHeader.propTypes = {
 	titleOnly: PropTypes.bool,
 	headerImageLarger: PropTypes.bool,
 	imagePositionCenter: PropTypes.bool,
-};
+}
 
-export default FullWidthHeader;
+export default FullWidthHeader

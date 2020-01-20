@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const Logo = ({ color = 'white' }) => (
 	<svg
@@ -55,10 +55,10 @@ const Logo = ({ color = 'white' }) => (
     c-2.379-8.547-8.117-12.82-17.209-12.82c-9.441-0.006-15.35,4.267-17.73,12.82H676.05z"
 		/>
 	</svg>
-);
+)
 
 Logo.propTypes = {
 	color: PropTypes.string,
-};
+}
 
-export default Logo;
+export default Logo

@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import Icon from '../../icon/icon';
+import PropTypes from 'prop-types'
+import Icon from '../../icon/icon'
 
 const ButtonSecondary = ({
 	children,
@@ -23,7 +23,7 @@ const ButtonSecondary = ({
 			</span>
 		)}
 	</button>
-);
+)
 
 ButtonSecondary.propTypes = {
 	children: PropTypes.node,
@@ -32,6 +32,6 @@ ButtonSecondary.propTypes = {
 	icon: PropTypes.string,
 	onClick: PropTypes.func,
 	type: PropTypes.string,
-};
+}
 
-export default ButtonSecondary;
+export default ButtonSecondary

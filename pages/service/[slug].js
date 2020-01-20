@@ -1,23 +1,23 @@
-import '../../styles/index.less';
+import '../../styles/index.less'
 
-import fetchContent from '../../lib/fetch-content';
-import withCacheControl from '../../lib/with-cache-control';
-import getDateFormat from '../../components/_helpers/getDateFormat';
+import fetchContent from '../../lib/fetch-content'
+import withCacheControl from '../../lib/with-cache-control'
+import getDateFormat from '../../components/_helpers/getDateFormat'
 
-import Head from '../../components/_helpers/head';
-import MenuBar from '../../components/menu-bar/menu-bar';
-import PageHeaderNew from '../../components/page-header-new/page-header-new';
-import TabSelector from '../../components/tab-selector/tab-selector';
-import TextCenter from '../../components/text-center/text-center';
-import Company from '../../components/company/company';
-import FiftyFifty from '../../components/50-50/50-50';
-import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
-import WorkOverview from '../../components/work-overview/work-overview';
-import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
-import UpdateLinks from '../../components/update-links/update-links';
-import UpdateLink from '../../components/update-link/update-link';
-import Footer from '../../components/footer/footer';
+import Head from '../../components/_helpers/head'
+import MenuBar from '../../components/menu-bar/menu-bar'
+import PageHeaderNew from '../../components/page-header-new/page-header-new'
+import TabSelector from '../../components/tab-selector/tab-selector'
+import TextCenter from '../../components/text-center/text-center'
+import Company from '../../components/company/company'
+import FiftyFifty from '../../components/50-50/50-50'
+import Contact from '../../components/contact/contact'
+import ContactShapes from '../../components/contact/contact-shapes'
+import WorkOverview from '../../components/work-overview/work-overview'
+import CaseExtractSmall from '../../components/case-extract-small/case-extract-small'
+import UpdateLinks from '../../components/update-links/update-links'
+import UpdateLink from '../../components/update-link/update-link'
+import Footer from '../../components/footer/footer'
 
 const Page = ({ service, allServices, footer }) => (
 	<>
@@ -55,7 +55,7 @@ const Page = ({ service, allServices, footer }) => (
 									imageLarge={true}
 									image={component.image}
 								/>
-							);
+							)
 
 						case '40_60_text_left':
 							return (
@@ -67,7 +67,7 @@ const Page = ({ service, allServices, footer }) => (
 									imageLarge={true}
 									image={component.image}
 								/>
-							);
+							)
 					}
 				})}
 			</main>
@@ -111,7 +111,7 @@ const Page = ({ service, allServices, footer }) => (
 
 		<Footer form={footer.form} />
 	</>
-);
+)
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{
@@ -204,9 +204,9 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 				}
 			}
 		}
-	}`;
+	}`
 
-	return fetchContent({ graphqlQuery, req });
-});
+	return fetchContent({ graphqlQuery, req })
+})
 
-export default Page;
+export default Page

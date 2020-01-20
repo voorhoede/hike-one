@@ -1,20 +1,20 @@
-import { Component } from 'react';
-import PropTypes from 'prop-types';
-import ButtonSecondary from '../buttons/button-secondary/button-secondary';
-import Filter from '../filter/filter';
-import UpdateExtractSmall from '../update-extract-small/update-extract-small';
-import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large';
+import { Component } from 'react'
+import PropTypes from 'prop-types'
+import ButtonSecondary from '../buttons/button-secondary/button-secondary'
+import Filter from '../filter/filter'
+import UpdateExtractSmall from '../update-extract-small/update-extract-small'
+import UpdatesExtractLarge from '../updates-extract-large/updates-extract-large'
 
 class UpdateOverview extends Component {
 	constructor(props) {
-		super(props);
-		this.changeFilterHandler = this.changeFilterHandler.bind(this);
-		this.getFilters = this.getFilters.bind(this);
-		this.filterUpdates = this.filterUpdates.bind(this);
-		this.handleClick = this.handleClick.bind(this);
-		this.incrementPageOffset = this.incrementPageOffset.bind(this);
-		this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this);
-		this.hasSelectedTopic = this.hasSelectedTopic.bind(this);
+		super(props)
+		this.changeFilterHandler = this.changeFilterHandler.bind(this)
+		this.getFilters = this.getFilters.bind(this)
+		this.filterUpdates = this.filterUpdates.bind(this)
+		this.handleClick = this.handleClick.bind(this)
+		this.incrementPageOffset = this.incrementPageOffset.bind(this)
+		this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this)
+		this.hasSelectedTopic = this.hasSelectedTopic.bind(this)
 		this.state = {
 			activeFilter: 'All',
 			filters: this.getFilters(props.updatesData),
@@ -22,67 +22,67 @@ class UpdateOverview extends Component {
 			pageSize: 6,
 			loading: false,
 			filteredUpdates: this.filterUpdates(props.updatesData, 'All'),
-		};
+		}
 	}
 
 	handleClick() {
-		this.setState({ loading: true });
-		setTimeout(this.incrementPageOffset, 400);
+		this.setState({ loading: true })
+		setTimeout(this.incrementPageOffset, 400)
 	}
 
 	incrementPageOffset() {
-		const { pageOffset } = this.state;
+		const { pageOffset } = this.state
 		this.setState({
 			pageOffset: pageOffset + 1,
 			loading: false,
-		});
+		})
 	}
 
 	changeFilterHandler(value) {
-		const { updatesData } = this.props;
-		const filteredUpdates = this.filterUpdates(updatesData, value);
+		const { updatesData } = this.props
+		const filteredUpdates = this.filterUpdates(updatesData, value)
 
 		this.setState({
 			activeFilter: value,
 			filteredUpdates: filteredUpdates,
 			pageOffset: 1,
-		});
+		})
 	}
 
 	getFilters(updates) {
-		const allFilters = updates.map(update => update.category.name);
-		const uniqueFilters = [...new Set(allFilters)];
-		uniqueFilters.unshift('All');
+		const allFilters = updates.map(update => update.category.name)
+		const uniqueFilters = [...new Set(allFilters)]
+		uniqueFilters.unshift('All')
 
-		return uniqueFilters;
+		return uniqueFilters
 	}
 
 	filterUpdates(updates, filter) {
 		return updates
 			.filter(update => this.isHighlightedUpdate(update))
-			.filter(update => this.hasSelectedTopic(update, filter));
+			.filter(update => this.hasSelectedTopic(update, filter))
 	}
 
 	isHighlightedUpdate(update) {
-		const { data } = this.props;
-		return !data.highlights.some(highlight => highlight.id === update.id);
+		const { data } = this.props
+		return !data.highlights.some(highlight => highlight.id === update.id)
 	}
 
 	hasSelectedTopic(update, filter) {
 		if (filter === 'All') {
-			return true;
+			return true
 		}
-		return update.category.name === filter;
+		return update.category.name === filter
 	}
 
 	render() {
-		const { data } = this.props;
-		const { activeFilter, pageSize, pageOffset, loading, filters, filteredUpdates } = this.state;
-		const slicedUpdates = filteredUpdates.slice(0, pageOffset * pageSize);
-		const totalPages = Math.ceil(filteredUpdates.length / pageSize);
-		const buttonClass = loading ? 'loading' : 'vertical-spring';
-		const highlightsClass = activeFilter === 'All' ? 'highlights--show' : 'highlights--hidden';
-		const icon = !loading ? 'arrowDown' : 'spinner';
+		const { data } = this.props
+		const { activeFilter, pageSize, pageOffset, loading, filters, filteredUpdates } = this.state
+		const slicedUpdates = filteredUpdates.slice(0, pageOffset * pageSize)
+		const totalPages = Math.ceil(filteredUpdates.length / pageSize)
+		const buttonClass = loading ? 'loading' : 'vertical-spring'
+		const highlightsClass = activeFilter === 'All' ? 'highlights--show' : 'highlights--hidden'
+		const icon = !loading ? 'arrowDown' : 'spinner'
 
 		return (
 			<div className="update-overview container">
@@ -123,13 +123,13 @@ class UpdateOverview extends Component {
 					</ButtonSecondary>
 				)}
 			</div>
-		);
+		)
 	}
 }
 
 UpdateOverview.propTypes = {
 	data: PropTypes.object,
 	updatesData: PropTypes.array,
-};
+}
 
-export default UpdateOverview;
+export default UpdateOverview

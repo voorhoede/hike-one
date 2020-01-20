@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import setImageParams from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import setImageParams from '../_helpers/setImageParameters'
 
 const FullWidthImageSmall = ({ image = '#', index = 0 }) => {
-	const imageParameters = { fm: 'pjpg', q: 85 };
+	const imageParameters = { fm: 'pjpg', q: 85 }
 	const style = {
 		__html: `<style>
       .full-width-image-small-${index} {
@@ -28,19 +28,19 @@ const FullWidthImageSmall = ({ image = '#', index = 0 }) => {
         }
       }
     </style>`,
-	};
+	}
 
 	return (
 		<div>
 			<div dangerouslySetInnerHTML={style} />
 			<div className={`full-width-image-small full-width-image-small-${index}`} />
 		</div>
-	);
-};
+	)
+}
 
 FullWidthImageSmall.propTypes = {
 	image: PropTypes.string,
 	index: PropTypes.number,
-};
+}
 
-export default FullWidthImageSmall;
+export default FullWidthImageSmall

@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import UpdateExtractLarge from '../update-extract-large/update-extract-large';
-import MustRead from '../must-read/must-read';
+import PropTypes from 'prop-types'
+import UpdateExtractLarge from '../update-extract-large/update-extract-large'
+import MustRead from '../must-read/must-read'
 
 const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
 	<div className="updates-highlights">
@@ -23,11 +23,11 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
 		</div>
 		<MustRead mustRead={mustRead} />
 	</div>
-);
+)
 
 UpdatesExtractLarge.propTypes = {
 	highlights: PropTypes.array,
 	mustRead: PropTypes.array,
-};
+}
 
-export default UpdatesExtractLarge;
+export default UpdatesExtractLarge

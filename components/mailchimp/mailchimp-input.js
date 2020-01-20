@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import fields from './mailchimp.config';
+import PropTypes from 'prop-types'
+import fields from './mailchimp.config'
 
 const MailchimpInput = ({ name = '', label = '', required = false, classes = '' }) => (
 	<div className={`input-field ${classes}`}>
@@ -14,13 +14,13 @@ const MailchimpInput = ({ name = '', label = '', required = false, classes = '' 
 			required={required}
 		/>
 	</div>
-);
+)
 
 MailchimpInput.propTypes = {
 	name: PropTypes.string,
 	label: PropTypes.string,
 	required: PropTypes.bool,
 	classes: PropTypes.string,
-};
+}
 
-export default MailchimpInput;
+export default MailchimpInput

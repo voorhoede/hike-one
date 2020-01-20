@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
-import InlineVideo from '../inline-video/inline-video';
-import InlineImage from '../inline-image/inline-image';
+import PropTypes from 'prop-types'
+import InlineVideo from '../inline-video/inline-video'
+import InlineImage from '../inline-image/inline-image'
 
 const InlineMedia = ({ image = null, large = false, video = null, caption = '' }) => (
 	<div className={`inline-media ${large ? 'inline-media-large' : ''}`}>
@@ -18,13 +18,13 @@ const InlineMedia = ({ image = null, large = false, video = null, caption = '' }
 		</div>
 		{caption && <p>{caption}</p>}
 	</div>
-);
+)
 
 InlineMedia.propTypes = {
 	image: PropTypes.object,
 	large: PropTypes.bool,
 	video: PropTypes.object,
 	caption: PropTypes.string,
-};
+}
 
-export default InlineMedia;
+export default InlineMedia

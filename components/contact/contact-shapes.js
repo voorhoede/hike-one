@@ -1,5 +1,5 @@
-import Parallax from '../parallax/parallax';
-import Triangle from '../shapes/triangle/triangle';
+import Parallax from '../parallax/parallax'
+import Triangle from '../shapes/triangle/triangle'
 
 const ContactShapes = () => (
 	<div className="contact-shapes">
@@ -12,6 +12,6 @@ const ContactShapes = () => (
 			<Triangle classes="shape-triangle-3" color="purple" />
 		</Parallax>
 	</div>
-);
+)
 
-export default ContactShapes;
+export default ContactShapes

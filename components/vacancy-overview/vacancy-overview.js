@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
+import PropTypes from 'prop-types'
+import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link'
 
 const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 	<div className="vacancy-overview container">
@@ -21,11 +21,11 @@ const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 			{overview.callToActionTitle}
 		</ButtonPrimaryLink>
 	</div>
-);
+)
 
 VacancyOverview.propTypes = {
 	overview: PropTypes.object,
 	vacancies: PropTypes.array,
-};
+}
 
-export default VacancyOverview;
+export default VacancyOverview

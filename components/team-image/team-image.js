@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
-import setImageParams from '../_helpers/setImageParameters';
+import PropTypes from 'prop-types'
+import setImageParams from '../_helpers/setImageParameters'
 
 const TeamImage = ({ image = '', title = '' }) => {
-	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 }
 
 	return (
 		<div className="image-team team-image">
@@ -20,12 +20,12 @@ const TeamImage = ({ image = '', title = '' }) => {
 			/>
 			<span className="image-team-title">{title}</span>
 		</div>
-	);
-};
+	)
+}
 
 TeamImage.propTypes = {
 	image: PropTypes.string,
 	title: PropTypes.string,
-};
+}
 
-export default TeamImage;
+export default TeamImage

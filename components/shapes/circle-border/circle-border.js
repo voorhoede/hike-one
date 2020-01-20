@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const CircleBorder = ({ color = '', classes = '' }) => (
 	<svg
@@ -20,11 +20,11 @@ const CircleBorder = ({ color = '', classes = '' }) => (
 			transform="translate(-329 -881)"
 		/>
 	</svg>
-);
+)
 
 CircleBorder.propTypes = {
 	color: PropTypes.string,
 	classes: PropTypes.string,
-};
+}
 
-export default CircleBorder;
+export default CircleBorder

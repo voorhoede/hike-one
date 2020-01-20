@@ -5,4 +5,4 @@ export default {
 	'job-title': { id: 'JOBTITLE', type: 'text' },
 	'last-name': { id: 'LNAME', type: 'text' },
 	'phone-number': { id: 'PHONE', type: 'phone' },
-};
+}

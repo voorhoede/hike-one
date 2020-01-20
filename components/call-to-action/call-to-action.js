@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
 const CallToAction = ({
 	title = '',
@@ -9,9 +9,9 @@ const CallToAction = ({
 	titleWhite = false,
 	isExternalLink = false,
 }) => {
-	const textColorClass = titleWhite ? 'title-white' : '';
-	const containerClass = fullWidth ? 'container' : 'container-inner';
-	const bgClass = bgColor ? 'call-to-action-bg-color' : '';
+	const textColorClass = titleWhite ? 'title-white' : ''
+	const containerClass = fullWidth ? 'container' : 'container-inner'
+	const bgClass = bgColor ? 'call-to-action-bg-color' : ''
 
 	return (
 		<div
@@ -27,8 +27,8 @@ const CallToAction = ({
 				{buttonText}
 			</a>
 		</div>
-	);
-};
+	)
+}
 
 CallToAction.propTypes = {
 	title: PropTypes.string,
@@ -38,6 +38,6 @@ CallToAction.propTypes = {
 	fullWidth: PropTypes.bool,
 	titleWhite: PropTypes.bool,
 	isExternalLink: PropTypes.bool,
-};
+}
 
-export default CallToAction;
+export default CallToAction

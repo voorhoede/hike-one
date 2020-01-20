@@ -2,6 +2,7 @@
 	"name": "hike-one",
 	"version": 2,
 	"scope": "devoorhoede",
+	"alias": ["preview.hike.one"],
 	"trailingSlash": false,
 	"github": {
 		"silent": true

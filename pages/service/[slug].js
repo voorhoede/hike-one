@@ -4,7 +4,7 @@ import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 
-import Head from '../../components/_helpers/head';
+import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import PageHeaderNew from '../../components/page-header-new/page-header-new';
 import TabSelector from '../../components/tab-selector/tab-selector';

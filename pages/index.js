@@ -4,7 +4,7 @@ import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
-import Head from '../components/_helpers/head';
+import Head from '../components/head/head';
 import CaseExtract from '../components/case-extract/case-extract';
 import MenuBar from '../components/menu-bar/menu-bar';
 import ServicesOverview from '../components/services-overview/services-overview';

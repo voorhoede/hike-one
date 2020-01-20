@@ -3,7 +3,7 @@ import '../../styles/index.less';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/_helpers/head';
+import Head from '../../components/head/head';
 import BodyQuote from '../../components/body-quote/body-quote';
 import CallToAction from '../../components/call-to-action/call-to-action';
 import Contact from '../../components/contact/contact';

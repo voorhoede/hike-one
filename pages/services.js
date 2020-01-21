@@ -3,54 +3,118 @@ import '../styles/index.less';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
+import Contact from '../components/contact/contact';
+import ContactShapes from '../components/contact/contact-shapes';
+import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
-import ServicesOverview from '../components/services-overview/services-overview';
-import ServicesOverviewPage from '../components/services-overview-page/services-overview-page';
-import Footer from '../components/footer/footer';
+import ServicesCards from '../components/services-cards/services-cards';
+import TextCenter from '../components/text-center/text-center';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 
-const Page = ({ service, servicesOverview, footer }) => (
-	<>
-		<Head
-			title={service.seo.title}
-			description={service.seo.description}
-			image={service.seo.image}
-			twitterCard={service.seo.twitterCard}
-		/>
+const Page = ({ service, servicesOverview, footer }) => {
+	const {
+		contactCta,
+		header,
+		highlightedCases,
+		highlightedCasesBody,
+		highlightedCasesTitle,
+		highlightedUpdates,
+		highlightedUpdatesBody,
+		highlightedUpdatesTitle,
+		servicesItemTitle,
+		servicesItemBody,
+		serviceItems,
+	} = servicesOverview;
+	const hasContactCta = Object.entries(contactCta).length && contactCta.constructor === Object;
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<PageHeader
-				isSmall={true}
-				title={servicesOverview.header.title}
-				subtitle={servicesOverview.header.subtitle}
-				image={servicesOverview.header.backgroundImage.url}
+	return (
+		<React.Fragment>
+			<Head
+				title={service.seo.title}
+				description={service.seo.description}
+				image={service.seo.image}
+				twitterCard={service.seo.twitterCard}
 			/>
 
-			<main className="page-scrolling-content-small">
-				<ServicesOverview
-					title={servicesOverview.servicesItemTitle}
-					body={servicesOverview.servicesItemBody}
-					services={servicesOverview.serviceItems}
+			<MenuBar color="white" />
+
+			<div className="services-page layout-parallax">
+				<PageHeader
+					isSmall={true}
+					title={header.title}
+					subtitle={header.subtitle}
+					image={header.backgroundImage.url}
 				/>
 
-				<ServicesOverviewPage
-					contact={servicesOverview.contactCta}
-					highlightedCasesTitle={servicesOverview.highlightedCasesTitle}
-					highlightedCasesBody={servicesOverview.highlightedCasesBody}
-					highlightedCases={servicesOverview.highlightedCases}
-					highlightedUpdatesTitle={servicesOverview.highlightedUpdatesTitle}
-					highlightedUpdatesBody={servicesOverview.highlightedUpdatesBody}
-					highlightedUpdates={servicesOverview.highlightedUpdates}
-				/>
-			</main>
-		</div>
+				<main className="page-scrolling-content-small">
+					<ServicesCards
+						title={servicesItemTitle}
+						body={servicesItemBody}
+						services={serviceItems}
+					/>
 
-		<Footer form={footer.form} />
-	</>
-);
+					{hasContactCta && (
+						<Contact
+							title={contactCta.title}
+							button={contactCta.button}
+							link={contactCta.externalLink}
+						>
+							<ContactShapes position="front" />
+						</Contact>
+					)}
+
+					<section className="work-overview">
+						<div className="container">
+							<TextCenter title={highlightedCasesTitle} text={highlightedCasesBody} />
+							<div className="container-inner">
+								{highlightedCases.map((item, index) => (
+									<CaseExtractSmall
+										key={index}
+										title={item.title}
+										subtitle={item.subtitle}
+										image={item.image}
+										companyName={item.case.companyName}
+										color={item.case.caseThemeColor.hex}
+										slug={item.case.slug}
+									/>
+								))}
+							</div>
+						</div>
+					</section>
+
+					<section className="update-overview">
+						<div className="container">
+							<TextCenter title={highlightedUpdatesTitle} text={highlightedUpdatesBody} />
+							<div className="container-inner">
+								{highlightedUpdates.map((update, index) => (
+									<UpdateExtractSmall
+										key={index}
+										index={index}
+										authors={update.authors}
+										category={update.category.name}
+										color={update.themeColor.hex}
+										date={update.date}
+										link={update.externalLink}
+										slug={update.slug}
+										image={update.image.url}
+										target={update.externalLink ? true : false}
+										title={update.title}
+										topic={update.topic}
+									/>
+								))}
+							</div>
+						</div>
+					</section>
+				</main>
+			</div>
+
+			<Footer form={footer.form} />
+		</React.Fragment>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ req }) => {
 	const graphqlQuery = `{

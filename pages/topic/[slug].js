@@ -193,7 +193,7 @@ const Page = ({ topic, footer }) => (
 			)}
 
 			{topic.updateLinks.length > 0 && (
-				<React.Fragment>
+				<>
 					<TextCenter title={topic.updateLinksTitle} />
 
 					<UpdateOverviewSmall>
@@ -214,7 +214,7 @@ const Page = ({ topic, footer }) => (
 							/>
 						))}
 					</UpdateOverviewSmall>
-				</React.Fragment>
+				</>
 			)}
 		</div>
 

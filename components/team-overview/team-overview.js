@@ -10,7 +10,7 @@ import TeamImage from '../team-image/team-image';
 import TextCenter from '../text-center/text-center';
 
 const TeamOverview = ({ data = {} }) => (
-	<React.Fragment>
+	<>
 		<Collage
 			title={data.collage.title}
 			text={data.collage.text}
@@ -106,7 +106,7 @@ const TeamOverview = ({ data = {} }) => (
 		{data.teamImage916 && (
 			<TeamImage title={data.teamImage916.title} image={data.teamImage916.photo.url} />
 		)}
-	</React.Fragment>
+	</>
 );
 
 TeamOverview.propTypes = {

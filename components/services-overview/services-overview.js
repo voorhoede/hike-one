@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import ServiceItem from '../service-item/service-item';
+import { TimelineLite } from 'gsap';
+
+import ServiceCard from '../service-card/service-card';
 import TextCenter from '../text-center/text-center';
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes';
-import { TimelineLite } from 'gsap';
 
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
@@ -114,7 +115,7 @@ class ServicesOverview extends Component {
 				<TextCenter title={title} text={body} />
 				<div className="container-inner">
 					{Object.values(services).map((item, index) => (
-						<ServiceItem
+						<ServiceCard
 							key={index}
 							item={item}
 							Component={shapes[index]}

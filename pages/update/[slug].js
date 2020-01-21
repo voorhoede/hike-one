@@ -17,12 +17,13 @@ import Contact from '../../components/contact/contact';
 import ContactForm from '../../components/contact-form/contact-form';
 import ContactShapes from '../../components/contact/contact-shapes';
 import Author from '../../components/author/author';
+import SocialShare from '../../components/social-share/social-share';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
 import Footer from '../../components/footer/footer';
 
-const Page = ({ update, footer }) => (
+const Page = ({ update, footer, fullUrl }) => (
 	<>
 		<Head
 			title={update.seo.title}
@@ -165,6 +166,8 @@ const Page = ({ update, footer }) => (
 				})}
 			</main>
 
+			<SocialShare url={fullUrl} title={update.title} description={update.seo.description} />
+
 			<div className="authors">
 				{update.authors.map((author, index) => {
 					return (
@@ -221,6 +224,7 @@ const Page = ({ update, footer }) => (
 );
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
+	const fullUrl = `${req.headers.host}${asPath}`;
 	const graphqlQuery = `{
 		update(filter: { slug: { eq: "${query.slug}" } }) {
 			title
@@ -409,7 +413,7 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return fetchContent({ graphqlQuery, req }).then(res => ({ ...res, fullUrl }));
 });
 
 export default Page;

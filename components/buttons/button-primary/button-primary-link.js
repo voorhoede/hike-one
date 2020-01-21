@@ -10,7 +10,7 @@ const PrimaryButtonLink = ({
 	icon = '',
 	target = '_self',
 }) => (
-	<Link href={href} as={`${hrefAs ? hrefAs : href}`}>
+	<Link href={href} as={`${hrefAs ? hrefAs : href}`} prefetch={target ? false : null}>
 		<a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{icon && (

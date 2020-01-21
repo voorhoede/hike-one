@@ -3,16 +3,17 @@ import '../../styles/index.less';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 
-import Head from '../../components/head/head';
 import BodyQuote from '../../components/body-quote/body-quote';
 import CallToAction from '../../components/call-to-action/call-to-action';
+import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
 import ContactForm from '../../components/contact-form/contact-form';
+import ContactShapes from '../../components/contact/contact-shapes';
 import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
 import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
+import Head from '../../components/head/head';
 import InlineMedia from '../../components/inline-media/inline-media';
 import LogoCarousel from '../../components/logo-carousel/logo-carousel';
 import MailchimpForm from '../../components/mailchimp/mailchimp-form';
@@ -23,7 +24,6 @@ import TextCenter from '../../components/text-center/text-center';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
 import WorkOverview from '../../components/work-overview/work-overview';
-import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
 const Page = ({ topic, footer, fullUrl }) => (
 	<>

@@ -18,13 +18,14 @@ import LogoCarousel from '../../components/logo-carousel/logo-carousel';
 import MailchimpForm from '../../components/mailchimp/mailchimp-form';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import RichBodyText from '../../components/rich-body-text/rich-body-text';
+import SocialShare from '../../components/social-share/social-share';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
-const Page = ({ topic, footer }) => (
+const Page = ({ topic, footer, fullUrl }) => (
 	<>
 		<Head
 			title={topic.seo.title}
@@ -162,6 +163,8 @@ const Page = ({ topic, footer }) => (
 				})}
 			</main>
 
+			<SocialShare url={fullUrl} title={data.title} description={data.seo.description} />
+
 			{topic.contact && (
 				<Contact
 					title={topic.contact.title}
@@ -223,6 +226,7 @@ const Page = ({ topic, footer }) => (
 );
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
+	const fullUrl = `${req.headers.host}${asPath}`;
 	const graphqlQuery = `{
 		topic(filter: { slug: { eq: "${query.slug}" } }) {
 			title
@@ -415,7 +419,7 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return fetchContent({ graphqlQuery, req }).then(res => ({ ...res, fullUrl }));
 });
 
 export default Page;

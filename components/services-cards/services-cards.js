@@ -4,11 +4,11 @@ import { TimelineLite } from 'gsap';
 
 import ServiceCard from '../service-card/service-card';
 import TextCenter from '../text-center/text-center';
-import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-overview-shapes';
+import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-cards-shapes';
 
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
-class ServicesOverview extends Component {
+class ServicesCards extends Component {
 	constructor(props) {
 		super(props);
 		this.onMouseOver = this.onMouseOver.bind(this);
@@ -111,7 +111,7 @@ class ServicesOverview extends Component {
 		const { services = [], title = '', body = '', classes = '' } = this.props;
 
 		return (
-			<div className={`services-overview container clearfix ${classes}`}>
+			<div className={`services-cards container clearfix ${classes}`}>
 				<TextCenter title={title} text={body} />
 				<div className="container-inner">
 					{Object.values(services).map((item, index) => (
@@ -129,11 +129,11 @@ class ServicesOverview extends Component {
 	}
 }
 
-ServicesOverview.propTypes = {
+ServicesCards.propTypes = {
 	services: PropTypes.array,
 	title: PropTypes.string,
 	body: PropTypes.string,
 	classes: PropTypes.string,
 };
 
-export default ServicesOverview;
+export default ServicesCards;

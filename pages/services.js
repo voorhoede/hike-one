@@ -3,12 +3,12 @@ import '../styles/index.less';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
-import ServicesOverview from '../components/services-overview/services-overview';
 import ServicesOverviewPage from '../components/services-overview-page/services-overview-page';
-import Footer from '../components/footer/footer';
+import ServicesCards from '../components/services-cards/services-cards';
 
 const Page = ({ service, servicesOverview, footer }) => (
 	<>
@@ -30,7 +30,7 @@ const Page = ({ service, servicesOverview, footer }) => (
 			/>
 
 			<main className="page-scrolling-content-small">
-				<ServicesOverview
+				<ServicesCards
 					title={servicesOverview.servicesItemTitle}
 					body={servicesOverview.servicesItemBody}
 					services={servicesOverview.serviceItems}

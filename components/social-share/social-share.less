@@ -1,0 +1,67 @@
+@import (reference) '../../styles/variables';
+
+.social-share {
+  display: flex;
+  z-index: @layer-raised;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: @spacing-default*4;
+
+  @media @screen-768 {
+    position: fixed;
+    top: 240px;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    width: 56px;
+    height: 150px;
+    margin-bottom: 0;
+    padding: @spacing-default;
+    background-color: @white;
+    box-shadow: 0 10px 100px 0 fade(@black, 15%);
+  }
+}
+
+.social-share-item {
+  margin-right: @spacing-default;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    svg path {
+      transition: fill @animation-speed-fast;
+    }
+
+    .facebook-blue path {
+      fill: darken(@facebook-blue, 10%);
+    }
+
+    .twitter-blue path {
+      fill: darken(@twitter-blue, 10%);
+    }
+
+    .linkedin-blue path {
+      fill: darken(@linkedin-blue, 10%);
+    }
+  }
+
+  svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  svg path {
+    transition: fill @animation-speed;
+  }
+
+  @media @screen-768 {
+    margin-right: 0;
+
+    svg {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}

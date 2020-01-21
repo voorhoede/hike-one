@@ -7,7 +7,7 @@ import scrollToElement from '../components/_helpers/scrollToElement';
 import Head from '../components/head/head';
 import CaseExtract from '../components/case-extract/case-extract';
 import MenuBar from '../components/menu-bar/menu-bar';
-import ServicesOverview from '../components/services-overview/services-overview';
+import ServicesCards from '../components/services-cards/services-cards';
 import TextCenter from '../components/text-center/text-center';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
@@ -43,7 +43,7 @@ const Page = ({ home, footer }) => (
 		</PageHeader>
 
 		<main className={`${scrollToTargetClass} page-scrolling-content`}>
-			<ServicesOverview title={home.servicesItemTitle} services={home.serviceItems} />
+			<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />
 
 			<TextCenter
 				classes="text-center-font-medium text-center-spacing-small"

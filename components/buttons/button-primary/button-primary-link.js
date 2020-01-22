@@ -5,12 +5,11 @@ import Icon from '../../icon/icon';
 const ButtonPrimaryLink = ({
 	classes = '',
 	href = '',
-	hrefAs = null,
 	children,
 	icon = '',
 	target = '_self',
 }) => (
-	<Link href={href} as={`${hrefAs ? hrefAs : href}`}>
+	<Link href={href}>
 		<a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{icon && (
@@ -25,7 +24,6 @@ const ButtonPrimaryLink = ({
 ButtonPrimaryLink.propTypes = {
 	classes: PropTypes.string,
 	href: PropTypes.string,
-	hrefAs: PropTypes.string,
 	children: PropTypes.node,
 	icon: PropTypes.string,
 	target: PropTypes.string,

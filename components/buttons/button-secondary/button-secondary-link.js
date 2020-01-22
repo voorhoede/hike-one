@@ -5,12 +5,11 @@ import Icon from '../../icon/icon';
 const ButtonSecondaryLink = ({
 	classes = '',
 	href = '',
-	hrefAs = null,
 	children,
 	icon = '',
 	target = '_self',
 }) => (
-	<Link href={href} as={`${hrefAs ? hrefAs : href}`}>
+	<Link href={href}>
 		<a target={target} className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{icon && (
@@ -25,7 +24,6 @@ const ButtonSecondaryLink = ({
 ButtonSecondaryLink.propTypes = {
 	classes: PropTypes.string,
 	href: PropTypes.string,
-	hrefAs: PropTypes.string,
 	children: PropTypes.node,
 	icon: PropTypes.string,
 	target: PropTypes.string,

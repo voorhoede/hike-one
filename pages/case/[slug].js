@@ -172,7 +172,11 @@ const Page = ({ workcase, footer }) => (
 									{component.quoteAuthorTitle && (
 										<QuoteBlock
 											color={component.quoteColor.color}
-											alignment={component.quoteAlignLeft ? 'colored-block--align-left' : 'colored-block--align-right'}
+											alignment={
+												component.quoteAlignLeft
+													? 'colored-block--align-left'
+													: 'colored-block--align-right'
+											}
 											quote={component.quote}
 											citeName={component.quoteAuthorName}
 											citeTitle={component.quoteAuthorTitle}

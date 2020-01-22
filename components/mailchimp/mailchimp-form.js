@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ButtonPrimary from '../buttons/button-primary/button-primary';
 import MailchimpInput from './mailchimp-input';
 
 const MailchimpForm = ({
@@ -48,13 +49,10 @@ const MailchimpForm = ({
 				/>
 			</div>
 
-			<input
-				readOnly
-				type="submit"
-				value={buttonLabel}
-				name="subscribe"
-				className="btn-primary submit-btn btn-large"
-			/>
+			<ButtonPrimary type="submit" classes="submit-btn btn-large">
+				{buttonLabel}
+			</ButtonPrimary>
+
 		</form>
 	</div>
 );

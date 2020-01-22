@@ -11,10 +11,10 @@
 	background-color: transparent;
 	color: @white;
 
-	&:hover:not(.vertical-spring),
-	&:focus:not(.vertical-spring),
-	&:hover:enabled:not(.vertical-spring),
-	&:focus:enabled:not(.vertical-spring) {
+	&[href]:hover, // for links
+	&[href]:focus,
+	&:enabled:hover, // for buttons
+	&:enabled:focus {
 		.btn-secondary-hover;
 	}
 
@@ -37,8 +37,8 @@
 		border: 1px solid @red;
 		color: @red;
 
-		&:hover,
-		&:focus,
+		&[href]:hover,
+		&[href]:focus,
 		&:hover:enabled,
 		&:focus:enabled {
 			.btn-secondary-hover-red;

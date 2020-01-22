@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Icon from '../../icon/icon';
 
-const PrimaryButtonLink = ({
+const ButtonPrimaryLink = ({
 	classes = '',
 	href = '',
 	hrefAs = null,
@@ -22,7 +22,7 @@ const PrimaryButtonLink = ({
 	</Link>
 );
 
-PrimaryButtonLink.propTypes = {
+ButtonPrimaryLink.propTypes = {
 	classes: PropTypes.string,
 	href: PropTypes.string,
 	hrefAs: PropTypes.string,
@@ -31,4 +31,4 @@ PrimaryButtonLink.propTypes = {
 	target: PropTypes.string,
 };
 
-export default PrimaryButtonLink;
+export default ButtonPrimaryLink;

@@ -1,7 +1,7 @@
 @import (reference) '../../../styles/variables';
 
 .btn-clean {
-	display: block;
+	display: inline-block;
 	padding: 0;
 	border: none;
 	background-color: transparent;
@@ -11,6 +11,7 @@
 	font-weight: @font-weight-normal;
 	line-height: @line-height-body-s;
 	text-decoration: none;
+	cursor: pointer;
 
 	@media @screen-768 {
 		font-size: @body-text-m;
@@ -22,9 +23,14 @@
 		line-height: @line-height-body-l;
 	}
 
-	&:hover,
-	&:focus,
-	&:enabled:hover,
+	&:disabled,
+	&[disabled] {
+		opacity: 0.5;
+	}
+
+	&[href]:hover, // for links
+	&[href]:focus,
+	&:enabled:hover, // for buttons
 	&:enabled:focus {
 		.btn-clean-hover;
 	}

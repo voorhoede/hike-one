@@ -18,10 +18,6 @@
 			"destination": "https://hikeone.homerun.co/"
 		},
 		{
-			"source": "/playbook",
-			"destination": "https://hikeone.gitbook.io/project-playbook"
-		},
-		{
 			"source": "/sprint",
 			"destination": "/topic/running-design-sprints-masterclass-by-hike-one"
 		},

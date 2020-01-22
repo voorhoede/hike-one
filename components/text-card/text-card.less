@@ -22,9 +22,7 @@
 
 	// 1200 because if 1170 the text will stick to the side when the media querie just activated
 	@media (min-width: 1200px) {
-		margin-left: calc(
-			~'(100vw - @{container-inner-max-width}) / 2 - 110px'
-		); // -110px for padding left. To align the text to the grid
+		margin-left: calc(~'(100vw - @{container-inner-max-width}) / 2 - 110px'); // -110px for padding left. To align the text to the grid
 		padding: @spacing-default*11 @spacing-default*10;
 	}
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import Facebook from '../icons/facebook-circle';
 import LinkedIn from '../icons/linkedin-circle';

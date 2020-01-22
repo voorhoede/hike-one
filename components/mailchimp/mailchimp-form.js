@@ -52,7 +52,6 @@ const MailchimpForm = ({
 			<ButtonPrimary type="submit" classes="submit-btn btn-large">
 				{buttonLabel}
 			</ButtonPrimary>
-
 		</form>
 	</div>
 );

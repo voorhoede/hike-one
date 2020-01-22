@@ -12,10 +12,8 @@ import TextCenter from '../components/text-center/text-center';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import Contact from '../components/contact/contact';
-import ContactShape from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
 
 const scrollToTargetClass = 'js-scroll-to-target';
 
@@ -37,10 +35,7 @@ const Page = ({ home, footer }) => (
 			subtitle={home.header.subtitle}
 			image={home.header.backgroundImage.url}
 			showGradient={home.header.displayGradient}
-		>
-			<PageHeaderShapes.variation1Front position="front" />
-			<PageHeaderShapes.variation1Back position="back" />
-		</PageHeader>
+		/>
 
 		<main className={`${scrollToTargetClass} page-scrolling-content`}>
 			<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />
@@ -89,9 +84,7 @@ const Page = ({ home, footer }) => (
 				title={home.contact.title}
 				button={home.contact.button}
 				link={home.contact.externalLink}
-			>
-				<ContactShape position="front" />
-			</Contact>
+			/>
 		</main>
 
 		<Footer form={footer.form} disableParallax />

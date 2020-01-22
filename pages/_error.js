@@ -5,7 +5,6 @@ import fetchContent from '../lib/fetch-content';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import TextCenter from '../components/text-center/text-center';
-import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import InlineImage from '../components/inline-image/inline-image';
 
 const Error = ({ errorPage }) => (
@@ -17,10 +16,7 @@ const Error = ({ errorPage }) => (
 		<article
 			className={`article article-error ${errorPage.image ? 'article-error--has-image' : ''}`}
 		>
-			<TextCenter title={errorPage.title} text={errorPage.description}>
-				<TextCenterShapes.variation3Back position="back" />
-				<TextCenterShapes.variation4Front position="front" />
-			</TextCenter>
+			<TextCenter title={errorPage.title} text={errorPage.description} />
 
 			{errorPage.image && (
 				<section className="error-image container">

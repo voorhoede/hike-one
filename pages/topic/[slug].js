@@ -7,7 +7,6 @@ import Head from '../../components/head/head';
 import BodyQuote from '../../components/body-quote/body-quote';
 import CallToAction from '../../components/call-to-action/call-to-action';
 import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
 import ContactForm from '../../components/contact-form/contact-form';
 import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
@@ -169,9 +168,7 @@ const Page = ({ topic, footer }) => (
 					link={topic.contact.externalLink}
 					target="_blank"
 					rel="noopener noreferrer"
-				>
-					<ContactShapes position="front" />
-				</Contact>
+				/>
 			)}
 
 			<TextCenter title={topic.caseLinksTitle} />

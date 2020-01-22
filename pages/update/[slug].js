@@ -15,7 +15,6 @@ import RichBodyText from '../../components/rich-body-text/rich-body-text';
 import MailchimpForm from '../../components/mailchimp/mailchimp-form';
 import Contact from '../../components/contact/contact';
 import ContactForm from '../../components/contact-form/contact-form';
-import ContactShapes from '../../components/contact/contact-shapes';
 import Author from '../../components/author/author';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
@@ -186,9 +185,7 @@ const Page = ({ update, footer }) => (
 					link={update.contact.externalLink}
 					target="_blank"
 					rel="noopener noreferrer"
-				>
-					<ContactShapes position="front" />
-				</Contact>
+				/>
 			)}
 
 			<TextCenter

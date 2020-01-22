@@ -2,7 +2,6 @@ import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
-import setComponentCounter from '../../components/_helpers/setParallaxComponentCounter';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 import scrollToElement from '../../components/_helpers/scrollToElement';
 
@@ -11,11 +10,7 @@ import PageHeader from '../../components/page-header/page-header';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import TextCenter from '../../components/text-center/text-center';
 import FiftyFifty from '../../components/50-50/50-50';
-import * as TextCenterShapes from '../../components/text-center/text-center-shapes';
-import * as FiftyFiftyShapes from '../../components/50-50/50-50-shapes';
 import ImageCombo from '../../components/image-combo/image-combo';
-import * as ImageComboShapes from '../../components/image-combo/image-combo-shapes';
-import * as CollageShapes from '../../components/collage/collage-shapes';
 import FullWidthImage from '../../components/full-width-image/full-width-image';
 import FullWidthImageStatic from '../../components/full-width-image-static/full-width-image-static';
 import QuoteBlock from '../../components/quote-block/quote-block';
@@ -26,7 +21,6 @@ import InlineMedia from '../../components/inline-media/inline-media';
 import CallToAction from '../../components/call-to-action/call-to-action';
 import ContactForm from '../../components/contact-form/contact-form';
 import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import UpdateLinks from '../../components/update-links/update-links';
@@ -34,29 +28,6 @@ import UpdateLink from '../../components/update-link/update-link';
 import Footer from '../../components/footer/footer';
 
 const scrollToTargetClass = 'js-scroll-to-target';
-
-// object with parallax shape layer variations for every type of component
-// combined with the componentCounter object a specific variantion is chosen for each component
-const parallaxLayersMap = {
-	'40_60_text_right': [[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1" />]],
-	'40_60_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
-	'50_50_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
-	'50_50_text_right': [[<FiftyFiftyShapes.TextRight1Back position="back" key="1" />]],
-	image_combo: [
-		[<ImageComboShapes.WithText1Front position="front" key="1" />],
-		[<ImageComboShapes.WithoutText1Front position="front" key="1" />],
-	],
-	collage: [
-		[
-			<CollageShapes.variation1Front position="front" key="1" />,
-			<CollageShapes.variation1Back position="back" key="2" />,
-		],
-	],
-};
-
-// object that counts how many times a component is used on this page
-// this is done by the `setComponentCounter` function
-let componentCounter = {};
 
 const Page = ({ workcase, footer }) => (
 	<>
@@ -80,9 +51,7 @@ const Page = ({ workcase, footer }) => (
 			/>
 
 			<main className={`${scrollToTargetClass} page-scrolling-content`}>
-				<TextCenter title={workcase.introTitle} text={workcase.introText}>
-					<TextCenterShapes.variation1Back position="back" />
-				</TextCenter>
+				<TextCenter title={workcase.introTitle} text={workcase.introText} />
 
 				{workcase.components.map((component, index) => {
 					let itemType = component.itemType;
@@ -97,14 +66,6 @@ const Page = ({ workcase, footer }) => (
 
 					const hasTextCard = !!(component.textTitle && component.textTitle.length > 1);
 
-					// // set component count
-					componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
-					const count = componentCounter[itemType];
-
-					// // if a parallax variation layer is available then use that one
-					const parallaxLayers =
-						componentCounter[itemType] !== null ? parallaxLayersMap[itemType][count] : '';
-
 					switch (itemType) {
 						case '40_60_text_right':
 							return (
@@ -114,9 +75,7 @@ const Page = ({ workcase, footer }) => (
 									text={component.text}
 									imageLarge={true}
 									image={component.image}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '40_60_text_left':
@@ -128,9 +87,7 @@ const Page = ({ workcase, footer }) => (
 									text={component.text}
 									imageLarge={true}
 									image={component.image}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '50_50_text_right':
@@ -141,9 +98,7 @@ const Page = ({ workcase, footer }) => (
 									text={component.text}
 									image={component.image}
 									video={component.video}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '50_50_text_left':
@@ -155,9 +110,7 @@ const Page = ({ workcase, footer }) => (
 									text={component.text}
 									image={component.image}
 									video={component.video}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case 'image_combo':
@@ -179,7 +132,6 @@ const Page = ({ workcase, footer }) => (
 											citeImage={component.quoteAuthorImage.url}
 										/>
 									)}
-									{parallaxLayers}
 								</ImageCombo>
 							);
 
@@ -191,9 +143,7 @@ const Page = ({ workcase, footer }) => (
 									text={component.text}
 									imageMedium={component.imageBig.url}
 									imageSmall={component.imageSmall.url}
-								>
-									{parallaxLayers}
-								</Collage>
+								/>
 							);
 
 						case 'full_width_image':
@@ -217,7 +167,7 @@ const Page = ({ workcase, footer }) => (
 									subtitle={component.subtitle}
 								/>
 							);
-						//
+
 						case 'collaboration':
 							return (
 								<div key={index}>
@@ -292,9 +242,7 @@ const Page = ({ workcase, footer }) => (
 				title={workcase.contact.title}
 				button={workcase.contact.button}
 				link={workcase.contact.externalLink}
-			>
-				<ContactShapes position="front" />
-			</Contact>
+			/>
 
 			<WorkOverview>
 				{workcase.caseExtract.map((item, index) => (

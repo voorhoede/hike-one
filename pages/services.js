@@ -5,7 +5,6 @@ import withCacheControl from '../lib/with-cache-control';
 
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import Contact from '../components/contact/contact';
-import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -61,9 +60,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 							title={contactCta.title}
 							button={contactCta.button}
 							link={contactCta.externalLink}
-						>
-							<ContactShapes position="front" />
-						</Contact>
+						/>
 					)}
 
 					<section className="work-overview">

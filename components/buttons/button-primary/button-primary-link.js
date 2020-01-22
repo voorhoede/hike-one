@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Icon from '../../icon/icon';
 
-const ButtonPrimaryLink = ({
-	classes = '',
-	href = '',
-	children,
-	icon = '',
-	target = '_self',
-}) => (
+const ButtonPrimaryLink = ({ classes = '', href = '', children, icon = '', target = '_self' }) => (
 	<Link href={href}>
 		<a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}

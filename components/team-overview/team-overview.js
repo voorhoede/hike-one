@@ -38,7 +38,7 @@ const TeamOverview = ({ data = {} }) => (
 			/>
 			<StatisticsBlock
 				color="blue"
-				alignment="text-block-right"
+				alignment="colored-block--align-right"
 				summary={{
 					label: data.statistics.summaryLabel,
 					count: data.statistics.summaryCount,

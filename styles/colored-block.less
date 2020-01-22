@@ -1,12 +1,11 @@
 @import (reference) 'variables';
 @import (reference) 'shadows';
 
-.text-block {
+.colored-block {
 	.shadow();
 
 	margin: 0 0 @spacing-default*5 @spacing-default*1.5;
-	padding: @spacing-default*4 @spacing-default*3 @spacing-default*4
-		@spacing-default*3;
+	padding: @spacing-default*4 @spacing-default*3 @spacing-default*4 @spacing-default*3;
 	background-color: @blue;
 	color: @white;
 	font-family: @font-alt;
@@ -36,35 +35,35 @@
 	}
 }
 
-.text-block.blue {
+.colored-block.blue {
 	background-color: @blue;
 }
 
-.text-block.red {
+.colored-block.red {
 	background-color: @red;
 }
 
-.text-block.purple {
+.colored-block.purple {
 	background-color: @purple;
 }
 
-.text-block.yellow {
+.colored-block.yellow {
 	background-color: @yellow;
 }
 
-.text-block.green {
+.colored-block.green {
 	background-color: @green;
 }
 
-.text-block.gray {
+.colored-block.gray {
 	background-color: @gray;
 }
 
-.text-block.dark-gray {
+.colored-block.dark-gray {
 	background-color: @darker-gray;
 }
 
-.text-block-left {
+.colored-block--align-left {
 	margin-right: @spacing-default*1.5;
 	margin-left: 0;
 
@@ -73,19 +72,11 @@
 	}
 }
 
-.text-block-right {
+.colored-block--align-right {
 	margin-right: 0;
 	margin-left: @spacing-default*1.5;
 
 	@media @screen-1170 {
 		margin-left: auto;
 	}
-}
-
-.text-block-subtitle {
-	opacity: 0.6;
-	font-size: @text-medium-m;
-	font-style: italic;
-	font-weight: @font-weight-normal;
-	line-height: @line-height-body-m;
 }

@@ -4,11 +4,11 @@ const QuoteBlock = ({
 	color = '',
 	alignment = '',
 	quote = '',
-	citeImage,
+	citeImage = '',
 	citeName = '',
 	citeTitle = '',
 }) => (
-	<blockquote className={`text-block ${color} ${alignment}`}>
+	<blockquote className={`colored-block ${color} ${alignment}`}>
 		{quote && <span className="content">“{quote}”</span>}
 		<cite className="quote-cite">
 			{quote && <img src={citeImage} alt="" />}

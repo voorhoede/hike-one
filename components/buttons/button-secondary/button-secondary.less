@@ -37,10 +37,10 @@
 		border: 1px solid @red;
 		color: @red;
 
-		&[href]:hover,
+		&[href]:hover, // for links
 		&[href]:focus,
-		&:hover:enabled,
-		&:focus:enabled {
+		&:enabled:hover, // for buttons
+		&:enabled:focus {
 			.btn-secondary-hover-red;
 		}
 
@@ -48,32 +48,32 @@
 			fill: @red;
 		}
 	}
-}
 
-.vertical-spring {
-	.icon {
-		animation-name: vertical-spring-icon-from;
+	&.vertical-spring {
+		.icon {
+			animation-name: vertical-spring-icon-from;
+		}
+
+		&[href]:hover, // for links
+		&[href]:focus,
+		&:enabled:hover, // for buttons
+		&:enabled:focus {
+			.hover-arrow-down;
+		}
 	}
 
-	&:hover,
-	&:focus,
-	&:hover:enabled,
-	&:focus:enabled {
-		.hover-arrow-down;
-	}
-}
+	&.vertical-spring.arrow-up {
+		.icon {
+			margin-top: 0;
+			animation-name: vertical-spring-icon-to;
+		}
 
-.vertical-spring.arrow-up {
-	.icon {
-		margin-top: 0;
-		animation-name: vertical-spring-icon-to;
-	}
-
-	&:hover,
-	&:focus,
-	&:hover:enabled,
-	&:focus:enabled {
-		.hover-arrow-up;
+		&[href]:hover, // for links
+		&[href]:focus,
+		&:enabled:hover, // for buttons
+		&:enabled:focus {
+			.hover-arrow-up;
+		}
 	}
 }
 

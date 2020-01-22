@@ -53,7 +53,7 @@ const MailchimpForm = ({
 				type="submit"
 				value={buttonLabel}
 				name="subscribe"
-				className="button btn-primary submit-btn btn-large btn-right-aligned"
+				className="btn-primary submit-btn btn-large"
 			/>
 		</form>
 	</div>

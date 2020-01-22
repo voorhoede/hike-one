@@ -22,7 +22,7 @@ const Page = ({ thankYouPage, footer }) => (
 				<TextCenterShapes.variation4Front position="front" />
 			</TextCenter>
 
-			<ButtonPrimaryLink href={thankYouPage.callToActionUrl} classes="btn btn-large btn-centered">
+			<ButtonPrimaryLink href={thankYouPage.callToActionUrl} classes="btn-large btn-centered">
 				{thankYouPage.callToActionLabel}
 			</ButtonPrimaryLink>
 		</article>

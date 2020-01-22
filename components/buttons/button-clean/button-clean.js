@@ -9,7 +9,7 @@ const ButtonClean = ({
 	onClick = null,
 	type = 'button',
 }) => (
-	<button type={type} onClick={onClick} className={`btn-clean ${classes}`}>
+	<button type={type} onClick={onClick} className={`btn-clean ${classes}`} disabled={disabled}>
 		{children}
 
 		{icon && (

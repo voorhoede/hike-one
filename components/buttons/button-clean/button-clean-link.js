@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Icon from '../../icon/icon';
 
-const ButtonCleanLink = ({ classes = '', href = '', children, icon = '' }) => (
+const ButtonCleanLink = ({ classes = '', href = '', children, icon = '', target = '_self' }) => (
 	<Link href={href}>
-		<a className={`btn-clean ${classes}`}>
+		<a target={target} className={`btn-clean ${classes}`}>
 			{children}
 			{icon && (
 				<span className="icon">
@@ -20,6 +20,7 @@ ButtonCleanLink.propTypes = {
 	href: PropTypes.string,
 	children: PropTypes.node,
 	icon: PropTypes.string,
+	target: PropTypes.string,
 };
 
 export default ButtonCleanLink;

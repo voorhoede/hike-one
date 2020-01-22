@@ -15,7 +15,7 @@ const ButtonPrimary = ({
 		className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''} `}
 		disabled={disabled}
 	>
-		<span className="btn-primary-text">{children}</span>
+		{children}
 
 		{icon && (
 			<span className="icon">

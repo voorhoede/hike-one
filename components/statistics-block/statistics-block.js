@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 
 const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = [], link = {} }) => (
 	<div className={`text-block ${color} ${alignment}`}>
@@ -23,14 +24,9 @@ const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = []
 
 					{link && (
 						<div className="statistics-call-to-action">
-							<a
-								href={link.target}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="btn-secondary"
-							>
-								<span>{link.label}</span>
-							</a>
+							<ButtonSecondaryLink href={link.target} target="_blank">
+								{link.label}
+							</ButtonSecondaryLink>
 						</div>
 					)}
 				</div>

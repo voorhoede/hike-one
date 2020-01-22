@@ -219,7 +219,7 @@ class ContactForm extends Component {
 									onChange={this.handleChange}
 								/>
 							</form>
-							<ButtonPrimary classes="submit-btn btn-primary btn-large" onClick={this.handleSubmit}>
+							<ButtonPrimary classes="submit-btn btn-large" onClick={this.handleSubmit}>
 								{currentForm.submitButtonLabel}
 							</ButtonPrimary>
 						</>
@@ -283,7 +283,7 @@ class ContactForm extends Component {
 								onChange={this.handleChange}
 							/>
 						</form>
-						<ButtonPrimary classes="submit-btn btn-primary btn-large" onClick={this.handleSubmit}>
+						<ButtonPrimary classes="submit-btn btn-large" onClick={this.handleSubmit}>
 							{currentForm.submitButtonLabel}
 						</ButtonPrimary>
 					</>

@@ -6,7 +6,7 @@ const LogoCarousel = props => {
 
 	return (
 		<div className="logo-carousel container clearfix">
-			<h2 className="content">{title}</h2>
+			<h2>{title}</h2>
 
 			<div className="marquee container-inner">
 				<div className="marquee-slider">

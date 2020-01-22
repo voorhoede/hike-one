@@ -3,7 +3,6 @@ import setImageParams from '../_helpers/setImageParameters';
 import InlineVideo from '../inline-video/inline-video';
 
 const FiftyFifty = ({
-	children,
 	classes = '',
 	contentLeft = false,
 	googleMapsIframe = null,
@@ -13,9 +12,6 @@ const FiftyFifty = ({
 	title = '',
 	video = null,
 }) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
 	const imageUrl = image && image.url;
@@ -24,25 +20,16 @@ const FiftyFifty = ({
 		<section
 			className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}
 		>
-			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-media">
 					{googleMapsIframe && <div dangerouslySetInnerHTML={{ __html: googleMapsIframe }} />}
 
 					{video && (
-						<InlineVideo
-							video={video}
-							classes="content"
-							autoplay={true}
-							loop={true}
-							mute={true}
-							controls={false}
-						/>
+						<InlineVideo video={video} autoplay={true} loop={true} mute={true} controls={false} />
 					)}
 
 					{image && !imageLarge && (
 						<img
-							className="content"
 							srcSet={`
 								${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
 								${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
@@ -64,7 +51,6 @@ const FiftyFifty = ({
 
 					{image && imageLarge && (
 						<img
-							className="content"
 							srcSet={`
 								${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
 								${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
@@ -86,19 +72,16 @@ const FiftyFifty = ({
 				</div>
 
 				<div className="fifty-fifty-content">
-					{title && <h2 className="fifty-fifty-title content">{title}</h2>}
+					{title && <h2 className="fifty-fifty-title">{title}</h2>}
 
-					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{ __html: text }} />
+					<div className="fifty-fifty-text" dangerouslySetInnerHTML={{ __html: text }} />
 				</div>
 			</div>
-
-			{parallaxLayerFront}
 		</section>
 	);
 };
 
 FiftyFifty.propTypes = {
-	children: PropTypes.node,
 	classes: PropTypes.node,
 	contentLeft: PropTypes.bool,
 	googleMapsIframe: PropTypes.string,

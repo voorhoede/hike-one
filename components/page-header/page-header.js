@@ -63,12 +63,7 @@ class PageHeader extends Component {
 			onClickScrollButton,
 			showGradient,
 			isSmall,
-			children,
 		} = this.props;
-		const childrenArray = React.Children.toArray(children);
-		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
-
 		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
 		const style = {
 			__html: `<style>
@@ -107,7 +102,6 @@ class PageHeader extends Component {
 					${isSmall ? 'page-header-small' : ''}
 					${this.state.showVideo ? 'show-video' : ''}`}
 			>
-				{parallaxLayerBack}
 				{video && (
 					<video
 						ref={node => (this.video = node)}
@@ -121,35 +115,29 @@ class PageHeader extends Component {
 				)}
 
 				<div className="page-header-inner container">
-					<div ref={node => (this.parallaxLayer = node)}>
-						{onClickScrollButton ? (
-							<a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
-								<h1 className="page-header-title ">{title}</h1>
-							</a>
-						) : (
+					{onClickScrollButton ? (
+						<a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
 							<h1 className="page-header-title ">{title}</h1>
-						)}
+						</a>
+					) : (
+						<h1 className="page-header-title ">{title}</h1>
+					)}
 
-						{subtitle && onClickScrollButton ? (
-							<a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
-								<p className="page-header-subtitle">{subtitle}</p>
-							</a>
-						) : (
+					{subtitle && onClickScrollButton ? (
+						<a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
 							<p className="page-header-subtitle">{subtitle}</p>
-						)}
+						</a>
+					) : (
+						<p className="page-header-subtitle">{subtitle}</p>
+					)}
 
-						{onClickScrollButton && (
-							<button
-								className="page-header-button"
-								onClick={onClickScrollButton ? onClickScrollButton : null}
-							>
-								<Icon icon="arrowDownCircle" />
-							</button>
-						)}
-					</div>
+					{onClickScrollButton && (
+						<button className="page-header-button" onClick={onClickScrollButton}>
+							<Icon icon="arrowDownCircle" />
+						</button>
+					)}
 				</div>
 				<div dangerouslySetInnerHTML={style} />
-				{parallaxLayerFront}
 			</section>
 		);
 	}

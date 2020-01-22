@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ButtonSecondaryMock from '../buttons/button-secondary/button-secondary-mock';
+import ButtonSecondary from '../buttons/button-secondary/button-secondary';
 
 const ServiceCard = ({ item = {}, Component = null, onMouseOver = null, onMouseLeave = null }) => {
 	const { button, iconColor, link, text, title } = item;
@@ -18,9 +18,9 @@ const ServiceCard = ({ item = {}, Component = null, onMouseOver = null, onMouseL
 					onMouseLeave={() => onMouseLeave(link.slug)}
 				/>
 				<p className="service-card__content-text">{text}</p>
-				<ButtonSecondaryMock icon="arrowRight" classes="btn-red-border btn-wide">
+				<ButtonSecondary icon="arrowRight" classes="btn-red-border btn-wide" disabled={true}>
 					{button}
-				</ButtonSecondaryMock>
+				</ButtonSecondary>
 			</div>
 		</div>
 	);

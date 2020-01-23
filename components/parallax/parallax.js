@@ -102,11 +102,11 @@ class Parallax extends Component {
 	}
 
 	setYOffset(yOffset, noAnimation) {
-		(this.duration === 0 || noAnimation)
-			// don't use tweenlite if animation is instant
-			? this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`
-			// use tweenlite for a smooth parallax effect
-			: TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' });
+		this.duration === 0 || noAnimation
+			? // don't use tweenlite if animation is instant
+			  (this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`)
+			: // use tweenlite for a smooth parallax effect
+			  TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' });
 	}
 
 	getParallaxYOffset() {

@@ -162,33 +162,33 @@ class FullWidthImage extends Component {
 
 	render() {
 		const { image, index, title, subtitle, overlay, staticImg } = this.props;
-		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+		const imageParams = { fit: 'max', fm: 'pjpg', q: 85 };
 		const heroImageMedium = staticImg
 			? image
-			: `${setImageParams(image, { ...imageParameters, w: 1170 })}`;
+			: `${setImageParams(image, { ...imageParams, w: 1170 })}`;
 		const heroImageLarge = staticImg
 			? image
-			: `${setImageParams(image, { ...imageParameters, w: 1600 })}`;
+			: `${setImageParams(image, { ...imageParams, w: 1600 })}`;
 		const heroImageExtraLarge = staticImg
 			? image
-			: `${setImageParams(image, { ...imageParameters, w: 1920 })}`;
+			: `${setImageParams(image, { ...imageParams, w: 1920 })}`;
 
 		const style = {
 			__html: `<style>
-        .full-width-image-background-${index} {
-          background-image: url('${heroImageMedium}')
-        }
-        @media (min-width: 768px) {
-          .full-width-image-background-${index} {
-            background-image: url('${heroImageLarge}')
-          }
-        }
-        @media (min-width: 1170px) {
-          .full-width-image-background-${index} {
-            background-image: url('${heroImageExtraLarge}')
-          }
-        }
-      </style>`,
+				.full-width-image-background-${index} {
+					background-image: url('${heroImageMedium}')
+				}
+				@media (min-width: 768px) {
+					.full-width-image-background-${index} {
+						background-image: url('${heroImageLarge}')
+					}
+				}
+				@media (min-width: 1170px) {
+					.full-width-image-background-${index} {
+						background-image: url('${heroImageExtraLarge}')
+					}
+				}
+			</style>`,
 		};
 
 		return (

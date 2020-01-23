@@ -217,7 +217,7 @@ const Page = ({ workcase, footer }) => (
 									subtitle={component.subtitle}
 								/>
 							);
-						//
+
 						case 'collaboration':
 							return (
 								<React.Fragment key={index}>

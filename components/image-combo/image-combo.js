@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ImageCombo = ({ classes = '', children }) => {
+const ImageCombo = ({ hasText = '', children }) => {
 	const childrenArray = React.Children.toArray(children);
 	const childrenRest = childrenArray.filter(
 		child => child.props.position !== 'front' || child.props.position !== 'back'
@@ -8,7 +8,7 @@ const ImageCombo = ({ classes = '', children }) => {
 	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
 
 	return (
-		<div className={`${classes ? classes : ''} image-combo`}>
+		<div className={`image-combo ${hasText ? 'image-combo--has-text' : ''}`}>
 			{childrenRest}
 			{parallaxLayerFront}
 		</div>
@@ -16,7 +16,7 @@ const ImageCombo = ({ classes = '', children }) => {
 };
 
 ImageCombo.propTypes = {
-	classes: PropTypes.string,
+	hasText: PropTypes.bool,
 	children: PropTypes.node,
 };
 

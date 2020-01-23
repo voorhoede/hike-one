@@ -162,7 +162,7 @@ const Page = ({ workcase, footer }) => (
 
 						case 'image_combo':
 							return (
-								<ImageCombo key={index} classes={hasTextCard ? 'image-combo-text' : ''}>
+								<ImageCombo key={index} hasText={hasTextCard}>
 									{hasTextCard && (
 										<TextCard title={component.textTitle} text={component.textContent} />
 									)}
@@ -172,7 +172,11 @@ const Page = ({ workcase, footer }) => (
 									{component.quoteAuthorTitle && (
 										<QuoteBlock
 											color={component.quoteColor.color}
-											alignment={component.quoteAlignLeft ? 'text-block-left' : 'text-block-right'}
+											alignment={
+												component.quoteAlignLeft
+													? 'colored-block--align-left'
+													: 'colored-block--align-right'
+											}
 											quote={component.quote}
 											citeName={component.quoteAuthorName}
 											citeTitle={component.quoteAuthorTitle}

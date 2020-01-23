@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 
 const StatisticsBlock = ({ color = '', alignment = '', summary = {}, groups = [], link = {} }) => (
-	<div className={`text-block ${color} ${alignment}`}>
+	<div className={`colored-block ${color} ${alignment}`}>
 		<div className="statistics">
 			{summary && (
 				<div className="statistics-large statistics-large-divider">

@@ -162,7 +162,7 @@ const Page = ({ workcase, footer }) => (
 
 						case 'image_combo':
 							return (
-								<ImageCombo key={index} classes={hasTextCard ? 'image-combo-text' : ''}>
+								<ImageCombo key={index} hasText={hasTextCard}>
 									{hasTextCard && (
 										<TextCard title={component.textTitle} text={component.textContent} />
 									)}

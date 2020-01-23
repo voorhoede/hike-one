@@ -12,43 +12,27 @@ const OfficeCard = ({
 	locationUrl = '',
 	imageUrl = '',
 }) => {
-	const imageParameters = { fit: 'crop', fm: 'pjpg', q: 85 };
+	const imageParams = { fit: 'crop', fm: 'pjpg', q: 85 };
 	const style = {
 		__html: `<style>
 			.office-card .office-image-${index} {
-				background-image: url('${setImageParams(imageUrl, {
-					...imageParameters,
-					w: 465,
-					h: 259,
-				})}')
+				background-image: url('${setImageParams(imageUrl, { ...imageParams, w: 465, h: 259 })}')
 			}
 			@media (min-width: 500px) {
 				.office-card:first-child .office-image-${index} {
-					background-image: url('${setImageParams(imageUrl, {
-						...imageParameters,
-						w: 550,
-						h: 200,
-					})}')
+					background-image: url('${setImageParams(imageUrl, { ...imageParams, w: 550, h: 200 })}')
 				}
 			}
 			@media (min-width: 768px) {
 				.office-card .office-image-${index},
 				.office-card:first-child .office-image-${index} {
-					background-image: url('${setImageParams(imageUrl, {
-						...imageParameters,
-						w: 310,
-						h: 320,
-					})}')
+					background-image: url('${setImageParams(imageUrl, { ...imageParams, w: 310, h: 320 })}')
 				}
 			}
 			@media (min-width: 1024px) {
 				.office-card .office-image-${index},
 				.office-card:first-child .office-image-${index} {
-					background-image: url('${setImageParams(imageUrl, {
-						...imageParameters,
-						w: 380,
-						h: 491,
-					})}')
+					background-image: url('${setImageParams(imageUrl, { ...imageParams, w: 380, h: 491 })}')
 				}
 			}
 		</style>`,

@@ -170,18 +170,16 @@ const Page = ({ workcase, footer }) => (
 
 						case 'collaboration':
 							return (
-								<div key={index}>
-									<TextCenter title={component.title} text={component.text} />
+								<React.Fragment key={index}>
+									{(component.title || component.text) && (
+										<TextCenter title={component.title} text={component.text} />
+									)}
 									<LogoList companies={component.companies} />
-								</div>
+								</React.Fragment>
 							);
 
 						case 'text_center':
-							return (
-								<div key={index}>
-									<TextCenter title={component.title} text={component.text} />
-								</div>
-							);
+							return <TextCenter key={index} title={component.title} text={component.text} />;
 
 						case 'inline_image':
 							return (

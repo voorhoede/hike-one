@@ -64,7 +64,7 @@ class Parallax extends Component {
 	}
 
 	setInitialOffSet() {
-		this.elementOffset = getParallaxYOffset(this.element, this.speed);
+		this.elementOffset = this.getParallaxYOffset();
 
 		// apply offset
 		this.element.style.transform = `translate3d(0px, ${this.elementOffset}px, 0px)`;
@@ -102,16 +102,54 @@ class Parallax extends Component {
 	}
 
 	setYOffset(yOffset, noAnimation) {
-		if (this.duration === 0 || noAnimation) {
+		(this.duration === 0 || noAnimation)
 			// don't use tweenlite if animation is instant
-			this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`;
-		} else {
+			? this.element.style.transform = `matrix(1, 0, 0, 1, 0, ${yOffset})`
 			// use tweenlite for a smooth parallax effect
-			TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' });
+			: TweenLite.to(this.element, this.duration, { y: yOffset }, { ease: 'Linear.easeNone' });
+	}
+
+	getParallaxYOffset() {
+		const elBoundingRect = this.element.getBoundingClientRect();
+		const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
+		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
+
+		// y coordinate bottom of viewport relative from top of document
+		const bottomScreen = windowHeight + scrolledHeight;
+		// y coordinate top of element relative from top of document
+		const elementTop = elBoundingRect.top + window.pageYOffset;
+		// y coordinate bottom of element relative from top of document
+		const elementBottom = elBoundingRect.bottom + window.pageYOffset;
+		const elementHalf = elBoundingRect.height / 2;
+		const windowHalf = windowHeight / 2;
+
+		if (elementTop > bottomScreen) {
+			// element below viewport
+			return -((elementHalf + windowHalf) * this.speed);
+		} else if (elementBottom < scrolledHeight) {
+			// element above viewport
+			return (elementHalf + windowHalf) * this.speed;
+		} else {
+			// element is partial in view
+			const viewportMiddle = scrolledHeight + windowHalf;
+			const elementMiddle = elementTop + elementHalf;
+
+			// how far is element middle from viewportMiddle
+			const elementFromMiddle = elementMiddle - viewportMiddle;
+
+			if (elementFromMiddle > 0) {
+				// element middle under middle of the viewport
+				return -(elementFromMiddle * this.speed);
+			} else {
+				// element middle over middle of the viewport
+				return -elementFromMiddle * this.speed;
+			}
 		}
 	}
 
 	render() {
+		const { children } = this.props;
+
 		return (
 			<div ref={node => (this.containerEl = node)} className="parallax-layer-container">
 				<div
@@ -119,7 +157,7 @@ class Parallax extends Component {
 					className="parallax-layer"
 					style={{ visibility: 'hidden' }}
 				>
-					{this.props.children}
+					{children}
 				</div>
 			</div>
 		);
@@ -131,43 +169,5 @@ Parallax.propTypes = {
 	duration: PropTypes.number,
 	children: PropTypes.node,
 };
-
-function getParallaxYOffset(element, speed) {
-	const elBoundingRect = element.getBoundingClientRect();
-	const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
-	const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-
-	// y coordinate bottom of viewport relative from top of document
-	const bottomScreen = windowHeight + scrolledHeight;
-	// y coordinate top of element relative from top of document
-	const elementTop = elBoundingRect.top + window.pageYOffset;
-	// y coordinate bottom of element relative from top of document
-	const elementBottom = elBoundingRect.bottom + window.pageYOffset;
-	const elementHalf = elBoundingRect.height / 2;
-	const windowHalf = windowHeight / 2;
-
-	if (elementTop > bottomScreen) {
-		// element below viewport
-		return -((elementHalf + windowHalf) * speed);
-	} else if (elementBottom < scrolledHeight) {
-		// element above viewport
-		return (elementHalf + windowHalf) * speed;
-	} else {
-		// element is partial in view
-		const viewportMiddle = scrolledHeight + windowHalf;
-		const elementMiddle = elementTop + elementHalf;
-
-		// how far is element middle from viewportMiddle
-		const elementFromMiddle = elementMiddle - viewportMiddle;
-
-		if (elementFromMiddle > 0) {
-			// element middle under middle of the viewport
-			return -(elementFromMiddle * speed);
-		} else {
-			// element middle over middle of the viewport
-			return -elementFromMiddle * speed;
-		}
-	}
-}
 
 export default Parallax;

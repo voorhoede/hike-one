@@ -14,16 +14,21 @@ class PageHeader extends Component {
 		this.state = {
 			showVideo: false,
 			ticking: false,
+			elementHeight: null,
+			isHidden: false,
 		};
 	}
 
 	componentDidMount() {
-		this.elementBottom = this.element.getBoundingClientRect().bottom;
+		const { video } = this.props;
 		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
+
+		this.setState({ elementHeight: this.element.getBoundingClientRect().bottom });
 		this.setVisability(scrolledHeight);
+
 		window.addEventListener('scroll', this.onScroll);
 
-		if (this.props.video) {
+		if (video) {
 			this.video.load();
 			this.video.addEventListener('loadeddata', this.setState({ showVideo: true }));
 		}
@@ -48,15 +53,17 @@ class PageHeader extends Component {
 	}
 
 	setVisability(scrolledHeight) {
+		const { elementHeight } = this.state;
 		// hide or show component so that the footer is visable
-		if (this.elementBottom + 200 <= scrolledHeight) {
-			this.element.classList.add('is-hidden');
+		if (elementHeight + 200 <= scrolledHeight) {
+			this.setState({ isHidden: true });
 		} else {
-			this.element.classList.remove('is-hidden');
+			this.setState({ isHidden: false });
 		}
 	}
 
 	render() {
+		const { isHidden, showVideo } = this.state;
 		const {
 			title,
 			subtitle,
@@ -105,9 +112,10 @@ class PageHeader extends Component {
 			<section
 				ref={node => (this.element = node)}
 				className={`page-header
-					${showGradient ? 'show-gradient' : ''}
-					${isSmall ? 'page-header-small' : ''}
-					${this.state.showVideo ? 'show-video' : ''}`}
+					${showGradient ? 'page-header--has-gradient' : ''}
+					${isSmall ? 'page-header--small' : ''}
+					${isHidden ? 'page-header--hidden' : ''}
+					${showVideo ? 'page-header--show-video' : ''}`}
 			>
 				{parallaxLayerBack}
 				{video && (

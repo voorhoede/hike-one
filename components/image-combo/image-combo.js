@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ImageCombo = ({ hasText = '', children }) => {
+const ImageCombo = ({ hasText = false, children }) => {
 	const childrenArray = React.Children.toArray(children);
 	const childrenRest = childrenArray.filter(
 		child => child.props.position !== 'front' || child.props.position !== 'back'

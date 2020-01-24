@@ -8,7 +8,7 @@ class PageHeader extends Component {
 	constructor(props) {
 		super(props);
 		this.onScroll = this.onScroll.bind(this);
-		this.setVisability = this.setVisability.bind(this);
+		this.setVisibility = this.setVisibility.bind(this);
 		this.range = 400;
 		this.speed = -0.25;
 		this.state = {
@@ -24,7 +24,7 @@ class PageHeader extends Component {
 		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 		this.setState({ elementHeight: this.element.getBoundingClientRect().bottom });
-		this.setVisability(scrolledHeight);
+		this.setVisibility(scrolledHeight);
 
 		window.addEventListener('scroll', this.onScroll);
 
@@ -44,7 +44,7 @@ class PageHeader extends Component {
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
 				const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-				this.setVisability(scrolledHeight);
+				this.setVisibility(scrolledHeight);
 				this.setState({ ticking: false });
 			});
 		}
@@ -52,7 +52,7 @@ class PageHeader extends Component {
 		this.setState({ ticking: true });
 	}
 
-	setVisability(scrolledHeight) {
+	setVisibility(scrolledHeight) {
 		const { elementHeight } = this.state;
 		// hide or show component so that the footer is visable
 		if (elementHeight + 200 <= scrolledHeight) {

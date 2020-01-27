@@ -1,4 +1,7 @@
 # Hike One
+[![LGTM Grade][lgtm-icon]][lgtm]
+[![Depfu Status][depfu-icon]][depfu]
+
 Website for Hike One using [Next.js](https://nextjs.org/), deployed at [ZEIT Now](https://zeit.co/) and with content from [DatoCMS](https://datocms.com/).
 
 ## Getting started
@@ -33,7 +36,11 @@ now --prod
 **NOTE**: Pull request checks will fail if files aren't correctly formatted. To fix this, run `yarn format` and commit the changes.
 
 ## Useful links
-* [Hike.one](https://hike.one)
-* [Staging.hike.one](https://staging.hike.one)
+* [Production website](https://hike.one)
+* [Preview website](https://staging.hike.one)
 * [DatoCMS](https://hike-one-1.admin.datocms.com)
-* [DatoCMS GraphiQL](https://hike-one-1.admin.datocms.com/cda-explorer)
+
+[lgtm]: https://lgtm.com/projects/g/voorhoede/hike-one/
+[lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/voorhoede/plek.svg?style=flat-square
+[depfu]: https://depfu.com/repos/github/voorhoede/hike-one
+[depfu-icon]: https://img.shields.io/depfu/voorhoede/hike-one?style=flat-square

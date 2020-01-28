@@ -71,7 +71,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 			</OfficeOverview>
 		</main>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer form={footer.form} />
 	</>
 );
 

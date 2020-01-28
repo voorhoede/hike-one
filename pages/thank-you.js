@@ -27,7 +27,7 @@ const Page = ({ thankYouPage, footer }) => (
 			</ButtonPrimaryLink>
 		</article>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer form={footer.form} />
 	</>
 );
 

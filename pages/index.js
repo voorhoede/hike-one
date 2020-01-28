@@ -94,7 +94,7 @@ const Page = ({ home, footer }) => (
 			</Contact>
 		</main>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer form={footer.form} />
 	</>
 );
 

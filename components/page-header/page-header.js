@@ -36,7 +36,6 @@ class PageHeader extends Component {
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
-		this.video.removeEventListener('loadeddata', this.onLoadedData);
 	}
 
 	onLoadedData() {

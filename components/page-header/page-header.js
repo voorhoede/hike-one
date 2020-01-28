@@ -21,11 +21,10 @@ class PageHeader extends Component {
 
 	componentDidMount() {
 		const { video } = this.props;
-		const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
 
 		this.setState({ elementHeight: this.element.getBoundingClientRect().bottom });
-		this.setVisibility(scrolledHeight);
 
+		window.scrollTo(0, 0);
 		window.addEventListener('scroll', this.onScroll);
 
 		if (video) {

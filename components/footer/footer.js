@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import ResizeObserver from 'resize-observer-polyfill';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 
@@ -9,7 +10,40 @@ import SocialMedia from '../social-media/social-media';
 class Footer extends Component {
 	constructor(props) {
 		super(props);
+		this.onResize = this.onResize.bind(this);
+		this.resizeObserver = new ResizeObserver(this.onResize);
 		this.currentYear = new Date().getFullYear();
+	}
+
+	componentDidMount() {
+		const { disableParallax } = this.props;
+		this.mainContainer = document.querySelector('#__next');
+
+		if (
+			typeof window.requestAnimationFrame !== 'undefined' &&
+			this.mainContainer &&
+			!disableParallax
+		) {
+			this.resizeObserver.observe(this.footer);
+		}
+	}
+
+	componentWillUnmount() {
+		this.resizeObserver.disconnect();
+		this.footer.classList.remove('is-fixed');
+		this.mainContainer.style.paddingBottom = `0px`;
+	}
+
+	onResize(element) {
+		const elementHeight = element[0].contentRect.bottom;
+
+		if (window.innerHeight > elementHeight) {
+			this.footer.classList.add('is-fixed');
+			this.mainContainer.style.paddingBottom = `${elementHeight}px`;
+		} else {
+			this.footer.classList.remove('is-fixed');
+			this.mainContainer.style.paddingBottom = `0px`;
+		}
 	}
 
 	render() {
@@ -128,6 +162,7 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
+	disableParallax: PropTypes.bool,
 	form: PropTypes.object,
 };
 

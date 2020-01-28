@@ -7,6 +7,7 @@ import setImageParams from '../_helpers/setImageParameters';
 class PageHeader extends Component {
 	constructor(props) {
 		super(props);
+		this.onLoadedData = this.onLoadedData.bind(this);
 		this.onScroll = this.onScroll.bind(this);
 		this.setVisibility = this.setVisibility.bind(this);
 		this.range = 400;
@@ -24,17 +25,22 @@ class PageHeader extends Component {
 
 		this.setState({ elementHeight: this.element.getBoundingClientRect().bottom });
 
-		window.scrollTo(0, 0);
 		window.addEventListener('scroll', this.onScroll);
+		window.scrollTo(0, 0);
 
 		if (video) {
 			this.video.load();
-			this.video.addEventListener('loadeddata', this.setState({ showVideo: true }));
+			this.video.addEventListener('loadeddata', this.onLoadedData);
 		}
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
+		this.video.removeEventListener('loadeddata', this.onLoadedData);
+	}
+
+	onLoadedData() {
+		this.setState({ showVideo: true });
 	}
 
 	onScroll() {

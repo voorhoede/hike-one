@@ -32,44 +32,46 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 
 		<MenuBar color="white" />
 
-		<PageHeader
-			isSmall={true}
-			title={contactPage.header.title}
-			subtitle={contactPage.header.subtitle}
-			image={contactPage.header.backgroundImage.url}
-		/>
+		<div className="layout-parallax">
+			<PageHeader
+				isSmall={true}
+				title={contactPage.header.title}
+				subtitle={contactPage.header.subtitle}
+				image={contactPage.header.backgroundImage.url}
+			/>
 
-		<main className="contact-page page-scrolling-content-small">
-			<div className="contact-details container">
-				<h2>Contact us at</h2>
-				<a className="contact-details__tel" href="tel:+31-202044577">
-					+31 20 204 45 77
-				</a>
-				<a className="contact-details__mail" href="mailto:hello@hike.one">
-					hello@hike.one
-				</a>
-			</div>
+			<main className="contact-page page-scrolling-content-small">
+				<div className="contact-details container">
+					<h2>Contact us at</h2>
+					<a className="contact-details__tel" href="tel:+31-202044577">
+						+31 20 204 45 77
+					</a>
+					<a className="contact-details__mail" href="mailto:hello@hike.one">
+						hello@hike.one
+					</a>
+				</div>
 
-			<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
+				<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
 
-			<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
 
-			<OfficeOverview header={contactPage.officesHeader}>
-				{contactPage.office.map((item, index) => (
-					<OfficeCard
-						key={index}
-						index={index}
-						location={item.location}
-						address={item.address}
-						postcode={item.postcode}
-						city={item.city}
-						country={item.country}
-						locationUrl={item.locationUrl}
-						imageUrl={item.image.url}
-					/>
-				))}
-			</OfficeOverview>
-		</main>
+				<OfficeOverview header={contactPage.officesHeader}>
+					{contactPage.office.map((item, index) => (
+						<OfficeCard
+							key={index}
+							index={index}
+							location={item.location}
+							address={item.address}
+							postcode={item.postcode}
+							city={item.city}
+							country={item.country}
+							locationUrl={item.locationUrl}
+							imageUrl={item.image.url}
+						/>
+					))}
+				</OfficeOverview>
+			</main>
+		</div>
 
 		<Footer form={footer.form} />
 	</>

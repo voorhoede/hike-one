@@ -24,7 +24,7 @@ class PageHeader extends Component {
 	componentDidMount() {
 		const { video } = this.props;
 
-		this.setState({ elementHeight: this.element.getBoundingClientRect().bottom });
+		this.setState({ elementHeight: this.element.getBoundingClientRect().height });
 
 		window.addEventListener('scroll', this.onScroll);
 

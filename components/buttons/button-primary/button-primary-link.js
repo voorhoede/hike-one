@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Icon from '../../icon/icon';
 
 const ButtonPrimaryLink = ({ classes = '', href = '', children, icon = '', target = '_self' }) => (
-	<Link href={href}>
+	<Link href={href} prefetch={target ? false : null}>
 		<a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
 			{icon && (

@@ -2,7 +2,7 @@
 
 .page-header {
 	display: flex;
-	position: fixed;
+	position: absolute;
 	top: 0;
 	right: 0;
 	left: 0;
@@ -35,6 +35,10 @@
 	@media @screen-768 {
 		display: block;
 	}
+}
+
+.page-header--fixed {
+	position: fixed;
 }
 
 .page-header--hidden {

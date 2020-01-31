@@ -16,6 +16,7 @@ class PageHeader extends Component {
 			showVideo: false,
 			ticking: false,
 			elementHeight: null,
+			isFixed: false,
 			isHidden: false,
 		};
 	}
@@ -52,7 +53,7 @@ class PageHeader extends Component {
 			});
 		}
 
-		this.setState({ ticking: true });
+		this.setState({ ticking: true, isFixed: true });
 	}
 
 	setVisibility(scrolledHeight) {
@@ -66,7 +67,7 @@ class PageHeader extends Component {
 	}
 
 	render() {
-		const { isHidden, showVideo } = this.state;
+		const { isFixed, isHidden, showVideo } = this.state;
 		const {
 			title,
 			subtitle,
@@ -118,6 +119,7 @@ class PageHeader extends Component {
 					${showGradient ? 'page-header--has-gradient' : ''}
 					${isSmall ? 'page-header--small' : ''}
 					${isHidden ? 'page-header--hidden' : ''}
+					${isFixed ? 'page-header--fixed' : ''}
 					${showVideo ? 'page-header--show-video' : ''}`}
 			>
 				{parallaxLayerBack}

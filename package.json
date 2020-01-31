@@ -18,7 +18,7 @@
 		"gsap": "^3.0.5",
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^3.9.0",
-		"next": "^9.0.3",
+		"next": "^9.2.1",
 		"react": "^16.9.0",
 		"react-dom": "^16.9.0",
 		"resize-observer-polyfill": "^1.5.1"

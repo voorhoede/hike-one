@@ -13,12 +13,10 @@ const UpdateExtractLarge = ({
 	link = '',
 	slug = '',
 	image = '',
-	index,
+	index = 0,
 	target = false,
 	title = '',
-	topic = false,
 }) => {
-	const prefix = topic ? 'topic' : 'update';
 	const style = {
 		__html: `<style>
 			.update-extract-large-image-${index} {
@@ -95,7 +93,6 @@ UpdateExtractLarge.propTypes = {
 	index: PropTypes.number,
 	target: PropTypes.bool,
 	title: PropTypes.string,
-	topic: PropTypes.bool,
 };
 
 export default UpdateExtractLarge;

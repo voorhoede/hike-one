@@ -154,10 +154,7 @@ class PageHeader extends Component {
 						)}
 
 						{onClickScrollButton && (
-							<button
-								className="page-header-button"
-								onClick={onClickScrollButton ? onClickScrollButton : null}
-							>
+							<button className="page-header-button" onClick={onClickScrollButton}>
 								<Icon icon="arrowDownCircle" />
 							</button>
 						)}

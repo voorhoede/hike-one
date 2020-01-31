@@ -23,7 +23,6 @@ class MenuBar extends Component {
 		this.onResize = this.onResize.bind(this);
 		this.disableScrollClass = 'disable-scroll';
 		this.state = {
-			hamburger: false,
 			menuIsOpen: false,
 			contextMenuIsOpen: false,
 		};

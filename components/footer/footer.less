@@ -2,6 +2,7 @@
 @import (once) '../../styles/helpers.less';
 
 .footer {
+	z-index: @layer-raised;
 	margin: 0;
 	padding: @spacing-default*5 0 0 0;
 	background-color: @black;
@@ -10,20 +11,20 @@
 	@media @screen-768 {
 		padding: @spacing-default*9 0 0;
 	}
-}
 
-.footer.is-fixed {
-	display: flex;
-	position: fixed;
-	z-index: 0;
-	bottom: 0;
-	left: 0;
-	align-items: flex-end;
-	width: 100%;
-}
+	&.is-fixed {
+		display: flex;
+		position: fixed;
+		z-index: 0;
+		bottom: 0;
+		left: 0;
+		align-items: flex-end;
+		width: 100%;
+	}
 
-.footer .container-inner {
-	padding: 0 @spacing-default*1.5;
+	.container-inner {
+		padding: 0 @spacing-default*1.5;
+	}
 }
 
 .footer-main-content {

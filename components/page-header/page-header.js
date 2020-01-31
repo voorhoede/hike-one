@@ -7,28 +7,39 @@ import setImageParams from '../_helpers/setImageParameters';
 class PageHeader extends Component {
 	constructor(props) {
 		super(props);
+		this.onLoadedData = this.onLoadedData.bind(this);
 		this.onScroll = this.onScroll.bind(this);
-		this.setVisability = this.setVisability.bind(this);
+		this.setVisibility = this.setVisibility.bind(this);
 		this.range = 400;
 		this.speed = -0.25;
 		this.state = {
 			showVideo: false,
 			ticking: false,
+			elementHeight: null,
+			isFixed: false,
+			isHidden: false,
 		};
 	}
 
 	componentDidMount() {
-		this.elementBottom = this.element.getBoundingClientRect().bottom;
+		const { video } = this.props;
+
+		this.setState({ elementHeight: this.element.getBoundingClientRect().height });
+
 		window.addEventListener('scroll', this.onScroll);
 
-		if (this.props.video) {
+		if (video) {
 			this.video.load();
-			this.video.addEventListener('loadeddata', this.setState({ showVideo: true }));
+			this.video.addEventListener('loadeddata', this.onLoadedData);
 		}
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('scroll', this.onScroll);
+	}
+
+	onLoadedData() {
+		this.setState({ showVideo: true });
 	}
 
 	onScroll() {
@@ -37,24 +48,26 @@ class PageHeader extends Component {
 		if (!ticking) {
 			window.requestAnimationFrame(() => {
 				const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;
-				this.setVisability(scrolledHeight);
+				this.setVisibility(scrolledHeight);
 				this.setState({ ticking: false });
 			});
 		}
 
-		this.setState({ ticking: true });
+		this.setState({ ticking: true, isFixed: true });
 	}
 
-	setVisability(scrolledHeight) {
-		// hide or show component so that the footer is visable
-		if (this.elementBottom + 200 <= scrolledHeight) {
-			this.element.classList.add('is-hidden');
+	setVisibility(scrolledHeight) {
+		const { elementHeight } = this.state;
+		// hide or show component so that the footer is visible
+		if (elementHeight + 200 <= scrolledHeight) {
+			this.setState({ isHidden: true });
 		} else {
-			this.element.classList.remove('is-hidden');
+			this.setState({ isHidden: false });
 		}
 	}
 
 	render() {
+		const { isFixed, isHidden, showVideo } = this.state;
 		const {
 			title,
 			subtitle,
@@ -103,9 +116,11 @@ class PageHeader extends Component {
 			<section
 				ref={node => (this.element = node)}
 				className={`page-header
-					${showGradient ? 'show-gradient' : ''}
-					${isSmall ? 'page-header-small' : ''}
-					${this.state.showVideo ? 'show-video' : ''}`}
+					${showGradient ? 'page-header--has-gradient' : ''}
+					${isSmall ? 'page-header--small' : ''}
+					${isHidden ? 'page-header--hidden' : ''}
+					${isFixed ? 'page-header--fixed' : ''}
+					${showVideo ? 'page-header--show-video' : ''}`}
 			>
 				{parallaxLayerBack}
 				{video && (

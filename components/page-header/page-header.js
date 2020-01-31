@@ -57,7 +57,7 @@ class PageHeader extends Component {
 
 	setVisibility(scrolledHeight) {
 		const { elementHeight } = this.state;
-		// hide or show component so that the footer is visable
+		// hide or show component so that the footer is visible
 		if (elementHeight + 200 <= scrolledHeight) {
 			this.setState({ isHidden: true });
 		} else {

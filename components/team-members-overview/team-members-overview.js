@@ -75,8 +75,8 @@ class TeamMembersOverview extends Component {
 }
 
 TeamMembersOverview.defaultProps = {
-	queryParam: 'Everyone'
-}
+	queryParam: 'Everyone',
+};
 
 TeamMembersOverview.propTypes = {
 	team: PropTypes.array,

@@ -19,8 +19,11 @@
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^3.9.0",
 		"next": "^9.2.1",
-		"react": "^16.9.0",
-		"react-dom": "^16.9.0",
+		"preact": "^10.2.1",
+		"preact-render-to-string": "^5.1.4",
+		"react": "github:preact-compat/react#1.0.0",
+		"react-dom": "github:preact-compat/react-dom#1.0.0",
+		"react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",
 		"resize-observer-polyfill": "^1.5.1"
 	},
 	"devDependencies": {

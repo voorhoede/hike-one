@@ -57,7 +57,7 @@ export default ({ title, description, image = null, twitterCard = null, children
 		<link rel="manifest" type="application/manifest+json" href="/manifest.json" />
 		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fe595b" />
 
-		<script async src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN" />
+		<script defer src="https://www.googletagmanager.com/gtag/js?id=GTM-5KJ6PKN" />
 		<script
 			dangerouslySetInnerHTML={{
 				__html: `
@@ -69,7 +69,7 @@ export default ({ title, description, image = null, twitterCard = null, children
 			}}
 		/>
 
-		<script async src="https://snap.licdn.com/li.lms-analytics/insight.min.js" />
+		<script defer src="https://snap.licdn.com/li.lms-analytics/insight.min.js" />
 		<script
 			dangerouslySetInnerHTML={{
 				__html: `
@@ -80,10 +80,11 @@ export default ({ title, description, image = null, twitterCard = null, children
 			}}
 		/>
 
+		<script defer src="https://diffuser-cdn.app-us1.com/diffuser/diffuser.js" />
 		<script
 			dangerouslySetInnerHTML={{
 				__html: `
-					(function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime();r=t.createElement("script");r.src=o;r.async=true;i=t.getElementsByTagName("script")[0];i.parentNode.insertBefore(r,i)})(window,document,"https://diffuser-cdn.app-us1.com/diffuser/diffuser.js","vgo");
+					(function(e,t,o,n,p,r,i){e.visitorGlobalObjectAlias=n;e[e.visitorGlobalObjectAlias]=e[e.visitorGlobalObjectAlias]||function(){(e[e.visitorGlobalObjectAlias].q=e[e.visitorGlobalObjectAlias].q||[]).push(arguments)};e[e.visitorGlobalObjectAlias].l=(new Date).getTime()})(window,document,"","vgo");
 					vgo('setAccount', '475952537');
 					vgo('setTrackByDefault', true);
 					vgo('process');

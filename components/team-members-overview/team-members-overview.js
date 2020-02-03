@@ -10,7 +10,7 @@ class TeamMembersOverview extends Component {
 		this.getDepartments = this.getDepartments.bind(this);
 		this.filterTeamMembers = this.filterTeamMembers.bind(this);
 		this.state = {
-			activeFilter: props.queryParam || 'Everyone',
+			activeFilter: props.queryParam,
 			departments: this.getDepartments(props.team),
 			filteredTeam: this.filterTeamMembers(props.team, props.queryParam),
 		};
@@ -73,6 +73,10 @@ class TeamMembersOverview extends Component {
 		);
 	}
 }
+
+TeamMembersOverview.defaultProps = {
+	queryParam: 'Everyone',
+};
 
 TeamMembersOverview.propTypes = {
 	team: PropTypes.array,

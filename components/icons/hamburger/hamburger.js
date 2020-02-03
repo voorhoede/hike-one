@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Power2, TimelineLite, CSSPlugin } from 'gsap';
+import { Power2, TimelineLite } from 'gsap';
 
 class Hamburger extends Component {
 	constructor(props) {

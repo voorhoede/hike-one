@@ -9,14 +9,11 @@ class TeamMembersOverview extends Component {
 		this.changeFilterHandler = this.changeFilterHandler.bind(this);
 		this.getDepartments = this.getDepartments.bind(this);
 		this.filterTeamMembers = this.filterTeamMembers.bind(this);
-		this.hasSelectedDepartment = this.hasSelectedDepartment.bind(this);
 		this.state = {
-			activeFilter: 'Everyone',
+			activeFilter: props.queryParam || 'Everyone',
 			departments: this.getDepartments(props.team),
-			filteredTeam: this.filterTeamMembers(props.team, 'Everyone'),
+			filteredTeam: this.filterTeamMembers(props.team, props.queryParam),
 		};
-
-		this.handleQueryParams(props.queryParam);
 	}
 
 	changeFilterHandler(value) {
@@ -27,17 +24,6 @@ class TeamMembersOverview extends Component {
 		this.setState({ filteredTeam: updatedTeam });
 	}
 
-	handleQueryParams(queryParam) {
-		const { team } = this.props;
-		const { departments } = this.state;
-		const department = departments.find(item => item === queryParam);
-
-		if (department) {
-			this.state.activeFilter = queryParam; // eslint-disable-line react/no-direct-mutation-state
-			this.state.filteredTeam = this.filterTeamMembers(team, department); // eslint-disable-line react/no-direct-mutation-state
-		}
-	}
-
 	setQueryParams(filter) {
 		window.history.replaceState(null, null, encodeURI(`/team/people?filter=${filter}`));
 	}
@@ -45,14 +31,11 @@ class TeamMembersOverview extends Component {
 	filterTeamMembers(team, role) {
 		return team
 			.filter(member => !member.hide)
-			.filter(member => this.hasSelectedDepartment(member, role));
-	}
-
-	hasSelectedDepartment(member, role) {
-		if (role === 'Everyone') return true;
-		else {
-			return member.departments.some(department => department.title === role);
-		}
+			.filter(member =>
+				role && role === 'Everyone'
+					? member
+					: member.departments.some(department => department.title === role)
+			);
 	}
 
 	getDepartments(data) {

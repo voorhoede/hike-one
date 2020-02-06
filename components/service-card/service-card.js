@@ -27,7 +27,7 @@ const ServiceCard = ({ item = {}, Component = null, onMouseOver = null, onMouseL
 };
 
 const ServiceCardTitle = ({ link = {}, title = '', onMouseOver = null, onMouseLeave = null }) => (
-	<React.Fragment>
+	<>
 		{link && link.slug ? (
 			<Link href="/service/[slug]" as={`/service/${link.slug}`}>
 				<a id={link.slug} onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
@@ -37,7 +37,7 @@ const ServiceCardTitle = ({ link = {}, title = '', onMouseOver = null, onMouseLe
 		) : (
 			<h3 className="service-card__content-title">{title}</h3>
 		)}
-	</React.Fragment>
+	</>
 );
 
 export default ServiceCard;

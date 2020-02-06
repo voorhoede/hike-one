@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import ButtonClean from '../buttons/button-clean/button-clean';
 import Icon from '../icon/icon';
 
 import setImageParams from '../_helpers/setImageParameters';
@@ -154,9 +155,13 @@ class PageHeader extends Component {
 						)}
 
 						{onClickScrollButton && (
-							<button className="page-header-button" onClick={onClickScrollButton}>
-								<Icon icon="arrowDownCircle" />
-							</button>
+							<ButtonClean
+								classes="page-header-button"
+								icon="arrowDownCircle"
+								onClick={onClickScrollButton}
+							>
+								<span className="a11y-sr-only">Scroll down</span>
+							</ButtonClean>
 						)}
 					</div>
 				</div>

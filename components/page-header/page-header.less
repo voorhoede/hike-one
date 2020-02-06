@@ -136,30 +136,25 @@
 }
 
 .page-header-button {
-	padding: 0 @spacing-default*5 @spacing-default*6.5 @spacing-default*5;
-	border: none;
-	background-color: transparent;
-	cursor: pointer;
+	margin: @spacing-default*2 @spacing-default*5 @spacing-default*8 @spacing-default*5;
+	padding: 0;
 
-	&:focus {
+	&:enabled:hover,
+	&:enabled:focus {
 		outline: none;
+	}
+
+	.icon {
+		margin: 0;
+
+		svg {
+			display: block;
+			width: 45px;
+			height: 45px;
+		}
 	}
 
 	.page-header--small & {
 		display: none;
-	}
-
-	svg {
-		display: block;
-		width: 40px;
-		margin: 0 auto;
-
-		@media @screen-500 {
-			width: 45px;
-		}
-
-		path {
-			fill: @white;
-		}
 	}
 }

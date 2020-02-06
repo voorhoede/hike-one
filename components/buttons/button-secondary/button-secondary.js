@@ -16,12 +16,7 @@ const ButtonSecondary = ({
 		disabled={disabled}
 	>
 		{children}
-
-		{icon && (
-			<span className="icon">
-				<Icon icon={icon} />
-			</span>
-		)}
+		{icon && <Icon icon={icon} />}
 	</button>
 );
 

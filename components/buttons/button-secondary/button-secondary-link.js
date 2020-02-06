@@ -12,11 +12,7 @@ const ButtonSecondaryLink = ({
 	<Link href={href} prefetch={target ? false : null}>
 		<a target={target} className={`btn-secondary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
-			{icon && (
-				<span className="icon">
-					<Icon icon={icon} />
-				</span>
-			)}
+			{icon && <Icon icon={icon} />}
 		</a>
 	</Link>
 );

@@ -11,12 +11,7 @@ const ButtonClean = ({
 }) => (
 	<button type={type} onClick={onClick} className={`btn-clean ${classes}`} disabled={disabled}>
 		{children}
-
-		{icon && (
-			<span className="icon">
-				<Icon icon={icon} />
-			</span>
-		)}
+		{icon && <Icon icon={icon} />}
 	</button>
 );
 

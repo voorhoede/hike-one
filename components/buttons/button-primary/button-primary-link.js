@@ -6,11 +6,7 @@ const ButtonPrimaryLink = ({ classes = '', href = '', children, icon = '', targe
 	<Link href={href} prefetch={target ? false : null}>
 		<a target={target} className={`btn-primary ${classes} ${icon ? 'btn-icon' : ''}`}>
 			{children}
-			{icon && (
-				<span className="icon">
-					<Icon icon={icon} />
-				</span>
-			)}
+			{icon && <Icon icon={icon} />}
 		</a>
 	</Link>
 );

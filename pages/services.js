@@ -31,7 +31,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 	const hasContactCta = Object.entries(contactCta).length && contactCta.constructor === Object;
 
 	return (
-		<React.Fragment>
+		<>
 			<Head
 				title={service.seo.title}
 				description={service.seo.description}
@@ -112,7 +112,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 			</div>
 
 			<Footer form={footer.form} />
-		</React.Fragment>
+		</>
 	);
 };
 

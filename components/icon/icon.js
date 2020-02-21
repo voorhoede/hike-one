@@ -17,7 +17,7 @@ import TwitterCircle from '../icons/twitter-circle';
 import Triangle from '../icons/triangle';
 import Spinner from '../icons/spinner';
 
-const Icon = ({ icon = 'arrowDown', classes = '' }) => {
+const Icon = ({ icon = 'arrowDown' }) => {
 	const icons = {
 		arrowDown: <ArrowDown />,
 		arrowDownCircle: <ArrowDownCircle />,
@@ -38,12 +38,11 @@ const Icon = ({ icon = 'arrowDown', classes = '' }) => {
 		spinner: <Spinner />,
 	};
 
-	return <span className={classes}>{icons[icon]}</span>;
+	return <span className="icon">{icons[icon]}</span>;
 };
 
 Icon.propTypes = {
 	icon: PropTypes.string,
-	classes: PropTypes.string,
 };
 
 export default Icon;

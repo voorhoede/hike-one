@@ -44,7 +44,7 @@ const FullWidthHeader = ({
 					{!titleOnly && (
 						<Link href="/updates">
 							<a className="full-width-header-link">
-								<Icon icon="arrowLeft" classes="icon" />
+								<Icon icon="arrowLeft" />
 								<span className="full-width-header-subtitle">all updates</span>
 							</a>
 						</Link>

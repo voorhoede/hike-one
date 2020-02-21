@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
+import ButtonClean from '../buttons/button-clean/button-clean';
 import Icon from '../icon/icon';
 
 import setImageParams from '../_helpers/setImageParameters';
@@ -137,26 +138,18 @@ class PageHeader extends Component {
 
 				<div className="page-header-inner container">
 					<div ref={node => (this.parallaxLayer = node)}>
-						{onClickScrollButton ? (
-							<a className="page-header-title-link" href="#" onClick={onClickScrollButton}>
-								<h1 className="page-header-title ">{title}</h1>
-							</a>
-						) : (
-							<h1 className="page-header-title ">{title}</h1>
-						)}
+						<h1 className="page-header-title">{title}</h1>
 
-						{subtitle && onClickScrollButton ? (
-							<a className="page-header-subtitle-link" href="#" onClick={onClickScrollButton}>
-								<p className="page-header-subtitle">{subtitle}</p>
-							</a>
-						) : (
-							<p className="page-header-subtitle">{subtitle}</p>
-						)}
+						{subtitle && <p className="page-header-subtitle">{subtitle}</p>}
 
 						{onClickScrollButton && (
-							<button className="page-header-button" onClick={onClickScrollButton}>
-								<Icon icon="arrowDownCircle" />
-							</button>
+							<ButtonClean
+								classes="page-header-button"
+								icon="arrowDownCircle"
+								onClick={onClickScrollButton}
+							>
+								<span className="a11y-sr-only">Scroll down</span>
+							</ButtonClean>
 						)}
 					</div>
 				</div>

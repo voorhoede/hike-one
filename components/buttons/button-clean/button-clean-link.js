@@ -6,11 +6,7 @@ const ButtonCleanLink = ({ classes = '', href = '', children, icon = '', target 
 	<Link href={href} prefetch={target ? false : null}>
 		<a target={target} className={`btn-clean ${classes}`}>
 			{children}
-			{icon && (
-				<span className="icon">
-					<Icon icon={icon} />
-				</span>
-			)}
+			{icon && <Icon icon={icon} />}
 		</a>
 	</Link>
 );

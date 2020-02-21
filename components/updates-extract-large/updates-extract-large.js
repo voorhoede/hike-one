@@ -16,6 +16,7 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
 					color={item.themeColor.hex}
 					category={item.category.name}
 					authors={item.authors}
+					staticAuthors={item.staticAuthors}
 					href={item.link}
 					target={item.isExternalLink}
 				/>

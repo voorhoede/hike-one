@@ -10,10 +10,11 @@ const UpdateExtractSmall = ({
 	category = 'update',
 	color = '',
 	date = '',
-	link = '',
-	slug = '',
 	image = '',
 	index,
+	link = '',
+	slug = '',
+	staticAuthors = '',
 	target = false,
 	title = '',
 	topic = false,
@@ -76,7 +77,7 @@ const UpdateExtractSmall = ({
 					</div>
 					<h2 className="update-extract-small-title">{title}</h2>
 					<span className="update-extract-small-subtitle" style={{ backgroundColor: color }}>
-						<Authors authors={authors} /> - {getDateFormat(date)}
+						<Authors authors={authors} staticAuthors={staticAuthors} /> - {getDateFormat(date)}
 					</span>
 				</div>
 			</a>
@@ -89,10 +90,11 @@ UpdateExtractSmall.propTypes = {
 	category: PropTypes.string,
 	color: PropTypes.string,
 	date: PropTypes.string,
-	link: PropTypes.string,
-	slug: PropTypes.string,
 	image: PropTypes.string,
 	index: PropTypes.number,
+	link: PropTypes.string,
+	slug: PropTypes.string,
+	staticAuthors: PropTypes.string,
 	target: PropTypes.bool,
 	title: PropTypes.string,
 	topic: PropTypes.bool,

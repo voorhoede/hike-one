@@ -94,6 +94,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 			date
 			externalLink
 			authors { name }
+			staticAuthors
 			category { name }
 			image { url }
 			themeColor { hex }

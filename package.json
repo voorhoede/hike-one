@@ -18,7 +18,7 @@
 		"gsap": "^3.0.5",
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^3.11.1",
-		"next": "^9.2.1",
+		"next": "^9.2.2",
 		"preact": "^10.3.1",
 		"preact-render-to-string": "^5.1.4",
 		"react": "github:preact-compat/react#1.0.0",

@@ -19,11 +19,11 @@ class ContactForm extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.clearForm = this.clearForm.bind(this);
 		this.state = {
-			selectedItemId: '',
-			currentForm: null,
 			_gotcha: '', // avoids spam by fooling scrapers
-			isSent: false,
+			currentForm: null,
 			formData: {},
+			isSent: false,
+			selectedItemId: '',
 		};
 	}
 
@@ -68,20 +68,22 @@ class ContactForm extends Component {
 
 	isFormValid() {
 		const { currentForm, formData, _gotcha } = this.state;
-		const isValid =
-			currentForm.formFields
-				.filter(field => field.required)
-				.map(field => field.name)
-				.map(name => {
-					if (name === 'email') {
-						return /(.+)@(.+){2,}\.(.+){2,}/.test(formData[name]);
-					}
-
-					return formData[name].length >= 2;
-				})
-				.indexOf(false) === -1;
-
 		const isSpam = _gotcha.length > 0;
+		const isValid = currentForm.formFields
+			.filter(field => field.required)
+			.map(field => field.name)
+			.map(name => {
+				return name === 'email'
+					? formData[name]
+						? /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+								formData[name]
+						  )
+						: false
+					: formData[name]
+					? formData[name].length >= 2
+					: false;
+			})
+			.every(item => item);
 
 		return isValid && !isSpam;
 	}
@@ -89,44 +91,42 @@ class ContactForm extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		if (!this.isFormValid) {
+		if (this.isFormValid()) {
+			const { currentForm } = this.state;
+			const formData = this.getFormData();
+			return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
+				method: 'POST',
+				mode: 'cors',
+				credentials: 'same-origin',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify(formData),
+			})
+				.then(e => {
+					switch (e.status) {
+						case 200: {
+							this.clearForm();
+							this.setState({ isSent: true });
+							scrollToElement('contact-page');
+							break;
+						}
+						case 403: {
+							console.error(
+								"In order to submit via AJAX, in this form's reCAPTCHA must be disabled.",
+								e
+							);
+							break;
+						}
+						default: {
+							console.error('Something went wrong: ', e);
+						}
+					}
+				})
+				.catch(e => console.error(e));
+		} else {
 			return;
 		}
-
-		const { currentForm } = this.state;
-		const formData = this.getFormData();
-
-		return fetch(`https://formspree.io/${currentForm.formspreeEndpoint}`, {
-			method: 'POST',
-			mode: 'cors',
-			credentials: 'same-origin',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(formData),
-		})
-			.then(e => {
-				switch (e.status) {
-					case 200: {
-						this.clearForm();
-
-						this.setState({ isSent: true });
-						scrollToElement('message-sent');
-						break;
-					}
-					case 403: {
-						console.error(
-							"In order to submit via AJAX, in this form's reCAPTCHA must be disabled.",
-							e
-						);
-						break;
-					}
-					default: {
-						console.error('Something went wrong: ', e);
-					}
-				}
-			})
-			.catch(e => console.error(e));
 	}
 
 	clearForm() {
@@ -219,6 +219,9 @@ class ContactForm extends Component {
 									onChange={this.handleChange}
 								/>
 							</form>
+
+							<small className="required-warning">Fields marked with an * are required.</small>
+
 							<ButtonPrimary classes="submit-btn btn-large" onClick={this.handleSubmit}>
 								{currentForm.submitButtonLabel}
 							</ButtonPrimary>
@@ -231,13 +234,6 @@ class ContactForm extends Component {
 		return (
 			<div className="contact-form container">
 				<h2 className="form-title">{title}</h2>
-
-				<SelectDropdown
-					label={selectInputLabel}
-					options={[...forms]}
-					handleClick={this.handleClick}
-					selectedItem={selectedItemLabel}
-				/>
 
 				{selectedItemId === 'job-application' && (
 					<div className="work-with-us">

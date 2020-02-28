@@ -30,10 +30,45 @@
 }
 
 .page-header-new__animation-background {
-	position: absolute;
-	left: 0;
-	width: 100%;
 	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.page-header-new__animation-triangle {
+	animation: triangle-mobile 60s linear infinite;
+	bottom: -50%;
+	left: -100%;
+	width: 60vw;
+	min-width: 325px;
+	position: absolute;
+
+	@media @screen-768 {
+		animation: triangle-768 60s linear infinite;
+		bottom: -500px;
+		width: 35vw;
+		left: -575px;
+	}
+}
+
+@keyframes triangle-mobile {
+	from {
+		transform: translate(0, 0) scale(1);
+	}
+	to {
+		transform: translate(350vw, -75vh) scale(1.1);
+	}
+}
+
+@keyframes triangle-768 {
+	from {
+		transform: translate(0, 0) scale(1);
+	}
+	to {
+		transform: translate(135vw, -90vh) scale(1.1);
+	}
 }
 
 .page-header-new__content {

@@ -10,10 +10,11 @@ const UpdateExtractLarge = ({
 	category = 'update',
 	color = '',
 	date = '',
-	link = '',
-	slug = '',
 	image = '',
 	index = 0,
+	link = '',
+	slug = '',
+	staticAuthors = '',
 	target = false,
 	title = '',
 }) => {
@@ -74,7 +75,7 @@ const UpdateExtractLarge = ({
 					</div>
 					<h2 className="update-extract-large-title">{title}</h2>
 					<span className="update-extract-large-subtitle" style={{ backgroundColor: color }}>
-						<Authors authors={authors} /> - {getDateFormat(date)}
+						<Authors authors={authors} staticAuthors={staticAuthors} /> - {getDateFormat(date)}
 					</span>
 				</div>
 			</a>
@@ -87,10 +88,11 @@ UpdateExtractLarge.propTypes = {
 	category: PropTypes.string,
 	color: PropTypes.string,
 	date: PropTypes.string,
-	link: PropTypes.string,
-	slug: PropTypes.string,
 	image: PropTypes.string,
 	index: PropTypes.number,
+	link: PropTypes.string,
+	slug: PropTypes.string,
+	staticAuthors: PropTypes.string,
 	target: PropTypes.bool,
 	title: PropTypes.string,
 };

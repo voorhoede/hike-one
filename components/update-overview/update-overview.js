@@ -103,6 +103,7 @@ class UpdateOverview extends Component {
 							title={item.title}
 							date={item.date}
 							authors={item.authors}
+							staticAuthors={item.staticAuthors}
 							topic={item.topic}
 							slug={item.slug}
 							link={item.externalLink}

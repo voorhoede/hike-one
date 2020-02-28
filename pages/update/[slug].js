@@ -39,7 +39,11 @@ const Page = ({ update, footer }) => (
 				imagePositionCenter={update.imagePositionCenter}
 				color={update.color.hex}
 				title={update.title}
-				authorName={update.authors.map(author => author.name).join(', ')}
+				authorName={
+					update.authors.length
+						? update.authors.map(author => author.name).join(', ')
+						: update.staticAuthors || 'Hike One'
+				}
 				updatedDate={update.date}
 			/>
 
@@ -248,6 +252,8 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 				photo { url }
 				summary
 			}
+
+			staticAuthors
 
 			seo {
 				title

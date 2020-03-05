@@ -91,7 +91,10 @@ class PageHeaderNew extends Component {
 		};
 
 		return (
-			<section className="page-header-new" style={{ backgroundColor: currentColor }}>
+			<section
+				className={`page-header-new ${animation === 'basic' ? 'page-header-new--basic' : ''}`}
+				style={{ backgroundColor: currentColor }}
+			>
 				{animation === 'basic' ? (
 					<PageHeaderNewAnimationBasic
 						animationTriangleColor={animationTriangleColor.hex}

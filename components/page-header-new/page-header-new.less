@@ -38,18 +38,25 @@
 }
 
 .page-header-new__animation-triangle {
-	animation: triangle-mobile 60s linear infinite;
 	bottom: -50%;
 	left: -100%;
-	width: 60vw;
 	min-width: 325px;
 	position: absolute;
+	transition: all 0.15s;
+	width: 60vw;
 
 	@media @screen-768 {
-		animation: triangle-768 60s linear infinite;
 		bottom: -500px;
 		width: 35vw;
 		left: -575px;
+	}
+}
+
+.page-header-new__animation-keyframes {
+	animation: triangle-mobile 60s linear infinite;
+
+	@media @screen-768 {
+		animation: triangle-desktop 60s linear infinite;
 	}
 }
 
@@ -63,7 +70,7 @@
 	}
 }
 
-@keyframes triangle-768 {
+@keyframes triangle-desktop {
 	from {
 		transform: translate(0, 0) scale(1);
 	}

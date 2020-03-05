@@ -7,6 +7,15 @@ import {
 } from './page-header-new-animations';
 import { ShapesDiamond, ShapesDoubleDiamond, ShapesTriangles } from './page-header-new-shapes';
 
+function debounce(func, time) {
+	var time = time || 100;
+	var timer;
+	return event => {
+		if (timer) clearTimeout(timer);
+		timer = setTimeout(func, time, event);
+	};
+}
+
 class PageHeaderNew extends Component {
 	constructor(props) {
 		super(props);
@@ -19,6 +28,7 @@ class PageHeaderNew extends Component {
 		this.state = {
 			currentColor: '#ffffff',
 		};
+		this.handleResize = this.handleResize.bind(this);
 	}
 
 	componentDidMount() {
@@ -33,6 +43,11 @@ class PageHeaderNew extends Component {
 			this.timeline = animationByName[animation];
 			this.timeline.timeScale(1).play();
 		}
+		window.addEventListener('resize', debounce(this.handleResize));
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', debounce);
 	}
 
 	componentDidUpdate(prevProps, prevState) {
@@ -51,6 +66,18 @@ class PageHeaderNew extends Component {
 			this.timeline.pause();
 			this.timeline = animationByName[animation];
 			this.timeline.timeScale(1).play();
+		}
+	}
+
+	handleResize() {
+		const ua = navigator.userAgent.toLowerCase();
+		if (ua.indexOf('safari') != -1) {
+			if (!(ua.indexOf('chrome') > -1)) {
+				document.querySelectorAll('.page-header-new__animation-triangle').forEach(svg => {
+					svg.classList.remove('page-header-new__animation-keyframes');
+					setTimeout(() => svg.classList.add('page-header-new__animation-keyframes'), 100);
+				});
+			}
 		}
 	}
 
@@ -102,7 +129,7 @@ const PageHeaderNewAnimationBasic = ({ animationTriangleColor, animationBackgrou
 					key={i}
 					style={{ animationDelay: x }}
 					fill={animationTriangleColor}
-					className="page-header-new__animation-triangle"
+					className="page-header-new__animation-triangle page-header-new__animation-keyframes"
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 96 109"
 				>

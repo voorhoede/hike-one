@@ -9,7 +9,7 @@ import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
-import PageHeader from '../components/page-header/page-header';
+import PageHeaderNew from '../components/page-header-new/page-header-new';
 import ServicesCards from '../components/services-cards/services-cards';
 import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
@@ -42,11 +42,11 @@ const Page = ({ service, servicesOverview, footer }) => {
 			<MenuBar color="white" />
 
 			<div className="services-page layout-parallax">
-				<PageHeader
-					isSmall={true}
+				<PageHeaderNew
 					title={header.title}
-					subtitle={header.subtitle}
-					image={header.backgroundImage.url}
+					animation="basic"
+					animationTriangleColor={header.animationTriangleColor}
+					animationBackgroundColor={header.animationBackgroundColor}
 				/>
 
 				<main className="page-scrolling-content-small">
@@ -133,9 +133,12 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 
 		servicesOverview {
 			header {
-				title
-				subtitle
+				animation
+				animationBackgroundColor { hex }
+				animationTriangleColor { hex }
 				backgroundImage { url }
+				subtitle
+				title
 			}
 			servicesItemTitle
 			servicesItemBody

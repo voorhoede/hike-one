@@ -6,7 +6,7 @@ import withCacheControl from '../lib/with-cache-control';
 
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
-import PageHeader from '../components/page-header/page-header';
+import PageHeaderNew from '../components/page-header-new/page-header-new';
 import ContactForm from '../components/contact-form/contact-form';
 import VacancyOverview from '../components/vacancy-overview/vacancy-overview';
 import OfficeOverview from '../components/office-overview/office-overview';
@@ -33,11 +33,11 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 		<MenuBar color="white" />
 
 		<div className="layout-parallax">
-			<PageHeader
-				isSmall={true}
+			<PageHeaderNew
 				title={contactPage.header.title}
-				subtitle={contactPage.header.subtitle}
-				image={contactPage.header.backgroundImage.url}
+				animation="basic"
+				animationTriangleColor={contactPage.header.animationTriangleColor}
+				animationBackgroundColor={contactPage.header.animationBackgroundColor}
 			/>
 
 			<main className="contact-page page-scrolling-content-small">
@@ -91,9 +91,12 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 				}
 			}
 			header {
-				title
-				subtitle
+				animation
+				animationBackgroundColor { hex }
+				animationTriangleColor { hex }
 				backgroundImage { url }
+				subtitle
+				title
 			}
 
 			contactForm {

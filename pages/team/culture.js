@@ -5,7 +5,7 @@ import withCacheControl from '../../lib/with-cache-control';
 
 import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
-import PageHeader from '../../components/page-header/page-header';
+import PageHeaderNew from '../../components/page-header-new/page-header-new';
 import TeamOverview from '../../components/team-overview/team-overview';
 import TeamSelector from '../../components/team-selector/team-selector';
 import VacancyOverview from '../../components/vacancy-overview/vacancy-overview';
@@ -31,11 +31,11 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 		<MenuBar color="white" />
 
 		<div className="layout-parallax">
-			<PageHeader
-				isSmall={true}
+			<PageHeaderNew
 				title={team.header.title}
-				subtitle={team.header.subtitle}
-				image={team.header.backgroundImage.url}
+				animation="basic"
+				animationTriangleColor={team.header.animationTriangleColor}
+				animationBackgroundColor={team.header.animationBackgroundColor}
 			/>
 
 			<main className="page-scrolling-content-small">
@@ -55,9 +55,12 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 	const graphqlQuery = `{
 		team {
 			header {
-				title
-				subtitle
+				animation
+				animationBackgroundColor { hex }
+				animationTriangleColor { hex }
 				backgroundImage { url }
+				subtitle
+				title
 			}
 
 			collage {

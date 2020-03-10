@@ -5,7 +5,7 @@ import withCacheControl from '../lib/with-cache-control';
 
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
-import PageHeader from '../components/page-header/page-header';
+import PageHeaderNew from '../components/page-header-new/page-header-new';
 import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
@@ -21,11 +21,11 @@ const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
 		<MenuBar color="white" />
 
 		<div className="layout-parallax">
-			<PageHeader
-				isSmall={true}
+			<PageHeaderNew
 				title={updateOverview.header.title}
-				subtitle={updateOverview.header.subtitle}
-				image={updateOverview.header.backgroundImage.url}
+				animation="basic"
+				animationTriangleColor={updateOverview.header.animationTriangleColor}
+				animationBackgroundColor={updateOverview.header.animationBackgroundColor}
 			/>
 
 			<main className="page-scrolling-content-small">
@@ -56,11 +56,12 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 			}
 
 			header {
-				title
+				animation
+				animationBackgroundColor { hex }
+				animationTriangleColor { hex }
+				backgroundImage { url }
 				subtitle
-				backgroundImage {
-					url
-				}
+				title
 			}
 
 			mustRead {

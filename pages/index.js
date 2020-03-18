@@ -4,18 +4,19 @@ import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 import scrollToElement from '../components/_helpers/scrollToElement';
 
-import Head from '../components/head/head';
+import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+import AppNotification from '../components/app-notification/app-notification';
 import CaseExtract from '../components/case-extract/case-extract';
-import MenuBar from '../components/menu-bar/menu-bar';
-import ServicesCards from '../components/services-cards/services-cards';
-import TextCenter from '../components/text-center/text-center';
-import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
-import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import Contact from '../components/contact/contact';
 import ContactShape from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
+import Head from '../components/head/head';
+import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeader from '../components/page-header/page-header';
-import * as PageHeaderShapes from '../components/page-header/page-header-shapes';
+import ServicesCards from '../components/services-cards/services-cards';
+import TextCenter from '../components/text-center/text-center';
+import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
+import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
 const scrollToTargetClass = 'js-scroll-to-target';
 
@@ -27,6 +28,8 @@ const Page = ({ home, footer }) => (
 			image={home.seo.image}
 			twitterCard={home.seo.twitterCard}
 		/>
+
+		<AppNotification />
 
 		<MenuBar color="white" />
 

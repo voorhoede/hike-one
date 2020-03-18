@@ -1,0 +1,31 @@
+@import (reference) '../../styles/variables';
+
+.app-notification {
+	align-items: center;
+	background-color: @red-dark;
+	bottom: 0;
+	color: @white;
+	display: flex;
+	font-size: 1.15rem;
+	justify-content: center;
+	left: 0;
+	padding: 0 0.5rem;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	z-index: @layer-popup;
+
+	@media @screen-1440 {
+		bottom: initial;
+		top: 0;
+	}
+}
+
+.app-notification__message {
+	margin: 0.65rem;
+}
+
+.app-notification__link {
+	color: @white;
+	min-width: 100px;
+}

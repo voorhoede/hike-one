@@ -58,7 +58,7 @@ const Page = ({ topic, footer }) => (
 							);
 
 						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} />;
+							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
 
 						case '50_50':
 							return (
@@ -277,6 +277,7 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 				... on BodyQuoteRecord {
 					itemType: _modelApiKey
 					quote
+					quotee
 				}
 				... on _5050Record {
 					itemType: _modelApiKey

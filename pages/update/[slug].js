@@ -273,6 +273,11 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 			}
 
 			content {
+				... on BodyQuoteRecord {
+					itemType: _modelApiKey
+					quote
+					quotee
+				}
 				... on _5050Record {
 					itemType: _modelApiKey
 					textLeft

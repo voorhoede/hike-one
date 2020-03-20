@@ -29,7 +29,9 @@ const Page = ({ home, footer }) => (
 			twitterCard={home.seo.twitterCard}
 		/>
 
-		<AppNotification />
+		{home.appNotificationMessage && (
+			<AppNotification message={home.appNotificationMessage} link={home.appNotificationLink} />
+		)}
 
 		<MenuBar color="white" />
 
@@ -174,6 +176,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 				button
 				externalLink
 			}
+
+			appNotificationMessage
+			appNotificationLink { slug }
 		}
 
 		footer {

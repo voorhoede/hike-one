@@ -1,15 +1,21 @@
-const AppNotification = (message, link) => (
+import PropTypes from 'prop-types';
+
+import Link from 'next/link';
+
+const AppNotification = ({ message = '', link = {} }) => (
 	<div className="app-notification">
-		<p className="app-notification__message">
-			As always, we are available to help you design your digital products!
-		</p>
-		<a
-			className="app-notification__link"
-			href="https://hike.one/update/our-creativity-continues-even-remotely"
-		>
-			Read here
-		</a>
+		<p className="app-notification__message">{message}</p>
+		{link && link.slug && (
+			<Link href={'/update/[slug]'} as={`/update/${link.slug}`}>
+				<a className="app-notification__link">Read here</a>
+			</Link>
+		)}
 	</div>
 );
+
+AppNotification.propTypes = {
+	message: PropTypes.string,
+	link: PropTypes.object,
+};
 
 export default AppNotification;

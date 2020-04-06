@@ -30,17 +30,17 @@ class TeamMembersOverview extends Component {
 
 	filterTeamMembers(team, role) {
 		return team
-			.filter(member => !member.hide)
-			.filter(member =>
+			.filter((member) => !member.hide)
+			.filter((member) =>
 				role && role === 'Everyone'
 					? member
-					: member.departments.some(department => department.title === role)
+					: member.departments.some((department) => department.title === role)
 			);
 	}
 
 	getDepartments(data) {
 		const allDepartments = data
-			.map(item => item.departments.map(item => item.title))
+			.map((item) => item.departments.map((item) => item.title))
 			.reduce((a, b) => a.concat(b), []);
 		const uniqueDepartments = [...new Set(allDepartments)];
 		uniqueDepartments.unshift('Everyone');
@@ -65,7 +65,7 @@ class TeamMembersOverview extends Component {
 
 				{introText && <p className="team-members-intro-text container">{introText}</p>}
 				<ul className="team-members-overview container">
-					{filteredTeam.map(member => (
+					{filteredTeam.map((member) => (
 						<TeamMember key={member.id} data={member} />
 					))}
 				</ul>

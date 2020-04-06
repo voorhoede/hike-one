@@ -80,8 +80,8 @@ class PageHeader extends Component {
 			children,
 		} = this.props;
 		const childrenArray = React.Children.toArray(children);
-		let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
-		let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
+		let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
+		let parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
 
 		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
 		const style = {
@@ -115,7 +115,7 @@ class PageHeader extends Component {
 
 		return (
 			<section
-				ref={node => (this.element = node)}
+				ref={(node) => (this.element = node)}
 				className={`page-header
 					${showGradient ? 'page-header--has-gradient' : ''}
 					${isSmall ? 'page-header--small' : ''}
@@ -126,7 +126,7 @@ class PageHeader extends Component {
 				{parallaxLayerBack}
 				{video && (
 					<video
-						ref={node => (this.video = node)}
+						ref={(node) => (this.video = node)}
 						src={video}
 						className="page-header-video"
 						playsInline
@@ -137,7 +137,7 @@ class PageHeader extends Component {
 				)}
 
 				<div className="page-header-inner container">
-					<div ref={node => (this.parallaxLayer = node)}>
+					<div ref={(node) => (this.parallaxLayer = node)}>
 						<h1 className="page-header-title">{title}</h1>
 
 						{subtitle && <p className="page-header-subtitle">{subtitle}</p>}

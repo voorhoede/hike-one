@@ -166,7 +166,7 @@ class MenuBar extends Component {
 	onResize(entries) {
 		const { menuIsOpen } = this.state;
 
-		entries.forEach(entry => {
+		entries.forEach((entry) => {
 			if (menuIsOpen && this.windowWidth !== entry.contentRect.width) {
 				// close menu
 				this.tlMenu.timeScale(5).reverse();
@@ -188,7 +188,7 @@ class MenuBar extends Component {
 		const { contextMenuIsOpen } = this.state;
 
 		return (
-			<header ref={node => (this.header = node)} className="menu-bar">
+			<header ref={(node) => (this.header = node)} className="menu-bar">
 				<div className="header-logo-wrapper">
 					<Link href="/">
 						<a className="header-logo" onContextMenu={this.toggleContextMenu}>
@@ -199,7 +199,7 @@ class MenuBar extends Component {
 					<ContextMenu isOpen={contextMenuIsOpen} />
 				</div>
 
-				<button type="button" className="menu-btn" onClick={e => this.toggleMenu(e)}>
+				<button type="button" className="menu-btn" onClick={(e) => this.toggleMenu(e)}>
 					<svg
 						className="menu-btn-background"
 						xmlns="http://www.w3.org/2000/svg"
@@ -209,19 +209,23 @@ class MenuBar extends Component {
 					</svg>
 
 					<span className="menu-btn-icon">
-						<Hamburger ref={node => (this.hamburger = node)} />
+						<Hamburger ref={(node) => (this.hamburger = node)} />
 					</span>
 				</button>
 
-				<div className="menu" ref={node => (this.menu = node)} onClick={e => this.toggleMenu(e)}>
+				<div
+					className="menu"
+					ref={(node) => (this.menu = node)}
+					onClick={(e) => this.toggleMenu(e)}
+				>
 					<div
-						ref={node => (this.menuBgTransparent = node)}
+						ref={(node) => (this.menuBgTransparent = node)}
 						className="menu-background-transparent"
 					/>
 
 					<svg
 						className="menu-background"
-						ref={node => (this.menuBg = node)}
+						ref={(node) => (this.menuBg = node)}
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="226 1.7 268 305"
 					>
@@ -230,7 +234,7 @@ class MenuBar extends Component {
 
 					<svg
 						className="menu-background-final"
-						ref={node => (this.menuBgSvgFinal = node)}
+						ref={(node) => (this.menuBgSvgFinal = node)}
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="226 1.7 268 305"
 					>
@@ -244,7 +248,7 @@ class MenuBar extends Component {
 					>
 						<polygon points="225.979,1.727 493.818,71.084 349.311,307.109 " />
 						<rect
-							ref={node => (this.menuBgRect = node)}
+							ref={(node) => (this.menuBgRect = node)}
 							className="menu-background-rect"
 							x="253.643"
 							y="71.084"
@@ -254,8 +258,8 @@ class MenuBar extends Component {
 						/>
 					</svg>
 
-					<div className="menu-inner" ref={node => (this.menuInner = node)}>
-						<ul className="menu-list" ref={node => (this.menuList = node)}>
+					<div className="menu-inner" ref={(node) => (this.menuInner = node)}>
+						<ul className="menu-list" ref={(node) => (this.menuList = node)}>
 							<li className="menu-item-logo">
 								<Link href="/">
 									<a>
@@ -289,7 +293,7 @@ class MenuBar extends Component {
 								</Link>
 							</li>
 							<li>
-								<div className="menu-social" ref={node => (this.socialIcons = node)}>
+								<div className="menu-social" ref={(node) => (this.socialIcons = node)}>
 									<a
 										href="https://www.facebook.com/HikeOne/"
 										target="_blank"

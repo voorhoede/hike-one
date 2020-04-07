@@ -19,6 +19,7 @@ const UpdatesExtractLarge = ({ highlights = [], mustRead = [] }) => (
 					staticAuthors={item.staticAuthors}
 					href={item.link}
 					target={item.isExternalLink}
+					topic={item.topic}
 				/>
 			))}
 		</div>

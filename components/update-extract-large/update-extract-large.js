@@ -17,7 +17,9 @@ const UpdateExtractLarge = ({
 	staticAuthors = '',
 	target = false,
 	title = '',
+	topic = false,
 }) => {
+	const prefix = topic ? 'topic' : 'update';
 	const style = {
 		__html: `<style>
 			.update-extract-large-image-${index} {
@@ -53,8 +55,8 @@ const UpdateExtractLarge = ({
 
 	return (
 		<Link
-			href={link ? link : '/update/[slug]'}
-			as={link ? link : `/update/${slug}`}
+			href={link ? link : `/${prefix}/[slug]`}
+			as={link ? link : `/${prefix}/${slug}`}
 			prefetch={target ? false : null}
 		>
 			<a
@@ -95,6 +97,7 @@ UpdateExtractLarge.propTypes = {
 	staticAuthors: PropTypes.string,
 	target: PropTypes.bool,
 	title: PropTypes.string,
+	topic: PropTypes.bool,
 };
 
 export default UpdateExtractLarge;

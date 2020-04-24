@@ -1,16 +1,14 @@
-const Page = () => (
-	<></>
-)
+const Page = () => <></>;
 
 Page.getInitialProps = ({ res }) => {
 	if (res) {
 		res.writeHead(301, {
-			Location: 'team/culture'
+			Location: 'team/culture',
 		});
 		res.end();
 	}
 
-	return {}
+	return {};
 };
 
 export default Page;

@@ -20,7 +20,7 @@
 		"less": "^3.11.1",
 		"next": "^9.3.4",
 		"preact": "^10.4.0",
-		"preact-render-to-string": "^5.1.4",
+		"preact-render-to-string": "^5.1.6",
 		"react": "github:preact-compat/react#1.0.0",
 		"react-dom": "github:preact-compat/react-dom#1.0.0",
 		"react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",

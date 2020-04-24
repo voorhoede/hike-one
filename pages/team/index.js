@@ -1,14 +1,12 @@
-const Page = () => <></>;
+export async function getServerSideProps({ res }) {
+	res.writeHead(301, {
+		Location: 'team/culture',
+	});
+	res.end();
 
-Page.getInitialProps = ({ res }) => {
-	if (res) {
-		res.writeHead(301, {
-			Location: 'team/culture',
-		});
-		res.end();
-	}
+	return {
+		props: {},
+	};
+}
 
-	return {};
-};
-
-export default Page;
+export default () => {};

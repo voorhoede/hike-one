@@ -21,7 +21,10 @@
 			"source": "/sprint",
 			"destination": "/topic/running-design-sprints-masterclass-by-hike-one"
 		},
-		{ "source": "/academy", "destination": "/topic/masterclasses-by-hike-one" },
+		{
+			"source": "/academy",
+			"destination": "/topic/masterclasses-by-hike-one"
+		},
 		{
 			"source": "/lean-innovation",
 			"destination": "https://hike.one/topic/lean-innovation"
@@ -41,10 +44,12 @@
 		{
 			"source": "/update/go-from-sketch-to-tested-prototype-in-5-days-with-d",
 			"destination": "/update/go-from-sketch-to-tested-prototype-in-5-days"
-		}, {
+		},
+		{
 			"source": "/topic/design-sprints",
 			"destination": "/topic/design-sprint"
-		}, {
+		},
+		{
 			"source": "/pulse",
 			"destination": "https://docs.google.com/spreadsheets/d/1Txqz2Tpkiz9g9Y3-1IoRv3g7b2yK4M9ST_vra6wVFDE/edit?usp=sharing"
 		}

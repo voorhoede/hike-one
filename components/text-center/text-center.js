@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 
 const TextCenter = ({ classes = '', title = '', text = '', children }) => {
 	const childrenArray = React.Children.toArray(children);
-	let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
-	let parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
+	let parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	let parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 
 	return (
 		<section className={`${classes} text-center container`}>

@@ -1,4 +1,4 @@
-const isElementInView = (element) => {
+const isElementInView = element => {
 	const elBoundingRect = element.getBoundingClientRect();
 	const windowHeight = document.body.clientHeight || document.documentElement.clientHeight || 0;
 	const scrolledHeight = document.body.scrollTop || document.documentElement.scrollTop || 0;

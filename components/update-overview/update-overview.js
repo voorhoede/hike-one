@@ -50,7 +50,7 @@ class UpdateOverview extends Component {
 	}
 
 	getFilters(updates) {
-		const allFilters = updates.map((update) => update.category.name);
+		const allFilters = updates.map(update => update.category.name);
 		const uniqueFilters = [...new Set(allFilters)];
 		uniqueFilters.unshift('All');
 
@@ -59,13 +59,13 @@ class UpdateOverview extends Component {
 
 	filterUpdates(updates, filter) {
 		return updates
-			.filter((update) => this.isHighlightedUpdate(update))
-			.filter((update) => this.hasSelectedTopic(update, filter));
+			.filter(update => this.isHighlightedUpdate(update))
+			.filter(update => this.hasSelectedTopic(update, filter));
 	}
 
 	isHighlightedUpdate(update) {
 		const { data } = this.props;
-		return !data.highlights.some((highlight) => highlight.id === update.id);
+		return !data.highlights.some(highlight => highlight.id === update.id);
 	}
 
 	hasSelectedTopic(update, filter) {

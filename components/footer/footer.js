@@ -50,7 +50,7 @@ class Footer extends Component {
 		const { form } = this.props;
 
 		return (
-			<footer ref={node => (this.footer = node)} className="footer">
+			<footer ref={(node) => (this.footer = node)} className="footer">
 				<div className="container-inner">
 					<Link href="/">
 						<a className="footer-logo">

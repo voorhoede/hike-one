@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Authors = ({ authors = [], staticAuthors = '' }) => (
 	<span>
-		{authors.length ? authors.map(author => author.name).join(', ') : staticAuthors || 'Hike One'}
+		{authors.length ? authors.map((author) => author.name).join(', ') : staticAuthors || 'Hike One'}
 	</span>
 );
 

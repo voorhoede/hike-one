@@ -4644,17 +4644,17 @@ postcss@^7.0.0, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-preact-render-to-string@^5.1.4:
-  version "5.1.4"
-  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.4.tgz#f26171f58f0e93b36236e4b0bee62ce561120b7c"
-  integrity sha512-fQyrkbn4Ustz5Gr4nQuTu2TIS+8IHqkIXf/SqstA2amgqLoPI6Z1e6Ttk5OL4jcE3MC6V+eaeRAed39sn8Oh4w==
+preact-render-to-string@^5.1.6:
+  version "5.1.6"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.6.tgz#6e8f6c7d657743d8bb27c8ea3d5ac218354c87a4"
+  integrity sha512-/8mDzzfMrxx5tzJazKGdyYADrmjzBR3QJsvdZs03aV9VjeXpDrzDHs6dhzlMA1EsdCBq4cqioKjVKUs58uNckg==
   dependencies:
     pretty-format "^3.8.0"
 
-preact@^10.3.4:
-  version "10.3.4"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.3.4.tgz#e1542a4d3eba3e7a37f312a2c331231b97052024"
-  integrity sha512-wMgzs/RGYf0I1PZf8ZFJdyU/3kCcwepJyVYe+N9FGajyQWarMoPrPfrQajcG0psPj6ySYv2cSuLYFCihvV/Qrw==
+preact@^10.4.0:
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.4.0.tgz#90e10264a221690484a56344437a353ffac08600"
+  integrity sha512-34iqY2qPWKAmsi+tNNwYCstta93P+zF1f4DLtsOUPh32uYImNzJY7h7EymCva+6RoJL01v3W3phSRD8jE0sFLg==
 
 prepend-http@^1.0.0:
   version "1.0.4"

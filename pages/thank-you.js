@@ -33,12 +33,12 @@ const Page = ({ thankYouPage, footer }) => (
 
 Page.getInitialProps = withCacheControl(({ req }) => {
 	const graphqlQuery = `{
-    thankYouPage {
-      title
-      content
-      callToActionUrl
-      callToActionLabel
-    }
+		thankYouPage {
+			title
+			content
+			callToActionUrl
+			callToActionLabel
+		}
 
 		footer {
 			form {

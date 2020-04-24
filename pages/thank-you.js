@@ -7,7 +7,7 @@ import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
-import ButtonPrimaryLink from '../components/buttons/button-primary/button-primary';
+import ButtonPrimaryLink from '../components/buttons/button-primary/button-primary-link';
 import Footer from '../components/footer/footer';
 
 const Page = ({ thankYouPage, footer }) => (

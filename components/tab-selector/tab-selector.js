@@ -4,7 +4,7 @@ import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './tab-selector-
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
 const TabSelector = ({ services, selected }) => {
-	const selectedTab = services.find((service) => service.slug === selected).position - 1;
+	const selectedTab = services.find(service => service.slug === selected).position - 1;
 	const color = ['#fe595b', '#45d33c', '#8314bb'];
 	const style = {
 		transform: `translateX(${selectedTab * 100}%)`,

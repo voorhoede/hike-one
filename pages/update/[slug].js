@@ -41,7 +41,7 @@ const Page = ({ update, footer }) => (
 				title={update.title}
 				authorName={
 					update.authors.length
-						? update.authors.map((author) => author.name).join(', ')
+						? update.authors.map(author => author.name).join(', ')
 						: update.staticAuthors || 'Hike One'
 				}
 				updatedDate={update.date}

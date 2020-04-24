@@ -10,7 +10,7 @@ import { ShapesDiamond, ShapesDoubleDiamond, ShapesTriangles } from './page-head
 function debounce(func, time) {
 	var time = time || 100;
 	var timer;
-	return (event) => {
+	return event => {
 		if (timer) clearTimeout(timer);
 		timer = setTimeout(func, time, event);
 	};
@@ -73,7 +73,7 @@ class PageHeaderNew extends Component {
 		const ua = navigator.userAgent.toLowerCase();
 		if (ua.indexOf('safari') != -1) {
 			if (!(ua.indexOf('chrome') > -1)) {
-				document.querySelectorAll('.page-header-new__animation-triangle').forEach((svg) => {
+				document.querySelectorAll('.page-header-new__animation-triangle').forEach(svg => {
 					svg.classList.remove('page-header-new__animation-keyframes');
 					setTimeout(() => svg.classList.add('page-header-new__animation-keyframes'), 100);
 				});

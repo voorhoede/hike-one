@@ -32,7 +32,7 @@ class InlineImage extends Component {
 		return (
 			<div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>
 				<img
-					ref={node => (this.element = node)}
+					ref={(node) => (this.element = node)}
 					className="image"
 					sizes={`
 						(max-width: 320px) calc(100vw - 30px),

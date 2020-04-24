@@ -192,16 +192,16 @@ class FullWidthImage extends Component {
 		};
 
 		return (
-			<div className="full-width-image" ref={node => (this.element = node)}>
+			<div className="full-width-image" ref={(node) => (this.element = node)}>
 				<div dangerouslySetInnerHTML={style} />
 				<div
 					className={`full-width-image-inner`}
-					ref={node => (this.fixedElement = node)}
+					ref={(node) => (this.fixedElement = node)}
 					style={{ transform: `translate3d(0px, -200%, 0px)` }}
 				>
 					<div
 						className={`full-width-image-background full-width-image-background-${index}`}
-						ref={node => (this.imageElement = node)}
+						ref={(node) => (this.imageElement = node)}
 					/>
 					{overlay && <div className="full-width-image-overlay" />}
 				</div>

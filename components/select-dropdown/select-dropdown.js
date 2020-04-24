@@ -41,7 +41,7 @@ class SelectDropdown extends Component {
 
 				{!isCollapsed && (
 					<ul className="dropdown-list">
-						{options.map(option => (
+						{options.map((option) => (
 							<li className="list-item" key={option.id}>
 								<ButtonClean
 									classes="select-item"

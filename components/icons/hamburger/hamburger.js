@@ -12,33 +12,35 @@ class Hamburger extends Component {
 		this.tlHamburger = new TimelineLite();
 		this.tlHamburger
 			.pause()
-			.set(this.hamburgerPath1, { transformOrigin: '10% 0' })
-			.to(this.hamburgerPath1, 0.3, {
-				x: '70%',
-				rotation: 135,
-				attr: { x2: 72 },
-				ease: Power2.easeInOut,
-			})
+			.set(this.hamburgerPath1, { transformOrigin: '50% 50%' })
+			.set(this.hamburgerPath2, { transformOrigin: '50% 50%' })
+			.set(this.hamburgerPath3, { transformOrigin: '50% 50%' })
+			.to(this.hamburgerPath1,
+				0.3,
+				{
+					rotation: 135,
+					attr: { x1: 24, y1: 13, x2: 77, y2: 13 },
+					ease: Power2.easeInOut,
+				},
+				0,
+			)
 			.to(
 				this.hamburgerPath2,
 				0.3,
 				{
 					scaleX: 0,
-					x: '50%',
 					ease: Power2.easeInOut,
 				},
-				0
+				0,
 			)
 			.to(
 				this.hamburgerPath3,
 				0.3,
 				{
-					rotation: 45,
-					attr: { x1: 30, y1: 0, x2: 88, y2: 0 },
-					x: '-42%',
+					attr: { x1: 21, y1: 21, x2: 58, y2: 58 },
 					ease: Power2.easeInOut,
 				},
-				0
+				0,
 			);
 	}
 

@@ -19,7 +19,7 @@
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^3.11.1",
 		"next": "^9.3.6",
-		"preact": "^10.4.1",
+		"preact": "^10.4.4",
 		"preact-render-to-string": "^5.1.8",
 		"react": "github:preact-compat/react#1.0.0",
 		"react-dom": "github:preact-compat/react-dom#1.0.0",

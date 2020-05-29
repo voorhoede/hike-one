@@ -25,6 +25,7 @@
 	width: 100%;
 	height: 100%;
 	padding: 0 @spacing-default*2;
+	overflow: hidden;
 
 	svg {
 		position: absolute;
@@ -38,25 +39,24 @@
 }
 
 .page-header-new__animation-background {
-	height: 100%;
-	left: 0;
-	overflow: hidden;
 	position: absolute;
+	left: 0;
 	width: 100%;
+	height: 100%;
 }
 
 .page-header-new__animation-triangle {
+	position: absolute;
 	bottom: -50%;
 	left: -100%;
-	min-width: 325px;
-	position: absolute;
-	transition: all 0.15s;
 	width: 60vw;
+	min-width: 325px;
+	transition: all 0.15s;
 
 	@media @screen-768 {
 		bottom: -500px;
-		width: 35vw;
 		left: -575px;
+		width: 35vw;
 	}
 }
 

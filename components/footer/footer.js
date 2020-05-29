@@ -55,7 +55,7 @@ class Footer extends Component {
 					<Link href="/">
 						<a className="footer-logo">
 							<Logo color="white" />
-							<h1 className="a11y-sr-only">Hike one</h1>
+							<span className="a11y-sr-only">Hike one</span>
 						</a>
 					</Link>
 

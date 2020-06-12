@@ -20,6 +20,7 @@ import Author from '../../components/author/author';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
+import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import Footer from '../../components/footer/footer';
 
 const Page = ({ update, footer }) => (
@@ -41,7 +42,7 @@ const Page = ({ update, footer }) => (
 				title={update.title}
 				authorName={
 					update.authors.length
-						? update.authors.map((author) => author.name).join(', ')
+						? update.authors.map(author => author.name).join(', ')
 						: update.staticAuthors || 'Hike One'
 				}
 				updatedDate={update.date}
@@ -50,6 +51,11 @@ const Page = ({ update, footer }) => (
 			<main>
 				{update.content.map((component, index) => {
 					switch (component.itemType) {
+						case 'active_campaign_form':
+							return (
+								<ActiveCampaignForm key={index} activeCampaignID={component.activeCampaignID} />
+							);
+
 						case '50_50':
 							return (
 								<FiftyFifty
@@ -273,6 +279,10 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 			}
 
 			content {
+				... on ActiveCampaignFormRecord {
+					itemType: _modelApiKey
+					activeCampaignID
+				}
 				... on BodyQuoteRecord {
 					itemType: _modelApiKey
 					quote

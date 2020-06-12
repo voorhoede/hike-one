@@ -14,8 +14,8 @@ const FiftyFifty = ({
 	video = null,
 }) => {
 	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
+	const parallaxLayerFront = childrenArray.find(child => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find(child => child.props.position === 'back');
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
 	const imageUrl = image && image.url;

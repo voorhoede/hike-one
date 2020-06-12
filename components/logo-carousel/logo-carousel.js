@@ -1,7 +1,7 @@
 // import { Component } from 'react'
 import PropTypes from 'prop-types';
 
-const LogoCarousel = props => {
+const LogoCarousel = (props) => {
 	const { companies, title } = props;
 
 	return (

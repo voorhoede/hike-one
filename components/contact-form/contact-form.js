@@ -31,7 +31,7 @@ class ContactForm extends Component {
 		this.setState({
 			selectedItemId: id,
 			selectedItemLabel: label,
-			currentForm: this.props.form.forms.find(form => form.id === id),
+			currentForm: this.props.form.forms.find((form) => form.id === id),
 		});
 	}
 
@@ -49,7 +49,7 @@ class ContactForm extends Component {
 
 		return currentForm.emailMessageSubject
 			.split(' ')
-			.map(word => {
+			.map((word) => {
 				if (word.indexOf('[') !== -1) {
 					const name = word.substring(1, word.length - 1);
 					return formData[name];
@@ -70,9 +70,9 @@ class ContactForm extends Component {
 		const { currentForm, formData, _gotcha } = this.state;
 		const isSpam = _gotcha.length > 0;
 		const isValid = currentForm.formFields
-			.filter(field => field.required)
-			.map(field => field.name)
-			.map(name => {
+			.filter((field) => field.required)
+			.map((field) => field.name)
+			.map((name) => {
 				return name === 'email'
 					? formData[name]
 						? /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
@@ -83,7 +83,7 @@ class ContactForm extends Component {
 					? formData[name].length >= 2
 					: false;
 			})
-			.every(item => item);
+			.every((item) => item);
 
 		return isValid && !isSpam;
 	}
@@ -103,7 +103,7 @@ class ContactForm extends Component {
 				},
 				body: JSON.stringify(formData),
 			})
-				.then(e => {
+				.then((e) => {
 					switch (e.status) {
 						case 200: {
 							this.clearForm();
@@ -123,7 +123,7 @@ class ContactForm extends Component {
 						}
 					}
 				})
-				.catch(e => console.error(e));
+				.catch((e) => console.error(e));
 		} else {
 			return;
 		}

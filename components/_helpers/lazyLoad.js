@@ -8,7 +8,7 @@ const lazyLoad = (target, options) => {
 	const defaultOptions = { ...defaults, ...options };
 
 	const io = new IntersectionObserver((entries, observer) => {
-		entries.forEach(entry => {
+		entries.forEach((entry) => {
 			const img = entry.target;
 			const src = img.getAttribute('data-lazy-src');
 

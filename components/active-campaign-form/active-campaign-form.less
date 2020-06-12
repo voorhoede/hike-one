@@ -1,0 +1,63 @@
+@import (reference) '../../styles/variables';
+
+#active-campaign-form > ._form {
+	.mailchimp-form;
+	.shadow;
+
+	border-radius: 0 !important;
+	box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 0.2);
+	font-family: @font-main;
+	line-height: initial;
+	text-align: center;
+	width: auto;
+}
+
+#active-campaign-form > ._form ._form_element * {
+	border-radius: 0;
+}
+
+#active-campaign-form > ._form ._form_element ._form-title {
+	.form-title;
+}
+
+#active-campaign-form > ._form ._form_element ._form-image {
+	display: none;
+}
+
+#active-campaign-form > ._form ._form_element p {
+	.form-description;
+}
+
+#active-campaign-form > ._form ._form_element label {
+	.input-field;
+	.label;
+
+	text-align: left;
+
+	@media @screen-768 {
+		display: block;
+	}
+}
+
+#active-campaign-form > ._form ._form_element input {
+	.input-field;
+	.input;
+}
+
+#active-campaign-form > ._form ._form_element textarea {
+	.input-field;
+	.textarea;
+}
+
+#active-campaign-form > ._form ._button-wrapper ._submit {
+	.btn-primary;
+	.submit-btn;
+	.btn-large;
+
+	border-radius: 100px !important;
+	padding: @spacing-default @spacing-default*4 !important;
+
+	@media @screen-768 {
+		padding: 18px @spacing-default*5 !important;
+	}
+}

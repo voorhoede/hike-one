@@ -53,7 +53,7 @@ const Page = ({ update, footer }) => (
 					switch (component.itemType) {
 						case 'active_campaign_form':
 							return (
-								<ActiveCampaignForm key={index} activeCampaignID={component.activeCampaignID} />
+								<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
 							);
 
 						case '50_50':
@@ -281,7 +281,7 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 			content {
 				... on ActiveCampaignFormRecord {
 					itemType: _modelApiKey
-					activeCampaignID
+					activeCampaignId
 				}
 				... on BodyQuoteRecord {
 					itemType: _modelApiKey

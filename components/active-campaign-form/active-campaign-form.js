@@ -9,14 +9,14 @@ class ActiveCampaignForm extends Component {
 	componentDidMount() {
 		const script = document.createElement('script');
 
-		script.src = `https://hike25515.activehosted.com/f/embed.php?id=${this.props.activeCampaignID}`;
+		script.src = `https://hike25515.activehosted.com/f/embed.php?id=${this.props.activeCampaignId}`;
 		script.async = true;
 
 		document.body.appendChild(script);
 	}
 
 	render() {
-		return <div className={`_form_${this.props.activeCampaignID}`} />;
+		return <div id="active-campaign-form" className={`_form_${this.props.activeCampaignId}`} />;
 	}
 }
 

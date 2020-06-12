@@ -5,7 +5,8 @@
 .btn-basis {
 	display: inline-block;
 	padding: @spacing-default @spacing-default*3;
-	transition: background @animation-speed ease, color @animation-speed ease, transform @animation-speed ease;
+	transition: background @animation-speed ease, color @animation-speed ease,
+		transform @animation-speed ease;
 	border-radius: 100px;
 	font-family: @font-main;
 	font-size: @body-text-s;
@@ -63,7 +64,8 @@
 		padding: @spacing-default (@spacing-default*3 + @icon-size) @spacing-default @spacing-default*3;
 
 		@media @screen-768 {
-			padding: @spacing-default (@spacing-default*4 + @icon-size) @spacing-default @spacing-default*4;
+			padding: @spacing-default (@spacing-default*4 + @icon-size) @spacing-default
+				@spacing-default*4;
 		}
 	}
 
@@ -77,7 +79,8 @@
 	}
 
 	&.btn-icon.btn-large {
-		padding: @spacing-default*2 (@spacing-default*4 + @icon-size) @spacing-default*2 @spacing-default*4;
+		padding: @spacing-default*2 (@spacing-default*4 + @icon-size) @spacing-default*2
+			@spacing-default*4;
 
 		@media @screen-768 {
 			padding: 18px (@spacing-default*5 + @icon-size) 18px @spacing-default*5;

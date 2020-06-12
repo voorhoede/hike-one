@@ -21,6 +21,7 @@ import RichBodyText from '../../components/rich-body-text/rich-body-text';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
+import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
@@ -48,6 +49,11 @@ const Page = ({ topic, footer }) => (
 			<main>
 				{topic.content.map((component, index) => {
 					switch (component.itemType) {
+						case 'active_campaign_form':
+							return (
+								<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
+							);
+
 						case 'rich_body_text':
 							return (
 								<RichBodyText
@@ -274,6 +280,10 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 			}
 
 			content {
+				... on ActiveCampaignFormRecord {
+					itemType: _modelApiKey
+					activeCampaignId
+				}
 				... on BodyQuoteRecord {
 					itemType: _modelApiKey
 					quote

@@ -10,11 +10,31 @@ import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import InlineImage from '../components/inline-image/inline-image';
 
-const Custom404 = () => {
-	const [data, setData] = useState({ errorPage: {} });
+const Custom404 = ({ data }) => (
+	<>
+		<Head title="Hike One - Error" />
 
-	useEffect(async () => {
-		const graphqlQuery = `{
+		<MenuBar />
+
+		<article className={`article article-error ${data.image ? 'article-error--has-image' : ''}`}>
+			<TextCenter title={data.title} text={data.description}>
+				<TextCenterShapes.variation3Back position="back" />
+				<TextCenterShapes.variation4Front position="front" />
+			</TextCenter>
+
+			{data.image && (
+				<section className="error-image container">
+					<div className="container-inner">
+						<InlineImage url={data.image.url} width={data.image.width} height={data.image.height} />
+					</div>
+				</section>
+			)}
+		</article>
+	</>
+);
+
+export async function getStaticProps() {
+	const graphqlQuery = `{
 			errorPage(filter: {error: {eq: "404"}}) {
 				title
 				description
@@ -26,39 +46,13 @@ const Custom404 = () => {
 			}
 		}`;
 
-		setData(await fetchContent({ graphqlQuery }));
-	});
+	const data = await fetchContent({ graphqlQuery });
 
-	return (
-		<>
-			<Head title="Hike One - Error" />
-
-			<MenuBar />
-
-			<article
-				className={`article article-error ${
-					data.errorPage.image ? 'article-error--has-image' : ''
-				}`}
-			>
-				<TextCenter title={data.errorPage.title} text={data.errorPage.description}>
-					<TextCenterShapes.variation3Back position="back" />
-					<TextCenterShapes.variation4Front position="front" />
-				</TextCenter>
-
-				{data.errorPage.image && (
-					<section className="error-image container">
-						<div className="container-inner">
-							<InlineImage
-								url={data.errorPage.image.url}
-								width={data.errorPage.image.width}
-								height={data.errorPage.image.height}
-							/>
-						</div>
-					</section>
-				)}
-			</article>
-		</>
-	);
-};
+	return {
+		props: {
+			data: data.errorPage,
+		},
+	};
+}
 
 export default Custom404;

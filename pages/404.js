@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from 'react';
+
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
@@ -8,49 +10,55 @@ import TextCenter from '../components/text-center/text-center';
 import * as TextCenterShapes from '../components/text-center/text-center-shapes';
 import InlineImage from '../components/inline-image/inline-image';
 
-const Error = ({ errorPage }) => (
-	<>
-		<Head title="Hike One - Error" />
+const Error = () => {
+	const [data, setData] = useState({ errorPage: {} });
 
-		<MenuBar />
+	useEffect(async () => {
+		const graphqlQuery = `{
+			errorPage(filter: {error: {eq: "404"}}) {
+				title
+				description
+				image {
+					url
+					width
+					height
+				}
+			}
+		}`;
 
-		<article
-			className={`article article-error ${errorPage.image ? 'article-error--has-image' : ''}`}
-		>
-			<TextCenter title={errorPage.title} text={errorPage.description}>
-				<TextCenterShapes.variation3Back position="back" />
-				<TextCenterShapes.variation4Front position="front" />
-			</TextCenter>
+		setData(await fetchContent({ graphqlQuery }));
+	});
 
-			{errorPage.image && (
-				<section className="error-image container">
-					<div className="container-inner">
-						<InlineImage
-							url={errorPage.image.url}
-							width={errorPage.image.width}
-							height={errorPage.image.height}
-						/>
-					</div>
-				</section>
-			)}
-		</article>
-	</>
-);
+	return (
+		<>
+			<Head title="Hike One - Error" />
 
-Error.getInitialProps = ({ res, req }) => {
-	const graphqlQuery = `{
-	  errorPage(filter: {error: {eq: "${res.statusCode}"}}) {
-	    title
-	    description
-	    image {
-	      url
-	      width
-	      height
-	    }
-	  }
-	}`;
+			<MenuBar />
 
-	return fetchContent({ graphqlQuery, req });
+			<article
+				className={`article article-error ${
+					data.errorPage.image ? 'article-error--has-image' : ''
+				}`}
+			>
+				<TextCenter title={data.errorPage.title} text={data.errorPage.description}>
+					<TextCenterShapes.variation3Back position="back" />
+					<TextCenterShapes.variation4Front position="front" />
+				</TextCenter>
+
+				{data.errorPage.image && (
+					<section className="error-image container">
+						<div className="container-inner">
+							<InlineImage
+								url={data.errorPage.image.url}
+								width={data.errorPage.image.width}
+								height={data.errorPage.image.height}
+							/>
+						</div>
+					</section>
+				)}
+			</article>
+		</>
+	);
 };
 
 export default Error;

@@ -44,9 +44,11 @@ export async function getStaticProps() {
 			}
 		}`;
 
+	const data = await fetchContent({ graphqlQuery });
+
 	return {
 		props: {
-			data: await fetchContent({ graphqlQuery }),
+			data: data.errorPage,
 		},
 	};
 }

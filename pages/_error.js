@@ -37,9 +37,10 @@ const Error = ({ errorPage }) => (
 	</>
 );
 
-Error.getInitialProps = ({ res, req }) => {
+Error.getInitialProps = ({ res, req, err }) => {
+	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
 	const graphqlQuery = `{
-	  errorPage(filter: {error: {eq: "404"}}) {
+	  errorPage(filter: {error: {eq: "${statusCode}"}}) {
 	    title
 	    description
 	    image {

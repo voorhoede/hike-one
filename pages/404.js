@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
@@ -46,11 +44,9 @@ export async function getStaticProps() {
 			}
 		}`;
 
-	const data = await fetchContent({ graphqlQuery });
-
 	return {
 		props: {
-			data: data.errorPage,
+			data: await fetchContent({ graphqlQuery }),
 		},
 	};
 }

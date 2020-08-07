@@ -50,6 +50,10 @@
 			"destination": "/topic/design-sprint"
 		},
 		{
+			"source": "/topic/in-5-dagen-van-schets-naar-getest-prototype-met-des",
+			"destination": "/update/in-4-dagen-een-getest-prototype-met-design-sprints"
+		},
+		{
 			"source": "/pulse",
 			"destination": "https://docs.google.com/spreadsheets/d/1Txqz2Tpkiz9g9Y3-1IoRv3g7b2yK4M9ST_vra6wVFDE/edit?usp=sharing"
 		}

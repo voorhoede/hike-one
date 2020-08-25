@@ -184,11 +184,14 @@ class MenuBar extends Component {
 	}
 
 	render() {
-		const { color } = this.props;
+		const { color, homepage } = this.props;
 		const { contextMenuIsOpen } = this.state;
 
 		return (
-			<header ref={(node) => (this.header = node)} className="menu-bar">
+			<header
+				ref={(node) => (this.header = node)}
+				className={`menu-bar ${homepage ? 'menu-bar--homepage' : ''}`}
+			>
 				<div className="header-logo-wrapper">
 					<Link href="/">
 						<a className="header-logo" onContextMenu={this.toggleContextMenu}>
@@ -337,6 +340,7 @@ class MenuBar extends Component {
 
 MenuBar.propTypes = {
 	color: PropTypes.string,
+	homepage: PropTypes.bool,
 };
 
 export default MenuBar;

@@ -29,7 +29,7 @@ const Page = ({ home, footer }) => (
 			<AppNotification message={home.appNotificationMessage} link={home.appNotificationLink} />
 		)}
 
-		<MenuBar />
+		<MenuBar homepage={true} />
 		<HomepageHeader title={home.header.title} subtitle={home.header.subtitle} />
 
 		<main>

@@ -30,7 +30,7 @@ const Page = ({ home, footer }) => (
 		)}
 
 		<MenuBar />
-		<HomepageHeader title={home.header.title} />
+		<HomepageHeader title={home.header.title} subtitle={home.header.subtitle} />
 
 		<main>
 			<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />

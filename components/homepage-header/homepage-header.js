@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const HomepageHeader = ({ title }) => {
+const HomepageHeader = ({ title, subtitle }) => {
 	return (
 		<header className="homepage-header">
 			<div className="homepage-header__content-wrapper container">
@@ -26,6 +26,9 @@ const HomepageHeader = ({ title }) => {
 	);
 };
 
-HomepageHeader.propTypes = {};
+HomepageHeader.propTypes = {
+	title: PropTypes.string,
+	subtitle: PropTypes.string,
+};
 
 export default HomepageHeader;

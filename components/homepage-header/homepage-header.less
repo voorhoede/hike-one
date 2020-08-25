@@ -2,10 +2,15 @@
 	align-items: center;
 	background-color: @lightest-gray;
 	display: flex;
+	height: auto;
 	justify-content: center;
 	margin-bottom: 8.75rem;
-	padding: 7.5rem 0 3.75rem;
 	min-height: 70vh;
+	padding: 3.75rem 0;
+
+	@media @screen-768 {
+		height: calc(90vh - @header-height);
+	}
 }
 
 .homepage-header__content-wrapper {

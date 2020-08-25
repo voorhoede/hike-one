@@ -30,7 +30,11 @@ const Page = ({ home, footer }) => (
 		)}
 
 		<MenuBar homepage={true} />
-		<HomepageHeader title={home.header.title} subtitle={home.header.subtitle} />
+		<HomepageHeader
+			title={home.header.title}
+			subtitle={home.header.subtitle}
+			cta={{ label: home.header.ctaLabel, url: home.header.ctaUrl }}
+		/>
 
 		<main>
 			<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />
@@ -105,11 +109,8 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 			header {
 				title
 				subtitle
-				displayGradient
-				video
-				backgroundImage {
-					url
-				}
+				ctaLabel
+				ctaUrl
 			}
 
 			servicesItemTitle

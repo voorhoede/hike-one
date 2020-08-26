@@ -1,10 +1,11 @@
 @import (reference) '../../styles/variables.less';
 
 .menu-bar {
-	position: relative;
-	width: 100%;
 	height: 100px;
+	position: fixed;
 	text-align: center;
+	width: 100%;
+	z-index: @layer-menubar;
 
 	.menu-background-final {
 		opacity: 0;
@@ -12,7 +13,7 @@
 }
 
 .menu-bar--homepage {
-	background-color: @lightest-gray;
+	// background-color: @lightest-gray;
 }
 
 .header-logo-wrapper {

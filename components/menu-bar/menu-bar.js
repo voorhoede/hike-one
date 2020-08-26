@@ -184,13 +184,15 @@ class MenuBar extends Component {
 	}
 
 	render() {
-		const { color, homepage } = this.props;
+		const { color, fill } = this.props;
 		const { contextMenuIsOpen } = this.state;
 
 		return (
 			<header
 				ref={(node) => (this.header = node)}
-				className={`menu-bar ${homepage ? 'menu-bar--homepage' : ''}`}
+				className={`menu-bar ${fill ? 'menu-bar--fill' : ''} ${
+					color === 'white' ? 'menu-bar--white' : ''
+				}`}
 			>
 				<div className="header-logo-wrapper">
 					<Link href="/">
@@ -340,7 +342,7 @@ class MenuBar extends Component {
 
 MenuBar.propTypes = {
 	color: PropTypes.string,
-	homepage: PropTypes.bool,
+	fill: PropTypes.bool,
 };
 
 export default MenuBar;

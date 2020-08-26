@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
@@ -13,55 +14,60 @@ import Contact from '../components/contact/contact';
 import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 
-const Page = ({ work, overviewCases, footer }) => (
-	<>
-		<Head
-			title={work.seo.title}
-			description={work.seo.description}
-			image={work.seo.image}
-			twitterCard={work.seo.twitterCard}
-		/>
+const Page = ({ work, overviewCases, footer }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<PageHeaderNew
-				title={work.header.title}
-				animation="basic"
-				animationTriangleColor={work.header.animationTriangleColor}
-				animationBackgroundColor={work.header.animationBackgroundColor}
+	return (
+		<>
+			<Head
+				title={work.seo.title}
+				description={work.seo.description}
+				image={work.seo.image}
+				twitterCard={work.seo.twitterCard}
 			/>
 
-			<main className="page-scrolling-content-small">
-				<LogoCarousel title={work.logoCarousel.title} companies={work.logoCarousel.companies} />
+			<MenuBar color="white" fill={!inView} />
 
-				<WorkOverview>
-					{overviewCases.map((workcase, index) => (
-						<CaseExtractSmall
-							key={index}
-							title={workcase.header.title}
-							subtitle={workcase.header.subtitle}
-							image={workcase.header.backgroundImage}
-							companyName={workcase.companyName}
-							color={workcase.caseThemeColor.hex}
-							slug={workcase.slug}
-						/>
-					))}
-				</WorkOverview>
-			</main>
+			<div className="layout-parallax">
+				<PageHeaderNew
+					ref={ref}
+					title={work.header.title}
+					animation="basic"
+					animationTriangleColor={work.header.animationTriangleColor}
+					animationBackgroundColor={work.header.animationBackgroundColor}
+				/>
 
-			<Contact
-				title={work.contact.title}
-				button={work.contact.button}
-				link={work.contact.externalLink}
-			>
-				<ContactShapes position="front" />
-			</Contact>
-		</div>
+				<main className="page-scrolling-content-small">
+					<LogoCarousel title={work.logoCarousel.title} companies={work.logoCarousel.companies} />
 
-		<Footer form={footer.form} />
-	</>
-);
+					<WorkOverview>
+						{overviewCases.map((workcase, index) => (
+							<CaseExtractSmall
+								key={index}
+								title={workcase.header.title}
+								subtitle={workcase.header.subtitle}
+								image={workcase.header.backgroundImage}
+								companyName={workcase.companyName}
+								color={workcase.caseThemeColor.hex}
+								slug={workcase.slug}
+							/>
+						))}
+					</WorkOverview>
+				</main>
+
+				<Contact
+					title={work.contact.title}
+					button={work.contact.button}
+					link={work.contact.externalLink}
+				>
+					<ContactShapes position="front" />
+				</Contact>
+			</div>
+
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{

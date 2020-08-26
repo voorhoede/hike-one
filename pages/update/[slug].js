@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
@@ -23,212 +24,219 @@ import UpdateExtractSmall from '../../components/update-extract-small/update-ext
 import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import Footer from '../../components/footer/footer';
 
-const Page = ({ update, footer }) => (
-	<>
-		<Head
-			title={update.seo.title}
-			description={update.seo.description}
-			image={update.seo.image}
-			twitterCard={update.seo.twitterCard}
-		/>
+const Page = ({ update, footer }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<FullWidthHeader
-				headerImage={update.headerImage.url}
-				imagePositionCenter={update.imagePositionCenter}
-				color={update.color.hex}
-				title={update.title}
-				authorName={
-					update.authors.length
-						? update.authors.map((author) => author.name).join(', ')
-						: update.staticAuthors || 'Hike One'
-				}
-				updatedDate={update.date}
+	return (
+		<>
+			<Head
+				title={update.seo.title}
+				description={update.seo.description}
+				image={update.seo.image}
+				twitterCard={update.seo.twitterCard}
 			/>
 
-			<main>
-				{update.content.map((component, index) => {
-					switch (component.itemType) {
-						case 'active_campaign_form':
-							return (
-								<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
-							);
+			<MenuBar color="white" fill={!inView} />
 
-						case '50_50':
-							return (
-								<FiftyFifty
-									key={index}
-									classes="fifty-fifty-update"
-									contentLeft={component.textLeft}
-									title={component.title}
-									text={component.text}
-									image={component.image}
-									video={component.video}
-								/>
-							);
-
-						case '50_50_text_right':
-							return (
-								<FiftyFifty
-									key={index}
-									classes="fifty-fifty-update"
-									title={component.title}
-									text={component.text}
-									image={component.image}
-								/>
-							);
-
-						case '50_50_text_left':
-							return (
-								<FiftyFifty
-									key={index}
-									classes="fifty-fifty-update"
-									contentLeft={true}
-									title={component.title}
-									text={component.text}
-									image={component.image}
-								/>
-							);
-
-						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
-
-						case 'call_to_action':
-							return (
-								<CallToAction
-									key={index}
-									title={component.title}
-									buttonText={component.buttonText}
-									url={component.url}
-									bgColor={component.bgColor && component.bgColor.hex}
-									titleWhite={component.titleWhite}
-									fullWidth={component.fullWidth}
-									isExternalLink={component.isExternalLink}
-								/>
-							);
-
-						case 'full_width_image_small':
-							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
-
-						case 'inline_image':
-							return (
-								<InlineMedia key={index} image={component.image} caption={component.caption} />
-							);
-
-						case 'inline_image_large':
-							return (
-								<InlineMedia
-									key={index}
-									large={true}
-									image={component.image}
-									caption={component.caption}
-								/>
-							);
-
-						case 'rich_body_text':
-							return (
-								<RichBodyText
-									key={index}
-									content={component.content}
-									textCenter={component.centered}
-								/>
-							);
-
-						case 'subscription_form':
-							return (
-								<MailchimpForm
-									key={index}
-									title={component.subscriptionForm.title}
-									listId={component.subscriptionForm.listId}
-									description={component.subscriptionForm.description}
-									inputFields={component.subscriptionForm.extraInputFields}
-									buttonLabel={component.subscriptionForm.button}
-									hasShadow={component.subscriptionForm.hasShadow}
-								/>
-							);
-
-						case 'video':
-							return (
-								<InlineMedia
-									key={index}
-									video={component}
-									caption={component.caption}
-									large={component.large}
-								/>
-							);
-
-						case 'contact_form_component':
-							return (
-								<ContactForm
-									key={index}
-									singleForm={true}
-									form={{
-										forms: [component.form],
-										thankYouMessage: component.thankYouMessage,
-										title: component.title,
-									}}
-								/>
-							);
+			<div className="layout-parallax">
+				<FullWidthHeader
+					ref={ref}
+					headerImage={update.headerImage.url}
+					imagePositionCenter={update.imagePositionCenter}
+					color={update.color.hex}
+					title={update.title}
+					authorName={
+						update.authors.length
+							? update.authors.map((author) => author.name).join(', ')
+							: update.staticAuthors || 'Hike One'
 					}
-				})}
-			</main>
+					updatedDate={update.date}
+				/>
 
-			<div className="authors">
-				{update.authors.map((author, index) => {
-					return (
-						<Author
+				<main>
+					{update.content.map((component, index) => {
+						switch (component.itemType) {
+							case 'active_campaign_form':
+								return (
+									<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
+								);
+
+							case '50_50':
+								return (
+									<FiftyFifty
+										key={index}
+										classes="fifty-fifty-update"
+										contentLeft={component.textLeft}
+										title={component.title}
+										text={component.text}
+										image={component.image}
+										video={component.video}
+									/>
+								);
+
+							case '50_50_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										classes="fifty-fifty-update"
+										title={component.title}
+										text={component.text}
+										image={component.image}
+									/>
+								);
+
+							case '50_50_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										classes="fifty-fifty-update"
+										contentLeft={true}
+										title={component.title}
+										text={component.text}
+										image={component.image}
+									/>
+								);
+
+							case 'body_quote':
+								return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
+
+							case 'call_to_action':
+								return (
+									<CallToAction
+										key={index}
+										title={component.title}
+										buttonText={component.buttonText}
+										url={component.url}
+										bgColor={component.bgColor && component.bgColor.hex}
+										titleWhite={component.titleWhite}
+										fullWidth={component.fullWidth}
+										isExternalLink={component.isExternalLink}
+									/>
+								);
+
+							case 'full_width_image_small':
+								return (
+									<FullWidthImageSmall key={index} index={index} image={component.image.url} />
+								);
+
+							case 'inline_image':
+								return (
+									<InlineMedia key={index} image={component.image} caption={component.caption} />
+								);
+
+							case 'inline_image_large':
+								return (
+									<InlineMedia
+										key={index}
+										large={true}
+										image={component.image}
+										caption={component.caption}
+									/>
+								);
+
+							case 'rich_body_text':
+								return (
+									<RichBodyText
+										key={index}
+										content={component.content}
+										textCenter={component.centered}
+									/>
+								);
+
+							case 'subscription_form':
+								return (
+									<MailchimpForm
+										key={index}
+										title={component.subscriptionForm.title}
+										listId={component.subscriptionForm.listId}
+										description={component.subscriptionForm.description}
+										inputFields={component.subscriptionForm.extraInputFields}
+										buttonLabel={component.subscriptionForm.button}
+										hasShadow={component.subscriptionForm.hasShadow}
+									/>
+								);
+
+							case 'video':
+								return (
+									<InlineMedia
+										key={index}
+										video={component}
+										caption={component.caption}
+										large={component.large}
+									/>
+								);
+
+							case 'contact_form_component':
+								return (
+									<ContactForm
+										key={index}
+										singleForm={true}
+										form={{
+											forms: [component.form],
+											thankYouMessage: component.thankYouMessage,
+											title: component.title,
+										}}
+									/>
+								);
+						}
+					})}
+				</main>
+
+				<div className="authors">
+					{update.authors.map((author, index) => {
+						return (
+							<Author
+								key={index}
+								name={author.name}
+								roles={author.roles}
+								photoUrl={author.photo.url}
+								summary={author.summary}
+							/>
+						);
+					})}
+				</div>
+
+				{update.contact && (
+					<Contact
+						title={update.contact.title}
+						button={update.contact.button}
+						link={update.contact.externalLink}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<ContactShapes position="front" />
+					</Contact>
+				)}
+
+				<TextCenter
+					classes="text-center-font-medium text-center-spacing-small"
+					title={update.updateLinksTitle}
+				/>
+
+				<UpdateOverviewSmall>
+					{update.updateLinks.map((item, index) => (
+						<UpdateExtractSmall
 							key={index}
-							name={author.name}
-							roles={author.roles}
-							photoUrl={author.photo.url}
-							summary={author.summary}
+							index={index}
+							authors={item.authors}
+							category={item.category.name}
+							color={item.themeColor.hex}
+							date={item.date}
+							link={item.externalLink}
+							slug={item.slug}
+							image={item.image.url}
+							target={item.externalLink ? true : false}
+							title={item.title}
+							topic={item.topic}
 						/>
-					);
-				})}
+					))}
+				</UpdateOverviewSmall>
 			</div>
 
-			{update.contact && (
-				<Contact
-					title={update.contact.title}
-					button={update.contact.button}
-					link={update.contact.externalLink}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<ContactShapes position="front" />
-				</Contact>
-			)}
-
-			<TextCenter
-				classes="text-center-font-medium text-center-spacing-small"
-				title={update.updateLinksTitle}
-			/>
-
-			<UpdateOverviewSmall>
-				{update.updateLinks.map((item, index) => (
-					<UpdateExtractSmall
-						key={index}
-						index={index}
-						authors={item.authors}
-						category={item.category.name}
-						color={item.themeColor.hex}
-						date={item.date}
-						link={item.externalLink}
-						slug={item.slug}
-						image={item.image.url}
-						target={item.externalLink ? true : false}
-						title={item.title}
-						topic={item.topic}
-					/>
-				))}
-			</UpdateOverviewSmall>
-		</div>
-
-		<Footer form={footer.form} />
-	</>
-);
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 	const graphqlQuery = `{

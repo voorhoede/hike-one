@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../styles/index.less';
 
 import fetch from 'isomorphic-unfetch';
@@ -21,61 +22,65 @@ if (!process.browser) {
 	scrapeJobs = require('../lib/job-scraper/browser');
 }
 
-const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
-	<>
-		<Head
-			title={contactPage.seo.title}
-			description={contactPage.seo.description}
-			image={contactPage.seo.image}
-			twitterCard={contactPage.seo.twitterCard}
-		/>
-
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<PageHeaderNew
-				title={contactPage.header.title}
-				animation="basic"
-				animationTriangleColor={contactPage.header.animationTriangleColor}
-				animationBackgroundColor={contactPage.header.animationBackgroundColor}
+const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	return (
+		<>
+			<Head
+				title={contactPage.seo.title}
+				description={contactPage.seo.description}
+				image={contactPage.seo.image}
+				twitterCard={contactPage.seo.twitterCard}
 			/>
 
-			<main className="contact-page page-scrolling-content-small">
-				<div className="contact-details container">
-					<h2>Contact us at</h2>
-					<a className="contact-details__tel" href="tel:+31-202044577">
-						+31 20 204 45 77
-					</a>
-					<a className="contact-details__mail" href="mailto:hello@hike.one">
-						hello@hike.one
-					</a>
-				</div>
+			<MenuBar color="white" fill={!inView} />
 
-				<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
+			<div className="layout-parallax">
+				<PageHeaderNew
+					ref={ref}
+					title={contactPage.header.title}
+					animation="basic"
+					animationTriangleColor={contactPage.header.animationTriangleColor}
+					animationBackgroundColor={contactPage.header.animationBackgroundColor}
+				/>
 
-				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				<main className="contact-page page-scrolling-content-small">
+					<div className="contact-details container">
+						<h2>Contact us at</h2>
+						<a className="contact-details__tel" href="tel:+31-202044577">
+							+31 20 204 45 77
+						</a>
+						<a className="contact-details__mail" href="mailto:hello@hike.one">
+							hello@hike.one
+						</a>
+					</div>
 
-				<OfficeOverview header={contactPage.officesHeader}>
-					{contactPage.office.map((item, index) => (
-						<OfficeCard
-							key={index}
-							index={index}
-							location={item.location}
-							address={item.address}
-							postcode={item.postcode}
-							city={item.city}
-							country={item.country}
-							locationUrl={item.locationUrl}
-							imageUrl={item.image.url}
-						/>
-					))}
-				</OfficeOverview>
-			</main>
-		</div>
+					<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
 
-		<Footer form={footer.form} disableParallax />
-	</>
-);
+					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+
+					<OfficeOverview header={contactPage.officesHeader}>
+						{contactPage.office.map((item, index) => (
+							<OfficeCard
+								key={index}
+								index={index}
+								location={item.location}
+								address={item.address}
+								postcode={item.postcode}
+								city={item.city}
+								country={item.country}
+								locationUrl={item.locationUrl}
+								imageUrl={item.image.url}
+							/>
+						))}
+					</OfficeOverview>
+				</main>
+			</div>
+
+			<Footer form={footer.form} disableParallax />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{

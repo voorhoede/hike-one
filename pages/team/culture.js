@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
@@ -19,37 +20,42 @@ if (!process.browser) {
 	scrapeJobs = require('../../lib/job-scraper/browser');
 }
 
-const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
-	<>
-		<Head
-			title={team.seo.title}
-			description={team.seo.description}
-			image={team.seo.image}
-			twitterCard={team.seo.twitterCard}
-		/>
+const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<PageHeaderNew
-				title={team.header.title}
-				animation="basic"
-				animationTriangleColor={team.header.animationTriangleColor}
-				animationBackgroundColor={team.header.animationBackgroundColor}
+	return (
+		<>
+			<Head
+				title={team.seo.title}
+				description={team.seo.description}
+				image={team.seo.image}
+				twitterCard={team.seo.twitterCard}
 			/>
 
-			<main className="page-scrolling-content-small">
-				<TeamSelector pathname={pathname} />
+			<MenuBar color="white" fill={!inView} />
 
-				<TeamOverview data={team} />
+			<div className="layout-parallax">
+				<PageHeaderNew
+					ref={ref}
+					title={team.header.title}
+					animation="basic"
+					animationTriangleColor={team.header.animationTriangleColor}
+					animationBackgroundColor={team.header.animationBackgroundColor}
+				/>
 
-				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
-			</main>
-		</div>
+				<main className="page-scrolling-content-small">
+					<TeamSelector pathname={pathname} />
 
-		<Footer form={footer.form} />
-	</>
-);
+					<TeamOverview data={team} />
+
+					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				</main>
+			</div>
+
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 	const graphqlQuery = `{

@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
@@ -25,208 +26,219 @@ import ActiveCampaignForm from '../../components/active-campaign-form/active-cam
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
-const Page = ({ topic, footer }) => (
-	<>
-		<Head
-			title={topic.seo.title}
-			description={topic.seo.description}
-			image={topic.seo.image}
-			twitterCard={topic.seo.twitterCard}
-		/>
+const Page = ({ topic, footer }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<FullWidthHeader
-				headerImage={topic.headerImage.url}
-				headerImageLarger={topic.headerImageLarger}
-				imagePositionCenter={topic.imagePositionCenter}
-				color={topic.color.hex}
-				title={topic.title}
-				titleOnly={true}
+	return (
+		<>
+			<Head
+				title={topic.seo.title}
+				description={topic.seo.description}
+				image={topic.seo.image}
+				twitterCard={topic.seo.twitterCard}
 			/>
 
-			<main>
-				{topic.content.map((component, index) => {
-					switch (component.itemType) {
-						case 'active_campaign_form':
-							return (
-								<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
-							);
+			<MenuBar color="white" fill={!inView} />
 
-						case 'rich_body_text':
-							return (
-								<RichBodyText
-									key={index}
-									content={component.content}
-									textCenter={component.centered}
-								/>
-							);
+			<div className="layout-parallax">
+				<FullWidthHeader
+					ref={ref}
+					headerImage={topic.headerImage.url}
+					headerImageLarger={topic.headerImageLarger}
+					imagePositionCenter={topic.imagePositionCenter}
+					color={topic.color.hex}
+					title={topic.title}
+					titleOnly={true}
+				/>
 
-						case 'body_quote':
-							return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
+				<main>
+					{topic.content.map((component, index) => {
+						switch (component.itemType) {
+							case 'active_campaign_form':
+								return (
+									<ActiveCampaignForm key={index} activeCampaignId={component.activeCampaignId} />
+								);
 
-						case '50_50':
-							return (
-								<FiftyFifty
-									key={index}
-									contentLeft={component.textLeft}
-									title={component.title}
-									text={component.text}
-									image={component.image}
-									video={component.video}
-									googleMapsIframe={component.googleMapsIframe}
-								/>
-							);
-
-						case '50_50_text_right':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									text={component.text}
-									image={component.image}
-								/>
-							);
-
-						case '50_50_text_left':
-							return (
-								<FiftyFifty
-									key={index}
-									contentLeft={true}
-									title={component.title}
-									text={component.text}
-									image={component.image}
-								/>
-							);
-
-						case 'inline_image':
-							return (
-								<InlineMedia key={index} image={component.image} caption={component.caption} />
-							);
-
-						case 'inline_image_large':
-							return (
-								<InlineMedia
-									key={index}
-									large={true}
-									image={component.image}
-									caption={component.caption}
-								/>
-							);
-
-						case 'full_width_image_small':
-							return <FullWidthImageSmall key={index} index={index} image={component.image.url} />;
-
-						case 'logo_carousel':
-							return (
-								<LogoCarousel key={index} title={component.title} companies={component.companies} />
-							);
-
-						case 'call_to_action':
-							return (
-								<CallToAction
-									key={index}
-									title={component.title}
-									buttonText={component.buttonText}
-									url={component.url}
-									bgColor={component.bgColor && component.bgColor.hex}
-									titleWhite={component.titleWhite}
-									fullWidth={component.fullWidth}
-									isExternalLink={component.isExternalLink}
-								/>
-							);
-
-						case 'subscription_form':
-							return (
-								component.subscriptionForm && (
-									<MailchimpForm
+							case 'rich_body_text':
+								return (
+									<RichBodyText
 										key={index}
-										title={component.subscriptionForm.title}
-										listId={component.subscriptionForm.listId}
-										description={component.subscriptionForm.description}
-										inputFields={component.subscriptionForm.extraInputFields}
-										buttonLabel={component.subscriptionForm.button}
-										hasShadow={component.subscriptionForm.hasShadow}
+										content={component.content}
+										textCenter={component.centered}
 									/>
-								)
-							);
+								);
 
-						case 'contact_form_component':
-							return (
-								<ContactForm
-									key={index}
-									singleForm={true}
-									form={{
-										forms: [component.form],
-										thankYouMessage: component.thankYouMessage,
-										title: component.title,
-									}}
-								/>
-							);
-					}
-				})}
-			</main>
+							case 'body_quote':
+								return <BodyQuote key={index} quote={component.quote} quotee={component.quotee} />;
 
-			{topic.contact && (
-				<Contact
-					title={topic.contact.title}
-					button={topic.contact.button}
-					link={topic.contact.externalLink}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<ContactShapes position="front" />
-				</Contact>
-			)}
+							case '50_50':
+								return (
+									<FiftyFifty
+										key={index}
+										contentLeft={component.textLeft}
+										title={component.title}
+										text={component.text}
+										image={component.image}
+										video={component.video}
+										googleMapsIframe={component.googleMapsIframe}
+									/>
+								);
 
-			<TextCenter title={topic.caseLinksTitle} />
+							case '50_50_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										text={component.text}
+										image={component.image}
+									/>
+								);
 
-			{topic.caseLinks.length > 0 && (
-				<WorkOverview>
-					{topic.caseLinks.map((item, index) => (
-						<CaseExtractSmall
-							key={index}
-							title={item.header.title}
-							subtitle={item.header.subtitle}
-							image={item.header.backgroundImage}
-							companyName={item.companyName}
-							color={item.caseThemeColor.hex}
-							slug={item.slug}
-						/>
-					))}
-				</WorkOverview>
-			)}
+							case '50_50_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										contentLeft={true}
+										title={component.title}
+										text={component.text}
+										image={component.image}
+									/>
+								);
 
-			{topic.updateLinks.length > 0 && (
-				<>
-					<TextCenter title={topic.updateLinksTitle} />
+							case 'inline_image':
+								return (
+									<InlineMedia key={index} image={component.image} caption={component.caption} />
+								);
 
-					<UpdateOverviewSmall>
-						{topic.updateLinks.map((item, index) => (
-							<UpdateExtractSmall
+							case 'inline_image_large':
+								return (
+									<InlineMedia
+										key={index}
+										large={true}
+										image={component.image}
+										caption={component.caption}
+									/>
+								);
+
+							case 'full_width_image_small':
+								return (
+									<FullWidthImageSmall key={index} index={index} image={component.image.url} />
+								);
+
+							case 'logo_carousel':
+								return (
+									<LogoCarousel
+										key={index}
+										title={component.title}
+										companies={component.companies}
+									/>
+								);
+
+							case 'call_to_action':
+								return (
+									<CallToAction
+										key={index}
+										title={component.title}
+										buttonText={component.buttonText}
+										url={component.url}
+										bgColor={component.bgColor && component.bgColor.hex}
+										titleWhite={component.titleWhite}
+										fullWidth={component.fullWidth}
+										isExternalLink={component.isExternalLink}
+									/>
+								);
+
+							case 'subscription_form':
+								return (
+									component.subscriptionForm && (
+										<MailchimpForm
+											key={index}
+											title={component.subscriptionForm.title}
+											listId={component.subscriptionForm.listId}
+											description={component.subscriptionForm.description}
+											inputFields={component.subscriptionForm.extraInputFields}
+											buttonLabel={component.subscriptionForm.button}
+											hasShadow={component.subscriptionForm.hasShadow}
+										/>
+									)
+								);
+
+							case 'contact_form_component':
+								return (
+									<ContactForm
+										key={index}
+										singleForm={true}
+										form={{
+											forms: [component.form],
+											thankYouMessage: component.thankYouMessage,
+											title: component.title,
+										}}
+									/>
+								);
+						}
+					})}
+				</main>
+
+				{topic.contact && (
+					<Contact
+						title={topic.contact.title}
+						button={topic.contact.button}
+						link={topic.contact.externalLink}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<ContactShapes position="front" />
+					</Contact>
+				)}
+
+				<TextCenter title={topic.caseLinksTitle} />
+
+				{topic.caseLinks.length > 0 && (
+					<WorkOverview>
+						{topic.caseLinks.map((item, index) => (
+							<CaseExtractSmall
 								key={index}
-								index={index}
-								authors={item.authors}
-								category={item.category.name}
-								color={item.themeColor.hex}
-								date={item.date}
-								link={item.externalLink}
+								title={item.header.title}
+								subtitle={item.header.subtitle}
+								image={item.header.backgroundImage}
+								companyName={item.companyName}
+								color={item.caseThemeColor.hex}
 								slug={item.slug}
-								image={item.image.url}
-								target={item.externalLink ? true : false}
-								title={item.title}
-								topic={item.topic}
 							/>
 						))}
-					</UpdateOverviewSmall>
-				</>
-			)}
-		</div>
+					</WorkOverview>
+				)}
 
-		<Footer form={footer.form} />
-	</>
-);
+				{topic.updateLinks.length > 0 && (
+					<>
+						<TextCenter title={topic.updateLinksTitle} />
+
+						<UpdateOverviewSmall>
+							{topic.updateLinks.map((item, index) => (
+								<UpdateExtractSmall
+									key={index}
+									index={index}
+									authors={item.authors}
+									category={item.category.name}
+									color={item.themeColor.hex}
+									date={item.date}
+									link={item.externalLink}
+									slug={item.slug}
+									image={item.image.url}
+									target={item.externalLink ? true : false}
+									title={item.title}
+									topic={item.topic}
+								/>
+							))}
+						</UpdateOverviewSmall>
+					</>
+				)}
+			</div>
+
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 	const graphqlQuery = `{

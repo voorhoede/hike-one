@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
@@ -29,6 +30,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 		serviceItems,
 	} = servicesOverview;
 	const hasContactCta = Object.entries(contactCta).length && contactCta.constructor === Object;
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
 	return (
 		<>
@@ -39,10 +41,11 @@ const Page = ({ service, servicesOverview, footer }) => {
 				twitterCard={service.seo.twitterCard}
 			/>
 
-			<MenuBar color="white" />
+			<MenuBar color="white" fill={!inView} />
 
 			<div className="services-page layout-parallax">
 				<PageHeaderNew
+					ref={ref}
 					title={header.title}
 					animation="basic"
 					animationTriangleColor={header.animationTriangleColor}

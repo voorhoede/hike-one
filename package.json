@@ -23,6 +23,7 @@
 		"preact-render-to-string": "^5.1.10",
 		"react": "github:preact-compat/react#1.0.0",
 		"react-dom": "github:preact-compat/react-dom#1.0.0",
+		"react-intersection-observer": "^8.27.1",
 		"react-ssr-prepass": "npm:preact-ssr-prepass@^1.0.1",
 		"resize-observer-polyfill": "^1.5.1"
 	},

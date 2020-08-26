@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
@@ -9,37 +10,42 @@ import PageHeaderNew from '../components/page-header-new/page-header-new';
 import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
-const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
-	<>
-		<Head
-			title={updateOverview.seo.title}
-			description={updateOverview.seo.description}
-			image={updateOverview.seo.image}
-			twitterCard={updateOverview.seo.twitterCard}
-		/>
+const Page = ({ updateOverview, allUpdateExtracts, footer }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
-
-		<div className="layout-parallax">
-			<PageHeaderNew
-				title={updateOverview.header.title}
-				animation="basic"
-				animationTriangleColor={updateOverview.header.animationTriangleColor}
-				animationBackgroundColor={updateOverview.header.animationBackgroundColor}
+	return (
+		<>
+			<Head
+				title={updateOverview.seo.title}
+				description={updateOverview.seo.description}
+				image={updateOverview.seo.image}
+				twitterCard={updateOverview.seo.twitterCard}
 			/>
 
-			<main className="page-scrolling-content-small">
-				<UpdateOverview
-					data={updateOverview}
-					updatesData={allUpdateExtracts}
-					queryParam={updateOverview}
-				/>
-			</main>
-		</div>
+			<MenuBar color="white" fill={!inView} />
 
-		<Footer form={footer.form} />
-	</>
-);
+			<div className="layout-parallax">
+				<PageHeaderNew
+					ref={ref}
+					title={updateOverview.header.title}
+					animation="basic"
+					animationTriangleColor={updateOverview.header.animationTriangleColor}
+					animationBackgroundColor={updateOverview.header.animationBackgroundColor}
+				/>
+
+				<main className="page-scrolling-content-small">
+					<UpdateOverview
+						data={updateOverview}
+						updatesData={allUpdateExtracts}
+						queryParam={updateOverview}
+					/>
+				</main>
+			</div>
+
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{

@@ -78,6 +78,7 @@ class PageHeader extends Component {
 			showGradient,
 			isSmall,
 			children,
+			innerRef,
 		} = this.props;
 		const childrenArray = React.Children.toArray(children);
 		let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
@@ -114,48 +115,50 @@ class PageHeader extends Component {
 		};
 
 		return (
-			<section
-				ref={(node) => (this.element = node)}
-				className={`page-header
+			<div ref={innerRef} className={`page-header`}>
+				<section
+					ref={(node) => (this.element = node)}
+					className={`page-header
 					${showGradient ? 'page-header--has-gradient' : ''}
 					${isSmall ? 'page-header--small' : ''}
 					${isHidden ? 'page-header--hidden' : ''}
 					${isFixed ? 'page-header--fixed' : ''}
 					${showVideo ? 'page-header--show-video' : ''}`}
-			>
-				{parallaxLayerBack}
-				{video && (
-					<video
-						ref={(node) => (this.video = node)}
-						src={video}
-						className="page-header-video"
-						playsInline
-						autoPlay
-						muted
-						loop
-					/>
-				)}
+				>
+					{parallaxLayerBack}
+					{video && (
+						<video
+							ref={(node) => (this.video = node)}
+							src={video}
+							className="page-header-video"
+							playsInline
+							autoPlay
+							muted
+							loop
+						/>
+					)}
 
-				<div className="page-header-inner container">
-					<div ref={(node) => (this.parallaxLayer = node)}>
-						<h1 className="page-header-title">{title}</h1>
+					<div className="page-header-inner container">
+						<div ref={(node) => (this.parallaxLayer = node)}>
+							<h1 className="page-header-title">{title}</h1>
 
-						{subtitle && <p className="page-header-subtitle">{subtitle}</p>}
+							{subtitle && <p className="page-header-subtitle">{subtitle}</p>}
 
-						{onClickScrollButton && (
-							<ButtonClean
-								classes="page-header-button"
-								icon="arrowDownCircle"
-								onClick={onClickScrollButton}
-							>
-								<span className="a11y-sr-only">Scroll down</span>
-							</ButtonClean>
-						)}
+							{onClickScrollButton && (
+								<ButtonClean
+									classes="page-header-button"
+									icon="arrowDownCircle"
+									onClick={onClickScrollButton}
+								>
+									<span className="a11y-sr-only">Scroll down</span>
+								</ButtonClean>
+							)}
+						</div>
 					</div>
-				</div>
-				<div dangerouslySetInnerHTML={style} />
-				{parallaxLayerFront}
-			</section>
+					<div dangerouslySetInnerHTML={style} />
+					{parallaxLayerFront}
+				</section>
+			</div>
 		);
 	}
 }
@@ -171,4 +174,4 @@ PageHeader.propTypes = {
 	children: PropTypes.node,
 };
 
-export default PageHeader;
+export default React.forwardRef((props, ref) => <PageHeader innerRef={ref} {...props} />);

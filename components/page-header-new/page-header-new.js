@@ -82,7 +82,13 @@ class PageHeaderNew extends Component {
 	}
 
 	render() {
-		const { animation, animationBackgroundColor, animationTriangleColor, title } = this.props;
+		const {
+			animation,
+			animationBackgroundColor,
+			animationTriangleColor,
+			title,
+			innerRef,
+		} = this.props;
 		const { currentColor } = this.state;
 		const shapesByName = {
 			diamond: ShapesDiamond,
@@ -92,6 +98,7 @@ class PageHeaderNew extends Component {
 
 		return (
 			<section
+				ref={innerRef}
 				className={`page-header-new ${animation === 'basic' ? 'page-header-new--basic' : ''}`}
 				style={{ backgroundColor: currentColor }}
 			>
@@ -158,4 +165,4 @@ PageHeaderNew.propTypes = {
 	title: PropTypes.string,
 };
 
-export default PageHeaderNew;
+export default React.forwardRef((props, ref) => <PageHeaderNew innerRef={ref} {...props} />);

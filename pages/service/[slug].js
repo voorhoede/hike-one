@@ -1,3 +1,4 @@
+import { useInView } from 'react-intersection-observer';
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
@@ -19,99 +20,107 @@ import UpdateLinks from '../../components/update-links/update-links';
 import UpdateLink from '../../components/update-link/update-link';
 import Footer from '../../components/footer/footer';
 
-const Page = ({ service, allServices, footer }) => (
-	<>
-		<Head
-			title={service.seo.title}
-			description={service.seo.description}
-			image={service.seo.image}
-			twitterCard={service.seo.twitterCard}
-		/>
+const Page = ({ service, allServices, footer }) => {
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
 
-		<MenuBar color="white" />
+	return (
+		<>
+			<Head
+				title={service.seo.title}
+				description={service.seo.description}
+				image={service.seo.image}
+				twitterCard={service.seo.twitterCard}
+			/>
 
-		<div className="service-page layout-parallax">
-			<PageHeaderNew title={service.header.title} animation={service.header.animation} />
+			<MenuBar color="white" fill={!inView} />
 
-			<main className="page-scrolling-content-small">
-				<TabSelector selected={service.slug} services={allServices} />
+			<div className="service-page layout-parallax">
+				<PageHeaderNew
+					ref={ref}
+					title={service.header.title}
+					animation={service.header.animation}
+				/>
 
-				<TextCenter title={service.introTitle} text={service.introText} />
+				<main className="page-scrolling-content-small">
+					<TabSelector selected={service.slug} services={allServices} />
 
-				<div className="company-overview container clearfix">
-					{service.companyReference.map((company, index) => (
-						<Company key={index} logo={company.logo.url} name={company.name} />
+					<TextCenter title={service.introTitle} text={service.introText} />
+
+					<div className="company-overview container clearfix">
+						{service.companyReference.map((company, index) => (
+							<Company key={index} logo={company.logo.url} name={company.name} />
+						))}
+					</div>
+
+					{service.content.map((component, index) => {
+						switch (component.itemType) {
+							case '40_60_text_right':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										text={component.text}
+										imageLarge={true}
+										image={component.image}
+									/>
+								);
+
+							case '40_60_text_left':
+								return (
+									<FiftyFifty
+										key={index}
+										title={component.title}
+										contentLeft={true}
+										text={component.text}
+										imageLarge={true}
+										image={component.image}
+									/>
+								);
+						}
+					})}
+				</main>
+
+				<Contact
+					title={service.contact.title}
+					button={service.contact.button}
+					link={service.contact.externalLink}
+				>
+					<ContactShapes position="front" />
+				</Contact>
+
+				<WorkOverview header={service.caseExtractTitle}>
+					{service.caseExtract.map((item, index) => (
+						<CaseExtractSmall
+							key={index}
+							title={item.header.title}
+							subtitle={item.header.subtitle}
+							image={item.header.backgroundImage}
+							companyName={item.companyName}
+							color={item.caseThemeColor.hex}
+							slug={item.slug}
+						/>
 					))}
-				</div>
+				</WorkOverview>
 
-				{service.content.map((component, index) => {
-					switch (component.itemType) {
-						case '40_60_text_right':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									text={component.text}
-									imageLarge={true}
-									image={component.image}
-								/>
-							);
+				<UpdateLinks>
+					{service.updateLinks.map((item, index) => (
+						<UpdateLink
+							key={index}
+							slug={item.slug}
+							href={item.externalLink}
+							title={item.title}
+							authors={item.authors}
+							date={getDateFormat(item.date)}
+							target={Boolean(item.externalLink)}
+						/>
+					))}
+				</UpdateLinks>
+			</div>
 
-						case '40_60_text_left':
-							return (
-								<FiftyFifty
-									key={index}
-									title={component.title}
-									contentLeft={true}
-									text={component.text}
-									imageLarge={true}
-									image={component.image}
-								/>
-							);
-					}
-				})}
-			</main>
-
-			<Contact
-				title={service.contact.title}
-				button={service.contact.button}
-				link={service.contact.externalLink}
-			>
-				<ContactShapes position="front" />
-			</Contact>
-
-			<WorkOverview header={service.caseExtractTitle}>
-				{service.caseExtract.map((item, index) => (
-					<CaseExtractSmall
-						key={index}
-						title={item.header.title}
-						subtitle={item.header.subtitle}
-						image={item.header.backgroundImage}
-						companyName={item.companyName}
-						color={item.caseThemeColor.hex}
-						slug={item.slug}
-					/>
-				))}
-			</WorkOverview>
-
-			<UpdateLinks>
-				{service.updateLinks.map((item, index) => (
-					<UpdateLink
-						key={index}
-						slug={item.slug}
-						href={item.externalLink}
-						title={item.title}
-						authors={item.authors}
-						date={getDateFormat(item.date)}
-						target={Boolean(item.externalLink)}
-					/>
-				))}
-			</UpdateLinks>
-		</div>
-
-		<Footer form={footer.form} />
-	</>
-);
+			<Footer form={footer.form} />
+		</>
+	);
+};
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = `{

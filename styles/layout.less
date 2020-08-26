@@ -69,9 +69,13 @@ body.disable-scroll {
 	background-color: @white;
 	max-width: none;
 	padding-bottom: 1px; // fix  collapsed margin of last child
-	padding-top: @spacing-default*10; // gives header a white background
+	padding-top: @header-height-s;
 	position: relative;
 	z-index: @layer-raised;
+
+	@media @screen-768 {
+		padding-top: @header-height;
+	}
 }
 
 // position content below page header large

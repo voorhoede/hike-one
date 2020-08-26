@@ -3,14 +3,14 @@
 
 .full-width-header {
 	width: 100%;
-	margin: -@header-height auto @spacing-default*4 auto;
+	margin: -@header-height-s auto @spacing-default*4 auto;
 
 	@media @screen-768 {
+		margin-top: -@header-height;
 		margin-bottom: @spacing-default*5;
 	}
 
 	@media @screen-1170 {
-		margin-top: -@header-height;
 		margin-bottom: @spacing-default*10;
 	}
 }

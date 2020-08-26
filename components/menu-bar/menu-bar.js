@@ -16,15 +16,17 @@ import { Power3, TimelineLite } from 'gsap';
 class MenuBar extends Component {
 	constructor(props) {
 		super(props);
-		this.toggleMenu = this.toggleMenu.bind(this);
-		this.toggleContextMenu = this.toggleContextMenu.bind(this);
-		this.setInitialValues = this.setInitialValues.bind(this);
-		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
+		this.handleScroll = this.handleScroll.bind(this);
 		this.onResize = this.onResize.bind(this);
+		this.setAnimationTimeline = this.setAnimationTimeline.bind(this);
+		this.setInitialValues = this.setInitialValues.bind(this);
+		this.toggleContextMenu = this.toggleContextMenu.bind(this);
+		this.toggleMenu = this.toggleMenu.bind(this);
 		this.disableScrollClass = 'disable-scroll';
 		this.state = {
-			menuIsOpen: false,
 			contextMenuIsOpen: false,
+			menuIsOpen: false,
+			scrolling: false,
 		};
 
 		this.resizeObserver = new ResizeObserver(this.onResize);
@@ -34,10 +36,12 @@ class MenuBar extends Component {
 		this.setInitialValues();
 		this.setAnimationTimeline();
 		this.resizeObserver.observe(this.header);
+		window.addEventListener('scroll', this.handleScroll);
 	}
 
 	componentWillUnmount() {
 		this.resizeObserver.disconnect();
+		window.removeEventListener('scroll', this.handleScroll);
 	}
 
 	setInitialValues() {
@@ -183,14 +187,26 @@ class MenuBar extends Component {
 		});
 	}
 
+	handleScroll() {
+		const { scrolling } = this.state;
+
+		if (window.scrollY < 25 && scrolling === true) {
+			this.setState({ scrolling: false });
+		} else if (window.scrollY >= 25 && scrolling !== true) {
+			this.setState({ scrolling: true });
+		}
+	}
+
 	render() {
-		const { color, homepage } = this.props;
-		const { contextMenuIsOpen } = this.state;
+		const { color } = this.props;
+		const { contextMenuIsOpen, scrolling } = this.state;
 
 		return (
 			<header
 				ref={(node) => (this.header = node)}
-				className={`menu-bar ${homepage ? 'menu-bar--homepage' : ''}`}
+				className={`menu-bar ${color === 'white' ? 'menu-bar--white' : ''} ${
+					scrolling ? 'menu-bar--scrolling' : ''
+				}`}
 			>
 				<div className="header-logo-wrapper">
 					<Link href="/">
@@ -340,7 +356,6 @@ class MenuBar extends Component {
 
 MenuBar.propTypes = {
 	color: PropTypes.string,
-	homepage: PropTypes.bool,
 };
 
 export default MenuBar;

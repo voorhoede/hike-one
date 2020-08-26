@@ -144,7 +144,8 @@
 
 	&,
 	svg {
-		transition: color @animation-speed-slow, transform @animation-speed-slow, opacity @animation-speed-slow; // hover/active out
+		transition: color @animation-speed-slow, transform @animation-speed-slow,
+			opacity @animation-speed-slow; // hover/active out
 	}
 
 	&:hover,
@@ -194,7 +195,7 @@
 .menu-background {
 	position: fixed;
 	z-index: 3;
-	top: 13px;
+	top: 17px;
 	right: 18px;
 	height: 50px;
 	transform-origin: 0 0;
@@ -206,19 +207,8 @@
 	}
 
 	@media @screen-768 {
-		top: 30px;
-		right: 49px;
-	}
-
-	@media @screen-1170 {
-		top: 20px;
-		right: 35px;
-		height: 80px;
-	}
-
-	@media @screen-1440 {
-		top: 50px;
-		right: 45px;
+		top: 25px;
+		right: 28px;
 	}
 }
 

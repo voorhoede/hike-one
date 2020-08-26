@@ -66,13 +66,12 @@ body.disable-scroll {
 }
 
 .layout-parallax {
+	background-color: @white;
+	max-width: none;
+	padding-bottom: 1px; // fix  collapsed margin of last child
+	padding-top: @spacing-default*10; // gives header a white background
 	position: relative;
 	z-index: @layer-raised;
-	max-width: none;
-	margin-top: -@spacing-default*10; // gives header a white background
-	padding-top: @spacing-default*10; // gives header a white background
-	padding-bottom: 1px; // fix  collapsed margin of last child
-	background-color: @white;
 }
 
 // position content below page header large

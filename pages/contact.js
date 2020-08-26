@@ -23,7 +23,7 @@ if (!process.browser) {
 }
 
 const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 	return (
 		<>
 			<Head

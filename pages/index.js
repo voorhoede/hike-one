@@ -22,7 +22,7 @@ const Page = ({ home, footer }) => {
 	const [ref, inView, entry] = useInView();
 
 	return (
-		<>
+		<div className="homepage">
 			<Head
 				title={home.seo.title}
 				description={home.seo.description}
@@ -95,7 +95,7 @@ const Page = ({ home, footer }) => {
 			</Contact>
 
 			<Footer form={footer.form} disableParallax />
-		</>
+		</div>
 	);
 };
 

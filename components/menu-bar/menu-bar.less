@@ -20,10 +20,11 @@
 
 .menu-bar--fill {
 	background-color: @white;
+	transition: all 0.15s ease-in-out;
 }
 
-.menu-bar--white.menu-bar--fill {
-	background-color: @black;
+.menu-bar--fill.menu-bar--white .header-logo .logo-body {
+	fill: @black;
 }
 
 .header-logo-wrapper {

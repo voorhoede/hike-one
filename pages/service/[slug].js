@@ -21,7 +21,7 @@ import UpdateLink from '../../components/update-link/update-link';
 import Footer from '../../components/footer/footer';
 
 const Page = ({ service, allServices, footer }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

@@ -21,7 +21,7 @@ if (!process.browser) {
 }
 
 const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPeople }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

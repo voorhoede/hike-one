@@ -11,7 +11,7 @@ import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
 const Page = ({ updateOverview, allUpdateExtracts, footer }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

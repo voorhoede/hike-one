@@ -27,7 +27,7 @@ import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
 const Page = ({ topic, footer }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

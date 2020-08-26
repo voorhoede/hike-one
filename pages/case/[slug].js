@@ -60,7 +60,7 @@ const parallaxLayersMap = {
 let componentCounter = {};
 
 const Page = ({ workcase, footer }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

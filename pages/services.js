@@ -30,7 +30,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 		serviceItems,
 	} = servicesOverview;
 	const hasContactCta = Object.entries(contactCta).length && contactCta.constructor === Object;
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

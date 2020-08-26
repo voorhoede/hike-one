@@ -25,7 +25,7 @@ import ActiveCampaignForm from '../../components/active-campaign-form/active-cam
 import Footer from '../../components/footer/footer';
 
 const Page = ({ update, footer }) => {
-	const [ref, inView, entry] = useInView({ rootMargin: '-70px 0 0 0' });
+	const [ref, inView, entry] = useInView({ rootMargin: '-70px' });
 
 	return (
 		<>

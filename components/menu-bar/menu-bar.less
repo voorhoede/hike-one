@@ -66,6 +66,53 @@
 	}
 }
 
+.menu-bar__contact {
+	position: fixed;
+	z-index: 6;
+	top: 34px;
+	right: 100px;
+}
+
+.menu-bar__contact-link {
+	transition: color @animation-speed-slow;
+	color: @black;
+	font-size: @body-text-small-s;
+	font-weight: 500;
+	line-height: @line-height-body-small-s;
+	text-decoration: none;
+
+	@media @screen-768 {
+		font-size: @body-text-small-m;
+		line-height: @line-height-body-small-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-text-small-l;
+		line-height: @line-height-body-small-l;
+	}
+
+	&:hover {
+		transition: color @animation-speed-fast;
+		color: @red;
+	}
+
+	.menu-bar--white &,
+	.menu-bar--white.menu-bar--scrolling & {
+		&:hover {
+			transition: color @animation-speed-fast;
+			color: @red;
+		}
+	}
+
+	.menu-bar--white & {
+		color: @white;
+	}
+
+	.menu-bar--white.menu-bar--scrolling & {
+		color: @black;
+	}
+}
+
 .menu-btn {
 	position: fixed;
 	z-index: 6;

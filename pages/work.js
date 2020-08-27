@@ -12,6 +12,7 @@ import CaseExtractSmall from '../components/case-extract-small/case-extract-smal
 import Contact from '../components/contact/contact';
 import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
+import TextCenter from '../components/text-center/text-center';
 
 const Page = ({ work, overviewCases, footer }) => (
 	<>
@@ -33,6 +34,9 @@ const Page = ({ work, overviewCases, footer }) => (
 			/>
 
 			<main className="page-scrolling-content-small">
+				{work.introTitle ||
+					(work.introText && <TextCenter title={work.introTitle} text={work.introText} />)}
+
 				<LogoCarousel title={work.logoCarousel.title} companies={work.logoCarousel.companies} />
 
 				<WorkOverview>
@@ -76,20 +80,29 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 					height
 				}
 			}
-
 			header {
 				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
+				animationBackgroundColor {
+					hex
+				}
+				animationTriangleColor {
+					hex
+				}
+				backgroundImage {
+					url
+				}
 				subtitle
 				title
 			}
+			introText
+			introTitle
 			logoCarousel {
 				title
 				companies {
 					name
-					logo { url }
+					logo {
+						url
+					}
 				}
 			}
 			contact {
@@ -98,19 +111,20 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 				externalLink
 			}
 		}
-
-		overviewCases: allCases(filter: { showInOverview: { eq: true } }) {
+		overviewCases: allCases(filter: {showInOverview: {eq: true}}) {
 			slug
 			companyName
-			caseThemeColor { hex }
-
+			caseThemeColor {
+				hex
+			}
 			header {
 				title
 				subtitle
-				backgroundImage { url }
+				backgroundImage {
+					url
+				}
 			}
 		}
-
 		footer {
 			form {
 				title

@@ -79,7 +79,6 @@
 }
 
 .menu-bar__contact-link {
-	transition: color @animation-speed-slow;
 	color: @black;
 	font-size: @body-text-small-s;
 	font-weight: 500;
@@ -97,16 +96,7 @@
 	}
 
 	&:hover {
-		transition: color @animation-speed-fast;
-		color: @red;
-	}
-
-	.menu-bar--white &,
-	.menu-bar--white.menu-bar--scrolling & {
-		&:hover {
-			transition: color @animation-speed-fast;
-			color: @red;
-		}
+		text-decoration: underline;
 	}
 
 	.menu-bar--white & {

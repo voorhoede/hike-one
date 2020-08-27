@@ -189,10 +189,11 @@ class MenuBar extends Component {
 
 	handleScroll() {
 		const { scrolling } = this.state;
+		const scrollingDisabled = document.body.classList.contains(this.disableScrollClass);
 
-		if (window.scrollY < 25 && scrolling === true) {
+		if (window.scrollY < 25 && scrolling === true && !scrollingDisabled) {
 			this.setState({ scrolling: false });
-		} else if (window.scrollY >= 25 && scrolling !== true) {
+		} else if (window.scrollY >= 25 && scrolling !== true && !scrollingDisabled) {
 			this.setState({ scrolling: true });
 		}
 	}

@@ -189,10 +189,11 @@ class MenuBar extends Component {
 
 	handleScroll() {
 		const { scrolling } = this.state;
+		const scrollingDisabled = document.body.classList.contains(this.disableScrollClass);
 
-		if (window.scrollY < 25 && scrolling === true) {
+		if (window.scrollY < 25 && scrolling === true && !scrollingDisabled) {
 			this.setState({ scrolling: false });
-		} else if (window.scrollY >= 25 && scrolling !== true) {
+		} else if (window.scrollY >= 25 && scrolling !== true && !scrollingDisabled) {
 			this.setState({ scrolling: true });
 		}
 	}
@@ -216,6 +217,12 @@ class MenuBar extends Component {
 						</a>
 					</Link>
 					<ContextMenu isOpen={contextMenuIsOpen} />
+				</div>
+
+				<div className="menu-bar__contact">
+					<Link href="/contact">
+						<a className="menu-bar__contact-link">Contact</a>
+					</Link>
 				</div>
 
 				<button type="button" className="menu-btn" onClick={(e) => this.toggleMenu(e)}>

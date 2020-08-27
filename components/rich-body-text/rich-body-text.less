@@ -23,21 +23,133 @@
 		}
 	}
 
-	h2 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p {
 		color: @darker-gray;
-		font-size: @heading-small-s;
-		font-weight: @font-weight-bold;
-		line-height: @line-height-header-small-s;
-
-		@media @screen-768 {
-			font-size: @heading-small-m;
-			line-height: @line-height-header-small-m;
-		}
 
 		@media @screen-1170 {
 			padding-left: 0;
-			font-size: @heading-small-l;
-			line-height: @line-height-header-small-l;
+		}
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: @font-weight-bold;
+	}
+
+	h1 {
+		font-size: 28px;
+		line-height: 35px;
+
+		@media @screen-768 {
+			font-size: 49px;
+			line-height: 55px;
+		}
+
+		@media @screen-1170 {
+			font-size: 50px;
+			line-height: 58px;
+		}
+	}
+
+	h2 {
+		font-size: 25px;
+		line-height: 32px;
+
+		@media @screen-768 {
+			font-size: 41px;
+			line-height: 45px;
+		}
+
+		@media @screen-1170 {
+			font-size: 44px;
+			line-height: 52px;
+		}
+	}
+
+	h3 {
+		font-size: 21px;
+		line-height: 25px;
+
+		@media @screen-768 {
+			font-size: 27px;
+			line-height: 32px;
+		}
+
+		@media @screen-1170 {
+			font-size: 32px;
+			line-height: 40px;
+		}
+	}
+
+	h4 {
+		font-size: 19px;
+		line-height: 28px;
+
+		@media @screen-768 {
+			font-size: 22px;
+			line-height: 30px;
+		}
+
+		@media @screen-1170 {
+			font-size: 24px;
+			line-height: 32px;
+		}
+	}
+
+	h5 {
+		font-size: 16px;
+		line-height: 24px;
+
+		@media @screen-768 {
+			font-size: 18px;
+			line-height: 27px;
+		}
+
+		@media @screen-1170 {
+			font-size: 20px;
+			line-height: 28px;
+		}
+	}
+
+	h6 {
+		font-size: 14px;
+		line-height: 22px;
+
+		@media @screen-768 {
+			font-size: 15px;
+			line-height: 24px;
+		}
+
+		@media @screen-1170 {
+			font-size: 16px;
+			line-height: 24px;
+		}
+	}
+
+	p {
+		font-size: 16px;
+		font-weight: @font-weight-normal;
+		line-height: 24px;
+		text-align: left;
+
+		@media @screen-768 {
+			font-size: 18px;
+			line-height: 27px;
+		}
+
+		@media @screen-1170 {
+			font-size: 20px;
+			line-height: 28px;
 		}
 	}
 
@@ -80,25 +192,6 @@
 			&::before {
 				top: 0;
 			}
-		}
-	}
-
-	p {
-		color: @darker-gray;
-		font-size: @body-text-s;
-		font-weight: @font-weight-normal;
-		line-height: @line-height-body-s;
-		text-align: left;
-
-		@media @screen-768 {
-			font-size: @body-text-m;
-			line-height: @line-height-body-m;
-		}
-
-		@media @screen-1170 {
-			padding-left: 0;
-			font-size: @body-text-l;
-			line-height: @line-height-body-l;
 		}
 	}
 }

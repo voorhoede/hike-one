@@ -117,11 +117,10 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req })
-		.then((content) => ({
-			...content,
-			query,
-		}));
+	return fetchContent({ graphqlQuery, req }).then((content) => ({
+		...content,
+		query,
+	}));
 });
 
 export default Page;

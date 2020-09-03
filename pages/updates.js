@@ -9,7 +9,7 @@ import PageHeaderNew from '../components/page-header-new/page-header-new';
 import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
-const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
+const Page = ({ updateOverview, allUpdateExtracts, footer, query }) => (
 	<>
 		<Head
 			title={updateOverview.seo.title}
@@ -32,7 +32,7 @@ const Page = ({ updateOverview, allUpdateExtracts, footer }) => (
 				<UpdateOverview
 					data={updateOverview}
 					updatesData={allUpdateExtracts}
-					queryParam={updateOverview}
+					queryParam={query.filter}
 				/>
 			</main>
 		</div>
@@ -117,7 +117,11 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return fetchContent({ graphqlQuery, req })
+		.then((content) => ({
+			...content,
+			query,
+		}));
 });
 
 export default Page;

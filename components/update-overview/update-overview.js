@@ -15,13 +15,14 @@ class UpdateOverview extends Component {
 		this.incrementPageOffset = this.incrementPageOffset.bind(this);
 		this.isHighlightedUpdate = this.isHighlightedUpdate.bind(this);
 		this.hasSelectedTopic = this.hasSelectedTopic.bind(this);
+		this.setQueryParams = this.setQueryParams.bind(this);
 		this.state = {
-			activeFilter: 'All',
+			activeFilter: props.queryParam,
 			filters: this.getFilters(props.updatesData),
 			pageOffset: 1,
 			pageSize: 6,
 			loading: false,
-			filteredUpdates: this.filterUpdates(props.updatesData, 'All'),
+			filteredUpdates: this.filterUpdates(props.updatesData, props.queryParam),
 		};
 	}
 
@@ -32,6 +33,7 @@ class UpdateOverview extends Component {
 
 	incrementPageOffset() {
 		const { pageOffset } = this.state;
+
 		this.setState({
 			pageOffset: pageOffset + 1,
 			loading: false,
@@ -42,11 +44,16 @@ class UpdateOverview extends Component {
 		const { updatesData } = this.props;
 		const filteredUpdates = this.filterUpdates(updatesData, value);
 
+		this.setQueryParams(value);
 		this.setState({
 			activeFilter: value,
 			filteredUpdates: filteredUpdates,
 			pageOffset: 1,
 		});
+	}
+
+	setQueryParams(filter) {
+		window.history.replaceState(null, null, encodeURI(`/updates?filter=${filter}`));
 	}
 
 	getFilters(updates) {
@@ -128,9 +135,14 @@ class UpdateOverview extends Component {
 	}
 }
 
+UpdateOverview.defaultProps = {
+	queryParam: 'All',
+};
+
 UpdateOverview.propTypes = {
 	data: PropTypes.object,
 	updatesData: PropTypes.array,
+	queryParam: PropTypes.string,
 };
 
 export default UpdateOverview;

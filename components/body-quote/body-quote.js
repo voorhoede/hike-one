@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const BodyQuote = ({ quote = '', quotee = '' }) => (
 	<blockquote className="body-quote">
-		&quot;{quote}&quot;
+		&quot;{quote.trim()}&quot;
 		<cite className="body-quote-quotee">{quotee}</cite>
 	</blockquote>
 );

@@ -52,10 +52,14 @@
 .form-description {
 	display: block;
 	margin-bottom: @spacing-default*3;
-	font-size: @body-text-s;
+	font-size: @body-large-s;
 
 	@media @screen-768 {
-		font-size: @subtitle-large-s;
+		font-size: @body-large-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-large-l;
 	}
 }
 

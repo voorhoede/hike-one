@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export default ({ title, description, image = null, twitterCard = null, children }) => (
+const AppHead = ({ title, description, image = null, twitterCard = null, children }) => (
 	<Head>
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -13,12 +14,18 @@ export default ({ title, description, image = null, twitterCard = null, children
 		<meta property="og:type" content="website" />
 		<meta
 			property="og:image"
-			content={image ? image.url : '/static/images/hikeone-default-social.jpg'}
+			content={image ? `${image.url}?w=1000&h=500` : '/static/images/hikeone-default-social.jpg'}
 		/>
-		{image && <meta property="og:image:width" content={image.width} />}
-		{image && <meta property="og:image:height" content={image.height} />}
-		<meta name="twitter:site" content="@hikeone" />
+		<meta property="og:image:width" content="1000" />
+		<meta property="og:image:height" content="500" />
 		{twitterCard && <meta name="twitter:card" content={twitterCard} />}
+		<meta name="twitter:creator" content="@hikeone" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image"
+			content={image ? `${image.url}?w=1000&h=500` : '/static/images/hikeone-default-social.jpg'}
+		/>
 
 		<meta name="msapplication-config" content="/static/browserconfig.xml" />
 		<meta name="msapplication-TileColor" content="#ffffff" />
@@ -94,3 +101,13 @@ export default ({ title, description, image = null, twitterCard = null, children
 		{children}
 	</Head>
 );
+
+AppHead.propTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
+	image: PropTypes.object,
+	twitterCard: PropTypes.string,
+	children: PropTypes.node,
+};
+
+export default AppHead;

@@ -14,10 +14,10 @@ const AppHead = ({ title, description, image = null, twitterCard = null, childre
 		<meta property="og:type" content="website" />
 		<meta
 			property="og:image"
-			content={image ? image.url : '/static/images/hikeone-default-social.jpg'}
+			content={image ? `${image.url}?w=1000&h=500` : '/static/images/hikeone-default-social.jpg'}
 		/>
-		{image && <meta property="og:image:width" content={image.width} />}
-		{image && <meta property="og:image:height" content={image.height} />}
+		<meta property="og:image:width" content="1000" />
+		<meta property="og:image:height" content="500" />
 		{twitterCard && <meta name="twitter:card" content={twitterCard} />}
 		<meta name="twitter:creator" content="@hikeone" />
 		<meta name="twitter:title" content={title} />

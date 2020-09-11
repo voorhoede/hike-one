@@ -1,7 +1,7 @@
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
-
+import withCacheControl from '../lib/with-cache-control';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeaderNew from '../components/page-header-new/page-header-new';
@@ -40,7 +40,7 @@ const Page = ({ updateOverview, allUpdateExtracts, extraUpdateExtracts, footer, 
 	</>
 );
 
-export async function getServerSideProps({ query, req, res }) {
+export const getServerSideProps = withCacheControl(async ({ query, req }) => {
 	const graphqlQuery = `{
 		updateOverview {
 			seo {
@@ -136,11 +136,7 @@ export async function getServerSideProps({ query, req, res }) {
 		query,
 	}));
 
-	if (res) {
-		res.setHeader('Cache-Control', 's-maxage=60, stale-while-revalidate');
-	}
-
 	return { props: data };
-}
+});
 
 export default Page;

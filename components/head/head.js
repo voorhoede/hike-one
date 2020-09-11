@@ -17,8 +17,14 @@ export default ({ title, description, image = null, twitterCard = null, children
 		/>
 		{image && <meta property="og:image:width" content={image.width} />}
 		{image && <meta property="og:image:height" content={image.height} />}
-		<meta name="twitter:site" content="@hikeone" />
 		{twitterCard && <meta name="twitter:card" content={twitterCard} />}
+		<meta name="twitter:creator" content="@hikeone" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image"
+			content={image ? image.url : '/static/images/hikeone-default-social.jpg'}
+		/>
 
 		<meta name="msapplication-config" content="/static/browserconfig.xml" />
 		<meta name="msapplication-TileColor" content="#ffffff" />

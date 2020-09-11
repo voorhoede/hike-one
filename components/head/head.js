@@ -24,7 +24,7 @@ const AppHead = ({ title, description, image = null, twitterCard = null, childre
 		<meta name="twitter:description" content={description} />
 		<meta
 			name="twitter:image"
-			content={image ? image.url : '/static/images/hikeone-default-social.jpg'}
+			content={image ? `${image.url}?w=1000&h=500` : '/static/images/hikeone-default-social.jpg'}
 		/>
 
 		<meta name="msapplication-config" content="/static/browserconfig.xml" />

@@ -2,14 +2,13 @@ import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
-
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeaderNew from '../components/page-header-new/page-header-new';
 import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
-const Page = ({ updateOverview, allUpdateExtracts, footer, query }) => (
+const Page = ({ updateOverview, allUpdateExtracts, extraUpdateExtracts, footer, query }) => (
 	<>
 		<Head
 			title={updateOverview.seo.title}
@@ -31,7 +30,7 @@ const Page = ({ updateOverview, allUpdateExtracts, footer, query }) => (
 			<main className="page-scrolling-content-small">
 				<UpdateOverview
 					data={updateOverview}
-					updatesData={allUpdateExtracts}
+					updatesData={[...allUpdateExtracts, ...extraUpdateExtracts]}
 					queryParam={query.filter}
 				/>
 			</main>
@@ -41,7 +40,7 @@ const Page = ({ updateOverview, allUpdateExtracts, footer, query }) => (
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
+export const getServerSideProps = withCacheControl(async ({ query, req }) => {
 	const graphqlQuery = `{
 		updateOverview {
 			seo {
@@ -86,7 +85,22 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 			}
 		}
 
-		allUpdateExtracts(first: 99, orderBy: date_DESC) {
+		allUpdateExtracts(first: 100, orderBy: date_DESC) {
+			id
+			slug
+			topic
+			title
+			createdAt
+			date
+			externalLink
+			authors { name }
+			staticAuthors
+			category { name }
+			image { url }
+			themeColor { hex }
+		}
+
+		extraUpdateExtracts: allUpdateExtracts(first: 100, skip: 100, orderBy: date_DESC) {
 			id
 			slug
 			topic
@@ -117,10 +131,12 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req }).then((content) => ({
+	const data = await fetchContent({ graphqlQuery, req }).then((content) => ({
 		...content,
 		query,
 	}));
+
+	return { props: data };
 });
 
 export default Page;

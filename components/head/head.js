@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-export default ({ title, description, image = null, twitterCard = null, children }) => (
+const AppHead = ({ title, description, image = null, twitterCard = null, children }) => (
 	<Head>
 		<title>{title}</title>
 		<meta name="description" content={description} />
@@ -100,3 +101,13 @@ export default ({ title, description, image = null, twitterCard = null, children
 		{children}
 	</Head>
 );
+
+AppHead.propTypes = {
+	title: PropTypes.string,
+	description: PropTypes.string,
+	image: PropTypes.object,
+	twitterCard: PropTypes.string,
+	children: PropTypes.node,
+};
+
+export default AppHead;

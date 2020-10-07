@@ -162,7 +162,7 @@ class FullWidthImage extends Component {
 
 	render() {
 		const { image = '', index = 0, title = '', subtitle = '', overlay = false } = this.props;
-		const imageParams = { fit: 'crop' };
+		const imageParams = { fit: 'max' };
 		const style = {
 			__html: `<style>
 				@media (max-width: 767px) {

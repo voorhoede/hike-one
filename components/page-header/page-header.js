@@ -83,7 +83,7 @@ class PageHeader extends Component {
 		let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
 		let parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
 
-		const imageParameters = { fit: 'max', fm: 'pjpg', q: 85 };
+		const imageParameters = { fit: 'max' };
 		const style = {
 			__html: `<style>
 				.page-header {

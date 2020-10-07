@@ -27,7 +27,7 @@ class InlineImage extends Component {
 	render() {
 		const { url = '' } = this.props;
 		const imageRatio = this.ratio();
-		const imageParams = { fit: 'max', fm: 'pjpg', q: 85 };
+		const imageParams = { fit: 'max' };
 
 		return (
 			<div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>

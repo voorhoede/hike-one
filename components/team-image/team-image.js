@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
-const imageParams = { fit: 'crop', fm: 'pjpg', q: 85 };
+const imageParams = { fit: 'crop' };
 
 const TeamImage = ({ image = '', title = '' }) => (
 	<div className="image-team team-image">

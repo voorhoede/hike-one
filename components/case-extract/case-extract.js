@@ -15,11 +15,11 @@ const CaseExtract = ({
 	const style = {
 		__html: `<style>
 			.case-extract-image-container {
-				background-image: url('${setImageParameters(headerImage, { w: 600, q: 85, fm: 'pjpg' })}')
+				background-image: url('${setImageParameters(headerImage, { w: 600 })}')
 			}
 			@media (min-width: 768px) {
 				.case-extract-image-container {
-					background-image: url('${setImageParameters(headerImage, { w: 1200, q: 85, fm: 'pjpg' })}')
+					background-image: url('${setImageParameters(headerImage, { w: 1200 })}')
 				}
 			}
 		</style>`,

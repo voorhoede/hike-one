@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
-const imageParams = { fit: 'max', fm: 'png', q: 85 };
+const imageParams = { fit: 'max', fm: 'png' };
 
 const LogoList = ({ companies = [] }) => (
 	<ul className="logo-list list-no-style container">

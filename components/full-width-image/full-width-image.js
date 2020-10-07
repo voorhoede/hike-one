@@ -161,31 +161,48 @@ class FullWidthImage extends Component {
 	}
 
 	render() {
-		const { image, index, title, subtitle, overlay, staticImg } = this.props;
-		const imageParams = { fit: 'max', fm: 'pjpg', q: 85 };
-		const heroImageMedium = staticImg
-			? image
-			: `${setImageParams(image, { ...imageParams, w: 1170 })}`;
-		const heroImageLarge = staticImg
-			? image
-			: `${setImageParams(image, { ...imageParams, w: 1600 })}`;
-		const heroImageExtraLarge = staticImg
-			? image
-			: `${setImageParams(image, { ...imageParams, w: 1920 })}`;
-
+		const { image = '', index = 0, title = '', subtitle = '', overlay = false } = this.props;
+		const imageParams = { fit: 'crop' };
 		const style = {
 			__html: `<style>
-				.full-width-image-background-${index} {
-					background-image: url('${heroImageMedium}')
+				@media (max-width: 767px) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 768, h: 600 })}')
+					}
+				}
+				@media (max-width: 767px) and (min-resolution: 192dpi) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 768, h: 600, dpr: 2 })}')
+					}
 				}
 				@media (min-width: 768px) {
 					.full-width-image-background-${index} {
-						background-image: url('${heroImageLarge}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1170, h: 700 })}')
+					}
+				}
+				@media (min-width: 768px) and (min-resolution: 192dpi) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1170, h: 700, dpr: 2 })}')
 					}
 				}
 				@media (min-width: 1170px) {
 					.full-width-image-background-${index} {
-						background-image: url('${heroImageExtraLarge}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1440, h: 800 })}')
+					}
+				}
+				@media (min-width: 1170px) and (min-resolution: 192dpi) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1440, h: 800, dpr: 2 })}')
+					}
+				}
+				@media (min-width: 1440px) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800 })}')
+					}
+				}
+				@media (min-width: 1440px) and (min-resolution: 192dpi) {
+					.full-width-image-background-${index} {
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800, dpr: 2 })}')
 					}
 				}
 			</style>`,
@@ -222,7 +239,6 @@ FullWidthImage.propTypes = {
 	title: PropTypes.string,
 	subtitle: PropTypes.string,
 	overlay: PropTypes.bool,
-	staticImg: PropTypes.bool,
 };
 
 export default FullWidthImage;

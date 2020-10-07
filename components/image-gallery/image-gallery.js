@@ -30,7 +30,7 @@ class ImageGallery extends Component {
 						className={`image-gallery-img ${imageIndex === index ? 'is-active' : ''}`}
 					>
 						{imageIndex === index && (
-							<FullWidthImage index={index} image={item.url} overlay={true} staticImg={true} />
+							<FullWidthImage index={index} image={item.url} overlay={true} />
 						)}
 					</div>
 				))}

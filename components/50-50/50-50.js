@@ -44,20 +44,20 @@ const FiftyFifty = ({
 						<img
 							className="content"
 							srcSet={`
-								${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
-								${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
-								${setImageParams(imageUrl, { fit: 'max', w: 630 })} 630w,
-								${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1000 })} 1000w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1260 })} 1260w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1400 })} 1400w
+								${setImageParams(imageUrl, { fit: 'max', w: 469 })} 469w,
+								${setImageParams(imageUrl, { fit: 'max', w: 469, dpr: 2 })} 938w,
+								${setImageParams(imageUrl, { fit: 'max', w: 595 })} 595w,
+								${setImageParams(imageUrl, { fit: 'max', w: 595, dpr: 2 })} 1190w,
+								${setImageParams(imageUrl, { fit: 'max', w: 727 })} 727w,
+								${setImageParams(imageUrl, { fit: 'max', w: 727, dpr: 2 })} 1454w
 							`}
 							sizes="
-								(max-width: 768px) calc(100vw - 30px),
-								(max-width: 1024px) calc(50vw - 50px),
-								(max-width: 1244px) calc(50vw - 30px),
-								630px"
-							src={`${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,`}
+								(max-width: 499px) calc(100vw - 30px),
+								(max-width: 767px) calc(100vw - 40px),
+								(min-width: 768px) calc(50vw - 20px),
+								(min-width: 1024px) 50vw,
+								595px"
+							src={`${setImageParams(imageUrl, { fit: 'max', w: 727 })}`}
 							alt=""
 						/>
 					)}
@@ -66,20 +66,20 @@ const FiftyFifty = ({
 						<img
 							className="content"
 							srcSet={`
-								${setImageParams(imageUrl, { fit: 'max', w: 250 })} 250w,
-								${setImageParams(imageUrl, { fit: 'max', w: 500 })} 500w,
-								${setImageParams(imageUrl, { fit: 'max', w: 715 })} 715w,
-								${setImageParams(imageUrl, { fit: 'max', w: 750 })} 750w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1000 })} 1000w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1200 })} 1200w,
-								${setImageParams(imageUrl, { fit: 'max', w: 1430 })} 1430w
+								${setImageParams(imageUrl, { fit: 'max', w: 469 })} 469w,
+								${setImageParams(imageUrl, { fit: 'max', w: 469, dpr: 2 })} 938w,
+								${setImageParams(imageUrl, { fit: 'max', w: 595 })} 595w,
+								${setImageParams(imageUrl, { fit: 'max', w: 595, dpr: 2 })} 1190w,
+								${setImageParams(imageUrl, { fit: 'max', w: 727 })} 727w,
+								${setImageParams(imageUrl, { fit: 'max', w: 727, dpr: 2 })} 1454w
 							`}
 							sizes="
-								(max-width: 768px) calc(100vw - 30px),
-								(max-width: 1024px) calc(60vw - 50px),
-								(max-width: 1244px) calc(60vw - 30px),
-								715px"
-							src={`${setImageParams(imageUrl, { fit: 'max', w: 750 })}`}
+								(max-width: 499px) calc(100vw - 30px),
+								(max-width: 767px) calc(100vw - 40px),
+								(min-width: 768px) calc(50vw - 20px),
+								(min-width: 1024px) 50vw,
+								714px"
+							src={`${setImageParams(imageUrl, { fit: 'max', w: 727 })}`}
 							alt=""
 						/>
 					)}

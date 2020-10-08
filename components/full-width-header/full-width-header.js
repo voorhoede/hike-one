@@ -11,12 +11,9 @@ const FullWidthHeader = ({
 	authorName = '',
 	updatedDate = '',
 	titleOnly = false,
-	headerImageLarger = false,
 	imagePositionCenter = false,
 }) => {
-	const headerImageClass = `${headerImageLarger ? 'image-large' : ''} ${
-		imagePositionCenter ? 'position-center' : ''
-	}`;
+	const headerImageClass = `${imagePositionCenter ? 'position-center' : ''}`;
 	const style = {
 		__html: `<style>
 			.full-width-header-image {
@@ -71,7 +68,6 @@ FullWidthHeader.propTypes = {
 	authorName: PropTypes.string,
 	updatedDate: PropTypes.string,
 	titleOnly: PropTypes.bool,
-	headerImageLarger: PropTypes.bool,
 	imagePositionCenter: PropTypes.bool,
 };
 

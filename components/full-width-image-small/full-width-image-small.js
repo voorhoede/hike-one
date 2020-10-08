@@ -62,13 +62,13 @@ const FullWidthImageSmall = ({ image = '', index = 0 }) => {
 			}
 			@media (min-width: 1920px) {
 				.full-width-image-small-${index} {
-					background-image: url('${setImageParams(image, { ...imageParams, w: 2500 })}')
+					background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 610 })}')
 				}
 			}
 			@media (min-width: 1920px) and (-webkit-min-device-pixel-ratio: 2),
 			@media (min-width: 1920px) and (min-resolution: 192dpi) {
 				.full-width-image-small-${index} {
-					background-image: url('${setImageParams(image, { ...imageParams, w: 2500, dpr: 2 })}')
+					background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 610, dpr: 2 })}')
 				}
 			}
 		</style>`,

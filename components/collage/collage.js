@@ -14,13 +14,13 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 			<img
 				className={classes}
 				srcSet={`
-					${setImageParams(imageSmall, { ...imageParameters, w: 250 })}  250w,
-					${setImageParams(imageSmall, { ...imageParameters, w: 580 })} 580w,
-					${setImageParams(imageSmall, { ...imageParameters, w: 750 })} 750w,
-					${setImageParams(imageSmall, { ...imageParameters, w: 1160 })} 1160w
+					${setImageParams(imageSmall, { ...imageParameters, w: 510 })}  510w,
+					${setImageParams(imageSmall, { ...imageParameters, w: 510, dpr: 2 })} 1020w
 				`}
-				sizes="(max-width: 1480px) 50vw, 580px"
-				src={imageSmall}
+				sizes="
+					(max-width: 1023px) 50vw,
+					(min-width: 1024px) 510px"
+				src={`${setImageParams(imageSmall, { ...imageParameters, w: 580 })}`}
 				alt=""
 			/>
 		);
@@ -34,18 +34,22 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 					<img
 						className="collage-image-medium"
 						srcSet={`
-							${setImageParams(imageMedium, { ...imageParameters, w: 250 })} 250w,
-							${setImageParams(imageMedium, { ...imageParameters, w: 500 })} 500w,
-							${setImageParams(imageMedium, { ...imageParameters, w: 740 })} 740w,
-							${setImageParams(imageMedium, { ...imageParameters, w: 1000 })} 1000w,
-							${setImageParams(imageMedium, { ...imageParameters, w: 1260 })} 1260w,
-							${setImageParams(imageMedium, { ...imageParameters, w: 1480 })} 1480w
+							${setImageParams(imageMedium, { ...imageParameters, w: 469 })} 469w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 469, dpr: 2 })} 938w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 551 })} 551w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 551, dpr: 2 })} 1102w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 698 })} 698w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 698, dpr: 2 })} 1396w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 718 })} 718w,
+							${setImageParams(imageMedium, { ...imageParameters, w: 718, dpr: 2 })} 1436w
 						`}
 						sizes="
-							(max-width: 768px) calc(100vw - 30px),
-							(max-width: 1480px) 50vw,
-							740px"
-						src={imageMedium}
+							(max-width: 499px) calc(100vw - 30px),
+							(max-width: 767px) 698px,
+							(max-width: 1023px) 50vw,
+							(max-width: 1439px) 50vw,
+							718px"
+						src={`${setImageParams(imageMedium, { ...imageParameters, w: 740 })}`}
 						alt=""
 					/>
 

@@ -170,6 +170,7 @@ class FullWidthImage extends Component {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 768, h: 600 })}')
 					}
 				}
+				@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (max-width: 767px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 768, h: 600, dpr: 2 })}')
@@ -180,6 +181,7 @@ class FullWidthImage extends Component {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1170, h: 700 })}')
 					}
 				}
+				@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 768px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1170, h: 700, dpr: 2 })}')
@@ -190,6 +192,7 @@ class FullWidthImage extends Component {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1440, h: 800 })}')
 					}
 				}
+				@media (min-width: 1170px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 1170px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1440, h: 800, dpr: 2 })}')
@@ -200,6 +203,7 @@ class FullWidthImage extends Component {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800 })}')
 					}
 				}
+				@media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 1440px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800, dpr: 2 })}')
@@ -210,6 +214,7 @@ class FullWidthImage extends Component {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 2500 })}')
 					}
 				}
+				@media (min-width: 1920px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 1920px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
 						background-image: url('${setImageParams(image, { ...imageParams, w: 2500, dpr: 2 })}')

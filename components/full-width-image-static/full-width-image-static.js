@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
 const FullWidthImageStatic = ({ image = '', title = '', subtitle = '', index = 0 }) => {
-	const imageParams = { fit: 'max' };
+	const imageParams = { fit: 'crop' };
 	const style = {
 		__html: `<style>
 			@media (max-width: 767px) {

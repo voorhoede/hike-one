@@ -162,7 +162,7 @@ class FullWidthImage extends Component {
 
 	render() {
 		const { image = '', index = 0, title = '', subtitle = '', overlay = false } = this.props;
-		const imageParams = { fit: 'max' };
+		const imageParams = { fit: 'crop' };
 		const style = {
 			__html: `<style>
 				@media (max-width: 767px) {
@@ -211,13 +211,13 @@ class FullWidthImage extends Component {
 				}
 				@media (min-width: 1920px) {
 					.full-width-image-background-${index} {
-						background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 800 })}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 1200 })}')
 					}
 				}
 				@media (min-width: 1920px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 1920px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
-						background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 800, dpr: 2 })}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 2500, h: 1200, dpr: 2 })}')
 					}
 				}
 			</style>`,

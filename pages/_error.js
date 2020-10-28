@@ -37,7 +37,7 @@ const Error = ({ errorPage }) => (
 	</>
 );
 
-Error.getInitialProps = ({ res, req }) => {
+export const getServerSideProps = async ({ preview, res }) => {
 	const graphqlQuery = `{
 	  errorPage(filter: {error: {eq: "${res.statusCode}"}}) {
 	    title
@@ -50,7 +50,9 @@ Error.getInitialProps = ({ res, req }) => {
 	  }
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 };
 
 export default Error;

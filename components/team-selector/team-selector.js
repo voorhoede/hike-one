@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default ({ pathname }) => (
+const TeamSelector = ({ pathname }) => (
 	<nav className="team-selector container shadow">
 		<Link href="/team/culture" scroll={false}>
 			<a className={`team-selector-item ${pathname === '/team/culture' ? 'is-selected' : ''}`}>
@@ -14,3 +14,5 @@ export default ({ pathname }) => (
 		</Link>
 	</nav>
 );
+
+export default TeamSelector;

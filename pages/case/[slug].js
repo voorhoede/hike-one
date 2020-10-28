@@ -6,6 +6,7 @@ import setComponentCounter from '../../components/_helpers/setParallaxComponentC
 import getDateFormat from '../../components/_helpers/getDateFormat';
 import scrollToElement from '../../components/_helpers/scrollToElement';
 
+import Layout from '../../components/layout/layout';
 import Head from '../../components/head/head';
 import PageHeader from '../../components/page-header/page-header';
 import MenuBar from '../../components/menu-bar/menu-bar';
@@ -58,8 +59,8 @@ const parallaxLayersMap = {
 // this is done by the `setComponentCounter` function
 let componentCounter = {};
 
-const Page = ({ workcase, footer }) => (
-	<>
+const Page = ({ workcase, footer, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={workcase.seo.title}
 			description={workcase.seo.description}
@@ -328,10 +329,10 @@ const Page = ({ workcase, footer }) => (
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview, query }) => {
 	const graphqlQuery = `{
 		workcase: case(filter: { slug: { eq: "${query.slug}" } }) {
 			title
@@ -548,7 +549,9 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

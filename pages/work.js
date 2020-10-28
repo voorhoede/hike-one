@@ -3,6 +3,7 @@ import '../styles/index.less';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Layout from '../components/layout/layout';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeaderNew from '../components/page-header-new/page-header-new';
@@ -14,8 +15,8 @@ import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import TextCenter from '../components/text-center/text-center';
 
-const Page = ({ work, overviewCases, footer }) => (
-	<>
+const Page = ({ work, overviewCases, footer, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={work.seo.title}
 			description={work.seo.description}
@@ -64,10 +65,10 @@ const Page = ({ work, overviewCases, footer }) => (
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview }) => {
 	const graphqlQuery = `{
 		work {
 			seo {
@@ -141,7 +142,9 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

@@ -4,6 +4,7 @@ import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 
+import Layout from '../../components/layout/layout';
 import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import PageHeaderNew from '../../components/page-header-new/page-header-new';
@@ -19,8 +20,8 @@ import UpdateLinks from '../../components/update-links/update-links';
 import UpdateLink from '../../components/update-link/update-link';
 import Footer from '../../components/footer/footer';
 
-const Page = ({ service, allServices, footer }) => (
-	<>
+const Page = ({ service, allServices, footer, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={service.seo.title}
 			description={service.seo.description}
@@ -110,10 +111,10 @@ const Page = ({ service, allServices, footer }) => (
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview, query }) => {
 	const graphqlQuery = `{
 		service(filter: { slug: { eq: "${query.slug}" } }) {
 			slug
@@ -206,7 +207,9 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

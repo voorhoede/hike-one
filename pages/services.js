@@ -3,6 +3,7 @@ import '../styles/index.less';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Layout from '../components/layout/layout';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import Contact from '../components/contact/contact';
 import ContactShapes from '../components/contact/contact-shapes';
@@ -14,7 +15,7 @@ import ServicesCards from '../components/services-cards/services-cards';
 import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 
-const Page = ({ service, servicesOverview, footer }) => {
+const Page = ({ service, servicesOverview, footer, preview }) => {
 	const {
 		contactCta,
 		header,
@@ -31,7 +32,7 @@ const Page = ({ service, servicesOverview, footer }) => {
 	const hasContactCta = Object.entries(contactCta).length && contactCta.constructor === Object;
 
 	return (
-		<>
+		<Layout preview={preview}>
 			<Head
 				title={service.seo.title}
 				description={service.seo.description}
@@ -112,11 +113,11 @@ const Page = ({ service, servicesOverview, footer }) => {
 			</div>
 
 			<Footer form={footer.form} />
-		</>
+		</Layout>
 	);
 };
 
-Page.getInitialProps = withCacheControl(({ req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview }) => {
 	const graphqlQuery = `{
 		service {
 			seo {
@@ -202,7 +203,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

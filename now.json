@@ -2,12 +2,10 @@
 	"version": 2,
 	"name": "hike-one",
 	"scope": "devoorhoede",
-	"alias": ["preview.hike.one"],
 	"trailingSlash": false,
 	"github": {
 		"silent": true
 	},
-	"rewrites": [{ "source": "/robots.txt", "destination": "/api/robots.txt" }],
 	"redirects": [
 		{
 			"source": "/code",

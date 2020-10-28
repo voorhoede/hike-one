@@ -4,6 +4,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Layout from '../components/layout/layout';
 import AppNotification from '../components/app-notification/app-notification';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
@@ -17,7 +18,7 @@ import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
-const Page = ({ home, footer }) => {
+const Page = ({ home, footer, preview }) => {
 	const [isHeaderVisible, setIsHeaderVisible] = React.useState(true);
 
 	function onChange(isVisible) {
@@ -26,84 +27,86 @@ const Page = ({ home, footer }) => {
 
 	return (
 		<div className={`homepage ${!isHeaderVisible ? 'homepage--after-header' : ''}`}>
-			<Head
-				title={home.seo.title}
-				description={home.seo.description}
-				image={home.seo.image}
-				twitterCard={home.seo.twitterCard}
-			/>
-
-			{home.appNotificationMessage && (
-				<AppNotification message={home.appNotificationMessage} link={home.appNotificationLink} />
-			)}
-
-			<MenuBar />
-			<VisibilitySensor onChange={onChange} partialVisibility={true}>
-				<HomepageHeader
-					title={home.header.title}
-					subtitle={home.header.subtitle}
-					cta={{ label: home.header.ctaLabel, url: home.header.ctaUrl }}
-				/>
-			</VisibilitySensor>
-
-			<main>
-				<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />
-
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={home.caseExtractTitle}
-					text={home.caseExtractIntro}
+			<Layout preview={preview}>
+				<Head
+					title={home.seo.title}
+					description={home.seo.description}
+					image={home.seo.image}
+					twitterCard={home.seo.twitterCard}
 				/>
 
-				<CaseExtract
-					color={home.caseExtract.case.caseThemeColor.hex}
-					companyName={home.caseExtract.case.companyName}
-					headerImage={home.caseExtract.image.url}
-					title={home.caseExtract.title}
-					subtitle={home.caseExtract.subtitle}
-					slug={home.caseExtract.case.slug}
-				/>
+				{home.appNotificationMessage && (
+					<AppNotification message={home.appNotificationMessage} link={home.appNotificationLink} />
+				)}
 
-				<TextCenter
-					classes="text-center-font-medium text-center-spacing-small"
-					title={home.eventsTitle}
-					text={home.eventsIntro}
-				/>
+				<MenuBar />
+				<VisibilitySensor onChange={onChange} partialVisibility={true}>
+					<HomepageHeader
+						title={home.header.title}
+						subtitle={home.header.subtitle}
+						cta={{ label: home.header.ctaLabel, url: home.header.ctaUrl }}
+					/>
+				</VisibilitySensor>
 
-				<UpdateOverviewSmall>
-					{home.updateLinks.map((item, index) => (
-						<UpdateExtractSmall
-							key={index}
-							index={index}
-							authors={item.authors}
-							category={item.category.name}
-							color={item.themeColor.hex}
-							date={item.date}
-							link={item.externalLink}
-							slug={item.slug}
-							image={item.image.url}
-							target={item.externalLink ? true : false}
-							title={item.title}
-							topic={item.topic}
-						/>
-					))}
-				</UpdateOverviewSmall>
-			</main>
+				<main>
+					<ServicesCards title={home.servicesItemTitle} services={home.serviceItems} />
 
-			<Contact
-				title={home.contact.title}
-				button={home.contact.button}
-				link={home.contact.externalLink}
-			>
-				<ContactShape position="front" />
-			</Contact>
+					<TextCenter
+						classes="text-center-font-medium text-center-spacing-small"
+						title={home.caseExtractTitle}
+						text={home.caseExtractIntro}
+					/>
 
-			<Footer form={footer.form} disableParallax />
+					<CaseExtract
+						color={home.caseExtract.case.caseThemeColor.hex}
+						companyName={home.caseExtract.case.companyName}
+						headerImage={home.caseExtract.image.url}
+						title={home.caseExtract.title}
+						subtitle={home.caseExtract.subtitle}
+						slug={home.caseExtract.case.slug}
+					/>
+
+					<TextCenter
+						classes="text-center-font-medium text-center-spacing-small"
+						title={home.eventsTitle}
+						text={home.eventsIntro}
+					/>
+
+					<UpdateOverviewSmall>
+						{home.updateLinks.map((item, index) => (
+							<UpdateExtractSmall
+								key={index}
+								index={index}
+								authors={item.authors}
+								category={item.category.name}
+								color={item.themeColor.hex}
+								date={item.date}
+								link={item.externalLink}
+								slug={item.slug}
+								image={item.image.url}
+								target={item.externalLink ? true : false}
+								title={item.title}
+								topic={item.topic}
+							/>
+						))}
+					</UpdateOverviewSmall>
+				</main>
+
+				<Contact
+					title={home.contact.title}
+					button={home.contact.button}
+					link={home.contact.externalLink}
+				>
+					<ContactShape position="front" />
+				</Contact>
+
+				<Footer form={footer.form} disableParallax />
+			</Layout>
 		</div>
 	);
 };
 
-Page.getInitialProps = withCacheControl(({ req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview }) => {
 	const graphqlQuery = `{
 		home {
 			seo {
@@ -192,7 +195,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

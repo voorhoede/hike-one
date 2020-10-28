@@ -2,14 +2,23 @@ import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
+
+import Layout from '../components/layout/layout';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import PageHeaderNew from '../components/page-header-new/page-header-new';
 import UpdateOverview from '../components/update-overview/update-overview';
 import Footer from '../components/footer/footer';
 
-const Page = ({ updateOverview, allUpdateExtracts, extraUpdateExtracts, footer, query }) => (
-	<>
+const Page = ({
+	updateOverview,
+	allUpdateExtracts,
+	extraUpdateExtracts,
+	footer,
+	query,
+	preview,
+}) => (
+	<Layout preview={preview}>
 		<Head
 			title={updateOverview.seo.title}
 			description={updateOverview.seo.description}
@@ -37,10 +46,10 @@ const Page = ({ updateOverview, allUpdateExtracts, extraUpdateExtracts, footer, 
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-export const getServerSideProps = withCacheControl(async ({ query, req }) => {
+export const getServerSideProps = withCacheControl(async ({ query, preview }) => {
 	const graphqlQuery = `{
 		updateOverview {
 			seo {
@@ -131,7 +140,7 @@ export const getServerSideProps = withCacheControl(async ({ query, req }) => {
 		}
 	}`;
 
-	const data = await fetchContent({ graphqlQuery, req }).then((content) => ({
+	const data = await fetchContent({ graphqlQuery, preview }).then((content) => ({
 		...content,
 		query,
 	}));

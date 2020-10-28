@@ -3,6 +3,7 @@ import '../../styles/index.less';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 
+import Layout from '../../components/layout/layout';
 import Head from '../../components/head/head';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
@@ -23,8 +24,8 @@ import UpdateExtractSmall from '../../components/update-extract-small/update-ext
 import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import Footer from '../../components/footer/footer';
 
-const Page = ({ update, footer }) => (
-	<>
+const Page = ({ update, footer, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={update.seo.title}
 			description={update.seo.description}
@@ -227,10 +228,10 @@ const Page = ({ update, footer }) => (
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
+export const getServerSideProps = withCacheControl(async ({ preview, query }) => {
 	const graphqlQuery = `{
 		update(filter: { slug: { eq: "${query.slug}" } }) {
 			title
@@ -430,7 +431,9 @@ Page.getInitialProps = withCacheControl(({ req, query, asPath }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

@@ -31,7 +31,7 @@ const Custom404 = ({ data }) => (
 	</>
 );
 
-export async function getStaticProps() {
+export async function getStaticProps({ preview }) {
 	const graphqlQuery = `{
 			errorPage(filter: {error: {eq: "404"}}) {
 				title
@@ -44,7 +44,7 @@ export async function getStaticProps() {
 			}
 		}`;
 
-	const data = await fetchContent({ graphqlQuery });
+	const data = await fetchContent({ graphqlQuery, preview });
 
 	return {
 		props: {

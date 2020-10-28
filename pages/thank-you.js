@@ -3,6 +3,7 @@ import '../styles/index.less';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import Layout from '../components/layout/layout';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
 import TextCenter from '../components/text-center/text-center';
@@ -10,8 +11,8 @@ import * as TextCenterShapes from '../components/text-center/text-center-shapes'
 import ButtonPrimaryLink from '../components/buttons/button-primary/button-primary-link';
 import Footer from '../components/footer/footer';
 
-const Page = ({ thankYouPage, footer }) => (
-	<>
+const Page = ({ thankYouPage, footer, preview }) => (
+	<Layout preview={preview}>
 		<Head title="Hike One - Thank you" />
 
 		<MenuBar color="black" />
@@ -28,10 +29,10 @@ const Page = ({ thankYouPage, footer }) => (
 		</article>
 
 		<Footer form={footer.form} disableParallax />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ req }) => {
+export const getServerSideProps = withCacheControl(async ({ preview }) => {
 	const graphqlQuery = `{
 		thankYouPage {
 			title
@@ -56,7 +57,9 @@ Page.getInitialProps = withCacheControl(({ req }) => {
 		}
 	}`;
 
-	return fetchContent({ graphqlQuery, req });
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+	};
 });
 
 export default Page;

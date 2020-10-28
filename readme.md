@@ -11,6 +11,12 @@ cd hike-one
 yarn install --frozen-lockfile
 ```
 
+### Environment
+All needed environment variables are listed in the [.env](.env) file. To automatically set them fill in a `.env.local` file following the same structure as the example file.
+```sh
+cp .env .env.local
+```
+
 ### Local development
 ```sh
 yarn dev
@@ -20,11 +26,6 @@ yarn dev
 ```sh
 yarn build
 yarn start
-```
-
-## Deployment
-```sh
-now --prod
 ```
 
 ## Other scripts
@@ -37,7 +38,6 @@ now --prod
 
 ## Useful links
 * [Production website](https://hike.one/)
-* [Preview website](https://preview.hike.one/)
 * [DatoCMS](https://hike-one-1.admin.datocms.com/)
 
 [lgtm]: https://lgtm.com/projects/g/voorhoede/hike-one/

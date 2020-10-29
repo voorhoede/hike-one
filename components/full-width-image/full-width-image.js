@@ -200,13 +200,13 @@ class FullWidthImage extends Component {
 				}
 				@media (min-width: 1440px) {
 					.full-width-image-background-${index} {
-						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800 })}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 1000 })}')
 					}
 				}
 				@media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
 				@media (min-width: 1440px) and (min-resolution: 192dpi) {
 					.full-width-image-background-${index} {
-						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 800, dpr: 2 })}')
+						background-image: url('${setImageParams(image, { ...imageParams, w: 1920, h: 1000, dpr: 2 })}')
 					}
 				}
 				@media (min-width: 1920px) {

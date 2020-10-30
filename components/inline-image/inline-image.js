@@ -27,27 +27,28 @@ class InlineImage extends Component {
 	render() {
 		const { url = '' } = this.props;
 		const imageRatio = this.ratio();
-		const imageParams = { fit: 'max', fm: 'pjpg', q: 85 };
+		const imageParams = { fit: 'max' };
 
 		return (
 			<div className="inline-image" style={{ paddingBottom: `${imageRatio}%` }}>
 				<img
 					ref={(node) => (this.element = node)}
 					className="image"
-					sizes={`
-						(max-width: 320px) calc(100vw - 30px),
-						(max-width: 768px) calc(100vw - 30px),
-						(max-width: 1024px) 790px,
-						821px
-					`}
-					alt=""
 					srcSet={`
-						${setImageParams(url, { ...imageParams, w: 800, h: 600 })} 768w,
-						${setImageParams(url, { ...imageParams, w: 900, h: 768 })} 1024w,
-						${setImageParams(url, { ...imageParams, w: 1000, h: 850 })} 1190w,
-						${setImageParams(url, { ...imageParams, w: 1200, h: 950 })} 1440w
+						${setImageParams(url, { ...imageParams, w: 499 })} 499w,
+						${setImageParams(url, { ...imageParams, w: 499, dpr: 2 })} 998w,
+						${setImageParams(url, { ...imageParams, w: 767 })} 767w,
+						${setImageParams(url, { ...imageParams, w: 767, dpr: 2 })} 1534w,
+						${setImageParams(url, { ...imageParams, w: 821 })} 821w,
+						${setImageParams(url, { ...imageParams, w: 821, dpr: 2 })} 1642w,
 					`}
-					data-lazy-src={url}
+					sizes={`
+						(max-width: 499px) 499px,
+						(max-width: 767px) 767px,
+						(min-width: 768px) 821px
+					`}
+					data-lazy-src={`${setImageParams(url, { ...imageParams, w: 821 })}`}
+					alt=""
 				/>
 			</div>
 		);

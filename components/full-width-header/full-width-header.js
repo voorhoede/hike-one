@@ -11,25 +11,65 @@ const FullWidthHeader = ({
 	authorName = '',
 	updatedDate = '',
 	titleOnly = false,
-	headerImageLarger = false,
 	imagePositionCenter = false,
 }) => {
-	const headerImageClass = `${headerImageLarger ? 'image-large' : ''} ${
-		imagePositionCenter ? 'position-center' : ''
-	}`;
+	const imageParams = { fit: 'max' };
+	const headerImageClass = `${imagePositionCenter ? 'position-center' : ''}`;
 	const style = {
 		__html: `<style>
-			.full-width-header-image {
-				background-image: url('${setImageParams(headerImage, { fit: 'max', w: 1000 })}')
+			@media (max-width: 767px) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 768 })}')
+				}
+			}
+			@media (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
+			@media (max-width: 767px) and (min-resolution: 192dpi) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 768, dpr: 2 })}')
+				}
 			}
 			@media (min-width: 768px) {
 				.full-width-header-image {
-					background-image: url('${setImageParams(headerImage, { fit: 'max', w: 1500 })}')
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1170 })}')
+				}
+			}
+			@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
+			@media (min-width: 768px) and (min-resolution: 192dpi) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1170, dpr: 2 })}')
 				}
 			}
 			@media (min-width: 1170px) {
 				.full-width-header-image {
-					background-image: url('${setImageParams(headerImage, { fit: 'max', w: 2000 })}')
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1440 })}')
+				}
+			}
+			@media (min-width: 1170px) and (-webkit-min-device-pixel-ratio: 2),
+			@media (min-width: 1170px) and (min-resolution: 192dpi) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1440, dpr: 2 })}')
+				}
+			}
+			@media (min-width: 1440px) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1920 })}')
+				}
+			}
+			@media (min-width: 1440px) and (-webkit-min-device-pixel-ratio: 2),
+			@media (min-width: 1440px) and (min-resolution: 192dpi) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 1920, dpr: 2 })}')
+				}
+			}
+			@media (min-width: 1920px) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 2500 })}')
+				}
+			}
+			@media (min-width: 1920px) and (-webkit-min-device-pixel-ratio: 2),
+			@media (min-width: 1920px) and (min-resolution: 192dpi) {
+				.full-width-header-image {
+					background-image: url('${setImageParams(headerImage, { ...imageParams, w: 2500, dpr: 2 })}')
 				}
 			}
 		</style>`,
@@ -71,7 +111,6 @@ FullWidthHeader.propTypes = {
 	authorName: PropTypes.string,
 	updatedDate: PropTypes.string,
 	titleOnly: PropTypes.bool,
-	headerImageLarger: PropTypes.bool,
 	imagePositionCenter: PropTypes.bool,
 };
 

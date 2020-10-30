@@ -7,8 +7,6 @@ const TeamMember = ({ data = {} }) => (
 		style={{
 			backgroundImage: `url('${setImageParameters(data.photo.url, {
 				w: 700,
-				fm: 'pjpg',
-				q: 85,
 			})}')`,
 		}}
 	>

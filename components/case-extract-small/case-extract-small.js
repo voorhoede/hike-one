@@ -19,8 +19,6 @@ const CaseExtractSmall = ({
 					style={{
 						backgroundImage: `url('${setImageParameters(image.url, {
 							w: 700,
-							fm: 'pjpg',
-							q: 85,
 						})}')`,
 					}}
 				>

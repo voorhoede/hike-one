@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonClean from '../buttons/button-clean/button-clean';
 import Icon from '../icon/icon';

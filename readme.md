@@ -8,7 +8,7 @@ Website for Hike One using [Next.js](https://nextjs.org/), deployed at [ZEIT Now
 ```sh
 git clone git@github.com:voorhoede/hike-one.git
 cd hike-one
-yarn install --frozen-lockfile
+npm ci
 ```
 
 ### Environment
@@ -19,22 +19,22 @@ cp .env .env.local
 
 ### Local development
 ```sh
-yarn dev
+npm run dev
 ```
 
 ### Production build
 ```sh
-yarn build
-yarn start
+npm run build
+npm start
 ```
 
 ## Other scripts
-`yarn ...` | Description
+`npm run ...` | Description
 ---|---
 `lint` | Lints `.js` and `.less` files using Prettier and Stylelint and logs any errors/warnings.
 `format` | Formats all `.js` files using Prettier.
 
-**NOTE**: Pull request checks will fail if files aren't correctly formatted. To fix this, run `yarn format` and commit the changes.
+**NOTE**: Pull request checks will fail if files aren't correctly formatted. To fix this, run `npm run format` and commit the changes.
 
 ## Useful links
 * [Production website](https://hike.one/)

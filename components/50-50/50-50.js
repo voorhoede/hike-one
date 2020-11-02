@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 import InlineVideo from '../inline-video/inline-video';

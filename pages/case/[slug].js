@@ -1,5 +1,6 @@
 import '../../styles/index.less';
 
+import React from 'react';
 import fetchContent from '../../lib/fetch-content';
 import withCacheControl from '../../lib/with-cache-control';
 import setComponentCounter from '../../components/_helpers/setParallaxComponentCounter';

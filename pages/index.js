@@ -1,4 +1,5 @@
 import '../styles/index.less';
+import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import fetchContent from '../lib/fetch-content';
@@ -19,7 +20,7 @@ import UpdateExtractSmall from '../components/update-extract-small/update-extrac
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
 
 const Page = ({ home, footer, preview }) => {
-	const [isHeaderVisible, setIsHeaderVisible] = React.useState(true);
+	const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
 	function onChange(isVisible) {
 		setIsHeaderVisible(isVisible);

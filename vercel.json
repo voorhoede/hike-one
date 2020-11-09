@@ -1,6 +1,5 @@
 {
 	"version": 2,
-	"name": "hike-one",
 	"scope": "devoorhoede",
 	"trailingSlash": false,
 	"github": {

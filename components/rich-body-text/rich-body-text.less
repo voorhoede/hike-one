@@ -195,3 +195,41 @@
 		}
 	}
 }
+
+// Development Cycle
+.development-cycle {
+	& > div {
+		border-bottom: 1px solid @light-gray;
+		margin-top: @spacing-default * 4;
+		padding-bottom: @spacing-default * 4;
+		text-align: left;
+
+		@media @screen-768 {
+			border-bottom: none;
+			flex: 1;
+			margin-left: @spacing-default * 4;
+			margin-top: 0;
+			max-width: @spacing-default * 36;
+			padding-bottom: 0;
+		}
+	}
+
+	@media @screen-768 {
+		display: inline-flex;
+		justify-content: center;
+		margin-left: -@spacing-default * 4;
+		width: calc(100% + @spacing-default * 4);
+	}
+}
+
+.development-cycle__label {
+	background-color: rgba(0, 170, 233, 0.15);
+	color: @blue;
+	font-weight: bold;
+	padding: @spacing-default / 2 @spacing-default * 1.5;
+}
+
+.development-cycle__content ul,
+.development-cycle__content li:last-of-type {
+	margin: 0;
+}

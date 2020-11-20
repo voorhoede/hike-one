@@ -52,122 +52,148 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 );
 
 Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
-	const graphqlQuery = `{
-		team {
-			header {
-				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
-				subtitle
-				title
-			}
+	const graphqlQuery = /* GraphQL */ `
+		{
+			team {
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
 
-			collage {
-				title
-				text
-				imageBig { url }
-				imageSmall { url }
-			}
+				collage {
+					title
+					text
+					imageBig {
+						url
+					}
+					imageSmall {
+						url
+					}
+				}
 
-			galleryTitle
-			amsterdamOffice { url }
-			rotterdamOffice { url }
-			eindhovenOffice { url }
-
-			statistics {
-				summaryLabel
-				summaryCount
-				group1Label
-				group1Count
-				group2Label
-				group2Count
-				group3Label
-				group3Count
-				linkLabel
-				linkTarget
-			}
-
-			seo {
-				title
-				description
-				twitterCard
-				image {
+				galleryTitle
+				amsterdamOffice {
 					url
-					width
-					height
 				}
-			}
+				rotterdamOffice {
+					url
+				}
+				eindhovenOffice {
+					url
+				}
 
-			content {
-				... on _4060TextLeftRecord {
-					itemType: _modelApiKey
+				statistics {
+					summaryLabel
+					summaryCount
+					group1Label
+					group1Count
+					group2Label
+					group2Count
+					group3Label
+					group3Count
+					linkLabel
+					linkTarget
+				}
+
+				seo {
 					title
-					text
+					description
+					twitterCard
 					image {
 						url
-						format
+						width
+						height
 					}
 				}
-				... on _4060TextRightRecord {
-					itemType: _modelApiKey
+
+				content {
+					... on _4060TextLeftRecord {
+						itemType: _modelApiKey
+						title
+						text
+						image {
+							url
+							format
+						}
+					}
+					... on _4060TextRightRecord {
+						itemType: _modelApiKey
+						title
+						text
+						image {
+							url
+							format
+						}
+					}
+					... on TextCenterRecord {
+						itemType: _modelApiKey
+						title
+						text
+					}
+				}
+
+				imageComposition {
+					teamImage21 {
+						title
+						photo {
+							url
+						}
+					}
+					teamImage34Large {
+						title
+						photo {
+							url
+						}
+					}
+					teamImage34Small {
+						title
+						photo {
+							url
+						}
+					}
+				}
+
+				teamImage916 {
 					title
-					text
-					image {
+					photo {
 						url
-						format
 					}
 				}
-				... on TextCenterRecord {
-					itemType: _modelApiKey
-					title
-					text
-				}
 			}
 
-			imageComposition {
-				teamImage21 {
-					title
-					photo { url }
-				}
-				teamImage34Large {
-					title
-					photo { url }
-				}
-				teamImage34Small {
-					title
-					photo { url }
-				}
-			}
-
-			teamImage916 {
+			vacancyOverview {
 				title
-				photo { url }
+				tagline
+				callToActionTitle
+				callToActionUrl
 			}
-		}
 
-		vacancyOverview {
-			title
-			tagline
-			callToActionTitle
-			callToActionUrl
-		}
-
-		footer {
-			form {
-				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),

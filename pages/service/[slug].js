@@ -1,7 +1,6 @@
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
-import withCacheControl from '../../lib/with-cache-control';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 
 import Layout from '../../components/layout/layout';
@@ -114,9 +113,14 @@ const Page = ({ service, allServices, footer, preview }) => (
 	</Layout>
 );
 
-export const getServerSideProps = withCacheControl(async ({ preview, query }) => {
-	const graphqlQuery = `{
-		service(filter: { slug: { eq: "${query.slug}" } }) {
+export const getStaticPaths = () => ({
+	fallback: 'blocking',
+	paths: [],
+});
+
+export const getStaticProps = async ({ preview, params }) => {
+	const graphqlQuery = /* GraphQL */ `{
+		service(filter: { slug: { eq: "${params.slug}" } }) {
 			slug
 			introTitle
 			introText
@@ -209,7 +213,8 @@ export const getServerSideProps = withCacheControl(async ({ preview, query }) =>
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
 	};
-});
+};
 
 export default Page;

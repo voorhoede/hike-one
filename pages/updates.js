@@ -50,95 +50,129 @@ const Page = ({
 );
 
 export const getServerSideProps = withCacheControl(async ({ query, preview }) => {
-	const graphqlQuery = `{
-		updateOverview {
-			seo {
+	const graphqlQuery = /* GraphQL */ `
+		{
+			updateOverview {
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
+				}
+
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
+
+				mustRead {
+					slug
+					title
+					link: externalLink
+					authors {
+						name
+					}
+				}
+
+				highlights {
+					id
+					title
+					topic
+					slug
+					createdAt
+					link: externalLink
+
+					authors {
+						name
+					}
+					category {
+						name
+					}
+					image {
+						url
+					}
+					themeColor {
+						hex
+					}
+				}
+			}
+
+			allUpdateExtracts(first: 100, orderBy: date_DESC) {
+				id
+				slug
+				topic
 				title
-				description
-				twitterCard
+				createdAt
+				date
+				externalLink
+				authors {
+					name
+				}
+				staticAuthors
+				category {
+					name
+				}
 				image {
 					url
-					width
-					height
+				}
+				themeColor {
+					hex
 				}
 			}
 
-			header {
-				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
-				subtitle
-				title
-			}
-
-			mustRead {
-				slug
-				title
-				link: externalLink
-				authors { name }
-			}
-
-			highlights {
+			extraUpdateExtracts: allUpdateExtracts(first: 100, skip: 100, orderBy: date_DESC) {
 				id
-				title
-				topic
 				slug
-				createdAt
-				link: externalLink
-
-				authors { name }
-				category { name }
-				image { url }
-				themeColor { hex }
-			}
-		}
-
-		allUpdateExtracts(first: 100, orderBy: date_DESC) {
-			id
-			slug
-			topic
-			title
-			createdAt
-			date
-			externalLink
-			authors { name }
-			staticAuthors
-			category { name }
-			image { url }
-			themeColor { hex }
-		}
-
-		extraUpdateExtracts: allUpdateExtracts(first: 100, skip: 100, orderBy: date_DESC) {
-			id
-			slug
-			topic
-			title
-			createdAt
-			date
-			externalLink
-			authors { name }
-			staticAuthors
-			category { name }
-			image { url }
-			themeColor { hex }
-		}
-
-		footer {
-			form {
+				topic
 				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+				createdAt
+				date
+				externalLink
+				authors {
+					name
+				}
+				staticAuthors
+				category {
+					name
+				}
+				image {
+					url
+				}
+				themeColor {
+					hex
+				}
+			}
+
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	const data = await fetchContent({ graphqlQuery, preview }).then((content) => ({
 		...content,

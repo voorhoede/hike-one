@@ -1,7 +1,6 @@
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
 
 import Layout from '../components/layout/layout';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
@@ -117,95 +116,120 @@ const Page = ({ service, servicesOverview, footer, preview }) => {
 	);
 };
 
-export const getServerSideProps = withCacheControl(async ({ preview }) => {
-	const graphqlQuery = `{
-		service {
-			seo {
-				title
-				description
-				twitterCard
-				image {
-					url
-					width
-					height
+export const getStaticProps = async ({ preview }) => {
+	const graphqlQuery = /* GraphQL */ `
+		{
+			service {
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
 				}
 			}
-		}
 
-		servicesOverview {
-			header {
-				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
-				subtitle
-				title
-			}
-			servicesItemTitle
-			servicesItemBody
+			servicesOverview {
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
+				servicesItemTitle
+				servicesItemBody
 
-			serviceItems {
-				text
-				title
-				button
-				iconColor { color }
-				link { slug }
-			}
+				serviceItems {
+					text
+					title
+					button
+					iconColor {
+						color
+					}
+					link {
+						slug
+					}
+				}
 
-			contactCta {
-				title
-				button
-				externalLink
-			}
+				contactCta {
+					title
+					button
+					externalLink
+				}
 
-			highlightedCasesTitle
-			highlightedCasesBody
-			highlightedCases {
-				title
-				subtitle
-				image { url }
-				case {
+				highlightedCasesTitle
+				highlightedCasesBody
+				highlightedCases {
+					title
+					subtitle
+					image {
+						url
+					}
+					case {
+						slug
+						companyName
+						caseThemeColor {
+							hex
+						}
+					}
+				}
+
+				highlightedUpdatesTitle
+				highlightedUpdatesBody
+				highlightedUpdates {
 					slug
-					companyName
-					caseThemeColor { hex }
+					title
+					date
+					externalLink
+					topic
+					authors {
+						name
+					}
+					category {
+						name
+					}
+					themeColor {
+						hex
+					}
+					externalLink
+					image {
+						url
+					}
 				}
 			}
 
-			highlightedUpdatesTitle
-			highlightedUpdatesBody
-			highlightedUpdates {
-				slug
-				title
-				date
-				externalLink
-				topic
-				authors { name }
-				category { name }
-				themeColor { hex }
-				externalLink
-				image { url }
-			}
-		}
-
-		footer {
-			form {
-				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
 	};
-});
+};
 
 export default Page;

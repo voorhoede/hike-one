@@ -56,62 +56,76 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPe
 );
 
 Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
-	const graphqlQuery = `{
-		team {
-			peopleTabIntro
+	const graphqlQuery = /* GraphQL */ `
+		{
+			team {
+				peopleTabIntro
 
-			header {
-				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
-				subtitle
-				title
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
+
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
+				}
 			}
 
-			seo {
-				title
-				description
-				twitterCard
-				image {
+			allPeople(first: 99, orderBy: name_ASC) {
+				id
+				name
+				hide
+				photo {
 					url
-					width
-					height
+				}
+				roles {
+					title
+				}
+				departments {
+					title
 				}
 			}
-		}
 
-		allPeople(first: 99, orderBy: name_ASC) {
-			id
-			name
-			hide
-			photo { url }
-			roles { title }
-			departments { title }
-		}
-
-		vacancyOverview {
-			title
-			tagline
-			callToActionTitle
-			callToActionUrl
-		}
-
-		footer {
-			form {
+			vacancyOverview {
 				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+				tagline
+				callToActionTitle
+				callToActionUrl
+			}
+
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),

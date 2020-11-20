@@ -78,81 +78,91 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 );
 
 Page.getInitialProps = withCacheControl(({ query, req }) => {
-	const graphqlQuery = `{
-		contactPage {
-			seo {
-				title
-				description
-				twitterCard
-				image {
-					url
-					width
-					height
+	const graphqlQuery = /* GraphQL */ `
+		{
+			contactPage {
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
+				}
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
+
+				contactForm {
+					title
+					thankYouMessage
+					selectInputLabel
+					forms {
+						id
+						title
+						formspreeEndpoint
+						submitButtonLabel
+						emailMessageSubject
+
+						formFields {
+							id
+							name
+							label
+							inputType
+							required
+						}
+					}
+				}
+				officesHeader
+				office {
+					location
+					address
+					postcode
+					city
+					country
+					locationUrl
+					image {
+						url
+					}
 				}
 			}
-			header {
-				animation
-				animationBackgroundColor { hex }
-				animationTriangleColor { hex }
-				backgroundImage { url }
-				subtitle
+
+			vacancyOverview {
 				title
+				tagline
+				callToActionTitle
+				callToActionUrl
 			}
 
-			contactForm {
-				title
-				thankYouMessage
-				selectInputLabel
-				forms {
-					id
+			footer {
+				form {
 					title
-					formspreeEndpoint
-					submitButtonLabel
-					emailMessageSubject
-
-					formFields {
-						id
-						name
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
 						label
 						inputType
 						required
 					}
 				}
 			}
-			officesHeader
-			office {
-				location
-				address
-				postcode
-				city
-				country
-				locationUrl
-				image { url }
-			}
 		}
-
-		vacancyOverview {
-			title
-			tagline
-			callToActionTitle
-			callToActionUrl
-		}
-
-		footer {
-			form {
-				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
-				}
-			}
-		}
-	}`;
+	`;
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),

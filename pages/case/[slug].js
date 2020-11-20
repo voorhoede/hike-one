@@ -2,7 +2,6 @@ import '../../styles/index.less';
 
 import React from 'react';
 import fetchContent from '../../lib/fetch-content';
-import withCacheControl from '../../lib/with-cache-control';
 import setComponentCounter from '../../components/_helpers/setParallaxComponentCounter';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 import scrollToElement from '../../components/_helpers/scrollToElement';
@@ -333,9 +332,14 @@ const Page = ({ workcase, footer, preview }) => (
 	</Layout>
 );
 
-export const getServerSideProps = withCacheControl(async ({ preview, query }) => {
-	const graphqlQuery = `{
-		workcase: case(filter: { slug: { eq: "${query.slug}" } }) {
+export const getStaticPaths = () => ({
+	fallback: 'blocking',
+	paths: [],
+});
+
+export const getStaticProps = async ({ preview, params }) => {
+	const graphqlQuery = /* GraphQL */ `{
+		workcase: case(filter: { slug: { eq: "${params.slug}" } }) {
 			title
 			introTitle
 			introText
@@ -552,7 +556,8 @@ export const getServerSideProps = withCacheControl(async ({ preview, query }) =>
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
 	};
-});
+};
 
 export default Page;

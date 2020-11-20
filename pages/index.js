@@ -3,7 +3,6 @@ import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
 
 import Layout from '../components/layout/layout';
 import AppNotification from '../components/app-notification/app-notification';
@@ -107,98 +106,115 @@ const Page = ({ home, footer, preview }) => {
 	);
 };
 
-export const getServerSideProps = withCacheControl(async ({ preview }) => {
-	const graphqlQuery = `{
-		home {
-			seo {
-				title
-				description
-				twitterCard
-				image {
-					url
-					width
-					height
+export const getStaticProps = async ({ preview }) => {
+	const graphqlQuery = /* GraphQL */ `
+		{
+			home {
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
 				}
-			}
 
-			header {
-				title
-				subtitle
-				ctaLabel
-				ctaUrl
-			}
-
-			servicesItemTitle
-			serviceItems {
-				title
-				text
-				button
-				link { slug }
-				iconColor {
-					color
+				header {
+					title
+					subtitle
+					ctaLabel
+					ctaUrl
 				}
-			}
 
-			caseExtractTitle
-			caseExtractIntro
+				servicesItemTitle
+				serviceItems {
+					title
+					text
+					button
+					link {
+						slug
+					}
+					iconColor {
+						color
+					}
+				}
 
-			caseExtract {
-				title
-				subtitle
-				case {
+				caseExtractTitle
+				caseExtractIntro
+
+				caseExtract {
+					title
+					subtitle
+					case {
+						slug
+						companyName
+						caseThemeColor {
+							hex
+						}
+					}
+					image {
+						url
+					}
+				}
+
+				eventsTitle
+				eventsIntro
+
+				updateLinks {
+					title
 					slug
-					companyName
-					caseThemeColor { hex }
+					date
+					externalLink
+					topic
+					image {
+						url
+					}
+					themeColor {
+						hex
+					}
+					authors {
+						name
+					}
+					category {
+						name
+					}
 				}
-				image {
-					url
+
+				contact {
+					title
+					button
+					externalLink
+				}
+
+				appNotificationMessage
+				appNotificationLink {
+					slug
 				}
 			}
 
-			eventsTitle
-			eventsIntro
-
-			updateLinks {
-				title
-				slug
-				date
-				externalLink
-				topic
-				image { url }
-				themeColor { hex }
-				authors { name }
-				category { name }
-			}
-
-			contact {
-				title
-				button
-				externalLink
-			}
-
-			appNotificationMessage
-			appNotificationLink { slug }
-		}
-
-		footer {
-			form {
-				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
 	};
-});
+};
 
 export default Page;

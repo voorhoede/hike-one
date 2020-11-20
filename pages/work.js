@@ -1,7 +1,6 @@
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
 
 import Layout from '../components/layout/layout';
 import Head from '../components/head/head';
@@ -68,83 +67,86 @@ const Page = ({ work, overviewCases, footer, preview }) => (
 	</Layout>
 );
 
-export const getServerSideProps = withCacheControl(async ({ preview }) => {
-	const graphqlQuery = `{
-		work {
-			seo {
-				title
-				description
-				twitterCard
-				image {
-					url
-					width
-					height
+export const getStaticProps = async ({ preview }) => {
+	const graphqlQuery = /* GraphQL */ `
+		{
+			work {
+				seo {
+					title
+					description
+					twitterCard
+					image {
+						url
+						width
+						height
+					}
+				}
+				header {
+					animation
+					animationBackgroundColor {
+						hex
+					}
+					animationTriangleColor {
+						hex
+					}
+					backgroundImage {
+						url
+					}
+					subtitle
+					title
+				}
+				introText
+				introTitle
+				logoCarousel {
+					title
+					companies {
+						name
+						logo {
+							url
+						}
+					}
+				}
+				contact {
+					title
+					button
+					externalLink
 				}
 			}
-			header {
-				animation
-				animationBackgroundColor {
+			overviewCases: allCases(filter: { showInOverview: { eq: true } }) {
+				slug
+				companyName
+				caseThemeColor {
 					hex
 				}
-				animationTriangleColor {
-					hex
-				}
-				backgroundImage {
-					url
-				}
-				subtitle
-				title
-			}
-			introText
-			introTitle
-			logoCarousel {
-				title
-				companies {
-					name
-					logo {
+				header {
+					title
+					subtitle
+					backgroundImage {
 						url
 					}
 				}
 			}
-			contact {
-				title
-				button
-				externalLink
-			}
-		}
-		overviewCases: allCases(filter: {showInOverview: {eq: true}}) {
-			slug
-			companyName
-			caseThemeColor {
-				hex
-			}
-			header {
-				title
-				subtitle
-				backgroundImage {
-					url
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-		footer {
-			form {
-				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
-				}
-			}
-		}
-	}`;
+	`;
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
 	};
-});
+};
 
 export default Page;

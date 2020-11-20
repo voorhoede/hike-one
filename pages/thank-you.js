@@ -1,7 +1,6 @@
 import '../styles/index.less';
 
 import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
 
 import Layout from '../components/layout/layout';
 import Head from '../components/head/head';
@@ -32,34 +31,37 @@ const Page = ({ thankYouPage, footer, preview }) => (
 	</Layout>
 );
 
-export const getServerSideProps = withCacheControl(async ({ preview }) => {
-	const graphqlQuery = `{
-		thankYouPage {
-			title
-			content
-			callToActionUrl
-			callToActionLabel
-		}
-
-		footer {
-			form {
+export const getStaticProps = async ({ preview }) => {
+	const graphqlQuery = /* GraphQL */ `
+		{
+			thankYouPage {
 				title
-				description
-				listId
-				button
-				hasShadow
-				extraInputFields {
-					label
-					inputType
-					required
+				content
+				callToActionUrl
+				callToActionLabel
+			}
+
+			footer {
+				form {
+					title
+					description
+					listId
+					button
+					hasShadow
+					extraInputFields {
+						label
+						inputType
+						required
+					}
 				}
 			}
 		}
-	}`;
+	`;
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 24 * 7,
 	};
-});
+};
 
 export default Page;

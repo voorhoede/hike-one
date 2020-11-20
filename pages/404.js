@@ -38,17 +38,19 @@ const Custom404 = ({ errorPage }) => (
 );
 
 export async function getStaticProps() {
-	const graphqlQuery = `{
-		errorPage(filter: {error: {eq: "404"}}) {
-			title
-			description
-			image {
-				url
-				width
-				height
+	const graphqlQuery = /* GraphQL */ `
+		{
+			errorPage(filter: { error: { eq: "404" } }) {
+				title
+				description
+				image {
+					url
+					width
+					height
+				}
 			}
 		}
-	}`;
+	`;
 
 	return {
 		props: await fetchContent({ graphqlQuery }),

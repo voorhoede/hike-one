@@ -556,7 +556,7 @@ export const getStaticProps = async ({ preview, params }) => {
 
 	return {
 		props: await fetchContent({ graphqlQuery, preview }),
-		revalidate: 60 * 60 * 8,
+		revalidate: 60 * 60 * 4,
 	};
 };
 

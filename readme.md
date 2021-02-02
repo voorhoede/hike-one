@@ -1,6 +1,6 @@
 # Hike One
 [![LGTM Grade][lgtm-icon]][lgtm]
-[![Depfu Status][depfu-icon]][depfu]
+[![Depfu][depfu-icon]][depfu]
 
 Website for Hike One using [Next.js](https://nextjs.org/), deployed at [ZEIT Now](https://zeit.co/) and with content from [DatoCMS](https://datocms.com/).
 
@@ -41,6 +41,6 @@ npm start
 * [DatoCMS](https://hike-one-1.admin.datocms.com/)
 
 [lgtm]: https://lgtm.com/projects/g/voorhoede/hike-one/
-[lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/voorhoede/hike-one.svg?style=flat-square
+[lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/voorhoede/hike-one.svg
 [depfu]: https://depfu.com/repos/github/voorhoede/hike-one/
-[depfu-icon]: https://img.shields.io/depfu/voorhoede/hike-one?style=flat-square
+[depfu-icon]: https://badges.depfu.com/badges/e2414190357fa0d04572648abfa6737c/overview.svg

@@ -13,15 +13,17 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Cache dependencies D
+      - name: Cache dependencies
+        id: cache
         uses: actions/cache@v2
         with:
-          path: ~/.npm
-          key: npmd-${{ hashFiles('package-lock.json') }}
+          path: ./node_modules
+          key: node_modules-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            npmd-
+            node_modules-
 
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
 
       - name: Lint code

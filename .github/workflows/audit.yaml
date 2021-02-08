@@ -22,7 +22,7 @@ jobs:
             npmb-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Lint code
         run: npm run lint

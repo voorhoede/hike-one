@@ -15,6 +15,20 @@ body {
 	font-family: @font-main;
 }
 
+:target::before {
+	content: " ";
+	display: block;
+	height: @header-height-s;
+	margin-top: -(@header-height-s);
+	pointer-events: none;
+	visibility: hidden;
+
+	@media @screen-768 {
+		height: @header-height;
+		margin-top: -(@header-height);
+	}
+}
+
 body.disable-scroll {
 	max-height: 100vh;
 	overflow: hidden;

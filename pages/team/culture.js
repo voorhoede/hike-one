@@ -81,6 +81,21 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 					}
 				}
 
+				cta {
+					... on CallToActionRecord {
+						itemType: _modelApiKey
+						title
+						buttonText
+						url
+						bgColor {
+							hex
+						}
+						titleWhite
+						fullWidth
+						isExternalLink
+					}
+				}
+
 				galleryTitle
 				amsterdamOffice {
 					url

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import CallToAction from '../call-to-action/call-to-action';
 import Collage from '../collage/collage';
 import FiftyFifty from '../50-50/50-50';
 import ImageCombo from '../image-combo/image-combo';
@@ -17,6 +18,23 @@ const TeamOverview = ({ data = {} }) => (
 			imageMedium={data.collage.imageBig.url}
 			imageSmall={data.collage.imageSmall.url}
 		/>
+
+		{data.cta.map((component, index) => {
+			return (
+				<div className="team-overview__cta-container">
+					<CallToAction
+						key={index}
+						title={component.title}
+						buttonText={component.buttonText}
+						url={component.url}
+						bgColor={component.bgColor && component.bgColor.hex}
+						titleWhite={component.titleWhite}
+						fullWidth={component.fullWidth}
+						isExternalLink={component.isExternalLink}
+					/>
+				</div>
+			);
+		})}
 
 		<ImageCombo>
 			<ImageGallery

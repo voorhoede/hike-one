@@ -6,13 +6,18 @@
 
 html,
 body {
-	width: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: @font-main;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: @font-main;
+	scroll-padding-top: @header-height-s;
+	width: 100%;
+
+	@media @screen-768 {
+		scroll-padding-top: @header-height;
+	}
 }
 
 body.disable-scroll {

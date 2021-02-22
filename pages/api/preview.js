@@ -4,5 +4,5 @@ export default (req, res) => {
 	}
 
 	res.setPreviewData({});
-	res.redirect('/');
+	res.redirect(`/${req.query.redirect || ''}`);
 };

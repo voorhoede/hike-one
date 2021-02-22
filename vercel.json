@@ -53,6 +53,10 @@
 		{
 			"source": "/pulse",
 			"destination": "https://docs.google.com/spreadsheets/d/1Txqz2Tpkiz9g9Y3-1IoRv3g7b2yK4M9ST_vra6wVFDE/edit?usp=sharing"
+		},
+		{
+			"source": "/topic/beyond-design",
+			"destination": "/topic/ux-leadership-breakfast"
 		}
 	]
 }

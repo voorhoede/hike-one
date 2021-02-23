@@ -41,6 +41,6 @@ npm start
 * [DatoCMS](https://hike-one-1.admin.datocms.com/)
 
 [lgtm]: https://lgtm.com/projects/g/voorhoede/hike-one/
-[lgtm-icon]: https://img.shields.io/lgtm/grade/javascript/g/voorhoede/hike-one.svg
+[lgtm-icon]: https://tinyshields.dev/lgtm/grade/javascript/g/voorhoede/hike-one.svg
 [depfu]: https://depfu.com/repos/github/voorhoede/hike-one/
 [depfu-icon]: https://badges.depfu.com/badges/e2414190357fa0d04572648abfa6737c/overview.svg

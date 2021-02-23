@@ -2,18 +2,21 @@ import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
 
-import Layout from '../../components/layout/layout';
-import Head from '../../components/head/head';
+import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import BodyQuote from '../../components/body-quote/body-quote';
 import CallToAction from '../../components/call-to-action/call-to-action';
+import Carousel from '../../components/carousel/carousel';
+import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
 import ContactForm from '../../components/contact-form/contact-form';
+import ContactShapes from '../../components/contact/contact-shapes';
 import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
 import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
+import Head from '../../components/head/head';
 import InlineMedia from '../../components/inline-media/inline-media';
+import Layout from '../../components/layout/layout';
 import LogoCarousel from '../../components/logo-carousel/logo-carousel';
 import MailchimpForm from '../../components/mailchimp/mailchimp-form';
 import MenuBar from '../../components/menu-bar/menu-bar';
@@ -21,9 +24,7 @@ import RichBodyText from '../../components/rich-body-text/rich-body-text';
 import TextCenter from '../../components/text-center/text-center';
 import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
-import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
 import WorkOverview from '../../components/work-overview/work-overview';
-import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 
 const Page = ({ topic, footer, preview }) => (
 	<Layout preview={preview}>
@@ -164,6 +165,9 @@ const Page = ({ topic, footer, preview }) => (
 									}}
 								/>
 							);
+
+						case 'carousel':
+							return <Carousel key={index} slides={component.slides} isWide={component.isWide} />;
 					}
 				})}
 			</main>
@@ -403,6 +407,35 @@ export const getStaticProps = async ({ preview, params }) => {
 							required
 						}
 					}
+				}
+				... on CarouselRecord {
+					itemType: _modelApiKey
+					slides {
+						media {
+							... on ImageRecord {
+								mediaType: _modelApiKey
+								image {
+									url
+								}
+							}
+							... on VideoRecord {
+								mediaType: _modelApiKey
+								autoplay
+								controls
+								large
+								loop
+								mute
+								video {
+									height
+									provider
+									providerUid
+									width
+								}
+							}
+						}
+						body
+					}
+					isWide: wide
 				}
 				... on LogoCarouselRecord {
 					itemType: _modelApiKey

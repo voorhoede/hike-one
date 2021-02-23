@@ -2,26 +2,27 @@ import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
 
-import Layout from '../../components/layout/layout';
-import Head from '../../components/head/head';
-import MenuBar from '../../components/menu-bar/menu-bar';
-import FullWidthHeader from '../../components/full-width-header/full-width-header';
-import FiftyFifty from '../../components/50-50/50-50';
+import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
+import Author from '../../components/author/author';
 import BodyQuote from '../../components/body-quote/body-quote';
 import CallToAction from '../../components/call-to-action/call-to-action';
-import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
-import InlineMedia from '../../components/inline-media/inline-media';
-import RichBodyText from '../../components/rich-body-text/rich-body-text';
-import MailchimpForm from '../../components/mailchimp/mailchimp-form';
+import Carousel from '../../components/carousel/carousel';
 import Contact from '../../components/contact/contact';
 import ContactForm from '../../components/contact-form/contact-form';
 import ContactShapes from '../../components/contact/contact-shapes';
-import Author from '../../components/author/author';
-import TextCenter from '../../components/text-center/text-center';
-import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
-import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
-import ActiveCampaignForm from '../../components/active-campaign-form/active-campaign-form';
+import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
+import FullWidthHeader from '../../components/full-width-header/full-width-header';
+import FullWidthImageSmall from '../../components/full-width-image-small/full-width-image-small';
+import Head from '../../components/head/head';
+import InlineMedia from '../../components/inline-media/inline-media';
+import Layout from '../../components/layout/layout';
+import MailchimpForm from '../../components/mailchimp/mailchimp-form';
+import MenuBar from '../../components/menu-bar/menu-bar';
+import RichBodyText from '../../components/rich-body-text/rich-body-text';
+import TextCenter from '../../components/text-center/text-center';
+import UpdateExtractSmall from '../../components/update-extract-small/update-extract-small';
+import UpdateOverviewSmall from '../../components/update-overview-small/update-overview-small';
 
 const Page = ({ update, footer, preview }) => (
 	<Layout preview={preview}>
@@ -171,6 +172,9 @@ const Page = ({ update, footer, preview }) => (
 									}}
 								/>
 							);
+
+						case 'carousel':
+							return <Carousel key={index} slides={component.slides} isWide={component.isWide} />;
 					}
 				})}
 			</main>
@@ -415,6 +419,35 @@ export const getStaticProps = async ({ preview, params }) => {
 							required
 						}
 					}
+				}
+				... on CarouselRecord {
+					itemType: _modelApiKey
+					slides {
+						media {
+							... on ImageRecord {
+								mediaType: _modelApiKey
+								image {
+									url
+								}
+							}
+							... on VideoRecord {
+								mediaType: _modelApiKey
+								autoplay
+								controls
+								large
+								loop
+								mute
+								video {
+									height
+									provider
+									providerUid
+									width
+								}
+							}
+						}
+						body
+					}
+					isWide: wide
 				}
 			}
 		}

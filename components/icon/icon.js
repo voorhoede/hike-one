@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import ArrowCarousel from '../icons/arrow-carousel';
 import ArrowDown from '../icons/arrow-down';
 import ArrowDownCircle from '../icons/arrow-down-circle';
 import ArrowLeft from '../icons/arrow-left';
@@ -19,6 +20,7 @@ import Spinner from '../icons/spinner';
 
 const Icon = ({ icon = 'arrowDown' }) => {
 	const icons = {
+		arrowCarousel: <ArrowCarousel />,
 		arrowDown: <ArrowDown />,
 		arrowDownCircle: <ArrowDownCircle />,
 		arrowLeft: <ArrowLeft />,

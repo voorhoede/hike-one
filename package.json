@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@zeit/next-less": "^1.0.1",
 		"cheerio": "1.0.0-rc.3",
-		"gsap": "^3.6.0",
+		"gsap": "^3.6.1",
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^3.12.2",
 		"next": "^10.0.3",

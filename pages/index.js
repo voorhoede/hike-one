@@ -3,6 +3,7 @@ import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 
 import fetchContent from '../lib/fetch-content';
+import withCacheControl from '../lib/with-cache-control';
 
 import Layout from '../components/layout/layout';
 import AppNotification from '../components/app-notification/app-notification';
@@ -17,8 +18,17 @@ import ServicesCards from '../components/services-cards/services-cards';
 import TextCenter from '../components/text-center/text-center';
 import UpdateExtractSmall from '../components/update-extract-small/update-extract-small';
 import UpdateOverviewSmall from '../components/update-overview-small/update-overview-small';
+import VacancyOverview from '../components/vacancy-overview/vacancy-overview';
 
-const Page = ({ home, footer, preview }) => {
+let scrapeJobs;
+
+if (!process.browser) {
+	scrapeJobs = require('../lib/job-scraper/server');
+} else {
+	scrapeJobs = require('../lib/job-scraper/browser');
+}
+
+const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 	const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
 	function onChange(isVisible) {
@@ -90,6 +100,8 @@ const Page = ({ home, footer, preview }) => {
 							/>
 						))}
 					</UpdateOverviewSmall>
+
+					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
 				</main>
 
 				<Contact
@@ -106,7 +118,7 @@ const Page = ({ home, footer, preview }) => {
 	);
 };
 
-export const getStaticProps = async ({ preview }) => {
+Page.getInitialProps = withCacheControl(({ preview }) => {
 	const graphqlQuery = /* GraphQL */ `
 		{
 			home {
@@ -194,6 +206,13 @@ export const getStaticProps = async ({ preview }) => {
 				}
 			}
 
+			vacancyOverview {
+				title
+				tagline
+				callToActionTitle
+				callToActionUrl
+			}
+
 			footer {
 				form {
 					title
@@ -211,10 +230,15 @@ export const getStaticProps = async ({ preview }) => {
 		}
 	`;
 
-	return {
-		props: await fetchContent({ graphqlQuery, preview }),
-		revalidate: 60 * 60 * 8,
-	};
-};
+	return Promise.all([
+		fetchContent({ graphqlQuery, preview }),
+		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+			.then((response) => response.text())
+			.then(scrapeJobs),
+	]).then(([content, vacancies]) => ({
+		...content,
+		vacancies,
+	}));
+});
 
 export default Page;

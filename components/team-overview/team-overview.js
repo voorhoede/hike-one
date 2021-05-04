@@ -21,9 +21,8 @@ const TeamOverview = ({ data = {} }) => (
 
 		{data.cta.map((component, index) => {
 			return (
-				<div className="team-overview__cta-container">
+				<div key={index} className="team-overview__cta-container">
 					<CallToAction
-						key={index}
 						title={component.title}
 						buttonText={component.buttonText}
 						url={component.url}

@@ -21,7 +21,7 @@
 	}
 }
 
-.vacancy-overview-title {
+.vacancy-overview__title {
 	margin-bottom: @spacing-default*2;
 	color: @darker-gray;
 	font-size: @title-large-s;
@@ -43,7 +43,7 @@
 	}
 }
 
-.vacancy-overview-tagline {
+.vacancy-overview__tagline {
 	margin-bottom: @spacing-default*4;
 	font-size: @subtitle-large-s;
 
@@ -57,28 +57,37 @@
 	}
 }
 
-.vacancy-overview-list {
+.vacancy-overview__department {
 	margin: 0 0 @spacing-default*4 0;
 	padding: 0;
-	list-style: none;
 
 	@media @screen-768 {
 		margin-bottom: @spacing-default*8;
 	}
 }
 
-.vacancy-overview-list-item {
-	margin-top: @spacing-default*2;
+.vacancy-overview__department-name {
+	margin-bottom: 0;
+	font-weight: @font-weight-normal;
+	text-align: left;
+}
+
+.vacancy-overview__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.vacancy-overview__list-item {
 	padding: @spacing-default*2;
-	background-color: @white;
-	box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.17);
+	border-bottom: 1px solid @light-gray;
 
 	&:first-child {
 		margin-top: 0;
 	}
 }
 
-.vacancy-overview-list-item a {
+.vacancy-overview__list-item a {
 	display: block;
 	color: @darker-gray;
 	font-size: @body-large-s;
@@ -86,6 +95,7 @@
 
 	@media @screen-768 {
 		display: flex;
+		align-items: flex-end;
 		justify-content: space-between;
 		font-size: @body-large-m;
 	}
@@ -95,8 +105,10 @@
 	}
 }
 
-.vacancy-overview-list-item h4 {
+.vacancy-overview__list-item h4 {
 	margin-bottom: @spacing-default / 2;
+	color: @red;
+	font-weight: @font-weight-normal;
 
 	@media @screen-768 {
 		display: inline-block;
@@ -106,7 +118,7 @@
 	}
 }
 
-.vacancy-overview-list-item span {
+.vacancy-overview__list-item span {
 	margin: 0 @spacing-default;
 
 	@media @screen-768 {

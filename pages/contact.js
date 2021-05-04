@@ -4,14 +4,14 @@ import fetch from 'isomorphic-unfetch';
 import fetchContent from '../lib/fetch-content';
 import withCacheControl from '../lib/with-cache-control';
 
+import ContactForm from '../components/contact-form/contact-form';
+import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
-import PageHeaderNew from '../components/page-header-new/page-header-new';
-import ContactForm from '../components/contact-form/contact-form';
-import VacancyOverview from '../components/vacancy-overview/vacancy-overview';
-import OfficeOverview from '../components/office-overview/office-overview';
 import OfficeCard from '../components/office-card/office-card';
-import Footer from '../components/footer/footer';
+import OfficeOverview from '../components/office-overview/office-overview';
+import PageHeaderNew from '../components/page-header-new/page-header-new';
+import VacancyOverview from '../components/vacancy-overview/vacancy-overview';
 
 let scrapeJobs;
 
@@ -53,8 +53,6 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 
 				<ContactForm form={contactPage.contactForm} showBody={false} singleForm={true} />
 
-				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
-
 				<OfficeOverview header={contactPage.officesHeader}>
 					{contactPage.office.map((item, index) => (
 						<OfficeCard
@@ -70,6 +68,8 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 						/>
 					))}
 				</OfficeOverview>
+
+				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
 			</main>
 		</div>
 

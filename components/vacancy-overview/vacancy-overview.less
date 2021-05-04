@@ -32,8 +32,21 @@
 
 .vacancy-overview__department-name {
 	margin-bottom: 0;
+	font-size: @heading-small-s;
 	font-weight: @font-weight-normal;
+	line-height: @line-height-header-small-s;
 	text-align: left;
+
+	@media @screen-768 {
+		margin-bottom: @spacing-default*2;
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-l;
+	}
 }
 
 .vacancy-overview__list {

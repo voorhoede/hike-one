@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
+import TextCenter from '../text-center/text-center';
 
 const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 	<div className="vacancy-overview container">
-		<h2 className="vacancy-overview__title">{overview.title}</h2>
-		<p className="vacancy-overview__tagline">{overview.tagline}</p>
+		<TextCenter title={overview.title} text={overview.tagline} />
 
 		{vacancies.map((department, index) => (
 			<div className="vacancy-overview__department" key={index}>

@@ -313,6 +313,11 @@ class MenuBar extends Component {
 									<a>Updates</a>
 								</Link>
 							</li>
+							<li className="menu-item">
+								<a href="https://hikeone.homerun.co/" target="_blank" rel="noopener noreferrer">
+									Jobs
+								</a>
+							</li>
 							<li className="menu-item menu-item-last">
 								<Link href="/contact">
 									<a>Contact</a>

@@ -183,7 +183,8 @@
 		transform: translateX(20px);
 		opacity: 0;
 
-		@media @screen-500 {
+		// @screen-768 + 1 because otherwise there isn't enough space for the extra margin.
+		@media (min-width: 769px) {
 			margin-right: @spacing-default;
 		}
 	}

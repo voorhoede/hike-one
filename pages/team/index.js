@@ -1,3 +1,5 @@
+const Page = () => {};
+
 export async function getServerSideProps({ res }) {
 	res.writeHead(301, {
 		Location: 'team/culture',
@@ -9,4 +11,4 @@ export async function getServerSideProps({ res }) {
 	};
 }
 
-export default () => {};
+export default Page;

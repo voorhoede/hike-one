@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
+import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import TextCenter from '../text-center/text-center';
 
 const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
@@ -24,9 +24,14 @@ const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 			</div>
 		))}
 
-		<ButtonPrimaryLink href={overview.callToActionUrl} target="_blank" classes="btn-large content">
+		<ButtonSecondaryLink
+			href={overview.callToActionUrl}
+			target="_blank"
+			classes="btn-red-border"
+			icon="arrowRight"
+		>
 			{overview.callToActionTitle}
-		</ButtonPrimaryLink>
+		</ButtonSecondaryLink>
 	</div>
 );
 

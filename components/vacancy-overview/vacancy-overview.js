@@ -12,16 +12,15 @@ const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 
 				<ul className="vacancy-overview__list">
 					{department.jobs.map((job, index) => (
-					<li className="vacancy-overview__list-item" key={index}>
-						<a href={job.url} target="_blank" rel="noopener noreferrer">
-							<h4>{job.title}</h4>
-							<span>{job.duration}</span>
-							<span>{job.location}</span>
-						</a>
-					</li>
+						<li className="vacancy-overview__list-item" key={index}>
+							<a href={job.url} target="_blank" rel="noopener noreferrer">
+								<h4>{job.title}</h4>
+								<span>{job.duration}</span>
+								<span>{job.location}</span>
+							</a>
+						</li>
 					))}
 				</ul>
-
 			</div>
 		))}
 

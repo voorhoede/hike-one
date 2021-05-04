@@ -21,64 +21,50 @@
 	}
 }
 
-.vacancy-overview-title {
-	margin-bottom: @spacing-default*2;
-	color: @darker-gray;
-	font-size: @title-large-s;
-	font-weight: @font-weight-bold;
-	line-height: @line-height-title-s;
-
-	@media @screen-768 {
-		max-width: 800px;
-		margin: 0 auto @spacing-default*4;
-		padding-top: @spacing-default*8;
-		font-size: @title-large-m;
-		line-height: @line-height-title-m;
-	}
-
-	@media @screen-1170 {
-		max-width: @column-large-10;
-		font-size: @title-large-l;
-		line-height: @line-height-title-l;
-	}
-}
-
-.vacancy-overview-tagline {
-	margin-bottom: @spacing-default*4;
-	font-size: @subtitle-large-s;
-
-	@media @screen-768 {
-		margin-bottom: @spacing-default*8;
-		font-size: @subtitle-large-m;
-	}
-
-	@media @screen-1170 {
-		font-size: @subtitle-large-l;
-	}
-}
-
-.vacancy-overview-list {
+.vacancy-overview__department {
 	margin: 0 0 @spacing-default*4 0;
 	padding: 0;
-	list-style: none;
 
 	@media @screen-768 {
 		margin-bottom: @spacing-default*8;
 	}
 }
 
-.vacancy-overview-list-item {
-	margin-top: @spacing-default*2;
+.vacancy-overview__department-name {
+	margin-bottom: 0;
+	font-size: @heading-small-s;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-header-small-s;
+	text-align: left;
+
+	@media @screen-768 {
+		margin-bottom: @spacing-default*2;
+		font-size: @heading-small-m;
+		line-height: @line-height-header-small-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @heading-small-l;
+		line-height: @line-height-header-small-l;
+	}
+}
+
+.vacancy-overview__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.vacancy-overview__list-item {
 	padding: @spacing-default*2;
-	background-color: @white;
-	box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.17);
+	border-bottom: 1px solid @light-gray;
 
 	&:first-child {
 		margin-top: 0;
 	}
 }
 
-.vacancy-overview-list-item a {
+.vacancy-overview__list-item a {
 	display: block;
 	color: @darker-gray;
 	font-size: @body-large-s;
@@ -86,6 +72,7 @@
 
 	@media @screen-768 {
 		display: flex;
+		align-items: flex-end;
 		justify-content: space-between;
 		font-size: @body-large-m;
 	}
@@ -95,8 +82,10 @@
 	}
 }
 
-.vacancy-overview-list-item h4 {
+.vacancy-overview__list-item h4 {
 	margin-bottom: @spacing-default / 2;
+	color: @red;
+	font-weight: @font-weight-normal;
 
 	@media @screen-768 {
 		display: inline-block;
@@ -106,7 +95,7 @@
 	}
 }
 
-.vacancy-overview-list-item span {
+.vacancy-overview__list-item span {
 	margin: 0 @spacing-default;
 
 	@media @screen-768 {

@@ -18,17 +18,8 @@ class InputField extends Component {
 	}
 
 	render() {
-		const {
-			label,
-			name,
-			type,
-			value,
-			onChange,
-			isRequired,
-			autoFocus,
-			formLength,
-			id,
-		} = this.props;
+		const { label, name, type, value, onChange, isRequired, autoFocus, formLength, id } =
+			this.props;
 		const { shouldValidate } = this.state;
 		const shouldValidateClass = shouldValidate ? 'should-validate' : '';
 		const styles = type === 'textarea' ? { order: formLength, flexBasis: '100%' } : {};

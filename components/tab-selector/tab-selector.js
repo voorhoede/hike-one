@@ -32,9 +32,7 @@ const TabSelector = ({ services, selected }) => {
 const TabItem = ({ slug = '', title = '', Component = null, selected = '' }) => (
 	<Link href="/service/[slug]" as={`/service/${slug}`}>
 		<a className={`tab-selector-item ${selected === slug ? 'is-selected' : ''}`}>
-			<div className="tab-selector-item-shape">
-				{Component && <Component />}
-			</div>
+			<div className="tab-selector-item-shape">{Component && <Component />}</div>
 			<h2 className="tab-selector-item-title">{title}</h2>
 		</a>
 	</Link>

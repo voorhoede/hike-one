@@ -69,16 +69,8 @@ class PageHeader extends Component {
 
 	render() {
 		const { isFixed, isHidden, showVideo } = this.state;
-		const {
-			title,
-			subtitle,
-			video,
-			image,
-			onClickScrollButton,
-			showGradient,
-			isSmall,
-			children,
-		} = this.props;
+		const { title, subtitle, video, image, onClickScrollButton, showGradient, isSmall, children } =
+			this.props;
 		const childrenArray = React.Children.toArray(children);
 		let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
 		let parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');

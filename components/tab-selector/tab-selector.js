@@ -1,11 +1,11 @@
 import Link from 'next/link';
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './tab-selector-shapes';
 
-const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
+const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle, TrailTriangle];
 
 const TabSelector = ({ services, selected }) => {
 	const selectedTab = services.find((service) => service.slug === selected).position - 1;
-	const color = ['#fe595b', '#45d33c', '#8314bb'];
+	const color = ['#fe595b', '#45d33c', '#8314bb', '#8314bb'];
 	const style = {
 		transform: `translateX(${selectedTab * 100}%)`,
 		backgroundColor: color[selectedTab],

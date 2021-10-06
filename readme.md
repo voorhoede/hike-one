@@ -12,9 +12,9 @@ npm ci
 ```
 
 ### Environment
-All needed environment variables are listed in the [.env](.env) file. To automatically set them fill in a `.env.local` file following the same structure as the example file.
+All needed environment variables are listed in the [.env.example](.env.example) file. To automatically set them fill in a `.env.local` file following the same structure as the example file.
 ```sh
-cp .env .env.local
+cp .env.example .env.local
 ```
 
 ### Local development

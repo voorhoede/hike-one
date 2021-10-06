@@ -1,3 +1,28 @@
+.layout__cookie-notice {
+	position: fixed;
+	bottom: 0;
+	z-index: @layer-sticky;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: @white;
+}
+
+.layout__cookie-notice--accepted {
+	display: none;
+}
+
+.layout__cookie-link {
+	color: @white;
+}
+
+.layout__cookie-button {
+	margin: @spacing-default;
+	margin-left: @spacing-default * 2;
+}
+
 .layout__preview-notice {
 	z-index: @layer-notice;
 	position: absolute;

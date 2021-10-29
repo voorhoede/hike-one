@@ -13,7 +13,6 @@ import MenuBar from '../../components/menu-bar/menu-bar';
 import TextCenter from '../../components/text-center/text-center';
 import FiftyFifty from '../../components/50-50/50-50';
 import * as TextCenterShapes from '../../components/text-center/text-center-shapes';
-import * as FiftyFiftyShapes from '../../components/50-50/50-50-shapes';
 import ImageCombo from '../../components/image-combo/image-combo';
 import * as ImageComboShapes from '../../components/image-combo/image-combo-shapes';
 import * as CollageShapes from '../../components/collage/collage-shapes';
@@ -38,10 +37,6 @@ const scrollToTargetClass = 'js-scroll-to-target';
 // object with parallax shape layer variations for every type of component
 // combined with the componentCounter object a specific variantion is chosen for each component
 const parallaxLayersMap = {
-	'40_60_text_right': [[<FiftyFiftyShapes.TextRightSmall1Front position="front" key="1" />]],
-	'40_60_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
-	'50_50_text_left': [[<FiftyFiftyShapes.TextLeftSmall1Back position="back" key="1" />]],
-	'50_50_text_right': [[<FiftyFiftyShapes.TextRight1Back position="back" key="1" />]],
 	image_combo: [
 		[<ImageComboShapes.WithText1Front position="front" key="1" />],
 		[<ImageComboShapes.WithoutText1Front position="front" key="1" />],
@@ -114,9 +109,7 @@ const Page = ({ workcase, footer, preview }) => (
 									text={component.text}
 									imageLarge={true}
 									image={component.image}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '40_60_text_left':
@@ -128,9 +121,7 @@ const Page = ({ workcase, footer, preview }) => (
 									text={component.text}
 									imageLarge={true}
 									image={component.image}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '50_50_text_right':
@@ -141,9 +132,7 @@ const Page = ({ workcase, footer, preview }) => (
 									text={component.text}
 									image={component.image}
 									video={component.video}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case '50_50_text_left':
@@ -155,9 +144,7 @@ const Page = ({ workcase, footer, preview }) => (
 									text={component.text}
 									image={component.image}
 									video={component.video}
-								>
-									{parallaxLayers}
-								</FiftyFifty>
+								/>
 							);
 
 						case 'image_combo':

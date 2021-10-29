@@ -15,7 +15,6 @@ import FiftyFifty from '../../components/50-50/50-50';
 import * as TextCenterShapes from '../../components/text-center/text-center-shapes';
 import ImageCombo from '../../components/image-combo/image-combo';
 import * as ImageComboShapes from '../../components/image-combo/image-combo-shapes';
-import * as CollageShapes from '../../components/collage/collage-shapes';
 import FullWidthImage from '../../components/full-width-image/full-width-image';
 import FullWidthImageStatic from '../../components/full-width-image-static/full-width-image-static';
 import QuoteBlock from '../../components/quote-block/quote-block';
@@ -40,12 +39,6 @@ const parallaxLayersMap = {
 	image_combo: [
 		[<ImageComboShapes.WithText1Front position="front" key="1" />],
 		[<ImageComboShapes.WithoutText1Front position="front" key="1" />],
-	],
-	collage: [
-		[
-			<CollageShapes.variation1Front position="front" key="1" />,
-			<CollageShapes.variation1Back position="back" key="2" />,
-		],
 	],
 };
 
@@ -182,9 +175,7 @@ const Page = ({ workcase, footer, preview }) => (
 									text={component.text}
 									imageMedium={component.imageBig.url}
 									imageSmall={component.imageSmall.url}
-								>
-									{parallaxLayers}
-								</Collage>
+								/>
 							);
 
 						case 'full_width_image':

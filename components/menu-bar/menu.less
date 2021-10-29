@@ -39,11 +39,24 @@
 	}
 
 	@media @screen-768 {
+		overflow: auto;
+		padding-bottom: 50px;
 		width: 70vw;
 		height: 200vh;
-		overflow: hidden;
 		transform: rotate(-22deg);
 		transform-origin: 0 0;
+	}
+
+	@media (min-height: 400px) {
+		padding-bottom: 300px;
+	}
+
+	@media (min-height: 450px) {
+		padding-bottom: 400px;
+	}
+
+	@media (min-height: 751px) {
+		padding-bottom: 700px;
 	}
 
 	@media @screen-1920 {

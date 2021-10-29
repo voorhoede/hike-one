@@ -55,7 +55,7 @@ class MenuBar extends Component {
 		if (window.matchMedia('(min-width: 1919px)').matches) {
 			// large screens
 			bgCoverPercentage = 0.47;
-		} else if (window.matchMedia('(min-width: 767px)').matches) {
+		} else if (window.matchMedia('(min-width: 768px)').matches) {
 			// medium screens
 			bgCoverPercentage = 0.7;
 		} else {

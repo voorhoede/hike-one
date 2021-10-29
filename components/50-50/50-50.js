@@ -92,7 +92,6 @@ const FiftyFifty = ({
 };
 
 FiftyFifty.propTypes = {
-	children: PropTypes.node,
 	classes: PropTypes.node,
 	contentLeft: PropTypes.bool,
 	googleMapsIframe: PropTypes.string,

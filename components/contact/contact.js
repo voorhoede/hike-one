@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
-const Contact = ({ title = '', button = '', link = '', target = '_self', children }) => {
+const Contact = ({ title = '', button = '', link = '', target = '_self' }) => {
 	return (
 		<section className="contact">
 			<div className="container-inner">
@@ -24,7 +24,6 @@ Contact.propTypes = {
 	button: PropTypes.string,
 	link: PropTypes.string,
 	target: PropTypes.string,
-	children: PropTypes.node,
 };
 
 export default Contact;

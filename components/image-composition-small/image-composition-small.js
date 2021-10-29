@@ -81,7 +81,6 @@ const ImageCompositionSmall = ({
 };
 
 ImageCompositionSmall.propTypes = {
-	children: PropTypes.node,
 	classes: PropTypes.string,
 	image21: PropTypes.object,
 	image34: PropTypes.object,

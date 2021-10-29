@@ -73,7 +73,6 @@ Collage.propTypes = {
 	imageSmall: PropTypes.string,
 	title: PropTypes.string,
 	text: PropTypes.string,
-	children: PropTypes.node,
 };
 
 export default Collage;

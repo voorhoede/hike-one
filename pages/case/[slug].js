@@ -2,7 +2,6 @@ import '../../styles/index.less';
 
 import React from 'react';
 import fetchContent from '../../lib/fetch-content';
-import setComponentCounter from '../../components/_helpers/setParallaxComponentCounter';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 import scrollToElement from '../../components/_helpers/scrollToElement';
 
@@ -14,7 +13,6 @@ import TextCenter from '../../components/text-center/text-center';
 import FiftyFifty from '../../components/50-50/50-50';
 import * as TextCenterShapes from '../../components/text-center/text-center-shapes';
 import ImageCombo from '../../components/image-combo/image-combo';
-import * as ImageComboShapes from '../../components/image-combo/image-combo-shapes';
 import FullWidthImage from '../../components/full-width-image/full-width-image';
 import FullWidthImageStatic from '../../components/full-width-image-static/full-width-image-static';
 import QuoteBlock from '../../components/quote-block/quote-block';
@@ -32,19 +30,6 @@ import UpdateLink from '../../components/update-link/update-link';
 import Footer from '../../components/footer/footer';
 
 const scrollToTargetClass = 'js-scroll-to-target';
-
-// object with parallax shape layer variations for every type of component
-// combined with the componentCounter object a specific variantion is chosen for each component
-const parallaxLayersMap = {
-	image_combo: [
-		[<ImageComboShapes.WithText1Front position="front" key="1" />],
-		[<ImageComboShapes.WithoutText1Front position="front" key="1" />],
-	],
-};
-
-// object that counts how many times a component is used on this page
-// this is done by the `setComponentCounter` function
-let componentCounter = {};
 
 const Page = ({ workcase, footer, preview }) => (
 	<Layout preview={preview}>
@@ -84,14 +69,6 @@ const Page = ({ workcase, footer, preview }) => (
 					}
 
 					const hasTextCard = !!(component.textTitle && component.textTitle.length > 1);
-
-					// // set component count
-					componentCounter = setComponentCounter(componentCounter, itemType, parallaxLayersMap);
-					const count = componentCounter[itemType];
-
-					// // if a parallax variation layer is available then use that one
-					const parallaxLayers =
-						componentCounter[itemType] !== null ? parallaxLayersMap[itemType][count] : '';
 
 					switch (itemType) {
 						case '40_60_text_right':
@@ -163,7 +140,6 @@ const Page = ({ workcase, footer, preview }) => (
 											citeImage={component.quoteAuthorImage.url}
 										/>
 									)}
-									{parallaxLayers}
 								</ImageCombo>
 							);
 

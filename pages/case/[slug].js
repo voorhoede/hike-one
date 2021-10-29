@@ -27,7 +27,6 @@ import InlineMedia from '../../components/inline-media/inline-media';
 import CallToAction from '../../components/call-to-action/call-to-action';
 import ContactForm from '../../components/contact-form/contact-form';
 import Contact from '../../components/contact/contact';
-import ContactShapes from '../../components/contact/contact-shapes';
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import UpdateLinks from '../../components/update-links/update-links';
@@ -295,9 +294,7 @@ const Page = ({ workcase, footer, preview }) => (
 				title={workcase.contact.title}
 				button={workcase.contact.button}
 				link={workcase.contact.externalLink}
-			>
-				<ContactShapes position="front" />
-			</Contact>
+			/>
 
 			<WorkOverview>
 				{workcase.caseExtract.map((item, index) => (

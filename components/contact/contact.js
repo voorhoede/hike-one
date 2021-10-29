@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import ButtonPrimaryLink from '../buttons/button-primary/button-primary-link';
 
 const Contact = ({ title = '', button = '', link = '', target = '_self', children }) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
-
 	return (
 		<section className="contact">
 			<div className="container-inner">
@@ -18,7 +15,6 @@ const Contact = ({ title = '', button = '', link = '', target = '_self', childre
 					{button}
 				</ButtonPrimaryLink>
 			</div>
-			{parallaxLayerFront}
 		</section>
 	);
 };

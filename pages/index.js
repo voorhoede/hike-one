@@ -9,7 +9,6 @@ import Layout from '../components/layout/layout';
 import AppNotification from '../components/app-notification/app-notification';
 import CaseExtract from '../components/case-extract/case-extract';
 import Contact from '../components/contact/contact';
-import ContactShape from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
 import MenuBar from '../components/menu-bar/menu-bar';
@@ -108,9 +107,7 @@ const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 					title={home.contact.title}
 					button={home.contact.button}
 					link={home.contact.externalLink}
-				>
-					<ContactShape position="front" />
-				</Contact>
+				/>
 
 				<Footer form={footer.form} disableParallax />
 			</Layout>

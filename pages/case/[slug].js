@@ -11,7 +11,6 @@ import PageHeader from '../../components/page-header/page-header';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import TextCenter from '../../components/text-center/text-center';
 import FiftyFifty from '../../components/50-50/50-50';
-import * as TextCenterShapes from '../../components/text-center/text-center-shapes';
 import ImageCombo from '../../components/image-combo/image-combo';
 import FullWidthImage from '../../components/full-width-image/full-width-image';
 import FullWidthImageStatic from '../../components/full-width-image-static/full-width-image-static';
@@ -53,9 +52,7 @@ const Page = ({ workcase, footer, preview }) => (
 			/>
 
 			<main className={`${scrollToTargetClass} page-scrolling-content`}>
-				<TextCenter title={workcase.introTitle} text={workcase.introText}>
-					<TextCenterShapes.variation1Back position="back" />
-				</TextCenter>
+				<TextCenter title={workcase.introTitle} text={workcase.introText} />
 
 				{workcase.components.map((component, index) => {
 					let itemType = component.itemType;

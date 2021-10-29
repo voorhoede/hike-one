@@ -3,20 +3,15 @@ import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
 const ImageCompositionSmall = ({
-	children,
 	classes = '',
 	image21 = {},
 	image34 = {},
 	image34Small = {},
 }) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
 	const imageParameters = { fit: 'max' };
 
 	return (
 		<div className={`image-composition-small ${classes}`}>
-			{parallaxLayerBack}
 			<div className="image-composition-small-inner">
 				<div className="image-composition-img-1 image-team">
 					<img
@@ -81,8 +76,6 @@ const ImageCompositionSmall = ({
 					<span className="image-team-title">{image34Small.title}</span>
 				</div>
 			</div>
-
-			{parallaxLayerFront}
 		</div>
 	);
 };

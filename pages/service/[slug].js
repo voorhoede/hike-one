@@ -12,6 +12,7 @@ import TextCenter from '../../components/text-center/text-center';
 import Company from '../../components/company/company';
 import FiftyFifty from '../../components/50-50/50-50';
 import Contact from '../../components/contact/contact';
+import ContactShapes from '../../components/contact/contact-shapes';
 import WorkOverview from '../../components/work-overview/work-overview';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import UpdateLinks from '../../components/update-links/update-links';
@@ -75,7 +76,9 @@ const Page = ({ service, allServices, footer, preview }) => (
 				title={service.contact.title}
 				button={service.contact.button}
 				link={service.contact.externalLink}
-			/>
+			>
+				<ContactShapes position="front" />
+			</Contact>
 
 			<WorkOverview header={service.caseExtractTitle}>
 				{service.caseExtract.map((item, index) => (

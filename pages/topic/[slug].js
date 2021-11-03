@@ -9,6 +9,7 @@ import Carousel from '../../components/carousel/carousel';
 import CaseExtractSmall from '../../components/case-extract-small/case-extract-small';
 import Contact from '../../components/contact/contact';
 import ContactForm from '../../components/contact-form/contact-form';
+import ContactShapes from '../../components/contact/contact-shapes';
 import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
@@ -178,7 +179,9 @@ const Page = ({ topic, footer, preview }) => (
 					link={topic.contact.externalLink}
 					target="_blank"
 					rel="noopener noreferrer"
-				/>
+				>
+					<ContactShapes position="front" />
+				</Contact>
 			)}
 
 			<TextCenter title={topic.caseLinksTitle} />

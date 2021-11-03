@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ButtonClean from '../buttons/button-clean/button-clean';
+import Icon from '../icon/icon';
 
 import setImageParams from '../_helpers/setImageParameters';
 
@@ -68,8 +69,11 @@ class PageHeader extends Component {
 
 	render() {
 		const { isFixed, isHidden, showVideo } = this.state;
-		const { title, subtitle, video, image, onClickScrollButton, showGradient, isSmall } =
+		const { title, subtitle, video, image, onClickScrollButton, showGradient, isSmall, children } =
 			this.props;
+		const childrenArray = React.Children.toArray(children);
+		let parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
+		let parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
 
 		const imageParameters = { fit: 'max' };
 		const style = {
@@ -111,6 +115,7 @@ class PageHeader extends Component {
 					${isFixed ? 'page-header--fixed' : ''}
 					${showVideo ? 'page-header--show-video' : ''}`}
 			>
+				{parallaxLayerBack}
 				{video && (
 					<video
 						ref={(node) => (this.video = node)}
@@ -141,6 +146,7 @@ class PageHeader extends Component {
 					</div>
 				</div>
 				<div dangerouslySetInnerHTML={style} />
+				{parallaxLayerFront}
 			</section>
 		);
 	}
@@ -154,6 +160,7 @@ PageHeader.propTypes = {
 	onClickScrollButton: PropTypes.func,
 	showGradient: PropTypes.bool,
 	isSmall: PropTypes.bool,
+	children: PropTypes.node,
 };
 
 export default PageHeader;

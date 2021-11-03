@@ -4,6 +4,7 @@ import setImageParams from '../_helpers/setImageParameters';
 import InlineVideo from '../inline-video/inline-video';
 
 const FiftyFifty = ({
+	children,
 	classes = '',
 	contentLeft = false,
 	googleMapsIframe = null,
@@ -13,6 +14,9 @@ const FiftyFifty = ({
 	title = '',
 	video = null,
 }) => {
+	const childrenArray = React.Children.toArray(children);
+	const parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
+	const parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
 	const imageUrl = image && image.url;
@@ -21,6 +25,7 @@ const FiftyFifty = ({
 		<section
 			className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}
 		>
+			{parallaxLayerBack}
 			<div className="container-inner">
 				<div className="fifty-fifty-media">
 					{googleMapsIframe && <div dangerouslySetInnerHTML={{ __html: googleMapsIframe }} />}
@@ -87,11 +92,14 @@ const FiftyFifty = ({
 					<div className="fifty-fifty-text content" dangerouslySetInnerHTML={{ __html: text }} />
 				</div>
 			</div>
+
+			{parallaxLayerFront}
 		</section>
 	);
 };
 
 FiftyFifty.propTypes = {
+	children: PropTypes.node,
 	classes: PropTypes.node,
 	contentLeft: PropTypes.bool,
 	googleMapsIframe: PropTypes.string,

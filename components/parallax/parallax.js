@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import isElementInView from '../_helpers/isElementInView';
-import TweenLite from 'gsap';
+import { gsap, TweenLite } from 'gsap';
+
+gsap.registerPlugin(TweenLite);
 
 class Parallax extends Component {
 	constructor(props) {

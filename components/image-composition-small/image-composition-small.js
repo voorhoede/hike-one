@@ -2,12 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import setImageParams from '../_helpers/setImageParameters';
 
-const ImageCompositionSmall = ({
-	classes = '',
-	image21 = {},
-	image34 = {},
-	image34Small = {},
-}) => {
+const ImageCompositionSmall = ({ classes = '', image21 = {}, image34 = {}, image34Small = {} }) => {
 	const imageParameters = { fit: 'max' };
 
 	return (

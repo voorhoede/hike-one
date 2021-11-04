@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ImageCombo = ({ hasText = false, children }) => {
-	return (
-		<div className={`image-combo ${hasText ? 'image-combo--has-text' : ''}`}>
-			{children}
-		</div>
-	);
+	return <div className={`image-combo ${hasText ? 'image-combo--has-text' : ''}`}>{children}</div>;
 };
 
 ImageCombo.propTypes = {

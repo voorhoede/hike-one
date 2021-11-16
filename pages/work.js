@@ -10,7 +10,6 @@ import LogoCarousel from '../components/logo-carousel/logo-carousel';
 import WorkOverview from '../components/work-overview/work-overview';
 import CaseExtractSmall from '../components/case-extract-small/case-extract-small';
 import Contact from '../components/contact/contact';
-import ContactShapes from '../components/contact/contact-shapes';
 import Footer from '../components/footer/footer';
 import TextCenter from '../components/text-center/text-center';
 
@@ -58,9 +57,7 @@ const Page = ({ work, overviewCases, footer, preview }) => (
 				title={work.contact.title}
 				button={work.contact.button}
 				link={work.contact.externalLink}
-			>
-				<ContactShapes position="front" />
-			</Contact>
+			/>
 		</div>
 
 		<Footer form={footer.form} />

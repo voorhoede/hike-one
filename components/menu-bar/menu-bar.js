@@ -11,7 +11,9 @@ import LinkedIn from '../icons/linkedin-circle';
 import Medium from '../icons/medium-circle';
 import Twitter from '../icons/twitter-circle';
 import Logo from '../logo/logo';
-import { Power3, TimelineLite } from 'gsap';
+import { gsap, Power3, TimelineLite } from 'gsap';
+
+gsap.registerPlugin(Power3, TimelineLite);
 
 class MenuBar extends Component {
 	constructor(props) {

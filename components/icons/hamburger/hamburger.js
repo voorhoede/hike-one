@@ -1,5 +1,7 @@
 import { Component } from 'react';
-import { Power2, TimelineLite } from 'gsap';
+import { gsap, Power2, TimelineLite } from 'gsap';
+
+gsap.registerPlugin(Power2, TimelineLite);
 
 class Hamburger extends Component {
 	constructor(props) {

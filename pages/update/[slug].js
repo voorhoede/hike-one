@@ -9,7 +9,6 @@ import CallToAction from '../../components/call-to-action/call-to-action';
 import Carousel from '../../components/carousel/carousel';
 import Contact from '../../components/contact/contact';
 import ContactForm from '../../components/contact-form/contact-form';
-import ContactShapes from '../../components/contact/contact-shapes';
 import FiftyFifty from '../../components/50-50/50-50';
 import Footer from '../../components/footer/footer';
 import FullWidthHeader from '../../components/full-width-header/full-width-header';
@@ -200,9 +199,7 @@ const Page = ({ update, footer, preview }) => (
 					link={update.contact.externalLink}
 					target="_blank"
 					rel="noopener noreferrer"
-				>
-					<ContactShapes position="front" />
-				</Contact>
+				/>
 			)}
 
 			<TextCenter

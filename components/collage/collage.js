@@ -4,10 +4,7 @@ import Parallax from '../parallax/parallax';
 
 import setImageParams from '../_helpers/setImageParameters';
 
-const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', children }) => {
-	const childrenArray = React.Children.toArray(children);
-	const parallaxLayerFront = childrenArray.find((child) => child.props.position === 'front');
-	const parallaxLayerBack = childrenArray.find((child) => child.props.position === 'back');
+const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '' }) => {
 	const imageParameters = { fit: 'max' };
 
 	const imageSmallTemplate = (classes) => {
@@ -29,7 +26,6 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 
 	return (
 		<section className="collage clearfix container">
-			{parallaxLayerBack}
 			<div className="collage-image-container">
 				<div className="collage-image-container-inner">
 					<img
@@ -68,7 +64,6 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '', chi
 					dangerouslySetInnerHTML={{ __html: text }}
 				/>
 			</div>
-			{parallaxLayerFront}
 		</section>
 	);
 };
@@ -78,7 +73,6 @@ Collage.propTypes = {
 	imageSmall: PropTypes.string,
 	title: PropTypes.string,
 	text: PropTypes.string,
-	children: PropTypes.node,
 };
 
 export default Collage;

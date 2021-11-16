@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TimelineLite } from 'gsap';
+import { gsap, TimelineLite } from 'gsap';
 
 import ServiceCard from '../service-card/service-card';
 import TextCenter from '../text-center/text-center';
 import { TrailDiamond, TrailDoubleDiamond, TrailTriangle } from './services-cards-shapes';
 
+gsap.registerPlugin(TimelineLite);
 const shapes = [TrailDiamond, TrailDoubleDiamond, TrailTriangle];
 
 class ServicesCards extends Component {

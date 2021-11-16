@@ -1,4 +1,6 @@
 import { gsap, Power0, Power2, Power3, TimelineLite } from 'gsap';
+
+gsap.registerPlugin(Power0, Power2, Power3, TimelineLite);
 gsap.config({ nullTargetWarn: false });
 
 export function timelineDiamond() {

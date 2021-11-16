@@ -155,6 +155,150 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 						title
 						text
 					}
+					... on LogoCarouselRecord {
+						itemType: _modelApiKey
+						title
+						companies {
+							name
+							logo {
+								url
+							}
+						}
+					}
+					... on CollaborationRecord {
+						itemType: _modelApiKey
+						title
+						text
+						companies {
+							name
+							website
+							logo {
+								url
+							}
+						}
+					}
+					... on FullWidthImageRecord {
+						itemType: _modelApiKey
+						title
+						subtitle
+						image {
+							url
+						}
+					}
+					... on CollageRecord {
+						itemType: _modelApiKey
+						title
+						text
+						imageBig {
+							url
+						}
+						imageSmall {
+							url
+						}
+					}
+					... on InlineImageRecord {
+						itemType: _modelApiKey
+						caption
+						image {
+							width
+							height
+							url
+						}
+					}
+					... on InlineImageLargeRecord {
+						itemType: _modelApiKey
+						caption
+						image {
+							width
+							height
+							url
+						}
+					}
+					... on ImageComboRecord {
+						itemType: _modelApiKey
+						textTitle
+						textContent
+						image {
+							url
+						}
+
+						quote
+						quoteColor {
+							color
+						}
+						quoteAuthorTitle
+						quoteAuthorName
+						quoteAuthorImage {
+							url
+						}
+						quoteAlignLeft
+					}
+					... on VideoRecord {
+						itemType: _modelApiKey
+						large
+						autoplay
+						controls
+						mute
+						loop
+
+						video {
+							provider
+							providerUid
+							width
+							height
+						}
+					}
+					... on CallToActionRecord {
+						itemType: _modelApiKey
+						title
+						buttonText
+						url
+						bgColor {
+							hex
+						}
+						titleWhite
+						fullWidth
+						isExternalLink
+					}
+					... on RichBodyTextRecord {
+						itemType: _modelApiKey
+						content
+						centered
+					}
+					... on BodyQuoteRecord {
+						itemType: _modelApiKey
+						quote
+						quotee
+					}
+					... on CarouselRecord {
+						itemType: _modelApiKey
+						slides {
+							media {
+								... on ImageRecord {
+									mediaType: _modelApiKey
+									image {
+										url
+									}
+								}
+								... on VideoRecord {
+									mediaType: _modelApiKey
+									autoplay
+									controls
+									large
+									loop
+									mute
+									video {
+										height
+										provider
+										providerUid
+										width
+									}
+								}
+							}
+							body
+						}
+						isWide: wide
+					}
 				}
 
 				imageComposition {

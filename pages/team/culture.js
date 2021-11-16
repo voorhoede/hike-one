@@ -1,15 +1,15 @@
 import '../../styles/index.less';
 
 import fetchContent from '../../lib/fetch-content';
-import withCacheControl from '../../lib/with-cache-control';
 
+import Footer from '../../components/footer/footer';
 import Head from '../../components/head/head';
+import Layout from '../../components/layout/layout';
 import MenuBar from '../../components/menu-bar/menu-bar';
 import PageHeaderNew from '../../components/page-header-new/page-header-new';
 import TeamOverview from '../../components/team-overview/team-overview';
 import TeamSelector from '../../components/team-selector/team-selector';
 import VacancyOverview from '../../components/vacancy-overview/vacancy-overview';
-import Footer from '../../components/footer/footer';
 
 let scrapeJobs;
 
@@ -19,8 +19,8 @@ if (!process.browser) {
 	scrapeJobs = require('../../lib/job-scraper/browser');
 }
 
-const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
-	<>
+const Page = ({ team, footer, vacancyOverview, vacancies, pathname, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={team.seo.title}
 			description={team.seo.description}
@@ -48,10 +48,10 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname }) => (
 		</div>
 
 		<Footer form={footer.form} />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
+export const getStaticProps = async ({ preview }) => {
 	const graphqlQuery = /* GraphQL */ `
 		{
 			team {
@@ -354,16 +354,10 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 		}
 	`;
 
-	return Promise.all([
-		fetchContent({ graphqlQuery, req }),
-		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
-			.then((response) => response.text())
-			.then(scrapeJobs),
-	]).then(([content, vacancies]) => ({
-		...content,
-		vacancies,
-		pathname,
-	}));
-});
+	return {
+		props: await fetchContent({ graphqlQuery, preview }),
+		revalidate: 60 * 60 * 8,
+	};
+};
 
 export default Page;

@@ -271,6 +271,7 @@ const Page = ({ workcase, footer, preview }) => (
 						authors={item.authors}
 						date={getDateFormat(item.date)}
 						target={Boolean(item.externalLink)}
+						topic={item.topic}
 					/>
 				))}
 			</UpdateLinks>
@@ -332,11 +333,12 @@ export const getStaticProps = async ({ preview, params }) => {
 			}
 
 			updateLinks {
-				slug
-				title
+				authors { name }
 				date
 				externalLink
-				authors { name }
+				slug
+				title
+				topic
 			}
 
 			components {

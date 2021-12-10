@@ -2,10 +2,18 @@ import PropTypes from 'prop-types';
 import ArrowRightCircle from '../icons/arrow-right-circle';
 import Authors from '../authors/authors';
 
-const UpdateLink = ({ slug, href, title = '', authors = [], date = '', target = false }) => (
+const UpdateLink = ({
+	authors = [],
+	date = '',
+	href,
+	slug,
+	target = false,
+	title = '',
+	topic = false,
+}) => (
 	<div className="update-link">
 		<a
-			href={href || `/update/${slug}`}
+			href={href || `/${topic ? 'topic' : 'update'}/${slug}`}
 			className="update-link-title"
 			target={target ? '_blank' : '_self'}
 			rel="noopener noreferrer"
@@ -20,12 +28,13 @@ const UpdateLink = ({ slug, href, title = '', authors = [], date = '', target = 
 );
 
 UpdateLink.propTypes = {
-	slug: PropTypes.string,
-	href: PropTypes.string,
-	title: PropTypes.string,
 	authors: PropTypes.array,
 	date: PropTypes.string,
+	href: PropTypes.string,
+	slug: PropTypes.string,
 	target: PropTypes.bool,
+	title: PropTypes.string,
+	topic: PropTypes.bool,
 };
 
 export default UpdateLink;

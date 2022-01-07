@@ -10,7 +10,7 @@
 		"lint:css": "stylelint '{components,styles}/**/*.less' --syntax less",
 		"lint:js": "npm run prettier -- --check",
 		"format": "npm run prettier -- --write",
-		"prettier": "prettier '{api,components,lib,pages}/**/*.js'"
+		"prettier": "prettier '{api,components,lib,pages}/**/*.js' 'next.config.js'"
 	},
 	"dependencies": {
 		"@zeit/next-less": "^1.0.1",

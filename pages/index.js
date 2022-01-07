@@ -1,4 +1,3 @@
-import '../styles/index.less';
 import { useState } from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
 

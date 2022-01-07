@@ -13,12 +13,13 @@
 		"prettier": "prettier '{api,components,lib,pages}/**/*.js' 'next.config.js'"
 	},
 	"dependencies": {
-		"@zeit/next-less": "^1.0.1",
 		"cheerio": "1.0.0-rc.3",
 		"gsap": "^3.7.1",
 		"isomorphic-unfetch": "^3.0.0",
 		"less": "^4.1.1",
-		"next": "^10.0.3",
+		"less-loader": "^10.2.0",
+		"next": "^12.0.7",
+		"next-with-less": "^2.0.4",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-slick": "^0.28.1",

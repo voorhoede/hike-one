@@ -1,5 +1,3 @@
-import '../styles/index.less';
-
 import fetchContent from '../lib/fetch-content';
 
 import Head from '../components/head/head';

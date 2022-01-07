@@ -56,6 +56,28 @@ module.exports = withLess({
 				destination: '/topic/ux-leadership-breakfast',
 				permanent: true,
 			},
+			{
+				source: '/:path*',
+				has: [
+					{
+						type: 'host',
+						value: 'dashboard.hike.one',
+					},
+				],
+				destination: 'https://sites.google.com/hike.one/dashboard',
+				permanent: true,
+			},
+			{
+				source: '/:path*',
+				has: [
+					{
+						type: 'host',
+						value: 'playbook.hike.one',
+					},
+				],
+				destination: 'https://app.gitbook.com/@hikeone/s/project-playbook/',
+				permanent: true,
+			},
 		];
 	},
 });

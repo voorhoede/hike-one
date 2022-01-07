@@ -1,4 +1,4 @@
-const withLess = require('@zeit/next-less');
+const withLess = require('next-with-less');
 
 module.exports = withLess({
 	distDir: 'dist',

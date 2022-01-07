@@ -1,5 +1,3 @@
-import '../../styles/index.less';
-
 import fetchContent from '../../lib/fetch-content';
 import getDateFormat from '../../components/_helpers/getDateFormat';
 

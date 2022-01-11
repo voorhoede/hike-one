@@ -78,6 +78,17 @@ module.exports = withLess({
 				destination: 'https://app.gitbook.com/@hikeone/s/project-playbook/',
 				permanent: true,
 			},
+			{
+				source: '/:path*',
+				has: [
+					{
+						type: 'host',
+						value: 'company.hike.one',
+					},
+				],
+				destination: 'https://app.gitbook.com/o/-LIAgDy6p2s2H1HIFTrR/s/-LIFHl53Swk5UivDAeye/',
+				permanent: true,
+			},
 		];
 	},
 });

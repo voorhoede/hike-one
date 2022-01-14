@@ -352,10 +352,15 @@ export const getStaticProps = async ({ preview }) => {
 		}
 	`;
 
-	return {
-		props: await fetchContent({ graphqlQuery, preview }),
+	return Promise.all([
+		fetchContent({ graphqlQuery, preview }),
+		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+			.then((response) => response.text())
+			.then(scrapeJobs),
+	]).then(([content, vacancies]) => ({
+		props: { ...content, vacancies },
 		revalidate: 60 * 60 * 8,
-	};
+	}));
 };
 
 export default Page;

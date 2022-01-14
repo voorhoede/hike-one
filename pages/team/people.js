@@ -49,7 +49,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPe
 			</main>
 		</div>
 
-		<Footer form={footer.form} />
+		<Footer showForm={footer.showForm} form={footer.form} />
 	</>
 );
 
@@ -109,6 +109,7 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

@@ -43,7 +43,7 @@ const Page = ({
 			</main>
 		</div>
 
-		<Footer form={footer.form} />
+		<Footer showForm={footer.showForm} form={footer.form} />
 	</Layout>
 );
 
@@ -156,6 +156,7 @@ export const getServerSideProps = withCacheControl(async ({ query, preview }) =>
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

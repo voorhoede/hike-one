@@ -47,7 +47,7 @@ class Footer extends Component {
 	}
 
 	render() {
-		const { form } = this.props;
+		const { showForm, form } = this.props;
 
 		return (
 			<footer ref={(node) => (this.footer = node)} className="footer">
@@ -95,17 +95,17 @@ class Footer extends Component {
 									</li>
 								</ul>
 							</div>
-							<MailchimpForm
+							{showForm && <MailchimpForm
 								title={form.title}
 								description={form.description}
 								listId={form.listId}
 								buttonLabel={form.button}
 								inputFields={form.extraInputFields}
 								hasShadow={form.hasShadow}
-							/>
+							/>}
 						</div>
 
-						<div className="footer-right">
+						<div className={`footer-right ${!showForm ? 'footer-right--horizontal' : null}`}>
 							<div className="footer-contact">
 								<h3>Get in touch</h3>
 								<a href="mailto:hello@hike.one" className="footer-contact-email">
@@ -114,8 +114,8 @@ class Footer extends Component {
 								<a href="tel:+31-202044577" className="footer-contact-tel">
 									+31 20 204 45 77
 								</a>
+								<SocialMedia />
 							</div>
-							<SocialMedia />
 							<div className="footer-links">
 								<h3>Our offices</h3>
 								<ul className="footer-link-list">

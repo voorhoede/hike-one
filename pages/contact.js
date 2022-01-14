@@ -71,7 +71,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 			</main>
 		</div>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer showForm={footer.showForm} form={footer.form} disableParallax />
 	</>
 );
 
@@ -146,6 +146,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

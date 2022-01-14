@@ -118,8 +118,25 @@
 		width: 30%;
 		min-width: 300px;
 		max-width: 370px;
+		margin-top: -@spacing-default;
 		margin-left: auto;
 		vertical-align: top;
+	}
+
+	&--horizontal {
+		@media @screen-1170 {
+			flex-direction: row;
+			width: auto;
+			max-width: none;
+
+			& .footer-links {
+				margin-left: @spacing-default*10;
+			}
+
+			.footer & .menu-social {
+				width: 110%;
+			}
+		}
 	}
 }
 

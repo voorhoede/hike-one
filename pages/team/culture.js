@@ -45,7 +45,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname, preview }) =
 			</main>
 		</div>
 
-		<Footer form={footer.form} />
+		<Footer showForm={footer.showForm} form={footer.form} />
 	</Layout>
 );
 
@@ -336,6 +336,7 @@ export const getStaticProps = async ({ preview }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-unfetch';
 import fetchContent from '../lib/fetch-content';
-import withCacheControl from '../lib/with-cache-control';
 
 import ContactForm from '../components/contact-form/contact-form';
 import Footer from '../components/footer/footer';
 import Head from '../components/head/head';
+import Layout from '../components/layout/layout';
 import MenuBar from '../components/menu-bar/menu-bar';
 import OfficeCard from '../components/office-card/office-card';
 import OfficeOverview from '../components/office-overview/office-overview';
@@ -19,8 +19,8 @@ if (!process.browser) {
 	scrapeJobs = require('../lib/job-scraper/browser');
 }
 
-const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
-	<>
+const Page = ({ contactPage, vacancyOverview, footer, vacancies, preview }) => (
+	<Layout preview={preview}>
 		<Head
 			title={contactPage.seo.title}
 			description={contactPage.seo.description}
@@ -72,10 +72,10 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies }) => (
 		</div>
 
 		<Footer form={footer.form} disableParallax />
-	</>
+	</Layout>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
+export const getStaticProps = async ({ preview }) => {
 	const graphqlQuery = /* GraphQL */ `
 		{
 			contactPage {
@@ -163,14 +163,14 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 	`;
 
 	return Promise.all([
-		fetchContent({ graphqlQuery, req }),
+		fetchContent({ graphqlQuery, preview }),
 		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then((response) => response.text())
 			.then(scrapeJobs),
 	]).then(([content, vacancies]) => ({
-		...content,
-		vacancies,
+		props: { ...content, vacancies },
+		revalidate: 60 * 60 * 8,
 	}));
-});
+};
 
 export default Page;

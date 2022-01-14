@@ -106,7 +106,7 @@ const Page = ({ service, servicesOverview, footer, preview }) => {
 				</main>
 			</div>
 
-			<Footer form={footer.form} />
+			<Footer showForm={footer.showForm} form={footer.form} />
 		</Layout>
 	);
 };
@@ -205,6 +205,7 @@ export const getStaticProps = async ({ preview }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

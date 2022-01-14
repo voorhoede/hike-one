@@ -21,7 +21,7 @@ const Page = ({ thankYouPage, footer, preview }) => (
 			</ButtonPrimaryLink>
 		</article>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer showForm={footer.showForm} form={footer.form} disableParallax />
 	</Layout>
 );
 
@@ -36,6 +36,7 @@ export const getStaticProps = async ({ preview }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

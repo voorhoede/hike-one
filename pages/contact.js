@@ -71,7 +71,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies, preview }) => (
 			</main>
 		</div>
 
-		<Footer form={footer.form} disableParallax />
+		<Footer showForm={footer.showForm} form={footer.form} disableParallax />
 	</Layout>
 );
 
@@ -146,6 +146,7 @@ export const getStaticProps = async ({ preview }) => {
 			}
 
 			footer {
+				showForm
 				form {
 					title
 					description

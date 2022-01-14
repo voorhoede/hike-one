@@ -222,7 +222,7 @@ class MenuBar extends Component {
 				</div>
 
 				<div className="menu-bar__contact">
-					<Link href="/contact?utm_source=navigation&utm_medium=button&utm_campaign=contact">
+					<Link href="/contact">
 						<a className="menu-bar__contact-link">Contact</a>
 					</Link>
 				</div>

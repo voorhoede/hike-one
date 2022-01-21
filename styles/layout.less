@@ -6,17 +6,19 @@
 
 html,
 body {
-	width: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-family: @font-main;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: @font-main;
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
+	width: 100%;
 }
 
 :target::before {
-	content: " ";
+	content: ' ';
 	display: block;
 	height: @header-height-s;
 	margin-top: -(@header-height-s);

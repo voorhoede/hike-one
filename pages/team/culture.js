@@ -331,8 +331,6 @@ export const getStaticProps = async ({ preview }) => {
 			vacancyOverview {
 				title
 				tagline
-				callToActionTitle
-				callToActionUrl
 			}
 
 			footer {

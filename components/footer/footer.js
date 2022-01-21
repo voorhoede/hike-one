@@ -95,14 +95,16 @@ class Footer extends Component {
 									</li>
 								</ul>
 							</div>
-							{showForm && <MailchimpForm
-								title={form.title}
-								description={form.description}
-								listId={form.listId}
-								buttonLabel={form.button}
-								inputFields={form.extraInputFields}
-								hasShadow={form.hasShadow}
-							/>}
+							{showForm && (
+								<MailchimpForm
+									title={form.title}
+									description={form.description}
+									listId={form.listId}
+									buttonLabel={form.button}
+									inputFields={form.extraInputFields}
+									hasShadow={form.hasShadow}
+								/>
+							)}
 						</div>
 
 						<div className={`footer-right ${!showForm ? 'footer-right--horizontal' : null}`}>

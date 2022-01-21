@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const TeamSelector = ({ pathname }) => (
 	<nav className="team-selector container shadow">
-		<Link href="/team/culture" scroll={false}>
-			<a className={`team-selector-item ${pathname === '/team/culture' ? 'is-selected' : ''}`}>
-				<h2 className="team-selector-item-title">Culture</h2>
+		<Link href="/team/careers" scroll={false}>
+			<a className={`team-selector-item ${pathname === '/team/careers' ? 'is-selected' : ''}`}>
+				<h2 className="team-selector-item-title">Careers</h2>
 			</a>
 		</Link>
 		<Link href="/team/people" scroll={false}>

@@ -179,11 +179,7 @@ class ContactForm extends Component {
 								text="Are you creative, smart, experimental, curious and result-driven? Join our team!"
 							/>
 
-							<CallToAction
-								buttonText="See all opportunities"
-								url="https://hikeone.homerun.co/"
-								isExternalLink={true}
-							/>
+							<CallToAction buttonText="See all opportunities" url="/team/careers" />
 						</div>
 					)}
 
@@ -242,11 +238,7 @@ class ContactForm extends Component {
 							text="Are you creative, smart, experimental, curious and result-driven? Join our team!"
 						/>
 
-						<CallToAction
-							buttonText="See all opportunities"
-							url="https://hikeone.homerun.co/"
-							isExternalLink={true}
-						/>
+						<CallToAction buttonText="See all opportunities" url="/team/careers" />
 					</div>
 				)}
 

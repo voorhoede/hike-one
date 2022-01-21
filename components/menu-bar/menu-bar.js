@@ -296,7 +296,7 @@ class MenuBar extends Component {
 								</Link>
 							</li>
 							<li className="menu-item">
-								<Link href="/team/culture">
+								<Link href="/team/people">
 									<a>Team</a>
 								</Link>
 							</li>
@@ -316,9 +316,9 @@ class MenuBar extends Component {
 								</Link>
 							</li>
 							<li className="menu-item">
-								<a href="https://hikeone.homerun.co/" target="_blank" rel="noopener noreferrer">
-									Jobs
-								</a>
+								<Link href="/team/careers">
+									<a>Careers</a>
+								</Link>
 							</li>
 							<li className="menu-item menu-item-last">
 								<Link href="/contact">

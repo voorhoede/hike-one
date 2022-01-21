@@ -57,6 +57,11 @@ module.exports = withLess({
 				permanent: true,
 			},
 			{
+				source: '/topic/design-sprints',
+				destination: '/topic/design-sprint',
+				permanent: true,
+			},
+			{
 				source: '/:path*',
 				has: [
 					{

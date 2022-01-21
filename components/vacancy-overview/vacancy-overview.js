@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import ButtonSecondaryLink from '../buttons/button-secondary/button-secondary-link';
 import TextCenter from '../text-center/text-center';
 
 const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
-	<div className="vacancy-overview container">
+	<div id="vacancy-overview" className="vacancy-overview container">
 		<TextCenter title={overview.title} text={overview.tagline} />
 
 		{vacancies.map((department, index) => (
@@ -23,15 +22,6 @@ const VacancyOverview = ({ overview = {}, vacancies = [] }) => (
 				</ul>
 			</div>
 		))}
-
-		<ButtonSecondaryLink
-			href={overview.callToActionUrl}
-			target="_blank"
-			classes="btn-red-border"
-			icon="arrowRight"
-		>
-			{overview.callToActionTitle}
-		</ButtonSecondaryLink>
 	</div>
 );
 

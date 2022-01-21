@@ -205,8 +205,6 @@ Page.getInitialProps = withCacheControl(({ preview }) => {
 			vacancyOverview {
 				title
 				tagline
-				callToActionTitle
-				callToActionUrl
 			}
 
 			footer {

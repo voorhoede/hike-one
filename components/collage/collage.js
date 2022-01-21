@@ -6,6 +6,7 @@ import setImageParams from '../_helpers/setImageParameters';
 
 const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '' }) => {
 	const imageParameters = { fit: 'max' };
+	console.log(text);
 
 	const imageSmallTemplate = (classes) => {
 		return (
@@ -59,7 +60,7 @@ const Collage = ({ imageMedium = '', imageSmall = '', title = '', text = '' }) =
 			</div>
 			<div className="collage-text-container">
 				<h2 className="collage-text-title content">{title}</h2>
-				<p
+				<div
 					className="collage-text-description content"
 					dangerouslySetInnerHTML={{ __html: text }}
 				/>

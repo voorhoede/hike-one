@@ -17,7 +17,7 @@ module.exports = withLess({
 			},
 			{
 				source: '/join-the-team',
-				destination: 'https://hikeone.homerun.co/',
+				destination: '/team/careers',
 				permanent: true,
 			},
 			{
@@ -59,6 +59,11 @@ module.exports = withLess({
 			{
 				source: '/topic/design-sprints',
 				destination: '/topic/design-sprint',
+				permanent: true,
+			},
+			{
+				source: '/team/culture',
+				destination: '/team/careers',
 				permanent: true,
 			},
 			{

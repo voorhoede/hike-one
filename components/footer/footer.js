@@ -79,7 +79,7 @@ class Footer extends Component {
 										</Link>
 									</li>
 									<li>
-										<Link href="/team?slug=culture" as="/team/culture">
+										<Link href="/team/people">
 											<a>Team</a>
 										</Link>
 									</li>
@@ -89,9 +89,7 @@ class Footer extends Component {
 										</Link>
 									</li>
 									<li>
-										<a href="https://hikeone.homerun.co/" target="_blank">
-											Jobs
-										</a>
+										<a href="/team/careers">Careers</a>
 									</li>
 								</ul>
 							</div>

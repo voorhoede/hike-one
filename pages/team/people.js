@@ -17,7 +17,7 @@ if (!process.browser) {
 	scrapeJobs = require('../../lib/job-scraper/browser');
 }
 
-const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPeople }) => (
+const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) => (
 	<>
 		<Head
 			title={team.seo.title}
@@ -37,7 +37,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPe
 			/>
 
 			<main className="page-scrolling-content-small">
-				<TeamSelector pathname={pathname} />
+				<TeamSelector />
 
 				<TeamMembersOverview
 					introText={team.peopleTabIntro}
@@ -53,7 +53,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, pathname, allPe
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
+Page.getInitialProps = withCacheControl(({ query, req }) => {
 	const graphqlQuery = /* GraphQL */ `
 		{
 			team {
@@ -133,7 +133,6 @@ Page.getInitialProps = withCacheControl(({ query, pathname, req }) => {
 		...content,
 		vacancies,
 		query,
-		pathname,
 	}));
 });
 

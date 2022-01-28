@@ -17,7 +17,7 @@ if (!process.browser) {
 	scrapeJobs = require('../../lib/job-scraper/browser');
 }
 
-const Page = ({ team, footer, vacancyOverview, vacancies, pathname, preview }) => (
+const Page = ({ team, footer, vacancyOverview, vacancies, preview }) => (
 	<Layout preview={preview}>
 		<Head
 			title={team.seo.title}
@@ -37,7 +37,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, pathname, preview }) =
 			/>
 
 			<main className="page-scrolling-content-small">
-				<TeamSelector pathname={pathname} />
+				<TeamSelector />
 
 				<TeamOverview data={team} />
 

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Logo from '../logo/logo';
 import MailchimpForm from '../mailchimp/mailchimp-form';
 import SocialMedia from '../social-media/social-media';
+import Icon from '../icon/icon';
 
 class Footer extends Component {
 	constructor(props) {
@@ -47,7 +48,7 @@ class Footer extends Component {
 	}
 
 	render() {
-		const { showForm, form } = this.props;
+		const { form, showForm } = this.props;
 
 		return (
 			<footer ref={(node) => (this.footer = node)} className="footer">
@@ -89,11 +90,13 @@ class Footer extends Component {
 										</Link>
 									</li>
 									<li>
-										<a href="/team/careers">Careers</a>
+										<Link href="/team/careers">
+											<a>Careers</a>
+										</Link>
 									</li>
 								</ul>
 							</div>
-							{showForm && (
+							{showForm ? (
 								<MailchimpForm
 									title={form.title}
 									description={form.description}
@@ -102,10 +105,19 @@ class Footer extends Component {
 									inputFields={form.extraInputFields}
 									hasShadow={form.hasShadow}
 								/>
+							) : (
+								<div className="footer-careers">
+									<Link href="/team/careers">
+										<a className="footer-careers__link">
+											Up for a new challenge yourself? Join our team!{' '}
+											<Icon icon="arrowRightCircle" />
+										</a>
+									</Link>
+								</div>
 							)}
 						</div>
 
-						<div className={`footer-right ${!showForm ? 'footer-right--horizontal' : null}`}>
+						<div className="footer-right">
 							<div className="footer-contact">
 								<h3>Get in touch</h3>
 								<a href="mailto:hello@hike.one" className="footer-contact-email">
@@ -164,6 +176,7 @@ class Footer extends Component {
 Footer.propTypes = {
 	disableParallax: PropTypes.bool,
 	form: PropTypes.object,
+	showForm: PropTypes.bool,
 };
 
 export default Footer;

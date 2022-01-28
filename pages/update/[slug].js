@@ -225,7 +225,7 @@ const Page = ({ update, footer, preview }) => (
 			</UpdateOverviewSmall>
 		</div>
 
-		<Footer showForm={footer.showForm} form={footer.form} />
+		<Footer careersText={footer.careersText} showForm={footer.showForm} form={footer.form} />
 	</Layout>
 );
 
@@ -448,6 +448,7 @@ export const getStaticProps = async ({ preview, params }) => {
 		}
 
 		footer {
+			careersText
 			showForm
 			form {
 				title

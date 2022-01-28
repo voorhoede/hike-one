@@ -10,9 +10,7 @@ import Footer from '../components/footer/footer';
 const Page = ({ thankYouPage, footer, preview }) => (
 	<Layout preview={preview}>
 		<Head title="Hike One - Thank you" />
-
 		<MenuBar color="black" />
-
 		<article className="article article-thank-you">
 			<TextCenter title={thankYouPage.title} text={thankYouPage.content} />
 
@@ -20,8 +18,12 @@ const Page = ({ thankYouPage, footer, preview }) => (
 				{thankYouPage.callToActionLabel}
 			</ButtonPrimaryLink>
 		</article>
-
-		<Footer showForm={footer.showForm} form={footer.form} disableParallax />
+		<Footer
+			careersText={footer.careersText}
+			showForm={footer.showForm}
+			form={footer.form}
+			disableParallax
+		/>
 	</Layout>
 );
 
@@ -36,6 +38,7 @@ export const getStaticProps = async ({ preview }) => {
 			}
 
 			footer {
+				careersText
 				showForm
 				form {
 					title

@@ -108,7 +108,12 @@ const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 					link={home.contact.externalLink}
 				/>
 
-				<Footer showForm={footer.showForm} form={footer.form} disableParallax />
+				<Footer
+					careersText={footer.careersText}
+					showForm={footer.showForm}
+					form={footer.form}
+					disableParallax
+				/>
 			</Layout>
 		</div>
 	);
@@ -208,6 +213,7 @@ Page.getInitialProps = withCacheControl(({ preview }) => {
 			}
 
 			footer {
+				careersText
 				showForm
 				form {
 					title

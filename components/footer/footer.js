@@ -48,7 +48,7 @@ class Footer extends Component {
 	}
 
 	render() {
-		const { form, showForm } = this.props;
+		const { careersText, form, showForm } = this.props;
 
 		return (
 			<footer ref={(node) => (this.footer = node)} className="footer">
@@ -109,8 +109,7 @@ class Footer extends Component {
 								<div className="footer-careers">
 									<Link href="/team/careers">
 										<a className="footer-careers__link">
-											Up for a new challenge yourself? Join our team!{' '}
-											<Icon icon="arrowRightCircle" />
+											{careersText} <Icon icon="arrowRightCircle" />
 										</a>
 									</Link>
 								</div>
@@ -174,6 +173,7 @@ class Footer extends Component {
 }
 
 Footer.propTypes = {
+	careersText: PropTypes.string.isRequired,
 	disableParallax: PropTypes.bool,
 	form: PropTypes.object,
 	showForm: PropTypes.bool,

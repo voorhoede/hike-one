@@ -49,7 +49,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 			</main>
 		</div>
 
-		<Footer showForm={footer.showForm} form={footer.form} />
+		<Footer careersText={footer.careersText} showForm={footer.showForm} form={footer.form} />
 	</>
 );
 
@@ -107,6 +107,7 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 			}
 
 			footer {
+				careersText
 				showForm
 				form {
 					title

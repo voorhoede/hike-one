@@ -104,8 +104,8 @@ class Footer extends Component {
 					<div className="footer-main-content">
 						<div className="footer-left">
 							<div className="footer-links">
-								<ul className="footer-link-list">
-									<li>
+								<ul className="footer-links-column footer-link-list">
+									<li className="footer-link-list-item">
 										<Link href="/team/people">
 											<a>Team</a>
 										</Link>
@@ -115,41 +115,46 @@ class Footer extends Component {
 											<a>Services</a>
 										</Link>
 									</li>
-									<li>
+									<li className="footer-link-list-item">
 										<Link href="/work">
 											<a>Work</a>
 										</Link>
 									</li>
-									<li>
+									<li className="footer-link-list-item">
 										<Link href="/contact">
 											<a>Contact</a>
 										</Link>
 									</li>
 								</ul>
-								<ul className="footer-link-list">
-									<li>
+								<ul className="footer-links-column footer-link-list">
+									<li className="footer-link-list-item">
 										<Link href="/updates">
 											<a>Updates</a>
 										</Link>
 									</li>
-									<li>
+									<li className="footer-link-list-item">
 										<Link href="/team/careers">
 											<a>Careers</a>
 										</Link>
 									</li>
 								</ul>
-								<h2 className="footer-link-list__title">Industries</h2>
-								<ul className="footer-link-list">
-									{industriesLinks.map(industriesLink => {
-										return (
-											<li key={industriesLink.page.slug}>
-												<Link href={`/topic/${industriesLink.page.slug}`}>
-													<a>{industriesLink.title}</a>
-												</Link>
-											</li>
-										)
-									})}
-								</ul>
+								<div className="footer-links-column">
+									<h2 className="footer-link-list-title">Industries</h2>
+									<ul className="footer-link-list">
+										{industriesLinks.map(industriesLink => {
+											return (
+												<li
+													key={industriesLink.page.slug}
+													className="footer-link-list-item"
+												>
+													<Link href={`/topic/${industriesLink.page.slug}`}>
+														<a>{industriesLink.title}</a>
+													</Link>
+												</li>
+											)
+										})}
+									</ul>
+								</div>
 							</div>
 							{showForm ? (
 								<MailchimpForm
@@ -174,11 +179,11 @@ class Footer extends Component {
 						<div className="footer-right">
 							<div className="footer-contact">
 								<h2 className="a11y-sr-only">Get in touch</h2>
-								<a href="mailto:hello@hike.one" className="footer-contact-email">
-									hello@hike.one
-								</a>
 								<a href="tel:+31-202044577" className="footer-contact-tel">
 									+31 20 204 45 77
+								</a>
+								<a href="mailto:hello@hike.one" className="footer-contact-email">
+									hello@hike.one
 								</a>
 							</div>
 							<div className="footer-links">
@@ -278,8 +283,8 @@ class Footer extends Component {
 										</section>
 									)}
 								</div>
-								<SocialMedia />
 							</div>
+							<SocialMedia />
 						</div>
 					</div>
 

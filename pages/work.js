@@ -63,6 +63,7 @@ const Page = ({ work, overviewCases, footer, preview }) => (
 			showForm={footer.showForm}
 			form={footer.form}
 			industriesLinks={footer.industriesLinks}
+			copyrightLinks={footer.copyrightLinks}
 		/>
 	</Layout>
 );
@@ -142,6 +143,12 @@ export const getStaticProps = async ({ preview }) => {
 					}
 				}
 				industriesLinks {
+					title
+					page {
+						slug
+					}
+				}
+				copyrightLinks {
 					title
 					page {
 						slug

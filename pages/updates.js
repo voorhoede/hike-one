@@ -48,6 +48,7 @@ const Page = ({
 			showForm={footer.showForm}
 			form={footer.form}
 			industriesLinks={footer.industriesLinks}
+			copyrightLinks={footer.copyrightLinks}
 		/>
 	</Layout>
 );
@@ -176,6 +177,12 @@ export const getServerSideProps = withCacheControl(async ({ query, preview }) =>
 					}
 				}
 				industriesLinks {
+					title
+					page {
+						slug
+					}
+				}
+				copyrightLinks {
 					title
 					page {
 						slug

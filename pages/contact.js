@@ -76,6 +76,7 @@ const Page = ({ contactPage, vacancyOverview, footer, vacancies, preview }) => (
 			showForm={footer.showForm}
 			form={footer.form}
 			industriesLinks={footer.industriesLinks}
+			copyrightLinks={footer.copyrightLinks}
 			disableParallax
 		/>
 	</Layout>
@@ -165,6 +166,12 @@ export const getStaticProps = async ({ preview }) => {
 					}
 				}
 				industriesLinks {
+					title
+					page {
+						slug
+					}
+				}
+				copyrightLinks {
 					title
 					page {
 						slug

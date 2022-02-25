@@ -88,7 +88,7 @@ class Footer extends Component {
 	}
 
 	render() {
-		const { careersText, form, showForm, industriesLinks } = this.props;
+		const { careersText, form, showForm, industriesLinks, copyrightLinks } = this.props;
 		const { selectedTab } = this.state;
 
 		return (
@@ -284,12 +284,19 @@ class Footer extends Component {
 					</div>
 
 					<p className="footer-copyright">&copy; Hike One {this.currentYear}</p>
-					<a className="footer-copyright" href="/topic/privacy-statement">
-						privacy statement
-					</a>
-					<a className="footer-copyright" href="/topic/cookie-policy">
-						cookie policy
-					</a>
+					{copyrightLinks.map(copyrightLink => {
+						return (
+							<Link
+								className="footer-copyright"
+								key={copyrightLink.page.slug}
+								href={`/topic/${copyrightLink.page.slug}`}
+							>
+								<a className="footer-copyright">
+									{copyrightLink.title}
+								</a>
+							</Link>
+						)
+					})}
 				</div>
 			</footer>
 		);
@@ -302,6 +309,7 @@ Footer.propTypes = {
 	form: PropTypes.object,
 	showForm: PropTypes.bool,
 	industriesLinks: PropTypes.array,
+	copyrightLinks: PropTypes.array,
 };
 
 export default Footer;

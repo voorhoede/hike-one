@@ -54,6 +54,7 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 			showForm={footer.showForm}
 			form={footer.form}
 			industriesLinks={footer.industriesLinks}
+			copyrightLinks={footer.copyrightLinks}
 		/>
 	</>
 );
@@ -127,6 +128,12 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 					}
 				}
 				industriesLinks {
+					title
+					page {
+						slug
+					}
+				}
+				copyrightLinks {
 					title
 					page {
 						slug

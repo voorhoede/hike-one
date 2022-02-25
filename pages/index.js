@@ -113,6 +113,7 @@ const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 					showForm={footer.showForm}
 					form={footer.form}
 					industriesLinks={footer.industriesLinks}
+					copyrightLinks={footer.copyrightLinks}
 					disableParallax
 				/>
 			</Layout>
@@ -229,6 +230,12 @@ Page.getInitialProps = withCacheControl(({ preview }) => {
 					}
 				}
 				industriesLinks {
+					title
+					page {
+						slug
+					}
+				}
+				copyrightLinks {
 					title
 					page {
 						slug

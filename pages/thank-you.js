@@ -22,6 +22,7 @@ const Page = ({ thankYouPage, footer, preview }) => (
 			careersText={footer.careersText}
 			showForm={footer.showForm}
 			form={footer.form}
+			industriesLinks={footer.industriesLinks}
 			disableParallax
 		/>
 	</Layout>
@@ -50,6 +51,12 @@ export const getStaticProps = async ({ preview }) => {
 						label
 						inputType
 						required
+					}
+				}
+				industriesLinks {
+					title
+					page {
+						slug
 					}
 				}
 			}

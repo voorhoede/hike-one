@@ -49,7 +49,12 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 			</main>
 		</div>
 
-		<Footer careersText={footer.careersText} showForm={footer.showForm} form={footer.form} />
+		<Footer
+			careersText={footer.careersText}
+			showForm={footer.showForm}
+			form={footer.form}
+			industriesLinks={footer.industriesLinks}
+		/>
 	</>
 );
 
@@ -119,6 +124,12 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 						label
 						inputType
 						required
+					}
+				}
+				industriesLinks {
+					title
+					page {
+						slug
 					}
 				}
 			}

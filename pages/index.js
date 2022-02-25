@@ -112,6 +112,7 @@ const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 					careersText={footer.careersText}
 					showForm={footer.showForm}
 					form={footer.form}
+					industriesLinks={footer.industriesLinks}
 					disableParallax
 				/>
 			</Layout>
@@ -225,6 +226,12 @@ Page.getInitialProps = withCacheControl(({ preview }) => {
 						label
 						inputType
 						required
+					}
+				}
+				industriesLinks {
+					title
+					page {
+						slug
 					}
 				}
 			}

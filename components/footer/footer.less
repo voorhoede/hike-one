@@ -125,8 +125,6 @@
 }
 
 .footer-links {
-	display: flex;
-	max-height: 160px;
 	margin-bottom: @spacing-default*2;
 }
 
@@ -134,21 +132,26 @@
 	.list-no-style();
 
 	margin-bottom: @spacing-default*2;
-	column-fill: auto;
-	column-count: 2;
 
 	@media @screen-768 {
 		display: inline-block;
 		max-width: 400px;
 		margin-bottom: @spacing-default*2;
-		vertical-align: top;
 	}
+}
+
+.footer-link-list__title {
+	margin-bottom: calc(@spacing-default / 2);
+	font-size: 17px;
+	line-height: @line-height-body-large-s;
+	font-weight: 500;
+	color: @grey-caption;
 }
 
 .footer-link-list li {
 	display: inline-block;
 	width: 100%;
-	margin-bottom: @spacing-default / 2;
+	margin-bottom: calc(@spacing-default / 2);
 }
 
 .footer-link-list a {
@@ -179,18 +182,16 @@
 	display: initial;
 }
 
-.footer-right .footer-link-list {
-	column-count: initial;
-}
-
 .footer-right .footer-link-list a {
 	text-decoration: underline;
 }
 
 .footer-contact {
+	margin-bottom: @spacing-default*4;
 	color: @white;
 	font-size: @heading-small-s;
 	line-height: @line-height-header-small-s;
+	font-weight: bold;
 
 	@media @screen-768 {
 		font-size: @heading-small-m;
@@ -220,21 +221,51 @@
 	}
 }
 
+.footer-address-wrapper {
+	margin-bottom: @spacing-default*3;
+}
+
+.footer-address-tabs {
+	.list-no-style();
+
+	display: inline-flex;
+}
+
+.footer-address-tabs li:not(:last-child) {
+	position: relative;
+	margin-right: @spacing-default*2;
+	padding-right: @spacing-default*2+2px;
+}
+
+.footer-address-tabs li:not(:last-child)::after {
+	content: '';
+	position: absolute;
+	display: block;
+	top: 0;
+	right: 0;
+	width: 1px;
+	height: 100%;
+	background: @white;
+	transform: skew(-15deg);
+}
+
+.footer-right a.footer-address-tab-selected {
+	font-size: @heading-small-s;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.footer-address p {
+	margin: 0;
+	font-size: @body-small-l;
+}
+
 .footer .menu-social {
-	width: 100%;
-	margin: @spacing-default auto @spacing-default / 2 0;
+	display: block;
+	margin: 0 0 0 -5px;
 
 	@media @screen-500 {
-		width: 70%;
 		margin: @spacing-default*3 auto @spacing-default*4 0;
-	}
-
-	@media @screen-768 {
-		width: 100%;
-	}
-
-	@media @screen-1170 {
-		width: 80%;
 	}
 }
 

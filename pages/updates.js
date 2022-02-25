@@ -43,7 +43,12 @@ const Page = ({
 			</main>
 		</div>
 
-		<Footer careersText={footer.careersText} showForm={footer.showForm} form={footer.form} />
+		<Footer
+			careersText={footer.careersText}
+			showForm={footer.showForm}
+			form={footer.form}
+			industriesLinks={footer.industriesLinks}
+		/>
 	</Layout>
 );
 
@@ -168,6 +173,12 @@ export const getServerSideProps = withCacheControl(async ({ query, preview }) =>
 						label
 						inputType
 						required
+					}
+				}
+				industriesLinks {
+					title
+					page {
+						slug
 					}
 				}
 			}

@@ -104,7 +104,13 @@ const Page = ({ service, allServices, footer, preview }) => (
 			</UpdateLinks>
 		</div>
 
-		<Footer careersText={footer.careersText} showForm={footer.showForm} form={footer.form} />
+		<Footer
+			careersText={footer.careersText}
+			showForm={footer.showForm}
+			form={footer.form}
+			industriesLinks={footer.industriesLinks}
+			copyrightLinks={footer.copyrightLinks}
+		/>
 	</Layout>
 );
 
@@ -203,6 +209,18 @@ export const getStaticProps = async ({ preview, params }) => {
 					label
 					inputType
 					required
+				}
+			}
+			industriesLinks {
+				title
+				page {
+					slug
+				}
+			}
+			copyrightLinks {
+				title
+				page {
+					slug
 				}
 			}
 		}

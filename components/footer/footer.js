@@ -12,8 +12,46 @@ class Footer extends Component {
 	constructor(props) {
 		super(props);
 		this.onResize = this.onResize.bind(this);
+		this.handleTabClick = this.handleTabClick.bind(this);
+		this.handleTabKeyDown = this.handleTabKeyDown.bind(this);
 		this.resizeObserver = new ResizeObserver(this.onResize);
 		this.currentYear = new Date().getFullYear();
+		this.state = {
+			selectedTab: 1,
+		};
+	}
+
+	handleTabClick(e, newTab) {
+		e.preventDefault();
+		this.setState({
+			selectedTab: newTab,
+		});
+	}
+
+	handleTabKeyDown(e, newTab) {
+		let direction
+		if (e.which === 40) {
+			direction = 'down';
+		}
+		if (e.which === 37) {
+			direction = newTab - 1;
+		}
+		if (e.which === 39) {
+			direction = newTab + 1;
+		}
+
+		if (direction !== undefined) {
+			e.preventDefault();
+
+			if (direction === 'down') {
+				this[`section${this.state.selectedTab}`].focus();
+			} else if (direction > 0 && direction < 4) {
+				this.setState({
+					selectedTab: direction,
+				});
+				this[`tab${direction}`].focus();
+			}
+		}
 	}
 
 	componentDidMount() {
@@ -48,7 +86,8 @@ class Footer extends Component {
 	}
 
 	render() {
-		const { careersText, form, showForm } = this.props;
+		const { careersText, form, showForm, industriesLinks, copyrightLinks } = this.props;
+		const { selectedTab } = this.state;
 
 		return (
 			<footer ref={(node) => (this.footer = node)} className="footer">
@@ -63,38 +102,57 @@ class Footer extends Component {
 					<div className="footer-main-content">
 						<div className="footer-left">
 							<div className="footer-links">
-								<ul className="footer-link-list">
-									<li>
-										<Link href="/services-overview" as="/services">
-											<a>Services</a>
-										</Link>
-									</li>
-									<li>
-										<Link href="/work">
-											<a>Work</a>
-										</Link>
-									</li>
-									<li>
-										<Link href="/updates">
-											<a>Updates</a>
-										</Link>
-									</li>
-									<li>
+								<ul className="footer-links-column footer-link-list">
+									<li className="footer-link-list-item">
 										<Link href="/team/people">
 											<a>Team</a>
 										</Link>
 									</li>
 									<li>
+										<Link href="/services-overview" as="/services">
+											<a>Services</a>
+										</Link>
+									</li>
+									<li className="footer-link-list-item">
+										<Link href="/work">
+											<a>Work</a>
+										</Link>
+									</li>
+									<li className="footer-link-list-item">
 										<Link href="/contact">
 											<a>Contact</a>
 										</Link>
 									</li>
-									<li>
+								</ul>
+								<ul className="footer-links-column footer-link-list">
+									<li className="footer-link-list-item">
+										<Link href="/updates">
+											<a>Updates</a>
+										</Link>
+									</li>
+									<li className="footer-link-list-item">
 										<Link href="/team/careers">
 											<a>Careers</a>
 										</Link>
 									</li>
 								</ul>
+								<div className="footer-links-column">
+									<h2 className="footer-link-list-title">Industries</h2>
+									<ul className="footer-link-list">
+										{industriesLinks.map(industriesLink => {
+											return (
+												<li
+													key={industriesLink.page.slug}
+													className="footer-link-list-item"
+												>
+													<Link href={`/topic/${industriesLink.page.slug}`}>
+														<a>{industriesLink.title}</a>
+													</Link>
+												</li>
+											)
+										})}
+									</ul>
+								</div>
 							</div>
 							{showForm ? (
 								<MailchimpForm
@@ -118,54 +176,133 @@ class Footer extends Component {
 
 						<div className="footer-right">
 							<div className="footer-contact">
-								<h3>Get in touch</h3>
-								<a href="mailto:hello@hike.one" className="footer-contact-email">
-									hello@hike.one
-								</a>
+								<h2 className="a11y-sr-only">Get in touch</h2>
 								<a href="tel:+31-202044577" className="footer-contact-tel">
 									+31 20 204 45 77
 								</a>
-								<SocialMedia />
+								<a href="mailto:hello@hike.one" className="footer-contact-email">
+									hello@hike.one
+								</a>
 							</div>
 							<div className="footer-links">
-								<h3>Our offices</h3>
-								<ul className="footer-link-list">
-									<li>
-										<Link
-											href="/topic?slug=digital-designers-in-amsterdam"
-											as="/topic/digital-designers-in-amsterdam"
+								<h2 className="a11y-sr-only">Our offices</h2>
+
+								<div className="footer-address-wrapper">
+									<ul
+										className="footer-address-tabs footer-link-list"
+										role="tablist"
+									>
+										<li role="presentation">
+											<a
+												ref={(node) => (this.tab1 = node)}
+												href="section1"
+												id="tab1"
+												role="tab"
+												className={selectedTab === 1 ? 'footer-address-tab-selected' : null}
+												aria-selected={selectedTab === 1}
+												tabIndex={selectedTab === 1 ? null : '-1'}
+												aria-label="Amsterdam"
+												onClick={(e) => this.handleTabClick(e, 1)}
+												onKeyDown={(e) => this.handleTabKeyDown(e, 1)}
+											>
+												AMS
+											</a>
+										</li>
+										<li role="presentation">
+											<a
+												ref={(node) => (this.tab2 = node)}
+												href="section2"
+												id="tab2"
+												role="tab"
+												className={selectedTab === 2 ? 'footer-address-tab-selected' : null}
+												aria-selected={selectedTab === 2}
+												tabIndex={selectedTab === 2 ? null : '-1'}
+												aria-label="Rotterdam"
+												onClick={(e) => this.handleTabClick(e, 2)}
+												onKeyDown={(e) => this.handleTabKeyDown(e, 2)}
+											>
+												RTM
+											</a>
+										</li>
+										<li role="presentation">
+											<a
+												ref={(node) => (this.tab3 = node)}
+												href="section3"
+												id="tab3"
+												role="tab"
+												className={selectedTab === 3 ? 'footer-address-tab-selected' : null}
+												aria-selected={selectedTab === 3}
+												tabIndex={selectedTab === 3 ? null : '-1'}
+												aria-label="Eindhoven"
+												onClick={(e) => this.handleTabClick(e, 3)}
+												onKeyDown={(e) => this.handleTabKeyDown(e, 3)}
+											>
+												EHV
+											</a>
+										</li>
+									</ul>
+									{selectedTab === 1 && (
+										<section
+											ref={(node) => (this.section1 = node)}
+											id="section1"
+											className="footer-address"
+											role="tabpanel"
+											tabIndex="-1"
+											aria-labelledby="tab1"
 										>
-											<a>Amsterdam</a>
-										</Link>
-									</li>
-									<li>
-										<Link
-											href="/topic?slug=digital-designers-in-rotterdam"
-											as="/topic/digital-designers-in-rotterdam"
+											<p>Koivistokade 70</p>
+											<p>1013BB Amsterdam</p>
+											<p>The Netherlands</p>
+										</section>
+									)}
+									{selectedTab === 2 && (
+										<section
+											ref={(node) => (this.section2 = node)}
+											id="section2"
+											className="footer-address"
+											role="tabpanel"
+											tabIndex="-1"
+											aria-labelledby="tab2"
 										>
-											<a>Rotterdam</a>
-										</Link>
-									</li>
-									<li>
-										<Link
-											href="/topic?slug=digital-designers-in-eindhoven"
-											as="/topic/digital-designers-in-eindhoven"
+											<p>Schiedamsedijk 40A (De Leuve)</p>
+											<p>3011ED Rotterdam</p>
+											<p>The Netherlands</p>
+										</section>
+									)}
+									{selectedTab === 3 && (
+										<section
+											ref={(node) => (this.section3 = node)}
+											id="section3"
+											className="footer-address"
+											role="tabpanel"
+											tabIndex="-1"
+											aria-labelledby="tab3"
 										>
-											<a>Eindhoven</a>
-										</Link>
-									</li>
-								</ul>
+											<p>Kastanjelaan 400 (Microlab)</p>
+											<p>5616LZ Eindhoven</p>
+											<p>The Netherlands</p>
+										</section>
+									)}
+								</div>
 							</div>
+							<SocialMedia />
 						</div>
 					</div>
 
 					<p className="footer-copyright">&copy; Hike One {this.currentYear}</p>
-					<a className="footer-copyright" href="/topic/privacy-statement">
-						privacy statement
-					</a>
-					<a className="footer-copyright" href="/topic/cookie-policy">
-						cookie policy
-					</a>
+					{copyrightLinks.map(copyrightLink => {
+						return (
+							<Link
+								className="footer-copyright"
+								key={copyrightLink.page.slug}
+								href={`/topic/${copyrightLink.page.slug}`}
+							>
+								<a className="footer-copyright">
+									{copyrightLink.title}
+								</a>
+							</Link>
+						)
+					})}
 				</div>
 			</footer>
 		);
@@ -177,6 +314,8 @@ Footer.propTypes = {
 	disableParallax: PropTypes.bool,
 	form: PropTypes.object,
 	showForm: PropTypes.bool,
+	industriesLinks: PropTypes.array,
+	copyrightLinks: PropTypes.array,
 };
 
 export default Footer;

@@ -26,32 +26,30 @@ class Footer extends Component {
 		this.setState({
 			selectedTab: newTab,
 		});
-		// focus panel
 	}
 
 	handleTabKeyDown(e, newTab) {
 		let direction
 		if (e.which === 40) {
-			direction = 'down'
+			direction = 'down';
 		}
 		if (e.which === 37) {
-			direction = newTab - 1
+			direction = newTab - 1;
 		}
 		if (e.which === 39) {
-			direction = newTab + 1
+			direction = newTab + 1;
 		}
 
-		console.log('direction', direction)
-
-		if (direction !== null) {
+		if (direction !== undefined) {
 			e.preventDefault();
 
 			if (direction === 'down') {
-				// focus panel
+				this[`section${this.state.selectedTab}`].focus();
 			} else if (direction > 0 && direction < 4) {
 				this.setState({
 					selectedTab: direction,
 				});
+				this[`tab${direction}`].focus();
 			}
 		}
 	}
@@ -196,7 +194,7 @@ class Footer extends Component {
 									>
 										<li role="presentation">
 											<a
-												ref={this.tab1}
+												ref={(node) => (this.tab1 = node)}
 												href="section1"
 												id="tab1"
 												role="tab"
@@ -212,7 +210,7 @@ class Footer extends Component {
 										</li>
 										<li role="presentation">
 											<a
-												ref={this.tab2}
+												ref={(node) => (this.tab2 = node)}
 												href="section2"
 												id="tab2"
 												role="tab"
@@ -221,14 +219,14 @@ class Footer extends Component {
 												tabIndex={selectedTab === 2 ? null : '-1'}
 												aria-label="Rotterdam"
 												onClick={(e) => this.handleTabClick(e, 2)}
-												onKeyDown={(e) => this.handleTabKeyDown(e, 1)}
+												onKeyDown={(e) => this.handleTabKeyDown(e, 2)}
 											>
 												RTM
 											</a>
 										</li>
 										<li role="presentation">
 											<a
-												ref={this.tab3}
+												ref={(node) => (this.tab3 = node)}
 												href="section3"
 												id="tab3"
 												role="tab"
@@ -237,7 +235,7 @@ class Footer extends Component {
 												tabIndex={selectedTab === 3 ? null : '-1'}
 												aria-label="Eindhoven"
 												onClick={(e) => this.handleTabClick(e, 3)}
-												onKeyDown={(e) => this.handleTabKeyDown(e, 1)}
+												onKeyDown={(e) => this.handleTabKeyDown(e, 3)}
 											>
 												EHV
 											</a>
@@ -245,6 +243,7 @@ class Footer extends Component {
 									</ul>
 									{selectedTab === 1 && (
 										<section
+											ref={(node) => (this.section1 = node)}
 											id="section1"
 											className="footer-address"
 											role="tabpanel"
@@ -258,6 +257,7 @@ class Footer extends Component {
 									)}
 									{selectedTab === 2 && (
 										<section
+											ref={(node) => (this.section2 = node)}
 											id="section2"
 											className="footer-address"
 											role="tabpanel"
@@ -271,6 +271,7 @@ class Footer extends Component {
 									)}
 									{selectedTab === 3 && (
 										<section
+											ref={(node) => (this.section3 = node)}
 											id="section3"
 											className="footer-address"
 											role="tabpanel"

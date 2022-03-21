@@ -349,6 +349,7 @@ export const getStaticProps = async ({ preview, params }) => {
 				... on _5050Record {
 					itemType: _modelApiKey
 					textLeft
+					isSmall
 					title
 					text
 					image {

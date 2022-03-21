@@ -6,6 +6,7 @@ import InlineVideo from '../inline-video/inline-video';
 const FiftyFifty = ({
 	classes = '',
 	contentLeft = false,
+	isSmall = false,
 	googleMapsIframe = null,
 	image = {},
 	imageLarge = false,
@@ -15,11 +16,12 @@ const FiftyFifty = ({
 }) => {
 	const imageLargeClass = imageLarge ? 'fifty-fifty-image-large' : '';
 	const contentPosClass = contentLeft ? 'fifty-fifty-content-left' : '';
+	const isSmallClass = isSmall ? 'fifty-fifty--small' : '';
 	const imageUrl = image && image.url;
 
 	return (
 		<section
-			className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass}`}
+			className={`fifty-fifty clearfix container ${classes} ${imageLargeClass} ${contentPosClass} ${isSmallClass}`}
 		>
 			<div className="container-inner">
 				<div className="fifty-fifty-media">

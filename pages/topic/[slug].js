@@ -69,6 +69,7 @@ const Page = ({ topic, footer, preview }) => (
 								<FiftyFifty
 									key={index}
 									contentLeft={component.textLeft}
+									isSmall={component.isSmall}
 									title={component.title}
 									text={component.text}
 									image={component.image}
@@ -302,6 +303,7 @@ export const getStaticProps = async ({ preview, params }) => {
 				... on _5050Record {
 					itemType: _modelApiKey
 					textLeft
+					isSmall
 					title
 					text
 					googleMapsIframe

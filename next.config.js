@@ -96,7 +96,7 @@ module.exports = withLess({
 						value: 'company.hike.one',
 					},
 				],
-				destination: 'https://app.gitbook.com/o/-LIAgDy6p2s2H1HIFTrR/s/-LIFHl53Swk5UivDAeye/',
+				destination: 'https://app.gitbook.com/@hikeone/s/company-playbook/',
 				permanent: true,
 			},
 		];

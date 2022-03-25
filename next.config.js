@@ -79,18 +79,4 @@ module.exports = withLess({
 			},
 		];
 	},
-	async rewrites() {
-		return [
-			{
-				source: '/:path*',
-				has: [
-					{
-						type: 'host',
-						value: 'company.hike.one',
-					},
-				],
-				destination: 'https://app.gitbook.com/@hikeone/s/project-playbook/',
-			},
-		];
-	},
 });

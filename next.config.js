@@ -77,17 +77,6 @@ module.exports = withLess({
 				destination: 'https://sites.google.com/hike.one/dashboard',
 				permanent: true,
 			},
-			{
-				source: '/:path*',
-				has: [
-					{
-						type: 'host',
-						value: 'playbook.hike.one',
-					},
-				],
-				destination: 'https://app.gitbook.com/@hikeone/s/project-playbook/',
-				permanent: true,
-			},
 		];
 	},
 });

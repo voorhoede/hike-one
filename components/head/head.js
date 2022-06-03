@@ -40,6 +40,8 @@ const AppHead = ({ title, description, image = null, twitterCard = null, childre
 		<meta name="apple-mobile-web-app-title" content="Hike One" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 
+		<meta name="google-site-verification" content="HurqjEp2s2kt3Sl91A_iAPtten2-DFq675jTGcHOyO0" />
+
 		<link rel="icon" type="image/x-icon" href="/static/icons/favicon.ico" />
 		<link rel="icon" type="image/png" href="/static/icons/favicon-16x16.png" />
 		<link rel="icon" type="image/png" href="/static/icons/favicon-32x32.png" />

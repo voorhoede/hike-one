@@ -1,12 +1,18 @@
 {
-  "extends": "stylelint-config-standard",
-  "rules": {
+	"extends": "stylelint-config-standard",
+	"customSyntax": "postcss-less",
+	"rules": {
 		"alpha-value-notation": "number",
 		"color-function-notation": null,
 		"declaration-block-no-redundant-longhand-properties": null,
+		"declaration-colon-newline-after": null,
 		"font-family-name-quotes": null,
+		"function-no-unknown": null,
+		"indentation": "tab",
+		"no-descending-specificity": null,
+		"property-no-vendor-prefix": null,
 		"selector-class-pattern": null,
 		"shorthand-property-no-redundant-values": null,
 		"string-quotes": "single"
-  }
+	}
 }

@@ -7,7 +7,7 @@
 		"dev": "next dev",
 		"build": "next build",
 		"lint": "npm run lint:js && npm run lint:css",
-		"lint:css": "stylelint '{components,styles}/**/*.less' --syntax less",
+		"lint:css": "stylelint '{components,styles}/**/*.less' --config .stylelintrc",
 		"lint:js": "npm run prettier -- --check",
 		"format": "npm run prettier -- --write",
 		"prettier": "prettier '{api,components,lib,pages}/**/*.js' 'next.config.js'"
@@ -20,6 +20,7 @@
 		"less-loader": "^10.2.0",
 		"next": "^12.0.7",
 		"next-with-less": "^2.0.4",
+		"postcss-less": "^6.0.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
 		"react-slick": "^0.28.1",
@@ -28,8 +29,8 @@
 	},
 	"devDependencies": {
 		"prettier": "^2.5.1",
-		"stylelint": "^13.13.1",
-		"stylelint-config-standard": "^22.0.0"
+		"stylelint": "^14.9.1",
+		"stylelint-config-standard": "^26.0.0"
 	},
 	"engines": {
 		"node": "14.x"

@@ -3,7 +3,6 @@
   "rules": {
 		"alpha-value-notation": "number",
 		"color-function-notation": null,
-		"custom-property-no-missing-var-function": null,
 		"declaration-block-no-redundant-longhand-properties": null,
 		"font-family-name-quotes": null,
 		"selector-class-pattern": null,

@@ -29,7 +29,7 @@ class Footer extends Component {
 	}
 
 	handleTabKeyDown(e, newTab) {
-		let direction
+		let direction;
 		if (e.which === 40) {
 			direction = 'down';
 		}
@@ -139,17 +139,14 @@ class Footer extends Component {
 								<div className="footer-links-column">
 									<h2 className="footer-link-list-title">Industries</h2>
 									<ul className="footer-link-list">
-										{industriesLinks.map(industriesLink => {
+										{industriesLinks.map((industriesLink) => {
 											return (
-												<li
-													key={industriesLink.page.slug}
-													className="footer-link-list-item"
-												>
+												<li key={industriesLink.page.slug} className="footer-link-list-item">
 													<Link href={`/topic/${industriesLink.page.slug}`}>
 														<a>{industriesLink.title}</a>
 													</Link>
 												</li>
-											)
+											);
 										})}
 									</ul>
 								</div>
@@ -188,10 +185,7 @@ class Footer extends Component {
 								<h2 className="a11y-sr-only">Our offices</h2>
 
 								<div className="footer-address-wrapper">
-									<ul
-										className="footer-address-tabs footer-link-list"
-										role="tablist"
-									>
+									<ul className="footer-address-tabs footer-link-list" role="tablist">
 										<li role="presentation">
 											<a
 												ref={(node) => (this.tab1 = node)}
@@ -290,18 +284,16 @@ class Footer extends Component {
 					</div>
 
 					<p className="footer-copyright">&copy; Hike One {this.currentYear}</p>
-					{copyrightLinks.map(copyrightLink => {
+					{copyrightLinks.map((copyrightLink) => {
 						return (
 							<Link
 								className="footer-copyright"
 								key={copyrightLink.page.slug}
 								href={`/topic/${copyrightLink.page.slug}`}
 							>
-								<a className="footer-copyright">
-									{copyrightLink.title}
-								</a>
+								<a className="footer-copyright">{copyrightLink.title}</a>
 							</Link>
-						)
+						);
 					})}
 				</div>
 			</footer>

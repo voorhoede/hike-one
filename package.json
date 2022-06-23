@@ -28,7 +28,7 @@
 		"resize-observer-polyfill": "^1.5.1"
 	},
 	"devDependencies": {
-		"prettier": "^2.5.1",
+		"prettier": "^2.7.1",
 		"stylelint": "^14.9.1",
 		"stylelint-config-standard": "^26.0.0"
 	},

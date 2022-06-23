@@ -36,8 +36,8 @@ class InlineVideo extends Component {
           &disablekb=${this.binaryBoolean(!controls)}
           &playlist=${providerUid}`;
 
-			default:
-				console.error(`unsupported video provider: ${provider}`); // eslint-disable-line no-console
+			default: // eslint-disable-line no-console
+				console.error(`unsupported video provider: ${provider}`);
 				return '';
 		}
 	}

@@ -28,6 +28,7 @@ const UpdateExtractLarge = ({
 					crop: 'faces',
 					w: 550,
 					h: 200,
+					dpr: 2,
 				})}');
 			}
 			@media (min-width: 768px) {
@@ -37,6 +38,7 @@ const UpdateExtractLarge = ({
 						crop: 'faces',
 						w: 600,
 						h: 500,
+						dpr: 2,
 					})}');
 				}
 			}
@@ -47,6 +49,7 @@ const UpdateExtractLarge = ({
 						crop: 'faces',
 						w: 700,
 						h: 500,
+						dpr: 2,
 					})}');
 				}
 			}

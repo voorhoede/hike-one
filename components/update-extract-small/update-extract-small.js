@@ -28,6 +28,7 @@ const UpdateExtractSmall = ({
 					crop: 'faces',
 					w: 550,
 					h: 200,
+					dpr: 2,
 				})}');
 			}
 			@media (min-width: 768px) {
@@ -37,6 +38,7 @@ const UpdateExtractSmall = ({
 						crop: 'faces',
 						w: 470,
 						h: 332,
+						dpr: 2,
 					})}');
 				}
 			}
@@ -47,6 +49,7 @@ const UpdateExtractSmall = ({
 						crop: 'faces',
 						w: 337,
 						h: 366,
+						dpr: 2,
 					})}');
 				}
 			}

@@ -41,7 +41,9 @@ const Page = ({ team, footer, vacancyOverview, vacancies, preview }) => (
 
 				<TeamOverview data={team} />
 
-				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				{vacancies.length > 0 && (
+					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				)}
 			</main>
 		</div>
 
@@ -372,9 +374,10 @@ export const getStaticProps = async ({ preview }) => {
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, preview }),
-		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+		fetch(`https://embed.homerun.co/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then((response) => response.text())
-			.then(scrapeJobs),
+			.then(scrapeJobs)
+			.catch(() => []),
 	]).then(([content, vacancies]) => ({
 		props: { ...content, vacancies },
 		revalidate: 60 * 60 * 8,

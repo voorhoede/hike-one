@@ -99,7 +99,9 @@ const Page = ({ home, footer, preview, vacancyOverview, vacancies }) => {
 						))}
 					</UpdateOverviewSmall>
 
-					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+					{vacancies.length > 0 && (
+						<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+					)}
 				</main>
 
 				<Contact
@@ -247,9 +249,10 @@ Page.getInitialProps = withCacheControl(({ preview }) => {
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, preview }),
-		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+		fetch(`https://embed.homerun.co/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then((response) => response.text())
-			.then(scrapeJobs),
+			.then(scrapeJobs)
+			.catch(() => []),
 	]).then(([content, vacancies]) => ({
 		...content,
 		vacancies,

@@ -45,7 +45,9 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 					queryParam={query.filter}
 				/>
 
-				<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				{vacancies.length > 0 && (
+					<VacancyOverview overview={vacancyOverview} vacancies={vacancies} />
+				)}
 			</main>
 		</div>
 
@@ -145,9 +147,10 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 
 	return Promise.all([
 		fetchContent({ graphqlQuery, req }),
-		fetch(`https://homerun.co/embed/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
+		fetch(`https://embed.homerun.co/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then((response) => response.text())
-			.then(scrapeJobs),
+			.then(scrapeJobs)
+			.catch(() => []),
 	]).then(([content, vacancies]) => ({
 		...content,
 		vacancies,

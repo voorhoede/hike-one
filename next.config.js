@@ -67,6 +67,11 @@ module.exports = withLess({
 				permanent: true,
 			},
 			{
+				source: '/careers',
+				destination: '/team/careers',
+				permanent: true,
+			},
+			{
 				source: '/:path*',
 				has: [
 					{

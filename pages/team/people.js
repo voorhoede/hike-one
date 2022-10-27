@@ -61,12 +61,34 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 	</>
 );
 
-Page.getInitialProps = withCacheControl(({ query, req }) => {
-	const graphqlQuery = /* GraphQL */ `
+Page.getInitialProps = withCacheControl(async ({ query, req }) => {
+	const countQuery = /* GraphQL */ `
+		{
+			_allPeopleMeta {
+				count
+			}
+		}
+	`;
+
+	const peopleQuery = (first, skip) => {
+		return `
+			{
+				allPeople(first: ${first}, skip: ${skip}, orderBy: name_ASC) {
+					id
+					name
+					hide
+					photo { url }
+					roles { title }
+					departments { title }
+				}
+			}
+		`;
+	};
+
+	const contentQuery = /* GraphQL */ `
 		{
 			team {
 				peopleTabIntro
-
 				header {
 					animation
 					animationBackgroundColor {
@@ -81,7 +103,6 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 					subtitle
 					title
 				}
-
 				seo {
 					title
 					description
@@ -93,27 +114,10 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 					}
 				}
 			}
-
-			allPeople(first: 99, orderBy: name_ASC) {
-				id
-				name
-				hide
-				photo {
-					url
-				}
-				roles {
-					title
-				}
-				departments {
-					title
-				}
-			}
-
 			vacancyOverview {
 				title
 				tagline
 			}
-
 			footer {
 				careersText
 				showForm
@@ -145,8 +149,24 @@ Page.getInitialProps = withCacheControl(({ query, req }) => {
 		}
 	`;
 
+	const countResponse = await fetchContent({ graphqlQuery: countQuery, req });
+	const contentResponse = await fetchContent({ graphqlQuery: contentQuery, req });
+	const peopleCount = countResponse._allPeopleMeta.count;
+	const allPeople = [];
+
+	for (let i = 0; i < peopleCount / 100; i++) {
+		const query = peopleQuery(100, i * 100);
+		const response = await fetchContent({ graphqlQuery: query, req });
+		allPeople.push(...response.allPeople);
+	}
+
+	const content = {
+		...contentResponse,
+		allPeople,
+	};
+
 	return Promise.all([
-		fetchContent({ graphqlQuery, req }),
+		content,
 		fetch(`https://embed.homerun.co/ahz3le8c0dl4ivfruo0n/widget.html?t=${Date.now()}`)
 			.then((response) => response.text())
 			.then(scrapeJobs)

@@ -64,7 +64,9 @@ const Page = ({ team, footer, vacancyOverview, vacancies, query, allPeople }) =>
 Page.getInitialProps = withCacheControl(async ({ query, req }) => {
 	const countQuery = /* GraphQL */ `
 		{
-			_allPeopleMeta { count }
+			_allPeopleMeta {
+				count
+			}
 		}
 	`;
 
@@ -81,7 +83,7 @@ Page.getInitialProps = withCacheControl(async ({ query, req }) => {
 				}
 			}
 		`;
-	}
+	};
 
 	const contentQuery = /* GraphQL */ `
 		{
@@ -161,7 +163,7 @@ Page.getInitialProps = withCacheControl(async ({ query, req }) => {
 	const content = {
 		...contentResponse,
 		allPeople,
-	}
+	};
 
 	return Promise.all([
 		content,
